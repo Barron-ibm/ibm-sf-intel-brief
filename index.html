@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE Horizon — IBM South Florida</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    background: #161616;
+    color: #f4f4f4;
+    min-height: 100vh;
+  }
+
+  /* Top bar */
+  .topbar {
+    background: #000;
+    border-bottom: 3px solid #0f62fe;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+  }
+  .topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .topbar-ibm {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    color: #fff;
+  }
+  .topbar-divider { width: 1px; height: 20px; background: #393939; }
+  .topbar-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #a8c8ff;
+    letter-spacing: 0.03em;
+  }
+  .topbar-team {
+    font-size: 11px;
+    color: #6f6f6f;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #0f1a2e 0%, #161616 60%);
+    border-bottom: 1px solid #262626;
+    padding: 52px 32px 40px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0f62fe;
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-size: 36px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .hero h1 span { color: #a8c8ff; }
+  .hero-sub {
+    font-size: 15px;
+    color: #8d8d8d;
+    line-height: 1.6;
+    max-width: 560px;
+  }
+
+  /* Main content */
+  .main { max-width: 860px; margin: 0 auto; padding: 40px 32px 80px; }
+
+  /* Section label */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6f6f6f;
+    border-bottom: 1px solid #262626;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+  }
+
+  /* Issue cards */
+  .issue-list { display: flex; flex-direction: column; gap: 12px; }
+
+  .issue-card {
+    background: #1c1c1c;
+    border: 1px solid #262626;
+    border-left: 4px solid #0f62fe;
+    border-radius: 4px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transition: border-color 0.15s;
+  }
+  .issue-card:hover { border-left-color: #4589ff; }
+  .issue-card.latest { border-left-color: #42be65; }
+  .issue-card.latest:hover { border-left-color: #6ee08a; }
+
+  .issue-meta { flex: 1; }
+  .issue-date {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #6f6f6f;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .issue-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f4f4f4;
+    margin-bottom: 4px;
+  }
+  .issue-desc { font-size: 13px; color: #8d8d8d; }
+
+  .badge-latest {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: #42be65;
+    color: #000;
+    padding: 3px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .issue-links { display: flex; gap: 8px; flex-shrink: 0; }
+  .issue-btn {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 3px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: #0f62fe;
+    color: #fff;
+  }
+  .btn-secondary {
+    background: #262626;
+    color: #c6c6c6;
+    border: 1px solid #393939;
+  }
+  .btn-primary:hover { background: #0050e6; }
+  .btn-secondary:hover { background: #353535; }
+
+  /* Coming soon card */
+  .placeholder-card {
+    background: #1c1c1c;
+    border: 1px dashed #393939;
+    border-radius: 4px;
+    padding: 28px 24px;
+    text-align: center;
+    color: #6f6f6f;
+    font-size: 13px;
+  }
+  .placeholder-card strong { display: block; color: #8d8d8d; margin-bottom: 4px; font-size: 14px; }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid #262626;
+    padding: 20px 32px;
+    text-align: center;
+    font-size: 11px;
+    color: #525252;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-brand">
+    <span class="topbar-ibm">IBM</span>
+    <div class="topbar-divider"></div>
+    <span class="topbar-title">SE Horizon</span>
+  </div>
+  <span class="topbar-team">South Florida SE Team · Internal</span>
+</div>
+
+<div class="hero">
+  <div class="hero-eyebrow">Biweekly Intelligence Brief</div>
+  <h1>SE Horizon<br><span>South Florida</span></h1>
+  <p class="hero-sub">Account intelligence, market signals, IBM sales plays, and seller moves — updated every two weeks for the IBM South Florida SE team.</p>
+</div>
+
+<div class="main">
+
+  <div class="section-label">All Issues</div>
+
+  <div class="issue-list">
+
+    <!-- ── LATEST ISSUE ── drop PHASE1/PHASE2 into newsletters/2026-07-19/ to activate these links -->
+    <div class="issue-card latest">
+      <div class="issue-meta">
+        <div class="issue-date">July 19, 2026 &nbsp;·&nbsp; Issue #1</div>
+        <div class="issue-title">26 Accounts · Inaugural Edition <span class="badge-latest">Latest</span></div>
+        <div class="issue-desc">10 existing accounts (last 14 days) + 16 new account annual deep-dives. Full IBM sales play mapping across the South Florida portfolio.</div>
+      </div>
+      <div class="issue-links">
+        <a class="issue-btn btn-secondary" href="newsletters/2026-07-19/PHASE1.html">Weekly Pulse</a>
+        <a class="issue-btn btn-primary"   href="newsletters/2026-07-19/PHASE2.html">Intel Brief</a>
+      </div>
+    </div>
+
+    <!-- ── PLACEHOLDER — future issues appear here automatically ── -->
+    <div class="placeholder-card">
+      <strong>Next Issue — August 2, 2026</strong>
+      Generated by IBM Bob · Drop PHASE1.html + PHASE2.html into <code>newsletters/2026-08-02/</code> to publish.
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  SE Horizon · IBM South Florida SE Team · Internal Use Only · Generated with IBM Bob
+</footer>
+
+</body>
+</html>
