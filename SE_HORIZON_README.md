@@ -49,7 +49,7 @@ For each: company overview, financials, key 2026 signals, hiring trends, IBM ang
 2. H.I.G. Capital Inc. — Miami FL — Private Equity (~$74B AUM)
 3. Kforce Inc. (NASDAQ: KFRC) — Tampa FL — Technology & Finance Staffing
 4. Burger King / Restaurant Brands International (NYSE: QSR) — Miami FL — QSR
-5. Ruth's Chris Steak House (owned by Darden Restaurants, NYSE: DRI) — Winter Park FL
+5. SeaWorld Entertainment / United Parks & Resorts (NYSE: PRKS) — Orlando FL
 6. Icahn Enterprises LP (NYSE: IEP) — Sunny Isles Beach FL — Diversified Holding
 7. ANSCO & Associates Inc. — Palm Harbor FL — Telecom Engineering (Dycom subsidiary)
 8. Dycom Industries Inc. (NYSE: DY) — Palm Beach Gardens FL — Telecom Infrastructure
@@ -137,7 +137,7 @@ document.getElementById('personasList').innerHTML = a.personas.map(function(p) {
 <div class="nav-item is-new" data-account="hig">● H.I.G. Capital</div>
 <div class="nav-item is-new" data-account="kforce">● Kforce</div>
 <div class="nav-item is-new" data-account="bk">● Burger King</div>
-<div class="nav-item is-new" data-account="ruths">● Ruth's Chris</div>
+<div class="nav-item is-new" data-account="seaworld">● SeaWorld</div>
 <div class="nav-item is-new" data-account="icahn">● Icahn Enterprises</div>
 <div class="nav-item is-new" data-account="ansco">● ANSCO</div>
 <div class="nav-item is-new" data-account="dycom">● Dycom</div>
@@ -201,7 +201,7 @@ You need to:
   <a href="#hig" style="color:#6ee08a;...">● H.I.G. Capital</a>
   <a href="#kforce" style="color:#6ee08a;...">● Kforce</a>
   <a href="#bk" style="color:#6ee08a;...">● Burger King</a>
-  <a href="#ruths" style="color:#6ee08a;...">● Ruth's Chris</a>
+  <a href="#seaworld" style="color:#6ee08a;...">● SeaWorld</a>
   <a href="#icahn" style="color:#6ee08a;...">● Icahn Enterprises</a>
   <a href="#ansco" style="color:#6ee08a;...">● ANSCO</a>
   <a href="#dycom" style="color:#6ee08a;...">● Dycom</a>
@@ -292,7 +292,7 @@ The currently active account's link gets `background:#0f62fe; color:#fff;`
 | H.I.G. Capital | 28523 |
 | Herc Rentals | 2848055 |
 | Burger King / RBI | 166764 |
-| Ruth's Chris / Darden | 3472 |
+| SeaWorld / United Parks | 2812068 |
 | Icahn Enterprises | 12432 |
 | Frontline Insurance | 2523441 |
 | ANSCO | 880528 |
@@ -313,7 +313,7 @@ https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRE
 | H.I.G. Capital | IBM Planning Analytics + AI Governance + watsonx | Data Fabric |
 | Kforce | IBM Planning Analytics + watsonx | Automation |
 | Burger King / RBI | AI Governance + watsonx + Automation | Data Fabric |
-| Ruth's Chris / Darden | IBM Planning Analytics + watsonx.data | Automation |
+| SeaWorld / United Parks | IBM watsonx + Planning Analytics + Security | Automation |
 | Icahn Enterprises | IBM Planning Analytics + Data Fabric | Power Systems |
 | ANSCO | Red Hat OpenShift + Automation | Security |
 | Dycom | Storage + Data Fabric + watsonx | Automation |
@@ -346,7 +346,7 @@ https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRE
 | H.I.G. Capital | `LOGOS/HIG_Capital_Logo.jpeg` |
 | Kforce | `LOGOS/kforce_trademark_fullcolor_500.png` |
 | Burger King | `LOGOS/images.png` |
-| Ruth's Chris | `LOGOS/ruths-chris-steak-house-logo-png-transparent.png` |
+| SeaWorld | `LOGOS/Seaworld_logo.svg` |
 | Icahn Enterprises | `LOGOS/icahn-enterprises-l-p.jpeg` |
 | ANSCO | `LOGOS/ansco-and-associates-squarelogo-1555338841264.webp` |
 | Dycom | `LOGOS/DYCOM-Logo-Color-1-1024x168.png` |
@@ -390,7 +390,8 @@ CFO, CIO, COO, VP Finance, FP&A Director / VP
 | Aerospace & Defense (HEICO) | M&A Integration Lead, Supply Chain Planner, Controller, IT Systems Admin, Compliance Lead |
 | Private Equity (H.I.G.) | Portfolio Analytics Lead, FP&A Manager, Investment Ops Manager, LP Relations Lead |
 | Staffing (Kforce) | Workforce Planning Manager, FP&A Analyst, Sales Ops Lead, HR Analytics Manager |
-| QSR / Restaurant (Burger King, Ruth's Chris) | Restaurant Technology Lead, Franchise Analytics Manager, Digital Ordering Lead, Labor Planning Manager |
+| QSR / Restaurant (Burger King) | Restaurant Technology Lead, Franchise Analytics Manager, Digital Ordering Lead, Labor Planning Manager |
+| Theme Parks / Entertainment (SeaWorld / United Parks) | Guest Experience Tech Lead, Ride Systems Manager, Revenue Management Analyst, Cybersecurity Analyst |
 | Diversified Holding (Icahn) | Segment Finance Lead, Enterprise Data Lead, Portfolio Operations Manager |
 | Telecom Engineering (ANSCO, Dycom) | Field Operations Manager, Workforce Scheduling Lead, Project Manager, IT Systems Admin |
 | Equipment Rental (Herc) | Fleet Planning Manager, Utilization Analyst, Rental Operations Lead, Financial Modeler |
