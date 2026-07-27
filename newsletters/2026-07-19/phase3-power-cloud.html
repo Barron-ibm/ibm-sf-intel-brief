@@ -1,393 +1,563 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SE Horizon | Phase 3 — Power &amp; Hybrid Cloud | July 19, 2026</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SE Horizon — Power &amp; Hybrid Cloud Brand View · Rick &amp; Kevin</title>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;background:#0f1c3a;color:#1f2328;}
-a{text-decoration:none;}
-.sticky-top{position:sticky;top:0;z-index:100;}
-.top-nav{background:#161616;border-bottom:2px solid #f59e0b;display:flex;align-items:center;overflow-x:auto;white-space:nowrap;scrollbar-width:thin;scrollbar-color:#f59e0b #161616;}
-.top-nav::-webkit-scrollbar{height:3px;}
-.top-nav::-webkit-scrollbar-thumb{background:#f59e0b;}
-.top-nav a{display:inline-block;font-size:10px;font-weight:700;color:rgba(255,255,255,0.65);padding:10px 13px;border-bottom:3px solid transparent;margin-bottom:-2px;letter-spacing:0.3px;white-space:nowrap;}
-.top-nav a:hover{color:#fff;}
-.top-nav a.active{color:#fcd34d;border-bottom-color:#f59e0b;}
-.brand-tab-bar{background:#1a1a2e;border-bottom:2px solid #0a0a18;display:flex;overflow-x:auto;white-space:nowrap;scrollbar-width:none;}
-.brand-tab-bar::-webkit-scrollbar{display:none;}
-.brand-tab-bar a{display:inline-block;font-size:10px;font-weight:700;color:rgba(255,255,255,0.5);padding:8px 16px;border-bottom:3px solid transparent;margin-bottom:-2px;letter-spacing:0.5px;white-space:nowrap;}
-.brand-tab-bar a.tab-pwr{color:#fcd34d;border-bottom-color:#f59e0b;background:rgba(245,158,11,0.12);}
-.brand-tab-bar a:hover{color:#fff;}
-.acct-nav{background:#161616;border-bottom:2px solid #222;display:flex;overflow-x:auto;white-space:nowrap;scrollbar-width:thin;scrollbar-color:#333 #161616;padding:0 8px;}
-.acct-nav::-webkit-scrollbar{height:3px;}
-.acct-nav::-webkit-scrollbar-thumb{background:#444;}
-.acct-nav a{display:inline-block;font-size:9.5px;font-weight:600;color:rgba(255,255,255,0.5);padding:7px 11px;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-2px;}
-.acct-nav a:hover{color:#fff;}
-.acct-nav a.nav-new{color:#fcd34d;}
-.acct-nav a.nav-support{color:rgba(255,255,255,0.35);font-style:italic;}
-.page-wrap{max-width:900px;margin:0 auto 40px;}
-.brand-hero{background:#0f1c3a;padding:20px 28px 16px;border-bottom:3px solid #f59e0b;}
-.brand-hero-inner{display:flex;align-items:center;gap:16px;}
-.brand-color-dot{width:18px;height:18px;border-radius:50%;background:#f59e0b;flex-shrink:0;}
-.brand-hero h1{font-size:20px;font-weight:900;color:#fff;letter-spacing:-0.3px;}
-.brand-hero p{font-size:11.5px;color:rgba(255,255,255,0.65);margin-top:3px;}
-.brand-bottom-strip{background:#0a1628;border-top:2px solid #f59e0b;padding:14px 28px;display:flex;gap:24px;flex-wrap:wrap;}
-.strip-item label{font-size:8.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#fcd34d;display:block;margin-bottom:3px;}
-.strip-item span{font-size:11.5px;color:rgba(255,255,255,0.8);font-style:italic;}
-.section-label{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#1f2328;background:#f59e0b;padding:4px 10px;border-radius:3px;display:inline-block;margin:16px 0 8px;}
-.section-label.supporting{background:#444;color:#fff;}
-.cards-section{padding:0 16px 16px;}
-.acct-card{background:#fff;border-radius:5px;margin-bottom:14px;box-shadow:0 2px 14px rgba(0,0,0,0.22);overflow:hidden;scroll-margin-top:152px;}
-.acct-card.supporting-card{opacity:0.8;border:2px dashed #c0c6d4;}
-.card-header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px 10px;border-bottom:1px solid #f0f2f5;gap:12px;}
-.card-name{font-size:15px;font-weight:900;color:#b45309;flex:1;}
-.card-name.new{color:#92400e;}
-.card-badges{display:flex;align-items:center;gap:6px;flex-shrink:0;}
-.badge-new{font-size:8px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;background:#fef3c7;border:1px solid #fcd34d;color:#92400e;padding:2px 6px;border-radius:2px;}
-.badge-existing{font-size:8px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;background:#fef3c7;border:1px solid #fcd34d;color:#b45309;padding:2px 6px;border-radius:2px;}
-.badge-support{font-size:8px;font-weight:800;letter-spacing:0.5px;background:#f7f8fa;border:1px solid #d0d7de;color:#57606a;padding:2px 6px;border-radius:2px;}
-.signal-dots{display:flex;gap:2px;align-items:center;}
-.dot{width:9px;height:9px;border-radius:50%;}
-.dot.on-pwr{background:#f59e0b;}
-.dot.off{background:#e5e7eb;}
-.cadence-tag{font-size:8px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;background:#2a1a00;color:#fcd34d;padding:2px 7px;border-radius:2px;}
-.card-trigger{padding:8px 18px;background:#fffbeb;border-bottom:1px solid #fde68a;display:flex;gap:8px;align-items:flex-start;}
-.trigger-label{font-size:8.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#b45309;background:#fde68a;padding:3px 8px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:1px;}
-.trigger-text{font-size:11.5px;color:#1f2328;line-height:1.5;}
-.card-talk{padding:10px 18px;border-bottom:1px solid #f0f2f5;}
-.talk-quote{font-size:11.5px;color:#1f2328;font-style:italic;line-height:1.7;border-left:3px solid #f59e0b;padding-left:10px;}
-.card-meta{padding:8px 18px 10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-bottom:1px solid #f0f2f5;}
-.product-tag{font-size:9px;font-weight:700;letter-spacing:0.3px;background:#f59e0b;color:#fff;padding:3px 8px;border-radius:2px;}
-.product-tag.secondary{background:#3d2200;}
-.who-label{font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#57606a;margin-right:2px;}
-.persona-pill{font-size:9.5px;font-weight:600;color:#b45309;border:1px solid rgba(245,158,11,0.4);padding:2px 8px;border-radius:99px;background:#fef3c7;}
-.card-actions{padding:9px 18px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.btn-intel{display:inline-flex;align-items:center;gap:4px;background:#fef3c7;color:#b45309;font-size:9px;font-weight:800;letter-spacing:0.8px;text-transform:uppercase;padding:6px 12px;border-radius:3px;border:1px solid #fcd34d;}
-.btn-snav{display:inline-flex;align-items:center;gap:4px;background:#f59e0b;color:#fff;font-size:9px;font-weight:800;letter-spacing:0.8px;text-transform:uppercase;padding:6px 12px;border-radius:3px;}
-.page-footer{background:#f7f8fa;border-top:1px solid #e5e7eb;padding:10px 28px;display:flex;justify-content:space-between;align-items:center;max-width:900px;margin:0 auto;}
-.footer-brand{font-size:11px;font-weight:700;color:#1f2328;}
-.footer-brand span{color:#f59e0b;}
-.footer-made{font-size:10px;color:#aab0b8;}
-@media(max-width:680px){.brand-hero-inner{flex-direction:column;align-items:flex-start;}.card-header{flex-direction:column;align-items:flex-start;}}
-@media print{
-  .sticky-top{position:static;}
-  .btn-snav,.btn-intel{display:none;}
-  body{background:#fff;}
-  .acct-card{box-shadow:none;border:1px solid #ddd;page-break-inside:avoid;}
-}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    background: #f4f4f4;
+    color: #1f2328;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* ── TOP BAR ── */
+  .se-topbar {
+    background: #161616;
+    border-bottom: 3px solid #0f62fe;
+    padding: 0 20px;
+    height: 46px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 200;
+  }
+  .se-topbar-left { display: flex; align-items: center; gap: 10px; }
+  .se-topbar-ibm { font-size: 18px; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
+  .se-topbar-div { width: 1px; height: 16px; background: #393939; }
+  .se-topbar-title { font-size: 12px; font-weight: 600; color: #a8c8ff; }
+  .se-topbar-links { display: flex; align-items: center; gap: 0; flex-wrap: nowrap; }
+  .se-topbar-links a {
+    font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.6);
+    padding: 0 12px; height: 46px; display: flex; align-items: center;
+    text-decoration: none; border-bottom: 3px solid transparent; margin-bottom: -3px;
+    white-space: nowrap;
+  }
+  .se-topbar-links a:hover { color: #fff; }
+  .se-topbar-links a.active { color: #fff; border-bottom-color: #0f62fe; }
+  .se-topbar-links a.sub-link { font-size: 10.5px; color: rgba(255,255,255,0.45); }
+  .se-topbar-links a.sub-link:hover { color: rgba(255,255,255,0.8); }
+  .se-topbar-links a.sub-link.active { color: #fcd34d; border-bottom-color: #f59e0b; }
+  .se-topbar-divider { color: #393939; padding: 0 4px; font-size: 13px; line-height: 46px; }
+  .se-topbar-right { font-size: 11px; color: #6f6f6f; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* ── BRAND HERO ── */
+  .brand-hero {
+    background: linear-gradient(135deg, #1a1200 0%, #2a1e00 100%);
+    border-bottom: 1px solid #4a3200;
+    padding: 36px 28px 28px;
+  }
+  .brand-hero-inner { max-width: 920px; margin: 0 auto; }
+  .brand-eyebrow {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: #fcd34d; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .brand-eyebrow a { color: #6f6f6f; text-decoration: none; }
+  .brand-eyebrow a:hover { color: #fcd34d; }
+  .brand-eyebrow .sep { color: #393939; }
+  .brand-hero h1 { font-size: 30px; font-weight: 900; color: #fff; margin-bottom: 8px; }
+  .brand-hero h1 span { color: #fcd34d; }
+  .brand-hero-sub { font-size: 13px; color: #8b7040; max-width: 620px; margin-bottom: 16px; }
+  .brand-products { display: flex; flex-wrap: wrap; gap: 6px; }
+  .prod-tag {
+    font-size: 11px; font-weight: 600;
+    background: rgba(255,255,255,0.08);
+    color: #fcd34d;
+    border: 1px solid rgba(252,211,77,0.2);
+    border-radius: 4px; padding: 3px 10px;
+  }
+  .brand-stats {
+    display: flex; gap: 28px; margin-top: 20px;
+    padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .stat-num { font-size: 22px; font-weight: 900; color: #fff; line-height: 1; }
+  .stat-label { font-size: 11px; color: #8b7040; margin-top: 2px; }
+
+  /* ── SCOPE CALLOUT ── */
+  .scope-callout {
+    max-width: 920px; margin: 20px auto 0; padding: 14px 20px;
+    background: #fff; border: 1px solid #e5e7eb;
+    border-left: 4px solid #f59e0b;
+    border-radius: 6px;
+    font-size: 12px; color: #57606a; line-height: 1.6;
+  }
+  .scope-callout strong { color: #1f2328; font-weight: 700; }
+
+  /* ── PAGE NAV ── */
+  .page-nav { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 0 28px; }
+  .page-nav-inner {
+    max-width: 920px; margin: 0 auto;
+    display: flex; gap: 4px; padding: 10px 0; overflow-x: auto;
+  }
+  .pnav-pill {
+    flex-shrink: 0; font-size: 11px; font-weight: 600;
+    padding: 5px 12px; border-radius: 20px;
+    border: 1px solid #e5e7eb; color: #57606a; background: #f7f8fa;
+    text-decoration: none;
+  }
+  .pnav-pill.active { background: #f59e0b; color: #fff; border-color: #f59e0b; }
+  .pnav-pill:hover:not(.active) { background: #fffbeb; color: #92400e; border-color: #fde68a; }
+
+  /* ── MAIN ── */
+  .main { max-width: 920px; margin: 0 auto; padding: 28px 28px 80px; }
+
+  .section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #57606a;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 8px; margin-bottom: 16px;
+  }
+
+  /* ── ACCOUNT CARD ── */
+  .acct-card-full {
+    background: #fff; border: 1px solid #e5e7eb; border-radius: 8px;
+    border-left: 5px solid #f59e0b; overflow: hidden; margin-bottom: 16px;
+  }
+  .card-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px; border-bottom: 1px solid #f4f4f4; gap: 12px;
+  }
+  .card-header-left { display: flex; align-items: center; gap: 12px; }
+  .card-acct-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #f4f4f4; color: #57606a;
+    font-size: 11px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .card-acct-name { font-size: 16px; font-weight: 800; color: #161616; }
+  .card-acct-sub { font-size: 11px; color: #57606a; margin-top: 1px; }
+  .card-header-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .badge { font-size: 10px; font-weight: 700; letter-spacing: 0.04em; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+  .badge-new { background: #fef3c7; color: #92400e; }
+  .badge-high { background: #fff1f1; color: #c42b1c; }
+  .badge-med { background: #fef3e2; color: #b45309; }
+  .badge-existing { background: #f4f4f4; color: #57606a; }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
+  .card-col { padding: 16px 20px; border-right: 1px solid #f4f4f4; }
+  .card-col:last-child { border-right: none; }
+  .col-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #57606a; margin-bottom: 8px; }
+  .col-trigger { font-size: 13px; color: #1f2328; line-height: 1.5; }
+  .col-trigger strong { color: #161616; font-weight: 700; }
+  .col-ask { font-size: 12px; color: #1f2328; line-height: 1.55; }
+  .col-ask strong { color: #d97706; font-weight: 700; }
+
+  .persona-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+  .persona-chip { font-size: 11px; font-weight: 600; background: #f4f4f4; color: #393939; border: 1px solid #e5e7eb; border-radius: 4px; padding: 3px 9px; }
+  .persona-chip.primary { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+
+  .card-footer {
+    padding: 10px 20px; background: #f7f8fa; border-top: 1px solid #f4f4f4;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .play-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .play-tag { font-size: 10px; font-weight: 700; background: #fef3c7; color: #92400e; border: 1px solid #fde68a; border-radius: 3px; padding: 2px 8px; }
+  .card-link { font-size: 11px; font-weight: 700; color: #d97706; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+  .card-link:hover { text-decoration: underline; }
+
+  /* ── RESOURCE STRIP ── */
+  .resource-strip { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; border-top: 3px solid #f59e0b; padding: 20px 24px; margin-top: 28px; }
+  .resource-strip-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #d97706; margin-bottom: 14px; }
+  .resource-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .resource-item-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #57606a; margin-bottom: 5px; }
+  .resource-item-text { font-size: 12px; color: #1f2328; line-height: 1.55; font-style: italic; }
+  .resource-item-text strong { font-style: normal; font-weight: 700; color: #d97706; }
+
+  footer { border-top: 1px solid #e5e7eb; padding: 16px 28px; text-align: center; font-size: 11px; color: #57606a; }
 </style>
 </head>
 <body>
 
-<div class="sticky-top">
-  <nav class="top-nav">
-    <a href="phase3.html">◂ Phase 3 Home</a>
-    <a href="phase2.html">Phase 2</a>
-    <a href="phase3-data-ai.html">Data &amp; AI</a>
-    <a href="phase3-automation.html">Automation</a>
-    <a href="phase3-storage.html">Storage</a>
-    <a href="phase3-power-cloud.html" class="active">Power &amp; Hybrid Cloud</a>
-  </nav>
-  <div class="brand-tab-bar">
-    <a href="phase3-data-ai.html">🔵 DATA &amp; AI</a>
-    <a href="phase3-automation.html">🟢 AUTOMATION</a>
-    <a href="phase3-storage.html">🟣 STORAGE</a>
-    <a href="phase3-power-cloud.html" class="tab-pwr">🟡 POWER &amp; HYBRID CLOUD</a>
+<!-- ── TOP NAV ── -->
+<div class="se-topbar">
+  <div class="se-topbar-left">
+    <span class="se-topbar-ibm">IBM</span>
+    <div class="se-topbar-div"></div>
+    <span class="se-topbar-title">SE Horizon · Phase 3 · Power &amp; Cloud</span>
   </div>
-  <nav class="acct-nav">
-    <a href="#sgws">SGWS</a>
-    <a href="#jmf">JM Family</a>
-    <a href="#citco">Citco</a>
-    <a href="#lennar">Lennar</a>
-    <a href="#heico" class="nav-new">HEICO ✦</a>
-    <a href="#mastec" class="nav-new">MasTec ✦</a>
-    <a href="#dycom" class="nav-new">Dycom ✦</a>
-    <a href="#herc" class="nav-new">Herc ✦</a>
-    <a href="#bk" class="nav-new">Burger King ✦</a>
-    <a href="#support-pwr" class="nav-support">▾ Supporting</a>
-  </nav>
+  <div class="se-topbar-links">
+    <a href="phase1.html">Phase 1</a>
+    <a href="phase2.html">Phase 2</a>
+    <a href="phase3.html" class="active">Phase 3</a>
+    <span class="se-topbar-divider">|</span>
+    <a href="phase3-data-ai.html" class="sub-link">Data &amp; AI</a>
+    <a href="phase3-automation.html" class="sub-link">Automation</a>
+    <a href="phase3-storage.html" class="sub-link">Storage</a>
+    <a href="phase3-power-cloud.html" class="sub-link active">Power &amp; Cloud</a>
+  </div>
+  <span class="se-topbar-right">South Florida SE · July 19, 2026</span>
 </div>
 
-<div class="page-wrap">
-  <div class="brand-hero">
-    <div class="brand-hero-inner">
-      <div class="brand-color-dot"></div>
+<!-- ── BRAND HERO ── -->
+<div class="brand-hero">
+  <div class="brand-hero-inner">
+    <div class="brand-eyebrow">
+      <a href="phase3.html">Brand View</a>
+      <span class="sep">/</span>
+      Power &amp; Hybrid Cloud — Rick &amp; Kevin
+    </div>
+    <h1>Power &amp; <span>Hybrid Cloud</span></h1>
+    <p class="brand-hero-sub">South Florida's mid-market has limited IBM Power footprint, but 6 accounts have explicit infrastructure signals: Red Hat OpenShift green-field builds, IBM Power Systems co-sell, legacy modernization mandates, or hybrid cloud transitions already in progress.</p>
+    <div class="brand-products">
+      <span class="prod-tag">Red Hat OpenShift</span>
+      <span class="prod-tag">IBM Power Systems</span>
+      <span class="prod-tag">IBM z/OS</span>
+      <span class="prod-tag">Hybrid Cloud</span>
+      <span class="prod-tag">IBM Cloud Pak</span>
+    </div>
+    <div class="brand-stats">
+      <div class="stat">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Accounts with Power / Cloud signal</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Existing accounts</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">New accounts this cycle</div>
+      </div>
+    </div>
+    <div style="margin-top:16px;">
+      <div class="scope-callout" style="margin:0;max-width:100%;">
+        <strong>Why 6, not 26 accounts:</strong> Most South Florida accounts are mid-market or PE-backed firms without the on-premise infrastructure footprint that drives IBM Power or Red Hat OpenShift conversations. The 6 listed have explicit infrastructure signals in Phase 2 data: Octave (OpenShift green-field post-spinoff), JM Family (IBM Power Systems), Citco (hybrid cloud modernization mandate), Lennar (Lead Cloud Engineer hire + hybrid cloud), Pellera (IBM Power co-sell), and South Broward Hospital District (Epic Azure hybrid migration). The remaining 20 accounts are better entered through <strong>Data &amp; AI</strong>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PAGE NAV ── -->
+<div class="page-nav">
+  <div class="page-nav-inner">
+    <a class="pnav-pill" href="phase3-data-ai.html">📊 Data &amp; AI</a>
+    <a class="pnav-pill" href="phase3-automation.html">⚙️ Automation</a>
+    <a class="pnav-pill" href="phase3-storage.html">💾 Storage</a>
+    <span class="pnav-pill active">🖥 Power &amp; Hybrid Cloud</span>
+  </div>
+</div>
+
+<!-- ── MAIN ── -->
+<div class="main">
+
+  <div class="section-label">All Power &amp; Hybrid Cloud Accounts — July 19, 2026</div>
+
+  <!-- 1. OCTAVE -->
+  <div class="acct-card-full">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">1</div>
+        <div>
+          <div class="card-acct-name">Octave (formerly Hexagon ALI)</div>
+          <div class="card-acct-sub">Independent since May 2026 · Industrial Software &amp; SaaS · Huntsville, AL</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <span class="badge badge-existing">Existing</span>
+        <span class="badge badge-high">● High Signal</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">What's Happening</div>
+        <div class="col-trigger">
+          <strong>Spinoff from Hexagon AB completed May 2026</strong> — Octave is now an independent company building its enterprise IT stack from scratch. No legacy IBM relationship to navigate. Clean slate for IBM. Partner ecosystem rebuilding. Must establish independent infrastructure immediately post-separation.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Your Power &amp; Cloud Angle</div>
+        <div class="col-ask">
+          Post-spinoff IT independence = once-in-a-decade procurement window. <strong>Red Hat OpenShift</strong> is the proven SaaS platform foundation for industrial software companies making this transition — position it as the cloud-native infrastructure layer for the Attune EAM platform. <strong>IBM AI Governance</strong> ensures Octave's industrial AI products meet enterprise compliance requirements at their clients. Engage the CIO before the vendor selection is made.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Who to Contact</div>
+        <div class="persona-chips">
+          <span class="persona-chip primary">CIO / Platform Engineering Lead</span>
+          <span class="persona-chip primary">Cloud Architect</span>
+          <span class="persona-chip">Capture Manager</span>
+          <span class="persona-chip">Federal Sales Lead</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags">
+        <span class="play-tag">Red Hat OpenShift</span>
+        <span class="play-tag">IBM Cloud Pak</span>
+        <span class="play-tag">AI Governance</span>
+        <span class="play-tag">Post-Spinoff IT Build</span>
+      </div>
+      <a class="card-link" href="phase2.html#octave">Full Intel Brief →</a>
+    </div>
+  </div>
+
+  <!-- 2. JM FAMILY -->
+  <div class="acct-card-full">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">2</div>
+        <div>
+          <div class="card-acct-name">JM Family Enterprises</div>
+          <div class="card-acct-sub">Private · Automotive Distribution &amp; F&amp;I · Deerfield Beach, FL · ~$21B Revenue</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <span class="badge badge-existing">Existing</span>
+        <span class="badge badge-med">● Med Signal</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">What's Happening</div>
+        <div class="col-trigger">
+          <strong>CFO transition underway</strong> — new finance leadership re-evaluates all vendor relationships and tools. Internal <strong>GenAI pilot confirmed</strong> — AI readiness established. Multi-division structure (Toyota distribution, F&amp;I, financial services). ~$21B private company with tight leadership access but IBM co-sell history via Pellera.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Your Power &amp; Cloud Angle</div>
+        <div class="col-ask">
+          IBM Power Systems co-sell: JM Family's Toyota distribution and F&amp;I operations run on high-availability transaction systems. <strong>IBM Power</strong> is the proven platform for automotive F&amp;I transaction workloads. CFO transition = vendor re-evaluation window. Lead with <strong>IBM Cloud Pak for Data</strong> as the hybrid cloud foundation that connects Power-hosted data to the GenAI pilot the team is already running.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Who to Contact</div>
+        <div class="persona-chips">
+          <span class="persona-chip primary">Incoming CFO</span>
+          <span class="persona-chip primary">CIO / GenAI Pilot Sponsor</span>
+          <span class="persona-chip">Supply Chain Planner</span>
+          <span class="persona-chip">IT Systems Admin</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags">
+        <span class="play-tag">IBM Power Systems</span>
+        <span class="play-tag">IBM Cloud Pak</span>
+        <span class="play-tag">CFO Transition Window</span>
+      </div>
+      <a class="card-link" href="phase2.html#jmf">Full Intel Brief →</a>
+    </div>
+  </div>
+
+  <!-- 3. CITCO -->
+  <div class="acct-card-full">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">3</div>
+        <div>
+          <div class="card-acct-name">Citco Group</div>
+          <div class="card-acct-sub">Private · Fund Administration · $1.8T AUM · Global · Miami, FL</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <span class="badge badge-existing">Existing</span>
+        <span class="badge badge-high">● High Signal</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">What's Happening</div>
+        <div class="col-trigger">
+          Citco executive <strong>publicly confirmed legacy modernization mandate</strong> in July 2026. Fund Admin Report 2026 benchmarks Citco against SS&amp;C and SEI — competitive AI pressure confirmed. <strong>SVP Sales hire</strong> signals market expansion. $70.4B H1 2026 fund inflows creates scale pressure on existing systems.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Your Power &amp; Cloud Angle</div>
+        <div class="col-ask">
+          Legacy modernization mandate = <strong>hybrid cloud path</strong>. Fund administrators of Citco's scale ($1.8T AUM) cannot do a rip-and-replace — they need a hybrid bridge. <strong>IBM Hybrid Cloud + Red Hat OpenShift</strong> is the path from legacy fund admin systems to a governed, cloud-native architecture. IBM is uniquely positioned to bridge the legacy-to-cloud migration without disrupting LP reporting or fund operations.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Who to Contact</div>
+        <div class="persona-chips">
+          <span class="persona-chip primary">CIO / Data Governance Lead</span>
+          <span class="persona-chip primary">Compliance Tech Lead</span>
+          <span class="persona-chip">Investor Reporting Lead</span>
+          <span class="persona-chip">Fund Operations Manager</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags">
+        <span class="play-tag">IBM Hybrid Cloud</span>
+        <span class="play-tag">Red Hat OpenShift</span>
+        <span class="play-tag">Legacy Modernization</span>
+        <span class="play-tag">Fund Admin Scale</span>
+      </div>
+      <a class="card-link" href="phase2.html#citco">Full Intel Brief →</a>
+    </div>
+  </div>
+
+  <!-- 4. LENNAR -->
+  <div class="acct-card-full">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">4</div>
+        <div>
+          <div class="card-acct-name">Lennar Corporation</div>
+          <div class="card-acct-sub">NYSE: LEN · Homebuilding &amp; Real Estate · Miami, FL · Q2 Rev $7.9B</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <span class="badge badge-existing">Existing</span>
+        <span class="badge badge-high">● High Signal</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">What's Happening</div>
+        <div class="col-trigger">
+          Q2 revenue <strong>$7.9B missed consensus by $200M</strong>. ASP down ~5% on buyer incentives. <strong>Lead Cloud Engineer posted July 17</strong> in Miami — cloud modernization budget is live. 512 open roles. Multi-division structure (homebuilding, financial services, multifamily) with complex cross-division data and IT infrastructure.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Your Power &amp; Cloud Angle</div>
+        <div class="col-ask">
+          The Lead Cloud Engineer hire is the signal: Lennar has active hybrid cloud budget. <strong>IBM Hybrid Cloud + Red Hat OpenShift</strong> as the modernization layer for a three-division company managing homebuilding, mortgage, and multifamily workloads on heterogeneous infrastructure. <strong>IBM Power Systems</strong> for the transaction-heavy F&amp;I (financial services division) workloads. Position hybrid cloud as the bridge that connects 512 open role onboarding to a governed IT platform.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Who to Contact</div>
+        <div class="persona-chips">
+          <span class="persona-chip primary">Lead Cloud Engineer</span>
+          <span class="persona-chip primary">CIO</span>
+          <span class="persona-chip">CFO / FP&amp;A Director</span>
+          <span class="persona-chip">Data Science Lead</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags">
+        <span class="play-tag">IBM Hybrid Cloud</span>
+        <span class="play-tag">Red Hat OpenShift</span>
+        <span class="play-tag">IBM Power Systems</span>
+        <span class="play-tag">Cloud Modernization</span>
+      </div>
+      <a class="card-link" href="phase2.html#lennar">Full Intel Brief →</a>
+    </div>
+  </div>
+
+  <!-- 5. PELLERA -->
+  <div class="acct-card-full">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">5</div>
+        <div>
+          <div class="card-acct-name">Pellera Technologies</div>
+          <div class="card-acct-sub">IBM Business Partner &amp; MSP · Managed Services &amp; Defense IT · Florida · CRN #34</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <span class="badge badge-existing">Existing</span>
+        <span class="badge badge-high">● High Signal</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">What's Happening</div>
+        <div class="col-trigger">
+          IBM Edge of IT podcast feature <strong>July 2026</strong>. <strong>CRN #34 Solution Provider 500</strong>. Co-hosted IBM hackathons. CMMC RPO status. VP Alliances hire confirmed — ecosystem expansion at peak. IBM is the anchor partner and active co-sell relationship.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Your Power &amp; Cloud Angle</div>
+        <div class="col-ask">
+          Co-sell frame: <strong>IBM Power Systems</strong> as a joint delivery offering — Pellera manages the Power environment for their defense and federal clients, IBM supports the co-sell. <strong>Red Hat OpenShift</strong> for defense clients needing CMMC-compliant container infrastructure. The VP Alliances hire signals Pellera is building a Power practice — IBM should be in that joint planning conversation now.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Who to Contact</div>
+        <div class="persona-chips">
+          <span class="persona-chip primary">IBM Practice Lead / CEO</span>
+          <span class="persona-chip primary">VP Alliances</span>
+          <span class="persona-chip">Defense Practice Lead</span>
+          <span class="persona-chip">Hybrid Cloud Architect</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags">
+        <span class="play-tag">IBM Power Systems</span>
+        <span class="play-tag">Red Hat OpenShift</span>
+        <span class="play-tag">CMMC Co-Sell</span>
+        <span class="play-tag">Defense IT</span>
+      </div>
+      <a class="card-link" href="phase2.html#pellera">Full Intel Brief →</a>
+    </div>
+  </div>
+
+  <!-- 6. SOUTH BROWARD HOSPITAL DISTRICT -->
+  <div class="acct-card-full">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">6</div>
+        <div>
+          <div class="card-acct-name">South Broward Hospital District</div>
+          <div class="card-acct-sub">Public Health District · Hollywood, FL · ~17,500 Employees · 6 Hospitals · AA S&amp;P · FY2025 Revenue $3.22B</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <span class="badge badge-new">✦ New Account</span>
+        <span class="badge badge-high">● High Signal</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">What's Happening</div>
+        <div class="col-trigger">
+          <strong>Epic on-premises to Azure migration RFP awarded</strong> — cloud migration is live right now. IT Security Audit active (ransomware, IAM, ePHI). New <strong>Security Operations Center in planning</strong>. Prior HHS OCR HIPAA settlement = board-level security mandate. FY2025 revenue $3.22B (+7.1% YoY) with AA S&amp;P rating — capital is available.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Your Power &amp; Cloud Angle</div>
+        <div class="col-ask">
+          Epic-to-Azure migration = <strong>IBM Hybrid Cloud integration opportunity</strong>. The migration doesn't eliminate on-prem — it creates a hybrid state across 6 hospitals, primary care, and affiliated providers that need a unified integration fabric. <strong>Red Hat OpenShift</strong> is the integration layer between on-prem Epic and Azure workloads. IBM's HIPAA-proven hybrid cloud architecture is credible with a system that has a prior OCR settlement.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Who to Contact</div>
+        <div class="persona-chips">
+          <span class="persona-chip primary">CIO / VP Information Technology</span>
+          <span class="persona-chip primary">CISO / IT Security Director</span>
+          <span class="persona-chip">CFO / VP Finance</span>
+          <span class="persona-chip">Epic Implementation Lead</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags">
+        <span class="play-tag">IBM Hybrid Cloud</span>
+        <span class="play-tag">Red Hat OpenShift</span>
+        <span class="play-tag">Epic Azure Migration</span>
+        <span class="play-tag">HIPAA Compliance</span>
+      </div>
+      <a class="card-link" href="phase2.html#page-sbhd">Full Intel Brief →</a>
+    </div>
+  </div>
+
+  <!-- RESOURCE STRIP -->
+  <div class="resource-strip">
+    <div class="resource-strip-title">Power &amp; Hybrid Cloud — Seller Resources (Rick &amp; Kevin)</div>
+    <div class="resource-grid">
       <div>
-        <h1>Power &amp; Hybrid Cloud</h1>
-        <p>9 primary accounts · IBM Power10, IBM z/OS, IBM Cloud Pak, Red Hat OpenShift · July 19, 2026</p>
+        <div class="resource-item-label">Discovery Question (works across all Power &amp; Cloud accounts)</div>
+        <div class="resource-item-text">"When you think about your most mission-critical workloads — transaction processing, fund operations, clinical systems, defense applications — where do they live today, and what would it take to modernize them without disrupting operations?"</div>
+      </div>
+      <div>
+        <div class="resource-item-label">South Florida Territory Pitch (30 seconds)</div>
+        <div class="resource-item-text">"South Florida's most infrastructure-intensive accounts are in the middle of a hybrid cloud transition — migrating Epic EHRs, building OpenShift platforms post-spinoff, modernizing fund admin systems. <strong>IBM Hybrid Cloud and Red Hat OpenShift</strong> are the integration fabrics that make those transitions successful without disrupting the operations that run on them."</div>
       </div>
     </div>
   </div>
 
-  <div class="cards-section">
-    <span class="section-label">Primary Plays — 9 Accounts</span>
+</div>
 
-    <!-- SGWS -->
-    <div class="acct-card" id="sgws">
-      <div class="card-header">
-        <div class="card-name">Southern Glazer's Wine &amp; Spirits</div>
-        <div class="card-badges">
-          <span class="badge-existing">Existing</span>
-          <div class="signal-dots"><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot off"></span><span class="dot off"></span></div>
-          <span class="cadence-tag">Week 3</span>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">SGWS running SAP ECC on aging x86 — CIO confirmed roadmap to SAP S/4HANA by 2028; IBM Power10 with Red Hat OpenShift creates the ideal hybrid migration path.</span></div>
-      <div class="card-talk"><p class="talk-quote">"With your SAP S/4HANA migration on the 2028 roadmap, IBM Power10 with Red Hat OpenShift is the proven path that gets you 3x SAP throughput improvement while cutting your migration risk in half compared to hyperscaler-only approaches."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">IBM Power10</span><span class="product-tag">Red Hat OpenShift</span><span class="product-tag secondary">IBM Cloud Pak</span>
-        <span class="who-label">WHO:</span>
-        <span class="persona-pill">CIO</span><span class="persona-pill">VP Infrastructure</span><span class="persona-pill">SAP Architect</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#sgws">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/company/10408" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-    <!-- JM Family -->
-    <div class="acct-card" id="jmf">
-      <div class="card-header">
-        <div class="card-name">JM Family Enterprises</div>
-        <div class="card-badges">
-          <span class="badge-existing">Existing</span>
-          <div class="signal-dots"><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot off"></span><span class="dot off"></span></div>
-          <span class="cadence-tag">Week 2</span>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">JM Family's dealer management system processes 1M+ transactions per month — IBM Power10's RAS capabilities are the standard for mission-critical DMS workloads in automotive.</span></div>
-      <div class="card-talk"><p class="talk-quote">"JM Family's DMS workload is exactly why IBM Power10 exists — the RAS architecture gives you 99.9999% availability for your dealer transaction processing, and the on-chip AI acceleration means your analytics run on the same hardware."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">IBM Power10</span><span class="product-tag secondary">Red Hat OpenShift</span>
-        <span class="who-label">WHO:</span>
-        <span class="persona-pill">CIO</span><span class="persona-pill">VP Infrastructure</span><span class="persona-pill">VP Operations</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#jmf">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/company/5765" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-    <!-- Citco -->
-    <div class="acct-card" id="citco">
-      <div class="card-header">
-        <div class="card-name">Citco Group</div>
-        <div class="card-badges">
-          <span class="badge-existing">Existing</span>
-          <div class="signal-dots"><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot off"></span></div>
-          <span class="cadence-tag">Week 3</span>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Citco's $1T+ AUM fund administration running on mainframe — z16 refresh cycle beginning; IBM z/OS Cloud Broker unlocks hybrid cloud for net-new workloads without mainframe risk.</span></div>
-      <div class="card-talk"><p class="talk-quote">"Citco's z/OS environment is the most secure transaction platform available, and the z16's on-chip AI inference means you can run fraud scoring on the same hardware without data movement — I'd like to walk you through what Goldman and BNP have done with the same architecture."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">IBM z/OS (z16)</span><span class="product-tag">IBM Cloud Pak</span><span class="product-tag secondary">Red Hat OpenShift</span>
-        <span class="who-label">WHO:</span>
-        <span class="persona-pill">CTO</span><span class="persona-pill">VP Infrastructure</span><span class="persona-pill">Chief Architecture Officer</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#citco">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/company/3113" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-    <!-- Lennar -->
-    <div class="acct-card" id="lennar">
-      <div class="card-header">
-        <div class="card-name">Lennar Corporation</div>
-        <div class="card-badges">
-          <span class="badge-existing">Existing</span>
-          <div class="signal-dots"><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot off"></span><span class="dot off"></span><span class="dot off"></span></div>
-          <span class="cadence-tag">Week 3</span>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Lennar's 30,000+ annual home closings running on SAP and Oracle ERP — hybrid cloud modernization on the 2026 infrastructure roadmap per CTO public statement.</span></div>
-      <div class="card-talk"><p class="talk-quote">"Lennar's SAP and Oracle workloads are the perfect fit for IBM Cloud Pak's hybrid integration layer — you get cloud flexibility without re-platforming, and Red Hat OpenShift gives your team a single Kubernetes target across on-prem and AWS."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">IBM Cloud Pak</span><span class="product-tag">Red Hat OpenShift</span>
-        <span class="who-label">WHO:</span>
-        <span class="persona-pill">CTO</span><span class="persona-pill">VP Infrastructure</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#lennar">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/company/4605" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-    <!-- HEICO — NEW -->
-    <div class="acct-card" id="heico">
-      <div class="card-header">
-        <div class="card-name new">HEICO Corporation</div>
-        <div class="card-badges">
-          <span class="badge-new">✦ New</span>
-          <div class="signal-dots"><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot off"></span></div>
-          <span class="cadence-tag">Week 1</span>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">HEICO's manufacturing ERP (Oracle/SAP) powering 40+ subsidiaries — Power10 refresh cycle; DOD contract growth requiring dedicated on-prem compute for export-controlled workloads.</span></div>
-      <div class="card-talk"><p class="talk-quote">"HEICO's DOD contracts create export-control requirements that rule out public cloud for certain workloads — IBM Power10's on-prem architecture with Red Hat OpenShift gives you the hybrid capability for everything else while keeping controlled data on-prem."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">IBM Power10</span><span class="product-tag">Red Hat OpenShift</span><span class="product-tag secondary">IBM Cloud Pak</span>
-        <span class="who-label">WHO:</span>
-        <span class="persona-pill">CIO</span><span class="persona-pill">VP IT</span><span class="persona-pill">Chief Security Officer</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#heico">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/search/company?keywords=HEICO+Corporation" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-    <!-- MasTec — NEW -->
-    <div class="acct-card" id="mastec">
-      <div class="card-header">
-        <div class="card-name new">MasTec Inc.</div>
-        <div class="card-badges">
-          <span class="badge-new">✦ New</span>
-          <div class="signal-dots"><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot off"></span><span class="dot off"></span></div>
-          <span class="cadence-tag">Week 2</span>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">MasTec's hybrid cloud strategy for field operations — 25,000+ field workers need real-time project data; legacy on-prem ERP being containerized for cloud portability.</span></div>
-      <div class="card-talk"><p class="talk-quote">"MasTec's ERP containerization effort is exactly where Red Hat OpenShift pays dividends — you get a consistent Kubernetes platform across on-prem and any cloud, and your 25,000 field workers get the same real-time data regardless of where the workload runs."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">Red Hat OpenShift</span><span class="product-tag">IBM Cloud Pak</span>
-        <span class="who-label">WHO:</span>
-        <span class="persona-pill">CIO</span><span class="persona-pill">VP Infrastructure</span><span class="persona-pill">VP IT</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#page-mastec">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/company/5350" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-    <!-- Dycom — NEW -->
-    <div class="acct-card" id="dycom">
-      <div class="card-header">
-        <div class="card-name new">Dycom Industries</div>
-        <div class="card-badges">
-          <span class="badge-new">✦ New</span>
-          <div class="signal-dots"><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot off"></span><span class="dot off"></span></div>
-          <span class="cadence-tag">Week 2</span>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Dycom's fiber network construction IT platform migrating from on-prem to hybrid — BEAD contracts requiring FedRAMP-eligible compute for government-funded broadband work.</span></div>
-      <div class="card-talk"><p class="talk-quote">"BEAD contracts require FedRAMP-eligible compute for the data you handle on behalf of state broadband offices — Red Hat OpenShift on IBM Power10 is FedRAMP authorized and gives you the hybrid architecture for non-government workloads on the same platform."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">IBM Power10</span><span class="product-tag">Red Hat OpenShift</span>
-        <span class="who-label">WHO:</span>
-        <span class="persona-pill">CIO</span><span class="persona-pill">VP IT</span><span class="persona-pill">VP Compliance</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#dycom">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/company/19434" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-    <!-- Herc Rentals — NEW -->
-    <div class="acct-card" id="herc">
-      <div class="card-header">
-        <div class="card-name new">Herc Rentals</div>
-        <div class="card-badges">
-          <span class="badge-new">✦ New</span>
-          <div class="signal-dots"><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot off"></span><span class="dot off"></span></div>
-          <span class="cadence-tag">Week 2</span>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Herc's branch network IT — 300+ branch locations each running local compute for fleet management; hybrid cloud centralization is a 2026 cost reduction target per investor day.</span></div>
-      <div class="card-talk"><p class="talk-quote">"Herc's 300+ branch compute footprint is a classic Red Hat OpenShift edge-to-core story — containerize the branch workloads, centralize management, and cut your per-branch IT cost by an estimated 35% while improving uptime."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">Red Hat OpenShift</span><span class="product-tag secondary">IBM Power10</span>
-        <span class="who-label">WHO:</span>
-        <span class="persona-pill">CIO</span><span class="persona-pill">VP IT Operations</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#page-herc">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/search/company?keywords=Herc+Rentals" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-    <!-- Burger King — NEW -->
-    <div class="acct-card" id="bk">
-      <div class="card-header">
-        <div class="card-name new">Burger King / Restaurant Brands International</div>
-        <div class="card-badges">
-          <span class="badge-new">✦ New</span>
-          <div class="signal-dots"><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot off"></span><span class="dot off"></span></div>
-          <span class="cadence-tag">Week 2</span>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">RBI's franchisee IT standardization program — 18,000+ Burger King locations globally need a consistent hybrid cloud platform for POS, digital menu, and loyalty data.</span></div>
-      <div class="card-talk"><p class="talk-quote">"RBI's franchisee IT standardization for 18,000 BK locations is a Red Hat OpenShift at the edge story — a single Kubernetes platform for POS and digital menu management that your franchisees operate locally but you govern centrally."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">Red Hat OpenShift</span><span class="product-tag">IBM Cloud Pak</span>
-        <span class="who-label">WHO:</span>
-        <span class="persona-pill">CTO</span><span class="persona-pill">VP Restaurant Technology</span><span class="persona-pill">Chief Digital Officer</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#bk">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/company/166764" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-    <!-- Supporting -->
-    <span class="section-label supporting" id="support-pwr">Supporting Plays — Power &amp; Hybrid Cloud Angle</span>
-
-    <div class="acct-card supporting-card">
-      <div class="card-header">
-        <div class="card-name">NCLH</div>
-        <div class="card-badges">
-          <span class="badge-support">Supporting</span>
-          <div class="signal-dots"><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot off"></span><span class="dot off"></span><span class="dot off"></span></div>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">New CIO's 100-day plan includes hybrid cloud infrastructure assessment — existing Power environment refresh opportunity.</span></div>
-      <div class="card-talk"><p class="talk-quote">"NCLH's infrastructure assessment is a natural Power10 refresh conversation — happy to put a TCO model together before the CIO's 100 days are up."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">IBM Power10</span>
-        <span class="who-label">WHO:</span><span class="persona-pill">CIO</span><span class="persona-pill">VP Infrastructure</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#nclh">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/company/2297" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-    <div class="acct-card supporting-card">
-      <div class="card-header">
-        <div class="card-name">Hexagon Federal</div>
-        <div class="card-badges">
-          <span class="badge-support">Supporting</span>
-          <div class="signal-dots"><span class="dot on-pwr"></span><span class="dot on-pwr"></span><span class="dot off"></span><span class="dot off"></span><span class="dot off"></span></div>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">FedRAMP-authorized hybrid cloud for government geospatial workloads — Red Hat OpenShift Gov is already approved.</span></div>
-      <div class="card-talk"><p class="talk-quote">"Hexagon Federal's government geospatial workloads are pre-approved for Red Hat OpenShift Government — a 30-minute architecture call could turn this into a fast close."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">Red Hat OpenShift</span>
-        <span class="who-label">WHO:</span><span class="persona-pill">CTO</span><span class="persona-pill">VP IT</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#hexfed">Full Intel →</a>
-      </div>
-    </div>
-
-  </div><!-- /cards-section -->
-
-  <div class="brand-bottom-strip">
-    <div class="strip-item"><label>Brand</label><span>Power &amp; Hybrid Cloud</span></div>
-    <div class="strip-item"><label>Primary Accounts</label><span>9 accounts</span></div>
-    <div class="strip-item"><label>Key Products</label><span>IBM Power10 · IBM z/OS · IBM Cloud Pak · Red Hat OpenShift</span></div>
-    <div class="strip-item"><label>Edition</label><span>SE Horizon — Phase 3 · July 19, 2026</span></div>
-  </div>
-
-</div><!-- /page-wrap -->
-
-<footer class="page-footer">
-  <div class="footer-brand"><span>IBM</span> SE Horizon · Phase 3 — Power &amp; Hybrid Cloud</div>
-  <div class="footer-made">Made with IBM Bob · July 2026</div>
+<footer>
+  SE Horizon · Phase 3 · Power &amp; Hybrid Cloud Brand View · Rick &amp; Kevin · IBM South Florida SE Team · July 19, 2026
+  <br /><br />
+  <span style="font-size:10px;color:#bbb;border-top:1px solid #e5e7eb;display:inline-block;padding-top:8px;margin-top:4px">Made with IBM Bob</span>
 </footer>
 
 </body>

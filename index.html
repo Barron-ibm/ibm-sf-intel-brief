@@ -163,6 +163,58 @@
   .btn-primary:hover { background: #0050e6; }
   .btn-secondary:hover { background: #353535; }
 
+  /* Brand seller cards grid */
+  .brand-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .brand-card {
+    background: #1c1c1c;
+    border: 1px solid #262626;
+    border-top: 3px solid var(--brand-color, #0f62fe);
+    border-radius: 4px;
+    padding: 18px 20px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: background 0.15s;
+  }
+  .brand-card:hover { background: #222; }
+  .brand-card-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brand-color, #0f62fe);
+  }
+  .brand-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f4f4f4;
+  }
+  .brand-card-seller {
+    font-size: 12px;
+    color: #8d8d8d;
+  }
+  .brand-card-count {
+    margin-top: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--brand-color, #0f62fe);
+    letter-spacing: 0.06em;
+  }
+  .brand-card-arrow {
+    margin-top: auto;
+    padding-top: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--brand-color, #0f62fe);
+    letter-spacing: 0.04em;
+  }
+
   /* Coming soon card */
   .placeholder-card {
     background: #1c1c1c;
@@ -215,12 +267,48 @@
       <div class="issue-meta">
         <div class="issue-date">July 19, 2026 &nbsp;·&nbsp; Phase 3 <span class="badge-latest">New</span></div>
         <div class="issue-title">Brand Specialist Prospecting Tool</div>
-        <div class="issue-desc">All 26 South Florida accounts sorted by IBM brand track — Data &amp; AI, Automation, Storage, Power &amp; Hybrid Cloud. Verbatim openers, urgency scores, cadence week tags, and direct Sales Navigator links.</div>
+        <div class="issue-desc">26 South Florida accounts filtered by IBM brand track — one tailored view per brand seller. Verbatim openers, urgency scores, cadence week tags, and Sales Navigator links.</div>
       </div>
       <div class="issue-links">
-        <a class="issue-btn btn-secondary" href="newsletters/2026-07-19/phase3-data-ai.html">Data &amp; AI</a>
-        <a class="issue-btn btn-primary"   href="newsletters/2026-07-19/phase3.html">Phase 3 Home →</a>
+        <a class="issue-btn btn-primary" href="newsletters/2026-07-19/phase3.html">Phase 3 Home →</a>
       </div>
+    </div>
+
+    <!-- Brand seller cards -->
+    <div class="brand-grid">
+
+      <a class="brand-card" href="newsletters/2026-07-19/phase3-data-ai.html" style="--brand-color:#0f62fe">
+        <div class="brand-card-eyebrow">Data &amp; AI</div>
+        <div class="brand-card-title">Alyssa Barron</div>
+        <div class="brand-card-seller">Data &amp; AI Brand Specialist</div>
+        <div class="brand-card-count">23 accounts with a credible play</div>
+        <div class="brand-card-arrow">Open brand view →</div>
+      </a>
+
+      <a class="brand-card" href="newsletters/2026-07-19/phase3-automation.html" style="--brand-color:#42be65">
+        <div class="brand-card-eyebrow">Automation</div>
+        <div class="brand-card-title">Gavin Swire</div>
+        <div class="brand-card-seller">Automation Brand Specialist</div>
+        <div class="brand-card-count">9 accounts with a credible play</div>
+        <div class="brand-card-arrow">Open brand view →</div>
+      </a>
+
+      <a class="brand-card" href="newsletters/2026-07-19/phase3-storage.html" style="--brand-color:#8b5cf6">
+        <div class="brand-card-eyebrow">Storage</div>
+        <div class="brand-card-title">William Oquendo</div>
+        <div class="brand-card-seller">Storage Brand Specialist</div>
+        <div class="brand-card-count">3 accounts with a credible play</div>
+        <div class="brand-card-arrow">Open brand view →</div>
+      </a>
+
+      <a class="brand-card" href="newsletters/2026-07-19/phase3-power-cloud.html" style="--brand-color:#f59e0b">
+        <div class="brand-card-eyebrow">Power &amp; Hybrid Cloud</div>
+        <div class="brand-card-title">Rick Castillo &amp; Kevin Sosa</div>
+        <div class="brand-card-seller">Power &amp; Cloud Brand Specialists</div>
+        <div class="brand-card-count">6 accounts with a credible play</div>
+        <div class="brand-card-arrow">Open brand view →</div>
+      </a>
+
     </div>
 
     <!-- ── ISSUE #1 ── -->

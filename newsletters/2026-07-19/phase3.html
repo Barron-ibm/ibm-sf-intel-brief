@@ -10,18 +10,24 @@ html{scroll-behavior:smooth;}
 body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;background:#0f1c3a;color:#1f2328;}
 a{text-decoration:none;}
 
-/* ── STICKY NAV ── */
-.sticky-nav{position:sticky;top:0;z-index:100;background:#161616;border-bottom:3px solid #0f62fe;display:flex;align-items:center;gap:0;overflow-x:auto;white-space:nowrap;scrollbar-width:thin;scrollbar-color:#0f62fe #161616;}
-.sticky-nav::-webkit-scrollbar{height:3px;}
-.sticky-nav::-webkit-scrollbar-track{background:#161616;}
-.sticky-nav::-webkit-scrollbar-thumb{background:#0f62fe;border-radius:2px;}
-.sticky-nav a{display:inline-block;font-size:10px;font-weight:700;color:rgba(255,255,255,0.65);padding:10px 14px;border-bottom:3px solid transparent;margin-bottom:-3px;white-space:nowrap;letter-spacing:0.3px;}
-.sticky-nav a:hover{color:#fff;}
-.sticky-nav a.active{color:#fff;border-bottom-color:#0f62fe;background:rgba(255,255,255,0.06);}
-.sticky-nav .nav-brand-dai{color:#60a5fa!important;}
-.sticky-nav .nav-brand-auto{color:#4ade80!important;}
-.sticky-nav .nav-brand-stor{color:#c084fc!important;}
-.sticky-nav .nav-brand-pwr{color:#fbbf24!important;}
+/* ── SHARED TOP NAV ── */
+.se-topbar{background:#161616;border-bottom:3px solid #0f62fe;padding:0 20px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.se-topbar-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.se-topbar-ibm{font-size:18px;font-weight:900;color:#fff;letter-spacing:-0.5px;}
+.se-topbar-div{width:1px;height:16px;background:#393939;}
+.se-topbar-title{font-size:12px;font-weight:600;color:#a8c8ff;white-space:nowrap;}
+.se-topbar-badge{font-size:10px;font-weight:700;background:#0f62fe;color:#fff;padding:2px 9px;border-radius:20px;white-space:nowrap;}
+.se-topbar-links{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;}
+.se-topbar-links::-webkit-scrollbar{display:none;}
+.se-topbar-links a{font-size:11px;font-weight:600;color:rgba(255,255,255,0.55);padding:5px 10px;border-radius:3px;white-space:nowrap;text-decoration:none;border-bottom:2px solid transparent;}
+.se-topbar-links a:hover{color:#fff;background:rgba(255,255,255,0.07);}
+.se-topbar-links a.se-active{color:#fff;border-bottom-color:#0f62fe;}
+.se-topbar-links .se-divider{color:#393939;padding:0 4px;font-size:11px;user-select:none;}
+.se-topbar-links a.se-sub{color:rgba(255,255,255,0.4);font-size:10px;}
+.se-topbar-links a.se-sub:hover{color:#a8c8ff;}
+.se-topbar-links a.se-sub.se-active{color:#a8c8ff;border-bottom-color:#a8c8ff;}
+.se-topbar-right{font-size:10px;color:#6f6f6f;white-space:nowrap;letter-spacing:0.05em;flex-shrink:0;display:none;}
+@media(min-width:700px){.se-topbar-right{display:block;}}
 
 /* ── PAGE ── */
 .page{max-width:900px;margin:0 auto 40px;background:#fff;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,0.35);border-radius:4px;}
@@ -100,17 +106,26 @@ a{text-decoration:none;}
 </head>
 <body>
 
-<!-- ── STICKY NAV ── -->
-<nav class="sticky-nav">
-  <a href="index.html">↑ Home</a>
-  <a href="phase1.html">Phase 1</a>
-  <a href="phase2.html">Phase 2</a>
-  <a href="phase3.html" class="active">Phase 3 — Brand Index</a>
-  <a href="phase3-data-ai.html" class="nav-brand-dai">Data &amp; AI →</a>
-  <a href="phase3-automation.html" class="nav-brand-auto">Automation →</a>
-  <a href="phase3-storage.html" class="nav-brand-stor">Storage →</a>
-  <a href="phase3-power-cloud.html" class="nav-brand-pwr">Power &amp; Hybrid Cloud →</a>
-</nav>
+<!-- ── SE HORIZON TOP NAV — Phase 3 Index (all brand sub-links visible) ── -->
+<div class="se-topbar">
+  <div class="se-topbar-left">
+    <span class="se-topbar-ibm">IBM</span>
+    <div class="se-topbar-div"></div>
+    <span class="se-topbar-title">SE Horizon</span>
+    <span class="se-topbar-badge">Phase 3</span>
+  </div>
+  <div class="se-topbar-links">
+    <a href="phase1.html">Phase 1</a>
+    <a href="phase2.html">Phase 2</a>
+    <a href="phase3.html" class="se-active">Phase 3</a>
+    <span class="se-divider">|</span>
+    <a href="phase3-data-ai.html" class="se-sub">Data &amp; AI</a>
+    <a href="phase3-automation.html" class="se-sub">Automation</a>
+    <a href="phase3-storage.html" class="se-sub">Storage</a>
+    <a href="phase3-power-cloud.html" class="se-sub">Power &amp; Cloud</a>
+  </div>
+  <span class="se-topbar-right">South Florida SE · July 19, 2026</span>
+</div>
 
 <div class="page">
 

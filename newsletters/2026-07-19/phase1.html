@@ -98,9 +98,42 @@ a:hover{text-decoration:underline;}
 .source-chip:hover{background:#d0e4ff;}
 /* FOOTER */
 .footer{text-align:center;font-size:11px;color:#a8a8a8;padding:18px 40px;border-top:1px solid #e0e0e0;background:#fff;}
+/* ── SHARED TOP NAV ── */
+.se-topbar{background:#161616;border-bottom:3px solid #0f62fe;padding:0 20px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.se-topbar-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.se-topbar-ibm{font-size:18px;font-weight:900;color:#fff;letter-spacing:-0.5px;}
+.se-topbar-div{width:1px;height:16px;background:#393939;}
+.se-topbar-title{font-size:12px;font-weight:600;color:#a8c8ff;white-space:nowrap;}
+.se-topbar-badge{font-size:10px;font-weight:700;background:#0f62fe;color:#fff;padding:2px 9px;border-radius:20px;white-space:nowrap;}
+.se-topbar-links{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;}
+.se-topbar-links::-webkit-scrollbar{display:none;}
+.se-topbar-links a{font-size:11px;font-weight:600;color:rgba(255,255,255,0.55);padding:5px 10px;border-radius:3px;white-space:nowrap;text-decoration:none;border-bottom:2px solid transparent;}
+.se-topbar-links a:hover{color:#fff;background:rgba(255,255,255,0.07);}
+.se-topbar-links a.se-active{color:#fff;border-bottom-color:#0f62fe;}
+.se-topbar-links .se-divider{color:#393939;padding:0 4px;font-size:11px;user-select:none;}
+.se-topbar-links a.se-sub{color:rgba(255,255,255,0.4);font-size:10px;}
+.se-topbar-links a.se-sub:hover{color:#a8c8ff;}
+.se-topbar-links a.se-sub.se-active{color:#a8c8ff;border-bottom-color:#a8c8ff;}
+.se-topbar-right{font-size:10px;color:#6f6f6f;white-space:nowrap;letter-spacing:0.05em;flex-shrink:0;display:none;}
+@media(min-width:700px){.se-topbar-right{display:block;}}
 </style>
 </head>
 <body>
+<!-- ── SE HORIZON TOP NAV — Phase 1 (no brand sub-links) ── -->
+<div class="se-topbar">
+  <div class="se-topbar-left">
+    <span class="se-topbar-ibm">IBM</span>
+    <div class="se-topbar-div"></div>
+    <span class="se-topbar-title">SE Horizon</span>
+    <span class="se-topbar-badge">Phase 1</span>
+  </div>
+  <div class="se-topbar-links">
+    <a href="phase1.html" class="se-active">Phase 1</a>
+    <a href="phase2.html">Phase 2</a>
+    <a href="phase3.html">Phase 3</a>
+  </div>
+  <span class="se-topbar-right">South Florida SE · July 19, 2026</span>
+</div>
 <div class="page">
   <!-- MASTHEAD -->
   <div class="masthead">

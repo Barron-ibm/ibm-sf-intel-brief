@@ -1,350 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SE Horizon | Phase 3 — Storage | July 19, 2026</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SE Horizon — Storage Brand View · William</title>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;background:#0f1c3a;color:#1f2328;}
-a{text-decoration:none;}
-.sticky-top{position:sticky;top:0;z-index:100;}
-.top-nav{background:#161616;border-bottom:2px solid #8b5cf6;display:flex;align-items:center;overflow-x:auto;white-space:nowrap;scrollbar-width:thin;scrollbar-color:#8b5cf6 #161616;}
-.top-nav::-webkit-scrollbar{height:3px;}
-.top-nav::-webkit-scrollbar-thumb{background:#8b5cf6;}
-.top-nav a{display:inline-block;font-size:10px;font-weight:700;color:rgba(255,255,255,0.65);padding:10px 13px;border-bottom:3px solid transparent;margin-bottom:-2px;letter-spacing:0.3px;white-space:nowrap;}
-.top-nav a:hover{color:#fff;}
-.top-nav a.active{color:#c4b5fd;border-bottom-color:#8b5cf6;}
-.brand-tab-bar{background:#1a1a2e;border-bottom:2px solid #0a0a18;display:flex;overflow-x:auto;white-space:nowrap;scrollbar-width:none;}
-.brand-tab-bar::-webkit-scrollbar{display:none;}
-.brand-tab-bar a{display:inline-block;font-size:10px;font-weight:700;color:rgba(255,255,255,0.5);padding:8px 16px;border-bottom:3px solid transparent;margin-bottom:-2px;letter-spacing:0.5px;white-space:nowrap;}
-.brand-tab-bar a.tab-stor{color:#c4b5fd;border-bottom-color:#8b5cf6;background:rgba(139,92,246,0.12);}
-.brand-tab-bar a:hover{color:#fff;}
-.acct-nav{background:#161616;border-bottom:2px solid #222;display:flex;overflow-x:auto;white-space:nowrap;scrollbar-width:thin;scrollbar-color:#333 #161616;padding:0 8px;}
-.acct-nav::-webkit-scrollbar{height:3px;}
-.acct-nav::-webkit-scrollbar-thumb{background:#444;}
-.acct-nav a{display:inline-block;font-size:9.5px;font-weight:600;color:rgba(255,255,255,0.5);padding:7px 11px;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-2px;}
-.acct-nav a:hover{color:#fff;}
-.acct-nav a.nav-new{color:#c4b5fd;}
-.acct-nav a.nav-support{color:rgba(255,255,255,0.35);font-style:italic;}
-.page-wrap{max-width:900px;margin:0 auto 40px;}
-.brand-hero{background:#0f1c3a;padding:20px 28px 16px;border-bottom:3px solid #8b5cf6;}
-.brand-hero-inner{display:flex;align-items:center;gap:16px;}
-.brand-color-dot{width:18px;height:18px;border-radius:50%;background:#8b5cf6;flex-shrink:0;}
-.brand-hero h1{font-size:20px;font-weight:900;color:#fff;letter-spacing:-0.3px;}
-.brand-hero p{font-size:11.5px;color:rgba(255,255,255,0.65);margin-top:3px;}
-.brand-bottom-strip{background:#0a1628;border-top:2px solid #8b5cf6;padding:14px 28px;display:flex;gap:24px;flex-wrap:wrap;}
-.strip-item label{font-size:8.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#c4b5fd;display:block;margin-bottom:3px;}
-.strip-item span{font-size:11.5px;color:rgba(255,255,255,0.8);font-style:italic;}
-.section-label{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#fff;background:#8b5cf6;padding:4px 10px;border-radius:3px;display:inline-block;margin:16px 0 8px;}
-.section-label.supporting{background:#444;}
-.cards-section{padding:0 16px 16px;}
-.acct-card{background:#fff;border-radius:5px;margin-bottom:14px;box-shadow:0 2px 14px rgba(0,0,0,0.22);overflow:hidden;scroll-margin-top:152px;}
-.acct-card.supporting-card{opacity:0.8;border:2px dashed #c0c6d4;}
-.card-header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px 10px;border-bottom:1px solid #f0f2f5;gap:12px;}
-.card-name{font-size:15px;font-weight:900;color:#7c3aed;flex:1;}
-.card-name.new{color:#5b21b6;}
-.card-badges{display:flex;align-items:center;gap:6px;flex-shrink:0;}
-.badge-new{font-size:8px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;background:#ede9fe;border:1px solid #c4b5fd;color:#5b21b6;padding:2px 6px;border-radius:2px;}
-.badge-existing{font-size:8px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;background:#ede9fe;border:1px solid #c4b5fd;color:#7c3aed;padding:2px 6px;border-radius:2px;}
-.badge-support{font-size:8px;font-weight:800;letter-spacing:0.5px;background:#f7f8fa;border:1px solid #d0d7de;color:#57606a;padding:2px 6px;border-radius:2px;}
-.signal-dots{display:flex;gap:2px;align-items:center;}
-.dot{width:9px;height:9px;border-radius:50%;}
-.dot.on-stor{background:#8b5cf6;}
-.dot.off{background:#e5e7eb;}
-.cadence-tag{font-size:8px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;background:#1e1240;color:#c4b5fd;padding:2px 7px;border-radius:2px;}
-.card-trigger{padding:8px 18px;background:#faf8ff;border-bottom:1px solid #ede9fe;display:flex;gap:8px;align-items:flex-start;}
-.trigger-label{font-size:8.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#7c3aed;background:#ede9fe;padding:3px 8px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:1px;}
-.trigger-text{font-size:11.5px;color:#1f2328;line-height:1.5;}
-.card-talk{padding:10px 18px;border-bottom:1px solid #f0f2f5;}
-.talk-quote{font-size:11.5px;color:#1f2328;font-style:italic;line-height:1.7;border-left:3px solid #8b5cf6;padding-left:10px;}
-.card-meta{padding:8px 18px 10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-bottom:1px solid #f0f2f5;}
-.product-tag{font-size:9px;font-weight:700;letter-spacing:0.3px;background:#8b5cf6;color:#fff;padding:3px 8px;border-radius:2px;}
-.product-tag.secondary{background:#2e1a6e;}
-.who-label{font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#57606a;margin-right:2px;}
-.persona-pill{font-size:9.5px;font-weight:600;color:#7c3aed;border:1px solid rgba(139,92,246,0.35);padding:2px 8px;border-radius:99px;background:#ede9fe;}
-.card-actions{padding:9px 18px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.btn-intel{display:inline-flex;align-items:center;gap:4px;background:#ede9fe;color:#7c3aed;font-size:9px;font-weight:800;letter-spacing:0.8px;text-transform:uppercase;padding:6px 12px;border-radius:3px;border:1px solid #c4b5fd;}
-.btn-snav{display:inline-flex;align-items:center;gap:4px;background:#8b5cf6;color:#fff;font-size:9px;font-weight:800;letter-spacing:0.8px;text-transform:uppercase;padding:6px 12px;border-radius:3px;}
-.page-footer{background:#f7f8fa;border-top:1px solid #e5e7eb;padding:10px 28px;display:flex;justify-content:space-between;align-items:center;max-width:900px;margin:0 auto;}
-.footer-brand{font-size:11px;font-weight:700;color:#1f2328;}
-.footer-brand span{color:#8b5cf6;}
-.footer-made{font-size:10px;color:#aab0b8;}
-@media(max-width:680px){.brand-hero-inner{flex-direction:column;align-items:flex-start;}.card-header{flex-direction:column;align-items:flex-start;}}
-@media print{
-  .sticky-top{position:static;}
-  .btn-snav,.btn-intel{display:none;}
-  body{background:#fff;}
-  .acct-card{box-shadow:none;border:1px solid #ddd;page-break-inside:avoid;}
-}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    background: #f4f4f4;
+    color: #1f2328;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* ── TOP BAR ── */
+  .se-topbar {
+    background: #161616;
+    border-bottom: 3px solid #0f62fe;
+    padding: 0 20px;
+    height: 46px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 200;
+  }
+  .se-topbar-left { display: flex; align-items: center; gap: 10px; }
+  .se-topbar-ibm { font-size: 18px; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
+  .se-topbar-div { width: 1px; height: 16px; background: #393939; }
+  .se-topbar-title { font-size: 12px; font-weight: 600; color: #a8c8ff; }
+  .se-topbar-links { display: flex; align-items: center; gap: 0; flex-wrap: nowrap; }
+  .se-topbar-links a {
+    font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.6);
+    padding: 0 12px; height: 46px; display: flex; align-items: center;
+    text-decoration: none; border-bottom: 3px solid transparent; margin-bottom: -3px;
+    white-space: nowrap;
+  }
+  .se-topbar-links a:hover { color: #fff; }
+  .se-topbar-links a.active { color: #fff; border-bottom-color: #0f62fe; }
+  .se-topbar-links a.sub-link { font-size: 10.5px; color: rgba(255,255,255,0.45); }
+  .se-topbar-links a.sub-link:hover { color: rgba(255,255,255,0.8); }
+  .se-topbar-links a.sub-link.active { color: #a78bfa; border-bottom-color: #8b5cf6; }
+  .se-topbar-divider { color: #393939; padding: 0 4px; font-size: 13px; line-height: 46px; }
+  .se-topbar-right { font-size: 11px; color: #6f6f6f; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* ── BRAND HERO ── */
+  .brand-hero {
+    background: linear-gradient(135deg, #0e0a1a 0%, #1a0f2e 100%);
+    border-bottom: 1px solid #2d1a4a;
+    padding: 36px 28px 28px;
+  }
+  .brand-hero-inner { max-width: 920px; margin: 0 auto; }
+  .brand-eyebrow {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: #a78bfa; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .brand-eyebrow a { color: #6f6f6f; text-decoration: none; }
+  .brand-eyebrow a:hover { color: #a78bfa; }
+  .brand-eyebrow .sep { color: #393939; }
+  .brand-hero h1 { font-size: 30px; font-weight: 900; color: #fff; margin-bottom: 8px; }
+  .brand-hero h1 span { color: #a78bfa; }
+  .brand-hero-sub { font-size: 13px; color: #7a6b8b; max-width: 620px; margin-bottom: 16px; }
+  .brand-products { display: flex; flex-wrap: wrap; gap: 6px; }
+  .prod-tag {
+    font-size: 11px; font-weight: 600;
+    background: rgba(255,255,255,0.08);
+    color: #a78bfa;
+    border: 1px solid rgba(167,139,250,0.2);
+    border-radius: 4px; padding: 3px 10px;
+  }
+  .brand-stats {
+    display: flex; gap: 28px; margin-top: 20px;
+    padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .stat-num { font-size: 22px; font-weight: 900; color: #fff; line-height: 1; }
+  .stat-label { font-size: 11px; color: #7a6b8b; margin-top: 2px; }
+
+  /* ── SCOPE CALLOUT ── */
+  .scope-callout {
+    max-width: 920px; margin: 20px auto 0; padding: 14px 20px;
+    background: #fff; border: 1px solid #e5e7eb;
+    border-left: 4px solid #8b5cf6;
+    border-radius: 6px;
+    font-size: 12px; color: #57606a; line-height: 1.6;
+  }
+  .scope-callout strong { color: #1f2328; font-weight: 700; }
+
+  /* ── PAGE NAV ── */
+  .page-nav { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 0 28px; }
+  .page-nav-inner {
+    max-width: 920px; margin: 0 auto;
+    display: flex; gap: 4px; padding: 10px 0; overflow-x: auto;
+  }
+  .pnav-pill {
+    flex-shrink: 0; font-size: 11px; font-weight: 600;
+    padding: 5px 12px; border-radius: 20px;
+    border: 1px solid #e5e7eb; color: #57606a; background: #f7f8fa;
+    text-decoration: none;
+  }
+  .pnav-pill.active { background: #8b5cf6; color: #fff; border-color: #8b5cf6; }
+  .pnav-pill:hover:not(.active) { background: #f3eeff; color: #6d28d9; border-color: #c4b5fd; }
+
+  /* ── MAIN ── */
+  .main { max-width: 920px; margin: 0 auto; padding: 28px 28px 80px; }
+
+  .section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #57606a;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 8px; margin-bottom: 16px;
+  }
+
+  /* ── ACCOUNT CARD ── */
+  .acct-card-full {
+    background: #fff; border: 1px solid #e5e7eb; border-radius: 8px;
+    border-left: 5px solid #8b5cf6; overflow: hidden; margin-bottom: 16px;
+  }
+  .card-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px; border-bottom: 1px solid #f4f4f4; gap: 12px;
+  }
+  .card-header-left { display: flex; align-items: center; gap: 12px; }
+  .card-acct-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #f4f4f4; color: #57606a;
+    font-size: 11px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .card-acct-name { font-size: 16px; font-weight: 800; color: #161616; }
+  .card-acct-sub { font-size: 11px; color: #57606a; margin-top: 1px; }
+  .card-header-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .badge { font-size: 10px; font-weight: 700; letter-spacing: 0.04em; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+  .badge-new { background: #ede9fe; color: #5b21b6; }
+  .badge-high { background: #fff1f1; color: #c42b1c; }
+  .badge-existing { background: #f4f4f4; color: #57606a; }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
+  .card-col { padding: 16px 20px; border-right: 1px solid #f4f4f4; }
+  .card-col:last-child { border-right: none; }
+  .col-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #57606a; margin-bottom: 8px; }
+  .col-trigger { font-size: 13px; color: #1f2328; line-height: 1.5; }
+  .col-trigger strong { color: #161616; font-weight: 700; }
+  .col-ask { font-size: 12px; color: #1f2328; line-height: 1.55; }
+  .col-ask strong { color: #8b5cf6; font-weight: 700; }
+
+  .persona-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+  .persona-chip { font-size: 11px; font-weight: 600; background: #f4f4f4; color: #393939; border: 1px solid #e5e7eb; border-radius: 4px; padding: 3px 9px; }
+  .persona-chip.primary { background: #ede9fe; color: #5b21b6; border-color: #c4b5fd; }
+
+  .card-footer {
+    padding: 10px 20px; background: #f7f8fa; border-top: 1px solid #f4f4f4;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .play-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .play-tag { font-size: 10px; font-weight: 700; background: #ede9fe; color: #5b21b6; border: 1px solid #c4b5fd; border-radius: 3px; padding: 2px 8px; }
+  .card-link { font-size: 11px; font-weight: 700; color: #8b5cf6; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+  .card-link:hover { text-decoration: underline; }
+
+  /* ── RESOURCE STRIP ── */
+  .resource-strip { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; border-top: 3px solid #8b5cf6; padding: 20px 24px; margin-top: 28px; }
+  .resource-strip-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8b5cf6; margin-bottom: 14px; }
+  .resource-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .resource-item-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #57606a; margin-bottom: 5px; }
+  .resource-item-text { font-size: 12px; color: #1f2328; line-height: 1.55; font-style: italic; }
+  .resource-item-text strong { font-style: normal; font-weight: 700; color: #8b5cf6; }
+
+  footer { border-top: 1px solid #e5e7eb; padding: 16px 28px; text-align: center; font-size: 11px; color: #57606a; }
 </style>
 </head>
 <body>
 
-<div class="sticky-top">
-  <nav class="top-nav">
-    <a href="phase3.html">◂ Phase 3 Home</a>
-    <a href="phase2.html">Phase 2</a>
-    <a href="phase3-data-ai.html">Data &amp; AI</a>
-    <a href="phase3-automation.html">Automation</a>
-    <a href="phase3-storage.html" class="active">Storage</a>
-    <a href="phase3-power-cloud.html">Power &amp; Hybrid Cloud</a>
-  </nav>
-  <div class="brand-tab-bar">
-    <a href="phase3-data-ai.html">🔵 DATA &amp; AI</a>
-    <a href="phase3-automation.html">🟢 AUTOMATION</a>
-    <a href="phase3-storage.html" class="tab-stor">🟣 STORAGE</a>
-    <a href="phase3-power-cloud.html">🟡 POWER &amp; HYBRID CLOUD</a>
+<!-- ── TOP NAV ── -->
+<div class="se-topbar">
+  <div class="se-topbar-left">
+    <span class="se-topbar-ibm">IBM</span>
+    <div class="se-topbar-div"></div>
+    <span class="se-topbar-title">SE Horizon · Phase 3 · Storage</span>
   </div>
-  <nav class="acct-nav">
-    <a href="#nclh">NCLH</a>
-    <a href="#citco">Citco</a>
-    <a href="#heico" class="nav-new">HEICO ✦</a>
-    <a href="#chewy" class="nav-new">Chewy ✦</a>
-    <a href="#memorial" class="nav-new">Memorial ✦</a>
-    <a href="#sbhd" class="nav-new">SBHD ✦</a>
-    <a href="#hig" class="nav-new">H.I.G. ✦</a>
-    <a href="#hexmin" class="nav-new">Hexagon Mining ✦</a>
-    <a href="#support-stor" class="nav-support">▾ Supporting</a>
-  </nav>
+  <div class="se-topbar-links">
+    <a href="phase1.html">Phase 1</a>
+    <a href="phase2.html">Phase 2</a>
+    <a href="phase3.html" class="active">Phase 3</a>
+    <span class="se-topbar-divider">|</span>
+    <a href="phase3-data-ai.html" class="sub-link">Data &amp; AI</a>
+    <a href="phase3-automation.html" class="sub-link">Automation</a>
+    <a href="phase3-storage.html" class="sub-link active">Storage</a>
+    <a href="phase3-power-cloud.html" class="sub-link">Power &amp; Cloud</a>
+  </div>
+  <span class="se-topbar-right">South Florida SE · July 19, 2026</span>
 </div>
 
-<div class="page-wrap">
-  <div class="brand-hero">
-    <div class="brand-hero-inner">
-      <div class="brand-color-dot"></div>
+<!-- ── BRAND HERO ── -->
+<div class="brand-hero">
+  <div class="brand-hero-inner">
+    <div class="brand-eyebrow">
+      <a href="phase3.html">Brand View</a>
+      <span class="sep">/</span>
+      Storage — William
+    </div>
+    <h1>Stor<span>age</span></h1>
+    <p class="brand-hero-sub">Storage is a genuine first-call play only where data volume, infrastructure refresh, or post-M&A consolidation is the primary driver. In the South Florida mid-market, only 3 accounts have that signal. Honest qualification beats a forced pitch.</p>
+    <div class="brand-products">
+      <span class="prod-tag">IBM Storage Scale</span>
+      <span class="prod-tag">FlashSystem</span>
+      <span class="prod-tag">IBM Tape / Archive</span>
+      <span class="prod-tag">IBM Spectrum Protect</span>
+      <span class="prod-tag">Data Fabric Integration</span>
+    </div>
+    <div class="brand-stats">
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Accounts with genuine storage play</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Post-M&A integration triggers</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Product-cycle trigger (MinePlan R1)</div>
+      </div>
+    </div>
+    <div style="margin-top:16px;">
+      <div class="scope-callout" style="margin:0;max-width:100%;">
+        <strong>Why only 3, not 26 accounts:</strong> Storage is a niche first-call play in the South Florida mid-market. Most accounts here are PE-backed, mid-market, or services businesses — they don't have the on-premise data volume, infrastructure footprint, or geospatial/industrial data scale that drives enterprise Storage conversations. The remaining 23 accounts are better entered through <strong>Data &amp; AI</strong>. Hexagon Mining (MinePlan volumes), Dycom (record backlog project data), and MasTec ($1.65B acquisition data integration) are the three with a credible first-call IBM Storage story.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PAGE NAV ── -->
+<div class="page-nav">
+  <div class="page-nav-inner">
+    <a class="pnav-pill" href="phase3-data-ai.html">📊 Data &amp; AI</a>
+    <a class="pnav-pill" href="phase3-automation.html">⚙️ Automation</a>
+    <span class="pnav-pill active">💾 Storage</span>
+    <a class="pnav-pill" href="phase3-power-cloud.html">🖥 Power &amp; Hybrid Cloud</a>
+  </div>
+</div>
+
+<!-- ── MAIN ── -->
+<div class="main">
+
+  <div class="section-label">All Storage Accounts — July 19, 2026</div>
+
+  <!-- 1. HEXAGON MINING -->
+  <div class="acct-card-full">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">1</div>
+        <div>
+          <div class="card-acct-name">Hexagon Mining</div>
+          <div class="card-acct-sub">Division of Hexagon AB · Mining Technology Software · Global · MinePlan Platform</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <span class="badge badge-existing">Existing</span>
+        <span class="badge badge-high">● High Signal</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">What's Happening</div>
+        <div class="col-trigger">
+          <strong>MinePlan 2026 Release 1 just launched</strong> — Scenario Management in Schedule Optimiser 14.5 is live. Copper at <strong>$6.13/lb</strong> is driving record capex at major mining operators (Hexagon's customers). 5x Mining Magazine Award shortlist nominations. Product momentum at record high.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Your Storage Angle</div>
+        <div class="col-ask">
+          MinePlan Scenario Management generates <strong>massive geospatial data volumes</strong> — the Schedule Optimiser data pipeline grows with every new customer deployment. <strong>IBM Storage Scale</strong> is the high-throughput backbone for mining analytics workloads. IBM Data Fabric governs the cross-domain data architecture (autonomy + planning + safety + ESG). With copper-price-driven capex expansion, Hexagon's client budgets are open now.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Who to Contact</div>
+        <div class="persona-chips">
+          <span class="persona-chip primary">CIO / Mining Ops Lead</span>
+          <span class="persona-chip primary">Fleet Analytics Manager</span>
+          <span class="persona-chip">Safety Tech Lead</span>
+          <span class="persona-chip">Autonomy Engineer</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags">
+        <span class="play-tag">IBM Storage Scale</span>
+        <span class="play-tag">Data Fabric</span>
+        <span class="play-tag">MinePlan Data Pipeline</span>
+        <span class="play-tag">ESG Reporting</span>
+      </div>
+      <a class="card-link" href="phase2.html#hexmin">Full Intel Brief →</a>
+    </div>
+  </div>
+
+  <!-- 2. DYCOM -->
+  <div class="acct-card-full">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">2</div>
+        <div>
+          <div class="card-acct-name">Dycom Industries Inc.</div>
+          <div class="card-acct-sub">NYSE: DY · Telecom Infrastructure Contractor · Palm Beach Gardens, FL · Backlog $11.9B</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <span class="badge badge-new">✦ New Account</span>
+        <span class="badge badge-high">● High Signal</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">What's Happening</div>
+        <div class="col-trigger">
+          Q1 FY2027 revenue <strong>+56% YoY</strong>. Record backlog <strong>$11.9B (+46.5% YoY)</strong>. FY2027 guidance raised to $7.38–$7.65B. <strong>$275M data center acquisition</strong> closed — adding an entirely new segment with different infrastructure than telecom construction. CEO: "generational opportunities across the business."
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Your Storage Angle</div>
+        <div class="col-ask">
+          Record backlog = record data volume. Dycom is generating more field operations, billing, and project analytics data than at any point in history. <strong>IBM Storage</strong> is the enterprise backbone for this scale. The <strong>$275M data center acquisition</strong> adds a second data infrastructure type — telecom construction + data center operations = two different storage architectures that IBM can unify. CFO is receptive: stock +25% post-earnings.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Who to Contact</div>
+        <div class="persona-chips">
+          <span class="persona-chip primary">CIO / IT Systems Admin</span>
+          <span class="persona-chip primary">Integration Lead</span>
+          <span class="persona-chip">CFO / FP&amp;A Director</span>
+          <span class="persona-chip">Project Data Manager</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags">
+        <span class="play-tag">IBM Storage</span>
+        <span class="play-tag">Data Fabric</span>
+        <span class="play-tag">Post-M&amp;A Integration</span>
+        <span class="play-tag">Field Ops Data Scale</span>
+      </div>
+      <a class="card-link" href="phase2.html#dycom">Full Intel Brief →</a>
+    </div>
+  </div>
+
+  <!-- 3. MASTEC -->
+  <div class="acct-card-full">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">3</div>
+        <div>
+          <div class="card-acct-name">MasTec Inc.</div>
+          <div class="card-acct-sub">NYSE: MTZ · Infrastructure Construction · Coral Gables, FL · $17.5B FY2026 Guidance · Record Backlog $20.3B</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <span class="badge badge-new">✦ New Account</span>
+        <span class="badge badge-high">● High Signal</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">What's Happening</div>
+        <div class="col-trigger">
+          <strong>$1.65B Superior Plus acquisition closed July 7</strong> — post-acquisition IT integration is live right now. Five-segment business (telecom, energy, pipeline, clean energy, <strong>fuel distribution</strong>) with a record <strong>$20.3B backlog (+$4.4B YoY)</strong>. Revenue +34.5% YoY. Integration lead roles open now — the data architecture merge is in progress.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Your Storage Angle</div>
+        <div class="col-ask">
+          Record $20.3B backlog at project-data level = thousands of active sites generating billing, field crew, compliance, and project-status data simultaneously. <strong>IBM Storage</strong> is the enterprise backbone for this scale. The Superior Plus acquisition added fuel distribution infrastructure — a fundamentally different data model than telecom construction. <strong>IBM Storage + Data Fabric</strong> unifies the two. The integration window is open right now — engage this week.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Who to Contact</div>
+        <div class="persona-chips">
+          <span class="persona-chip primary">CIO / Integration Lead</span>
+          <span class="persona-chip primary">Field Ops IT Manager</span>
+          <span class="persona-chip">CFO / FP&amp;A Director</span>
+          <span class="persona-chip">Project Data Manager</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags">
+        <span class="play-tag">IBM Storage</span>
+        <span class="play-tag">Data Fabric</span>
+        <span class="play-tag">Post-Acquisition Integration</span>
+        <span class="play-tag">Record Backlog Scale</span>
+      </div>
+      <a class="card-link" href="phase2.html#page-mastec">Full Intel Brief →</a>
+    </div>
+  </div>
+
+  <!-- RESOURCE STRIP -->
+  <div class="resource-strip">
+    <div class="resource-strip-title">Storage — Seller Resources (William)</div>
+    <div class="resource-grid">
       <div>
-        <h1>Storage</h1>
-        <p>8 primary accounts · IBM FlashSystem, IBM Spectrum Scale, IBM Tape, IBM Storage Defender · July 19, 2026</p>
+        <div class="resource-item-label">Discovery Question (works across all Storage accounts)</div>
+        <div class="resource-item-text">"As your project data, field operations data, and acquisition integration data grows — what does your storage infrastructure look like today, and where are you hitting capacity or performance limits?"</div>
+      </div>
+      <div>
+        <div class="resource-item-label">South Florida Territory Pitch (30 seconds)</div>
+        <div class="resource-item-text">"South Florida's infrastructure companies are growing faster than their data infrastructure can keep up with. <strong>IBM Storage</strong> is purpose-built for the kind of record-scale backlog data, geospatial mining data, and post-acquisition consolidation that these three accounts are dealing with right now — and IBM Data Fabric connects it all into a single governed analytics layer."</div>
       </div>
     </div>
   </div>
 
-  <div class="cards-section">
-    <span class="section-label">Primary Plays — 8 Accounts</span>
+</div>
 
-    <!-- NCLH -->
-    <div class="acct-card" id="nclh">
-      <div class="card-header">
-        <div class="card-name">Norwegian Cruise Line Holdings</div>
-        <div class="card-badges">
-          <span class="badge-existing">Existing</span>
-          <div class="signal-dots"><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot off"></span><span class="dot off"></span></div>
-          <span class="cadence-tag">Week 2</span>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Fleet-wide IoT sensors on new Oceania ships generating petabyte-scale data — existing SAN infrastructure hitting capacity; new CIO evaluating modernization.</span></div>
-      <div class="card-talk"><p class="talk-quote">"The IoT data from new Oceania ships is going to overwhelm a traditional SAN within 18 months — IBM FlashSystem's NVMe all-flash with inline deduplication is the fastest path to handling that scale without a rip-and-replace."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">IBM FlashSystem</span><span class="product-tag secondary">IBM Spectrum Scale</span>
-        <span class="who-label">WHO:</span>
-        <span class="persona-pill">CIO</span><span class="persona-pill">VP Infrastructure</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#nclh">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/company/2297" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-    <!-- Citco -->
-    <div class="acct-card" id="citco">
-      <div class="card-header">
-        <div class="card-name">Citco Group</div>
-        <div class="card-badges">
-          <span class="badge-existing">Existing</span>
-          <div class="signal-dots"><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot off"></span></div>
-          <span class="cadence-tag">Week 3</span>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">$1T+ AUM fund admin with SEC data retention requirements — 7-year immutable record mandate, WORM storage compliance deadline Q3 2026.</span></div>
-      <div class="card-talk"><p class="talk-quote">"Citco's SEC 7-year immutable record requirement is exactly what IBM Tape's WORM capability and Storage Defender's cyber-resilience layer are built for — we can have a compliant architecture in front of you within the week."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">IBM Tape</span><span class="product-tag">IBM Storage Defender</span>
-        <span class="who-label">WHO:</span>
-        <span class="persona-pill">CTO</span><span class="persona-pill">Chief Compliance Officer</span><span class="persona-pill">VP Infrastructure</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#citco">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/company/3113" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-    <!-- HEICO — NEW -->
-    <div class="acct-card" id="heico">
-      <div class="card-header">
-        <div class="card-name new">HEICO Corporation</div>
-        <div class="card-badges">
-          <span class="badge-new">✦ New</span>
-          <div class="signal-dots"><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot off"></span></div>
-          <span class="cadence-tag">Week 2</span>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">FAA and DOD traceability mandates require immutable part-history storage — HEICO's 3,000+ PMA part numbers each require full lifecycle data retention for airworthiness.</span></div>
-      <div class="card-talk"><p class="talk-quote">"FAA part-history traceability for 3,000+ PMA SKUs is a perfect use case for IBM Tape's cost-efficient WORM archive paired with FlashSystem for active retrieval — it's the architecture Boeing and Raytheon use for the same requirement."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">IBM Tape</span><span class="product-tag">IBM FlashSystem</span>
-        <span class="who-label">WHO:</span>
-        <span class="persona-pill">CIO</span><span class="persona-pill">VP Quality Assurance</span><span class="persona-pill">Chief Compliance Officer</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#heico">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/search/company?keywords=HEICO+Corporation" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-    <!-- Chewy — NEW -->
-    <div class="acct-card" id="chewy">
-      <div class="card-header">
-        <div class="card-name new">Chewy Inc.</div>
-        <div class="card-badges">
-          <span class="badge-new">✦ New</span>
-          <div class="signal-dots"><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot off"></span><span class="dot off"></span></div>
-          <span class="cadence-tag">Week 2</span>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Chewy's new fulfillment center expansion doubling on-prem storage footprint — petabyte-scale product image and order history data growing 40% YoY.</span></div>
-      <div class="card-talk"><p class="talk-quote">"Chewy's fulfillment expansion and 40% YoY data growth is exactly the inflection point where IBM FlashSystem's scale-out architecture pays for itself in 18 months — I can model the TCO against your current environment."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">IBM FlashSystem</span><span class="product-tag secondary">IBM Storage Defender</span>
-        <span class="who-label">WHO:</span>
-        <span class="persona-pill">VP Infrastructure</span><span class="persona-pill">CTO</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#page-chewy">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/company/3497540" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-    <!-- Memorial Healthcare — NEW -->
-    <div class="acct-card" id="memorial">
-      <div class="card-header">
-        <div class="card-name new">Memorial Healthcare System</div>
-        <div class="card-badges">
-          <span class="badge-new">✦ New</span>
-          <div class="signal-dots"><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot off"></span></div>
-          <span class="cadence-tag">Week 1</span>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">HIPAA-compliant medical imaging storage — Epic migration generating DICOM archive refresh need; Memorial's 7-hospital network stores 40TB+ of imaging data annually.</span></div>
-      <div class="card-talk"><p class="talk-quote">"Memorial's Epic migration is the right moment to modernize your DICOM archive — IBM FlashSystem with Storage Defender's ransomware protection gives you HIPAA-compliant imaging storage that's also recoverable in under 4 hours after any incident."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">IBM FlashSystem</span><span class="product-tag">IBM Storage Defender</span><span class="product-tag secondary">IBM Tape</span>
-        <span class="who-label">WHO:</span>
-        <span class="persona-pill">CIO</span><span class="persona-pill">VP Infrastructure</span><span class="persona-pill">CISO</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#page-memorial">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/company/15052" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-    <!-- SBHD — NEW -->
-    <div class="acct-card" id="sbhd">
-      <div class="card-header">
-        <div class="card-name new">South Broward Hospital District</div>
-        <div class="card-badges">
-          <span class="badge-new">✦ New</span>
-          <div class="signal-dots"><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot off"></span><span class="dot off"></span></div>
-          <span class="cadence-tag">Week 2</span>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Florida Medicaid audit requirements expanding to include 10-year patient record retention — SBHD's current tape environment aging out of support in 2027.</span></div>
-      <div class="card-talk"><p class="talk-quote">"With SBHD's current tape hitting end-of-support in 2027 and Medicaid now requiring 10-year patient record retention, this is the year to get ahead of the refresh — IBM Tape's LTO-9 drives cut your cost-per-GB by 40% versus your current environment."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">IBM Tape</span><span class="product-tag secondary">IBM Storage Defender</span>
-        <span class="who-label">WHO:</span>
-        <span class="persona-pill">CIO</span><span class="persona-pill">VP Infrastructure</span><span class="persona-pill">CFO</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#page-sbhd">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/company/164682" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-    <!-- H.I.G. Capital — NEW -->
-    <div class="acct-card" id="hig">
-      <div class="card-header">
-        <div class="card-name new">H.I.G. Capital</div>
-        <div class="card-badges">
-          <span class="badge-new">✦ New</span>
-          <div class="signal-dots"><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot off"></span><span class="dot off"></span></div>
-          <span class="cadence-tag">Week 3</span>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">H.I.G. portfolio M&amp;A activity creating rapid data consolidation needs — each new acquisition adds heterogeneous storage infrastructure that must be unified for LP reporting.</span></div>
-      <div class="card-talk"><p class="talk-quote">"Every acquisition H.I.G. closes adds another storage island to harmonize for LP reporting — IBM Spectrum Scale's unified namespace means your team can federate new portfolio company data without migrating it, cutting integration time from months to weeks."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">IBM Spectrum Scale</span><span class="product-tag secondary">IBM Storage Defender</span>
-        <span class="who-label">WHO:</span>
-        <span class="persona-pill">Managing Director IT</span><span class="persona-pill">VP Infrastructure</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#hig">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/company/28523" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-    <!-- Hexagon Mining — NEW -->
-    <div class="acct-card" id="hexmin">
-      <div class="card-header">
-        <div class="card-name new">Hexagon Mining</div>
-        <div class="card-badges">
-          <span class="badge-new">✦ New</span>
-          <div class="signal-dots"><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot off"></span><span class="dot off"></span></div>
-          <span class="cadence-tag">Week 2</span>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Edge-to-cloud storage for autonomous mining equipment telemetry — Hexagon Mining's sensor data from autonomous haul trucks running 24/7 requires ruggedized edge storage and central archive.</span></div>
-      <div class="card-talk"><p class="talk-quote">"Hexagon Mining's autonomous haul truck telemetry is one of the highest-velocity edge data challenges in heavy industry — IBM FlashSystem at the edge paired with Spectrum Scale for central archive is the architecture Rio Tinto and BHP use for the same problem."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">IBM FlashSystem</span><span class="product-tag">IBM Spectrum Scale</span>
-        <span class="who-label">WHO:</span>
-        <span class="persona-pill">CTO</span><span class="persona-pill">VP Technology</span><span class="persona-pill">VP Operations</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#hexmin">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/search/company?keywords=Hexagon+Mining" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-    <!-- Supporting -->
-    <span class="section-label supporting" id="support-stor">Supporting Plays — Storage Angle</span>
-
-    <div class="acct-card supporting-card">
-      <div class="card-header">
-        <div class="card-name">Icahn Enterprises</div>
-        <div class="card-badges">
-          <span class="badge-support">Supporting</span>
-          <div class="signal-dots"><span class="dot on-stor"></span><span class="dot on-stor"></span><span class="dot off"></span><span class="dot off"></span><span class="dot off"></span></div>
-        </div>
-      </div>
-      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Holding company financial records retention — 10+ subsidiaries with disparate storage, SEC mandate for 7-year unified retention.</span></div>
-      <div class="card-talk"><p class="talk-quote">"Icahn's 10+ subsidiary storage sprawl is a Storage Defender consolidation story — unified ransomware protection and WORM compliance in one platform."</p></div>
-      <div class="card-meta">
-        <span class="product-tag">IBM Storage Defender</span>
-        <span class="who-label">WHO:</span><span class="persona-pill">CTO</span><span class="persona-pill">CFO</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn-intel" href="phase2.html#icahn">Full Intel →</a>
-        <a class="btn-snav" href="https://www.linkedin.com/sales/company/12432" target="_blank">Open Sales Navigator ↗</a>
-      </div>
-    </div>
-
-  </div><!-- /cards-section -->
-
-  <div class="brand-bottom-strip">
-    <div class="strip-item"><label>Brand</label><span>Storage</span></div>
-    <div class="strip-item"><label>Primary Accounts</label><span>8 accounts</span></div>
-    <div class="strip-item"><label>Key Products</label><span>IBM FlashSystem · IBM Tape · IBM Spectrum Scale · IBM Storage Defender</span></div>
-    <div class="strip-item"><label>Edition</label><span>SE Horizon — Phase 3 · July 19, 2026</span></div>
-  </div>
-
-</div><!-- /page-wrap -->
-
-<footer class="page-footer">
-  <div class="footer-brand"><span>IBM</span> SE Horizon · Phase 3 — Storage</div>
-  <div class="footer-made">Made with IBM Bob · July 2026</div>
+<footer>
+  SE Horizon · Phase 3 · Storage Brand View · William · IBM South Florida SE Team · July 19, 2026
+  <br /><br />
+  <span style="font-size:10px;color:#bbb;border-top:1px solid #e5e7eb;display:inline-block;padding-top:8px;margin-top:4px">Made with IBM Bob</span>
 </footer>
 
 </body>
