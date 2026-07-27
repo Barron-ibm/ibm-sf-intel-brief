@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE Horizon | Phase 3 — Automation | July 19, 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;background:#0f1c3a;color:#1f2328;}
+a{text-decoration:none;}
+.sticky-top{position:sticky;top:0;z-index:100;}
+.top-nav{background:#161616;border-bottom:2px solid #42be65;display:flex;align-items:center;overflow-x:auto;white-space:nowrap;scrollbar-width:thin;scrollbar-color:#42be65 #161616;}
+.top-nav::-webkit-scrollbar{height:3px;}
+.top-nav::-webkit-scrollbar-thumb{background:#42be65;}
+.top-nav a{display:inline-block;font-size:10px;font-weight:700;color:rgba(255,255,255,0.65);padding:10px 13px;border-bottom:3px solid transparent;margin-bottom:-2px;letter-spacing:0.3px;white-space:nowrap;}
+.top-nav a:hover{color:#fff;}
+.top-nav a.active{color:#6ee08a;border-bottom-color:#42be65;}
+.brand-tab-bar{background:#1a1a2e;border-bottom:2px solid #0a0a18;display:flex;overflow-x:auto;white-space:nowrap;scrollbar-width:none;}
+.brand-tab-bar::-webkit-scrollbar{display:none;}
+.brand-tab-bar a{display:inline-block;font-size:10px;font-weight:700;color:rgba(255,255,255,0.5);padding:8px 16px;border-bottom:3px solid transparent;margin-bottom:-2px;letter-spacing:0.5px;white-space:nowrap;}
+.brand-tab-bar a.tab-auto{color:#6ee08a;border-bottom-color:#42be65;background:rgba(66,190,101,0.12);}
+.brand-tab-bar a:hover{color:#fff;}
+.acct-nav{background:#161616;border-bottom:2px solid #222;display:flex;overflow-x:auto;white-space:nowrap;scrollbar-width:thin;scrollbar-color:#333 #161616;padding:0 8px;}
+.acct-nav::-webkit-scrollbar{height:3px;}
+.acct-nav::-webkit-scrollbar-thumb{background:#444;}
+.acct-nav a{display:inline-block;font-size:9.5px;font-weight:600;color:rgba(255,255,255,0.5);padding:7px 11px;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-2px;}
+.acct-nav a:hover{color:#fff;}
+.acct-nav a.nav-new{color:#6ee08a;}
+.acct-nav a.nav-support{color:rgba(255,255,255,0.35);font-style:italic;}
+.page-wrap{max-width:900px;margin:0 auto 40px;}
+.brand-hero{background:#0f1c3a;padding:20px 28px 16px;border-bottom:3px solid #42be65;}
+.brand-hero-inner{display:flex;align-items:center;gap:16px;}
+.brand-color-dot{width:18px;height:18px;border-radius:50%;background:#42be65;flex-shrink:0;}
+.brand-hero h1{font-size:20px;font-weight:900;color:#fff;letter-spacing:-0.3px;}
+.brand-hero p{font-size:11.5px;color:rgba(255,255,255,0.65);margin-top:3px;}
+.brand-bottom-strip{background:#0a1628;border-top:2px solid #42be65;padding:14px 28px;display:flex;gap:24px;flex-wrap:wrap;}
+.strip-item label{font-size:8.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#6ee08a;display:block;margin-bottom:3px;}
+.strip-item span{font-size:11.5px;color:rgba(255,255,255,0.8);font-style:italic;}
+.section-label{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#fff;background:#42be65;padding:4px 10px;border-radius:3px;display:inline-block;margin:16px 0 8px;}
+.section-label.supporting{background:#444;}
+.cards-section{padding:0 16px 16px;}
+.acct-card{background:#fff;border-radius:5px;margin-bottom:14px;box-shadow:0 2px 14px rgba(0,0,0,0.22);overflow:hidden;scroll-margin-top:152px;}
+.acct-card.supporting-card{opacity:0.8;border:2px dashed #c0c6d4;}
+.card-header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px 10px;border-bottom:1px solid #f0f2f5;gap:12px;}
+.card-name{font-size:15px;font-weight:900;color:#42be65;flex:1;}
+.card-name.new{color:#1a7a3a;}
+.card-badges{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.badge-new{font-size:8px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;background:#e6f4ec;border:1px solid #a3d4b5;color:#1a6b3a;padding:2px 6px;border-radius:2px;}
+.badge-existing{font-size:8px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;background:#edfbf1;border:1px solid #a3d4b5;color:#1a6b3a;padding:2px 6px;border-radius:2px;}
+.badge-support{font-size:8px;font-weight:800;letter-spacing:0.5px;background:#f7f8fa;border:1px solid #d0d7de;color:#57606a;padding:2px 6px;border-radius:2px;}
+.signal-dots{display:flex;gap:2px;align-items:center;}
+.dot{width:9px;height:9px;border-radius:50%;}
+.dot.on-auto{background:#42be65;}
+.dot.off{background:#e5e7eb;}
+.cadence-tag{font-size:8px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;background:#0d2218;color:#6ee08a;padding:2px 7px;border-radius:2px;}
+.card-trigger{padding:8px 18px;background:#f3fbf6;border-bottom:1px solid #d6f0e0;display:flex;gap:8px;align-items:flex-start;}
+.trigger-label{font-size:8.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#1a7a3a;background:#d6f0e0;padding:3px 8px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:1px;}
+.trigger-text{font-size:11.5px;color:#1f2328;line-height:1.5;}
+.card-talk{padding:10px 18px;border-bottom:1px solid #f0f2f5;}
+.talk-quote{font-size:11.5px;color:#1f2328;font-style:italic;line-height:1.7;border-left:3px solid #42be65;padding-left:10px;}
+.card-meta{padding:8px 18px 10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-bottom:1px solid #f0f2f5;}
+.product-tag{font-size:9px;font-weight:700;letter-spacing:0.3px;background:#42be65;color:#fff;padding:3px 8px;border-radius:2px;}
+.product-tag.secondary{background:#1a3a22;}
+.who-label{font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#57606a;margin-right:2px;}
+.persona-pill{font-size:9.5px;font-weight:600;color:#1a7a3a;border:1px solid rgba(66,190,101,0.35);padding:2px 8px;border-radius:99px;background:#edfbf1;}
+.card-actions{padding:9px 18px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.btn-intel{display:inline-flex;align-items:center;gap:4px;background:#edfbf1;color:#1a7a3a;font-size:9px;font-weight:800;letter-spacing:0.8px;text-transform:uppercase;padding:6px 12px;border-radius:3px;border:1px solid #a3d4b5;}
+.btn-snav{display:inline-flex;align-items:center;gap:4px;background:#42be65;color:#fff;font-size:9px;font-weight:800;letter-spacing:0.8px;text-transform:uppercase;padding:6px 12px;border-radius:3px;}
+.page-footer{background:#f7f8fa;border-top:1px solid #e5e7eb;padding:10px 28px;display:flex;justify-content:space-between;align-items:center;max-width:900px;margin:0 auto;}
+.footer-brand{font-size:11px;font-weight:700;color:#1f2328;}
+.footer-brand span{color:#42be65;}
+.footer-made{font-size:10px;color:#aab0b8;}
+@media(max-width:680px){.brand-hero-inner{flex-direction:column;align-items:flex-start;}.card-header{flex-direction:column;align-items:flex-start;}}
+@media print{
+  .sticky-top{position:static;}
+  .btn-snav,.btn-intel{display:none;}
+  body{background:#fff;}
+  .acct-card{box-shadow:none;border:1px solid #ddd;page-break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+
+<div class="sticky-top">
+  <nav class="top-nav">
+    <a href="phase3.html">◂ Phase 3 Home</a>
+    <a href="phase2.html">Phase 2</a>
+    <a href="phase3-data-ai.html">Data &amp; AI</a>
+    <a href="phase3-automation.html" class="active">Automation</a>
+    <a href="phase3-storage.html">Storage</a>
+    <a href="phase3-power-cloud.html">Power &amp; Hybrid Cloud</a>
+  </nav>
+  <div class="brand-tab-bar">
+    <a href="phase3-data-ai.html">🔵 DATA &amp; AI</a>
+    <a href="phase3-automation.html" class="tab-auto">🟢 AUTOMATION</a>
+    <a href="phase3-storage.html">🟣 STORAGE</a>
+    <a href="phase3-power-cloud.html">🟡 POWER &amp; HYBRID CLOUD</a>
+  </div>
+  <nav class="acct-nav">
+    <a href="#sgws">SGWS</a>
+    <a href="#nclh">NCLH</a>
+    <a href="#jmf">JM Family</a>
+    <a href="#bk" class="nav-new">Burger King ✦</a>
+    <a href="#mastec" class="nav-new">MasTec ✦</a>
+    <a href="#ansco" class="nav-new">ANSCO ✦</a>
+    <a href="#dycom" class="nav-new">Dycom ✦</a>
+    <a href="#odp" class="nav-new">ODP ✦</a>
+    <a href="#chewy" class="nav-new">Chewy ✦</a>
+    <a href="#kforce" class="nav-new">Kforce ✦</a>
+    <a href="#frontline" class="nav-new">Frontline ✦</a>
+    <a href="#support-auto" class="nav-support">▾ Supporting</a>
+  </nav>
+</div>
+
+<div class="page-wrap">
+  <div class="brand-hero">
+    <div class="brand-hero-inner">
+      <div class="brand-color-dot"></div>
+      <div>
+        <h1>Automation</h1>
+        <p>11 primary accounts · IBM Process Mining, Watson Orchestrate, Instana, Turbonomic, RPA · July 19, 2026</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cards-section">
+    <span class="section-label">Primary Plays — 11 Accounts</span>
+
+    <!-- SGWS -->
+    <div class="acct-card" id="sgws">
+      <div class="card-header">
+        <div class="card-name">Southern Glazer's Wine &amp; Spirits</div>
+        <div class="card-badges">
+          <span class="badge-existing">Existing</span>
+          <div class="signal-dots"><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 2</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Order-to-cash cycle at a $26B distributor runs through 5+ manual handoff points — IBM Process Mining revealed 34% of orders require human exception handling.</span></div>
+      <div class="card-talk"><p class="talk-quote">"At a distributor your size, IBM Process Mining typically surfaces 30–40% of order-to-cash steps that are prime RPA candidates — one pilot at a similar beverage company cut DSO by 8 days."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">IBM Process Mining</span><span class="product-tag">Watson Orchestrate</span><span class="product-tag secondary">RPA</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">COO</span><span class="persona-pill">VP Operations</span><span class="persona-pill">CIO</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#sgws">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/10408" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- NCLH -->
+    <div class="acct-card" id="nclh">
+      <div class="card-header">
+        <div class="card-name">Norwegian Cruise Line Holdings</div>
+        <div class="card-badges">
+          <span class="badge-existing">Existing</span>
+          <div class="signal-dots"><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot off"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 2</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Fleet operations across 3 brands (NCL, Oceania, Regent) running on siloed ticketing and crew scheduling systems — new CIO's 100-day plan targets IT consolidation.</span></div>
+      <div class="card-talk"><p class="talk-quote">"Running crew scheduling and ticketing across NCL, Oceania, and Regent in silos is a classic Turbonomic use case — we've helped multi-brand hospitality operators cut IT ops cost 22% while improving SLAs for guest-facing systems."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">Turbonomic</span><span class="product-tag">Instana</span><span class="product-tag secondary">Watson Orchestrate</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CIO</span><span class="persona-pill">VP IT Operations</span><span class="persona-pill">Chief Digital Officer</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#nclh">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/2297" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- JM Family -->
+    <div class="acct-card" id="jmf">
+      <div class="card-header">
+        <div class="card-name">JM Family Enterprises</div>
+        <div class="card-badges">
+          <span class="badge-existing">Existing</span>
+          <div class="signal-dots"><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot off"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 1</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">JM Family's dealer technology arm (JM&amp;A Group) processing 1M+ F&amp;I contracts annually — manual compliance checks a bottleneck; new VP Operations hired Q1 2026.</span></div>
+      <div class="card-talk"><p class="talk-quote">"JM&amp;A Group's F&amp;I compliance review process at 1M+ contracts per year is textbook IBM Process Mining territory — the new VP Ops is exactly the right entry point for a process discovery workshop."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">IBM Process Mining</span><span class="product-tag secondary">Watson Orchestrate</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">VP Operations</span><span class="persona-pill">CIO</span><span class="persona-pill">Chief Compliance Officer</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#jmf">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/5765" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- Burger King / RBI — NEW -->
+    <div class="acct-card" id="bk">
+      <div class="card-header">
+        <div class="card-name new">Burger King / Restaurant Brands International</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span></div>
+          <span class="cadence-tag">Week 1</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">RBI's "Reclaim the Flame" $400M franchisee remodel plan — 800+ restaurant IT refresh in 2026 driving need for automated store-ops monitoring and IT observability at scale.</span></div>
+      <div class="card-talk"><p class="talk-quote">"The 'Reclaim the Flame' remodel program means 800+ stores getting new tech this year — Instana's automated observability and Turbonomic's resource management can give your IT team a single pane of glass without adding headcount."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">Instana</span><span class="product-tag">Turbonomic</span><span class="product-tag secondary">IBM Process Mining</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CTO</span><span class="persona-pill">VP Restaurant Technology</span><span class="persona-pill">CIO</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#bk">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/166764" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- MasTec — NEW -->
+    <div class="acct-card" id="mastec">
+      <div class="card-header">
+        <div class="card-name new">MasTec Inc.</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 2</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">MasTec's $12B backlog across telecom, renewable energy, and pipeline — project management automation and workforce scheduling AI are the COO's stated 2026 priorities.</span></div>
+      <div class="card-talk"><p class="talk-quote">"With a $12B backlog across three verticals, MasTec's workforce scheduling complexity is a perfect fit for Watson Orchestrate — it can automate the crew dispatch workflows that are eating your project managers' time right now."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">Watson Orchestrate</span><span class="product-tag">IBM Process Mining</span><span class="product-tag secondary">Turbonomic</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">COO</span><span class="persona-pill">CIO</span><span class="persona-pill">VP IT</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#page-mastec">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/5350" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- ANSCO — NEW -->
+    <div class="acct-card" id="ansco">
+      <div class="card-header">
+        <div class="card-name new">ANSCO &amp; Associates</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot off"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 1</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">ANSCO managing $2B+ construction pipeline with manual bid and subcontractor workflows — VP IT confirmed digital operations is the 2026 budget priority.</span></div>
+      <div class="card-talk"><p class="talk-quote">"ANSCO's $2B pipeline managed through manual bid workflows is exactly where IBM Process Mining finds the quick wins — most construction GCs we work with automate 3–4 key processes in the first 60 days."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">IBM Process Mining</span><span class="product-tag secondary">Watson Orchestrate</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">VP IT</span><span class="persona-pill">COO</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#ansco">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/880528" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- Dycom — NEW -->
+    <div class="acct-card" id="dycom">
+      <div class="card-header">
+        <div class="card-name new">Dycom Industries</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 2</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">BEAD broadband contracts require real-time permit and milestone reporting to DOT/state agencies — manual compliance reporting is a contractual risk for Dycom.</span></div>
+      <div class="card-talk"><p class="talk-quote">"BEAD contract compliance requires milestone reporting to state DOTs that's nearly impossible to do manually at Dycom's scale — Watson Orchestrate can automate those government reporting workflows and keep you audit-clean."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">Watson Orchestrate</span><span class="product-tag">IBM Process Mining</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CIO</span><span class="persona-pill">VP Compliance</span><span class="persona-pill">VP Operations</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#dycom">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/19434" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- ODP — NEW -->
+    <div class="acct-card" id="odp">
+      <div class="card-header">
+        <div class="card-name new">Office Depot / ODP Corporation</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot off"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 2</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">1,000+ store closures plus B2B pivot creating mass IT decommission workflows — ODP needs automated asset disposal and system migration orchestration.</span></div>
+      <div class="card-talk"><p class="talk-quote">"ODP's store closure program is generating an IT decommission workload that's nearly impossible to manage manually — Turbonomic and Watson Orchestrate together can automate the asset migration and disposal workflows so your team focuses on the B2B pivot."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">Turbonomic</span><span class="product-tag">Watson Orchestrate</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CIO</span><span class="persona-pill">VP IT Operations</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#page-odp">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/3492" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- Chewy — NEW -->
+    <div class="acct-card" id="chewy">
+      <div class="card-header">
+        <div class="card-name new">Chewy Inc.</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 2</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Chewy's 20M+ autoship orders per month require automated inventory replenishment and supplier API orchestration — fulfillment center expansion in 2026 magnifying complexity.</span></div>
+      <div class="card-talk"><p class="talk-quote">"Chewy's autoship model at 20M+ orders monthly is one of the most automation-intensive supply chains in retail — Instana's APM and IBM Process Mining can show you exactly where your fulfillment automation is breaking down before customers notice."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">Instana</span><span class="product-tag">IBM Process Mining</span><span class="product-tag secondary">Watson Orchestrate</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CTO</span><span class="persona-pill">VP Supply Chain</span><span class="persona-pill">VP Engineering</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#page-chewy">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/3497540" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- Kforce — NEW -->
+    <div class="acct-card" id="kforce">
+      <div class="card-header">
+        <div class="card-name new">Kforce Inc.</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot off"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 1</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Recruiter workflow automation — Kforce's 2,000+ recruiters managing candidate pipelines across ATS, CRM, and email; estimated 40% of recruiter time on manual status updates.</span></div>
+      <div class="card-talk"><p class="talk-quote">"If 40% of recruiter time is on manual status updates, Watson Orchestrate's workflow automation can reclaim that capacity and redirect it to actual candidate relationships — we've seen 25%+ productivity lift at staffing firms your size."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">Watson Orchestrate</span><span class="product-tag secondary">IBM Process Mining</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CTO</span><span class="persona-pill">VP Technology</span><span class="persona-pill">Chief People Officer</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#kforce">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/18877" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- Frontline Insurance — NEW -->
+    <div class="acct-card" id="frontline">
+      <div class="card-header">
+        <div class="card-name new">Frontline Insurance</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot on-auto"></span></div>
+          <span class="cadence-tag">Week 1</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Florida insurance market crisis — Frontline doubling down on automation to survive Florida's ongoing reinsurance crunch; claims automation is a survival imperative post-2024 hurricane season.</span></div>
+      <div class="card-talk"><p class="talk-quote">"Florida's reinsurance environment means Frontline's claims unit has to process faster with less margin — IBM Process Mining has helped regional carriers find 50%+ of claims handling steps that can be automated without touching your policy system."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">IBM Process Mining</span><span class="product-tag">Watson Orchestrate</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">COO</span><span class="persona-pill">Chief Claims Officer</span><span class="persona-pill">CIO</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#page-frontline">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/search/company?keywords=Frontline+Insurance" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- ═══ SUPPORTING PLAYS ═══ -->
+    <span class="section-label supporting" id="support-auto">Supporting Plays — Automation Angle</span>
+
+    <!-- Hexagon Federal (Supporting) -->
+    <div class="acct-card supporting-card">
+      <div class="card-header">
+        <div class="card-name">Hexagon Federal</div>
+        <div class="card-badges">
+          <span class="badge-support">Supporting</span>
+          <div class="signal-dots"><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot off"></span><span class="dot off"></span><span class="dot off"></span></div>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">FedRAMP-authorized automation for geospatial data pipelines — government contract compliance requiring automated audit trails.</span></div>
+      <div class="card-talk"><p class="talk-quote">"Hexagon Federal's geospatial pipeline compliance needs are a natural fit for Watson Orchestrate's FedRAMP-ready automation — worth a 15-minute scoping call?"</p></div>
+      <div class="card-meta">
+        <span class="product-tag">Watson Orchestrate</span>
+        <span class="who-label">WHO:</span><span class="persona-pill">CTO</span><span class="persona-pill">VP Programs</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#hexfed">Full Intel →</a>
+      </div>
+    </div>
+
+    <!-- Memorial Healthcare (Supporting) -->
+    <div class="acct-card supporting-card">
+      <div class="card-header">
+        <div class="card-name">Memorial Healthcare System</div>
+        <div class="card-badges">
+          <span class="badge-support">Supporting</span>
+          <div class="signal-dots"><span class="dot on-auto"></span><span class="dot on-auto"></span><span class="dot off"></span><span class="dot off"></span><span class="dot off"></span></div>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Epic migration creating prior auth and revenue cycle automation window — clinical workflow bottlenecks well-documented.</span></div>
+      <div class="card-talk"><p class="talk-quote">"Memorial's Epic go-live is the perfect moment to instrument prior auth automation — Watson Orchestrate integrates natively with Epic APIs and can eliminate the manual worklist bottleneck."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">Watson Orchestrate</span><span class="product-tag secondary">IBM Process Mining</span>
+        <span class="who-label">WHO:</span><span class="persona-pill">CMIO</span><span class="persona-pill">VP Revenue Cycle</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#page-memorial">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/15052" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+  </div><!-- /cards-section -->
+
+  <div class="brand-bottom-strip">
+    <div class="strip-item"><label>Brand</label><span>Automation</span></div>
+    <div class="strip-item"><label>Primary Accounts</label><span>11 accounts</span></div>
+    <div class="strip-item"><label>Key Products</label><span>IBM Process Mining · Watson Orchestrate · Instana · Turbonomic · RPA</span></div>
+    <div class="strip-item"><label>Edition</label><span>SE Horizon — Phase 3 · July 19, 2026</span></div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<footer class="page-footer">
+  <div class="footer-brand"><span>IBM</span> SE Horizon · Phase 3 — Automation</div>
+  <div class="footer-made">Made with IBM Bob · July 2026</div>
+</footer>
+
+</body>
+</html>

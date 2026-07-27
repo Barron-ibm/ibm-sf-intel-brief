@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE Horizon | Phase 3 — Brand Specialist Prospecting Tool | July 19, 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;background:#0f1c3a;color:#1f2328;}
+a{text-decoration:none;}
+
+/* ── STICKY NAV ── */
+.sticky-nav{position:sticky;top:0;z-index:100;background:#161616;border-bottom:3px solid #0f62fe;display:flex;align-items:center;gap:0;overflow-x:auto;white-space:nowrap;scrollbar-width:thin;scrollbar-color:#0f62fe #161616;}
+.sticky-nav::-webkit-scrollbar{height:3px;}
+.sticky-nav::-webkit-scrollbar-track{background:#161616;}
+.sticky-nav::-webkit-scrollbar-thumb{background:#0f62fe;border-radius:2px;}
+.sticky-nav a{display:inline-block;font-size:10px;font-weight:700;color:rgba(255,255,255,0.65);padding:10px 14px;border-bottom:3px solid transparent;margin-bottom:-3px;white-space:nowrap;letter-spacing:0.3px;}
+.sticky-nav a:hover{color:#fff;}
+.sticky-nav a.active{color:#fff;border-bottom-color:#0f62fe;background:rgba(255,255,255,0.06);}
+.sticky-nav .nav-brand-dai{color:#60a5fa!important;}
+.sticky-nav .nav-brand-auto{color:#4ade80!important;}
+.sticky-nav .nav-brand-stor{color:#c084fc!important;}
+.sticky-nav .nav-brand-pwr{color:#fbbf24!important;}
+
+/* ── PAGE ── */
+.page{max-width:900px;margin:0 auto 40px;background:#fff;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,0.35);border-radius:4px;}
+
+/* ── COVER HEADER ── */
+.cover-head{display:flex;align-items:stretch;}
+.cover-left{background:#1a1a2e;min-width:160px;width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 12px;gap:6px;}
+.cover-right{flex:1;background:#fff;padding:22px 28px;border-bottom:1px solid #e5e7eb;}
+.bob-icon{width:60px;height:60px;}
+.c-ibm-label{color:#fff;font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-top:4px;}
+.c-dow{color:rgba(255,255,255,0.65);font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;}
+.c-date{color:#fff;font-size:13px;font-weight:700;}
+.c-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#57606a;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.c-eyebrow::before{content:'';display:inline-block;width:28px;height:2px;background:#0f62fe;}
+.c-title{font-size:26px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#1f2328;line-height:1.1;}
+.c-sub{font-size:11px;font-weight:500;color:#57606a;letter-spacing:1px;margin-top:4px;text-transform:uppercase;}
+.p3-badge{display:inline-block;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border-radius:3px;background:#0f62fe;color:#fff;margin-top:8px;}
+
+/* ── HERO DARK BANNER ── */
+.hero-band{background:#0f1c3a;padding:20px 28px;display:flex;align-items:center;gap:20px;border-top:3px solid #0f62fe;}
+.hero-band-text h2{font-size:16px;font-weight:800;color:#fff;margin-bottom:4px;}
+.hero-band-text p{font-size:12px;color:rgba(255,255,255,0.65);line-height:1.6;}
+
+/* ── BRAND CARDS GRID ── */
+.brand-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:28px;gap:20px;background:#f7f8fa;border-top:2px solid #e5e7eb;}
+.brand-card{background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.09);border:1px solid #e5e7eb;display:flex;flex-direction:column;}
+.brand-card-top{padding:18px 20px 14px;flex:1;}
+.brand-card-accent{height:5px;}
+.brand-card-title{font-size:16px;font-weight:900;color:#1f2328;margin-bottom:4px;letter-spacing:-0.2px;}
+.brand-card-sub{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#57606a;margin-bottom:12px;}
+.brand-card-desc{font-size:12px;color:#424a53;line-height:1.6;margin-bottom:14px;}
+.brand-card-accounts{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
+.acct-pill{font-size:9.5px;font-weight:600;padding:3px 8px;border-radius:99px;border:1px solid #e5e7eb;color:#57606a;background:#f7f8fa;}
+.acct-pill.new-pill{color:#1a7a3a;border-color:rgba(26,122,58,0.3);background:#f0faf4;}
+.brand-card-cta{display:block;text-align:center;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:10px 16px;color:#fff;border-top:1px solid rgba(0,0,0,0.08);}
+
+/* ── ACCENT COLORS ── */
+.accent-dai{border-top-color:#0f62fe!important;}
+.accent-auto{border-top-color:#42be65!important;}
+.accent-stor{border-top-color:#8b5cf6!important;}
+.accent-pwr{border-top-color:#f59e0b!important;}
+.cta-dai{background:#0f62fe;}
+.cta-auto{background:#35a057;}
+.cta-stor{background:#7c3aed;}
+.cta-pwr{background:#d97706;}
+
+/* ── CONTEXT STRIP ── */
+.context-strip{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:2px solid #e5e7eb;}
+.ctx-box{padding:16px 20px;border-right:1px solid #e5e7eb;}
+.ctx-box:last-child{border-right:none;}
+.ctx-label{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#57606a;margin-bottom:6px;}
+.ctx-val{font-size:13px;font-weight:700;color:#1f2328;}
+.ctx-note{font-size:10.5px;color:#57606a;margin-top:2px;}
+
+/* ── FOOTER ── */
+.page-footer{background:#f7f8fa;border-top:1px solid #e5e7eb;padding:10px 28px;display:flex;justify-content:space-between;align-items:center;}
+.footer-brand{font-size:11px;font-weight:700;color:#1f2328;}
+.footer-brand span{color:#0f62fe;}
+.footer-made{font-size:10px;color:#aab0b8;}
+
+@media(max-width:680px){
+  .brand-grid{grid-template-columns:1fr;}
+  .context-strip{grid-template-columns:1fr;}
+  .ctx-box{border-right:none;border-bottom:1px solid #e5e7eb;}
+  .cover-head{flex-direction:column;}
+  .cover-left{width:100%;flex-direction:row;justify-content:flex-start;}
+}
+
+@media print{
+  body{background:#fff;}
+  .sticky-nav{display:none;}
+  .brand-card-cta{display:none;}
+  .page{box-shadow:none;margin-bottom:20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── STICKY NAV ── -->
+<nav class="sticky-nav">
+  <a href="index.html">↑ Home</a>
+  <a href="phase1.html">Phase 1</a>
+  <a href="phase2.html">Phase 2</a>
+  <a href="phase3.html" class="active">Phase 3 — Brand Index</a>
+  <a href="phase3-data-ai.html" class="nav-brand-dai">Data &amp; AI →</a>
+  <a href="phase3-automation.html" class="nav-brand-auto">Automation →</a>
+  <a href="phase3-storage.html" class="nav-brand-stor">Storage →</a>
+  <a href="phase3-power-cloud.html" class="nav-brand-pwr">Power &amp; Hybrid Cloud →</a>
+</nav>
+
+<div class="page">
+
+  <!-- Cover Header -->
+  <div class="cover-head">
+    <div class="cover-left">
+      <svg class="bob-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="18" y="22" width="44" height="36" rx="8" fill="#0f62fe"/>
+        <rect x="18" y="30" width="44" height="14" fill="#0353d9"/>
+        <rect x="26" y="33" width="10" height="8" rx="2" fill="#ffffff"/>
+        <rect x="44" y="33" width="10" height="8" rx="2" fill="#ffffff"/>
+        <rect x="29" y="35" width="4" height="4" rx="1" fill="#0f62fe"/>
+        <rect x="47" y="35" width="4" height="4" rx="1" fill="#0f62fe"/>
+        <rect x="28" y="48" width="24" height="4" rx="2" fill="#a8c8ff"/>
+        <rect x="34" y="58" width="12" height="6" rx="2" fill="#0f62fe"/>
+        <rect x="37" y="10" width="6" height="12" rx="3" fill="#0f62fe"/>
+        <circle cx="40" cy="8" r="4" fill="#a8c8ff"/>
+        <rect x="8" y="32" width="10" height="8" rx="3" fill="#0f62fe"/>
+        <rect x="62" y="32" width="10" height="8" rx="3" fill="#0f62fe"/>
+        <rect x="24" y="43" width="32" height="2" rx="1" fill="rgba(168,200,255,0.4)"/>
+      </svg>
+      <div class="c-ibm-label">IBM</div>
+      <div class="c-dow">Saturday</div>
+      <div class="c-date">July 19, 2026</div>
+    </div>
+    <div class="cover-right">
+      <div class="c-eyebrow">SE Horizon &nbsp;·&nbsp; Brand Specialist Tool</div>
+      <div class="c-title">Phase 3 — Brand Index</div>
+      <div class="c-sub">26 Accounts · 4 Brand Pages · South Florida Territory</div>
+      <span class="p3-badge">Brand Specialist Prospecting</span>
+    </div>
+  </div>
+
+  <!-- Hero Band -->
+  <div class="hero-band">
+    <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+      <rect width="44" height="44" rx="4" fill="#0f62fe" opacity="0.15"/>
+      <path d="M22 8 L36 16 L36 28 L22 36 L8 28 L8 16 Z" stroke="#a8c8ff" stroke-width="1.5" fill="none"/>
+      <circle cx="22" cy="22" r="5" fill="#0f62fe"/>
+      <line x1="22" y1="8" x2="22" y2="17" stroke="#a8c8ff" stroke-width="1.5"/>
+      <line x1="22" y1="27" x2="22" y2="36" stroke="#a8c8ff" stroke-width="1.5"/>
+      <line x1="8" y1="16" x2="17" y2="20" stroke="#a8c8ff" stroke-width="1.5"/>
+      <line x1="27" y1="24" x2="36" y2="28" stroke="#a8c8ff" stroke-width="1.5"/>
+      <line x1="36" y1="16" x2="27" y2="20" stroke="#a8c8ff" stroke-width="1.5"/>
+      <line x1="17" y1="24" x2="8" y2="28" stroke="#a8c8ff" stroke-width="1.5"/>
+    </svg>
+    <div class="hero-band-text">
+      <h2>Brand Specialist Prospecting Tool — July 19, 2026</h2>
+      <p>Open your brand page to see every account in the SE territory, a verbatim opening line, urgency signal, cadence week, and a direct Sales Navigator link. All accounts drawn from Phase 2 intelligence. ✦ = New Account (Annual Deep Dive).</p>
+    </div>
+  </div>
+
+  <!-- Context Stats -->
+  <div class="context-strip">
+    <div class="ctx-box">
+      <div class="ctx-label">Total Accounts</div>
+      <div class="ctx-val">26</div>
+      <div class="ctx-note">Across all 4 brand pages</div>
+    </div>
+    <div class="ctx-box">
+      <div class="ctx-label">New Accounts ✦</div>
+      <div class="ctx-val">16</div>
+      <div class="ctx-note">Annual Deep Dive additions</div>
+    </div>
+    <div class="ctx-box">
+      <div class="ctx-label">Brand Pages</div>
+      <div class="ctx-val">4</div>
+      <div class="ctx-note">D&amp;AI · Auto · Storage · Power</div>
+    </div>
+  </div>
+
+  <!-- Brand Cards Grid -->
+  <div class="brand-grid">
+
+    <!-- Data & AI -->
+    <div class="brand-card">
+      <div class="brand-card-accent accent-dai"></div>
+      <div class="brand-card-top">
+        <div class="brand-card-title">Data &amp; AI</div>
+        <div class="brand-card-sub">Planning Analytics · watsonx · Data Fabric · AI Governance</div>
+        <div class="brand-card-desc">Every account in the SE territory has at least one Planning Analytics, watsonx, or Data Fabric play. Lead with FP&amp;A pain, M&amp;A integration, and AI governance mandates.</div>
+        <div class="brand-card-accounts">
+          <span class="acct-pill">SGWS</span><span class="acct-pill">NCLH</span><span class="acct-pill">JM Family</span><span class="acct-pill">Citco</span><span class="acct-pill">Octave</span><span class="acct-pill">Hex Federal</span><span class="acct-pill">Hex Mining</span><span class="acct-pill">Pellera</span><span class="acct-pill">Lennar</span><span class="acct-pill">Lennar Mtg</span><span class="acct-pill new-pill">✦ HEICO</span><span class="acct-pill new-pill">✦ H.I.G.</span><span class="acct-pill new-pill">✦ Kforce</span><span class="acct-pill new-pill">✦ Burger King</span><span class="acct-pill new-pill">✦ SeaWorld</span><span class="acct-pill new-pill">✦ Icahn</span><span class="acct-pill new-pill">✦ ANSCO</span><span class="acct-pill new-pill">✦ Dycom</span><span class="acct-pill new-pill">✦ Herc</span><span class="acct-pill new-pill">✦ DMAB</span><span class="acct-pill new-pill">✦ Memorial</span><span class="acct-pill new-pill">✦ MasTec</span><span class="acct-pill new-pill">✦ Frontline</span><span class="acct-pill new-pill">✦ ODP</span><span class="acct-pill new-pill">✦ Chewy</span><span class="acct-pill new-pill">✦ Chico's</span>
+        </div>
+      </div>
+      <a href="phase3-data-ai.html" class="brand-card-cta cta-dai">Open Data &amp; AI Page →</a>
+    </div>
+
+    <!-- Automation -->
+    <div class="brand-card">
+      <div class="brand-card-accent accent-auto"></div>
+      <div class="brand-card-top">
+        <div class="brand-card-title">Automation</div>
+        <div class="brand-card-sub">IBM Automation · Process AI · Workflow Orchestration</div>
+        <div class="brand-card-desc">Lead with workforce scheduling, field ops, claims automation, and cost-takeout for retail. Connect automation ROI directly to CFO margin mandates.</div>
+        <div class="brand-card-accounts">
+          <span class="acct-pill">SGWS</span><span class="acct-pill new-pill">✦ Lennar Mtg</span><span class="acct-pill new-pill">✦ ANSCO</span><span class="acct-pill new-pill">✦ Dycom</span><span class="acct-pill new-pill">✦ MasTec</span><span class="acct-pill new-pill">✦ ODP</span><span class="acct-pill new-pill">✦ Chewy</span><span class="acct-pill new-pill">✦ Burger King</span><span class="acct-pill new-pill">✦ Hex Federal</span><span class="acct-pill new-pill">✦ Frontline</span><span class="acct-pill new-pill">✦ Memorial</span><span class="acct-pill new-pill">✦ Kforce</span>
+        </div>
+      </div>
+      <a href="phase3-automation.html" class="brand-card-cta cta-auto">Open Automation Page →</a>
+    </div>
+
+    <!-- Storage -->
+    <div class="brand-card">
+      <div class="brand-card-accent accent-stor"></div>
+      <div class="brand-card-top">
+        <div class="brand-card-title">Storage</div>
+        <div class="brand-card-sub">IBM Storage · FlashSystem · Data Infrastructure</div>
+        <div class="brand-card-desc">Lead with data volume growth at record backlogs, post-M&amp;A geospatial and fleet data, and Power+Storage stack expansions. Storage is the unsung enterprise infrastructure play.</div>
+        <div class="brand-card-accounts">
+          <span class="acct-pill new-pill">✦ Hex Mining</span><span class="acct-pill new-pill">✦ Dycom</span><span class="acct-pill">JM Family</span><span class="acct-pill">Lennar</span><span class="acct-pill new-pill">✦ HEICO</span><span class="acct-pill new-pill">✦ MasTec</span><span class="acct-pill new-pill">✦ DMAB</span><span class="acct-pill new-pill">✦ Herc</span>
+        </div>
+      </div>
+      <a href="phase3-storage.html" class="brand-card-cta cta-stor">Open Storage Page →</a>
+    </div>
+
+    <!-- Power & Hybrid Cloud -->
+    <div class="brand-card">
+      <div class="brand-card-accent accent-pwr"></div>
+      <div class="brand-card-top">
+        <div class="brand-card-title">Power &amp; Hybrid Cloud</div>
+        <div class="brand-card-sub">Power Systems · Red Hat OpenShift · Hybrid Cloud</div>
+        <div class="brand-card-desc">Lead with spinoff clean-slate builds, Epic→Azure hybrid cloud bridges, 60+ office infrastructure consolidation, and fund administration hybrid cloud cost takeout.</div>
+        <div class="brand-card-accounts">
+          <span class="acct-pill">JM Family</span><span class="acct-pill">Pellera</span><span class="acct-pill">Lennar</span><span class="acct-pill new-pill">✦ DMAB</span><span class="acct-pill new-pill">✦ Memorial</span><span class="acct-pill new-pill">✦ Octave</span><span class="acct-pill new-pill">✦ ANSCO/Dycom</span><span class="acct-pill">Citco</span><span class="acct-pill">NCLH</span><span class="acct-pill new-pill">✦ SeaWorld</span>
+        </div>
+      </div>
+      <a href="phase3-power-cloud.html" class="brand-card-cta cta-pwr">Open Power &amp; Cloud Page →</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="page-footer">
+    <div class="footer-brand">SE <span>Horizon</span> · Phase 3 Brand Index · July 19, 2026</div>
+    <div class="footer-made">Made with IBM Bob</div>
+  </div>
+
+</div>
+</body>
+</html>

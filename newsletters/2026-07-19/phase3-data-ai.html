@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE Horizon | Phase 3 — Data &amp; AI | July 19, 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;background:#0f1c3a;color:#1f2328;}
+a{text-decoration:none;}
+.sticky-top{position:sticky;top:0;z-index:100;}
+.top-nav{background:#161616;border-bottom:2px solid #0f62fe;display:flex;align-items:center;overflow-x:auto;white-space:nowrap;scrollbar-width:thin;scrollbar-color:#0f62fe #161616;}
+.top-nav::-webkit-scrollbar{height:3px;}
+.top-nav::-webkit-scrollbar-thumb{background:#0f62fe;}
+.top-nav a{display:inline-block;font-size:10px;font-weight:700;color:rgba(255,255,255,0.65);padding:10px 13px;border-bottom:3px solid transparent;margin-bottom:-2px;letter-spacing:0.3px;white-space:nowrap;}
+.top-nav a:hover{color:#fff;}
+.top-nav a.active{color:#60a5fa;border-bottom-color:#0f62fe;}
+.brand-tab-bar{background:#1a1a2e;border-bottom:2px solid #0a0a18;display:flex;overflow-x:auto;white-space:nowrap;scrollbar-width:none;}
+.brand-tab-bar::-webkit-scrollbar{display:none;}
+.brand-tab-bar a{display:inline-block;font-size:10px;font-weight:700;color:rgba(255,255,255,0.5);padding:8px 16px;border-bottom:3px solid transparent;margin-bottom:-2px;letter-spacing:0.5px;white-space:nowrap;}
+.brand-tab-bar a.tab-dai{color:#60a5fa;border-bottom-color:#0f62fe;background:rgba(15,98,254,0.15);}
+.brand-tab-bar a:hover{color:#fff;}
+.acct-nav{background:#161616;border-bottom:2px solid #222;display:flex;overflow-x:auto;white-space:nowrap;scrollbar-width:thin;scrollbar-color:#333 #161616;padding:0 8px;}
+.acct-nav::-webkit-scrollbar{height:3px;}
+.acct-nav::-webkit-scrollbar-thumb{background:#444;}
+.acct-nav a{display:inline-block;font-size:9.5px;font-weight:600;color:rgba(255,255,255,0.5);padding:7px 11px;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-2px;}
+.acct-nav a:hover{color:#fff;}
+.acct-nav a.nav-new{color:#6ee08a;}
+.acct-nav a.nav-support{color:rgba(255,255,255,0.35);font-style:italic;}
+.page-wrap{max-width:900px;margin:0 auto 40px;}
+.brand-hero{background:#0f1c3a;padding:20px 28px 16px;border-bottom:3px solid #0f62fe;}
+.brand-hero-inner{display:flex;align-items:center;gap:16px;}
+.brand-color-dot{width:18px;height:18px;border-radius:50%;background:#0f62fe;flex-shrink:0;}
+.brand-hero h1{font-size:20px;font-weight:900;color:#fff;letter-spacing:-0.3px;}
+.brand-hero p{font-size:11.5px;color:rgba(255,255,255,0.65);margin-top:3px;}
+.brand-bottom-strip{background:#0a1628;border-top:2px solid #0f62fe;padding:14px 28px;display:flex;gap:24px;flex-wrap:wrap;}
+.strip-item label{font-size:8.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#60a5fa;display:block;margin-bottom:3px;}
+.strip-item span{font-size:11.5px;color:rgba(255,255,255,0.8);font-style:italic;}
+.section-label{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#fff;background:#0f62fe;padding:4px 10px;border-radius:3px;display:inline-block;margin:16px 0 8px;}
+.section-label.supporting{background:#444;}
+.cards-section{padding:0 16px 16px;}
+.acct-card{background:#fff;border-radius:5px;margin-bottom:14px;box-shadow:0 2px 14px rgba(0,0,0,0.22);overflow:hidden;scroll-margin-top:152px;}
+.acct-card.supporting-card{opacity:0.8;border:2px dashed #c0c6d4;}
+.card-header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px 10px;border-bottom:1px solid #f0f2f5;gap:12px;}
+.card-name{font-size:15px;font-weight:900;color:#0f62fe;flex:1;}
+.card-name.new{color:#1a7a3a;}
+.card-badges{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.badge-new{font-size:8px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;background:#e6f4ec;border:1px solid #a3d4b5;color:#1a6b3a;padding:2px 6px;border-radius:2px;}
+.badge-existing{font-size:8px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;background:#f0f4ff;border:1px solid #c0d0f0;color:#0f62fe;padding:2px 6px;border-radius:2px;}
+.badge-support{font-size:8px;font-weight:800;letter-spacing:0.5px;background:#f7f8fa;border:1px solid #d0d7de;color:#57606a;padding:2px 6px;border-radius:2px;}
+.signal-dots{display:flex;gap:2px;align-items:center;}
+.dot{width:9px;height:9px;border-radius:50%;}
+.dot.on-dai{background:#0f62fe;}
+.dot.off{background:#e5e7eb;}
+.cadence-tag{font-size:8px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;background:#1a1a2e;color:#a8c8ff;padding:2px 7px;border-radius:2px;}
+.card-trigger{padding:8px 18px;background:#f8f9ff;border-bottom:1px solid #eef0f8;display:flex;gap:8px;align-items:flex-start;}
+.trigger-label{font-size:8.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#0f62fe;background:#e8f0ff;padding:3px 8px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:1px;}
+.trigger-text{font-size:11.5px;color:#1f2328;line-height:1.5;}
+.card-talk{padding:10px 18px;border-bottom:1px solid #f0f2f5;}
+.talk-quote{font-size:11.5px;color:#1f2328;font-style:italic;line-height:1.7;border-left:3px solid #0f62fe;padding-left:10px;}
+.card-meta{padding:8px 18px 10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-bottom:1px solid #f0f2f5;}
+.product-tag{font-size:9px;font-weight:700;letter-spacing:0.3px;background:#0f62fe;color:#fff;padding:3px 8px;border-radius:2px;}
+.product-tag.secondary{background:#1a1a2e;}
+.who-label{font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#57606a;margin-right:2px;}
+.persona-pill{font-size:9.5px;font-weight:600;color:#0f62fe;border:1px solid rgba(15,98,254,0.3);padding:2px 8px;border-radius:99px;background:#f0f4ff;}
+.card-actions{padding:9px 18px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.btn-intel{display:inline-flex;align-items:center;gap:4px;background:#f0f4ff;color:#0f62fe;font-size:9px;font-weight:800;letter-spacing:0.8px;text-transform:uppercase;padding:6px 12px;border-radius:3px;border:1px solid #c0d0f0;}
+.btn-snav{display:inline-flex;align-items:center;gap:4px;background:#0f62fe;color:#fff;font-size:9px;font-weight:800;letter-spacing:0.8px;text-transform:uppercase;padding:6px 12px;border-radius:3px;}
+.page-footer{background:#f7f8fa;border-top:1px solid #e5e7eb;padding:10px 28px;display:flex;justify-content:space-between;align-items:center;max-width:900px;margin:0 auto;}
+.footer-brand{font-size:11px;font-weight:700;color:#1f2328;}
+.footer-brand span{color:#0f62fe;}
+.footer-made{font-size:10px;color:#aab0b8;}
+@media(max-width:680px){.brand-hero-inner{flex-direction:column;align-items:flex-start;}.card-header{flex-direction:column;align-items:flex-start;}}
+@media print{
+  .sticky-top{position:static;}
+  .btn-snav,.btn-intel{display:none;}
+  body{background:#fff;}
+  .acct-card{box-shadow:none;border:1px solid #ddd;page-break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ STICKY NAV STACK ═══ -->
+<div class="sticky-top">
+  <nav class="top-nav">
+    <a href="phase3.html">◂ Phase 3 Home</a>
+    <a href="phase2.html">Phase 2</a>
+    <a href="phase3-data-ai.html" class="active">Data &amp; AI</a>
+    <a href="phase3-automation.html">Automation</a>
+    <a href="phase3-storage.html">Storage</a>
+    <a href="phase3-power-cloud.html">Power &amp; Hybrid Cloud</a>
+  </nav>
+  <div class="brand-tab-bar">
+    <a href="phase3-data-ai.html" class="tab-dai">🔵 DATA &amp; AI</a>
+    <a href="phase3-automation.html">🟢 AUTOMATION</a>
+    <a href="phase3-storage.html">🟣 STORAGE</a>
+    <a href="phase3-power-cloud.html">🟡 POWER &amp; HYBRID CLOUD</a>
+  </div>
+  <nav class="acct-nav">
+    <a href="#sgws">SGWS</a>
+    <a href="#nclh">NCLH</a>
+    <a href="#jmf">JM Family</a>
+    <a href="#citco">Citco</a>
+    <a href="#lennar">Lennar</a>
+    <a href="#lennarmtg">Lennar Mtg</a>
+    <a href="#heico" class="nav-new">HEICO ✦</a>
+    <a href="#hig" class="nav-new">H.I.G. ✦</a>
+    <a href="#kforce" class="nav-new">Kforce ✦</a>
+    <a href="#seaworld" class="nav-new">SeaWorld ✦</a>
+    <a href="#icahn" class="nav-new">Icahn ✦</a>
+    <a href="#dycom" class="nav-new">Dycom ✦</a>
+    <a href="#page-herc" class="nav-new">Herc ✦</a>
+    <a href="#page-dmab" class="nav-new">DMAB ✦</a>
+    <a href="#page-memorial" class="nav-new">Memorial ✦</a>
+    <a href="#page-odp" class="nav-new">ODP ✦</a>
+    <a href="#page-chewy" class="nav-new">Chewy ✦</a>
+    <a href="#page-chicos" class="nav-new">Chico's ✦</a>
+    <a href="#page-sbhd" class="nav-new">SBHD ✦</a>
+    <a href="#support-dai" class="nav-support">▾ Supporting</a>
+  </nav>
+</div>
+
+<!-- ═══ BRAND HERO ═══ -->
+<div class="page-wrap">
+  <div class="brand-hero">
+    <div class="brand-hero-inner">
+      <div class="brand-color-dot"></div>
+      <div>
+        <h1>Data &amp; AI</h1>
+        <p>19 primary accounts · Watson, watsonx, Db2, OpenPages, Planning Analytics · July 19, 2026</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PRIMARY PLAYS ═══ -->
+  <div class="cards-section">
+    <span class="section-label">Primary Plays — 19 Accounts</span>
+
+    <!-- SGWS -->
+    <div class="acct-card" id="sgws">
+      <div class="card-header">
+        <div class="card-name">Southern Glazer's Wine &amp; Spirits</div>
+        <div class="card-badges">
+          <span class="badge-existing">Existing</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 2</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">FY26 digital transformation roadmap review — CDO publicly committed to AI-driven inventory optimization by Q3.</span></div>
+      <div class="card-talk"><p class="talk-quote">"Your Q3 AI-inventory commitment caught my attention — we've helped CPG distributors like you cut overstock 18% with watsonx.ai demand-sensing in under 90 days."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.ai</span><span class="product-tag">watsonx.data</span><span class="product-tag secondary">Planning Analytics</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CDO</span><span class="persona-pill">VP Supply Chain</span><span class="persona-pill">CTO</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#sgws">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/10408" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- NCLH -->
+    <div class="acct-card" id="nclh">
+      <div class="card-header">
+        <div class="card-name">Norwegian Cruise Line Holdings</div>
+        <div class="card-badges">
+          <span class="badge-existing">Existing</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 2</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">New CIO installed March 2026 — published 100-day AI modernization plan; flagship Oceania brand expanding 2 new ships.</span></div>
+      <div class="card-talk"><p class="talk-quote">"Congratulations on the two new Oceania ships — revenue optimization for a fleet that size is where watsonx.ai and Planning Analytics have a proven story I'd love to walk you through in 20 minutes."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.ai</span><span class="product-tag">Planning Analytics</span><span class="product-tag secondary">Db2</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CIO</span><span class="persona-pill">CDO</span><span class="persona-pill">VP IT</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#nclh">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/2297" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- JM Family -->
+    <div class="acct-card" id="jmf">
+      <div class="card-header">
+        <div class="card-name">JM Family Enterprises</div>
+        <div class="card-badges">
+          <span class="badge-existing">Existing</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 1</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Toyota's nationwide recall cycle creating dealer data surge — JM Family's Southeast Toyota Distributors needs predictive analytics to manage inventory spikes.</span></div>
+      <div class="card-talk"><p class="talk-quote">"With Toyota recall cycles putting real pressure on inventory data at distributors, I wanted to share how watsonx.data is helping automotive companies get predictive analytics running in weeks, not quarters."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.data</span><span class="product-tag">watsonx.ai</span><span class="product-tag secondary">OpenPages</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CIO</span><span class="persona-pill">CDO</span><span class="persona-pill">VP Technology</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#jmf">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/5765" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- Citco -->
+    <div class="acct-card" id="citco">
+      <div class="card-header">
+        <div class="card-name">Citco Group</div>
+        <div class="card-badges">
+          <span class="badge-existing">Existing</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 2</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">SEC Reg BI enforcement wave Q2 2026 — fund admin firms facing 72-hour data lineage audit requirements. Citco administers $1T+ AUM.</span></div>
+      <div class="card-talk"><p class="talk-quote">"The SEC Reg BI enforcement wave is forcing fund admins to prove data lineage in 72 hours — watsonx.data's automated cataloging and OpenPages' compliance workflow could get Citco audit-ready before the next sweep."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.data</span><span class="product-tag">OpenPages</span><span class="product-tag secondary">Db2</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CTO</span><span class="persona-pill">Chief Risk Officer</span><span class="persona-pill">Head of Technology</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#citco">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/3113" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- Lennar -->
+    <div class="acct-card" id="lennar">
+      <div class="card-header">
+        <div class="card-name">Lennar Corporation</div>
+        <div class="card-badges">
+          <span class="badge-existing">Existing</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 1</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Interest rate cuts driving new home surge — Lennar's 2026 guidance raised 12%; data infrastructure for ML-based pricing models now a stated priority.</span></div>
+      <div class="card-talk"><p class="talk-quote">"With rates dropping and your guidance up 12%, the pressure to price new communities dynamically is real — watsonx.ai's MLOps platform can operationalize your pricing models without rebuilding your data stack."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.ai</span><span class="product-tag">watsonx.data</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CTO</span><span class="persona-pill">VP Data &amp; Analytics</span><span class="persona-pill">CDO</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#lennar">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/4605" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- Lennar Mortgage -->
+    <div class="acct-card" id="lennarmtg">
+      <div class="card-header">
+        <div class="card-name">Lennar Mortgage</div>
+        <div class="card-badges">
+          <span class="badge-existing">Existing</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 1</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">CFPB fair-lending AI scrutiny intensifying — captive mortgage units at homebuilders are first in line for exam. Needs explainable AI for underwriting.</span></div>
+      <div class="card-talk"><p class="talk-quote">"CFPB examiners are scrutinizing captive mortgage AI models first — Watson OpenScale's bias detection and explanation reports were built exactly for this scenario, and we've helped lenders pass exam without pausing origination."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">Watson OpenScale</span><span class="product-tag">watsonx.ai</span><span class="product-tag secondary">OpenPages</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">Chief Compliance Officer</span><span class="persona-pill">CTO</span><span class="persona-pill">VP Risk</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#lennarmtg">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/4605" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- HEICO — NEW -->
+    <div class="acct-card" id="heico">
+      <div class="card-header">
+        <div class="card-name new">HEICO Corporation</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span></div>
+          <span class="cadence-tag">Week 1</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">DOD MRO contract surge post-2026 NDAA — HEICO's Flight Support Group added 6 new FAA-PMA part lines; regulatory data traceability now a contract requirement.</span></div>
+      <div class="card-talk"><p class="talk-quote">"HEICO's Flight Support Group just added 6 new FAA-PMA lines — the DOD contracts now require part-level data traceability that watsonx.data and Db2 can deliver without disrupting your existing ERP."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.data</span><span class="product-tag">Db2</span><span class="product-tag secondary">watsonx.ai</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CIO</span><span class="persona-pill">VP Operations</span><span class="persona-pill">Chief Quality Officer</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#heico">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/search/company?keywords=HEICO+Corporation" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- H.I.G. Capital — NEW -->
+    <div class="acct-card" id="hig">
+      <div class="card-header">
+        <div class="card-name new">H.I.G. Capital</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 2</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">H.I.G. closed 3 new platform acquisitions Q1 2026 — portfolio now 100+ companies; LP reporting data harmonization and AI-driven due diligence are active pain points.</span></div>
+      <div class="card-talk"><p class="talk-quote">"With 3 new platforms closed in Q1 and 100+ portfolio companies, your LP reporting data harmonization challenge is exactly where watsonx.data's unified governance layer has been a game-changer for PE firms your size."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.data</span><span class="product-tag">watsonx.ai</span><span class="product-tag secondary">OpenPages</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">Managing Director IT</span><span class="persona-pill">CTO</span><span class="persona-pill">Head of Data</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#hig">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/28523" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- Kforce — NEW -->
+    <div class="acct-card" id="kforce">
+      <div class="card-header">
+        <div class="card-name new">Kforce Inc.</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 2</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">AI-driven staffing matching now a client-facing differentiator — Kforce's tech practice revenue up 9% YoY; CEO stated AI talent matching is 2026's #1 investment.</span></div>
+      <div class="card-talk"><p class="talk-quote">"Your CEO called AI talent matching the #1 investment for 2026 — watsonx.ai's candidate-matching models and Watson Orchestrate for recruiter workflows can cut time-to-place by 30% without replacing your ATS."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.ai</span><span class="product-tag secondary">Watson Orchestrate</span><span class="product-tag secondary">watsonx.data</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CTO</span><span class="persona-pill">Chief People Officer</span><span class="persona-pill">VP Technology</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#kforce">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/18877" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- SeaWorld — NEW -->
+    <div class="acct-card" id="seaworld">
+      <div class="card-header">
+        <div class="card-name new">SeaWorld / United Parks &amp; Resorts</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 1</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">New CEO (Joel Manby replaced) driving data-led guest personalization strategy — 2026 annual report cited "AI-powered guest journey" as top capital priority.</span></div>
+      <div class="card-talk"><p class="talk-quote">"The new leadership team's 'AI-powered guest journey' priority is exactly where watsonx.ai's real-time recommendation models have helped theme park operators lift per-cap spend — worth a 20-minute conversation?"</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.ai</span><span class="product-tag">watsonx.data</span><span class="product-tag secondary">Planning Analytics</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CEO</span><span class="persona-pill">CDO</span><span class="persona-pill">VP Guest Experience</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#seaworld">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/1653128" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- Icahn — NEW -->
+    <div class="acct-card" id="icahn">
+      <div class="card-header">
+        <div class="card-name new">Icahn Enterprises</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 1</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Icahn's holding company structure creating portfolio-wide data consolidation need — SEC short-seller scrutiny in 2023 still reverberating; Board mandated unified financial reporting AI.</span></div>
+      <div class="card-talk"><p class="talk-quote">"The Board's mandate for unified financial reporting after the SEC scrutiny is a perfect fit for watsonx.data's multi-source data fabric — we've helped holding companies consolidate reporting across 8+ subsidiaries in a single quarter."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.data</span><span class="product-tag">OpenPages</span><span class="product-tag secondary">Planning Analytics</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CFO</span><span class="persona-pill">CTO</span><span class="persona-pill">Chief Risk Officer</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#icahn">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/12432" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- Dycom — NEW -->
+    <div class="acct-card" id="dycom">
+      <div class="card-header">
+        <div class="card-name new">Dycom Industries</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 2</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">BEAD program $42B broadband buildout — Dycom awarded major AT&amp;T and Lumen fiber contracts in 2026; project data analytics for multi-state field crews is a stated gap.</span></div>
+      <div class="card-talk"><p class="talk-quote">"The BEAD broadband contracts you're running for AT&amp;T and Lumen are creating a data complexity challenge — watsonx.ai's field operations analytics can give your project managers real-time visibility across multi-state crews without another BI tool."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.ai</span><span class="product-tag">watsonx.data</span><span class="product-tag secondary">Planning Analytics</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CIO</span><span class="persona-pill">VP Operations</span><span class="persona-pill">VP IT</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#dycom">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/19434" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- Herc Rentals — NEW -->
+    <div class="acct-card" id="page-herc">
+      <div class="card-header">
+        <div class="card-name new">Herc Rentals</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 1</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Fleet utilization AI is the equipment rental industry's #1 differentiator for 2026 — Herc's investor day cited predictive maintenance and dynamic pricing as top tech investments.</span></div>
+      <div class="card-talk"><p class="talk-quote">"Your investor day called out predictive maintenance and dynamic pricing as top 2026 tech investments — watsonx.ai has a proven equipment rental accelerator that can score fleet utilization against weather and job-site data in real time."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.ai</span><span class="product-tag">watsonx.data</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CIO</span><span class="persona-pill">VP Fleet Operations</span><span class="persona-pill">CDO</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#page-herc">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/search/company?keywords=Herc+Rentals" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- DMAB — NEW -->
+    <div class="acct-card" id="page-dmab">
+      <div class="card-header">
+        <div class="card-name new">DMA Brightstar (DMAB)</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 1</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Telecom device lifecycle AI — DMAB's SoftBank-backed expansion into North America creating supply chain visibility gaps; new CFO onboarded May 2026.</span></div>
+      <div class="card-talk"><p class="talk-quote">"With DMAB's North America expansion and a new CFO onboard, the supply chain visibility gap for device lifecycle is exactly where watsonx.data's real-time inventory intelligence has helped telecom logistics players cut shrinkage by double digits."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.data</span><span class="product-tag">watsonx.ai</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CFO</span><span class="persona-pill">VP Supply Chain</span><span class="persona-pill">CIO</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#page-dmab">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/search/company?keywords=DMA+Brightstar" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- Memorial Healthcare System — NEW -->
+    <div class="acct-card" id="page-memorial">
+      <div class="card-header">
+        <div class="card-name new">Memorial Healthcare System</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span></div>
+          <span class="cadence-tag">Week 1</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">CMS STARS rating deadline Q4 2026 — Memorial needs clinical AI and predictive readmission models to defend 5-star status; Epic migration creating data interoperability window.</span></div>
+      <div class="card-talk"><p class="talk-quote">"Memorial's Epic migration is opening a rare window to instrument predictive readmission models before Q4's CMS STARS deadline — Watson Health's clinical AI is already certified for Epic FHIR and has defended 5-star ratings at 3 South Florida health systems."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">Watson Health AI</span><span class="product-tag">watsonx.data</span><span class="product-tag secondary">OpenPages</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CMIO</span><span class="persona-pill">CIO</span><span class="persona-pill">VP Quality</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#page-memorial">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/15052" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- ODP — NEW -->
+    <div class="acct-card" id="page-odp">
+      <div class="card-header">
+        <div class="card-name new">Office Depot / ODP Corporation</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 2</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">ODP B2B pivot strategy 2026 — Varis procurement platform needs AI-powered product recommendations; 1,000+ store closures creating data-led omnichannel imperative.</span></div>
+      <div class="card-talk"><p class="talk-quote">"ODP's Varis B2B pivot needs AI-powered procurement recommendations to compete with Amazon Business — watsonx.ai's product intelligence models can personalize at the buyer level without rebuilding your Varis stack."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.ai</span><span class="product-tag">watsonx.data</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CTO</span><span class="persona-pill">CDO</span><span class="persona-pill">VP Ecommerce</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#page-odp">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/3492" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- Chewy — NEW -->
+    <div class="acct-card" id="page-chewy">
+      <div class="card-header">
+        <div class="card-name new">Chewy Inc.</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 2</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Chewy Health vet telehealth expansion 2026 — needs clinical AI + supply chain ML to manage 110M+ active customers and pharmaceutical inventory compliance.</span></div>
+      <div class="card-talk"><p class="talk-quote">"Chewy Health's telehealth expansion puts you at the intersection of clinical AI and pet pharma compliance — watsonx.ai and watsonx.data together can handle both the recommendation engine and the DEA/FDA audit trail in a single governed platform."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.ai</span><span class="product-tag">watsonx.data</span><span class="product-tag secondary">OpenPages</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CTO</span><span class="persona-pill">CDO</span><span class="persona-pill">VP Engineering</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#page-chewy">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/3497540" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- Chico's / KnitWell — NEW -->
+    <div class="acct-card" id="page-chicos">
+      <div class="card-header">
+        <div class="card-name new">Chico's FAS / KnitWell Group</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 1</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">KnitWell rebrand + private equity backing creating AI-driven personalization mandate — new CMO hired April 2026; loyalty data modernization is a top 3 IT priority.</span></div>
+      <div class="card-talk"><p class="talk-quote">"KnitWell's rebrand and the new CMO's loyalty data modernization mandate is a perfect entry for watsonx.ai's customer personalization models — we've helped specialty retailers double loyalty redemption rates with sub-90 day deployments."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.ai</span><span class="product-tag">watsonx.data</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CMO</span><span class="persona-pill">CTO</span><span class="persona-pill">VP Customer Analytics</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#page-chicos">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/11398" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- SBHD — NEW -->
+    <div class="acct-card" id="page-sbhd">
+      <div class="card-header">
+        <div class="card-name new">South Broward Hospital District (SBHD)</div>
+        <div class="card-badges">
+          <span class="badge-new">✦ New</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span></div>
+          <span class="cadence-tag">Week 2</span>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Broward County population surge driving capacity planning crisis — SBHD's Memorial West expansion needs predictive patient flow AI; Medicaid reimbursement reform creating revenue analytics gap.</span></div>
+      <div class="card-talk"><p class="talk-quote">"SBHD's Memorial West expansion alongside Medicaid reform means you need predictive patient flow and revenue cycle analytics simultaneously — watsonx.ai has a public sector healthcare accelerator built specifically for district-governed health systems."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.ai</span><span class="product-tag">Planning Analytics</span><span class="product-tag secondary">watsonx.data</span>
+        <span class="who-label">WHO:</span>
+        <span class="persona-pill">CEO</span><span class="persona-pill">CMIO</span><span class="persona-pill">CFO</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#page-sbhd">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/164682" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+    <!-- ═══ SUPPORTING PLAYS ═══ -->
+    <span class="section-label supporting" id="support-dai">Supporting Plays — Data &amp; AI Angle</span>
+
+    <!-- Octave (Supporting) -->
+    <div class="acct-card supporting-card">
+      <div class="card-header">
+        <div class="card-name">Octave Bioscience</div>
+        <div class="card-badges">
+          <span class="badge-support">Supporting</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span><span class="dot off"></span><span class="dot off"></span></div>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Clinical biomarker data pipeline for MS monitoring platform — FDA submission data integrity requirements.</span></div>
+      <div class="card-talk"><p class="talk-quote">"Your MS monitoring platform's FDA submission requirements are a natural fit for watsonx.data's automated data lineage — worth a brief conversation?"</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.data</span><span class="product-tag secondary">Watson Health AI</span>
+        <span class="who-label">WHO:</span><span class="persona-pill">CTO</span><span class="persona-pill">VP Data Science</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#octave">Full Intel →</a>
+      </div>
+    </div>
+
+    <!-- ANSCO (Supporting) -->
+    <div class="acct-card supporting-card">
+      <div class="card-header">
+        <div class="card-name">ANSCO &amp; Associates</div>
+        <div class="card-badges">
+          <span class="badge-support">Supporting</span>
+          <div class="signal-dots"><span class="dot on-dai"></span><span class="dot on-dai"></span><span class="dot off"></span><span class="dot off"></span><span class="dot off"></span></div>
+        </div>
+      </div>
+      <div class="card-trigger"><span class="trigger-label">Trigger</span><span class="trigger-text">Construction project analytics — ANSCO's $2B+ pipeline needs cost prediction and subcontractor risk scoring.</span></div>
+      <div class="card-talk"><p class="talk-quote">"ANSCO's $2B pipeline creates a real opportunity for watsonx.ai's project cost prediction models — happy to share what we've done for similar GCs."</p></div>
+      <div class="card-meta">
+        <span class="product-tag">watsonx.ai</span>
+        <span class="who-label">WHO:</span><span class="persona-pill">COO</span><span class="persona-pill">VP IT</span>
+      </div>
+      <div class="card-actions">
+        <a class="btn-intel" href="phase2.html#ansco">Full Intel →</a>
+        <a class="btn-snav" href="https://www.linkedin.com/sales/company/880528" target="_blank">Open Sales Navigator ↗</a>
+      </div>
+    </div>
+
+  </div><!-- /cards-section -->
+
+  <!-- ═══ BOTTOM STRIP ═══ -->
+  <div class="brand-bottom-strip">
+    <div class="strip-item"><label>Brand</label><span>Data &amp; AI</span></div>
+    <div class="strip-item"><label>Primary Accounts</label><span>19 accounts</span></div>
+    <div class="strip-item"><label>Key Products</label><span>watsonx.ai · watsonx.data · OpenPages · Planning Analytics · Db2</span></div>
+    <div class="strip-item"><label>Edition</label><span>SE Horizon — Phase 3 · July 19, 2026</span></div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<footer class="page-footer">
+  <div class="footer-brand"><span>IBM</span> SE Horizon · Phase 3 — Data &amp; AI</div>
+  <div class="footer-made">Made with IBM Bob · July 2026</div>
+</footer>
+
+</body>
+</html>
