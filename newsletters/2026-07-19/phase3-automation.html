@@ -6,41 +6,27 @@
 <title>SE Horizon — Automation Brand View · Gavin</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
-    background: #f4f4f4;
-    color: #1f2328;
-    font-size: 14px;
-    line-height: 1.5;
-  }
+  body { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; background: #f4f4f4; color: #1f2328; font-size: 14px; line-height: 1.5; }
+  a { text-decoration: none; }
 
-  /* ── TOP BAR (SE HORIZON NAV) ── */
-  .se-topbar {
-    background: #161616;
-    border-bottom: 3px solid #0f62fe;
-    padding: 0 20px;
-    height: 46px;
-    display: flex; align-items: center; justify-content: space-between;
-    position: sticky; top: 0; z-index: 200;
-  }
-  .se-topbar-left { display: flex; align-items: center; gap: 10px; }
-  .se-topbar-ibm { font-size: 18px; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
-  .se-topbar-div { width: 1px; height: 16px; background: #393939; }
-  .se-topbar-title { font-size: 12px; font-weight: 600; color: #a8c8ff; }
-  .se-topbar-links { display: flex; align-items: center; gap: 0; flex-wrap: nowrap; }
-  .se-topbar-links a {
-    font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.6);
-    padding: 0 12px; height: 46px; display: flex; align-items: center;
-    text-decoration: none; border-bottom: 3px solid transparent; margin-bottom: -3px;
-    white-space: nowrap;
-  }
-  .se-topbar-links a:hover { color: #fff; }
-  .se-topbar-links a.active { color: #fff; border-bottom-color: #0f62fe; }
-  .se-topbar-links a.sub-link { font-size: 10.5px; color: rgba(255,255,255,0.45); }
-  .se-topbar-links a.sub-link:hover { color: rgba(255,255,255,0.8); }
-  .se-topbar-links a.sub-link.active { color: #42be65; border-bottom-color: #42be65; }
-  .se-topbar-divider { color: #393939; padding: 0 4px; font-size: 13px; line-height: 46px; }
-  .se-topbar-right { font-size: 11px; color: #6f6f6f; letter-spacing: 0.06em; text-transform: uppercase; }
+  /* ── SHARED TOP NAV ── */
+  .se-topbar{background:#161616;border-bottom:3px solid #0f62fe;padding:0 20px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+  .se-topbar-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .se-topbar-ibm{font-size:18px;font-weight:900;color:#fff;letter-spacing:-0.5px;}
+  .se-topbar-div{width:1px;height:16px;background:#393939;}
+  .se-topbar-title{font-size:12px;font-weight:600;color:#a8c8ff;white-space:nowrap;}
+  .se-topbar-badge{font-size:10px;font-weight:700;background:#42be65;color:#000;padding:2px 9px;border-radius:20px;white-space:nowrap;}
+  .se-topbar-links{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;}
+  .se-topbar-links::-webkit-scrollbar{display:none;}
+  .se-topbar-links a{font-size:11px;font-weight:600;color:rgba(255,255,255,0.55);padding:5px 10px;border-radius:3px;white-space:nowrap;border-bottom:2px solid transparent;}
+  .se-topbar-links a:hover{color:#fff;background:rgba(255,255,255,0.07);}
+  .se-topbar-links a.se-active{color:#fff;border-bottom-color:#42be65;}
+  .se-topbar-links .se-divider{color:#393939;padding:0 4px;font-size:11px;user-select:none;}
+  .se-topbar-links a.se-sub{color:rgba(255,255,255,0.4);font-size:10px;}
+  .se-topbar-links a.se-sub:hover{color:#6ee08a;}
+  .se-topbar-links a.se-sub.se-active{color:#6ee08a;border-bottom-color:#6ee08a;}
+  .se-topbar-right{font-size:10px;color:#6f6f6f;white-space:nowrap;letter-spacing:0.05em;flex-shrink:0;display:none;}
+  @media(min-width:700px){.se-topbar-right{display:block;}}
 
   /* ── BRAND HERO ── */
   .brand-hero {
@@ -76,14 +62,8 @@
   .stat-label { font-size: 11px; color: #6b8b6e; margin-top: 2px; }
 
   /* ── SCOPE CALLOUT ── */
-  .scope-callout {
-    max-width: 920px; margin: 20px auto 0; padding: 14px 20px;
-    background: #fff; border: 1px solid #e5e7eb;
-    border-left: 4px solid #42be65;
-    border-radius: 6px;
-    font-size: 12px; color: #57606a; line-height: 1.6;
-  }
-  .scope-callout strong { color: #1f2328; font-weight: 700; }
+  .scope-callout { background: #e8f9ed; border: 1px solid #a0e8b4; border-left: 4px solid #42be65; border-radius: 6px; padding: 12px 16px; font-size: 12px; color: #1f2328; line-height: 1.6; margin-bottom: 20px; }
+  .scope-callout strong { color: #0e6027; }
 
   /* ── PAGE NAV ── */
   .page-nav {
@@ -241,22 +221,23 @@
 </head>
 <body>
 
-<!-- ── TOP NAV ── -->
+<!-- ── SE HORIZON TOP NAV ── -->
 <div class="se-topbar">
   <div class="se-topbar-left">
     <span class="se-topbar-ibm">IBM</span>
     <div class="se-topbar-div"></div>
-    <span class="se-topbar-title">SE Horizon · Phase 3 · Automation</span>
+    <span class="se-topbar-title">SE Horizon</span>
+    <span class="se-topbar-badge">Phase 3 · Automation</span>
   </div>
   <div class="se-topbar-links">
     <a href="phase1.html">Phase 1</a>
     <a href="phase2.html">Phase 2</a>
-    <a href="phase3.html" class="active">Phase 3</a>
-    <span class="se-topbar-divider">|</span>
-    <a href="phase3-data-ai.html" class="sub-link">Data &amp; AI</a>
-    <a href="phase3-automation.html" class="sub-link active">Automation</a>
-    <a href="phase3-storage.html" class="sub-link">Storage</a>
-    <a href="phase3-power-cloud.html" class="sub-link">Power &amp; Cloud</a>
+    <a href="phase3.html">Phase 3</a>
+    <span class="se-divider">|</span>
+    <a href="phase3-data-ai.html" class="se-sub">Data &amp; AI</a>
+    <a href="phase3-automation.html" class="se-sub se-active">Automation</a>
+    <a href="phase3-storage.html" class="se-sub">Storage</a>
+    <a href="phase3-power-cloud.html" class="se-sub">Power &amp; Cloud</a>
   </div>
   <span class="se-topbar-right">South Florida SE · July 19, 2026</span>
 </div>
@@ -267,9 +248,10 @@
     <div class="brand-eyebrow">
       <a href="phase3.html">Brand View</a>
       <span class="sep">/</span>
-      Automation — Gavin
+      Automation
     </div>
     <h1>Auto<span>mation</span></h1>
+    <div class="brand-seller">Gavin's Territory</div>
     <p class="brand-hero-sub">South Florida's mid-market is operationally under-automated — workforce scheduling, clinical workflows, franchise ops, and distributed field operations are running on manual processes at scale. These 9 accounts have a clear, first-call automation story.</p>
     <div class="brand-products">
       <span class="prod-tag">IBM Automation</span>
@@ -279,39 +261,28 @@
       <span class="prod-tag">Process Mining</span>
     </div>
     <div class="brand-stats">
-      <div class="stat">
-        <div class="stat-num">9</div>
-        <div class="stat-label">Accounts with automation angle</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">6</div>
-        <div class="stat-label">New accounts this cycle</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">3</div>
-        <div class="stat-label">High urgency signals</div>
-      </div>
-    </div>
-    <div style="margin-top:16px;">
-      <div class="scope-callout" style="margin:0;max-width:100%;">
-        <strong>Why 9, not 26 accounts:</strong> Only these 9 have an automation angle strong enough to open a first call with. The other 17 accounts in the territory are best entered through <strong>Data &amp; AI</strong> — automation can surface as a secondary conversation after the D&amp;AI relationship is established. Forcing an automation pitch at accounts without a clear workflow, headcount, or operational scaling trigger wastes credibility.
-      </div>
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">Accounts with automation angle</div></div>
+      <div class="stat"><div class="stat-num">6</div><div class="stat-label">New accounts this cycle</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">High urgency signals</div></div>
     </div>
   </div>
 </div>
 
-<!-- ── PAGE NAV ── -->
+<!-- ── PAGE NAV PILLS ── -->
 <div class="page-nav">
   <div class="page-nav-inner">
-    <a class="pnav-pill" href="phase3-data-ai.html">📊 Data &amp; AI</a>
-    <span class="pnav-pill active">⚙️ Automation</span>
-    <a class="pnav-pill" href="phase3-storage.html">💾 Storage</a>
-    <a class="pnav-pill" href="phase3-power-cloud.html">🖥 Power &amp; Hybrid Cloud</a>
+    <a href="phase3-data-ai.html" class="pnav-pill">📊 Data &amp; AI — Alyssa</a>
+    <a href="phase3-automation.html" class="pnav-pill active">⚙️ Automation — Gavin</a>
+    <a href="phase3-storage.html" class="pnav-pill">💾 Storage — William</a>
+    <a href="phase3-power-cloud.html" class="pnav-pill">🖥 Power &amp; Cloud — Rick &amp; Kevin</a>
   </div>
 </div>
 
-<!-- ── MAIN ── -->
 <div class="main">
+
+  <div class="scope-callout">
+    <strong>Why 9 of 26 accounts?</strong> Only these 9 have an automation angle strong enough to open a first call with. The other 17 accounts in the territory are best entered through <strong>Data &amp; AI</strong> — automation can surface as a secondary conversation after the D&amp;AI relationship is established. Forcing an automation pitch at accounts without a clear workflow, headcount, or operational scaling trigger wastes credibility.
+  </div>
 
   <div class="section-label">All Automation Accounts — July 19, 2026</div>
 
