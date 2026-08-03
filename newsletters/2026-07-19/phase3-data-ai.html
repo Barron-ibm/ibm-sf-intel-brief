@@ -1,107 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SE Horizon — Data &amp; AI · Alyssa | July 21, 2026</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE Horizon | Phase 3 — Data &amp; AI | July 21, 2026</title>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; background: #f4f4f4; color: #1f2328; font-size: 14px; line-height: 1.5; }
-  a { text-decoration: none; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;background:#0f1c3a;color:#1f2328;}
+a{text-decoration:none;}
+:root{--brand:#0f62fe;--brand-dark:#0353d9;--brand-bg:#f0f4ff;--hero-a:#0a1628;--hero-b:#0f2040;}
 
-  /* ── SHARED TOP NAV ── */
-  .se-topbar{background:#161616;border-bottom:3px solid #0f62fe;padding:0 20px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
-  .se-topbar-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
-  .se-topbar-ibm{font-size:18px;font-weight:900;color:#fff;letter-spacing:-0.5px;}
-  .se-topbar-div{width:1px;height:16px;background:#393939;}
-  .se-topbar-title{font-size:12px;font-weight:600;color:#a8c8ff;white-space:nowrap;}
-  .se-topbar-badge{font-size:10px;font-weight:700;background:#0f62fe;color:#fff;padding:2px 9px;border-radius:20px;white-space:nowrap;}
-  .se-topbar-links{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;}
-  .se-topbar-links::-webkit-scrollbar{display:none;}
-  .se-topbar-links a{font-size:11px;font-weight:600;color:rgba(255,255,255,0.55);padding:5px 10px;border-radius:3px;white-space:nowrap;border-bottom:2px solid transparent;}
-  .se-topbar-links a:hover{color:#fff;background:rgba(255,255,255,0.07);}
-  .se-topbar-links a.se-active{color:#fff;border-bottom-color:#0f62fe;}
-  .se-topbar-links .se-divider{color:#393939;padding:0 4px;font-size:11px;user-select:none;}
-  .se-topbar-links a.se-sub{color:rgba(255,255,255,0.4);font-size:10px;}
-  .se-topbar-links a.se-sub:hover{color:#a8c8ff;}
-  .se-topbar-links a.se-sub.se-active{color:#a8c8ff;border-bottom-color:#a8c8ff;}
-  .se-topbar-right{font-size:10px;color:#6f6f6f;white-space:nowrap;letter-spacing:0.05em;flex-shrink:0;display:none;}
-  @media(min-width:700px){.se-topbar-right{display:block;}}
+/* ── TOP NAV ── */
+.se-topbar{background:#161616;border-bottom:3px solid var(--brand);padding:0 20px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.se-topbar-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.se-topbar-ibm{font-size:18px;font-weight:900;color:#fff;letter-spacing:-0.5px;}
+.se-topbar-div{width:1px;height:16px;background:#393939;}
+.se-topbar-title{font-size:12px;font-weight:600;color:#a8c8ff;white-space:nowrap;}
+.se-topbar-badge{font-size:10px;font-weight:700;background:var(--brand);color:#fff;padding:2px 9px;border-radius:20px;white-space:nowrap;}
+.se-topbar-links{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;}
+.se-topbar-links::-webkit-scrollbar{display:none;}
+.se-topbar-links a{font-size:11px;font-weight:600;color:rgba(255,255,255,0.55);padding:5px 10px;border-radius:3px;white-space:nowrap;border-bottom:2px solid transparent;}
+.se-topbar-links a:hover{color:#fff;background:rgba(255,255,255,0.07);}
+.se-topbar-links a.se-active{color:#fff;border-bottom-color:var(--brand);}
+.se-topbar-links .se-divider{color:#393939;padding:0 4px;font-size:11px;user-select:none;}
+.se-topbar-links a.se-sub{color:rgba(255,255,255,0.4);font-size:10px;}
+.se-topbar-links a.se-sub:hover{color:#a8c8ff;}
+.se-topbar-links a.se-sub.se-active{color:#a8c8ff;border-bottom-color:#a8c8ff;}
+.se-topbar-right{font-size:10px;color:#6f6f6f;white-space:nowrap;flex-shrink:0;display:none;}
+@media(min-width:700px){.se-topbar-right{display:block;}}
 
-  /* ── BRAND HERO ── */
-  .brand-hero { background: linear-gradient(135deg, #0a1628 0%, #0f2040 100%); border-bottom: 1px solid #1a3a6a; padding: 36px 28px 28px; }
-  .brand-hero-inner { max-width: 920px; margin: 0 auto; }
-  .brand-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #a8c8ff; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-  .brand-eyebrow a { color: #6f6f6f; text-decoration: none; }
-  .brand-eyebrow a:hover { color: #a8c8ff; }
-  .brand-eyebrow .sep { color: #393939; }
-  .brand-hero h1 { font-size: 30px; font-weight: 900; color: #fff; margin-bottom: 4px; }
-  .brand-hero h1 span { color: #a8c8ff; }
-  .brand-seller { font-size: 12px; font-weight: 700; color: #a8c8ff; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
-  .brand-hero-sub { font-size: 13px; color: #6f8ab7; max-width: 640px; margin-bottom: 16px; }
-  .brand-products { display: flex; flex-wrap: wrap; gap: 6px; }
-  .prod-tag { font-size: 11px; font-weight: 600; background: rgba(255,255,255,0.08); color: #a8c8ff; border: 1px solid rgba(168,200,255,0.2); border-radius: 4px; padding: 3px 10px; }
-  .brand-stats { display: flex; gap: 28px; margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08); }
-  .stat-num { font-size: 22px; font-weight: 900; color: #fff; line-height: 1; }
-  .stat-label { font-size: 11px; color: #6f8ab7; margin-top: 2px; }
+/* ── ACCOUNT NAV BAR ── */
+.acct-nav{background:#161616;border-bottom:2px solid #222;padding:0 12px;display:flex;align-items:center;overflow-x:auto;white-space:nowrap;scrollbar-width:thin;scrollbar-color:var(--brand) #161616;position:sticky;top:46px;z-index:190;}
+.acct-nav::-webkit-scrollbar{height:3px;}
+.acct-nav::-webkit-scrollbar-thumb{background:var(--brand);border-radius:2px;}
+.acct-nav a{display:inline-block;font-size:10px;font-weight:700;color:rgba(255,255,255,0.55);padding:9px 12px;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;flex-shrink:0;}
+.acct-nav a:hover{color:#fff;}
+.acct-nav a.active{color:#fff;border-bottom-color:var(--brand);}
+.acct-nav a.new-acct{color:#6ee08a;}
 
-  /* ── PAGE NAV PILLS ── */
-  .page-nav { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 0 28px; }
-  .page-nav-inner { max-width: 920px; margin: 0 auto; display: flex; gap: 4px; padding: 10px 0; overflow-x: auto; scrollbar-width: none; }
-  .page-nav-inner::-webkit-scrollbar { display: none; }
-  .pnav-pill { flex-shrink: 0; font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 20px; border: 1px solid #e5e7eb; color: #57606a; background: #f7f8fa; text-decoration: none; }
-  .pnav-pill.active { background: #0f62fe; color: #fff; border-color: #0f62fe; }
-  .pnav-pill:hover:not(.active) { background: #e8f2ff; color: #0f62fe; border-color: #b8d4f5; }
+/* ── PAGE SHELL ── */
+.page{max-width:900px;margin:0 auto 40px;background:#fff;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,0.35);border-radius:4px;}
 
-  /* ── SCOPE CALLOUT ── */
-  .scope-callout { background: #e8f2ff; border: 1px solid #b8d4f5; border-left: 4px solid #0f62fe; border-radius: 6px; padding: 12px 16px; font-size: 12px; color: #1f2328; line-height: 1.6; margin-bottom: 20px; }
-  .scope-callout strong { color: #0f62fe; }
+/* ── COVER HEADER ── */
+.cover-head{display:flex;align-items:stretch;}
+.cover-left{background:#1a1a2e;min-width:160px;width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 12px;gap:6px;}
+.cover-right{flex:1;background:#fff;padding:22px 28px;border-bottom:1px solid #e5e7eb;}
+.bob-icon{width:60px;height:60px;}
+.c-ibm-label{color:#fff;font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-top:4px;}
+.c-dow{color:rgba(255,255,255,0.65);font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;}
+.c-date{color:#fff;font-size:13px;font-weight:700;}
+.c-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#57606a;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.c-eyebrow::before{content:'';display:inline-block;width:28px;height:2px;background:var(--brand);}
+.c-title{font-size:24px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:#1f2328;line-height:1.1;}
+.c-sub{font-size:11px;font-weight:500;color:#57606a;letter-spacing:1px;margin-top:4px;text-transform:uppercase;}
 
-  /* ── MAIN ── */
-  .main { max-width: 920px; margin: 0 auto; padding: 28px 28px 80px; }
-  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #57606a; border-bottom: 1px solid #e5e7eb; padding-bottom: 8px; margin-bottom: 16px; }
+/* ── HERO BAND ── */
+.hero-band{background:linear-gradient(135deg,var(--hero-a),var(--hero-b));padding:24px 28px;border-top:3px solid var(--brand);}
+.hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;}
+.hero-h1{font-size:22px;font-weight:900;color:#fff;margin-bottom:6px;}
+.hero-h1 span{color:#a8c8ff;}
+.hero-seller{font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);margin-bottom:14px;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+.hero-tag{font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:20px;border:1px solid rgba(168,200,255,0.35);color:#a8c8ff;}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,0.1);padding-top:14px;}
+.hero-stat{text-align:center;}
+.hero-stat-val{font-size:20px;font-weight:900;color:#fff;}
+.hero-stat-label{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:2px;}
 
-  /* ── ACCOUNT CARD ── */
-  .acct-card-full { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; border-left: 5px solid #0f62fe; overflow: hidden; margin-bottom: 16px; }
-  .card-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid #f4f4f4; gap: 12px; }
-  .card-header-left { display: flex; align-items: center; gap: 12px; }
-  .card-acct-num { width: 28px; height: 28px; border-radius: 50%; background: #f4f4f4; color: #57606a; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .card-acct-name { font-size: 16px; font-weight: 800; color: #161616; }
-  .card-acct-sub { font-size: 11px; color: #57606a; margin-top: 1px; }
-  .card-header-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-  .badge { font-size: 10px; font-weight: 700; letter-spacing: 0.04em; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
-  .badge-new { background: #defbe6; color: #0e6027; }
-  .badge-existing { background: #e8f2ff; color: #0043ce; }
-  .badge-high { background: #fff1f1; color: #c42b1c; }
-  .badge-med { background: #fef3e2; color: #b45309; }
-  .card-body { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
-  .card-col { padding: 16px 20px; border-right: 1px solid #f4f4f4; }
-  .card-col:last-child { border-right: none; }
-  .col-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #57606a; margin-bottom: 8px; }
-  .col-trigger { font-size: 13px; color: #1f2328; line-height: 1.5; }
-  .col-trigger strong { color: #161616; font-weight: 700; }
-  .col-ask { font-size: 12px; color: #1f2328; line-height: 1.55; }
-  .col-ask strong { color: #0f62fe; font-weight: 700; }
-  .persona-chips { display: flex; flex-wrap: wrap; gap: 5px; }
-  .persona-chip { font-size: 11px; font-weight: 600; background: #f4f4f4; color: #393939; border: 1px solid #e5e7eb; border-radius: 4px; padding: 3px 9px; }
-  .persona-chip.primary { background: #e8f2ff; color: #0f62fe; border-color: #b8d4f5; }
-  .card-footer { padding: 10px 20px; background: #f7f8fa; border-top: 1px solid #f4f4f4; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-  .play-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-  .play-tag { font-size: 10px; font-weight: 700; background: #e8f2ff; color: #0f62fe; border: 1px solid #b8d4f5; border-radius: 3px; padding: 2px 8px; }
-  .card-link { font-size: 11px; font-weight: 700; color: #0f62fe; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
-  .card-link:hover { text-decoration: underline; }
+/* ── PAGE NAV PILLS ── */
+.page-nav-pills{display:flex;gap:8px;padding:14px 28px;background:#f7f8fa;border-bottom:1px solid #e5e7eb;overflow-x:auto;scrollbar-width:none;}
+.page-nav-pills::-webkit-scrollbar{display:none;}
+.nav-pill{font-size:10px;font-weight:700;letter-spacing:0.5px;padding:5px 14px;border-radius:20px;border:2px solid #e5e7eb;color:#57606a;white-space:nowrap;flex-shrink:0;}
+.nav-pill:hover{border-color:var(--brand);color:var(--brand);}
+.nav-pill.active{background:var(--brand);border-color:var(--brand);color:#fff;}
 
-  /* ── RESOURCE STRIP ── */
-  .resource-strip { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; border-top: 3px solid #0f62fe; padding: 20px 24px; margin-top: 28px; }
-  .resource-strip-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #0f62fe; margin-bottom: 14px; }
-  .resource-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .resource-item-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #57606a; margin-bottom: 5px; }
-  .resource-item-text { font-size: 12px; color: #1f2328; line-height: 1.55; font-style: italic; }
-  .resource-item-text strong { font-style: normal; font-weight: 700; color: #0f62fe; }
+/* ── SECTION LABEL ── */
+.section-label{padding:10px 28px 4px;font-size:9px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#57606a;background:#fff;border-top:1px solid #f0f2f5;}
 
-  footer { border-top: 1px solid #e5e7eb; padding: 16px 28px; text-align: center; font-size: 11px; color: #57606a; }
-  @media(max-width:680px){ .card-body{grid-template-columns:1fr;} .card-col{border-right:none;border-bottom:1px solid #f4f4f4;} .resource-grid{grid-template-columns:1fr;} }
-  @media print{ .se-topbar{display:none;} .card-link{display:none;} body{background:#fff;} }
+/* ── ACCOUNT CARD ── */
+.acct-card{margin:0 0 0 0;background:#fff;border-left:5px solid var(--brand);border-top:1px solid #f0f2f5;scroll-margin-top:100px;}
+.acct-card.supporting{border-left-color:#d0d7de;opacity:0.88;border-style:dashed;}
+.card-head{display:flex;align-items:center;justify-content:space-between;padding:14px 20px 10px;border-bottom:1px solid #f0f2f5;}
+.card-head-left{display:flex;align-items:center;gap:10px;}
+.card-acct-name{font-size:15px;font-weight:900;color:#1f2328;}
+.card-new-badge{font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;background:#1a7a3a;color:#fff;padding:2px 7px;border-radius:3px;}
+.card-supporting-badge{font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;background:#57606a;color:#fff;padding:2px 7px;border-radius:3px;}
+.card-head-right{display:flex;align-items:center;gap:8px;}
+.signal-dots{display:flex;gap:3px;}
+.dot{width:8px;height:8px;border-radius:50%;background:#e5e7eb;}
+.dot.filled{background:var(--brand);}
+.card-body{padding:10px 20px 4px;display:grid;grid-template-columns:1fr 1fr;gap:0 20px;}
+.card-col-label{font-size:8.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#57606a;margin-bottom:4px;}
+.card-trigger{font-size:11.5px;color:#1f2328;line-height:1.5;}
+.card-quote{font-size:11px;color:#1f2328;font-style:italic;line-height:1.7;border-left:3px solid var(--brand);padding-left:10px;margin:10px 20px;}
+.card-footer{padding:8px 20px 12px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:1px solid #f7f8fa;}
+.card-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.card-tag{font-size:9px;font-weight:700;letter-spacing:0.5px;padding:2px 8px;border-radius:20px;background:#f0f4ff;border:1px solid #d0d9ff;color:var(--brand);}
+.card-personas{display:flex;flex-wrap:wrap;gap:5px;}
+.persona-pill{font-size:9px;font-weight:600;padding:2px 8px;border-radius:20px;background:#f7f8fa;border:1px solid #e5e7eb;color:#424a53;}
+.card-actions{display:flex;gap:8px;padding:0 20px 12px;}
+.btn-intel{font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:3px;background:#1a1a2e;color:#fff;white-space:nowrap;}
+.btn-snav{font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:3px;background:var(--brand);color:#fff;white-space:nowrap;}
+.card-who{padding:2px 20px 8px;}
+.who-label{font-size:8.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#57606a;margin-bottom:4px;}
+
+/* ── BOTTOM STRIP ── */
+.bottom-strip{background:linear-gradient(135deg,var(--hero-a),var(--hero-b));padding:24px 28px;border-top:3px solid var(--brand);}
+.strip-q-label{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;}
+.strip-q{font-size:13px;color:#fff;font-style:italic;border-left:3px solid var(--brand);padding-left:12px;line-height:1.7;margin-bottom:16px;}
+.strip-oneliner{font-size:11px;color:rgba(255,255,255,0.6);border-top:1px solid rgba(255,255,255,0.1);padding-top:12px;}
+
+/* ── FOOTER ── */
+.page-footer{background:#f7f8fa;border-top:1px solid #e5e7eb;padding:10px 28px;display:flex;justify-content:space-between;align-items:center;}
+.footer-brand{font-size:11px;font-weight:700;color:#1f2328;}
+.footer-brand span{color:var(--brand);}
+.footer-made{font-size:10px;color:#aab0b8;}
+
+@media(max-width:680px){
+  .cover-head{flex-direction:column;}
+  .cover-left{width:100%;flex-direction:row;justify-content:flex-start;}
+  .card-body{grid-template-columns:1fr;}
+  .hero-stats{grid-template-columns:repeat(2,1fr);}
+  .page-nav-pills{padding:10px 14px;}
+}
 </style>
 </head>
 <body>
@@ -127,997 +149,962 @@
   <span class="se-topbar-right">South Florida SE · July 21, 2026</span>
 </div>
 
-<!-- ── BRAND HERO ── -->
-<div class="brand-hero">
-  <div class="brand-hero-inner">
-    <div class="brand-eyebrow">
-      <a href="phase3.html">Brand View</a>
-      <span class="sep">/</span>
-      Data &amp; AI
+<!-- ── ACCOUNT NAV BAR ── -->
+<nav class="acct-nav">
+  <a href="#sgws" class="active">Southern Glazer's</a>
+  <a href="#nclh">NCLH</a>
+  <a href="#jmf">JM Family</a>
+  <a href="#citco">Citco</a>
+  <a href="#octave">Octave</a>
+  <a href="#hexfed">Hex Federal</a>
+  <a href="#hexmin">Hex Mining</a>
+  <a href="#pellera">Pellera</a>
+  <a href="#lennar">Lennar</a>
+  <a href="#lennarmtg">Lennar Mtg</a>
+  <a href="#heico" class="new-acct">✦ HEICO</a>
+  <a href="#hig" class="new-acct">✦ H.I.G. Capital</a>
+  <a href="#kforce" class="new-acct">✦ Kforce</a>
+  <a href="#bk" class="new-acct">✦ Burger King</a>
+  <a href="#seaworld" class="new-acct">✦ SeaWorld</a>
+  <a href="#icahn" class="new-acct">✦ Icahn</a>
+  <a href="#ansco" class="new-acct">✦ ANSCO</a>
+  <a href="#dycom" class="new-acct">✦ Dycom</a>
+  <a href="#herc" class="new-acct">✦ Herc Rentals</a>
+  <a href="#dmab" class="new-acct">✦ DMAB</a>
+  <a href="#memorial" class="new-acct">✦ Memorial</a>
+  <a href="#mastec" class="new-acct">✦ MasTec</a>
+  <a href="#frontline" class="new-acct">✦ Frontline</a>
+  <a href="#odp" class="new-acct">✦ ODP</a>
+  <a href="#chewy" class="new-acct">✦ Chewy</a>
+  <a href="#chicos" class="new-acct">✦ Chico's</a>
+</nav>
+
+<div class="page">
+
+  <!-- COVER HEADER -->
+  <div class="cover-head">
+    <div class="cover-left">
+      <svg class="bob-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="18" y="22" width="44" height="36" rx="8" fill="#0f62fe"/>
+        <rect x="18" y="30" width="44" height="14" fill="#0353d9"/>
+        <rect x="26" y="33" width="10" height="8" rx="2" fill="#ffffff"/>
+        <rect x="44" y="33" width="10" height="8" rx="2" fill="#ffffff"/>
+        <rect x="29" y="35" width="4" height="4" rx="1" fill="#0f62fe"/>
+        <rect x="47" y="35" width="4" height="4" rx="1" fill="#0f62fe"/>
+        <rect x="28" y="48" width="24" height="4" rx="2" fill="#a8c8ff"/>
+        <rect x="34" y="58" width="12" height="6" rx="2" fill="#0f62fe"/>
+        <rect x="37" y="10" width="6" height="12" rx="3" fill="#0f62fe"/>
+        <circle cx="40" cy="8" r="4" fill="#a8c8ff"/>
+        <rect x="8" y="32" width="10" height="8" rx="3" fill="#0f62fe"/>
+        <rect x="62" y="32" width="10" height="8" rx="3" fill="#0f62fe"/>
+        <rect x="24" y="43" width="32" height="2" rx="1" fill="rgba(168,200,255,0.4)"/>
+      </svg>
+      <div class="c-ibm-label">IBM</div>
+      <div class="c-dow">Saturday</div>
+      <div class="c-date">July 21, 2026</div>
     </div>
-    <h1>Data &amp; <span>AI</span></h1>
-    <div class="brand-seller">Alyssa's Territory</div>
-    <p class="brand-hero-sub">South Florida is a PE-heavy, multi-entity market — Planning Analytics and Data Fabric are the fastest paths into FP&amp;A and data consolidation conversations across the portfolio.</p>
-    <div class="brand-products">
-      <span class="prod-tag">watsonx.ai</span>
-      <span class="prod-tag">watsonx.data</span>
-      <span class="prod-tag">watsonx.governance</span>
-      <span class="prod-tag">Planning Analytics</span>
-      <span class="prod-tag">Data Fabric</span>
-      <span class="prod-tag">Cognos Analytics</span>
-      <span class="prod-tag">SPSS</span>
-    </div>
-    <div class="brand-stats">
-      <div class="stat"><div class="stat-num">23</div><div class="stat-label">Accounts with D&amp;AI angle</div></div>
-      <div class="stat"><div class="stat-num">15</div><div class="stat-label">High signal this cycle</div></div>
-      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Pre-earnings windows open</div></div>
+    <div class="cover-right">
+      <div class="c-eyebrow">SE Horizon &nbsp;·&nbsp; Brand Specialist Tool</div>
+      <div class="c-title">Data &amp; AI<br>Prospecting Guide</div>
+      <div class="c-sub">26 Accounts · Alyssa's Territory · July 21, 2026</div>
     </div>
   </div>
-</div>
 
-<!-- ── PAGE NAV PILLS ── -->
-<div class="page-nav">
-  <div class="page-nav-inner">
-    <a href="phase3-data-ai.html" class="pnav-pill active">📊 Data &amp; AI — Alyssa</a>
-    <a href="phase3-automation.html" class="pnav-pill">⚙️ Automation — Gavin</a>
-    <a href="phase3-storage.html" class="pnav-pill">💾 Storage — William</a>
-    <a href="phase3-power-cloud.html" class="pnav-pill">🖥 Power &amp; Cloud — Rick &amp; Kevin</a>
+  <!-- HERO BAND -->
+  <div class="hero-band">
+    <div class="hero-eyebrow">Brand View / Data &amp; AI</div>
+    <div class="hero-h1">Data &amp; AI — <span>Every Account Has a Play</span></div>
+    <div class="hero-seller">Alyssa's Territory · South Florida SE</div>
+    <div class="hero-tags">
+      <span class="hero-tag">Planning Analytics</span>
+      <span class="hero-tag">watsonx</span>
+      <span class="hero-tag">Data Fabric</span>
+      <span class="hero-tag">AI Governance</span>
+      <span class="hero-tag">watsonx.data</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-val">26</div><div class="hero-stat-label">Accounts</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">16</div><div class="hero-stat-label">New ✦</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">10</div><div class="hero-stat-label">High Signal</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">1</div><div class="hero-stat-label">Brand Page</div></div>
+    </div>
   </div>
-</div>
 
-<div class="main">
-
-  <div class="scope-callout">
-    <strong>Why 23 of 26 accounts?</strong> This page shows every account in the South Florida territory where Data &amp; AI is a credible first-call play based on Phase 2 intelligence. Three accounts are excluded: <strong>Hexagon Mining</strong> (primary play is Storage — MinePlan data volumes), <strong>ANSCO</strong> (primary play is Automation — workflow orchestration), and <strong>Octave</strong> (primary play is Power &amp; Hybrid Cloud — Red Hat OpenShift green-field). All three appear on their respective brand pages. Data &amp; AI can come up as a secondary conversation after the primary relationship is established.
+  <!-- PAGE NAV PILLS -->
+  <div class="page-nav-pills">
+    <a href="phase3-data-ai.html" class="nav-pill active">Data &amp; AI</a>
+    <a href="phase3-automation.html" class="nav-pill">Automation</a>
+    <a href="phase3-storage.html" class="nav-pill">Storage</a>
+    <a href="phase3-power-cloud.html" class="nav-pill">Power &amp; Cloud</a>
   </div>
 
-  <div class="section-label">All Data &amp; AI Accounts — July 21, 2026 · ✦ = New Account</div>
+  <div class="section-label">Primary Plays — All 26 Accounts</div>
 
-  <!-- 1. SGWS -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">1</div>
-        <div>
-          <div class="card-acct-name">Southern Glazer's Wine &amp; Spirits</div>
-          <div class="card-acct-sub">Beverage Distribution · Private · Miami, FL</div>
-        </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <!-- 1. SOUTHERN GLAZER'S -->
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="acct-card" id="sgws">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Southern Glazer's Wine &amp; Spirits</span>
       </div>
-      <div class="card-header-right">
-        <span class="badge badge-existing">Existing</span>
-        <span class="badge badge-high">● High Signal</span>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">5/5</span>
       </div>
     </div>
     <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger">SGWS cut <strong>220 jobs</strong> (1% of workforce) tied to its AI hybrid sales model launch. The <strong>Proof Commerce AI platform</strong> is live — inside sales is replacing field reps. CEO publicly cited AI as the business model driver.</div>
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">July 10: 220 job cuts (1% of workforce) — AI hybrid sales model launched. Proof Commerce AI platform live, replacing field reps. CEO publicly cited AI as business model driver.</div>
       </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>IBM AI Governance</strong> as the compliance layer above Proof Commerce — their live AI decisions need explainability for regulatory and distributor accountability. Second hook: <strong>watsonx.data</strong> to unify demand and inventory signals across 44 states without ripping out their data stack.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">CIO</span>
-          <span class="persona-chip primary">VP Data Analytics</span>
-          <span class="persona-chip">CFO</span>
-          <span class="persona-chip">Compliance Manager</span>
-          <span class="persona-chip">Sales Ops Lead</span>
-        </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CFO / VP Finance</span><span class="persona-pill">CIO / Data Analytics Mgr</span><span class="persona-pill">Compliance Manager</span></div>
       </div>
     </div>
+    <div class="card-quote">"Your Proof Commerce platform is a competitive differentiator — but regulators and customers will demand to know how those AI decisions are made. IBM AI Governance gives you audit trails, bias detection, and explainability without slowing down the platform."</div>
     <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">AI Governance</span><span class="play-tag">watsonx.data</span><span class="play-tag">Data Fabric</span></div>
-      <a class="card-link" href="phase2.html#sgws">Full Intel Brief →</a>
+      <div class="card-tags"><span class="card-tag">AI Governance</span><span class="card-tag">watsonx.data</span><span class="card-tag">Data Fabric</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#sgws" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A10408%2CselectionType%3AINCLUDED)))))" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
     </div>
   </div>
 
   <!-- 2. NCLH -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">2</div>
-        <div>
-          <div class="card-acct-name">Norwegian Cruise Line Holdings</div>
-          <div class="card-acct-sub">Cruise Line · NYSE: NCLH · Miami, FL</div>
-        </div>
+  <div class="acct-card" id="nclh">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Norwegian Cruise Line Holdings</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">NYSE: NCLH · Miami, FL</span>
       </div>
-      <div class="card-header-right">
-        <span class="badge badge-existing">Existing</span>
-        <span class="badge badge-high">● High Signal</span>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">5/5</span>
       </div>
     </div>
     <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>Q2 earnings Jul 30</strong> with Elliott activist pressure demanding margin discipline. Three cruise brands (NCL, Oceania, Regent) running siloed data systems. Cost takeout mandate is active at the board level.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>IBM Data Fabric</strong> as the unified intelligence layer across all three brands — frame it as the infrastructure that makes Elliott's cost modeling possible without a system rip-and-replace. <strong>AI Governance</strong> for customer pricing AI explainability is the compliance hook.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">CFO</span>
-          <span class="persona-chip primary">CIO</span>
-          <span class="persona-chip">CDO</span>
-          <span class="persona-chip">VP Finance</span>
-          <span class="persona-chip">VP IT</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">Data Fabric</span><span class="play-tag">AI Governance</span><span class="play-tag">watsonx</span></div>
-      <a class="card-link" href="phase2.html#nclh">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 3. JM Family -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">3</div>
-        <div>
-          <div class="card-acct-name">JM Family Enterprises</div>
-          <div class="card-acct-sub">Automotive Distribution · Private · Deerfield Beach, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-existing">Existing</span>
-        <span class="badge badge-med">● Med Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>CFO transition underway</strong> — new financial leadership evaluating planning tools. The company launched a GenAI intern program, signaling active AI investment appetite at the executive level.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">CFO transition = budget reset window. Lead with <strong>IBM Planning Analytics</strong> as the FP&amp;A command center across Southeast Toyota, JM&amp;A, and Southeast Toyota Finance — frame it as the CFO's tool, not an IT project. <strong>AI Governance</strong> for the GenAI intern program creates a natural second conversation.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">CFO</span>
-          <span class="persona-chip primary">FP&amp;A Director</span>
-          <span class="persona-chip">CIO</span>
-          <span class="persona-chip">VP Finance</span>
-          <span class="persona-chip">GenAI Program Lead</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">Planning Analytics</span><span class="play-tag">AI Governance</span><span class="play-tag">watsonx</span></div>
-      <a class="card-link" href="phase2.html#jmf">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 4. Citco -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">4</div>
-        <div>
-          <div class="card-acct-name">Citco Group</div>
-          <div class="card-acct-sub">Fund Administration · Private · Miami, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-existing">Existing</span>
-        <span class="badge badge-high">● High Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>$70.4B H1 2026 inflows</strong> — record AUM growth creating data consolidation urgency. Shortlisted for Hedgeweek Best Fund Administrator award, raising scrutiny of their data reporting quality and AI capabilities.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>IBM Data Fabric</strong> as the unified data layer for multi-fund, multi-jurisdiction reporting — $70B in new inflows means more funds, more data sources, more consolidation complexity. <strong>AI Governance</strong> is the explainability layer LP reporting now demands.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">CTO</span>
-          <span class="persona-chip primary">Head of Data</span>
-          <span class="persona-chip">CFO</span>
-          <span class="persona-chip">Compliance Director</span>
-          <span class="persona-chip">LP Relations</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">Data Fabric</span><span class="play-tag">AI Governance</span><span class="play-tag">watsonx.governance</span></div>
-      <a class="card-link" href="phase2.html#citco">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 5. Hexagon Federal -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">5</div>
-        <div>
-          <div class="card-acct-name">Hexagon Federal</div>
-          <div class="card-acct-sub">Federal GIS &amp; Geospatial · Public · Huntsville, AL / FL offices</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-existing">Existing</span>
-        <span class="badge badge-med">● Med Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>Compass 2026 Air Force GeoBase conference Aug 25–27</strong> — Hexagon Federal's flagship federal event. Government AI mandates (EO on AI) require explainability in all federal AI deployments.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>IBM AI Governance</strong> as the compliance layer for federal AI deployments — every DoD and civilian agency contract now requires explainability documentation. Time the conversation to land before the Aug 25 Compass conference when they're most focused on federal AI positioning.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">VP Federal Programs</span>
-          <span class="persona-chip primary">CTO</span>
-          <span class="persona-chip">Chief Compliance Officer</span>
-          <span class="persona-chip">Program Manager</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">AI Governance</span><span class="play-tag">watsonx.governance</span></div>
-      <a class="card-link" href="phase2.html#hexfed">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 6. Pellera -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">6</div>
-        <div>
-          <div class="card-acct-name">Pellera Technologies</div>
-          <div class="card-acct-sub">IBM Partner · MSP · Fort Lauderdale, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-existing">Existing</span>
-        <span class="badge badge-high">● High Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>IBM hackathon co-host + CMMC RPO designation</strong>. Ranked #34 on CRN Fast Growth 150. Active IBM partner building watsonx Orchestrate into their MSP stack for federal and commercial clients.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>watsonx Orchestrate</strong> as the AI workflow layer for their MSP clients — Pellera can resell and embed it into their managed services. <strong>AI Governance</strong> is the CMMC/federal compliance differentiator that makes Pellera competitive against larger MSPs bidding on government contracts.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">CEO / Partner Lead</span>
-          <span class="persona-chip primary">Technical Director</span>
-          <span class="persona-chip">Federal Practice Lead</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">watsonx Orchestrate</span><span class="play-tag">AI Governance</span></div>
-      <a class="card-link" href="phase2.html#pellera">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 7. Lennar -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">7</div>
-        <div>
-          <div class="card-acct-name">Lennar Corporation</div>
-          <div class="card-acct-sub">Homebuilder · NYSE: LEN · Miami, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-existing">Existing</span>
-        <span class="badge badge-high">● High Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>Q2 EPS $1.24, ASP down 5%</strong> — margin compression driving active ML Engineer hiring and data analytics investment. The company is prioritizing predictive analytics for community pricing and inventory management.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>IBM Planning Analytics</strong> for multi-division FP&amp;A — Lennar operates across 30+ markets and needs unified financial modeling as ASP falls. <strong>watsonx.data</strong> as the ML infrastructure layer for the new data engineering team they are actively hiring.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">CFO</span>
-          <span class="persona-chip primary">VP Data &amp; Analytics</span>
-          <span class="persona-chip">CIO</span>
-          <span class="persona-chip">ML Engineering Lead</span>
-          <span class="persona-chip">FP&amp;A Director</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">Planning Analytics</span><span class="play-tag">watsonx.data</span><span class="play-tag">ECM</span></div>
-      <a class="card-link" href="phase2.html#lennar">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 8. Lennar Mortgage -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">8</div>
-        <div>
-          <div class="card-acct-name">Lennar Mortgage</div>
-          <div class="card-acct-sub">Captive Mortgage · Lennar Subsidiary · Miami, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-existing">Existing</span>
-        <span class="badge badge-med">● Med Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>Financial Services segment earnings -$57M</strong>. CFPB AI risk guidance active — captive mortgage lenders using AI in underwriting must now document model decisions for examination.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>IBM AI Governance</strong> as the CFPB examination layer — their AI underwriting models need explainability documentation before the next exam cycle. Frame IBM as the compliance infrastructure that lets them keep their AI models without regulatory risk.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">Chief Compliance Officer</span>
-          <span class="persona-chip primary">CTO</span>
-          <span class="persona-chip">VP Risk</span>
-          <span class="persona-chip">AI/ML Director</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">AI Governance</span><span class="play-tag">watsonx.data</span></div>
-      <a class="card-link" href="phase2.html#lennarmtg">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 9. HEICO -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">9</div>
-        <div>
-          <div class="card-acct-name">HEICO Corporation ✦</div>
-          <div class="card-acct-sub">Aerospace &amp; Defense Parts · NYSE: HEI · Hollywood, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>Record Q2 results + Sherwood acquisition closed</strong>. Now managing 3,000+ FAA-PMA part numbers across two divisions. Artemis II mission components in production. Post-M&amp;A data fragmentation is the immediate pain.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>IBM Data Fabric</strong> as the M&amp;A integration layer — Sherwood brings new ERP data that needs to connect to HEICO's existing part history and compliance records without a full migration. <strong>watsonx.data</strong> for the AI-driven quality analytics pipeline their DoD contracts require.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">CIO</span>
-          <span class="persona-chip primary">VP M&amp;A Integration</span>
-          <span class="persona-chip">Chief Quality Officer</span>
-          <span class="persona-chip">VP IT</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">Data Fabric</span><span class="play-tag">watsonx.data</span><span class="play-tag">AI Governance</span></div>
-      <a class="card-link" href="phase2.html#heico">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 10. H.I.G. Capital -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">10</div>
-        <div>
-          <div class="card-acct-name">H.I.G. Capital ✦</div>
-          <div class="card-acct-sub">Private Equity · $69B AUM · 153 portfolio companies · Miami, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger">H.I.G. appointed a new Managing Director in Spain, signaling active portfolio expansion. They manage <strong>153 portfolio companies</strong> across North America, Europe, and Latin America with no unified FP&amp;A layer — every reporting cycle is a manual consolidation exercise.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>IBM Planning Analytics</strong> as the portfolio intelligence layer — frame it as the CFO's command center across 153 companies, not a budgeting tool. <strong>watsonx.governance</strong> for LP reporting: PE firms are under growing LP pressure to explain AI-assisted investment decisions.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">CFO</span>
-          <span class="persona-chip primary">FP&amp;A Director</span>
-          <span class="persona-chip">CIO</span>
-          <span class="persona-chip">Portfolio Analytics Lead</span>
-          <span class="persona-chip">LP Relations Lead</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">Planning Analytics</span><span class="play-tag">watsonx.governance</span><span class="play-tag">Data Fabric</span></div>
-      <a class="card-link" href="phase2.html#hig">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 11. Kforce -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">11</div>
-        <div>
-          <div class="card-acct-name">Kforce Inc. ✦</div>
-          <div class="card-acct-sub">Technology Staffing · NASDAQ: KFRC · Tampa, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>Stock +29% YTD</strong>, Q2 earnings Jul 27. CFO publicly discussed improving utilization rates and SG&amp;A efficiency. The company is actively investing in data analytics to improve consultant matching and client retention.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>IBM Planning Analytics</strong> for revenue forecasting and headcount modeling — staffing firms live and die on utilization rate prediction. Pre-earnings window (Jul 27) is the trigger: reach out now with a CFO-level value story on scenario planning with AI.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">CFO</span>
-          <span class="persona-chip primary">FP&amp;A Director</span>
-          <span class="persona-chip">CIO</span>
-          <span class="persona-chip">VP Data &amp; Analytics</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">Planning Analytics</span><span class="play-tag">watsonx</span></div>
-      <a class="card-link" href="phase2.html#kforce">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 12. Burger King -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">12</div>
-        <div>
-          <div class="card-acct-name">Burger King / Restaurant Brands International ✦</div>
-          <div class="card-acct-sub">QSR · NYSE: QSR · Miami, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>BK US comps +5.8%</strong>, AI featured at Cannes Lions 2026. RBI is actively deploying AI at drive-thru and in-store — publicly committed to AI-powered operations as a competitive differentiator across 18,000 locations.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>IBM AI Governance</strong> — 18,000 franchise locations using AI for customer interactions creates massive regulatory exposure if decisions can't be explained. <strong>watsonx.ai</strong> for the AI Innovation Studio they publicly discussed at Cannes: IBM can accelerate their model development timeline.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">Chief Digital Officer</span>
-          <span class="persona-chip primary">VP AI &amp; Innovation</span>
-          <span class="persona-chip">CTO</span>
-          <span class="persona-chip">Chief Data Officer</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">AI Governance</span><span class="play-tag">watsonx.ai</span><span class="play-tag">watsonx.data</span></div>
-      <a class="card-link" href="phase2.html#bk">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 13. SeaWorld -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">13</div>
-        <div>
-          <div class="card-acct-name">SeaWorld / United Parks &amp; Resorts ✦</div>
-          <div class="card-acct-sub">Theme Parks · NYSE: PRKS · Orlando, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>Q2 revenue $585M, record attendance</strong>. United Parks is actively investing in dynamic pricing and demand forecasting AI. Revenue per capita improvement is the stated CFO priority for the back half of 2026.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>IBM Planning Analytics</strong> for dynamic revenue modeling — demand forecasting across 12 parks by weather, event, and marketing variables. <strong>watsonx.ai</strong> for the guest personalization and upsell recommendation engine the CDO is actively scoping.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">CFO</span>
-          <span class="persona-chip primary">CDO</span>
-          <span class="persona-chip">VP Revenue Management</span>
-          <span class="persona-chip">VP Technology</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">Planning Analytics</span><span class="play-tag">watsonx.ai</span></div>
-      <a class="card-link" href="phase2.html#seaworld">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 14. Icahn -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">14</div>
-        <div>
-          <div class="card-acct-name">Icahn Enterprises ✦</div>
-          <div class="card-acct-sub">Diversified Holdings · NASDAQ: IEP · Sunny Isles Beach, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-med">● Med Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>Q2 earnings Jul 31, Q1 revenue +19.8%</strong>. Icahn Enterprises spans energy, automotive, food packaging, real estate, and pharma — each segment runs independently with no unified financial reporting layer.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>IBM Planning Analytics</strong> for cross-segment consolidated reporting — Carl Icahn needs a single financial intelligence view across 6+ business verticals. Pre-earnings (Jul 31) is the window: reach the CFO with a scenario modeling story before they close Q2 books.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">CFO</span>
-          <span class="persona-chip primary">FP&amp;A Director</span>
-          <span class="persona-chip">VP Finance</span>
-          <span class="persona-chip">CIO</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">Planning Analytics</span><span class="play-tag">Data Fabric</span></div>
-      <a class="card-link" href="phase2.html#icahn">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 15. Dycom -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">15</div>
-        <div>
-          <div class="card-acct-name">Dycom Industries ✦</div>
-          <div class="card-acct-sub">Telecom Construction · NYSE: DY · Palm Beach Gardens, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>Record $11.9B backlog +46.5% YoY</strong>. BEAD broadband buildout is driving explosive project volume across 20,000+ field technicians. Data fragmentation across geographies and clients is a stated operational challenge.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>IBM Data Fabric</strong> as the project intelligence layer — $11.9B in backlog means data from AT&amp;T, Lumen, and 10+ other clients running in silos. <strong>watsonx.ai</strong> for the project analytics and resource optimization use case the COO needs to manage the BEAD complexity.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">COO</span>
-          <span class="persona-chip primary">CIO</span>
-          <span class="persona-chip">VP Operations</span>
-          <span class="persona-chip">VP IT</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">Data Fabric</span><span class="play-tag">watsonx.ai</span><span class="play-tag">watsonx.data</span></div>
-      <a class="card-link" href="phase2.html#dycom">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 16. Herc Rentals -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">16</div>
-        <div>
-          <div class="card-acct-name">Herc Rentals ✦</div>
-          <div class="card-acct-sub">Equipment Rental · NYSE: HRI · Bonita Springs, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>Q2 earnings Jul 28</strong> + H&amp;E Equipment integration recently closed. Fleet now exceeds $7B in assets across 350+ branches. CFO publicly focused on return on assets and utilization rate improvement as integration cost synergies are realized.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>IBM Planning Analytics</strong> for fleet utilization and branch-level P&amp;L modeling — the H&amp;E integration creates a perfect data consolidation story. Pre-earnings window (Jul 28): reach the CFO with a scenario modeling conversation now, before they close Q2 and go quiet.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">CFO</span>
-          <span class="persona-chip primary">VP Finance</span>
-          <span class="persona-chip">CIO</span>
-          <span class="persona-chip">VP Data &amp; Analytics</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">Planning Analytics</span><span class="play-tag">watsonx.data</span></div>
-      <a class="card-link" href="phase2.html#page-herc">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 17. DMAB -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">17</div>
-        <div>
-          <div class="card-acct-name">Data Management Associates Brevard (DMAB) ✦</div>
-          <div class="card-acct-sub">IBM Mainframe Partner · Brevard County, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger">Established IBM mainframe partner with expansion opportunity. Managing mainframe data for government and enterprise clients in Brevard County — active path to expand into Data Fabric and watsonx as the natural next layer above Z.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>IBM Data Fabric</strong> as the logical next layer above their mainframe practice — help DMAB move their clients' Z data into governed, AI-ready pipelines. <strong>watsonx.data</strong> is the bridge between mainframe transaction data and modern analytics workloads.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">Partner Lead / Principal</span>
-          <span class="persona-chip primary">Technical Practice Director</span>
-          <span class="persona-chip">Client Delivery Lead</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">Data Fabric</span><span class="play-tag">watsonx.data</span></div>
-      <a class="card-link" href="phase2.html#page-dmab">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 18. Memorial Healthcare -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">18</div>
-        <div>
-          <div class="card-acct-name">Memorial Healthcare System ✦</div>
-          <div class="card-acct-sub">Health System · 6 Hospitals · Hollywood, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>New Douglas Road ER opening Aug 2026</strong> — 6-hospital system actively expanding. IT Security Audit underway. Epic→Azure migration awarded. AI governance and explainability mandates increasing from CMS and state regulators.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>IBM AI Governance</strong> for clinical AI explainability — CMS and state auditors now require documentation of AI-assisted clinical decisions. The Epic migration creates a natural data integration window for <strong>watsonx.ai</strong> to layer on top of the new Azure environment.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">CMIO</span>
-          <span class="persona-chip primary">CIO</span>
-          <span class="persona-chip">Chief Compliance Officer</span>
-          <span class="persona-chip">VP Quality</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">AI Governance</span><span class="play-tag">watsonx.ai</span></div>
-      <a class="card-link" href="phase2.html#page-memorial">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 19. MasTec -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">19</div>
-        <div>
-          <div class="card-acct-name">MasTec Inc. ✦</div>
-          <div class="card-acct-sub">Infrastructure Construction · NYSE: MTZ · Coral Gables, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>$1.65B Superior Group acquisition closed Jul 7</strong>. MasTec now spans telecom, energy, clean energy, and government infrastructure. Post-acquisition data fragmentation across 5 business segments is an immediate pain point for the CFO.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">M&amp;A just closed — <strong>IBM Data Fabric</strong> is the fastest path to unified financial and operational reporting across the expanded entity. Lead with the CFO integration pain: every month they delay costs in manual reconciliation. <strong>Planning Analytics</strong> for cross-segment FP&amp;A once the data is connected.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">CFO</span>
-          <span class="persona-chip primary">CIO</span>
-          <span class="persona-chip">VP M&amp;A Integration</span>
-          <span class="persona-chip">FP&amp;A Director</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">Data Fabric</span><span class="play-tag">Planning Analytics</span><span class="play-tag">watsonx.data</span></div>
-      <a class="card-link" href="phase2.html#page-mastec">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 20. Frontline Insurance -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">20</div>
-        <div>
-          <div class="card-acct-name">Frontline Insurance ✦</div>
-          <div class="card-acct-sub">P&amp;C Insurance · Private · Lake Mary, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-med">● Med Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>FL Reciprocal Exchange approved May 2026</strong> — new corporate structure requires separate financial reporting and actuarial modeling. Florida's ongoing insurance market crisis is driving intense regulatory scrutiny of AI-assisted underwriting.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>IBM Planning Analytics</strong> for actuarial modeling and capital reserve planning — the Reciprocal Exchange structure requires separate, auditable financial projections. <strong>AI Governance</strong> for the underwriting AI they're using: Florida OIR is actively examining AI decision explainability.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">CFO</span>
-          <span class="persona-chip primary">Chief Actuary</span>
-          <span class="persona-chip">Chief Compliance Officer</span>
-          <span class="persona-chip">CIO</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">Planning Analytics</span><span class="play-tag">AI Governance</span></div>
-      <a class="card-link" href="phase2.html#page-frontline">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 21. Office Depot -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">21</div>
-        <div>
-          <div class="card-acct-name">Office Depot / ODP Corporation ✦</div>
-          <div class="card-acct-sub">Business Products &amp; Services · NASDAQ: ODP · Boca Raton, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>Starboard Value acquired 13.3% activist stake</strong> — demanding margin improvement and operational efficiency. CFO under pressure to demonstrate SG&amp;A discipline. The B2B segment (ODP Business Solutions) is the growth vehicle and needs better financial modeling.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Activist investor = CFO under a microscope. Lead with <strong>IBM Planning Analytics</strong> as the tool that gives the CFO real-time scenario modeling visibility — the Starboard narrative is exactly why they need it. Frame IBM as the path to defending margin in front of the board.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">CFO</span>
-          <span class="persona-chip primary">FP&amp;A Director</span>
-          <span class="persona-chip">VP B2B Finance</span>
-          <span class="persona-chip">CIO</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">Planning Analytics</span><span class="play-tag">watsonx.data</span></div>
-      <a class="card-link" href="phase2.html#page-odp">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 22. Chewy -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">22</div>
-        <div>
-          <div class="card-acct-name">Chewy Inc. ✦</div>
-          <div class="card-acct-sub">Pet E-Commerce &amp; Health · NYSE: CHWY · Plantation, FL</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger"><strong>Modern Animal acquisition closed</strong> + FY27 revenue guidance $13.4–13.55B. Chewy is building a veterinary health platform on top of its e-commerce base — AI for clinical decision support and supply chain optimization are both active investment areas.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>watsonx.ai</strong> for the Modern Animal veterinary AI platform — Chewy needs clinical decision support AI that is explainable and auditable (FDA and veterinary board scrutiny). <strong>AI Governance</strong> is the compliance layer that lets them scale the health platform without regulatory risk.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">Chief Data Officer</span>
-          <span class="persona-chip primary">CTO</span>
-          <span class="persona-chip">VP Health Platform</span>
-          <span class="persona-chip">VP Engineering</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">watsonx.ai</span><span class="play-tag">AI Governance</span><span class="play-tag">Data Fabric</span></div>
-      <a class="card-link" href="phase2.html#page-chewy">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- 23. Chico's FAS -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">23</div>
-        <div>
-          <div class="card-acct-name">Chico's FAS / KnitWell Group ✦</div>
-          <div class="card-acct-sub">Specialty Retail · NYSE: CHS · Fort Myers, FL · 8 brands, FY26 rev $2.2B</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-med">● Med Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger">Rebranded as <strong>KnitWell Group</strong> — 8 specialty retail brands under one holding company. Managing FP&amp;A across Chico's, White House Black Market, Soma, and 5 other brands requires consolidation capabilities that Excel cannot provide at this scale.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Data &amp; AI Angle</div>
-        <div class="col-ask">Lead with <strong>IBM Planning Analytics</strong> as the multi-brand FP&amp;A platform — 8 brands means 8 separate P&amp;Ls, seasonal inventory models, and margin scenarios that need to roll up for the CFO. IBM PA is purpose-built for exactly this retail holding company structure.</div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">CFO</span>
-          <span class="persona-chip primary">FP&amp;A Director</span>
-          <span class="persona-chip">VP Finance</span>
-          <span class="persona-chip">CIO</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags"><span class="play-tag">Planning Analytics</span><span class="play-tag">watsonx</span></div>
-      <a class="card-link" href="phase2.html#page-chicos">Full Intel Brief →</a>
-    </div>
-  </div>
-
-  <!-- RESOURCE STRIP -->
-  <div class="resource-strip">
-    <div class="resource-strip-title">Data &amp; AI — Alyssa's Seller Resources</div>
-    <div class="resource-grid">
       <div>
-        <div class="resource-item-label">Discovery Question (works across all D&amp;AI accounts)</div>
-        <div class="resource-item-text">"When your CFO needs to model a scenario across multiple business units or entities, what does that process look like today — and how long does it take?"</div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">Q2 earnings July 30 — pre-call window is open now. Elliott activist stake driving board-level cost discipline mandate. Three-brand structure creates data fragmentation IBM can solve.</div>
       </div>
       <div>
-        <div class="resource-item-label">South Florida Territory Pitch (30 seconds)</div>
-        <div class="resource-item-text">"South Florida is one of the most PE-dense, multi-entity markets in the US. <strong>IBM Planning Analytics</strong> is purpose-built for exactly the kind of cross-entity financial consolidation and scenario modeling that every holding company and PE-backed business here runs manually today."</div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CFO</span><span class="persona-pill">CIO / Revenue Mgmt Lead</span><span class="persona-pill">Cybersecurity Analyst</span></div>
       </div>
     </div>
+    <div class="card-quote">"With Q2 results coming July 30 and Elliott watching closely, CFOs in your position are being asked to show technology generating measurable ROI. IBM's Data Fabric consolidates your Norwegian, Oceania, and Regent data into one governed platform — cutting reporting overhead while delivering the AI-ready data infrastructure the board expects."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">Data Fabric</span><span class="card-tag">AI Governance</span><span class="card-tag">watsonx</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#nclh" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A2297%2CselectionType%3AINCLUDED)))))" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 3. JM FAMILY -->
+  <div class="acct-card" id="jmf">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">JM Family Enterprises</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">Private · Deerfield Beach, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">3/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">CFO transition underway — new leader re-evaluates all vendor relationships. Internal GenAI pilot confirms AI readiness. Multi-division structure (Toyota distribution, F&amp;I, financial services) creates Data Fabric opportunity.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">Incoming CFO</span><span class="persona-pill">CIO / GenAI Pilot Sponsor</span><span class="persona-pill">Supply Chain Planner</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"Your team's GenAI pilot shows JM Family is ready to move beyond experiments. IBM Planning Analytics gives you the enterprise-grade financial intelligence platform that consolidates Toyota distribution, F&I, and financial services into one governed view — what your incoming CFO will need on day one."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">AI Governance</span><span class="card-tag">watsonx</span><span class="card-tag">Planning Analytics</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#jmf" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A5765%2CselectionType%3AINCLUDED)))))" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 4. CITCO -->
+  <div class="acct-card" id="citco">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Citco Group</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">Private · $1.8T AUM Fund Admin · Miami, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">4/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">Executive publicly confirmed legacy system modernization July 2026. Fund Admin Report 2026 benchmarks Citco against SS&amp;C and SEI — AI pressure is real. SVP Sales hire signals growth mandate.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CIO / Data Governance Lead</span><span class="persona-pill">Compliance Tech Lead</span><span class="persona-pill">Investor Reporting Lead</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"SS&C and SEI are both investing heavily in AI-powered fund admin. IBM can help Citco leapfrog by building a governed data layer that turns your $1.8T in administered assets into a real-time intelligence platform — faster investor reporting, automated compliance, and AI explainability built in."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">AI Governance</span><span class="card-tag">Data Fabric</span><span class="card-tag">watsonx</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#citco" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A3439%2CselectionType%3AINCLUDED)))))" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 5. OCTAVE -->
+  <div class="acct-card" id="octave">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Octave</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">EAM Software · Spun off from Hexagon May 2026 · Miami, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">5/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">Spun off from Hexagon as independent company May 2026. Attune EAM won first airport contract. Clean-slate architecture decisions being made now — no legacy vendor lock-in.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CEO / CTO</span><span class="persona-pill">Chief Architect</span><span class="persona-pill">VP Product</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"Octave launched as an independent company in May 2026 — that clean-slate moment is exactly when enterprises choose their foundational AI and cloud architecture. IBM's watsonx.ai gives you the enterprise AI platform that scales from your first airport deployment to a global EAM footprint, with AI governance built in from day one."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">watsonx</span><span class="card-tag">AI Governance</span><span class="card-tag">Red Hat OpenShift</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#octave" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(keywords%3AOctave%20EAM)" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 6. HEXAGON FEDERAL -->
+  <div class="acct-card" id="hexfed">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Hexagon Federal</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">Federal GIS · Hexagon AB Division · FL / AL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">3/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">Compass 2026 Air Force GeoBase conference Aug 25–27. Federal AI mandates require explainability in all DoD AI deployments — pre-conference window is now.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">Federal Sales Lead</span><span class="persona-pill">CTO / Defense Solutions Architect</span><span class="persona-pill">Compliance Lead</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"With Compass 2026 coming up in August, federal geospatial agencies are evaluating their AI governance and security posture right now. IBM AI Governance gives Hexagon Federal the compliance-ready explainability layer that defense and intelligence customers require for any AI deployment."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">AI Governance</span><span class="card-tag">IBM Security</span><span class="card-tag">watsonx</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#hexfed" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A163065%2CselectionType%3AINCLUDED)))))" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 7. HEXAGON MINING -->
+  <div class="acct-card" id="hexmin">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Hexagon Mining</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">Mining Technology · Hexagon AB Division · Global</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">5/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">MinePlan 2026 R1 just launched. Copper at $6.13/lb — mining operators expanding capex and IT budgets. Five Mining Magazine Award shortlist nominations.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CIO / Mining Ops Lead</span><span class="persona-pill">Fleet Analytics Manager</span><span class="persona-pill">Safety Tech Lead</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"The Scenario Management capability in MinePlan 2026 R1 is exactly the kind of analytics-intensive workload that stresses data infrastructure. IBM Storage and Data Fabric are the backbone, and with copper at record highs, your clients have the budget to invest in the right foundation now."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">Storage</span><span class="card-tag">Data Fabric</span><span class="card-tag">watsonx</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#hexmin" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A163065%2CselectionType%3AINCLUDED)))))" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 8. PELLERA -->
+  <div class="acct-card" id="pellera">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Pellera Technologies</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">IBM Partner · MSP · Fort Lauderdale, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">4/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">IBM Edge of IT podcast feature July 2026. CRN #34 on Solution Provider 500. IBM hackathon co-hosting signals deep IBM practice investment. CMMC RPO status.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">IBM Practice Lead / CEO</span><span class="persona-pill">VP Alliances</span><span class="persona-pill">Defense Practice Lead</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"Your IBM Edge of IT feature was a great signal to the market. I'd love to connect on joint account planning — Pellera's CMMC RPO status combined with IBM Security is a differentiated play for federal defense accounts in the Southeast. Are there 2–3 accounts in your pipeline where IBM could co-sell right now?"</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">watsonx Orchestrate</span><span class="card-tag">Power Systems</span><span class="card-tag">IBM Security</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#pellera" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A163065%2CselectionType%3AINCLUDED)))))" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 9. LENNAR -->
+  <div class="acct-card" id="lennar">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Lennar Corporation</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">NYSE: LEN · Homebuilder · Miami, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">4/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">Q2 revenue $7.9B missed consensus by $200M. ASP down ~5% due to buyer incentives. Lead Cloud Engineer posted July 17 — cloud modernization budget confirmed active.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CFO / FP&amp;A Director</span><span class="persona-pill">CIO / Lead Cloud Engineer</span><span class="persona-pill">Data Science Lead</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"With Q2 coming in slightly below plan and ASPs down 5% on incentives, your FP&A team is being asked to model more scenarios faster — across homebuilding, financial services, and multifamily. IBM Planning Analytics gives your CFO a consolidated, AI-driven financial planning platform that handles multi-division complexity without the Excel sprawl."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">Planning Analytics</span><span class="card-tag">watsonx.data</span><span class="card-tag">Data Fabric</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#lennar" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A4605%2CselectionType%3AINCLUDED)))))" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 10. LENNAR MORTGAGE -->
+  <div class="acct-card" id="lennarmtg">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Lennar Mortgage</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">Captive Lender · Lennar Subsidiary · Miami, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">3/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">Financial Services segment earnings -$57M. CFPB AI risk guidance active — automated underwriting AI decisions now require explainability documentation for examination.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CFO / Compliance Lead</span><span class="persona-pill">CIO / Mortgage Tech Lead</span><span class="persona-pill">Risk &amp; Compliance Manager</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"CFPB's AI risk guidance means every automated underwriting and decisioning system at Lennar Mortgage needs an audit trail. IBM AI Governance provides the explainability and compliance documentation that regulators now expect — protecting your AI investments while keeping the CFPB satisfied."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">AI Governance</span><span class="card-tag">Automation</span><span class="card-tag">watsonx</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#lennarmtg" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A4605%2CselectionType%3AINCLUDED)))))" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 11. HEICO ✦ NEW -->
+  <div class="acct-card" id="heico">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">HEICO Corporation</span>
+        <span class="card-new-badge">✦ NEW</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">NYSE: HEI · Aerospace &amp; Defense · Hollywood, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">5/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">Record Q2 results + Sherwood Electronics acquisition closed + Artemis II mission supplier. Post-M&amp;A data fragmentation is immediate — multiple ERP systems, engineering data, and compliance records need unification.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CIO / IT Director</span><span class="persona-pill">M&amp;A Integration Lead</span><span class="persona-pill">Defense Program Manager</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"HEICO's Sherwood acquisition creates a classic post-M&A data fragmentation challenge — multiple systems, multiple ERP platforms, and engineering data that needs to be unified before you can scale the defense electronics business. IBM Data Fabric solves that without rip-and-replace, and watsonx.data makes that unified data AI-ready for the predictive maintenance and quality analytics you need on Artemis II components."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">Data Fabric</span><span class="card-tag">watsonx.data</span><span class="card-tag">AI Governance</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#heico" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A164682%2CselectionType%3AINCLUDED)))))" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 12. H.I.G. CAPITAL ✦ NEW -->
+  <div class="acct-card" id="hig">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">H.I.G. Capital</span>
+        <span class="card-new-badge">✦ NEW</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">Private Equity · $69B AUM · 153 portfolio cos. · Miami, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">4/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">$69B AUM across 153 portfolio companies — new Spain MD hire signals international expansion. Middle-market M&amp;A recovery = more portfolio companies incoming. LP reporting demands escalating.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CFO / Portfolio Analytics Lead</span><span class="persona-pill">Investment Ops Manager</span><span class="persona-pill">LP Relations Lead</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"With 153 portfolio companies across PE, credit, real estate, and infrastructure, your team is consolidating financial performance from dozens of disparate systems every quarter cycle. IBM Planning Analytics gives your portfolio analytics team a single AI-driven platform to monitor performance, run scenario models, and produce LP-ready reports — with the governance and explainability documentation your LPs are now requiring."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">Planning Analytics</span><span class="card-tag">AI Governance</span><span class="card-tag">watsonx.data</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#hig" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A28523%2CselectionType%3AINCLUDED)))))" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 13. KFORCE ✦ NEW -->
+  <div class="acct-card" id="kforce">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Kforce Inc.</span>
+        <span class="card-new-badge">✦ NEW</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">NASDAQ: KFRC · Technology Staffing · Tampa, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">5/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">Q2 earnings July 27 · Stock +29% YTD · Data and AI pipeline +50% YoY · AI innovation studio launching internally. Pre-earnings window closes this week.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CFO / FP&amp;A Director</span><span class="persona-pill">COO / Workforce Planning Mgr</span><span class="persona-pill">AI Studio Lead / CIO</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"Kforce is telling the market its data and AI pipeline is up 50% — that means your own AI tools and governance posture need to match what you're selling. IBM watsonx gives your AI innovation studio the enterprise platform to build, deploy, and govern AI at production scale. And IBM Planning Analytics can automate the workforce demand forecasting and billing analytics that your FP&A team is running manually today."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">Planning Analytics</span><span class="card-tag">watsonx</span><span class="card-tag">AI Governance</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#kforce" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A18877%2CselectionType%3AINCLUDED)))))" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 14. BURGER KING ✦ NEW -->
+  <div class="acct-card" id="bk">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Burger King / Restaurant Brands International</span>
+        <span class="card-new-badge">✦ NEW</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">NYSE: QSR · 30,000+ locations · Miami, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">5/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">BK US comps +5.8% · AI headset pilot live in stores monitoring employee courtesy · 1,800 net new restaurants/year through 2028. Live AI creates immediate governance need.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CFO / FP&amp;A Director</span><span class="persona-pill">Restaurant Tech Lead</span><span class="persona-pill">Franchise Analytics Manager</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"Your AI headset pilot is exactly the kind of in-store AI that regulators and employees will scrutinize — how does it make decisions, what data does it use, can you explain a specific outcome? IBM AI Governance gives RBI the audit trail and explainability documentation that turns a pilot into a defensible, scalable enterprise program. With 1,800 new restaurants per year, you need that infrastructure now, not when the first complaint arrives."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">AI Governance</span><span class="card-tag">watsonx</span><span class="card-tag">Automation</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#bk" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A166764%2CselectionType%3AINCLUDED)))))" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 15. SEAWORLD ✦ NEW -->
+  <div class="acct-card" id="seaworld">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">SeaWorld / United Parks &amp; Resorts</span>
+        <span class="card-new-badge">✦ NEW</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">NYSE: PRKS · Theme Parks · Orlando, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">4/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">Q2 revenue $585M record attendance across 12 parks. Elliott Advisors activist stake watching every tech dollar. Guest analytics and pricing optimization are CEO priorities.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CFO / Revenue Mgmt Lead</span><span class="persona-pill">CIO / Guest Experience Tech</span><span class="persona-pill">Data Analytics Director</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"United Parks is posting record attendance numbers while Elliott Advisors is watching every technology dollar. IBM watsonx.data gives your analytics team the real-time guest intelligence platform — connecting ticketing, F&B, retail, and ride data — while IBM Planning Analytics gives your CFO the scenario modeling tools needed to defend every capex decision to an activist board."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">watsonx</span><span class="card-tag">Planning Analytics</span><span class="card-tag">AI Governance</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#seaworld" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(keywords%3A%22United%20Parks%22%20OR%20%22SeaWorld%22)" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 16. ICAHN ✦ NEW -->
+  <div class="acct-card" id="icahn">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Icahn Enterprises</span>
+        <span class="card-new-badge">✦ NEW</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">NYSE: IEP · Diversified Holdings · Sunny Isles Beach, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">3/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">Q2 earnings July 31 + Q1 revenue +19.8%. 12 operating segments (energy, automotive, pharma, real estate, etc.) — multi-entity FP&amp;A consolidation is urgent.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CFO / FP&amp;A Director</span><span class="persona-pill">Portfolio Analytics Lead</span><span class="persona-pill">CIO</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"With Q2 earnings reporting July 31 and 12 diversified operating segments — from energy to automotive to pharma — consolidating financial performance into a single AI-driven planning platform is exactly the kind of structural efficiency play that resonates with activist-led holding companies. IBM Planning Analytics is built for that."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">Planning Analytics</span><span class="card-tag">Data Fabric</span><span class="card-tag">AI Governance</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#icahn" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(keywords%3A%22Icahn%20Enterprises%22)" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 17. ANSCO ✦ NEW -->
+  <div class="acct-card" id="ansco">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">ANSCO &amp; Associates</span>
+        <span class="card-new-badge">✦ NEW</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">Dycom Subsidiary · Telecom Infrastructure · Southeast US</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">3/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">Dycom subsidiary with 1,200+ employees across 60+ office locations. Field operations and workforce scheduling creates massive workflow and data complexity.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CIO / IT Operations Lead</span><span class="persona-pill">VP Field Operations</span><span class="persona-pill">Workforce Planning Manager</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"With 60+ offices and 1,200+ field workers coordinating telecom infrastructure projects, ANSCO's workforce scheduling is being managed with spreadsheets and manual processes. Red Hat OpenShift + IBM Automation gives your operations team a unified platform to schedule crews, track job status, and automate billing across all 60+ sites — cutting overhead while improving field execution."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">Red Hat OpenShift</span><span class="card-tag">Automation</span><span class="card-tag">watsonx</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#ansco" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A880528%2CselectionType%3AINCLUDED)))))" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 18. DYCOM ✦ NEW -->
+  <div class="acct-card" id="dycom">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Dycom Industries</span>
+        <span class="card-new-badge">✦ NEW</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">NYSE: DY · Telecom/Utility Infrastructure · Palm Beach Gardens, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">5/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">Record $11.9B backlog +46.5% YoY. This level of project volume means data infrastructure is under more strain than ever across hundreds of concurrent telecom and utility projects.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CFO / FP&amp;A Director</span><span class="persona-pill">CIO / IT Operations Director</span><span class="persona-pill">Project Analytics Lead</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"Dycom's $11.9B backlog is a record — but that level of project volume means your data infrastructure is under more strain than ever. IBM Storage and Data Fabric are the backbone for managing that scale of engineering, field operations, and financial data across hundreds of concurrent telecom and utility projects."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">Storage</span><span class="card-tag">Data Fabric</span><span class="card-tag">watsonx</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#dycom" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(keywords%3A%22Dycom%20Industries%22)" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 19. HERC RENTALS ✦ NEW -->
+  <div class="acct-card" id="herc">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Herc Rentals</span>
+        <span class="card-new-badge">✦ NEW</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">NYSE: HRI · Equipment Rental · Bonita Springs, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">5/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">Q2 earnings July 28 + H&amp;E Equipment integration underway. FP&amp;A team running two-company consolidation under earnings scrutiny. Combined fleet is largest in company history.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CFO / FP&amp;A Director</span><span class="persona-pill">CIO / Fleet Systems Lead</span><span class="persona-pill">M&amp;A Integration Manager</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"With Q2 results coming July 28 and the H&E Equipment integration underway, Herc's FP&A team is running two-company consolidation under earnings scrutiny. IBM Planning Analytics automates that multi-entity consolidation — giving your CFO real-time visibility into the combined fleet analytics, revenue trends, and cost structure before every quarterly call."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">Planning Analytics</span><span class="card-tag">watsonx.data</span><span class="card-tag">AI Governance</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#page-herc" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A2848055%2CselectionType%3AINCLUDED)))))" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 20. DMAB ✦ NEW -->
+  <div class="acct-card" id="dmab">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Data Mgmt. Associates of Brevard (DMAB)</span>
+        <span class="card-new-badge">✦ NEW</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">IBM Mainframe Partner · PartnerWorld · Brevard County, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">4/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">Active IBM PartnerWorld mainframe specialist — expansion play. Z modernization + watsonx Code Assistant for Z creates a new revenue stream for DMAB while deepening IBM relationship.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">IBM Practice Lead / CEO</span><span class="persona-pill">Z Systems Architect</span><span class="persona-pill">Client Delivery Lead</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"As an IBM PartnerWorld mainframe specialist, DMAB is already the trusted Z Systems partner for Florida enterprises. IBM watsonx Code Assistant for Z is the next natural expansion — helping your clients modernize their mainframe application code while protecting their existing investments. This is a co-sell opportunity that deepens the IBM relationship and expands your billable services."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">watsonx Code Asst for Z</span><span class="card-tag">IBM Z Modernization</span><span class="card-tag">Storage</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#page-dmab" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(keywords%3A%22Data%20Management%20Associates%20Brevard%22)" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 21. MEMORIAL HEALTHCARE ✦ NEW -->
+  <div class="acct-card" id="memorial">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Memorial Healthcare System</span>
+        <span class="card-new-badge">✦ NEW</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">Public Healthcare · 6 Hospitals · Hollywood, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">5/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">New Douglas Road ER opening August 2026 — 6-hospital system expanding. Epic → Azure migration underway. New facility = new patient data flows, compliance touchpoints, and regulatory scrutiny.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CIO / CMIO</span><span class="persona-pill">Compliance Officer</span><span class="persona-pill">IT Security Lead</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"Memorial's new Douglas Road ER opening in August is exactly the kind of expansion that creates AI governance and data compliance urgency — new facilities, new patient data flows, new regulatory touchpoints. IBM AI Governance gives your clinical and compliance teams the explainability and audit trail framework that CMS and Florida AHCA will expect as you scale."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">AI Governance</span><span class="card-tag">Security</span><span class="card-tag">watsonx</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#page-memorial" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A164682%2CselectionType%3AINCLUDED)))))" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 22. MASTEC ✦ NEW -->
+  <div class="acct-card" id="mastec">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">MasTec Inc.</span>
+        <span class="card-new-badge">✦ NEW</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">NYSE: MTZ · Infrastructure Construction · Coral Gables, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">5/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">$1.65B Superior Group acquisition closed July 7. Dual data infrastructure consolidation needed — two separate billing systems, project management platforms, and field operations workflows.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CFO / M&amp;A Integration Lead</span><span class="persona-pill">CIO / IT Director</span><span class="persona-pill">Project Analytics Lead</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"The Superior Group acquisition closed July 7 — MasTec just absorbed a major data integration challenge. IBM Data Fabric is the fastest path to unifying your legacy MasTec systems with Superior Group's data infrastructure, without a multi-year ERP migration. With $1.65B in acquisition value, the board will want to see integration ROI quickly."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">Storage</span><span class="card-tag">Data Fabric</span><span class="card-tag">Automation</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#page-mastec" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(keywords%3A%22MasTec%22)" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 23. FRONTLINE INSURANCE ✦ NEW -->
+  <div class="acct-card" id="frontline">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Frontline Insurance</span>
+        <span class="card-new-badge">✦ NEW</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">P&amp;C Insurance · FL Reciprocal Exchange · Lake Mary, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">3/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">FL Reciprocal Exchange approved May 2026 — new operating structure requires updated AI governance and process automation for rate filings, underwriting, and claims.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CFO / Actuary Lead</span><span class="persona-pill">CIO / InsurTech Lead</span><span class="persona-pill">Compliance Officer</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"Frontline's new Reciprocal Exchange structure creates immediate AI governance needs — rate filings, underwriting decisions, and claims automation all require explainability documentation that Florida regulators now expect. IBM Planning Analytics and AI Governance give you the actuarial intelligence and compliance infrastructure to scale the exchange model responsibly."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">Planning Analytics</span><span class="card-tag">AI Governance</span><span class="card-tag">Automation</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#page-frontline" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(keywords%3A%22Frontline%20Insurance%22)" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 24. OFFICE DEPOT / ODP ✦ NEW -->
+  <div class="acct-card" id="odp">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Office Depot / ODP Corporation</span>
+        <span class="card-new-badge">✦ NEW</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">NASDAQ: ODP · Office Retail &amp; B2B · Boca Raton, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">4/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">Starboard Value 13.3% activist stake — SG&amp;A cost takeout mandate. CFO under pressure to demonstrate technology ROI and margin discipline.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CFO / FP&amp;A Director</span><span class="persona-pill">COO / Operations Lead</span><span class="persona-pill">CIO / IT Director</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"Starboard's 13.3% stake means Office Depot's CFO is under pressure to demonstrate SG&A discipline and technology ROI right now. IBM Planning Analytics replaces fragmented Excel-based FP&A with AI-driven scenario modeling across retail, B2B, and services divisions — giving your CFO the cost-takeout visibility that activist investors demand."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">Planning Analytics</span><span class="card-tag">Automation</span><span class="card-tag">watsonx</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#page-odp" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(keywords%3A%22ODP%20Corporation%22%20OR%20%22Office%20Depot%22)" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 25. CHEWY ✦ NEW -->
+  <div class="acct-card" id="chewy">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Chewy Inc.</span>
+        <span class="card-new-badge">✦ NEW</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">NYSE: CHWY · Pet E-commerce · Dania Beach, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">4/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">Modern Animal veterinary acquisition + FY27 revenue guidance $13.4–13.55B. Integrating e-commerce + vet clinic data creates complex AI governance and data unification challenge.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CFO / FP&amp;A Director</span><span class="persona-pill">CIO / Data Platform Lead</span><span class="persona-pill">Chief Analytics Officer</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"Chewy's Modern Animal acquisition adds veterinary clinic data to a platform already managing billions in pet product transactions. IBM watsonx.data and AI Governance give your analytics team the governed platform to unify retail, subscription, and clinical data — enabling the personalized pet care recommendations and health insights that will define Chewy's next growth phase."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">watsonx</span><span class="card-tag">Automation</span><span class="card-tag">AI Governance</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#page-chewy" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(keywords%3A%22Chewy%22)" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- 26. CHICO'S FAS ✦ NEW -->
+  <div class="acct-card" id="chicos">
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-acct-name">Chico's FAS / KnitWell Group</span>
+        <span class="card-new-badge">✦ NEW</span>
+        <span style="font-size:9px;color:#57606a;font-weight:500;">Fashion Retail · 8 Brands · $2.2B Rev · Fort Myers, FL</span>
+      </div>
+      <div class="card-head-right">
+        <div class="signal-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
+        <span style="font-size:9px;font-weight:700;color:#57606a;">3/5</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="card-col-label">Trigger</div>
+        <div class="card-trigger">KnitWell Group rebranding — 8 fashion brands (Chico's, White House Black Market, Soma + 5 more), FY26 revenue $2.2B. Multi-brand planning complexity is the primary pain.</div>
+      </div>
+      <div>
+        <div class="card-col-label">Who to Call</div>
+        <div class="card-personas"><span class="persona-pill">CFO / FP&amp;A Director</span><span class="persona-pill">Chief Merchandise Officer</span><span class="persona-pill">CIO / Retail Tech Lead</span></div>
+      </div>
+    </div>
+    <div class="card-quote">"KnitWell Group's 8-brand portfolio creates one of retail's most complex planning environments — merchandise planning, inventory optimization, and demand forecasting across White House Black Market, Chico's, Soma, and five other brands. IBM Planning Analytics consolidates that complexity into a single AI-driven platform, giving your merchandising and finance teams the scenario planning speed that fast fashion demands."</div>
+    <div class="card-footer">
+      <div class="card-tags"><span class="card-tag">Planning Analytics</span><span class="card-tag">watsonx</span><span class="card-tag">Data Fabric</span></div>
+    </div>
+    <div class="card-actions">
+      <a href="phase2.html#page-chicos" class="btn-intel">Full Intel →</a>
+      <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A11398%2CselectionType%3AINCLUDED)))))" target="_blank" class="btn-snav">Open Sales Navigator ↗</a>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <!-- BOTTOM STRIP -->
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="bottom-strip">
+    <div class="strip-q-label">Discovery Question — Use Across All Accounts</div>
+    <div class="strip-q">"Are your AI models generating decisions today that you could explain, audit, and defend to a regulator tomorrow? If not, IBM can close that gap — without replacing your existing AI investments."</div>
+    <div class="strip-oneliner">South Florida is home to more Fortune 500 AI early adopters per capita than any other metro outside Silicon Valley — and every one of them needs a governance layer. · IBM SE Horizon · Data &amp; AI · July 21, 2026</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="page-footer">
+    <div class="footer-brand">SE <span>Horizon</span> · Data &amp; AI · Alyssa's Territory · July 21, 2026</div>
+    <div class="footer-made">Made with IBM Bob</div>
   </div>
 
 </div>
-
-<footer>
-  SE Horizon · Phase 3 · Data &amp; AI Brand View · Alyssa · IBM South Florida SE Team · July 21, 2026<br/><br/>
-  <span style="font-size:10px;color:#bbb;border-top:1px solid #e5e7eb;display:inline-block;padding-top:8px;margin-top:4px">Made with IBM Bob</span>
-</footer>
-
 </body>
 </html>

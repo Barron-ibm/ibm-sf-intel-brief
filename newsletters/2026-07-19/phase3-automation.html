@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SE Horizon — Automation Brand View · Gavin</title>
+<title>SE Horizon — Automation · Gavin | July 21, 2026</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; background: #f4f4f4; color: #1f2328; font-size: 14px; line-height: 1.5; }
+  body { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; background: #0f1c3a; color: #1f2328; font-size: 14px; line-height: 1.5; }
   a { text-decoration: none; }
 
   /* ── SHARED TOP NAV ── */
-  .se-topbar{background:#161616;border-bottom:3px solid #0f62fe;padding:0 20px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+  .se-topbar{background:#161616;border-bottom:3px solid #42be65;padding:0 20px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
   .se-topbar-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
   .se-topbar-ibm{font-size:18px;font-weight:900;color:#fff;letter-spacing:-0.5px;}
   .se-topbar-div{width:1px;height:16px;background:#393939;}
-  .se-topbar-title{font-size:12px;font-weight:600;color:#a8c8ff;white-space:nowrap;}
-  .se-topbar-badge{font-size:10px;font-weight:700;background:#42be65;color:#000;padding:2px 9px;border-radius:20px;white-space:nowrap;}
+  .se-topbar-title{font-size:12px;font-weight:600;color:#6ee08a;white-space:nowrap;}
+  .se-topbar-badge{font-size:10px;font-weight:700;background:#35a057;color:#fff;padding:2px 9px;border-radius:20px;white-space:nowrap;}
   .se-topbar-links{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;}
   .se-topbar-links::-webkit-scrollbar{display:none;}
   .se-topbar-links a{font-size:11px;font-weight:600;color:rgba(255,255,255,0.55);padding:5px 10px;border-radius:3px;white-space:nowrap;border-bottom:2px solid transparent;}
@@ -24,199 +24,97 @@
   .se-topbar-links .se-divider{color:#393939;padding:0 4px;font-size:11px;user-select:none;}
   .se-topbar-links a.se-sub{color:rgba(255,255,255,0.4);font-size:10px;}
   .se-topbar-links a.se-sub:hover{color:#6ee08a;}
-  .se-topbar-links a.se-sub.se-active{color:#6ee08a;border-bottom-color:#6ee08a;}
+  .se-topbar-links a.se-sub.se-active{color:#6ee08a;border-bottom-color:#42be65;}
   .se-topbar-right{font-size:10px;color:#6f6f6f;white-space:nowrap;letter-spacing:0.05em;flex-shrink:0;display:none;}
   @media(min-width:700px){.se-topbar-right{display:block;}}
 
   /* ── BRAND HERO ── */
-  .brand-hero {
-    background: linear-gradient(135deg, #0a1a0f 0%, #0e2a14 100%);
-    border-bottom: 1px solid #1a4a24;
-    padding: 36px 28px 28px;
-  }
+  .brand-hero { background: linear-gradient(135deg, #0a1a0f 0%, #0e2a14 100%); border-bottom: 1px solid #1a4a25; padding: 36px 28px 28px; }
   .brand-hero-inner { max-width: 920px; margin: 0 auto; }
-  .brand-eyebrow {
-    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
-    text-transform: uppercase; color: #6ee08a; margin-bottom: 10px;
-    display: flex; align-items: center; gap: 8px;
-  }
+  .brand-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #6ee08a; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
   .brand-eyebrow a { color: #6f6f6f; text-decoration: none; }
   .brand-eyebrow a:hover { color: #6ee08a; }
-  .brand-eyebrow .sep { color: #393939; }
-  .brand-hero h1 { font-size: 30px; font-weight: 900; color: #fff; margin-bottom: 8px; }
+  .brand-eyebrow .sep { color: #2a5c37; }
+  .brand-hero h1 { font-size: 30px; font-weight: 900; color: #fff; margin-bottom: 4px; }
   .brand-hero h1 span { color: #6ee08a; }
-  .brand-hero-sub { font-size: 13px; color: #6b8b6e; max-width: 620px; margin-bottom: 16px; }
+  .brand-seller { font-size: 12px; font-weight: 700; color: #42be65; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+  .brand-hero-sub { font-size: 13px; color: #5a8c6a; max-width: 640px; margin-bottom: 16px; }
   .brand-products { display: flex; flex-wrap: wrap; gap: 6px; }
-  .prod-tag {
-    font-size: 11px; font-weight: 600;
-    background: rgba(255,255,255,0.08);
-    color: #6ee08a;
-    border: 1px solid rgba(110,224,138,0.2);
-    border-radius: 4px; padding: 3px 10px;
-  }
-  .brand-stats {
-    display: flex; gap: 28px; margin-top: 20px;
-    padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08);
-  }
-  .stat-num { font-size: 22px; font-weight: 900; color: #fff; line-height: 1; }
-  .stat-label { font-size: 11px; color: #6b8b6e; margin-top: 2px; }
+  .prod-tag { font-size: 11px; font-weight: 600; background: rgba(66,190,101,0.12); color: #6ee08a; border: 1px solid rgba(66,190,101,0.25); border-radius: 4px; padding: 3px 10px; }
+  .brand-stats { display: flex; gap: 28px; margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(66,190,101,0.15); }
+  .stat-num { font-size: 22px; font-weight: 900; color: #42be65; line-height: 1; }
+  .stat-label { font-size: 11px; color: #5a8c6a; margin-top: 2px; }
 
-  /* ── SCOPE CALLOUT ── */
-  .scope-callout { background: #e8f9ed; border: 1px solid #a0e8b4; border-left: 4px solid #42be65; border-radius: 6px; padding: 12px 16px; font-size: 12px; color: #1f2328; line-height: 1.6; margin-bottom: 20px; }
-  .scope-callout strong { color: #0e6027; }
+  /* ── ACCOUNT NAV BAR ── */
+  .acct-nav { background: #161616; border-bottom: 1px solid #2a2a2a; padding: 0 20px; position: sticky; top: 46px; z-index: 100; }
+  .acct-nav-inner { max-width: 920px; margin: 0 auto; display: flex; gap: 2px; padding: 8px 0; overflow-x: auto; scrollbar-width: none; }
+  .acct-nav-inner::-webkit-scrollbar { display: none; }
+  .anav-item { flex-shrink: 0; font-size: 10px; font-weight: 700; padding: 4px 11px; border-radius: 4px; color: rgba(255,255,255,0.45); background: transparent; border: 1px solid transparent; text-decoration: none; white-space: nowrap; letter-spacing: 0.03em; }
+  .anav-item:hover { color: #fff; background: rgba(66,190,101,0.1); border-color: rgba(66,190,101,0.2); }
+  .anav-item.is-new { color: #6ee08a; }
+  .anav-item.is-new::before { content: "✦ "; font-size: 9px; }
+  .anav-sep { color: #2a2a2a; padding: 0 2px; font-size: 11px; align-self: center; user-select: none; }
 
-  /* ── PAGE NAV ── */
-  .page-nav {
-    background: #fff;
-    border-bottom: 1px solid #e5e7eb;
-    padding: 0 28px;
-  }
-  .page-nav-inner {
-    max-width: 920px; margin: 0 auto;
-    display: flex; gap: 4px; padding: 10px 0;
-    overflow-x: auto;
-  }
-  .pnav-pill {
-    flex-shrink: 0;
-    font-size: 11px; font-weight: 600;
-    padding: 5px 12px; border-radius: 20px;
-    border: 1px solid #e5e7eb;
-    color: #57606a; background: #f7f8fa;
-    text-decoration: none; cursor: pointer;
-  }
-  .pnav-pill.active { background: #42be65; color: #fff; border-color: #42be65; }
-  .pnav-pill:hover:not(.active) { background: #e8f9ed; color: #0e6027; border-color: #a8e8bc; }
+  /* ── PAGE NAV PILLS ── */
+  .page-nav { background: #f7f8fa; border-bottom: 1px solid #e5e7eb; padding: 0 28px; }
+  .page-nav-inner { max-width: 920px; margin: 0 auto; display: flex; gap: 4px; padding: 10px 0; overflow-x: auto; scrollbar-width: none; }
+  .page-nav-inner::-webkit-scrollbar { display: none; }
+  .pnav-pill { flex-shrink: 0; font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 20px; border: 1px solid #e5e7eb; color: #57606a; background: #fff; text-decoration: none; }
+  .pnav-pill.active { background: #42be65; color: #fff; border-color: #35a057; }
+  .pnav-pill:hover:not(.active) { background: #e6f7ed; color: #35a057; border-color: #a7ddb9; }
 
   /* ── MAIN ── */
   .main { max-width: 920px; margin: 0 auto; padding: 28px 28px 80px; }
-
-  /* ── SECTION LABEL ── */
-  .section-label {
-    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
-    text-transform: uppercase; color: #57606a;
-    border-bottom: 1px solid #e5e7eb;
-    padding-bottom: 8px; margin-bottom: 16px;
-  }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #57606a; border-bottom: 1px solid #e5e7eb; padding-bottom: 8px; margin-bottom: 16px; }
+  .section-label-support { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #888; border-bottom: 1px dashed #ccc; padding-bottom: 8px; margin-bottom: 16px; margin-top: 36px; }
 
   /* ── ACCOUNT CARD ── */
-  .acct-card-full {
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    border-left: 5px solid #42be65;
-    overflow: hidden;
-    margin-bottom: 16px;
-  }
-  .card-header {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 20px;
-    border-bottom: 1px solid #f4f4f4;
-    gap: 12px;
-  }
+  .acct-card-full { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; border-left: 5px solid #42be65; overflow: hidden; margin-bottom: 16px; }
+  .acct-card-full.supporting { border-left: none; border: 2px dashed #42be65; opacity: 0.85; }
+  .card-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid #f4f4f4; gap: 12px; }
   .card-header-left { display: flex; align-items: center; gap: 12px; }
-  .card-acct-num {
-    width: 28px; height: 28px; border-radius: 50%;
-    background: #f4f4f4; color: #57606a;
-    font-size: 11px; font-weight: 800;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
+  .card-acct-num { width: 28px; height: 28px; border-radius: 50%; background: #f4f4f4; color: #57606a; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .card-acct-num.green { background: #defbe6; color: #0e6027; }
   .card-acct-name { font-size: 16px; font-weight: 800; color: #161616; }
   .card-acct-sub { font-size: 11px; color: #57606a; margin-top: 1px; }
-  .card-header-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-  .badge {
-    font-size: 10px; font-weight: 700; letter-spacing: 0.04em;
-    padding: 3px 10px; border-radius: 20px; white-space: nowrap;
-  }
+  .card-header-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; flex-wrap: wrap; justify-content: flex-end; }
+  .badge { font-size: 10px; font-weight: 700; letter-spacing: 0.04em; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
   .badge-new { background: #defbe6; color: #0e6027; }
-  .badge-high { background: #fff1f1; color: #c42b1c; }
+  .badge-existing { background: #e8f4ed; color: #196032; }
+  .badge-high { background: #defbe6; color: #0e6027; }
   .badge-med { background: #fef3e2; color: #b45309; }
-  .badge-existing { background: #f4f4f4; color: #57606a; }
-
-  /* Card body — 3 columns */
-  .card-body {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 0;
-  }
-  .card-col {
-    padding: 16px 20px;
-    border-right: 1px solid #f4f4f4;
-  }
+  .badge-support { background: #f4f4f4; color: #57606a; font-size: 9px; font-weight: 700; letter-spacing: 0.06em; padding: 2px 8px; border-radius: 20px; border: 1px solid #e5e7eb; }
+  .signal-dots { display: flex; align-items: center; gap: 3px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #e5e7eb; }
+  .dot.filled { background: #42be65; }
+  .card-body { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
+  .card-col { padding: 16px 20px; border-right: 1px solid #f4f4f4; }
   .card-col:last-child { border-right: none; }
-  .col-label {
-    font-size: 9px; font-weight: 700; letter-spacing: 0.1em;
-    text-transform: uppercase; color: #57606a;
-    margin-bottom: 8px;
-  }
+  .col-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #57606a; margin-bottom: 8px; }
   .col-trigger { font-size: 13px; color: #1f2328; line-height: 1.5; }
   .col-trigger strong { color: #161616; font-weight: 700; }
   .col-ask { font-size: 12px; color: #1f2328; line-height: 1.55; }
-  .col-ask strong { color: #42be65; font-weight: 700; }
-
-  /* Persona chips */
+  .col-ask strong { color: #196032; font-weight: 700; }
   .persona-chips { display: flex; flex-wrap: wrap; gap: 5px; }
-  .persona-chip {
-    font-size: 11px; font-weight: 600;
-    background: #f4f4f4; color: #393939;
-    border: 1px solid #e5e7eb;
-    border-radius: 4px; padding: 3px 9px;
-  }
-  .persona-chip.primary {
-    background: #defbe6; color: #0e6027;
-    border-color: #a0e8b4;
-  }
-
-  /* Card footer */
-  .card-footer {
-    padding: 10px 20px;
-    background: #f7f8fa;
-    border-top: 1px solid #f4f4f4;
-    display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  }
+  .persona-chip { font-size: 11px; font-weight: 600; background: #f4f4f4; color: #393939; border: 1px solid #e5e7eb; border-radius: 4px; padding: 3px 9px; }
+  .persona-chip.primary { background: #e6f7ed; color: #196032; border-color: #a7ddb9; }
+  .card-footer { padding: 10px 20px; background: #f7f8fa; border-top: 1px solid #f4f4f4; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
   .play-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-  .play-tag {
-    font-size: 10px; font-weight: 700;
-    background: #defbe6; color: #0e6027;
-    border: 1px solid #a0e8b4;
-    border-radius: 3px; padding: 2px 8px;
-  }
-  .card-link {
-    font-size: 11px; font-weight: 700;
-    color: #42be65; text-decoration: none; white-space: nowrap;
-    flex-shrink: 0;
-  }
+  .play-tag { font-size: 10px; font-weight: 700; background: #e6f7ed; color: #35a057; border: 1px solid #a7ddb9; border-radius: 3px; padding: 2px 8px; }
+  .card-link { font-size: 11px; font-weight: 700; color: #35a057; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
   .card-link:hover { text-decoration: underline; }
 
   /* ── RESOURCE STRIP ── */
-  .resource-strip {
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    border-top: 3px solid #42be65;
-    padding: 20px 24px;
-    margin-top: 28px;
-  }
-  .resource-strip-title {
-    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
-    text-transform: uppercase; color: #42be65; margin-bottom: 14px;
-  }
+  .resource-strip { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; border-top: 3px solid #42be65; padding: 20px 24px; margin-top: 28px; }
+  .resource-strip-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #35a057; margin-bottom: 14px; }
   .resource-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .resource-item-label {
-    font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
-    text-transform: uppercase; color: #57606a; margin-bottom: 5px;
-  }
-  .resource-item-text {
-    font-size: 12px; color: #1f2328; line-height: 1.55;
-    font-style: italic;
-  }
-  .resource-item-text strong { font-style: normal; font-weight: 700; color: #42be65; }
+  .resource-item-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #57606a; margin-bottom: 5px; }
+  .resource-item-text { font-size: 12px; color: #1f2328; line-height: 1.55; font-style: italic; }
+  .resource-item-text strong { font-style: normal; font-weight: 700; color: #35a057; }
 
-  footer {
-    border-top: 1px solid #e5e7eb;
-    padding: 16px 28px; text-align: center;
-    font-size: 11px; color: #57606a;
-  }
+  footer { border-top: 1px solid #e5e7eb; padding: 16px 28px; text-align: center; font-size: 11px; color: #57606a; background: #fff; }
+  @media(max-width:680px){ .card-body{grid-template-columns:1fr;} .card-col{border-right:none;border-bottom:1px solid #f4f4f4;} .resource-grid{grid-template-columns:1fr;} }
+  @media print{ .se-topbar{display:none;} .acct-nav{display:none;} .card-link{display:none;} body{background:#fff;} }
 </style>
 </head>
 <body>
@@ -250,21 +148,52 @@
       <span class="sep">/</span>
       Automation
     </div>
-    <h1>Auto<span>mation</span></h1>
+    <h1>Automation <span>Prospecting Guide</span></h1>
     <div class="brand-seller">Gavin's Territory</div>
-    <p class="brand-hero-sub">South Florida's mid-market is operationally under-automated — workforce scheduling, clinical workflows, franchise ops, and distributed field operations are running on manual processes at scale. These 9 accounts have a clear, first-call automation story.</p>
+    <p class="brand-hero-sub">South Florida's workforce-intensive industries — telecom field crews, restaurant franchises, healthcare systems, and financial services — are primed for IBM Automation. Every account on this page has a workflow complexity story that IBM can solve.</p>
     <div class="brand-products">
       <span class="prod-tag">IBM Automation</span>
       <span class="prod-tag">watsonx Orchestrate</span>
-      <span class="prod-tag">RPA / Business Automation</span>
+      <span class="prod-tag">AI Governance</span>
       <span class="prod-tag">Red Hat OpenShift</span>
-      <span class="prod-tag">Process Mining</span>
+      <span class="prod-tag">Data Fabric</span>
+      <span class="prod-tag">Planning Analytics</span>
+      <span class="prod-tag">watsonx</span>
     </div>
     <div class="brand-stats">
-      <div class="stat"><div class="stat-num">9</div><div class="stat-label">Accounts with automation angle</div></div>
-      <div class="stat"><div class="stat-num">6</div><div class="stat-label">New accounts this cycle</div></div>
-      <div class="stat"><div class="stat-num">3</div><div class="stat-label">High urgency signals</div></div>
+      <div class="stat"><div class="stat-num">12</div><div class="stat-label">Primary accounts</div></div>
+      <div class="stat"><div class="stat-num">8</div><div class="stat-label">✦ New this cycle</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Supporting plays</div></div>
     </div>
+  </div>
+</div>
+
+<!-- ── ACCOUNT NAV BAR ── -->
+<div class="acct-nav">
+  <div class="acct-nav-inner">
+    <a class="anav-item" href="#sgws">SGWS</a>
+    <span class="anav-sep">·</span>
+    <a class="anav-item is-new" href="#lennarmtg">Lennar Mtg</a>
+    <span class="anav-sep">·</span>
+    <a class="anav-item is-new" href="#ansco">ANSCO</a>
+    <span class="anav-sep">·</span>
+    <a class="anav-item is-new" href="#dycom">Dycom</a>
+    <span class="anav-sep">·</span>
+    <a class="anav-item is-new" href="#page-mastec">MasTec</a>
+    <span class="anav-sep">·</span>
+    <a class="anav-item is-new" href="#page-odp">Office Depot</a>
+    <span class="anav-sep">·</span>
+    <a class="anav-item is-new" href="#page-chewy">Chewy</a>
+    <span class="anav-sep">·</span>
+    <a class="anav-item is-new" href="#bk">Burger King</a>
+    <span class="anav-sep">·</span>
+    <a class="anav-item" href="#hexfed">Hexagon Fed</a>
+    <span class="anav-sep">·</span>
+    <a class="anav-item is-new" href="#page-frontline">Frontline Ins</a>
+    <span class="anav-sep">·</span>
+    <a class="anav-item is-new" href="#page-memorial">Memorial</a>
+    <span class="anav-sep">·</span>
+    <a class="anav-item is-new" href="#kforce">Kforce</a>
   </div>
 </div>
 
@@ -280,462 +209,643 @@
 
 <div class="main">
 
-  <div class="scope-callout">
-    <strong>Why 9 of 26 accounts?</strong> Only these 9 have an automation angle strong enough to open a first call with. The other 17 accounts in the territory are best entered through <strong>Data &amp; AI</strong> — automation can surface as a secondary conversation after the D&amp;AI relationship is established. Forcing an automation pitch at accounts without a clear workflow, headcount, or operational scaling trigger wastes credibility.
-  </div>
+  <div class="section-label">Primary Automation Accounts — July 21, 2026 · ✦ = New Account</div>
 
-  <div class="section-label">All Automation Accounts — July 21, 2026</div>
-
-  <!-- 1. PELLERA -->
-  <div class="acct-card-full">
+  <!-- 1. SOUTHERN GLAZER'S -->
+  <div id="sgws" class="acct-card-full">
     <div class="card-header">
       <div class="card-header-left">
         <div class="card-acct-num">1</div>
         <div>
-          <div class="card-acct-name">Pellera Technologies</div>
-          <div class="card-acct-sub">IBM Business Partner &amp; MSP · Managed Services &amp; Defense IT · Florida</div>
+          <div class="card-acct-name">Southern Glazer's Wine &amp; Spirits</div>
+          <div class="card-acct-sub">Beverage Distribution · Private · Miami, FL · snav: 10408</div>
         </div>
       </div>
       <div class="card-header-right">
         <span class="badge badge-existing">Existing</span>
-        <span class="badge badge-high">● High Signal</span>
+        <div class="signal-dots" title="Signal: 5/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+        </div>
       </div>
     </div>
     <div class="card-body">
       <div class="card-col">
         <div class="col-label">What's Happening</div>
-        <div class="col-trigger">
-          IBM Edge of IT podcast feature <strong>July 2026</strong>. CRN <strong>#34 on Solution Provider 500</strong>. Co-hosted IBM hackathons. Holds RPO status for CMMC. VP Alliances hire in progress — signals ecosystem-building investment at record pace. IBM is the anchor partner.
-        </div>
+        <div class="col-trigger"><strong>Proof Commerce AI platform</strong> replacing 220 field reps — process automation is the scale layer. Inside sales model is live and generating AI-driven order recommendations across 44 states.</div>
       </div>
       <div class="card-col">
         <div class="col-label">Your Automation Angle</div>
-        <div class="col-ask">
-          Co-sell frame: <strong>watsonx Orchestrate</strong> as a joint delivery motion — Pellera deploys it, IBM closes the federal customer. The VP Alliances hire signals Pellera is expanding their IBM practice; Orchestrate-based service delivery adds a recurring revenue stream. Defense managed services = high-volume repetitive workflows ripe for automation.
-        </div>
+        <div class="col-ask">SGWS is automating its inside sales model with Proof Commerce — but the <strong>workflow layer between AI recommendations, order fulfillment, and distribution routing</strong> still requires enterprise automation. <strong>IBM Automation</strong> is the orchestration engine that connects Proof Commerce to supply chain and compliance workflows without custom integrations. Add <strong>watsonx Orchestrate</strong> to automate the rep-facing tasks that fall between AI suggestions and actual orders.</div>
       </div>
       <div class="card-col">
         <div class="col-label">Who to Contact</div>
         <div class="persona-chips">
-          <span class="persona-chip primary">IBM Practice Lead / CEO</span>
-          <span class="persona-chip primary">VP Alliances</span>
-          <span class="persona-chip">Defense Practice Lead</span>
-          <span class="persona-chip">Hybrid Cloud Architect</span>
+          <span class="persona-chip primary">COO / Operations Lead</span>
+          <span class="persona-chip primary">VP Sales Technology</span>
+          <span class="persona-chip">CFO / Process Efficiency</span>
+          <span class="persona-chip">CIO</span>
         </div>
       </div>
     </div>
     <div class="card-footer">
-      <div class="play-tags">
-        <span class="play-tag">watsonx Orchestrate</span>
-        <span class="play-tag">IBM Automation</span>
-        <span class="play-tag">Co-Sell Motion</span>
-      </div>
-      <a class="card-link" href="phase2.html#pellera">Full Intel Brief →</a>
+      <div class="play-tags"><span class="play-tag">IBM Automation</span><span class="play-tag">watsonx Orchestrate</span><span class="play-tag">AI Governance</span></div>
+      <a class="card-link" href="phase2.html#sgws">Full Intel Brief →</a>
     </div>
   </div>
 
-  <!-- 2. ANSCO -->
-  <div class="acct-card-full">
+  <!-- 2. LENNAR MORTGAGE -->
+  <div id="lennarmtg" class="acct-card-full">
     <div class="card-header">
       <div class="card-header-left">
-        <div class="card-acct-num">2</div>
+        <div class="card-acct-num green">✦</div>
         <div>
-          <div class="card-acct-name">ANSCO &amp; Associates</div>
-          <div class="card-acct-sub">Dycom Subsidiary · Outside Plant Engineering · Palm Harbor, FL · 1,200+ Employees · 60+ Offices</div>
+          <div class="card-acct-name">Lennar Mortgage</div>
+          <div class="card-acct-sub">Captive Mortgage · Lennar Subsidiary · Miami, FL · snav: 4605</div>
         </div>
       </div>
       <div class="card-header-right">
         <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-med">● Med Signal</span>
+        <div class="signal-dots" title="Signal: 3/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+        </div>
       </div>
     </div>
     <div class="card-body">
       <div class="card-col">
         <div class="col-label">What's Happening</div>
-        <div class="col-trigger">
-          Dycom parent hit a record <strong>$11.9B backlog (+46.5% YoY)</strong>. ANSCO runs 60+ decentralized offices managing fiber/5G engineering and permitting at peak capacity. BEAD broadband funding accelerating rural fiber pipeline through 2027. Labor shortages in outside plant engineering are mission-critical.
-        </div>
+        <div class="col-trigger"><strong>CFPB AI risk guidance active</strong> — automated underwriting decisions need explainable audit trails. Financial Services segment earnings down <strong>$57M</strong>, creating cost-reduction urgency on manual review processes.</div>
       </div>
       <div class="card-col">
         <div class="col-label">Your Automation Angle</div>
-        <div class="col-ask">
-          Lead with <strong>IBM Automation</strong> for workforce scheduling across 60+ field offices — ANSCO can't hire proportionally to a 46.5% backlog increase, so automation is the only lever. <strong>Red Hat OpenShift</strong> as the unified infrastructure platform for those 60 offices. BEAD program compliance reporting creates a process automation entry point on the government side.
-        </div>
+        <div class="col-ask">CFPB guidance means every automated underwriting decision needs a defensible audit trail. <strong>IBM Automation + AI Governance</strong> gives Lennar Mortgage the compliant process automation framework that satisfies regulators <strong>while reducing manual review time and cost per loan</strong>. Frame it as the compliance infrastructure — not an IT project — that lets them keep their AI models without regulatory risk.</div>
       </div>
       <div class="card-col">
         <div class="col-label">Who to Contact</div>
         <div class="persona-chips">
-          <span class="persona-chip primary">Field Operations Manager</span>
-          <span class="persona-chip primary">IT Systems Admin / CIO</span>
-          <span class="persona-chip">Project Manager</span>
-          <span class="persona-chip">Workforce Scheduling Lead</span>
+          <span class="persona-chip primary">CFO / Compliance Lead</span>
+          <span class="persona-chip primary">CIO / Mortgage Tech Lead</span>
+          <span class="persona-chip">Risk Manager</span>
+          <span class="persona-chip">Chief Compliance Officer</span>
         </div>
       </div>
     </div>
     <div class="card-footer">
-      <div class="play-tags">
-        <span class="play-tag">IBM Automation</span>
-        <span class="play-tag">Red Hat OpenShift</span>
-        <span class="play-tag">Workforce Scheduling</span>
+      <div class="play-tags"><span class="play-tag">IBM Automation</span><span class="play-tag">AI Governance</span><span class="play-tag">watsonx</span></div>
+      <a class="card-link" href="phase2.html#lennarmtg">Full Intel Brief →</a>
+    </div>
+  </div>
+
+  <!-- 3. ANSCO -->
+  <div id="ansco" class="acct-card-full">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num green">✦</div>
+        <div>
+          <div class="card-acct-name">ANSCO &amp; Associates</div>
+          <div class="card-acct-sub">Telecom Infrastructure · Private · FL/Multi-State · snav: 880528</div>
+        </div>
       </div>
+      <div class="card-header-right">
+        <span class="badge badge-new">✦ New Account</span>
+        <div class="signal-dots" title="Signal: 3/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">What's Happening</div>
+        <div class="col-trigger"><strong>1,200+ employees across 60+ offices</strong> coordinating telecom infrastructure projects. Workforce scheduling complexity at this scale creates measurable overhead — spreadsheets and manual processes can't keep pace.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Your Automation Angle</div>
+        <div class="col-ask">With 60+ offices and 1,200+ field workers, ANSCO's workforce scheduling is managed with manual processes. <strong>IBM Automation + Red Hat OpenShift</strong> gives your operations team a unified platform to <strong>schedule crews, track job status, and automate billing across all 60+ sites</strong> — cutting overhead while improving field execution. This is a direct productivity story for the VP Field Ops.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Who to Contact</div>
+        <div class="persona-chips">
+          <span class="persona-chip primary">VP Field Operations</span>
+          <span class="persona-chip primary">CIO / IT Ops Lead</span>
+          <span class="persona-chip">Workforce Planning Manager</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags"><span class="play-tag">IBM Automation</span><span class="play-tag">Red Hat OpenShift</span><span class="play-tag">watsonx</span></div>
       <a class="card-link" href="phase2.html#ansco">Full Intel Brief →</a>
     </div>
   </div>
 
-  <!-- 3. BURGER KING / RBI -->
-  <div class="acct-card-full">
+  <!-- 4. DYCOM -->
+  <div id="dycom" class="acct-card-full">
     <div class="card-header">
       <div class="card-header-left">
-        <div class="card-acct-num">3</div>
+        <div class="card-acct-num green">✦</div>
         <div>
-          <div class="card-acct-name">Burger King / Restaurant Brands International</div>
-          <div class="card-acct-sub">NYSE: QSR · QSR / Multi-Brand Restaurant · Miami, FL · 15,000+ Locations</div>
+          <div class="card-acct-name">Dycom Industries</div>
+          <div class="card-acct-sub">Telecom Construction · NYSE: DY · Palm Beach Gardens, FL · snav: 1337</div>
         </div>
       </div>
       <div class="card-header-right">
         <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
+        <div class="signal-dots" title="Signal: 5/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+        </div>
       </div>
     </div>
     <div class="card-body">
       <div class="card-col">
         <div class="col-label">What's Happening</div>
-        <div class="col-trigger">
-          BK US comps <strong>+5.8%</strong> and RBC named QSR its "top idea" for 2026. <strong>AI headsets live in stores</strong> monitoring employee courtesy in real-time. Planning <strong>1,800 net new restaurants/year</strong> through 2028. CFO has $1.6B capital return plan and ~$2.5B liquidity.
-        </div>
+        <div class="col-trigger"><strong>Record $11.9B backlog, +46.5% YoY</strong> — field ops automation is essential at this scale. 20,000+ field technicians coordinating work orders across AT&amp;T, Lumen, and 10+ telecom clients simultaneously.</div>
       </div>
       <div class="card-col">
         <div class="col-label">Your Automation Angle</div>
-        <div class="col-ask">
-          The AI headset pilot creates the conversation: <strong>IBM Automation</strong> for employee ops — scheduling, onboarding, and training workflows across 15,000+ franchise locations. <strong>watsonx Orchestrate</strong> for the labor cost optimization problem that grows with every new restaurant. Franchise operations automation: standardizing reporting and compliance workflows across 100+ countries.
-        </div>
+        <div class="col-ask">Dycom's $11.9B backlog means project management and field ops teams are coordinating more concurrent work orders than ever. <strong>IBM Automation orchestrates field work assignments, status updates, materials procurement, and billing</strong> into a single governed workflow — so teams can scale the backlog without scaling headcount. This is a COO conversation about operational leverage.</div>
       </div>
       <div class="card-col">
         <div class="col-label">Who to Contact</div>
         <div class="persona-chips">
-          <span class="persona-chip primary">Restaurant Technology Lead</span>
-          <span class="persona-chip primary">CIO / Digital Ordering Lead</span>
-          <span class="persona-chip">Labor Planning Manager</span>
-          <span class="persona-chip">Franchise Analytics Manager</span>
-          <span class="persona-chip">CFO</span>
+          <span class="persona-chip primary">COO / Operations Lead</span>
+          <span class="persona-chip primary">VP Field Operations</span>
+          <span class="persona-chip">Project Analytics Lead</span>
+          <span class="persona-chip">CIO</span>
         </div>
       </div>
     </div>
     <div class="card-footer">
-      <div class="play-tags">
-        <span class="play-tag">IBM Automation</span>
-        <span class="play-tag">watsonx Orchestrate</span>
-        <span class="play-tag">Employee Ops</span>
-        <span class="play-tag">Franchise Automation</span>
-      </div>
-      <a class="card-link" href="phase2.html#bk">Full Intel Brief →</a>
+      <div class="play-tags"><span class="play-tag">IBM Automation</span><span class="play-tag">Data Fabric</span><span class="play-tag">watsonx</span></div>
+      <a class="card-link" href="phase2.html#dycom">Full Intel Brief →</a>
     </div>
   </div>
 
-  <!-- 4. MASTEC -->
-  <div class="acct-card-full">
+  <!-- 5. MASTEC -->
+  <div id="page-mastec" class="acct-card-full">
     <div class="card-header">
       <div class="card-header-left">
-        <div class="card-acct-num">4</div>
+        <div class="card-acct-num green">✦</div>
         <div>
           <div class="card-acct-name">MasTec Inc.</div>
-          <div class="card-acct-sub">NYSE: MTZ · Infrastructure Construction · Coral Gables, FL · $17.5B FY2026 Guidance</div>
+          <div class="card-acct-sub">Infrastructure Construction · NYSE: MTZ · Coral Gables, FL</div>
         </div>
       </div>
       <div class="card-header-right">
         <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
+        <div class="signal-dots" title="Signal: 5/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+        </div>
       </div>
     </div>
     <div class="card-body">
       <div class="card-col">
         <div class="col-label">What's Happening</div>
-        <div class="col-trigger">
-          <strong>$1.65B Superior Plus acquisition closed July 7</strong> — seven days ago. Five-segment business (telecom, energy, pipeline, clean energy, fuel distribution) with a record <strong>$20.3B backlog</strong>. Revenue +34.5% YoY. Integration lead and FP&amp;A roles open now.
-        </div>
+        <div class="col-trigger"><strong>$1.65B Superior Group acquisition closed July 7</strong> — two separate billing systems, two project management platforms, two sets of field operations workflows that must integrate. Post-acquisition urgency is highest in the first 90 days.</div>
       </div>
       <div class="card-col">
         <div class="col-label">Your Automation Angle</div>
-        <div class="col-ask">
-          Post-acquisition workflow automation: <strong>IBM Automation</strong> to standardize project management workflows across 5 segments that previously ran as independent businesses. <strong>Red Hat OpenShift</strong> as the unified platform to replace the siloed IT environments of the merged entities. Process mining to identify where Superior Plus workflows diverge from MasTec's — and automate the integration.
-        </div>
+        <div class="col-ask">The Superior Group acquisition creates immediate workflow automation urgency. <strong>IBM Automation is the fastest path to a unified process layer</strong> that connects MasTec legacy operations with Superior Group's infrastructure — without a multi-year ERP replacement. Lead with the integration pain: every month of delay is manual reconciliation cost that comes directly out of M&amp;A synergy projections.</div>
       </div>
       <div class="card-col">
         <div class="col-label">Who to Contact</div>
         <div class="persona-chips">
-          <span class="persona-chip primary">CIO / Integration Lead</span>
-          <span class="persona-chip primary">Field Ops IT Manager</span>
-          <span class="persona-chip">CFO / FP&amp;A Director</span>
-          <span class="persona-chip">Project Data Manager</span>
+          <span class="persona-chip primary">COO / Integration Lead</span>
+          <span class="persona-chip primary">CIO / IT Director</span>
+          <span class="persona-chip">CFO / M&amp;A Integration</span>
         </div>
       </div>
     </div>
     <div class="card-footer">
-      <div class="play-tags">
-        <span class="play-tag">IBM Automation</span>
-        <span class="play-tag">Red Hat OpenShift</span>
-        <span class="play-tag">Process Mining</span>
-        <span class="play-tag">Post-Acquisition Integration</span>
-      </div>
+      <div class="play-tags"><span class="play-tag">IBM Automation</span><span class="play-tag">Data Fabric</span><span class="play-tag">Storage</span></div>
       <a class="card-link" href="phase2.html#page-mastec">Full Intel Brief →</a>
     </div>
   </div>
 
-  <!-- 5. CHEWY -->
-  <div class="acct-card-full">
-    <div class="card-header">
-      <div class="card-header-left">
-        <div class="card-acct-num">5</div>
-        <div>
-          <div class="card-acct-name">Chewy Inc.</div>
-          <div class="card-acct-sub">NYSE: CHWY · Pet E-Commerce + Vet Telehealth · Plantation, FL · FY2027 Guidance $13.4–$13.55B</div>
-        </div>
-      </div>
-      <div class="card-header-right">
-        <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-col">
-        <div class="col-label">What's Happening</div>
-        <div class="col-trigger">
-          CEO confirmed <strong>AI-fueled earnings growth</strong> as primary 2026/2027 margin driver — AI live in production across customer service and personalization. <strong>Modern Animal acquisition</strong> added vet clinic operations and telehealth. FY2027 guidance raised to $13.4–$13.55B. Vet platform tech and AI/ML engineering roles growing rapidly.
-        </div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Your Automation Angle</div>
-        <div class="col-ask">
-          The Modern Animal acquisition created a two-platform operations problem: e-commerce + vet clinic. <strong>IBM Automation / watsonx Orchestrate</strong> to unify ops workflows across both. Vet clinic onboarding, appointment scheduling, and pharmacy fulfillment are manual today and can't scale without automation. AI-driven customer service automation is already in play — IBM Orchestrate can extend it.
-        </div>
-      </div>
-      <div class="card-col">
-        <div class="col-label">Who to Contact</div>
-        <div class="persona-chips">
-          <span class="persona-chip primary">CTO / Personalization AI Lead</span>
-          <span class="persona-chip primary">Vet Platform Tech Lead</span>
-          <span class="persona-chip">Pharmacy Ops Manager</span>
-          <span class="persona-chip">CFO / FP&amp;A Lead</span>
-        </div>
-      </div>
-    </div>
-    <div class="card-footer">
-      <div class="play-tags">
-        <span class="play-tag">watsonx Orchestrate</span>
-        <span class="play-tag">IBM Automation</span>
-        <span class="play-tag">Vet Ops</span>
-        <span class="play-tag">Modern Animal Integration</span>
-      </div>
-      <a class="card-link" href="phase2.html#page-chewy">Full Intel Brief →</a>
-    </div>
-  </div>
-
   <!-- 6. OFFICE DEPOT / ODP -->
-  <div class="acct-card-full">
+  <div id="page-odp" class="acct-card-full">
     <div class="card-header">
       <div class="card-header-left">
-        <div class="card-acct-num">6</div>
+        <div class="card-acct-num green">✦</div>
         <div>
           <div class="card-acct-name">Office Depot / ODP Corporation</div>
-          <div class="card-acct-sub">NYSE: ODP · B2B Services + Varis Platform · Boca Raton, FL · Activist: Starboard Value 13.3%</div>
+          <div class="card-acct-sub">Business Products &amp; Services · NASDAQ: ODP · Boca Raton, FL</div>
         </div>
       </div>
       <div class="card-header-right">
         <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-med">● Med Signal</span>
+        <div class="signal-dots" title="Signal: 4/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+        </div>
       </div>
     </div>
     <div class="card-body">
       <div class="card-col">
         <div class="col-label">What's Happening</div>
-        <div class="col-trigger">
-          <strong>Starboard Value 13.3%</strong> activist stake demands technology ROI be demonstrable to the board. Atlas Holdings ~$1B B2B acquisition completed. "Optimize for Growth" restructuring plan active — CFO under mandate to cut SG&amp;A and show operating leverage. <strong>Varis</strong> B2B procurement platform must compete with Ariba and Amazon Business.
-        </div>
+        <div class="col-trigger"><strong>Starboard Value acquired 13.3% activist stake</strong> — SG&amp;A cost takeout mandate is active at the board level. CFO must demonstrate operational efficiency improvements on the income statement, not just in slide decks.</div>
       </div>
       <div class="card-col">
         <div class="col-label">Your Automation Angle</div>
-        <div class="col-ask">
-          <strong>IBM Automation</strong> to differentiate the Varis platform against Ariba and Coupa — workflow efficiency is the wedge where Varis can win. The "Optimize for Growth" cost-takeout mandate is an automation ROI conversation: show the board how automation reduces SG&amp;A. <strong>Red Hat OpenShift</strong> for Varis platform infrastructure modernization.
-        </div>
+        <div class="col-ask">Starboard's 13.3% stake means the CFO is under pressure to show SG&amp;A reduction <em>now</em>. <strong>IBM Automation targets back-office processes — AP automation, order management, returns processing</strong> — that create measurable cost takeout activist investors can see on the income statement. IBM has case studies showing <strong>40–60% reduction in manual processing time</strong> for retail operations.</div>
       </div>
       <div class="card-col">
         <div class="col-label">Who to Contact</div>
         <div class="persona-chips">
-          <span class="persona-chip primary">CIO / IT Systems Admin</span>
-          <span class="persona-chip primary">B2B Analytics Lead</span>
-          <span class="persona-chip">CFO / SG&amp;A Finance Manager</span>
-          <span class="persona-chip">Varis Platform Engineer</span>
+          <span class="persona-chip primary">CFO / Operations Lead</span>
+          <span class="persona-chip primary">COO / Process Excellence</span>
+          <span class="persona-chip">CIO / IT Director</span>
         </div>
       </div>
     </div>
     <div class="card-footer">
-      <div class="play-tags">
-        <span class="play-tag">IBM Automation</span>
-        <span class="play-tag">Red Hat OpenShift</span>
-        <span class="play-tag">Varis Platform</span>
-        <span class="play-tag">Cost-Takeout</span>
-      </div>
+      <div class="play-tags"><span class="play-tag">IBM Automation</span><span class="play-tag">Planning Analytics</span><span class="play-tag">watsonx</span></div>
       <a class="card-link" href="phase2.html#page-odp">Full Intel Brief →</a>
     </div>
   </div>
 
-  <!-- 7. MEMORIAL HEALTHCARE -->
-  <div class="acct-card-full">
+  <!-- 7. CHEWY -->
+  <div id="page-chewy" class="acct-card-full">
     <div class="card-header">
       <div class="card-header-left">
-        <div class="card-acct-num">7</div>
+        <div class="card-acct-num green">✦</div>
         <div>
-          <div class="card-acct-name">Memorial Healthcare System</div>
-          <div class="card-acct-sub">Public Health System · Hollywood, FL · 6 Hospitals · 900+ Beds · $670M Capital Build</div>
+          <div class="card-acct-name">Chewy Inc.</div>
+          <div class="card-acct-sub">Pet E-Commerce &amp; Health · NYSE: CHWY · Plantation, FL · snav: 2848055</div>
         </div>
       </div>
       <div class="card-header-right">
         <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
+        <div class="signal-dots" title="Signal: 4/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+        </div>
       </div>
     </div>
     <div class="card-body">
       <div class="card-col">
         <div class="col-label">What's Happening</div>
-        <div class="col-trigger">
-          <strong>$670M Surgical and Patient Bed Tower</strong> groundbreaking — largest capital project in Memorial history. New <strong>Douglas Road Emergency Room opening August 2026</strong>. CMS AI policy guidance active — clinical AI now requires governance. New clinical informatics and healthcare analytics roles posted for the tower expansion.
-        </div>
+        <div class="col-trigger"><strong>Modern Animal acquisition closed</strong> + FY27 guidance $13.4–13.55B. Chewy now combines e-commerce order automation with veterinary appointment scheduling and prescription fulfillment — two very different workflow domains requiring integration.</div>
       </div>
       <div class="card-col">
         <div class="col-label">Your Automation Angle</div>
-        <div class="col-ask">
-          New tower = new clinical workflows. <strong>IBM Automation / watsonx Orchestrate</strong> for clinical workflow automation: patient admissions, bed management, discharge planning, and staff scheduling across expanded capacity. The August ER opening creates an immediate automation window — new facility, new processes, new technology decisions being made now.
-        </div>
+        <div class="col-ask"><strong>IBM Automation provides the orchestration layer</strong> that connects pet product orders, vet appointment triggers, prescription renewals, and autoship management into a single customer journey. This reduces manual intervention across two distinct systems and increases retention — a platform story, not just an IT efficiency play.</div>
       </div>
       <div class="card-col">
         <div class="col-label">Who to Contact</div>
         <div class="persona-chips">
-          <span class="persona-chip primary">CIO / Clinical Informatics Lead</span>
-          <span class="persona-chip primary">CFO / Revenue Cycle Lead</span>
-          <span class="persona-chip">IT Security Manager</span>
-          <span class="persona-chip">Clinical Operations Director</span>
+          <span class="persona-chip primary">COO / Operations Lead</span>
+          <span class="persona-chip primary">CIO / Platform Lead</span>
+          <span class="persona-chip">Chief Customer Officer</span>
+          <span class="persona-chip">VP Health Platform</span>
         </div>
       </div>
     </div>
     <div class="card-footer">
-      <div class="play-tags">
-        <span class="play-tag">IBM Automation</span>
-        <span class="play-tag">watsonx Orchestrate</span>
-        <span class="play-tag">Clinical Workflow</span>
-        <span class="play-tag">New ER / Tower</span>
-      </div>
-      <a class="card-link" href="phase2.html#page-memorial">Full Intel Brief →</a>
+      <div class="play-tags"><span class="play-tag">IBM Automation</span><span class="play-tag">watsonx</span><span class="play-tag">AI Governance</span></div>
+      <a class="card-link" href="phase2.html#page-chewy">Full Intel Brief →</a>
     </div>
   </div>
 
-  <!-- 8. SOUTH BROWARD HOSPITAL DISTRICT -->
-  <div class="acct-card-full">
+  <!-- 8. BURGER KING / RBI -->
+  <div id="bk" class="acct-card-full">
     <div class="card-header">
       <div class="card-header-left">
-        <div class="card-acct-num">8</div>
+        <div class="card-acct-num green">✦</div>
         <div>
-          <div class="card-acct-name">South Broward Hospital District</div>
-          <div class="card-acct-sub">Public Health District · Hollywood, FL · ~17,500 Employees · 6 Hospitals · AA S&amp;P Rating · FY2025 Revenue $3.22B</div>
+          <div class="card-acct-name">Burger King / Restaurant Brands International</div>
+          <div class="card-acct-sub">QSR · NYSE: QSR · Miami, FL · snav: 166764</div>
         </div>
       </div>
       <div class="card-header-right">
         <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
+        <div class="signal-dots" title="Signal: 5/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+        </div>
       </div>
     </div>
     <div class="card-body">
       <div class="card-col">
         <div class="col-label">What's Happening</div>
-        <div class="col-trigger">
-          <strong>Epic on-premises to Azure migration RFP awarded</strong> — cloud migration is live. IT Security Audit RFP covering ransomware, IAM, and ePHI in progress. New <strong>Security Operations Center</strong> in planning. Windows Server renewal just completed. Prior HHS OCR HIPAA settlement makes security a board mandate.
-        </div>
+        <div class="col-trigger"><strong>AI headset pilot live</strong> + 1,800 new restaurants/year automation mandate through 2028. That's 5 new locations per day — each requiring onboarding, training, supply chain integration, and compliance documentation.</div>
       </div>
       <div class="card-col">
         <div class="col-label">Your Automation Angle</div>
-        <div class="col-ask">
-          Epic-to-Azure migration = process re-engineering moment. <strong>IBM Automation</strong> to automate the clinical and administrative workflows that get rebuilt during a cloud migration — don't lift-and-shift manual processes, modernize them. IAM automation: <strong>IBM Verify</strong> automates identity lifecycle management for 17,500+ employees and vendor access — directly addressing the audit findings.
-        </div>
+        <div class="col-ask">RBI is adding 1,800 restaurants per year through 2028. <strong>IBM Automation scales franchise onboarding and operational compliance</strong> across the entire 30,000+ location network. Connect the AI headset insights into <strong>automated labor scheduling and training workflows</strong> — so every new franchise location is operationally compliant from day one, not week six.</div>
       </div>
       <div class="card-col">
         <div class="col-label">Who to Contact</div>
         <div class="persona-chips">
-          <span class="persona-chip primary">CIO / VP Information Technology</span>
-          <span class="persona-chip primary">CISO / IT Security Director</span>
-          <span class="persona-chip">CFO / VP Finance</span>
-          <span class="persona-chip">Epic Implementation Lead</span>
+          <span class="persona-chip primary">Restaurant Tech Lead</span>
+          <span class="persona-chip primary">COO / Franchise Ops Lead</span>
+          <span class="persona-chip">CFO / Labor Planning</span>
+          <span class="persona-chip">Chief Digital Officer</span>
         </div>
       </div>
     </div>
     <div class="card-footer">
-      <div class="play-tags">
-        <span class="play-tag">IBM Automation</span>
-        <span class="play-tag">IBM Verify</span>
-        <span class="play-tag">IAM Automation</span>
-        <span class="play-tag">Epic Migration</span>
-      </div>
-      <a class="card-link" href="phase2.html#page-sbhd">Full Intel Brief →</a>
+      <div class="play-tags"><span class="play-tag">IBM Automation</span><span class="play-tag">AI Governance</span><span class="play-tag">watsonx</span></div>
+      <a class="card-link" href="phase2.html#bk">Full Intel Brief →</a>
     </div>
   </div>
 
-  <!-- 9. SGWS -->
-  <div class="acct-card-full">
+  <!-- 9. HEXAGON FEDERAL -->
+  <div id="hexfed" class="acct-card-full">
     <div class="card-header">
       <div class="card-header-left">
         <div class="card-acct-num">9</div>
         <div>
-          <div class="card-acct-name">Southern Glazer's Wine &amp; Spirits</div>
-          <div class="card-acct-sub">Private · Beverage Distribution · Miami, FL · Proof Commerce AI Platform Live</div>
+          <div class="card-acct-name">Hexagon Federal</div>
+          <div class="card-acct-sub">Federal GIS &amp; Geospatial · Public · Huntsville, AL / FL offices · snav: 163065</div>
         </div>
       </div>
       <div class="card-header-right">
         <span class="badge badge-existing">Existing</span>
-        <span class="badge badge-med">● Supporting Play</span>
+        <div class="signal-dots" title="Signal: 3/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+        </div>
       </div>
     </div>
     <div class="card-body">
       <div class="card-col">
         <div class="col-label">What's Happening</div>
-        <div class="col-trigger">
-          <strong>220 job cuts (1% workforce)</strong> tied directly to AI hybrid sales model. <strong>Proof Commerce AI platform live</strong> — inside sales replacing field reps. CEO cited AI publicly as business model driver; top-down mandate confirmed. Beverage alcohol demand softening driving automation urgency.
-        </div>
+        <div class="col-trigger"><strong>Compass 2026 geospatial conference Aug 25–27</strong> — federal geospatial workflows running manual data pipelines from satellite imagery to GeoBase deployment to Air Force mission planning. Federal AI compliance mandates are active.</div>
       </div>
       <div class="card-col">
         <div class="col-label">Your Automation Angle</div>
-        <div class="col-ask">
-          The Proof Commerce platform is live AI automation — the <strong>IBM Automation</strong> play here is a supporting motion after the D&amp;AI relationship is established. CFO Week 3 follow-up: connect automation ROI directly to the headcount restructuring mandate. The 220 job cuts prove the board is willing to automate — IBM can accelerate the next wave.
-        </div>
+        <div class="col-ask">Federal geospatial workflows involve massive manual data pipelines. <strong>IBM Automation orchestrates those workflows</strong>, reducing the time from data ingestion to analyst-ready intelligence. <strong>IBM AI Governance</strong> ensures every automated step meets federal compliance requirements. Time the conversation to land before the Aug 25 Compass conference when they're most focused on federal AI positioning.</div>
       </div>
       <div class="card-col">
         <div class="col-label">Who to Contact</div>
         <div class="persona-chips">
-          <span class="persona-chip">CFO / VP Finance</span>
-          <span class="persona-chip">CIO / Data Analytics Manager</span>
-          <span class="persona-chip">Compliance Manager</span>
-          <span class="persona-chip">Sales Ops Lead</span>
+          <span class="persona-chip primary">Federal Solutions Architect</span>
+          <span class="persona-chip primary">Defense Program Manager</span>
+          <span class="persona-chip">IT Ops Lead</span>
+          <span class="persona-chip">Chief Compliance Officer</span>
         </div>
       </div>
     </div>
     <div class="card-footer">
-      <div class="play-tags">
-        <span class="play-tag">IBM Automation</span>
-        <span class="play-tag">AI Governance</span>
-        <span class="play-tag">Supporting Play</span>
+      <div class="play-tags"><span class="play-tag">IBM Automation</span><span class="play-tag">AI Governance</span><span class="play-tag">watsonx</span></div>
+      <a class="card-link" href="phase2.html#hexfed">Full Intel Brief →</a>
+    </div>
+  </div>
+
+  <!-- 10. FRONTLINE INSURANCE -->
+  <div id="page-frontline" class="acct-card-full">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num green">✦</div>
+        <div>
+          <div class="card-acct-name">Frontline Insurance</div>
+          <div class="card-acct-sub">P&amp;C Insurance · Private · Lake Mary, FL</div>
+        </div>
       </div>
-      <a class="card-link" href="phase2.html#sgws">Full Intel Brief →</a>
+      <div class="card-header-right">
+        <span class="badge badge-new">✦ New Account</span>
+        <div class="signal-dots" title="Signal: 3/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">What's Happening</div>
+        <div class="col-trigger"><strong>Florida Reciprocal Exchange structure approved May 2026</strong> — policy issuance, claims processing, underwriting, and premium collection all operate differently in a reciprocal structure. Immediate platform integration urgency.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Your Automation Angle</div>
+        <div class="col-ask">Frontline's new Reciprocal Exchange creates immediate process automation needs. <strong>IBM Automation handles the workflow orchestration</strong> between the new exchange platform, existing systems, and Florida regulatory reporting — ensuring they scale the new structure without adding manual overhead. <strong>AI Governance</strong> addresses Florida OIR scrutiny of AI-assisted underwriting decisions.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Who to Contact</div>
+        <div class="persona-chips">
+          <span class="persona-chip primary">COO / Claims Lead</span>
+          <span class="persona-chip primary">CIO / InsurTech Lead</span>
+          <span class="persona-chip">Compliance Officer</span>
+          <span class="persona-chip">Chief Actuary</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags"><span class="play-tag">IBM Automation</span><span class="play-tag">AI Governance</span><span class="play-tag">Planning Analytics</span></div>
+      <a class="card-link" href="phase2.html#page-frontline">Full Intel Brief →</a>
+    </div>
+  </div>
+
+  <!-- 11. MEMORIAL HEALTHCARE -->
+  <div id="page-memorial" class="acct-card-full">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num green">✦</div>
+        <div>
+          <div class="card-acct-name">Memorial Healthcare System</div>
+          <div class="card-acct-sub">Health System · 6 Hospitals · Hollywood, FL · snav: 164682</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <span class="badge badge-new">✦ New Account</span>
+        <div class="signal-dots" title="Signal: 5/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">What's Happening</div>
+        <div class="col-trigger"><strong>New Douglas Road ER opening August 2026</strong> — clinical workflow automation can't wait. 6-hospital system actively expanding. Epic→Azure migration underway. IT Security Audit in progress. CMS and state regulators increasing AI explainability mandates.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Your Automation Angle</div>
+        <div class="col-ask">A new ER opening is the perfect entry point. <strong>IBM Automation handles patient intake routing, clinical documentation triggers, lab result workflows, and discharge planning</strong> — reducing administrative burden on nurses and physicians from day one and improving throughput in a brand-new facility. The Epic migration creates a natural data integration window for <strong>watsonx</strong> layered on top of the new Azure environment.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Who to Contact</div>
+        <div class="persona-chips">
+          <span class="persona-chip primary">CIO / CMIO</span>
+          <span class="persona-chip primary">VP Nursing / Clinical Ops</span>
+          <span class="persona-chip">IT Operations Lead</span>
+          <span class="persona-chip">Chief Compliance Officer</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags"><span class="play-tag">IBM Automation</span><span class="play-tag">AI Governance</span><span class="play-tag">watsonx</span></div>
+      <a class="card-link" href="phase2.html#page-memorial">Full Intel Brief →</a>
+    </div>
+  </div>
+
+  <!-- 12. KFORCE -->
+  <div id="kforce" class="acct-card-full">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num green">✦</div>
+        <div>
+          <div class="card-acct-name">Kforce Inc.</div>
+          <div class="card-acct-sub">Technology Staffing · NASDAQ: KFRC · Tampa, FL · snav: 18877</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <span class="badge badge-new">✦ New Account</span>
+        <div class="signal-dots" title="Signal: 5/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">What's Happening</div>
+        <div class="col-trigger"><strong>AI pipeline +50% YoY</strong> + AI innovation studio launch. High-volume staffing workflow — candidate sourcing to placement to billing — is a natural automation opportunity at Kforce's scale. Stock +29% YTD signals strong market confidence.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Your Automation Angle</div>
+        <div class="col-ask"><strong>IBM Automation handles the workflow orchestration layer</strong> — from candidate intake to placement confirmation to client billing — at enterprise scale. <strong>IBM Planning Analytics</strong> drives workforce demand forecasting. <strong>watsonx</strong> powers the AI innovation studio with the enterprise-grade platform that Kforce can also demonstrate to its own AI clients as a competitive differentiator.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Who to Contact</div>
+        <div class="persona-chips">
+          <span class="persona-chip primary">COO / Workforce Planning</span>
+          <span class="persona-chip primary">AI Studio Lead</span>
+          <span class="persona-chip">CFO / FP&amp;A Director</span>
+          <span class="persona-chip">CIO</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags"><span class="play-tag">IBM Automation</span><span class="play-tag">watsonx</span><span class="play-tag">Planning Analytics</span></div>
+      <a class="card-link" href="phase2.html#kforce">Full Intel Brief →</a>
+    </div>
+  </div>
+
+  <!-- ── SUPPORTING PLAYS ── -->
+  <div class="section-label-support">Supporting Automation Plays — Not Primary · Secondary Conversations After Primary Entry</div>
+
+  <!-- S1. NCLH -->
+  <div id="nclh" class="acct-card-full supporting">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">S1</div>
+        <div>
+          <div class="card-acct-name">Norwegian Cruise Line Holdings</div>
+          <div class="card-acct-sub">Cruise Line · NYSE: NCLH · Miami, FL · Primary: Data &amp; AI</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <span class="badge badge-support">Supporting Play</span>
+        <div class="signal-dots" title="Signal: 3/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">Automation Angle</div>
+        <div class="col-trigger">Revenue management AI automation for <strong>three-brand fleet scheduling</strong> — NCL, Oceania, and Regent each run separate systems. Workflow automation is the bridge that unifies fleet operations after the Data Fabric primary play is established.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">When to Introduce</div>
+        <div class="col-ask">After the <strong>Data Fabric conversation is established</strong>, IBM Automation is the natural next layer — it orchestrates the cross-brand operational workflows that Data Fabric makes visible. Elliott's margin pressure makes every automation cost-reduction story relevant.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Primary Owner</div>
+        <div class="persona-chips">
+          <span class="persona-chip">D&amp;AI Primary (Alyssa)</span>
+          <span class="persona-chip primary">Support: Automation (Gavin)</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags"><span class="play-tag">IBM Automation</span><span class="play-tag">watsonx Orchestrate</span></div>
+      <a class="card-link" href="phase2.html#nclh">Full Intel Brief →</a>
+    </div>
+  </div>
+
+  <!-- S2. JM FAMILY -->
+  <div id="jmf" class="acct-card-full supporting">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">S2</div>
+        <div>
+          <div class="card-acct-name">JM Family Enterprises</div>
+          <div class="card-acct-sub">Automotive Distribution · Private · Deerfield Beach, FL · Primary: Data &amp; AI</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <span class="badge badge-support">Supporting Play</span>
+        <div class="signal-dots" title="Signal: 2/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">Automation Angle</div>
+        <div class="col-trigger"><strong>EV supply chain and F&amp;I workflow automation</strong> — as JM Family scales Toyota EV distribution and JM&amp;A financial products, the workflow complexity between vehicle ordering, financing, and dealer management grows significantly.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">When to Introduce</div>
+        <div class="col-ask">After the <strong>Planning Analytics / CFO conversation</strong> is initiated, IBM Automation is the operational layer that executes on the F&amp;I and supply chain workflows identified in the data play. CFO transition creates a window to introduce the broader IBM stack.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Primary Owner</div>
+        <div class="persona-chips">
+          <span class="persona-chip">D&amp;AI Primary (Alyssa)</span>
+          <span class="persona-chip primary">Support: Automation (Gavin)</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags"><span class="play-tag">IBM Automation</span><span class="play-tag">watsonx Orchestrate</span></div>
+      <a class="card-link" href="phase2.html#jmf">Full Intel Brief →</a>
+    </div>
+  </div>
+
+  <!-- S3. LENNAR -->
+  <div id="lennar" class="acct-card-full supporting">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">S3</div>
+        <div>
+          <div class="card-acct-name">Lennar Corporation</div>
+          <div class="card-acct-sub">Homebuilder · NYSE: LEN · Miami, FL · Primary: Data &amp; AI</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <span class="badge badge-support">Supporting Play</span>
+        <div class="signal-dots" title="Signal: 2/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">Automation Angle</div>
+        <div class="col-trigger"><strong>Homebuilding construction workflow automation</strong> — subcontractor scheduling, permits, inspections, and materials procurement across 30+ markets involve significant manual coordination that IBM Automation can systematize.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">When to Introduce</div>
+        <div class="col-ask">After the <strong>Planning Analytics primary conversation</strong> is established, IBM Automation supports the construction execution layer — turning the financial forecast into an automated construction workflow. Frame as operational leverage for the COO once the CFO relationship is active.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Primary Owner</div>
+        <div class="persona-chips">
+          <span class="persona-chip">D&amp;AI Primary (Alyssa)</span>
+          <span class="persona-chip primary">Support: Automation (Gavin)</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags"><span class="play-tag">IBM Automation</span><span class="play-tag">Red Hat OpenShift</span></div>
+      <a class="card-link" href="phase2.html#lennar">Full Intel Brief →</a>
     </div>
   </div>
 
   <!-- RESOURCE STRIP -->
   <div class="resource-strip">
-    <div class="resource-strip-title">Automation — Seller Resources (Gavin)</div>
+    <div class="resource-strip-title">Automation — Gavin's Seller Resources</div>
     <div class="resource-grid">
       <div>
         <div class="resource-item-label">Discovery Question (works across all Automation accounts)</div>
-        <div class="resource-item-text">"When your operations team needs to onboard a new location, integrate an acquired company, or scale a workforce by 20% — what does that process look like today, and how many manual steps does it require?"</div>
+        <div class="resource-item-text">"If your operations team had to show a regulator or activist investor exactly how an automated workflow made a specific decision last Tuesday — could they? <strong>IBM Automation</strong> makes every workflow step auditable, explainable, and defensible."</div>
       </div>
       <div>
         <div class="resource-item-label">South Florida Territory Pitch (30 seconds)</div>
-        <div class="resource-item-text">"South Florida is scaling — whether it's a hospital system adding a new ER, a construction company digesting a $1.65B acquisition, or a fast food chain opening 1,800 restaurants a year. <strong>IBM Automation</strong> is purpose-built for exactly these growth moments where operations have to scale faster than headcount."</div>
+        <div class="resource-item-text">"From telecom field crews to restaurant franchises to clinical settings, South Florida's workforce-intensive industries are primed for <strong>IBM Automation</strong>. Every account on this list has a workflow complexity problem that IBM can solve — and most of them have a public trigger that makes the conversation timely right now."</div>
       </div>
     </div>
   </div>
@@ -743,8 +853,7 @@
 </div>
 
 <footer>
-  SE Horizon · Phase 3 · Automation Brand View · Gavin · IBM South Florida SE Team · July 21, 2026
-  <br /><br />
+  SE Horizon · Phase 3 · Automation Brand View · Gavin · IBM South Florida SE Team · July 21, 2026<br/><br/>
   <span style="font-size:10px;color:#bbb;border-top:1px solid #e5e7eb;display:inline-block;padding-top:8px;margin-top:4px">Made with IBM Bob</span>
 </footer>
 

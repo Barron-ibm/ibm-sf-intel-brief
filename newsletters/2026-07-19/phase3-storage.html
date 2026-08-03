@@ -3,116 +3,89 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SE Horizon — Storage Brand View · William</title>
+<title>SE Horizon — Storage · Phase 3 · William's Territory | July 21, 2026</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; background: #f4f4f4; color: #1f2328; font-size: 14px; line-height: 1.5; }
+  body { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; background: #0f1c3a; color: #1f2328; font-size: 14px; line-height: 1.5; }
   a { text-decoration: none; }
 
-  /* ── SHARED TOP NAV ── */
-  .se-topbar{background:#161616;border-bottom:3px solid #0f62fe;padding:0 20px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
-  .se-topbar-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
-  .se-topbar-ibm{font-size:18px;font-weight:900;color:#fff;letter-spacing:-0.5px;}
-  .se-topbar-div{width:1px;height:16px;background:#393939;}
-  .se-topbar-title{font-size:12px;font-weight:600;color:#a8c8ff;white-space:nowrap;}
-  .se-topbar-badge{font-size:10px;font-weight:700;background:#8b5cf6;color:#fff;padding:2px 9px;border-radius:20px;white-space:nowrap;}
-  .se-topbar-links{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;}
-  .se-topbar-links::-webkit-scrollbar{display:none;}
-  .se-topbar-links a{font-size:11px;font-weight:600;color:rgba(255,255,255,0.55);padding:5px 10px;border-radius:3px;white-space:nowrap;border-bottom:2px solid transparent;}
-  .se-topbar-links a:hover{color:#fff;background:rgba(255,255,255,0.07);}
-  .se-topbar-links a.se-active{color:#fff;border-bottom-color:#8b5cf6;}
-  .se-topbar-links .se-divider{color:#393939;padding:0 4px;font-size:11px;user-select:none;}
-  .se-topbar-links a.se-sub{color:rgba(255,255,255,0.4);font-size:10px;}
-  .se-topbar-links a.se-sub:hover{color:#a78bfa;}
-  .se-topbar-links a.se-sub.se-active{color:#a78bfa;border-bottom-color:#a78bfa;}
-  .se-topbar-right{font-size:10px;color:#6f6f6f;white-space:nowrap;letter-spacing:0.05em;flex-shrink:0;display:none;}
-  @media(min-width:700px){.se-topbar-right{display:block;}}
+  /* ── STICKY TOP NAV ── */
+  .se-topbar { background: #161616; border-bottom: 3px solid #7c3aed; padding: 0 20px; height: 46px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 200; }
+  .se-topbar-left { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .se-topbar-ibm { font-size: 18px; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
+  .se-topbar-div { width: 1px; height: 16px; background: #393939; }
+  .se-topbar-title { font-size: 12px; font-weight: 600; color: #a8c8ff; white-space: nowrap; }
+  .se-topbar-badge { font-size: 10px; font-weight: 700; background: #7c3aed; color: #fff; padding: 2px 9px; border-radius: 20px; white-space: nowrap; }
+  .se-topbar-links { display: flex; align-items: center; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+  .se-topbar-links::-webkit-scrollbar { display: none; }
+  .se-topbar-links a { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.55); padding: 5px 10px; border-radius: 3px; white-space: nowrap; border-bottom: 2px solid transparent; }
+  .se-topbar-links a:hover { color: #fff; background: rgba(255,255,255,0.07); }
+  .se-topbar-links a.se-active { color: #fff; border-bottom-color: #8b5cf6; }
+  .se-topbar-links .se-divider { color: #393939; padding: 0 4px; font-size: 11px; user-select: none; }
+  .se-topbar-links a.se-sub { color: rgba(255,255,255,0.4); font-size: 10px; }
+  .se-topbar-links a.se-sub:hover { color: #a78bfa; }
+  .se-topbar-links a.se-sub.se-active { color: #a78bfa; border-bottom-color: #a78bfa; }
+  .se-topbar-right { font-size: 10px; color: #6f6f6f; white-space: nowrap; letter-spacing: 0.05em; flex-shrink: 0; display: none; }
+  @media(min-width:700px) { .se-topbar-right { display: block; } }
 
   /* ── BRAND HERO ── */
-  .brand-hero {
-    background: linear-gradient(135deg, #0e0a1a 0%, #1a0f2e 100%);
-    border-bottom: 1px solid #2d1a4a;
-    padding: 36px 28px 28px;
-  }
+  .brand-hero { background: linear-gradient(135deg, #0e0a1a 0%, #1a0f2e 100%); border-bottom: 1px solid #2d1a4a; padding: 36px 28px 28px; }
   .brand-hero-inner { max-width: 920px; margin: 0 auto; }
-  .brand-eyebrow {
-    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
-    text-transform: uppercase; color: #a78bfa; margin-bottom: 10px;
-    display: flex; align-items: center; gap: 8px;
-  }
+  .brand-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #a78bfa; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
   .brand-eyebrow a { color: #6f6f6f; text-decoration: none; }
   .brand-eyebrow a:hover { color: #a78bfa; }
   .brand-eyebrow .sep { color: #393939; }
-  .brand-hero h1 { font-size: 30px; font-weight: 900; color: #fff; margin-bottom: 8px; }
+  .brand-hero h1 { font-size: 30px; font-weight: 900; color: #fff; margin-bottom: 4px; }
   .brand-hero h1 span { color: #a78bfa; }
-  .brand-hero-sub { font-size: 13px; color: #7a6b8b; max-width: 620px; margin-bottom: 16px; }
+  .brand-seller { font-size: 12px; font-weight: 700; color: #a78bfa; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+  .brand-hero-sub { font-size: 13px; color: #7a6b8b; max-width: 640px; margin-bottom: 16px; line-height: 1.6; }
   .brand-products { display: flex; flex-wrap: wrap; gap: 6px; }
-  .prod-tag {
-    font-size: 11px; font-weight: 600;
-    background: rgba(255,255,255,0.08);
-    color: #a78bfa;
-    border: 1px solid rgba(167,139,250,0.2);
-    border-radius: 4px; padding: 3px 10px;
-  }
-  .brand-stats {
-    display: flex; gap: 28px; margin-top: 20px;
-    padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08);
-  }
+  .prod-tag { font-size: 11px; font-weight: 600; background: rgba(255,255,255,0.08); color: #a78bfa; border: 1px solid rgba(167,139,250,0.2); border-radius: 4px; padding: 3px 10px; }
+  .brand-stats { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08); }
   .stat-num { font-size: 22px; font-weight: 900; color: #fff; line-height: 1; }
   .stat-label { font-size: 11px; color: #7a6b8b; margin-top: 2px; }
 
-  /* ── SCOPE CALLOUT ── */
-  .scope-callout { background: #f3eeff; border: 1px solid #c4b5fd; border-left: 4px solid #8b5cf6; border-radius: 6px; padding: 12px 16px; font-size: 12px; color: #1f2328; line-height: 1.6; margin-bottom: 20px; }
-  .scope-callout strong { color: #5b21b6; }
+  /* ── ACCOUNT NAV BAR ── */
+  .acct-nav { background: #161616; border-bottom: 1px solid #2a2a2a; padding: 0 28px; position: sticky; top: 46px; z-index: 190; }
+  .acct-nav-inner { max-width: 920px; margin: 0 auto; display: flex; gap: 2px; padding: 8px 0; overflow-x: auto; scrollbar-width: none; }
+  .acct-nav-inner::-webkit-scrollbar { display: none; }
+  .anav-item { flex-shrink: 0; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.45); padding: 4px 11px; border-radius: 4px; white-space: nowrap; border: 1px solid transparent; }
+  .anav-item:hover { color: #a78bfa; background: rgba(139,92,246,0.12); border-color: rgba(139,92,246,0.25); }
+  .anav-item.new-acct { color: #6ee08a; }
+  .anav-item.new-acct:hover { color: #6ee08a; background: rgba(110,224,138,0.1); border-color: rgba(110,224,138,0.2); }
+  .anav-sep { color: #2a2a2a; padding: 0 3px; line-height: 30px; user-select: none; }
 
-  /* ── PAGE NAV ── */
-  .page-nav { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 0 28px; }
-  .page-nav-inner {
-    max-width: 920px; margin: 0 auto;
-    display: flex; gap: 4px; padding: 10px 0; overflow-x: auto;
-  }
-  .pnav-pill {
-    flex-shrink: 0; font-size: 11px; font-weight: 600;
-    padding: 5px 12px; border-radius: 20px;
-    border: 1px solid #e5e7eb; color: #57606a; background: #f7f8fa;
-    text-decoration: none;
-  }
+  /* ── PAGE NAV PILLS ── */
+  .page-nav { background: #ffffff; border-bottom: 1px solid #e5e7eb; padding: 0 28px; }
+  .page-nav-inner { max-width: 920px; margin: 0 auto; display: flex; gap: 4px; padding: 10px 0; overflow-x: auto; scrollbar-width: none; }
+  .page-nav-inner::-webkit-scrollbar { display: none; }
+  .pnav-pill { flex-shrink: 0; font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 20px; border: 1px solid #e5e7eb; color: #57606a; background: #f7f8fa; text-decoration: none; }
   .pnav-pill.active { background: #8b5cf6; color: #fff; border-color: #8b5cf6; }
   .pnav-pill:hover:not(.active) { background: #f3eeff; color: #6d28d9; border-color: #c4b5fd; }
 
   /* ── MAIN ── */
   .main { max-width: 920px; margin: 0 auto; padding: 28px 28px 80px; }
-
-  .section-label {
-    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
-    text-transform: uppercase; color: #57606a;
-    border-bottom: 1px solid #e5e7eb;
-    padding-bottom: 8px; margin-bottom: 16px;
-  }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #57606a; border-bottom: 1px solid #e5e7eb; padding-bottom: 8px; margin-bottom: 16px; }
+  .section-label-sm { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #9ca3af; border-bottom: 1px solid #e5e7eb; padding-bottom: 8px; margin-bottom: 14px; margin-top: 36px; }
 
   /* ── ACCOUNT CARD ── */
-  .acct-card-full {
-    background: #fff; border: 1px solid #e5e7eb; border-radius: 8px;
-    border-left: 5px solid #8b5cf6; overflow: hidden; margin-bottom: 16px;
-  }
-  .card-header {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 20px; border-bottom: 1px solid #f4f4f4; gap: 12px;
-  }
+  .acct-card-full { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; border-left: 5px solid #8b5cf6; overflow: hidden; margin-bottom: 16px; }
+  .card-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid #f4f4f4; gap: 12px; }
   .card-header-left { display: flex; align-items: center; gap: 12px; }
-  .card-acct-num {
-    width: 28px; height: 28px; border-radius: 50%;
-    background: #f4f4f4; color: #57606a;
-    font-size: 11px; font-weight: 800;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
+  .card-acct-num { width: 28px; height: 28px; border-radius: 50%; background: #ede9fe; color: #7c3aed; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .card-acct-name { font-size: 16px; font-weight: 800; color: #161616; }
   .card-acct-sub { font-size: 11px; color: #57606a; margin-top: 1px; }
   .card-header-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
   .badge { font-size: 10px; font-weight: 700; letter-spacing: 0.04em; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
   .badge-new { background: #ede9fe; color: #5b21b6; }
-  .badge-high { background: #fff1f1; color: #c42b1c; }
   .badge-existing { background: #f4f4f4; color: #57606a; }
+  .badge-high { background: #fff1f1; color: #c42b1c; }
+  .badge-med { background: #fef3e2; color: #b45309; }
+
+  /* Signal dots */
+  .signal-dots { display: flex; align-items: center; gap: 3px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #e5e7eb; }
+  .dot.filled { background: #8b5cf6; }
 
   .card-body { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
   .card-col { padding: 16px 20px; border-right: 1px solid #f4f4f4; }
@@ -120,31 +93,41 @@
   .col-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #57606a; margin-bottom: 8px; }
   .col-trigger { font-size: 13px; color: #1f2328; line-height: 1.5; }
   .col-trigger strong { color: #161616; font-weight: 700; }
-  .col-ask { font-size: 12px; color: #1f2328; line-height: 1.55; }
-  .col-ask strong { color: #8b5cf6; font-weight: 700; }
-
+  .col-ask { font-size: 12px; color: #1f2328; line-height: 1.55; border-left: 3px solid #8b5cf6; padding-left: 10px; }
+  .col-ask strong { color: #6d28d9; font-weight: 700; }
   .persona-chips { display: flex; flex-wrap: wrap; gap: 5px; }
   .persona-chip { font-size: 11px; font-weight: 600; background: #f4f4f4; color: #393939; border: 1px solid #e5e7eb; border-radius: 4px; padding: 3px 9px; }
   .persona-chip.primary { background: #ede9fe; color: #5b21b6; border-color: #c4b5fd; }
-
-  .card-footer {
-    padding: 10px 20px; background: #f7f8fa; border-top: 1px solid #f4f4f4;
-    display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  }
+  .card-footer { padding: 10px 20px; background: #f7f8fa; border-top: 1px solid #f4f4f4; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
   .play-tags { display: flex; flex-wrap: wrap; gap: 5px; }
   .play-tag { font-size: 10px; font-weight: 700; background: #ede9fe; color: #5b21b6; border: 1px solid #c4b5fd; border-radius: 3px; padding: 2px 8px; }
   .card-link { font-size: 11px; font-weight: 700; color: #8b5cf6; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
   .card-link:hover { text-decoration: underline; }
 
-  /* ── RESOURCE STRIP ── */
-  .resource-strip { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; border-top: 3px solid #8b5cf6; padding: 20px 24px; margin-top: 28px; }
-  .resource-strip-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8b5cf6; margin-bottom: 14px; }
-  .resource-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .resource-item-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #57606a; margin-bottom: 5px; }
-  .resource-item-text { font-size: 12px; color: #1f2328; line-height: 1.55; font-style: italic; }
-  .resource-item-text strong { font-style: normal; font-weight: 700; color: #8b5cf6; }
+  /* ── SUPPORTING CARD ── */
+  .acct-card-support { background: #fff; border: 2px dashed #8b5cf6; border-radius: 8px; overflow: hidden; margin-bottom: 12px; opacity: 0.85; }
+  .acct-card-support .card-header { border-bottom: 1px dashed #e5e7eb; }
+  .acct-card-support .card-acct-num { background: #f3eeff; color: #9ca3af; }
+  .support-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9ca3af; background: #f9f5ff; border-bottom: 1px dashed #e5e7eb; padding: 5px 20px; }
 
-  footer { border-top: 1px solid #e5e7eb; padding: 16px 28px; text-align: center; font-size: 11px; color: #57606a; }
+  /* ── BOTTOM STRIP ── */
+  .bottom-strip { background: linear-gradient(135deg, #0e0a1a 0%, #1a0f2e 100%); border-radius: 8px; padding: 24px 28px; margin-top: 28px; }
+  .bottom-strip-title { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #a78bfa; margin-bottom: 10px; }
+  .bottom-strip-q { font-size: 13px; color: #e2d9f3; line-height: 1.65; border-left: 3px solid #8b5cf6; padding-left: 14px; margin-bottom: 16px; font-style: italic; }
+  .bottom-strip-q strong { font-style: normal; color: #a78bfa; }
+  .bottom-strip-oneliner { font-size: 12px; color: #7a6b8b; line-height: 1.6; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.08); }
+
+  /* ── FOOTER ── */
+  footer { border-top: 1px solid #e5e7eb; background: #fff; padding: 16px 28px; text-align: center; font-size: 11px; color: #57606a; }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:680px) {
+    .card-body { grid-template-columns: 1fr; }
+    .card-col { border-right: none; border-bottom: 1px solid #f4f4f4; }
+    .card-col:last-child { border-bottom: none; }
+    .brand-stats { gap: 18px; }
+  }
+  @media print { .se-topbar { display: none; } .acct-nav { display: none; } body { background: #fff; } }
 </style>
 </head>
 <body>
@@ -155,7 +138,7 @@
     <span class="se-topbar-ibm">IBM</span>
     <div class="se-topbar-div"></div>
     <span class="se-topbar-title">SE Horizon</span>
-    <span class="se-topbar-badge">Phase 3 · Storage</span>
+    <span class="se-topbar-badge" style="background:#7c3aed;">Phase 3 · Storage</span>
   </div>
   <div class="se-topbar-links">
     <a href="phase1.html">Phase 1</a>
@@ -178,175 +161,300 @@
       <span class="sep">/</span>
       Storage
     </div>
-    <h1>Stor<span>age</span></h1>
+    <h1>Storage <span>Prospecting Guide</span></h1>
     <div class="brand-seller">William's Territory</div>
-    <p class="brand-hero-sub">Storage is a genuine first-call play only where data volume, infrastructure refresh, or post-M&A consolidation is the primary driver. In the South Florida mid-market, only 3 accounts have that signal. Honest qualification beats a forced pitch.</p>
+    <p class="brand-hero-sub">Eight accounts with genuine IBM Storage signal — anchored by post-M&A consolidation plays, record-backlog data infrastructure, mining analytics workloads, and defense electronics expansion. Purple is the primary brand color; every card below is a first-call play.</p>
     <div class="brand-products">
+      <span class="prod-tag">IBM FlashSystem</span>
       <span class="prod-tag">IBM Storage Scale</span>
-      <span class="prod-tag">FlashSystem</span>
-      <span class="prod-tag">IBM Tape / Archive</span>
+      <span class="prod-tag">IBM DS8900F</span>
       <span class="prod-tag">IBM Spectrum Protect</span>
-      <span class="prod-tag">Data Fabric Integration</span>
+      <span class="prod-tag">Data Fabric</span>
+      <span class="prod-tag">AI Governance</span>
     </div>
     <div class="brand-stats">
-      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Accounts with genuine storage play</div></div>
-      <div class="stat"><div class="stat-num">2</div><div class="stat-label">Post-M&A integration triggers</div></div>
-      <div class="stat"><div class="stat-num">1</div><div class="stat-label">Product-cycle trigger (MinePlan R1)</div></div>
+      <div class="stat"><div class="stat-num">8</div><div class="stat-label">Primary Storage accounts</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Post-M&amp;A / integration triggers</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">New ✦ accounts this cycle</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Supporting plays</div></div>
     </div>
+  </div>
+</div>
+
+<!-- ── HORIZONTAL ACCOUNT NAV BAR ── -->
+<div class="acct-nav">
+  <div class="acct-nav-inner">
+    <a href="#hexmin" class="anav-item">163065 · Hexagon Mining</a>
+    <span class="anav-sep">·</span>
+    <a href="#dycom" class="anav-item new-acct">✦ 1337 · Dycom</a>
+    <span class="anav-sep">·</span>
+    <a href="#jmf" class="anav-item">5765 · JM Family</a>
+    <span class="anav-sep">·</span>
+    <a href="#lennar" class="anav-item">4605 · Lennar</a>
+    <span class="anav-sep">·</span>
+    <a href="#heico" class="anav-item new-acct">✦ 164682 · HEICO</a>
+    <span class="anav-sep">·</span>
+    <a href="#page-mastec" class="anav-item new-acct">✦ MasTec</a>
+    <span class="anav-sep">·</span>
+    <a href="#page-dmab" class="anav-item new-acct">✦ DMAB</a>
+    <span class="anav-sep">·</span>
+    <a href="#page-herc" class="anav-item new-acct">✦ 2848055 · Herc Rentals</a>
+    <span class="anav-sep">·</span>
+    <a href="#sgws" class="anav-item" style="opacity:0.5;">SGWS</a>
+    <span class="anav-sep">·</span>
+    <a href="#nclh" class="anav-item" style="opacity:0.5;">NCLH</a>
+    <span class="anav-sep">·</span>
+    <a href="#citco" class="anav-item" style="opacity:0.5;">Citco</a>
   </div>
 </div>
 
 <!-- ── PAGE NAV PILLS ── -->
 <div class="page-nav">
   <div class="page-nav-inner">
-    <a href="phase3-data-ai.html" class="pnav-pill">📊 Data &amp; AI — Alyssa</a>
-    <a href="phase3-automation.html" class="pnav-pill">⚙️ Automation — Gavin</a>
-    <a href="phase3-storage.html" class="pnav-pill active">💾 Storage — William</a>
-    <a href="phase3-power-cloud.html" class="pnav-pill">🖥 Power &amp; Cloud — Rick &amp; Kevin</a>
+    <a href="phase3-data-ai.html" class="pnav-pill">Data &amp; AI — Alyssa</a>
+    <a href="phase3-automation.html" class="pnav-pill">Automation — Gavin</a>
+    <a href="phase3-storage.html" class="pnav-pill active">Storage — William</a>
+    <a href="phase3-power-cloud.html" class="pnav-pill">Power &amp; Cloud — Rick &amp; Kevin</a>
   </div>
 </div>
 
+<!-- ── MAIN CONTENT ── -->
 <div class="main">
 
-  <div class="scope-callout">
-    <strong>Why 3 of 26 accounts?</strong> Storage is a niche first-call play in the South Florida mid-market. Most accounts here are PE-backed, mid-market, or services businesses — they don't have the on-premise data volume, infrastructure footprint, or geospatial/industrial data scale that drives enterprise Storage conversations. The remaining 23 accounts are better entered through <strong>Data &amp; AI</strong>. Hexagon Mining (MinePlan volumes), Dycom (record backlog project data), and MasTec ($1.65B acquisition data integration) are the three with a credible first-call IBM Storage story.
-  </div>
+  <div class="section-label">Primary Storage Accounts (8) — July 21, 2026</div>
 
-  <div class="section-label">All Storage Accounts — July 21, 2026</div>
-
-  <!-- 1. HEXAGON MINING -->
-  <div class="acct-card-full">
+  <!-- ── 1. HEXAGON MINING ── -->
+  <div class="acct-card-full" id="hexmin">
     <div class="card-header">
       <div class="card-header-left">
         <div class="card-acct-num">1</div>
         <div>
           <div class="card-acct-name">Hexagon Mining</div>
-          <div class="card-acct-sub">Division of Hexagon AB · Mining Technology Software · Global · MinePlan Platform</div>
+          <div class="card-acct-sub">Division of Hexagon AB · Mining Technology Software · MinePlan Platform · SNAV: 163065</div>
         </div>
       </div>
       <div class="card-header-right">
         <span class="badge badge-existing">Existing</span>
-        <span class="badge badge-high">● High Signal</span>
+        <div class="signal-dots" title="Signal: 5/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+        </div>
       </div>
     </div>
     <div class="card-body">
       <div class="card-col">
         <div class="col-label">What's Happening</div>
         <div class="col-trigger">
-          <strong>MinePlan 2026 Release 1 just launched</strong> — Scenario Management in Schedule Optimiser 14.5 is live. Copper at <strong>$6.13/lb</strong> is driving record capex at major mining operators (Hexagon's customers). 5x Mining Magazine Award shortlist nominations. Product momentum at record high.
+          <strong>MinePlan 2026 R1 just launched</strong> — Scenario Management in Schedule Optimiser 14.5 is live. Copper at <strong>$6.13/lb</strong> is driving record capex at major mining operators. Product momentum at record high.
         </div>
       </div>
       <div class="card-col">
-        <div class="col-label">Your Storage Angle</div>
+        <div class="col-label">Talk Track</div>
         <div class="col-ask">
-          MinePlan Scenario Management generates <strong>massive geospatial data volumes</strong> — the Schedule Optimiser data pipeline grows with every new customer deployment. <strong>IBM Storage Scale</strong> is the high-throughput backbone for mining analytics workloads. IBM Data Fabric governs the cross-domain data architecture (autonomy + planning + safety + ESG). With copper-price-driven capex expansion, Hexagon's client budgets are open now.
+          "Congratulations on the MinePlan 2026 R1 launch — the Scenario Management capability in Schedule Optimiser is exactly the kind of analytics-intensive workload that stresses storage infrastructure. <strong>IBM FlashSystem</strong> is purpose-built for high-throughput mining data pipelines, and with copper at record highs, your clients have the budget to invest in the right storage foundation now."
         </div>
       </div>
       <div class="card-col">
-        <div class="col-label">Who to Contact</div>
+        <div class="col-label">Who to Call</div>
         <div class="persona-chips">
           <span class="persona-chip primary">CIO / Mining Ops Lead</span>
           <span class="persona-chip primary">Fleet Analytics Manager</span>
           <span class="persona-chip">Safety Tech Lead</span>
-          <span class="persona-chip">Autonomy Engineer</span>
         </div>
       </div>
     </div>
     <div class="card-footer">
       <div class="play-tags">
-        <span class="play-tag">IBM Storage Scale</span>
+        <span class="play-tag">IBM FlashSystem</span>
+        <span class="play-tag">IBM Storage</span>
         <span class="play-tag">Data Fabric</span>
-        <span class="play-tag">MinePlan Data Pipeline</span>
-        <span class="play-tag">ESG Reporting</span>
       </div>
-      <a class="card-link" href="phase2.html#hexmin">Full Intel Brief →</a>
+      <a class="card-link" href="phase2.html#hexmin">Full Intel →</a>
     </div>
   </div>
 
-  <!-- 2. DYCOM -->
-  <div class="acct-card-full">
+  <!-- ── 2. DYCOM ── -->
+  <div class="acct-card-full" id="dycom">
     <div class="card-header">
       <div class="card-header-left">
         <div class="card-acct-num">2</div>
         <div>
-          <div class="card-acct-name">Dycom Industries Inc.</div>
-          <div class="card-acct-sub">NYSE: DY · Telecom Infrastructure Contractor · Palm Beach Gardens, FL · Backlog $11.9B</div>
+          <div class="card-acct-name">Dycom Industries Inc. <span style="color:#6ee08a;font-size:12px;font-weight:700;">✦ New</span></div>
+          <div class="card-acct-sub">NYSE: DY · Telecom Infrastructure Contractor · Palm Beach Gardens, FL · Backlog $11.9B · SNAV: 1337</div>
         </div>
       </div>
       <div class="card-header-right">
         <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
+        <div class="signal-dots" title="Signal: 5/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+        </div>
       </div>
     </div>
     <div class="card-body">
       <div class="card-col">
         <div class="col-label">What's Happening</div>
         <div class="col-trigger">
-          Q1 FY2027 revenue <strong>+56% YoY</strong>. Record backlog <strong>$11.9B (+46.5% YoY)</strong>. FY2027 guidance raised to $7.38–$7.65B. <strong>$275M data center acquisition</strong> closed — adding an entirely new segment with different infrastructure than telecom construction. CEO: "generational opportunities across the business."
+          Record backlog <strong>$11.9B (+46.5% YoY)</strong> — engineering drawings, field documentation, fiber route data, and financial records across hundreds of concurrent projects. Data infrastructure at scale.
         </div>
       </div>
       <div class="card-col">
-        <div class="col-label">Your Storage Angle</div>
+        <div class="col-label">Talk Track</div>
         <div class="col-ask">
-          Record backlog = record data volume. Dycom is generating more field operations, billing, and project analytics data than at any point in history. <strong>IBM Storage</strong> is the enterprise backbone for this scale. The <strong>$275M data center acquisition</strong> adds a second data infrastructure type — telecom construction + data center operations = two different storage architectures that IBM can unify. CFO is receptive: stock +25% post-earnings.
+          "Dycom's $11.9B backlog represents the largest concentration of telecom infrastructure project data in the Southeast. <strong>IBM Storage</strong> provides the high-availability, high-throughput infrastructure that keeps all of it accessible and protected as you scale past your record backlog."
         </div>
       </div>
       <div class="card-col">
-        <div class="col-label">Who to Contact</div>
+        <div class="col-label">Who to Call</div>
         <div class="persona-chips">
-          <span class="persona-chip primary">CIO / IT Systems Admin</span>
-          <span class="persona-chip primary">Integration Lead</span>
-          <span class="persona-chip">CFO / FP&amp;A Director</span>
-          <span class="persona-chip">Project Data Manager</span>
+          <span class="persona-chip primary">CIO / IT Director</span>
+          <span class="persona-chip primary">VP Engineering Data</span>
+          <span class="persona-chip">Project Analytics Lead</span>
         </div>
       </div>
     </div>
     <div class="card-footer">
       <div class="play-tags">
         <span class="play-tag">IBM Storage</span>
+        <span class="play-tag">IBM FlashSystem</span>
         <span class="play-tag">Data Fabric</span>
-        <span class="play-tag">Post-M&amp;A Integration</span>
-        <span class="play-tag">Field Ops Data Scale</span>
       </div>
-      <a class="card-link" href="phase2.html#dycom">Full Intel Brief →</a>
+      <a class="card-link" href="phase2.html#dycom">Full Intel →</a>
     </div>
   </div>
 
-  <!-- 3. MASTEC -->
-  <div class="acct-card-full">
+  <!-- ── 3. JM FAMILY ── -->
+  <div class="acct-card-full" id="jmf">
     <div class="card-header">
       <div class="card-header-left">
         <div class="card-acct-num">3</div>
         <div>
-          <div class="card-acct-name">MasTec Inc.</div>
-          <div class="card-acct-sub">NYSE: MTZ · Infrastructure Construction · Coral Gables, FL · $17.5B FY2026 Guidance · Record Backlog $20.3B</div>
+          <div class="card-acct-name">JM Family Enterprises</div>
+          <div class="card-acct-sub">Private · Toyota Distribution + F&amp;I + Southeast Toyota Finance · Deerfield Beach, FL · SNAV: 5765</div>
         </div>
       </div>
       <div class="card-header-right">
-        <span class="badge badge-new">✦ New Account</span>
-        <span class="badge badge-high">● High Signal</span>
+        <span class="badge badge-existing">Existing</span>
+        <div class="signal-dots" title="Signal: 3/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+        </div>
       </div>
     </div>
     <div class="card-body">
       <div class="card-col">
         <div class="col-label">What's Happening</div>
         <div class="col-trigger">
-          <strong>$1.65B Superior Plus acquisition closed July 7</strong> — post-acquisition IT integration is live right now. Five-segment business (telecom, energy, pipeline, clean energy, <strong>fuel distribution</strong>) with a record <strong>$20.3B backlog (+$4.4B YoY)</strong>. Revenue +34.5% YoY. Integration lead roles open now — the data architecture merge is in progress.
+          Power + Storage stack — <strong>existing relationship opportunity</strong>. CFO transition in progress. Multi-division structure creates significant data storage requirements across inventory, financial records, and customer data.
         </div>
       </div>
       <div class="card-col">
-        <div class="col-label">Your Storage Angle</div>
+        <div class="col-label">Talk Track</div>
         <div class="col-ask">
-          Record $20.3B backlog at project-data level = thousands of active sites generating billing, field crew, compliance, and project-status data simultaneously. <strong>IBM Storage</strong> is the enterprise backbone for this scale. The Superior Plus acquisition added fuel distribution infrastructure — a fundamentally different data model than telecom construction. <strong>IBM Storage + Data Fabric</strong> unifies the two. The integration window is open right now — engage this week.
+          "JM Family's multi-division structure — Toyota distribution, F&amp;I financial services, Southeast Toyota Finance — creates significant data storage requirements. <strong>IBM Storage</strong> integrated with JM Family's existing Power Systems environment delivers the enterprise-grade performance a $21B private company demands."
         </div>
       </div>
       <div class="card-col">
-        <div class="col-label">Who to Contact</div>
+        <div class="col-label">Who to Call</div>
         <div class="persona-chips">
-          <span class="persona-chip primary">CIO / Integration Lead</span>
-          <span class="persona-chip primary">Field Ops IT Manager</span>
-          <span class="persona-chip">CFO / FP&amp;A Director</span>
-          <span class="persona-chip">Project Data Manager</span>
+          <span class="persona-chip primary">CIO / IT Systems Admin</span>
+          <span class="persona-chip primary">CFO / Incoming Finance Lead</span>
+          <span class="persona-chip">Supply Chain Planner</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags">
+        <span class="play-tag">IBM Storage</span>
+        <span class="play-tag">IBM Power Systems</span>
+        <span class="play-tag">Data Fabric</span>
+      </div>
+      <a class="card-link" href="phase2.html#jmf">Full Intel →</a>
+    </div>
+  </div>
+
+  <!-- ── 4. LENNAR ── -->
+  <div class="acct-card-full" id="lennar">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">4</div>
+        <div>
+          <div class="card-acct-name">Lennar Corporation</div>
+          <div class="card-acct-sub">NYSE: LEN · Homebuilding + Financial Services + Multifamily · Miami, FL · SNAV: 4605</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <span class="badge badge-existing">Existing</span>
+        <div class="signal-dots" title="Signal: 4/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">What's Happening</div>
+        <div class="col-trigger">
+          ECM + watsonx.data + Power/Storage stack — <strong>multi-division data sprawl</strong>. Engineering drawings, compliance documents, financial records, and customer data growing rapidly with <strong>512 open roles</strong> and continued expansion.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Talk Track</div>
+        <div class="col-ask">
+          "Lennar manages data across homebuilding, financial services, and multifamily — all growing rapidly. <strong>IBM Storage + ECM</strong> gives your IT team the content management and data infrastructure that scales with the company without the performance penalties of uncontrolled data sprawl."
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Who to Call</div>
+        <div class="persona-chips">
+          <span class="persona-chip primary">CIO / Lead Cloud Engineer</span>
+          <span class="persona-chip primary">Data Science Lead</span>
+          <span class="persona-chip">VP IT Operations</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags">
+        <span class="play-tag">IBM Storage</span>
+        <span class="play-tag">ECM</span>
+        <span class="play-tag">Data Fabric</span>
+      </div>
+      <a class="card-link" href="phase2.html#lennar">Full Intel →</a>
+    </div>
+  </div>
+
+  <!-- ── 5. HEICO ── -->
+  <div class="acct-card-full" id="heico">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">5</div>
+        <div>
+          <div class="card-acct-name">HEICO Corporation <span style="color:#6ee08a;font-size:12px;font-weight:700;">✦ New</span></div>
+          <div class="card-acct-sub">NYSE: HEI · Aerospace &amp; Defense Electronics · Hollywood, FL · Artemis II Supplier · SNAV: 164682</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <span class="badge badge-new">✦ New Account</span>
+        <div class="signal-dots" title="Signal: 5/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">What's Happening</div>
+        <div class="col-trigger">
+          <strong>Sherwood Electronics acquisition</strong> + <strong>Artemis II defense program</strong> — rapidly expanding portfolio of defense electronics engineering data, certification documentation, and quality records across multiple facilities.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Talk Track</div>
+        <div class="col-ask">
+          "HEICO's Sherwood acquisition and Artemis II supplier role mean you're managing rapidly expanding defense electronics engineering data across multiple facilities. <strong>IBM Storage</strong> provides the high-availability, secure data infrastructure aerospace and defense primes require — with compliance controls for ITAR and export regulations."
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Who to Call</div>
+        <div class="persona-chips">
+          <span class="persona-chip primary">CIO / IT Director</span>
+          <span class="persona-chip primary">Defense Program Manager</span>
+          <span class="persona-chip">M&amp;A Integration Lead</span>
         </div>
       </div>
     </div>
@@ -354,34 +462,300 @@
       <div class="play-tags">
         <span class="play-tag">IBM Storage</span>
         <span class="play-tag">Data Fabric</span>
-        <span class="play-tag">Post-Acquisition Integration</span>
-        <span class="play-tag">Record Backlog Scale</span>
+        <span class="play-tag">AI Governance</span>
       </div>
-      <a class="card-link" href="phase2.html#page-mastec">Full Intel Brief →</a>
+      <a class="card-link" href="phase2.html#heico">Full Intel →</a>
     </div>
   </div>
 
-  <!-- RESOURCE STRIP -->
-  <div class="resource-strip">
-    <div class="resource-strip-title">Storage — Seller Resources (William)</div>
-    <div class="resource-grid">
-      <div>
-        <div class="resource-item-label">Discovery Question (works across all Storage accounts)</div>
-        <div class="resource-item-text">"As your project data, field operations data, and acquisition integration data grows — what does your storage infrastructure look like today, and where are you hitting capacity or performance limits?"</div>
+  <!-- ── 6. MASTEC ── -->
+  <div class="acct-card-full" id="page-mastec">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">6</div>
+        <div>
+          <div class="card-acct-name">MasTec Inc. <span style="color:#6ee08a;font-size:12px;font-weight:700;">✦ New</span></div>
+          <div class="card-acct-sub">NYSE: MTZ · Infrastructure Construction · Coral Gables, FL · $1.65B Superior Group Acquisition · Backlog $20.3B</div>
+        </div>
       </div>
-      <div>
-        <div class="resource-item-label">South Florida Territory Pitch (30 seconds)</div>
-        <div class="resource-item-text">"South Florida's infrastructure companies are growing faster than their data infrastructure can keep up with. <strong>IBM Storage</strong> is purpose-built for the kind of record-scale backlog data, geospatial mining data, and post-acquisition consolidation that these three accounts are dealing with right now — and IBM Data Fabric connects it all into a single governed analytics layer."</div>
+      <div class="card-header-right">
+        <span class="badge badge-new">✦ New Account</span>
+        <div class="signal-dots" title="Signal: 5/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+        </div>
       </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">What's Happening</div>
+        <div class="col-trigger">
+          <strong>$1.65B Superior Group acquisition</strong> — dual data infrastructure consolidation needed. Two separate data estates. Engineering, project management, and financial data from both organizations need unification.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Talk Track</div>
+        <div class="col-ask">
+          "The Superior Group acquisition means MasTec is now managing two separate data estates. <strong>IBM Storage and Data Fabric</strong> provide the fastest path to a unified, high-performance data infrastructure — consolidating engineering, project management, and financial data from both organizations without the disruption of a full ERP migration."
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Who to Call</div>
+        <div class="persona-chips">
+          <span class="persona-chip primary">CIO / IT Director</span>
+          <span class="persona-chip primary">CFO / M&amp;A Integration</span>
+          <span class="persona-chip">VP Engineering Data</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags">
+        <span class="play-tag">IBM Storage</span>
+        <span class="play-tag">Data Fabric</span>
+        <span class="play-tag">Automation</span>
+      </div>
+      <a class="card-link" href="phase2.html#page-mastec">Full Intel →</a>
     </div>
   </div>
 
-</div>
+  <!-- ── 7. DMAB ── -->
+  <div class="acct-card-full" id="page-dmab">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">7</div>
+        <div>
+          <div class="card-acct-name">DMAB <span style="color:#6ee08a;font-size:12px;font-weight:700;">✦ New</span></div>
+          <div class="card-acct-sub">IBM Mainframe Partner · Z + Storage Expansion Play · Florida</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <span class="badge badge-new">✦ New Account</span>
+        <div class="signal-dots" title="Signal: 4/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">What's Happening</div>
+        <div class="col-trigger">
+          IBM mainframe partner — <strong>Z + Storage expansion play</strong>. DMAB's clients run some of the highest-density transaction and storage workloads in Florida. New revenue stream opportunity through DS8900F for Z integration.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Talk Track</div>
+        <div class="col-ask">
+          "As an IBM mainframe partner, DMAB's clients are running some of the highest-density transaction and storage workloads in Florida. <strong>IBM DS8900F for Z integration</strong> is the natural extension of their existing mainframe relationships, giving DMAB a new revenue stream and their clients enterprise-grade storage that matches their mainframe investment."
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Who to Call</div>
+        <div class="persona-chips">
+          <span class="persona-chip primary">IBM Practice Lead / CEO</span>
+          <span class="persona-chip primary">Z Systems Architect</span>
+          <span class="persona-chip">Client Delivery Lead</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags">
+        <span class="play-tag">IBM Storage</span>
+        <span class="play-tag">IBM DS8900F</span>
+        <span class="play-tag">IBM Z Modernization</span>
+      </div>
+      <a class="card-link" href="phase2.html#page-dmab">Full Intel →</a>
+    </div>
+  </div>
+
+  <!-- ── 8. HERC RENTALS ── -->
+  <div class="acct-card-full" id="page-herc">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">8</div>
+        <div>
+          <div class="card-acct-name">Herc Rentals <span style="color:#6ee08a;font-size:12px;font-weight:700;">✦ New</span></div>
+          <div class="card-acct-sub">NYSE: HRI · Equipment Rental · Bonita Springs, FL · Q2 Earnings July 28 · H&amp;E Integration · SNAV: 2848055</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <span class="badge badge-new">✦ New Account</span>
+        <div class="signal-dots" title="Signal: 5/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">What's Happening</div>
+        <div class="col-trigger">
+          <strong>Q2 earnings July 28</strong> + <strong>H&amp;E Equipment integration underway</strong> — managing the largest combined equipment rental fleet data set in company history. Fleet telematics, maintenance records, utilization analytics spanning two organizations.
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Talk Track</div>
+        <div class="col-ask">
+          "With Q2 earnings July 28 and the H&amp;E Equipment integration underway, Herc is managing the largest combined fleet data set in its history. <strong>IBM Storage</strong> handles the fleet telematics, maintenance records, utilization analytics, and financial data that now spans two organizations — giving your IT team the performance and scalability to support both the integration and the combined fleet going forward."
+        </div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Who to Call</div>
+        <div class="persona-chips">
+          <span class="persona-chip primary">CIO / Fleet Systems Lead</span>
+          <span class="persona-chip primary">CFO / FP&amp;A Director</span>
+          <span class="persona-chip">M&amp;A Integration Manager</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags">
+        <span class="play-tag">IBM Storage</span>
+        <span class="play-tag">IBM FlashSystem</span>
+        <span class="play-tag">Data Fabric</span>
+      </div>
+      <a class="card-link" href="phase2.html#page-herc">Full Intel →</a>
+    </div>
+  </div>
+
+  <!-- ── SUPPORTING PLAYS ── -->
+  <div class="section-label-sm">Supporting Storage Plays (3) — Qualify Before Engaging</div>
+
+  <!-- SGWS -->
+  <div class="acct-card-support" id="sgws">
+    <div class="support-label">Supporting Play · Lower Priority</div>
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">S1</div>
+        <div>
+          <div class="card-acct-name">Southern Glazer's Wine &amp; Spirits</div>
+          <div class="card-acct-sub">Private · Beverage Distribution · Miami, FL · Proof Commerce AI platform</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <div class="signal-dots" title="Signal: 2/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">Opportunity</div>
+        <div class="col-trigger">Proof Commerce AI platform data storage needs — distribution network analytics, inventory data, and customer platform data at scale.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Angle</div>
+        <div class="col-ask">IBM Storage as infrastructure backbone for Proof Commerce AI platform — only if storage is the limiting factor in their analytics pipeline.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Note</div>
+        <div class="col-trigger" style="font-size:12px;color:#57606a;">Lead with Data &amp; AI first. Storage is an add-on play here, not a first-call.</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags">
+        <span class="play-tag" style="opacity:0.7;">IBM Storage</span>
+        <span class="play-tag" style="opacity:0.7;">Data Fabric</span>
+      </div>
+      <a class="card-link" href="phase2.html#sgws">Full Intel →</a>
+    </div>
+  </div>
+
+  <!-- NCLH -->
+  <div class="acct-card-support" id="nclh">
+    <div class="support-label">Supporting Play · Lower Priority</div>
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">S2</div>
+        <div>
+          <div class="card-acct-name">Norwegian Cruise Line Holdings</div>
+          <div class="card-acct-sub">NYSE: NCLH · Multi-brand Cruise Operator · Miami, FL · NCL + Oceania + Regent</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <div class="signal-dots" title="Signal: 2/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">Opportunity</div>
+        <div class="col-trigger">Multi-brand fleet and passenger data storage — operational data, passenger records, and fleet telematics across three cruise brands.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Angle</div>
+        <div class="col-ask">IBM Storage as fleet and passenger data infrastructure for a multi-brand operator — only if data consolidation across brands is an active initiative.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Note</div>
+        <div class="col-trigger" style="font-size:12px;color:#57606a;">Lead with Automation or Data &amp; AI first. Storage is secondary unless they're hitting infrastructure limits.</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags">
+        <span class="play-tag" style="opacity:0.7;">IBM Storage</span>
+        <span class="play-tag" style="opacity:0.7;">Data Fabric</span>
+      </div>
+      <a class="card-link" href="phase2.html#nclh">Full Intel →</a>
+    </div>
+  </div>
+
+  <!-- Citco -->
+  <div class="acct-card-support" id="citco">
+    <div class="support-label">Supporting Play · Medium Priority</div>
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-acct-num">S3</div>
+        <div>
+          <div class="card-acct-name">Citco Group</div>
+          <div class="card-acct-sub">Private · Fund Administration · Miami, FL · $1.8T AUM · Legacy Modernization in Progress</div>
+        </div>
+      </div>
+      <div class="card-header-right">
+        <div class="signal-dots" title="Signal: 3/5">
+          <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-col">
+        <div class="col-label">Opportunity</div>
+        <div class="col-trigger">$1.8T AUM data storage as part of legacy modernization — financial records, fund documentation, and client data at enterprise scale with strict compliance requirements.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Angle</div>
+        <div class="col-ask">IBM Storage as a component of the legacy modernization program — compliance-grade, high-availability storage for $1.8T in assets under management. Higher priority than SGWS/NCLH if modernization budget is active.</div>
+      </div>
+      <div class="card-col">
+        <div class="col-label">Note</div>
+        <div class="col-trigger" style="font-size:12px;color:#57606a;">Best entered through the legacy modernization conversation — verify scope before positioning Storage as a standalone sell.</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="play-tags">
+        <span class="play-tag" style="opacity:0.7;">IBM Storage</span>
+        <span class="play-tag" style="opacity:0.7;">Data Fabric</span>
+        <span class="play-tag" style="opacity:0.7;">AI Governance</span>
+      </div>
+      <a class="card-link" href="phase2.html#citco">Full Intel →</a>
+    </div>
+  </div>
+
+  <!-- ── BOTTOM STRIP ── -->
+  <div class="bottom-strip">
+    <div class="bottom-strip-title">Discovery Question · Works Across All Storage Accounts</div>
+    <div class="bottom-strip-q">
+      "When your most important workload fails at 2am, does your storage infrastructure automatically recover — or does someone need to make a phone call? <strong>IBM FlashSystem delivers 100% availability SLAs</strong> because downtime isn't an option for the enterprises we serve."
+    </div>
+    <div class="bottom-strip-oneliner">
+      <strong style="color:#a78bfa;">South Florida Territory:</strong> From mining telematics to telecom backlog data to defense electronics — South Florida's growth industries generate more data per dollar of revenue than any sector IBM serves.
+    </div>
+  </div>
+
+</div><!-- /main -->
 
 <footer>
-  SE Horizon · Phase 3 · Storage Brand View · William · IBM South Florida SE Team · July 21, 2026
+  SE Horizon · Phase 3 · Storage Brand View · William's Territory · IBM South Florida SE Team · July 21, 2026
   <br /><br />
-  <span style="font-size:10px;color:#bbb;border-top:1px solid #e5e7eb;display:inline-block;padding-top:8px;margin-top:4px">Made with IBM Bob</span>
+  <span style="font-size:10px;color:#bbb;border-top:1px solid #e5e7eb;display:inline-block;padding-top:8px;margin-top:4px;">Made with IBM Bob</span>
 </footer>
 
 </body>
