@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <rect width="200" height="80" rx="4" fill="#0f1c3a"/>
+  <rect x="8" y="8" width="184" height="64" rx="3" fill="#0f1c3a" stroke="#1a3a6a" stroke-width="1"/>
+  <!-- IBM blue bar -->
+  <rect x="8" y="8" width="184" height="6" rx="2" fill="#0f62fe"/>
+  <!-- "DMAB" acronym block -->
+  <rect x="16" y="22" width="44" height="36" rx="3" fill="#0f62fe"/>
+  <text x="38" y="45" font-family="Arial,sans-serif" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">DM</text>
+  <text x="38" y="56" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#a8c8ff" text-anchor="middle" letter-spacing="1">AB</text>
+  <!-- Full name text -->
+  <text x="70" y="34" font-family="Arial,sans-serif" font-size="9" font-weight="800" fill="#fff" letter-spacing="0.3">DATA MGMT.</text>
+  <text x="70" y="46" font-family="Arial,sans-serif" font-size="9" font-weight="800" fill="#fff" letter-spacing="0.3">ASSOCIATES OF</text>
+  <text x="70" y="58" font-family="Arial,sans-serif" font-size="9" font-weight="800" fill="#a8c8ff" letter-spacing="0.3">BREVARD</text>
+  <!-- IBM partner indicator -->
+  <text x="16" y="72" font-family="Arial,sans-serif" font-size="7" font-weight="600" fill="#0f62fe" letter-spacing="0.5">IBM BUSINESS PARTNER · MAINFRAME</text>
+</svg>
