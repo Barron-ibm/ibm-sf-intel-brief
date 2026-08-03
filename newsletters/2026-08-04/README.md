@@ -1,12 +1,12 @@
 # SE Horizon — Edition 03 · August 4, 2026
 
-**Biweekly Pulse** · Coverage: July 19 – August 4, 2026 · 27 Accounts
+**Biweekly Pulse** · Coverage: July 21 – August 4, 2026 · 27 Accounts
 
 ---
 
 ## Edition Summary
 
-This is the third edition of SE Horizon, the biweekly IBM South Florida SE intelligence newsletter. The coverage period runs **July 19 – August 4, 2026** (16 days). It contains 27 accounts: 10 returning core accounts and 17 accounts first introduced in Edition 02 (July 19) as Annual Deep Dives — all now transitioned to the Biweekly Pulse format with fresh Jul 19–Aug 4 signals.
+This is the third edition of SE Horizon, the biweekly IBM South Florida SE intelligence newsletter. The coverage period runs **July 21 – August 4, 2026** (14 days). It contains 27 accounts: 10 returning core accounts and 17 accounts first introduced in Edition 02 (July 21) as Annual Deep Dives — all now transitioned to the Biweekly Pulse format with fresh Jul 21–Aug 4 signals.
 
 Key structural change from Edition 02: the "New Account / Annual Deep Dive" banner has been replaced with a universal `pulse-box` blue banner across all 27 accounts, reflecting that every account now has biweekly coverage, not a first-look intro.
 
@@ -16,7 +16,7 @@ Key structural change from Edition 02: the "New Account / Annual Deep Dive" bann
 
 | File | Phase | Description |
 |---|---|---|
-| `phase1.html` | Phase 1 | Signal Tracker — top signals across all accounts, Jul 19–Aug 4 |
+| `phase1.html` | Phase 1 | Signal Tracker — top signals across all accounts, Jul 21–Aug 4 |
 | `phase2.html` | Phase 2 | Full Intel Brief — 27 accounts with pulse updates, talk tracks, cadences |
 | `phase3.html` | Phase 3 | Brand Index — entry point to all 4 brand seller views |
 | `phase3-data-ai.html` | Phase 3 | Data & AI — Alyssa's Territory (IBM Blue · `#0f62fe`) |
@@ -52,7 +52,7 @@ All 27 accounts use external logo files from the `LOGOS/` directory (not base64 
 | ANSCO | `ansco-and-associates-squarelogo-1555338841264.webp` |
 | Dycom | `DYCOM-Logo-Color-1-1024x168.png` |
 | Herc Rentals | `herc.jpeg` |
-| Data Mgmt. Brevard | *(no logo — placeholder only)* |
+| Data Mgmt. Brevard | `dmab-logo.svg` |
 | Memorial Healthcare | `MemorialHealthSystem_BlueLogo.jpg` |
 | MasTec | `MasTec_Logo.jpg` |
 | Frontline Insurance | `Frontline_Insurance_Logo.jpg` |
@@ -62,7 +62,7 @@ All 27 accounts use external logo files from the `LOGOS/` directory (not base64 
 
 ---
 
-## Top Signals This Edition (Jul 19 – Aug 4)
+## Top Signals This Edition (Jul 21 – Aug 4)
 
 | Account | Signal | Brand |
 |---|---|---|
@@ -81,7 +81,7 @@ All 27 accounts use external logo files from the `LOGOS/` directory (not base64 
 
 ## Phase 3 Brand Color Reference
 
-Each brand file has its own color identity matching the Jul 19 edition. All colors are applied to: topbar border, topbar badge, active nav underline, hero gradient, eyebrow text, h1 accent span, prod-tag colors, card left border, active pnav pill.
+Each brand file has its own color identity. All colors are applied to: topbar border, topbar badge, active nav underline, hero gradient, eyebrow text, h1 accent span, prod-tag colors, card left border, active pnav pill.
 
 | Brand | Seller | Topbar Border | Badge BG | Hero Gradient | Active Color |
 |---|---|---|---|---|---|
@@ -105,6 +105,8 @@ Every brand page in this edition must have:
 - [x] Page nav pills (`.pnav-pill.active`) — active pill = brand color
 - [x] Account cards (`.acct-card-full`) — `border-left` = brand color
 - [x] Section label — reflects biweekly pulse coverage window
+- [x] phase1.html — all logos external `LOGOS/` files (no base64)
+- [x] phase2.html — all logos external `LOGOS/` files (no base64)
 
 ---
 
@@ -112,10 +114,10 @@ Every brand page in this edition must have:
 
 The following text is used consistently throughout this edition to identify coverage scope:
 
-- Cover subtitle: `"Jul 19 – Aug 4, 2026"`
-- Quick Play table header: `"Coverage: Jul 19 – Aug 4, 2026"`
-- Cover footer: `"Edition 03 · Aug 4, 2026 · Coverage: Jul 19 – Aug 4"`
-- Account `acct-date-line`: `"Jul 19 – Aug 4, 2026 · [Type] · [Industry] · [City]"`
+- Cover subtitle: `"Jul 21 – Aug 4, 2026"`
+- Quick Play table header: `"Coverage: Jul 21 – Aug 4, 2026"`
+- Cover footer: `"Edition 03 · Aug 4, 2026 · Coverage: Jul 21 – Aug 4"`
+- Account `acct-date-line`: `"Jul 21 – Aug 4, 2026 · [Type] · [Industry] · [City]"`
 - Account cadence title: `"Biweekly Cadence — Aug 4–18"`
 
 ---
@@ -135,7 +137,7 @@ After every change: mirror files, commit + push both repos.
 | Edition | Folder | Publish Date | Coverage | Accounts |
 |---|---|---|---|---|
 | Edition 01 | `../2026-07-19/` | July 21, 2026 | Annual Deep Dive | 26 |
-| Edition 02 | `../2026-07-19/` | July 21, 2026 | *(same folder, July 19 label)* | 26 |
+| Edition 02 | `../2026-07-19/` | July 21, 2026 | *(same folder, July 21 label)* | 26 |
 | Edition 03 | `../2026-08-04/` | August 4, 2026 | Jul 21 – Aug 4, 2026 | 27 |
 
 > Note: The `2026-07-19/` folder was created as the Edition 01/02 base. The publish date was corrected to July 21 in the HTML but the folder name reflects the start-of-period date. Edition 03 is the first true biweekly pulse edition.
