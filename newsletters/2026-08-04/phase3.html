@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE Horizon | Phase 3 — Brand Specialist Prospecting Tool | August 4, 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;background:#0f1c3a;color:#1f2328;}
+a{text-decoration:none;}
+.se-topbar{background:#161616;border-bottom:3px solid #0f62fe;padding:0 20px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.se-topbar-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.se-topbar-ibm{font-size:18px;font-weight:900;color:#fff;letter-spacing:-0.5px;}
+.se-topbar-div{width:1px;height:16px;background:#393939;}
+.se-topbar-title{font-size:12px;font-weight:600;color:#a8c8ff;white-space:nowrap;}
+.se-topbar-badge{font-size:10px;font-weight:700;background:#0f62fe;color:#fff;padding:2px 9px;border-radius:20px;white-space:nowrap;}
+.se-topbar-links{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;}
+.se-topbar-links::-webkit-scrollbar{display:none;}
+.se-topbar-links a{font-size:11px;font-weight:600;color:rgba(255,255,255,0.55);padding:5px 10px;border-radius:3px;white-space:nowrap;text-decoration:none;border-bottom:2px solid transparent;}
+.se-topbar-links a:hover{color:#fff;background:rgba(255,255,255,0.07);}
+.se-topbar-links a.se-active{color:#fff;border-bottom-color:#0f62fe;}
+.se-topbar-links .se-divider{color:#393939;padding:0 4px;font-size:11px;user-select:none;}
+.se-topbar-links a.se-sub{color:rgba(255,255,255,0.4);font-size:10px;}
+.se-topbar-links a.se-sub:hover{color:#a8c8ff;}
+.se-topbar-links a.se-sub.se-active{color:#a8c8ff;border-bottom-color:#a8c8ff;}
+.se-topbar-right{font-size:10px;color:#6f6f6f;white-space:nowrap;letter-spacing:0.05em;flex-shrink:0;display:none;}
+@media(min-width:700px){.se-topbar-right{display:block;}}
+.page{max-width:900px;margin:0 auto 40px;background:#fff;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,0.35);border-radius:4px;}
+.top-bar{background:#000;height:8px;}
+.cover-head{display:flex;align-items:stretch;}
+.cover-left{background:#1a1a2e;min-width:160px;width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 12px;gap:6px;}
+.cover-right{flex:1;background:#fff;padding:22px 28px;border-bottom:1px solid #e5e7eb;}
+.bob-icon{width:60px;height:60px;}
+.c-ibm-label{color:#fff;font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-top:4px;}
+.c-dow{color:rgba(255,255,255,0.65);font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;}
+.c-date{color:#fff;font-size:13px;font-weight:700;}
+.c-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#57606a;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.c-eyebrow::before{content:'';display:inline-block;width:28px;height:2px;background:#0f62fe;}
+.c-title{font-size:26px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#1f2328;line-height:1.1;}
+.c-sub{font-size:11px;font-weight:500;color:#57606a;letter-spacing:1px;margin-top:4px;text-transform:uppercase;}
+.p3-badge{display:inline-block;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border-radius:3px;background:#0f62fe;color:#fff;margin-top:8px;}
+.hero-band{background:#0f1c3a;padding:20px 28px;display:flex;align-items:center;gap:20px;border-top:3px solid #0f62fe;}
+.hero-band-text h2{font-size:16px;font-weight:800;color:#fff;margin-bottom:4px;}
+.hero-band-text p{font-size:12px;color:rgba(255,255,255,0.65);line-height:1.6;}
+.brand-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:28px;background:#f7f8fa;border-top:2px solid #e5e7eb;}
+.brand-card{background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.09);border:1px solid #e5e7eb;display:flex;flex-direction:column;}
+.brand-card-top{padding:18px 20px 14px;flex:1;}
+.brand-card-accent{height:5px;}
+.brand-card-title{font-size:16px;font-weight:900;color:#1f2328;margin-bottom:4px;}
+.brand-card-sub{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#57606a;margin-bottom:12px;}
+.brand-card-desc{font-size:12px;color:#424a53;line-height:1.6;margin-bottom:14px;}
+.brand-card-accounts{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
+.acct-pill{font-size:9.5px;font-weight:600;padding:3px 8px;border-radius:99px;border:1px solid #e5e7eb;color:#57606a;background:#f7f8fa;}
+.acct-pill.new-pill{color:#1a7a3a;border-color:rgba(26,122,58,0.3);background:#f0faf4;}
+.brand-card-cta{display:block;text-align:center;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:10px 16px;color:#fff;border-top:1px solid rgba(0,0,0,0.08);}
+.accent-dai{border-top-color:#0f62fe!important;}.accent-auto{border-top-color:#42be65!important;}.accent-stor{border-top-color:#8b5cf6!important;}.accent-pwr{border-top-color:#f59e0b!important;}
+.cta-dai{background:#0f62fe;}.cta-auto{background:#35a057;}.cta-stor{background:#7c3aed;}.cta-pwr{background:#d97706;}
+.footer-bar{text-align:center;padding:18px 28px;background:#f7f8fa;border-top:1px solid #e5e7eb;font-size:11px;color:#aab0b8;}
+</style>
+</head>
+<body>
+<div class="se-topbar">
+  <div class="se-topbar-left">
+    <span class="se-topbar-ibm">IBM</span>
+    <div class="se-topbar-div"></div>
+    <span class="se-topbar-title">SE Horizon</span>
+    <span class="se-topbar-badge">Phase 3</span>
+  </div>
+  <div class="se-topbar-links">
+    <a href="phase1.html">Phase 1</a>
+    <a href="phase2.html">Phase 2</a>
+    <a href="phase3.html" class="se-active">Phase 3</a>
+    <span class="se-divider">|</span>
+    <a href="phase3-data-ai.html" class="se-sub ">Data &amp; AI</a>
+    <a href="phase3-automation.html" class="se-sub ">Automation</a>
+    <a href="phase3-storage.html" class="se-sub ">Storage</a>
+    <a href="phase3-power-cloud.html" class="se-sub ">Power &amp; Cloud</a>
+  </div>
+  <span class="se-topbar-right">South Florida SE · August 4, 2026</span>
+</div>
+<div class="page">
+  <div class="top-bar"></div>
+  <div class="cover-head">
+    <div class="cover-left">
+      <svg class="bob-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="18" y="22" width="44" height="36" rx="8" fill="#0f62fe"/><rect x="18" y="30" width="44" height="14" fill="#0353d9"/><rect x="26" y="33" width="10" height="8" rx="2" fill="#ffffff"/><rect x="44" y="33" width="10" height="8" rx="2" fill="#ffffff"/><rect x="29" y="35" width="4" height="4" rx="1" fill="#0f62fe"/><rect x="47" y="35" width="4" height="4" rx="1" fill="#0f62fe"/><rect x="28" y="48" width="24" height="4" rx="2" fill="#a8c8ff"/><rect x="34" y="58" width="12" height="6" rx="2" fill="#0f62fe"/><rect x="37" y="10" width="6" height="12" rx="3" fill="#0f62fe"/><circle cx="40" cy="8" r="4" fill="#a8c8ff"/><rect x="8" y="32" width="10" height="8" rx="3" fill="#0f62fe"/><rect x="62" y="32" width="10" height="8" rx="3" fill="#0f62fe"/><rect x="24" y="43" width="32" height="2" rx="1" fill="rgba(168,200,255,0.4)"/></svg>
+      <div class="c-ibm-label">IBM</div>
+      <div class="c-dow">Monday</div>
+      <div class="c-date">Aug 4, 2026</div>
+    </div>
+    <div class="cover-right">
+      <div class="c-eyebrow">SE Horizon &nbsp;·&nbsp; Brand Specialists</div>
+      <div class="c-title">Phase 3: Brand Plays</div>
+      <div class="c-sub">Bi-Weekly Pulse · Edition 03 · Aug 4, 2026 · Coverage: Jul 19 – Aug 4</div>
+      <div class="p3-badge">Brand Specialist Prospecting Tool</div>
+    </div>
+  </div>
+  <div class="hero-band">
+    <div class="hero-band-text">
+      <h2>27 Accounts · 4 Brand Specialists · Week of August 4</h2>
+      <p>Each brand specialist owns a focused account subset with updated Aug 4 signals. Click a brand card to open the full prospecting view. All 27 accounts updated with biweekly pulse data from Jul 19 – Aug 4, 2026.</p>
+    </div>
+  </div>
+  <div class="brand-grid">
+    <div class="brand-card">
+      <div class="brand-card-accent accent-dai"></div>
+      <div class="brand-card-top">
+        <div class="brand-card-title">Data &amp; AI</div>
+        <div class="brand-card-sub">Alyssa · 9 Accounts</div>
+        <div class="brand-card-desc">watsonx, AI Governance, Data Fabric, Planning Analytics. Highest-urgency accounts this week: NCLH (Q2 beat post-earnings window), Kforce ("Strategic AI Focus" earnings call), Citco (SS&amp;C/SEI competitor AI moves), HEICO (Q3 earnings Aug 25 pre-call).</div>
+        <div class="brand-card-accounts">
+          <span class="acct-pill">NCLH</span><span class="acct-pill">Citco</span><span class="acct-pill">JM Family</span><span class="acct-pill">SGWS</span>
+          <span class="acct-pill new-pill">✦ HEICO</span><span class="acct-pill new-pill">✦ H.I.G.</span><span class="acct-pill new-pill">✦ Kforce</span><span class="acct-pill new-pill">✦ Chewy</span><span class="acct-pill new-pill">✦ Chico's</span>
+        </div>
+      </div>
+      <a href="phase3-data-ai.html" class="brand-card-cta cta-dai">Open Data &amp; AI Prospecting View →</a>
+    </div>
+    <div class="brand-card">
+      <div class="brand-card-accent accent-auto"></div>
+      <div class="brand-card-top">
+        <div class="brand-card-title">Automation</div>
+        <div class="brand-card-sub">Gavin · 7 Accounts</div>
+        <div class="brand-card-desc">IBM Automation, watsonx Orchestrate, RPA, Process Mining. Top Aug 4 signals: Burger King EPS miss (efficiency mandate), MasTec day-28 integration (automation platform), Lennar Mortgage CFPB deadline, ANSCO/Dycom field operations expansion.</div>
+        <div class="brand-card-accounts">
+          <span class="acct-pill">Lennar Mortgage</span><span class="acct-pill">Pellera</span>
+          <span class="acct-pill new-pill">✦ Burger King</span><span class="acct-pill new-pill">✦ ANSCO</span><span class="acct-pill new-pill">✦ MasTec</span><span class="acct-pill new-pill">✦ ODP</span><span class="acct-pill new-pill">✦ Frontline</span>
+        </div>
+      </div>
+      <a href="phase3-automation.html" class="brand-card-cta cta-auto">Open Automation Prospecting View →</a>
+    </div>
+    <div class="brand-card">
+      <div class="brand-card-accent accent-stor"></div>
+      <div class="brand-card-top">
+        <div class="brand-card-title">Storage</div>
+        <div class="brand-card-sub">William · 6 Accounts</div>
+        <div class="brand-card-desc">IBM Storage, FlashSystem, Spectrum Scale. Top Aug 4 signals: Dycom Power Solutions acquisition (data center storage play), MasTec $12B+ integration, Hexagon Mining copper $6.28/lb high, Herc H&amp;E integration complete, Data Mgmt. Brevard Z refresh cycle.</div>
+        <div class="brand-card-accounts">
+          <span class="acct-pill">Hexagon Mining</span>
+          <span class="acct-pill new-pill">✦ Dycom</span><span class="acct-pill new-pill">✦ MasTec</span><span class="acct-pill new-pill">✦ Herc Rentals</span><span class="acct-pill new-pill">✦ DM Brevard</span><span class="acct-pill new-pill">✦ SeaWorld</span>
+        </div>
+      </div>
+      <a href="phase3-storage.html" class="brand-card-cta cta-stor">Open Storage Prospecting View →</a>
+    </div>
+    <div class="brand-card">
+      <div class="brand-card-accent accent-pwr"></div>
+      <div class="brand-card-top">
+        <div class="brand-card-title">Power &amp; Cloud</div>
+        <div class="brand-card-sub">Rick &amp; Kevin · 5 Accounts</div>
+        <div class="brand-card-desc">IBM Power, Red Hat OpenShift, Hybrid Cloud. Top Aug 4 signals: Octave AWS partnership (OpenShift complement), Hexagon Federal Compass 2026 pre-event, S. Broward Hospital Epic-Azure hybrid, Memorial Healthcare new CISO + Security RFP, Lennar ML engineering buildout.</div>
+        <div class="brand-card-accounts">
+          <span class="acct-pill">Lennar</span><span class="acct-pill">JM Family</span><span class="acct-pill">Octave</span>
+          <span class="acct-pill new-pill">✦ Hexagon Federal</span><span class="acct-pill new-pill">✦ S. Broward Hosp.</span><span class="acct-pill new-pill">✦ Memorial Healthcare</span>
+        </div>
+      </div>
+      <a href="phase3-power-cloud.html" class="brand-card-cta cta-pwr">Open Power &amp; Cloud Prospecting View →</a>
+    </div>
+  </div>
+  <div class="footer-bar">SE Horizon · IBM Account Intelligence · Phase 3 Brand Index · Aug 4, 2026 · Made with IBM Bob</div>
+</div>
+</body>
+</html>

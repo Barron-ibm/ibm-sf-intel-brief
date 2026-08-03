@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE Horizon — Storage · William | Aug 4, 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;background:#f4f4f4;color:#1f2328;}
+a{text-decoration:none;}
+.se-topbar{background:#161616;border-bottom:3px solid #0f62fe;padding:0 20px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.se-topbar-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.se-topbar-ibm{font-size:18px;font-weight:900;color:#fff;letter-spacing:-0.5px;}
+.se-topbar-div{width:1px;height:16px;background:#393939;}
+.se-topbar-title{font-size:12px;font-weight:600;color:#a8c8ff;white-space:nowrap;}
+.se-topbar-badge{font-size:10px;font-weight:700;background:#0f62fe;color:#fff;padding:2px 9px;border-radius:20px;white-space:nowrap;}
+.se-topbar-links{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;}
+.se-topbar-links::-webkit-scrollbar{display:none;}
+.se-topbar-links a{font-size:11px;font-weight:600;color:rgba(255,255,255,0.55);padding:5px 10px;border-radius:3px;white-space:nowrap;text-decoration:none;border-bottom:2px solid transparent;}
+.se-topbar-links a:hover{color:#fff;background:rgba(255,255,255,0.07);}
+.se-topbar-links a.se-active{color:#fff;border-bottom-color:#0f62fe;}
+.se-topbar-links .se-divider{color:#393939;padding:0 4px;font-size:11px;user-select:none;}
+.se-topbar-links a.se-sub{color:rgba(255,255,255,0.4);font-size:10px;}
+.se-topbar-links a.se-sub:hover{color:#a8c8ff;}
+.se-topbar-links a.se-sub.se-active{color:#a8c8ff;border-bottom-color:#a8c8ff;}
+.se-topbar-right{font-size:10px;color:#6f6f6f;white-space:nowrap;letter-spacing:0.05em;flex-shrink:0;display:none;}
+@media(min-width:700px){.se-topbar-right{display:block;}}
+.brand-hero{background:linear-gradient(135deg,#0a1628 0%,#0f2040 100%);border-bottom:1px solid #1a3a6a;padding:36px 28px 28px;}
+.brand-hero-inner{max-width:920px;margin:0 auto;}
+.brand-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#a8c8ff;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.brand-hero h1{font-size:30px;font-weight:900;color:#fff;margin-bottom:4px;}
+.brand-hero h1 span{color:#a8c8ff;}
+.brand-seller{font-size:12px;font-weight:700;color:#a8c8ff;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;}
+.brand-hero-sub{font-size:13px;color:#6f8ab7;max-width:640px;margin-bottom:16px;}
+.brand-products{display:flex;flex-wrap:wrap;gap:6px;}
+.prod-tag{font-size:11px;font-weight:600;background:rgba(255,255,255,0.08);color:#a8c8ff;border:1px solid rgba(168,200,255,0.2);border-radius:4px;padding:3px 10px;}
+.main{max-width:920px;margin:0 auto;padding:28px 28px 80px;}
+.section-label{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#57606a;border-bottom:1px solid #e5e7eb;padding-bottom:8px;margin-bottom:16px;}
+.acct-card-full{background:#fff;border:1px solid #e5e7eb;border-radius:8px;border-left:5px solid #7c3aed;overflow:hidden;margin-bottom:16px;}
+.card-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid #f4f4f4;gap:12px;}
+.card-header-left{display:flex;align-items:center;gap:12px;}
+.card-acct-num{width:28px;height:28px;border-radius:50%;background:#f4f4f4;color:#57606a;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.card-acct-name{font-size:16px;font-weight:800;color:#161616;}
+.card-acct-sub{font-size:11px;color:#57606a;margin-top:1px;}
+.card-header-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.badge{font-size:10px;font-weight:700;letter-spacing:0.04em;padding:3px 10px;border-radius:20px;white-space:nowrap;}
+.badge-new{background:#defbe6;color:#0e6027;}
+.badge-existing{background:#e8f2ff;color:#0043ce;}
+.badge-high{background:#fff1f1;color:#c42b1c;}
+.badge-med{background:#fef3e2;color:#b45309;}
+.card-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;}
+.card-col{padding:16px 20px;border-right:1px solid #f4f4f4;}
+.card-col:last-child{border-right:none;}
+.col-label{font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#57606a;margin-bottom:8px;}
+.col-text{font-size:12.5px;color:#1f2328;line-height:1.6;}
+.footer-bar{text-align:center;padding:24px;font-size:11px;color:#aab0b8;border-top:1px solid #e5e7eb;background:#fff;margin-top:40px;}
+@media(max-width:680px){.card-body{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="se-topbar">
+  <div class="se-topbar-left"><span class="se-topbar-ibm">IBM</span><div class="se-topbar-div"></div><span class="se-topbar-title">SE Horizon</span><span class="se-topbar-badge">Phase 3</span></div>
+  <div class="se-topbar-links">
+    <a href="phase1.html">Phase 1</a><a href="phase2.html">Phase 2</a><a href="phase3.html" class="se-active">Phase 3</a>
+    <span class="se-divider">|</span>
+    <a href="phase3-data-ai.html" class="se-sub ">Data &amp; AI</a>
+    <a href="phase3-automation.html" class="se-sub ">Automation</a>
+    <a href="phase3-storage.html" class="se-sub se-active">Storage</a>
+    <a href="phase3-power-cloud.html" class="se-sub ">Power &amp; Cloud</a>
+  </div>
+  <span class="se-topbar-right">South Florida SE · August 4, 2026</span>
+</div>
+<div class="brand-hero">
+  <div class="brand-hero-inner">
+    <div class="brand-eyebrow"><a href="phase3.html">← Phase 3 Index</a></div>
+    <div class="brand-seller">Seller: William</div>
+    <h1>Storage <span>· Aug 4, 2026</span></h1>
+    <div class="brand-hero-sub">IBM Storage and Z plays across 6 accounts. Top Aug 4 signals: Dycom Power Solutions data center expansion, copper at $6.28/lb for Hex Mining, Herc H&E integration complete.</div>
+    <div class="brand-products"><span class="prod-tag">IBM Storage</span> <span class="prod-tag">FlashSystem</span> <span class="prod-tag">Spectrum Scale</span> <span class="prod-tag">IBM Z</span> <span class="prod-tag">Storage Virtualize</span></div>
+  </div>
+</div>
+<div class="main">
+  <div class="section-label">Account Prospecting Cards — Biweekly Pulse Jul 19 – Aug 4, 2026 · 6 Accounts</div>
+  
+<div class="acct-card-full" style="border-left-color:#7c3aed">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">1</div>
+      <div><div class="card-acct-name">Hexagon Mining</div><div class="card-acct-sub">Division of Hexagon AB · Mining Tech · Miami, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-existing">Existing</span><span class="badge badge-high">High</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">Copper at $6.28/lb (2026 high). Codelco digital mine expansion Aug 1. MinePlan R1 deployments accelerating.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">IBM Storage + Data Fabric + watsonx</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Email CTO: 'Copper at $6.28 is driving client digital investment. IBM Storage handles MinePlan R1 sensor data at mine scale.'</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#7c3aed">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">2</div>
+      <div><div class="card-acct-name">Dycom Industries</div><div class="card-acct-sub">NYSE: DY · Telecom Infrastructure · Palm Beach Gardens, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-new">New Account</span><span class="badge badge-high">High</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">Q2 earnings Aug 20 — pre-call window open. Power Solutions acquisition (data center) announced.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">IBM Storage + Data Fabric + watsonx</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Email CIO before Aug 14: 'Power Solutions expands Dycom into hyperscaler data center construction. IBM Storage is the natural data infrastructure partner.'</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#7c3aed">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">3</div>
+      <div><div class="card-acct-name">MasTec</div><div class="card-acct-sub">NYSE: MTZ · Infrastructure Construction · Coral Gables, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-new">New Account</span><span class="badge badge-high">High</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">$1.65B Superior Plus integration day 28. $12B+ combined revenue at field operations scale.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">IBM Storage + Data Fabric + Automation</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Call M&A Integration Lead: 'IBM Storage handles combined project data at $12B+ scale. Day 28 — window is closing.'</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#7c3aed">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">4</div>
+      <div><div class="card-acct-name">Herc Rentals</div><div class="card-acct-sub">NYSE: HRI · Equipment Rental · Bonita Springs, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-new">New Account</span><span class="badge badge-high">High</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">Q2 results Jul 28 — H&E integration confirmed complete. CFO: 'one company now.' Post-integration data unification needed.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">Planning Analytics + watsonx.data</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Email CFO: 'H&E integration is done — IBM Planning Analytics + watsonx.data is the one data platform for your one company.'</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#7c3aed">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">5</div>
+      <div><div class="card-acct-name">Data Mgmt. Brevard</div><div class="card-acct-sub">IBM Mainframe Partner · Cocoa, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-new">New Account</span><span class="badge badge-high">High</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">IBM Z AI Accelerator launched July 2026 — new conversation for every mainframe client. z16 refresh cycle active.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">IBM Z Modernization + Storage</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Call IBM Practice Lead: 'Z AI Accelerator is the best new client conversation in years. Let's co-sell it across your Florida utilities.'</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#7c3aed">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">6</div>
+      <div><div class="card-acct-name">SeaWorld / United Parks</div><div class="card-acct-sub">NYSE: SEAS · Theme Parks · Orlando, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-new">New Account</span><span class="badge badge-high">High</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">Q2 results expected this week. Peak summer attendance. National Roller Coaster Day Aug 16.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">watsonx + Planning Analytics + Security</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Email CDO before Q2 drops: 'Peak attendance right now — IBM watsonx dynamic pricing across 12 parks captures revenue static pricing misses.'</div></div>
+  </div>
+</div>
+</div>
+<div class="footer-bar">SE Horizon · IBM Account Intelligence · Storage · William · Aug 4, 2026 · Made with IBM Bob</div>
+</body>
+</html>

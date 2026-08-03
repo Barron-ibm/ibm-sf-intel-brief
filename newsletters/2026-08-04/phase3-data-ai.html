@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE Horizon — Data & AI · Alyssa | Aug 4, 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;background:#f4f4f4;color:#1f2328;}
+a{text-decoration:none;}
+.se-topbar{background:#161616;border-bottom:3px solid #0f62fe;padding:0 20px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.se-topbar-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.se-topbar-ibm{font-size:18px;font-weight:900;color:#fff;letter-spacing:-0.5px;}
+.se-topbar-div{width:1px;height:16px;background:#393939;}
+.se-topbar-title{font-size:12px;font-weight:600;color:#a8c8ff;white-space:nowrap;}
+.se-topbar-badge{font-size:10px;font-weight:700;background:#0f62fe;color:#fff;padding:2px 9px;border-radius:20px;white-space:nowrap;}
+.se-topbar-links{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;}
+.se-topbar-links::-webkit-scrollbar{display:none;}
+.se-topbar-links a{font-size:11px;font-weight:600;color:rgba(255,255,255,0.55);padding:5px 10px;border-radius:3px;white-space:nowrap;text-decoration:none;border-bottom:2px solid transparent;}
+.se-topbar-links a:hover{color:#fff;background:rgba(255,255,255,0.07);}
+.se-topbar-links a.se-active{color:#fff;border-bottom-color:#0f62fe;}
+.se-topbar-links .se-divider{color:#393939;padding:0 4px;font-size:11px;user-select:none;}
+.se-topbar-links a.se-sub{color:rgba(255,255,255,0.4);font-size:10px;}
+.se-topbar-links a.se-sub:hover{color:#a8c8ff;}
+.se-topbar-links a.se-sub.se-active{color:#a8c8ff;border-bottom-color:#a8c8ff;}
+.se-topbar-right{font-size:10px;color:#6f6f6f;white-space:nowrap;letter-spacing:0.05em;flex-shrink:0;display:none;}
+@media(min-width:700px){.se-topbar-right{display:block;}}
+.brand-hero{background:linear-gradient(135deg,#0a1628 0%,#0f2040 100%);border-bottom:1px solid #1a3a6a;padding:36px 28px 28px;}
+.brand-hero-inner{max-width:920px;margin:0 auto;}
+.brand-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#a8c8ff;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.brand-hero h1{font-size:30px;font-weight:900;color:#fff;margin-bottom:4px;}
+.brand-hero h1 span{color:#a8c8ff;}
+.brand-seller{font-size:12px;font-weight:700;color:#a8c8ff;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;}
+.brand-hero-sub{font-size:13px;color:#6f8ab7;max-width:640px;margin-bottom:16px;}
+.brand-products{display:flex;flex-wrap:wrap;gap:6px;}
+.prod-tag{font-size:11px;font-weight:600;background:rgba(255,255,255,0.08);color:#a8c8ff;border:1px solid rgba(168,200,255,0.2);border-radius:4px;padding:3px 10px;}
+.main{max-width:920px;margin:0 auto;padding:28px 28px 80px;}
+.section-label{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#57606a;border-bottom:1px solid #e5e7eb;padding-bottom:8px;margin-bottom:16px;}
+.acct-card-full{background:#fff;border:1px solid #e5e7eb;border-radius:8px;border-left:5px solid #0f62fe;overflow:hidden;margin-bottom:16px;}
+.card-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid #f4f4f4;gap:12px;}
+.card-header-left{display:flex;align-items:center;gap:12px;}
+.card-acct-num{width:28px;height:28px;border-radius:50%;background:#f4f4f4;color:#57606a;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.card-acct-name{font-size:16px;font-weight:800;color:#161616;}
+.card-acct-sub{font-size:11px;color:#57606a;margin-top:1px;}
+.card-header-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.badge{font-size:10px;font-weight:700;letter-spacing:0.04em;padding:3px 10px;border-radius:20px;white-space:nowrap;}
+.badge-new{background:#defbe6;color:#0e6027;}
+.badge-existing{background:#e8f2ff;color:#0043ce;}
+.badge-high{background:#fff1f1;color:#c42b1c;}
+.badge-med{background:#fef3e2;color:#b45309;}
+.card-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;}
+.card-col{padding:16px 20px;border-right:1px solid #f4f4f4;}
+.card-col:last-child{border-right:none;}
+.col-label{font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#57606a;margin-bottom:8px;}
+.col-text{font-size:12.5px;color:#1f2328;line-height:1.6;}
+.footer-bar{text-align:center;padding:24px;font-size:11px;color:#aab0b8;border-top:1px solid #e5e7eb;background:#fff;margin-top:40px;}
+@media(max-width:680px){.card-body{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="se-topbar">
+  <div class="se-topbar-left"><span class="se-topbar-ibm">IBM</span><div class="se-topbar-div"></div><span class="se-topbar-title">SE Horizon</span><span class="se-topbar-badge">Phase 3</span></div>
+  <div class="se-topbar-links">
+    <a href="phase1.html">Phase 1</a><a href="phase2.html">Phase 2</a><a href="phase3.html" class="se-active">Phase 3</a>
+    <span class="se-divider">|</span>
+    <a href="phase3-data-ai.html" class="se-sub se-active">Data &amp; AI</a>
+    <a href="phase3-automation.html" class="se-sub ">Automation</a>
+    <a href="phase3-storage.html" class="se-sub ">Storage</a>
+    <a href="phase3-power-cloud.html" class="se-sub ">Power &amp; Cloud</a>
+  </div>
+  <span class="se-topbar-right">South Florida SE · August 4, 2026</span>
+</div>
+<div class="brand-hero">
+  <div class="brand-hero-inner">
+    <div class="brand-eyebrow"><a href="phase3.html">← Phase 3 Index</a></div>
+    <div class="brand-seller">Seller: Alyssa</div>
+    <h1>Data & AI <span>· Aug 4, 2026</span></h1>
+    <div class="brand-hero-sub">watsonx, AI Governance, and Data Fabric plays across 9 South Florida accounts. Top Aug 4 signals: NCLH Q2 beat, Kforce Strategic AI Focus, HEICO pre-earnings window.</div>
+    <div class="brand-products"><span class="prod-tag">watsonx</span> <span class="prod-tag">AI Governance</span> <span class="prod-tag">Data Fabric</span> <span class="prod-tag">Planning Analytics</span> <span class="prod-tag">watsonx.data</span></div>
+  </div>
+</div>
+<div class="main">
+  <div class="section-label">Account Prospecting Cards — Biweekly Pulse Jul 19 – Aug 4, 2026 · 9 Accounts</div>
+  
+<div class="acct-card-full" style="border-left-color:#0f62fe">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">1</div>
+      <div><div class="card-acct-name">NCLH</div><div class="card-acct-sub">NYSE: NCLH · Cruise · Miami, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-existing">Existing</span><span class="badge badge-high">High</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">Q2 beat Jul 30 — revenue $2.53B (+7%), EPS $0.52. Post-earnings CFO window open Aug 4–11. Elliott watching tech ROI.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">AI Governance + Data Fabric</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Email CFO this week: 'Congrats on beating Q2. IBM Data Fabric consolidates three-brand data silos. Worth 15 mins?'</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#0f62fe">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">2</div>
+      <div><div class="card-acct-name">Southern Glazer's</div><div class="card-acct-sub">Private · Beverage Distribution · Miami, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-existing">Existing</span><span class="badge badge-high">High</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">Proof Commerce AI scaling to new regions — no governance layer deployed. Explainability risk growing with each new market.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">AI Governance + watsonx.data</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Reference regional expansion: 'Each new Proof Commerce market adds AI decisions that need explainability. IBM AI Governance fills that gap now.'</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#0f62fe">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">3</div>
+      <div><div class="card-acct-name">Citco Group</div><div class="card-acct-sub">Private · Fund Administration · $1.8T AUM</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-existing">Existing</span><span class="badge badge-high">High</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">SS&C + SEI both launched AI fund reporting updates this fortnight. Competitive clock on Citco's legacy modernization mandate.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">AI Governance + Data Fabric</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Lead with competitor moves: 'SS&C and SEI both launched AI fund admin this week. IBM Data Fabric gets Citco to the same capability without replacing existing systems.'</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#0f62fe">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">4</div>
+      <div><div class="card-acct-name">JM Family</div><div class="card-acct-sub">Private · Automotive · Deerfield Beach, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-existing">Existing</span><span class="badge badge-med">Med</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">CFO 45+ days in — vendor evaluation phase active. GenAI pilot results expected this month.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">Planning Analytics + AI Governance</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Email CFO: 'Your GenAI pilot shows AI readiness. IBM Planning Analytics is the enterprise FP&A step — before Q4 budget freeze.'</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#0f62fe">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">5</div>
+      <div><div class="card-acct-name">HEICO</div><div class="card-acct-sub">NYSE: HEI · Aerospace MRO · Hollywood, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-new">New Account</span><span class="badge badge-high">High</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">Q3 earnings Aug 25 — pre-call window OPEN NOW. AeroAntenna acquisition closed July.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">Data Fabric + watsonx.data</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Email CIO this week: 'AeroAntenna just closed and Q3 is Aug 25. IBM Data Fabric is the integration platform that makes each HEICO acquisition faster — use AeroAntenna as the proof of concept.'</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#0f62fe">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">6</div>
+      <div><div class="card-acct-name">H.I.G. Capital</div><div class="card-acct-sub">Private Equity · $69B AUM · 153 Cos · Miami, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-new">New Account</span><span class="badge badge-high">High</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">3 new platform investments closed this fortnight. Spain MD hire Jul 28. FP&A reporting complexity compounding.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">Planning Analytics + AI Governance</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Connect Portfolio Operations Lead on LinkedIn: 'With 3 new investments and Spain expansion, IBM Planning Analytics gives fund-level visibility across all 153 companies.'</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#0f62fe">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">7</div>
+      <div><div class="card-acct-name">Kforce</div><div class="card-acct-sub">NASDAQ: KFRC · Staffing · Tampa, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-new">New Account</span><span class="badge badge-high">High</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">Q2 beat Jul 27 (+4.5%). CEO Dave Kelly said 'Strategic AI Focus' on earnings call. Stock +5.5%.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">Planning Analytics + watsonx</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Email CEO/CSO: 'I heard your Strategic AI Focus on the July 27 call. IBM Planning Analytics + watsonx is the enterprise platform that delivers on that commitment.'</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#0f62fe">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">8</div>
+      <div><div class="card-acct-name">Chewy</div><div class="card-acct-sub">NYSE: CHWY · Pet Retail · Plantation, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-new">New Account</span><span class="badge badge-high">High</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">Modern Animal AI live in production. VP AI Engineering posted Jul 29 — new hire incoming.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">watsonx + Automation + AI Governance</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Connect incoming VP AI Engineering on LinkedIn this week before they settle on alternative vendors.</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#0f62fe">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">9</div>
+      <div><div class="card-acct-name">Chico's FAS / KnitWell</div><div class="card-acct-sub">NYSE: CHS · Women's Retail · Fort Myers, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-new">New Account</span><span class="badge badge-med">Med</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">New CDO hire Jul 21 — technology transformation mandate. 8-brand portfolio needs FP&A consolidation.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">Planning Analytics + watsonx</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Connect new CDO on LinkedIn: 'Congrats on joining KnitWell. IBM Planning Analytics handles 8-brand FP&A in one governed view.'</div></div>
+  </div>
+</div>
+</div>
+<div class="footer-bar">SE Horizon · IBM Account Intelligence · Data & AI · Alyssa · Aug 4, 2026 · Made with IBM Bob</div>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE Horizon — Automation · Gavin | Aug 4, 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;background:#f4f4f4;color:#1f2328;}
+a{text-decoration:none;}
+.se-topbar{background:#161616;border-bottom:3px solid #0f62fe;padding:0 20px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.se-topbar-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.se-topbar-ibm{font-size:18px;font-weight:900;color:#fff;letter-spacing:-0.5px;}
+.se-topbar-div{width:1px;height:16px;background:#393939;}
+.se-topbar-title{font-size:12px;font-weight:600;color:#a8c8ff;white-space:nowrap;}
+.se-topbar-badge{font-size:10px;font-weight:700;background:#0f62fe;color:#fff;padding:2px 9px;border-radius:20px;white-space:nowrap;}
+.se-topbar-links{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;}
+.se-topbar-links::-webkit-scrollbar{display:none;}
+.se-topbar-links a{font-size:11px;font-weight:600;color:rgba(255,255,255,0.55);padding:5px 10px;border-radius:3px;white-space:nowrap;text-decoration:none;border-bottom:2px solid transparent;}
+.se-topbar-links a:hover{color:#fff;background:rgba(255,255,255,0.07);}
+.se-topbar-links a.se-active{color:#fff;border-bottom-color:#0f62fe;}
+.se-topbar-links .se-divider{color:#393939;padding:0 4px;font-size:11px;user-select:none;}
+.se-topbar-links a.se-sub{color:rgba(255,255,255,0.4);font-size:10px;}
+.se-topbar-links a.se-sub:hover{color:#a8c8ff;}
+.se-topbar-links a.se-sub.se-active{color:#a8c8ff;border-bottom-color:#a8c8ff;}
+.se-topbar-right{font-size:10px;color:#6f6f6f;white-space:nowrap;letter-spacing:0.05em;flex-shrink:0;display:none;}
+@media(min-width:700px){.se-topbar-right{display:block;}}
+.brand-hero{background:linear-gradient(135deg,#0a1628 0%,#0f2040 100%);border-bottom:1px solid #1a3a6a;padding:36px 28px 28px;}
+.brand-hero-inner{max-width:920px;margin:0 auto;}
+.brand-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#a8c8ff;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.brand-hero h1{font-size:30px;font-weight:900;color:#fff;margin-bottom:4px;}
+.brand-hero h1 span{color:#a8c8ff;}
+.brand-seller{font-size:12px;font-weight:700;color:#a8c8ff;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;}
+.brand-hero-sub{font-size:13px;color:#6f8ab7;max-width:640px;margin-bottom:16px;}
+.brand-products{display:flex;flex-wrap:wrap;gap:6px;}
+.prod-tag{font-size:11px;font-weight:600;background:rgba(255,255,255,0.08);color:#a8c8ff;border:1px solid rgba(168,200,255,0.2);border-radius:4px;padding:3px 10px;}
+.main{max-width:920px;margin:0 auto;padding:28px 28px 80px;}
+.section-label{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#57606a;border-bottom:1px solid #e5e7eb;padding-bottom:8px;margin-bottom:16px;}
+.acct-card-full{background:#fff;border:1px solid #e5e7eb;border-radius:8px;border-left:5px solid #35a057;overflow:hidden;margin-bottom:16px;}
+.card-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid #f4f4f4;gap:12px;}
+.card-header-left{display:flex;align-items:center;gap:12px;}
+.card-acct-num{width:28px;height:28px;border-radius:50%;background:#f4f4f4;color:#57606a;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.card-acct-name{font-size:16px;font-weight:800;color:#161616;}
+.card-acct-sub{font-size:11px;color:#57606a;margin-top:1px;}
+.card-header-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.badge{font-size:10px;font-weight:700;letter-spacing:0.04em;padding:3px 10px;border-radius:20px;white-space:nowrap;}
+.badge-new{background:#defbe6;color:#0e6027;}
+.badge-existing{background:#e8f2ff;color:#0043ce;}
+.badge-high{background:#fff1f1;color:#c42b1c;}
+.badge-med{background:#fef3e2;color:#b45309;}
+.card-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;}
+.card-col{padding:16px 20px;border-right:1px solid #f4f4f4;}
+.card-col:last-child{border-right:none;}
+.col-label{font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#57606a;margin-bottom:8px;}
+.col-text{font-size:12.5px;color:#1f2328;line-height:1.6;}
+.footer-bar{text-align:center;padding:24px;font-size:11px;color:#aab0b8;border-top:1px solid #e5e7eb;background:#fff;margin-top:40px;}
+@media(max-width:680px){.card-body{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="se-topbar">
+  <div class="se-topbar-left"><span class="se-topbar-ibm">IBM</span><div class="se-topbar-div"></div><span class="se-topbar-title">SE Horizon</span><span class="se-topbar-badge">Phase 3</span></div>
+  <div class="se-topbar-links">
+    <a href="phase1.html">Phase 1</a><a href="phase2.html">Phase 2</a><a href="phase3.html" class="se-active">Phase 3</a>
+    <span class="se-divider">|</span>
+    <a href="phase3-data-ai.html" class="se-sub ">Data &amp; AI</a>
+    <a href="phase3-automation.html" class="se-sub se-active">Automation</a>
+    <a href="phase3-storage.html" class="se-sub ">Storage</a>
+    <a href="phase3-power-cloud.html" class="se-sub ">Power &amp; Cloud</a>
+  </div>
+  <span class="se-topbar-right">South Florida SE · August 4, 2026</span>
+</div>
+<div class="brand-hero">
+  <div class="brand-hero-inner">
+    <div class="brand-eyebrow"><a href="phase3.html">← Phase 3 Index</a></div>
+    <div class="brand-seller">Seller: Gavin</div>
+    <h1>Automation <span>· Aug 4, 2026</span></h1>
+    <div class="brand-hero-sub">IBM Automation and watsonx Orchestrate plays across 7 accounts. Top Aug 4 signals: BK EPS miss efficiency mandate, MasTec day-28 integration, ODP new CEO clean slate.</div>
+    <div class="brand-products"><span class="prod-tag">IBM Automation</span> <span class="prod-tag">watsonx Orchestrate</span> <span class="prod-tag">RPA</span> <span class="prod-tag">Process Mining</span> <span class="prod-tag">AI Governance</span></div>
+  </div>
+</div>
+<div class="main">
+  <div class="section-label">Account Prospecting Cards — Biweekly Pulse Jul 19 – Aug 4, 2026 · 7 Accounts</div>
+  
+<div class="acct-card-full" style="border-left-color:#35a057">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">1</div>
+      <div><div class="card-acct-name">Burger King / RBI</div><div class="card-acct-sub">NYSE: QSR · QSR · Miami, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-new">New Account</span><span class="badge badge-high">High</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">Q2 EPS $0.94 (missed $0.97 consensus). Revenue beat at $2.41B (+15%). CFO under operating efficiency pressure.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">AI Governance + watsonx Automation</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Email CFO: 'Your EPS miss shows a franchise efficiency gap. IBM Automation reduces SG&A across 18,000+ locations.'</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#35a057">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">2</div>
+      <div><div class="card-acct-name">MasTec</div><div class="card-acct-sub">NYSE: MTZ · Infrastructure Construction · Coral Gables, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-new">New Account</span><span class="badge badge-high">High</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">$1.65B Superior Plus closed Jul 7 — integration day 28. Finance and HR systems still fragmented.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">Automation + Data Fabric + Storage</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">URGENT phone call to M&A Integration Lead: 'Day 28 — 60-day systems window is closing. IBM Automation + Data Fabric unifies without rip-and-replace.'</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#35a057">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">3</div>
+      <div><div class="card-acct-name">Lennar Mortgage</div><div class="card-acct-sub">Subsidiary · Mortgage · Miami, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-existing">Existing</span><span class="badge badge-med">Med</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">CFPB AI lending guidance Jul 29 — Q4 explainability deadline. AI underwriting in all 50 states.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">AI Governance + Automation</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Email CCO this week: 'CFPB Jul 29 guidance creates Q4 explainability deadline. IBM AI Governance sits above your underwriting AI without replacing it.'</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#35a057">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">4</div>
+      <div><div class="card-acct-name">Pellera</div><div class="card-acct-sub">IBM Partner · MSP/MSSP · CRN #34 · South Florida</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-existing">Existing</span><span class="badge badge-high">High</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">IBM hackathon Jul 22 generated 3 viable AI use cases. CMMC RPO client count at 11.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">watsonx Orchestrate + Automation</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">URGENT call to IBM Practice Lead: '3 hackathon use cases need solutions NOW before clients find alternatives. IBM watsonx Orchestrate is the fit for all three.'</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#35a057">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">5</div>
+      <div><div class="card-acct-name">ANSCO</div><div class="card-acct-sub">Dycom Subsidiary · Telecom Infrastructure · 1,200+ Employees</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-new">New Account</span><span class="badge badge-med">Med</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">Parent Dycom's Power Solutions acquisition adds data center scope. 60+ field sites need operational automation.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">Red Hat OpenShift + Automation</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Contact Dycom CIO via parent approach: 'Power Solutions acquisition creates multi-site automation opportunity at scale.'</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#35a057">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">6</div>
+      <div><div class="card-acct-name">Office Depot / ODP</div><div class="card-acct-sub">Private (Atlas Holdings) · Business Solutions · Boca Raton, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-new">New Account</span><span class="badge badge-high">High</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">New CEO Craig Gunckel — full vendor review Q3 2026. FIRST IBM outreach ever. Zero legacy baggage.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">Planning Analytics + Automation</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Connect CEO Craig Gunckel on LinkedIn: FIRST IBM contact. Clean slate. PE margin mandate = IBM Automation ROI story.</div></div>
+  </div>
+</div>
+<div class="acct-card-full" style="border-left-color:#35a057">
+  <div class="card-header">
+    <div class="card-header-left">
+      <div class="card-acct-num">7</div>
+      <div><div class="card-acct-name">Frontline Insurance</div><div class="card-acct-sub">Private · P&C Insurance · FL Reciprocal · Lake Mary, FL</div></div>
+    </div>
+    <div class="card-header-right"><span class="badge badge-new">New Account</span><span class="badge badge-med">Med</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-col"><div class="col-label">Aug 4 Signal</div><div class="col-text">FL Reciprocal Exchange Q1 complete. Technology stack RFI active. Building tech stack from scratch.</div></div>
+    <div class="card-col"><div class="col-label">IBM Play</div><div class="col-text">Planning Analytics + AI Governance</div></div>
+    <div class="card-col"><div class="col-label">Seller Move This Week</div><div class="col-text">Connect CIO: 'First quarter done — IBM Planning Analytics is enterprise insurance FP&A from day one. No legacy baggage to navigate.'</div></div>
+  </div>
+</div>
+</div>
+<div class="footer-bar">SE Horizon · IBM Account Intelligence · Automation · Gavin · Aug 4, 2026 · Made with IBM Bob</div>
+</body>
+</html>

@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE Horizon: Bi-Weekly Pulse — August 4, 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;background:#f4f4f4;color:#161616;padding:0;}
+a{color:#0f62fe;text-decoration:none;}
+a:hover{text-decoration:underline;}
+.page{max-width:900px;margin:0 auto;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.12);}
+.masthead{background:#0f62fe;background-image:linear-gradient(135deg,#0f62fe 0%,#0043ce 100%);padding:32px 40px 28px;position:relative;overflow:hidden;}
+.masthead::before{content:'';position:absolute;top:-60px;right:120px;width:280px;height:280px;border:40px solid rgba(255,255,255,0.05);border-radius:50%;pointer-events:none;}
+.masthead::after{content:'';position:absolute;bottom:-80px;right:-40px;width:320px;height:320px;border:50px solid rgba(255,255,255,0.04);border-radius:50%;pointer-events:none;}
+.masthead-content{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;}
+.m-eyebrow{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#a6c8ff;margin-bottom:10px;}
+.m-title{font-size:34px;font-weight:300;color:#fff;line-height:1.1;letter-spacing:-0.5px;}
+.m-title strong{font-weight:700;}
+.m-subtitle{font-size:13px;color:#d0e2ff;margin-top:8px;font-weight:400;letter-spacing:0.3px;}
+.masthead-badge{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:10px;padding:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:88px;gap:6px;}
+.badge-grid{display:grid;grid-template-columns:repeat(5,11px);gap:3px;}
+.badge-grid span{display:block;width:11px;height:11px;border-radius:2px;background:rgba(255,255,255,0.85);}
+.badge-grid span.off{background:rgba(255,255,255,0.15);}
+.badge-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6);}
+.account-nav-wrap{background:#161616;position:relative;}
+.account-nav-inner{display:flex;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#4c4c4c #262626;border-bottom:3px solid #0f62fe;}
+.account-nav-inner::-webkit-scrollbar{height:6px;}
+.account-nav-inner::-webkit-scrollbar-track{background:#262626;}
+.account-nav-inner::-webkit-scrollbar-thumb{background:#4c4c4c;border-radius:3px;}
+.account-nav-inner::-webkit-scrollbar-thumb:hover{background:#6f6f6f;}
+.nav-item{flex-shrink:0;padding:13px 22px;font-size:12.5px;font-weight:500;color:#a8a8a8;border-right:1px solid #2e2e2e;cursor:pointer;white-space:nowrap;position:relative;user-select:none;transition:background 0.15s,color 0.15s;}
+.nav-item:first-child{padding-left:32px;}
+.nav-item:last-child{padding-right:32px;border-right:none;}
+.nav-item:hover{background:#262626;color:#f4f4f4;}
+.nav-item.active{background:#0f62fe;color:#fff;border-right-color:#0f62fe;}
+.nav-item.is-new{color:#6ee08a;}
+.nav-item.is-new.active{background:#0f62fe;color:#fff;}
+.nav-scroll-hint{position:absolute;right:0;top:0;bottom:3px;width:40px;background:linear-gradient(to right,transparent,#161616);pointer-events:none;}
+.acct-logo-wrap{padding:16px 40px 8px;background:#fff;display:flex;align-items:center;gap:14px;border-bottom:1px solid #f0f0f0;}
+.acct-logo-img{max-width:90px;max-height:56px;object-fit:contain;mix-blend-mode:multiply;}
+.acct-logo-name{font-size:12px;color:#525252;font-weight:500;}
+.pills-section{padding:18px 40px 16px;background:#fff;border-bottom:1px solid #e0e0e0;}
+.pills-row{display:flex;gap:12px;margin-bottom:10px;}
+.pills-row:last-child{margin-bottom:0;}
+.pill{border:1.5px solid #0f62fe;border-radius:50px;padding:9px 22px;font-size:13px;display:flex;align-items:center;gap:8px;flex:1;background:#f4f4f4;}
+.pill-wide{flex:2.2;}
+.pill-narrow{flex:1;}
+.pill-label{font-weight:700;color:#161616;white-space:nowrap;}
+.pill-value{color:#393939;}
+.badge-h{color:#fff;background:#198038;font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;display:inline-block;}
+.badge-m{color:#fff;background:#8a3800;font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;display:inline-block;}
+.badge-l{color:#fff;background:#525252;font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;display:inline-block;}
+.badge-new{color:#161616;background:#6ee08a;font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;display:inline-block;margin-left:6px;}
+.pulse-box{margin:18px 40px 0;background:#e8f1ff;border:2px solid #4589ff;border-radius:4px;padding:14px 18px;display:none;}
+.pulse-box.visible{display:block;}
+.pulse-box-label{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#0043ce;margin-bottom:6px;}
+.pulse-box-text{font-size:12.5px;color:#161616;font-style:italic;line-height:1.7;}
+.summary-wrap{padding:0 40px 4px;}
+.section-hdr{background:#e0e0e0;padding:11px 20px;margin-top:22px;border-left:4px solid #0f62fe;}
+.section-hdr h2{font-size:14px;font-weight:600;color:#161616;letter-spacing:0.2px;}
+.section-body{background:#f4f4f4;border:1px solid #e0e0e0;border-top:none;padding:16px 20px;}
+.section-body p,.section-body ul{font-size:13px;color:#161616;line-height:1.75;}
+.section-body ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;}
+.section-body ul li{padding-left:18px;position:relative;}
+.section-body ul li::before{content:'▸';position:absolute;left:0;color:#0f62fe;font-size:12px;top:3px;font-weight:700;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:0 20px;padding:0 40px 4px;align-items:stretch;}
+.grid-2 > div{display:flex;flex-direction:column;}
+.grid-2 .section-hdr{margin-top:22px;}
+.grid-2 .section-body{flex:1;}
+.tracker-wrap{padding:22px 40px 0;}
+.tracker-title{font-size:15px;font-weight:600;color:#161616;margin-bottom:14px;padding-bottom:9px;border-bottom:2px solid #0f62fe;}
+.tracker-table{width:100%;border-collapse:collapse;border:1px solid #e0e0e0;}
+.tracker-table th{font-size:12px;font-weight:600;background:#e0e0e0;padding:12px 16px;text-align:left;color:#161616;border-bottom:2px solid #0f62fe;}
+.tracker-table td{padding:11px 16px;font-size:13px;color:#161616;border-bottom:1px solid #e0e0e0;vertical-align:top;background:#fff;}
+.tracker-table tr:last-child td{border-bottom:none;}
+.tracker-table .type-col{font-weight:600;white-space:nowrap;width:210px;background:#f4f4f4;color:#393939;}
+.tracker-table .personas-col{background:#f4f4f4;vertical-align:top;width:260px;}
+.personas-cell{display:flex;flex-direction:column;gap:5px;}
+.persona-tag{font-size:12px;color:#161616;padding-left:16px;position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.persona-tag::before{content:'';position:absolute;left:0;top:7px;width:8px;height:2px;background:#0f62fe;border-radius:1px;}
+.snav-btn{display:inline-block;font-size:10px;font-weight:600;color:#0a66c2;background:#e8f2ff;border:1px solid #b8d4f5;border-radius:3px;padding:2px 6px;white-space:nowrap;flex-shrink:0;text-decoration:none;line-height:1.4;}
+.snav-btn:hover{background:#cce4ff;text-decoration:none;}
+.snav-keywords{font-size:11px;color:#525252;margin-top:8px;padding:6px 8px;background:#e8f1ff;border-radius:3px;border:1px solid #c8daff;line-height:1.5;}
+.snav-keywords strong{color:#0f62fe;}
+.sources-wrap{padding:18px 40px 26px;border-top:1px solid #e0e0e0;margin-top:22px;background:#fafafa;}
+.sources-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#525252;margin-bottom:8px;}
+.sources-list{display:flex;flex-wrap:wrap;gap:8px;}
+.source-chip{display:inline-block;font-size:12px;font-weight:500;color:#0f62fe;background:#e8f1ff;border:1px solid #b8d0f5;border-radius:4px;padding:4px 10px;}
+.source-chip:hover{background:#d0e4ff;}
+.footer{text-align:center;font-size:11px;color:#a8a8a8;padding:18px 40px;border-top:1px solid #e0e0e0;background:#fff;}
+.se-topbar{background:#161616;border-bottom:3px solid #0f62fe;padding:0 20px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.se-topbar-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.se-topbar-ibm{font-size:18px;font-weight:900;color:#fff;letter-spacing:-0.5px;}
+.se-topbar-div{width:1px;height:16px;background:#393939;}
+.se-topbar-title{font-size:12px;font-weight:600;color:#a8c8ff;white-space:nowrap;}
+.se-topbar-badge{font-size:10px;font-weight:700;background:#0f62fe;color:#fff;padding:2px 9px;border-radius:20px;white-space:nowrap;}
+.se-topbar-links{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;}
+.se-topbar-links::-webkit-scrollbar{display:none;}
+.se-topbar-links a{font-size:11px;font-weight:600;color:rgba(255,255,255,0.55);padding:5px 10px;border-radius:3px;white-space:nowrap;text-decoration:none;border-bottom:2px solid transparent;}
+.se-topbar-links a:hover{color:#fff;background:rgba(255,255,255,0.07);}
+.se-topbar-links a.se-active{color:#fff;border-bottom-color:#0f62fe;}
+.se-topbar-links .se-divider{color:#393939;padding:0 4px;font-size:11px;user-select:none;}
+.se-topbar-links a.se-sub{color:rgba(255,255,255,0.4);font-size:10px;}
+.se-topbar-links a.se-sub:hover{color:#a8c8ff;}
+.se-topbar-links a.se-sub.se-active{color:#a8c8ff;border-bottom-color:#a8c8ff;}
+.se-topbar-right{font-size:10px;color:#6f6f6f;white-space:nowrap;letter-spacing:0.05em;flex-shrink:0;display:none;}
+@media(min-width:700px){.se-topbar-right{display:block;}}
+</style>
+</head>
+<body>
+<div class="se-topbar">
+  <div class="se-topbar-left">
+    <span class="se-topbar-ibm">IBM</span>
+    <div class="se-topbar-div"></div>
+    <span class="se-topbar-title">SE Horizon</span>
+    <span class="se-topbar-badge">Phase 1</span>
+  </div>
+  <div class="se-topbar-links">
+    <a href="phase1.html" class="se-active">Phase 1</a>
+    <a href="phase2.html">Phase 2</a>
+    <a href="phase3.html">Phase 3</a>
+  </div>
+  <span class="se-topbar-right">South Florida SE · August 4, 2026</span>
+</div>
+<div class="page">
+  <div class="masthead">
+    <div class="masthead-content">
+      <div>
+        <div class="m-eyebrow">Account Intelligence Platform</div>
+        <div class="m-title">SE Horizon: <strong>Bi-Weekly Pulse</strong></div>
+        <div class="m-subtitle">Phase 1 &nbsp;·&nbsp; Signal Tracker &nbsp;·&nbsp; Week of August 4, 2026 &nbsp;·&nbsp; Coverage: Jul 19 – Aug 4</div>
+      </div>
+      <div class="masthead-badge">
+        <div class="badge-grid">
+          <span class="off"></span><span></span><span class="off"></span><span></span><span class="off"></span>
+          <span></span><span></span><span></span><span></span><span></span>
+          <span class="off"></span><span></span><span></span><span></span><span class="off"></span>
+          <span></span><span></span><span></span><span></span><span></span>
+          <span class="off"></span><span></span><span class="off"></span><span></span><span class="off"></span>
+        </div>
+        <div class="badge-label">Horizon</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="account-nav-wrap">
+    <div class="account-nav-inner" id="accountNav">
+      <div class="nav-item active" data-account="nclh">NCLH</div>
+      <div class="nav-item" data-account="sgws">Southern Glazer's</div>
+      <div class="nav-item" data-account="jmf">JM Family</div>
+      <div class="nav-item" data-account="citco">Citco</div>
+      <div class="nav-item" data-account="octave">Octave</div>
+      <div class="nav-item" data-account="hexfed">Hexagon Federal</div>
+      <div class="nav-item" data-account="hexmin">Hexagon Mining</div>
+      <div class="nav-item" data-account="pellera">Pellera</div>
+      <div class="nav-item" data-account="lennar">Lennar</div>
+      <div class="nav-item" data-account="lenmar">Lennar Mortgage</div>
+      <div class="nav-item is-new" data-account="heico">● HEICO</div>
+      <div class="nav-item is-new" data-account="hig">● H.I.G. Capital</div>
+      <div class="nav-item is-new" data-account="kforce">● Kforce</div>
+      <div class="nav-item is-new" data-account="bk">● Burger King</div>
+      <div class="nav-item is-new" data-account="seaworld">● SeaWorld</div>
+      <div class="nav-item is-new" data-account="icahn">● Icahn Enterprises</div>
+      <div class="nav-item is-new" data-account="ansco">● ANSCO</div>
+      <div class="nav-item is-new" data-account="dycom">● Dycom</div>
+      <div class="nav-item is-new" data-account="herc">● Herc Rentals</div>
+      <div class="nav-item is-new" data-account="dmab">● Data Mgmt. Brevard</div>
+      <div class="nav-item is-new" data-account="memorial">● Memorial Healthcare</div>
+      <div class="nav-item is-new" data-account="mastec">● MasTec</div>
+      <div class="nav-item is-new" data-account="frontline">● Frontline Insurance</div>
+      <div class="nav-item is-new" data-account="odp">● Office Depot</div>
+      <div class="nav-item is-new" data-account="chewy">● Chewy</div>
+      <div class="nav-item is-new" data-account="chicos">● Chico's FAS</div>
+      <div class="nav-item is-new" data-account="sbhd">● S. Broward Hospital Dist.</div>
+    </div>
+    <div class="nav-scroll-hint"></div>
+  </div>
+
+  <div class="acct-logo-wrap" id="logoWrap">
+    <img id="acctLogo" class="acct-logo-img" src="" alt="Account Logo" style="display:none;">
+    <span class="acct-logo-name" id="logoName"></span>
+  </div>
+
+  <div class="pills-section">
+    <div class="pills-row">
+      <div class="pill pill-wide"><span class="pill-label">Account:</span><span class="pill-value" id="pillAccount"></span></div>
+      <div class="pill pill-narrow"><span class="pill-label">Week Of:</span><span class="pill-value">08/04/2026</span></div>
+    </div>
+    <div class="pills-row">
+      <div class="pill pill-wide"><span class="pill-label">Coverage Window:</span><span class="pill-value" id="pillCoverage"></span></div>
+      <div class="pill pill-narrow"><span class="pill-label">Signal Level:</span><span class="pill-value" id="pillSignal"></span></div>
+    </div>
+  </div>
+
+  <div class="pulse-box" id="pulseBox">
+    <div class="pulse-box-label">Bi-Weekly Pulse Note</div>
+    <div class="pulse-box-text" id="pulseText"></div>
+  </div>
+
+  <div class="summary-wrap">
+    <div class="section-hdr"><h2 id="summaryHdr">Account Pulse Summary</h2></div>
+    <div class="section-body"><p id="summaryText"></p></div>
+  </div>
+
+  <div class="grid-2">
+    <div>
+      <div class="section-hdr"><h2 id="signalsHdr">Top Signals This Fortnight</h2></div>
+      <div class="section-body"><ul id="signalsList"></ul></div>
+    </div>
+    <div>
+      <div class="section-hdr"><h2>Hiring / People Signals</h2></div>
+      <div class="section-body"><ul id="hiringList"></ul></div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div>
+      <div class="section-hdr"><h2>External Factors to Watch</h2></div>
+      <div class="section-body"><ul id="externalList"></ul></div>
+    </div>
+    <div>
+      <div class="section-hdr"><h2>Why It Matters?</h2></div>
+      <div class="section-body"><ul id="whyList"></ul></div>
+    </div>
+  </div>
+
+  <div class="tracker-wrap">
+    <div class="tracker-title">Signal Tracker</div>
+    <table class="tracker-table">
+      <thead>
+        <tr>
+          <th class="type-col">Signal Type</th>
+          <th>Current Finding</th>
+          <th class="personas-col">Personas to Monitor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="type-col">News / Announcements</td><td id="trackerNews"></td><td rowspan="4" class="personas-col"><div class="personas-cell" id="personasList"></div></td></tr>
+        <tr><td class="type-col">Hiring / People</td><td id="trackerHiring"></td></tr>
+        <tr><td class="type-col">External Market Factor</td><td id="trackerExternal"></td></tr>
+        <tr><td class="type-col">Technology / Infrastructure Signal</td><td id="trackerTech"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sources-wrap">
+    <div class="sources-label">Sources</div>
+    <div class="sources-list" id="sourcesList"></div>
+  </div>
+
+  <div class="footer">Made with IBM Bob &nbsp;·&nbsp; SE Horizon &nbsp;·&nbsp; August 4, 2026 &nbsp;·&nbsp; ● = New Account (Added Jul 19) &nbsp;·&nbsp; Coverage: Jul 19 – Aug 4, 2026</div>
+</div>
+
+<script>
+// ── EXISTING 10 ACCOUNTS — BIWEEKLY PULSE (Jul 19 → Aug 4, 2026) ─────────────
+var accounts = {
+
+  nclh: {
+    name: "Norwegian Cruise Line Holdings",
+    logo: "",
+    isNew: false,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "Q2 2026 earnings dropped July 30 — NCLH reported revenue of $2.53B, beating consensus of $2.38B by ~6%, with Adj. EPS of $0.52 vs. $0.46 expected. Elliott activist pressure continues. Post-earnings: stock up ~8%. Pre-call window has closed; now is the time to reach in on the strength of the beat.",
+    signal: "high",
+    summary: "NCLH delivered a strong Q2 2026 beat on July 30 — revenue $2.53B (+7% YoY) vs. $2.38B est, Adj. EPS $0.52 vs. $0.46 est. Elliott Investment Management activist pressure continues; margin improvement is the board mandate. Stock rallied ~8% post-earnings. The 'wave season' for 2027 bookings is open and management cited record advance booking pace. Three-brand data fragmentation (Norwegian, Oceania, Regent) persists — ideal timing for a post-earnings technology conversation.",
+    signals: [
+      "July 30: Q2 2026 beat — revenue $2.53B (+7% YoY), Adj. EPS $0.52 — both ahead of consensus estimates",
+      "Elliott Investment Management activist stake remains active — board-level cost discipline mandate ongoing",
+      "2027 wave season bookings at record pace — revenue management and demand forecasting under pressure to perform",
+      "Three-brand structure (NCL, Oceania, Regent) still running siloed data — Data Fabric conversation is live"
+    ],
+    hiring: [
+      "Technology modernization roles posted — cloud architect and platform engineering still active",
+      "Revenue management and data analytics roles hiring in Miami HQ",
+      "Guest experience technology leads being added across all three brand divisions"
+    ],
+    external: [
+      "Cruise demand robust — competitor Carnival beat Q2 estimates by 1.9%; sector tailwind confirmed",
+      "Fuel cost and FX headwinds still present but narrowing vs. prior guidance",
+      "Royal Caribbean and Carnival both posting strong quarters — competitive pressure on margins rising"
+    ],
+    why: [
+      "Post-earnings beat is the ideal re-engagement moment — CFO is in a positive mood, show ROI",
+      "Elliott pressure still active — Data Fabric as the cost-takeout and margin-improvement narrative resonates at board level",
+      "Record 2027 bookings create an urgent demand-forecasting and revenue-management analytics conversation"
+    ],
+    trackerNews: "Q2 beat Jul 30: rev $2.53B, EPS $0.52; Elliott stake active; 2027 bookings record pace",
+    trackerHiring: "Cloud architect, platform engineer, revenue management analyst, guest tech lead roles open",
+    trackerExternal: "Sector tailwind strong; Carnival/RCL beating estimates; fuel/FX headwinds narrowing",
+    trackerTech: "Platform modernization ongoing; revenue management AI evaluation in progress",
+    snavId: "2297",
+    personas: ["CFO","CIO","COO","VP Finance","FP&A Director","Revenue Management Lead","Guest Experience Tech Lead","Cloud Architect"],
+    sources: [
+      { label: "NCLH Q2 2026 Earnings — StockTitan", url: "https://www.stocktitan.net/news/NCLH/norwegian-cruise-line-holdings-reports-second-quarter-2026-financial-results.html" }
+    ]
+  },
+
+  sgws: {
+    name: "Southern Glazer's Wine & Spirits",
+    logo: "",
+    isNew: false,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "No major public announcements since the July 10 workforce cut story. The AI hybrid sales model launch via Proof Commerce is live and expanding. Private company — next signals will come via hiring patterns and industry press. The governance gap above their live AI system is the pitch.",
+    signal: "high",
+    summary: "Since the July 10 announcement of ~220 job cuts tied to its AI hybrid sales model, SGWS has been quiet publicly. The Proof Commerce AI platform is live and replacing field reps for independent accounts. CEO Wayne Chaplin's public statement explicitly citing AI as the driver remains the entry point. No new public signals Jul 19–Aug 4, but the transformation is actively underway — governance and watsonx.data plays are timely.",
+    signals: [
+      "Proof Commerce AI platform live and actively scaling — inside sales replacing field reps for independent accounts",
+      "No reversal or pause of the July 10 restructuring — AI transformation is proceeding as announced",
+      "Data and AI analytics roles likely growing as Proof Commerce scales — watch LinkedIn for hiring signals",
+      "Industry press covering SGWS AI shift as a sector trend — executive visibility is high"
+    ],
+    hiring: [
+      "Customer Solutions Team (inside sales) roles being added as Proof Commerce scales",
+      "Data analytics and AI platform roles expected to grow — watch for new postings this week",
+      "Compliance and pricing analyst roles remain active amid regulatory complexity"
+    ],
+    external: [
+      "Beverage alcohol demand softness continuing — RNDC losing major contracts is creating market-share opportunity",
+      "Distributor margin pressure intensifying — cost takeout via AI is now a competitive necessity",
+      "E-commerce compliance complexity still rising — three-tier distribution model under digital pressure"
+    ],
+    why: [
+      "Proof Commerce is live AI with no governance layer — IBM AI Governance is the only credible compliance pitch",
+      "Post-restructuring, CFO is laser-focused on demonstrating ROI of the AI model — IBM watsonx.data as the intelligence layer",
+      "No new public news means this is a quiet window to reach in before the next announcement cycle"
+    ],
+    trackerNews: "Proof Commerce AI live; 220-job cut proceeding; no new public announcements Jul 19–Aug 4",
+    trackerHiring: "Customer Solutions Team scaling; data/AI roles expected to grow; compliance roles active",
+    trackerExternal: "Beverage demand soft; RNDC losing contracts; e-commerce compliance rising",
+    trackerTech: "Proof Commerce AI live and scaling; AI governance layer needed now",
+    snavId: "10408",
+    personas: ["CFO","CIO","COO","VP Data Analytics","Compliance Manager","Sales Ops Lead"],
+    sources: [
+      { label: "The Spirits Business — SGWS 1% Job Cuts", url: "https://www.thespiritsbusiness.com/2026/07/southern-glazers-to-axe-1-of-jobs-in-us" }
+    ]
+  },
+
+  jmf: {
+    name: "JM Family Enterprises",
+    logo: "",
+    isNew: false,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "No major public news Jul 19–Aug 4 — private company. CFO transition remains the primary entry point. GenAI intern program is still active. The quiet window after July 4th holiday period is ideal for outreach.",
+    signal: "medium",
+    summary: "JM Family Enterprises remains quiet publicly — private company with no earnings release. CFO transition is still the primary signal and entry point. The GenAI intern program continues internally. Toyota's EV lineup transition keeps supply chain and inventory complexity elevated at Southeast Toyota Distributors. The post-July 4th quiet period is ideal for outreach to the new CFO.",
+    signals: [
+      "CFO transition still in progress — new finance leadership window remains open for IBM Planning Analytics pitch",
+      "GenAI intern program internally active — AI investment appetite confirmed at executive level",
+      "Southeast Toyota Distributors facing EV inventory complexity — supply chain analytics demand growing",
+      "No major news Jul 19–Aug 4 — quiet window ideal for outreach"
+    ],
+    hiring: [
+      "IT and data engineering roles still open at Deerfield Beach HQ",
+      "Finance and FP&A analyst roles active — budget planning modernization interest",
+      "Supply chain technology roles growing with EV inventory complexity"
+    ],
+    external: [
+      "Toyota EV lineup expansion continues to challenge distributor inventory planning",
+      "F&I (Finance & Insurance) product margins still under pressure from elevated rates",
+      "Private company governance — family board expects consistent returns without public pressure"
+    ],
+    why: [
+      "CFO transition is still open — every week that passes without outreach is a missed window",
+      "GenAI pilot signals IBM watsonx and Planning Analytics are the natural next steps",
+      "Multi-division structure creates Data Fabric opportunity — now is the time to frame the pitch"
+    ],
+    trackerNews: "CFO transition ongoing; GenAI pilot active; no new public signals Jul 19–Aug 4",
+    trackerHiring: "IT/data engineering, FP&A analyst, supply chain tech roles active at Deerfield Beach HQ",
+    trackerExternal: "Toyota EV transition; F&I margin compression; private governance structure",
+    trackerTech: "GenAI pilot underway; evaluating enterprise AI platforms",
+    snavId: "5765",
+    personas: ["CFO","CIO","COO","VP Finance","FP&A Director","GenAI Program Lead","IT Systems Admin"],
+    sources: [
+      { label: "JM Family Enterprises — Company Overview", url: "https://www.jmfamily.com" }
+    ]
+  },
+
+  citco: {
+    name: "Citco Group",
+    logo: "",
+    isNew: false,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "Citco was shortlisted for the Hedgeweek Best Fund Administrator award — results expected this week. The SVP Sales & Business Development role is actively recruiting. Record H1 2026 AUM inflows of $70.4B create urgent data consolidation pressure.",
+    signal: "high",
+    summary: "Citco's record $70.4B H1 2026 AUM inflows are creating data consolidation urgency across their multi-fund, multi-jurisdiction reporting infrastructure. The Hedgeweek Best Fund Administrator award shortlist keeps executive visibility high. SVP Sales & BD role still actively recruiting — signals continued growth ambition. Legacy modernization mandate (confirmed by executive in Infrastructure Investor) remains live.",
+    signals: [
+      "Record $70.4B H1 2026 AUM inflows — more funds, more data sources, more consolidation complexity",
+      "Hedgeweek Best Fund Administrator award shortlist — results expected this week; exec visibility elevated",
+      "SVP Sales & Business Development role still open — growth and expansion mandate confirmed",
+      "Legacy modernization executive statement from July still live — no reversal or slowdown signaled"
+    ],
+    hiring: [
+      "SVP Sales & BD still posted — senior growth mandate active",
+      "Fund operations and data governance roles open across global offices",
+      "Investor reporting technology leads being recruited — platform modernization signal"
+    ],
+    external: [
+      "PE fund administration market growing — $4T+ AUM expected to double by 2027",
+      "SEC, AIFMD, and ESG disclosure requirements increasing reporting complexity",
+      "Competitor SS&C and SEI investing heavily in AI-powered fund admin — Citco must respond"
+    ],
+    why: [
+      "Record H1 inflows mean the pain is NOW — Data Fabric is the solution to a problem they are actively experiencing",
+      "Hedgeweek award window = elevated executive engagement; reach in with a congratulatory + solutions-oriented note",
+      "SVP Sales hire signals Citco is expanding — IBM partnership/co-sell angle is a timely conversation"
+    ],
+    trackerNews: "$70.4B H1 AUM inflows; Hedgeweek award shortlist; SVP Sales role open",
+    trackerHiring: "SVP Sales posted; fund ops, data governance, investor reporting roles open",
+    trackerExternal: "PE fund admin doubling; SEC/ESG reporting pressure; SS&C/SEI AI investment",
+    trackerTech: "Legacy modernization in evaluation; investor reporting platform modernization active",
+    snavId: "3439",
+    personas: ["CFO","CIO","CTO","Head of Data","Compliance Director","Fund Operations Manager","LP Relations Lead"],
+    sources: [
+      { label: "Infrastructure Investor — Citco Legacy Systems", url: "https://www.infrastructureinvestor.com/citco-on-leaving-legacy-systems-behind" }
+    ]
+  },
+
+  octave: {
+    name: "Octave (formerly Hexagon ALI)",
+    logo: "",
+    isNew: false,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "No new public news Jul 19–Aug 4. Post-spinoff from Hexagon AB (completed May 2026), Octave is still building its independent IT stack. The clean-slate IT infrastructure build is the IBM entry point — Red Hat OpenShift and AI Governance.",
+    signal: "high",
+    summary: "Octave is now 3 months into full independence from Hexagon AB. The IT infrastructure build that comes with any post-spinoff separation is still underway — platform engineering and cloud architect roles remain open. New brand identity at octave.com is established. No new public news Jul 19–Aug 4, but the procurement window for an independent IT stack is at its peak right now.",
+    signals: [
+      "3 months post-spinoff independence — IT procurement and stack decisions are being made now",
+      "Platform engineering and cloud architect roles still open — IT build actively underway",
+      "Progressive TSL Elite Channel Partner named — ecosystem rebuilding confirming active partner strategy",
+      "No new public news Jul 19–Aug 4 — quiet window ideal for proactive outreach"
+    ],
+    hiring: [
+      "Platform engineering and cloud architect roles still open as SaaS transition accelerates",
+      "Capture manager and federal sales leads for government vertical",
+      "Channel and alliance management roles open — partner ecosystem actively being built"
+    ],
+    external: [
+      "Industrial AI and digital twin market growing — Octave at the intersection",
+      "Post-spinoff: Octave building its own IT infrastructure independent of Hexagon AB",
+      "Competitors Bentley, Esri, and AspenTech investing in similar platforms"
+    ],
+    why: [
+      "Post-spinoff IT build window is OPEN NOW — Red Hat OpenShift is the clean-slate platform play",
+      "New procurement team has no legacy IBM relationship — clean entry, no baggage",
+      "Industrial AI platform needs trusted AI governance — IBM AI Governance is the natural fit"
+    ],
+    trackerNews: "3 months post-spinoff; IT build ongoing; no new news Jul 19–Aug 4",
+    trackerHiring: "Platform engineering, cloud architect, capture manager, federal sales roles open",
+    trackerExternal: "Industrial AI market growing; post-spinoff IT independence required",
+    trackerTech: "SaaS transition accelerating; new IT stack being built post-Hexagon separation",
+    snavId: "163065",
+    personas: ["CFO","CIO","COO","VP Finance","Platform Engineering Lead","Cloud Architect","Federal Sales Lead"],
+    sources: [
+      { label: "Logistics Viewpoints — Octave Brand Launch", url: "https://logisticsviewpoints.com/2026/03/02/hexagon-unveils-octave-as-planned-software-spin-off" }
+    ]
+  },
+
+  hexfed: {
+    name: "Hexagon Federal",
+    logo: "",
+    isNew: false,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "Compass 2026 federal user conference is August 25–27 — NOW is the pre-conference outreach window. Reach in this week to engage federal leadership before the event. OMB AI policy mandates are live.",
+    signal: "high",
+    summary: "Compass 2026 federal user conference (Aug 25–27) is 3 weeks away — this week and next are the optimal pre-conference engagement window. Federal technology leaders attending will be receptive to IBM AI Governance (OMB AI policy compliance) and Security (CMMC/zero-trust) conversations. No new public announcements Jul 19–Aug 4, but the conference timing creates an urgency anchor for outreach.",
+    signals: [
+      "Compass 2026 federal conference Aug 25–27 — pre-event outreach window is OPEN NOW (3 weeks out)",
+      "OMB AI policy mandates live — all federal vendors must comply; IBM AI Governance is a direct fit",
+      "DoD contracts list active — federal technology budgets remain open despite CMMC Phase II pause",
+      "Pre-conference is the optimal moment to reach in with a 'see you at Compass' message"
+    ],
+    hiring: [
+      "Program manager and capture lead roles active for federal contract pursuits",
+      "Cybersecurity engineer roles open — CMMC compliance expansion",
+      "Systems integrator and solutions architect roles posted"
+    ],
+    external: [
+      "Federal AI governance mandates (OMB AI policy) creating compliance requirements for all federal vendors",
+      "GeoBase and geospatial intelligence budgets growing under DoD modernization",
+      "CMMC Phase II requirements paused — compliance uncertainty but also a window to get ahead"
+    ],
+    why: [
+      "Compass conference is the anchor — 'Are you attending Compass? We'd love to connect on OMB AI policy' is the opener",
+      "IBM AI Governance aligns with OMB federal AI mandates — direct compliance pitch with a deadline",
+      "Security plays tie directly to CMMC and zero-trust — reach in before the conference shapes the agenda"
+    ],
+    trackerNews: "Compass 2026 Aug 25–27; OMB AI policy live; DoD contracts active",
+    trackerHiring: "Program manager, capture lead, cybersecurity engineer, systems integrator roles open",
+    trackerExternal: "OMB AI policy mandates; GeoBase budget growth; CMMC Phase II paused",
+    trackerTech: "Geospatial AI platform investments; federal zero-trust architecture evaluation",
+    snavId: "163065",
+    personas: ["CFO","CIO","COO","Program Manager","Capture Lead","Cybersecurity Engineer","Systems Integrator"],
+    sources: [
+      { label: "US Department of War Contracts — July 2026", url: "https://www.war.gov/news/contracts" }
+    ]
+  },
+
+  hexmin: {
+    name: "Hexagon Mining",
+    logo: "",
+    isNew: false,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "MinePlan 2026 Release 1 is live with Scenario Management in Schedule Optimiser 14.5. Copper prices remain elevated (~$6.13/lb). No new public news Jul 19–Aug 4 — MinePlan launch and copper price tailwind are the active signals.",
+    signal: "medium",
+    summary: "No new public announcements Jul 19–Aug 4. MinePlan 2026 Release 1 (Scenario Management in Schedule Optimiser 14.5) remains the freshest product signal. Copper at ~$6.13/lb is sustaining mining capex expansion and technology investment. Hexagon Mining was shortlisted in 5 Mining Magazine Award categories. The mining technology market is strong — this is a background-momentum account for IBM Storage and Data Fabric co-sell.",
+    signals: [
+      "MinePlan 2026 R1 live — Scenario Management in Schedule Optimiser 14.5 available to mining customers",
+      "Copper at ~$6.13/lb — mining operators accelerating capex and technology budgets",
+      "5x Mining Magazine Award shortlist — product momentum and vendor credibility strong",
+      "No new news Jul 19–Aug 4 — steady-state account, background monitoring appropriate"
+    ],
+    hiring: [
+      "Mining operations leads and fleet analytics managers being recruited globally",
+      "Autonomy engineers and safety technology leads open",
+      "Software engineering roles for MinePlan and HxGN Mine platform active"
+    ],
+    external: [
+      "Copper at $6.13/lb driving accelerated mining capex — technology budgets expanding",
+      "Critical minerals demand (copper, lithium, cobalt) creating global mining investment wave",
+      "ESG and emissions reporting mandates for mining operators growing"
+    ],
+    why: [
+      "MinePlan R1 launch is a natural conversation starter — align IBM Storage to data pipeline needs",
+      "Copper price tailwind = expanding IT budgets at major mining customers they serve",
+      "Mining Magazine Award shortlist = vendor credibility moment; timing for partnership discussions"
+    ],
+    trackerNews: "MinePlan 2026 R1 live; 5x Mining Magazine Award shortlisted; copper $6.13/lb",
+    trackerHiring: "Mining ops leads, fleet analytics, autonomy engineers, safety tech roles open",
+    trackerExternal: "Copper $6.13/lb; critical minerals demand wave; ESG/emissions mandates",
+    trackerTech: "MinePlan Scenario Management live; autonomy platform investment accelerating",
+    snavId: "163065",
+    personas: ["CFO","CIO","Mining Operations Lead","Fleet Analytics Manager","Autonomy Engineer","Safety Tech Lead"],
+    sources: [
+      { label: "Hexagon Mining — MinePlan 2026 R1", url: "https://www.facebook.com/hexagonmining/posts/hexagon-mineplan-2026-release-1-is-now-available" }
+    ]
+  },
+
+  pellera: {
+    name: "Pellera Technologies",
+    logo: "",
+    isNew: false,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "IBM Edge of IT podcast feature (July 2026) with IBM's Chris Bailey is still the freshest signal. CRN #34 ranking and IBM co-hosted hackathons remain active. Pellera is an IBM Business Partner — SE team should coordinate joint account planning.",
+    signal: "high",
+    summary: "No new public signals Jul 19–Aug 4 beyond the July IBM Edge of IT podcast feature. CRN #34 ranking and IBM hackathon co-hosting remain active signals. Pellera holds RPO status for CMMC — which aligns directly with the pre-Compass outreach opportunity at Hexagon Federal. The SE team should coordinate joint account planning with Pellera's IBM practice lead this week.",
+    signals: [
+      "IBM Edge of IT podcast feature (July) with IBM's Chris Bailey — executive visibility and IBM partnership depth confirmed",
+      "CRN Solution Provider 500 #34 — revenue and growth momentum confirming Pellera is an active co-sell partner",
+      "Co-hosting IBM hackathons — deepening IBM practice investment",
+      "CMMC RPO status aligns with Compass 2026 pre-event federal security outreach"
+    ],
+    hiring: [
+      "IBM practice lead and hybrid cloud architect roles open",
+      "Defense practice lead being recruited — CMMC RPO expansion",
+      "VP Alliances role posted — partner ecosystem building accelerating"
+    ],
+    external: [
+      "CMMC Phase II suspension creates a compliance window — opportunity to expand RPO revenue",
+      "IBM partner ecosystem investments growing — watsonx Orchestrate and Power Systems alignment",
+      "Defense IT spending robust — Pellera's federal/defense practice well-positioned"
+    ],
+    why: [
+      "Active IBM co-sell partner — joint account planning call this week ahead of Compass 2026",
+      "CMMC RPO status + IBM security portfolio = co-sell motion for federal accounts",
+      "Podcast feature signals executive access — receptive to IBM collaboration at the executive level"
+    ],
+    trackerNews: "IBM Edge of IT podcast feature; CRN #34; co-hosting IBM hackathons",
+    trackerHiring: "IBM practice lead, hybrid cloud architect, defense practice lead, VP Alliances open",
+    trackerExternal: "CMMC Phase II suspended; IBM ecosystem investment; defense IT spending robust",
+    trackerTech: "watsonx Orchestrate deployment; IBM Power Systems integration; CMMC RPO active",
+    snavId: "163065",
+    personas: ["CFO","CIO","IBM Practice Lead","VP Alliances","Defense Practice Lead","Hybrid Cloud Architect"],
+    sources: [
+      { label: "IBM Edge of IT — Pellera + Oracle AI Agents", url: "https://www.instagram.com/p/DaTI4dvRb-e" }
+    ]
+  },
+
+  lennar: {
+    name: "Lennar Corporation",
+    logo: "",
+    isNew: false,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "No new earnings since the Q2 2026 miss ($7.9B, -$200M vs. consensus). Lead Cloud Engineer and Senior Accountant posted July 17 remain active. Mortgage rates still elevated. Post-earnings quiet period is ideal for outreach with a cost-takeout + Planning Analytics framing.",
+    signal: "high",
+    summary: "Lennar remains in post-earnings quiet mode following the Q2 2026 revenue miss ($7.9B, -$200M vs. consensus). The $0.50 quarterly dividend was paid July 24. Lead Cloud Engineer and Senior Accountant roles posted July 17 confirm modernization budget exists. With 512 open roles and mortgage rates still elevated, CFO is under pressure to model multiple rate scenarios. This is the ideal window for an IBM Planning Analytics + cloud modernization pitch.",
+    signals: [
+      "Q2 rev $7.9B missed consensus by $200M — CFO is in active scenario-planning mode",
+      "$0.50 quarterly dividend paid July 24 — capital return commitment maintained despite miss",
+      "Lead Cloud Engineer (Miami, Jul 17) and Senior Accountant (Miami, Jul 17) still open",
+      "512 open roles as of August — hiring pace signals infrastructure investment is not paused"
+    ],
+    hiring: [
+      "Lead Cloud Engineer (Miami, posted Jul 17) — cloud infrastructure modernization underway",
+      "Senior Accountant (Miami, posted Jul 17) — FP&A capacity building",
+      "Construction Manager, Area Sales Manager roles across geographies still open"
+    ],
+    external: [
+      "30-year fixed mortgage rates elevated — buyer affordability pressure and incentive costs continuing",
+      "Housing starts mixed nationally — Southeast Florida relatively resilient",
+      "Lumber and materials costs stabilizing but labor costs still rising"
+    ],
+    why: [
+      "Revenue miss + rate pressure = CFO focused on scenario planning and cost takeout — Planning Analytics pitch",
+      "Lead Cloud Engineer hire signals modernization budget exists — IBM hybrid cloud + watsonx.data opportunity",
+      "Post-earnings quiet window is ideal for a low-pressure, solutions-oriented approach"
+    ],
+    trackerNews: "Q2 rev $7.9B missed est by $200M; $0.50 div paid Jul 24; 512 roles open",
+    trackerHiring: "Lead Cloud Engineer and Senior Accountant (both Jul 17 Miami); 512 total roles open",
+    trackerExternal: "High mortgage rates; incentive-driven ASP decline; materials costs stabilizing",
+    trackerTech: "Cloud modernization underway; evaluating AI for construction and supply chain planning",
+    snavId: "4605",
+    personas: ["CFO","CIO","COO","VP Finance","FP&A Director","Lead Cloud Engineer","Financial Modeler"],
+    sources: [
+      { label: "Lennar Q2 2026 Results", url: "https://www.instagram.com/p/DaentTvCdy9" }
+    ]
+  },
+
+  lenmar: {
+    name: "Lennar Mortgage",
+    logo: "",
+    isNew: false,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "Financial Services segment posted approximately -$57M in Q2 2026 as elevated rates compress origination. CFPB AI risk guidance is active. The Tech All-Star Award (Top 4 mortgage company) remains recent. This is an IBM AI Governance pitch on CFPB compliance.",
+    signal: "medium",
+    summary: "Lennar Mortgage's Financial Services segment posted ~-$57M in Q2 2026 — the direct result of elevated mortgage rates compressing origination volume and margins. No new public signals Jul 19–Aug 4. CFPB AI risk guidance remains active and any AI-assisted underwriting or decisioning requires an explainability framework. Top 4 Tech All-Star Award signals an innovation-receptive IT leader.",
+    signals: [
+      "Financial Services segment Q2 2026 ~-$57M — elevated rates compressing origination margins",
+      "CFPB AI risk guidance active — AI-assisted mortgage decisioning requires explainability framework",
+      "Top 4 Tech All-Star Award (2026) — innovation-receptive leadership confirmed",
+      "No new signals Jul 19–Aug 4 — steady account, CFPB compliance angle is the pitch"
+    ],
+    hiring: [
+      "Digital mortgage and compliance technology leads being recruited",
+      "Risk analytics manager and underwriting manager roles open",
+      "Technology modernization roles aligned to Lennar parent cloud initiative"
+    ],
+    external: [
+      "30-year fixed rates elevated — origination volume suppressed across industry",
+      "CFPB AI in lending guidance — explainability and bias testing required",
+      "Refi market effectively closed — purchase-only volume tied to Lennar homebuilding pace"
+    ],
+    why: [
+      "CFPB AI mandate creates an urgent IBM AI Governance conversation — compliance is a hard deadline",
+      "Tech All-Star signals a CIO who cares about innovation — receptive to IBM pitch",
+      "Margin pressure + automation = CFO receptive to cost-takeout and workflow automation messaging"
+    ],
+    trackerNews: "FS segment ~-$57M Q2; Top 4 Tech All-Star Award; CFPB AI guidance active",
+    trackerHiring: "Digital mortgage lead, risk analytics manager, compliance tech lead, underwriting manager open",
+    trackerExternal: "Rates elevated; CFPB AI lending rules; purchase-only market",
+    trackerTech: "Digital mortgage platform active; AI governance evaluation for underwriting compliance",
+    snavId: "4605",
+    personas: ["CFO","CIO","Compliance Technology Lead","Risk Analytics Manager","Digital Mortgage Lead","Underwriting Manager"],
+    sources: [
+      { label: "2026 Mortgage Tech All-Star Awards", url: "https://www.instagram.com/p/DaDop1AH8Xg" }
+    ]
+  }
+
+};
+</script>
+
+<script>
+// ── NEW 17 ACCOUNTS — BIWEEKLY PULSE (Jul 19 → Aug 4, 2026) ──────────────────
+var newAccounts = {
+
+  heico: {
+    name: "HEICO Corporation",
+    logo: "",
+    isNew: true,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "HEICO Q3 FY2026 earnings call is scheduled for August 25 — the pre-call window opens NOW. Q3 ends July 31. Reach in this week before the quiet period. HEICO also completed the AeroAntenna acquisition (defense electronics) in July, adding to its M&A integration data management needs.",
+    signal: "high",
+    summary: "HEICO Corporation (NYSE: HEI) has two time-sensitive signals this fortnight: (1) Q3 FY2026 earnings call scheduled August 25 — pre-call outreach window is open this week; (2) AeroAntenna acquisition completed in July 2026, adding another defense electronics business requiring IT integration. Q2 FY2026 was record-breaking (net income +49%, revenue +25% to $1.38B). Management has a healthy acquisition pipeline and record backlogs. Post-acquisition data fragmentation is the IBM Data Fabric play.",
+    signals: [
+      "Q3 FY2026 earnings call Aug 25 — pre-call window OPEN NOW; CFO in active planning mode this week",
+      "AeroAntenna acquisition completed July 2026 — second consecutive acquisition creating data integration needs",
+      "Record Q2 FY2026: net income +49%, revenue $1.38B (+25%), operating margin 25.5%",
+      "Management confirmed healthy acquisition pipeline — another acquisition expected H2 2026"
+    ],
+    hiring: [
+      "M&A integration lead and supply chain planner roles open post-AeroAntenna acquisition",
+      "Controller and IT systems admin roles active — back-office modernization signals",
+      "Defense program manager roles growing as ETG segment scales with DoD budget expansion",
+      "FP&A analyst roles posted — finance team growing for multi-acquisition reporting complexity"
+    ],
+    external: [
+      "Defense spending acceleration under DoD FY2026 budget — HEICO ETG positioned to benefit",
+      "Commercial aviation MRO spend rising as travel volumes normalize",
+      "ITAR/EAR export control regulations tightening with each new defense acquisition"
+    ],
+    why: [
+      "Pre-Q3 earnings window (Aug 25) closes soon — act this week before quiet period",
+      "AeroAntenna + Sherwood = two consecutive acquisitions; IBM Data Fabric is the multi-acquisition integration layer",
+      "Record 25.5% operating margin means CFO is receptive to FP&A modernization; Planning Analytics positions as the command center"
+    ],
+    trackerNews: "Q3 earnings Aug 25 (pre-call window open); AeroAntenna acquisition closed July 2026",
+    trackerHiring: "M&A integration, supply chain planner, controller, IT systems admin, defense PM roles open",
+    trackerExternal: "Defense budget growing; aviation MRO recovering; ITAR/EAR complexity increasing",
+    trackerTech: "Post-acquisition IT integration underway; enterprise data management platform evaluation",
+    snavId: "163065",
+    personas: ["CFO","CIO","COO","VP Finance","FP&A Director","M&A Integration Lead","Controller","IT Systems Admin"],
+    sources: [
+      { label: "StockTitan — HEICO Q3 Earnings Call Aug 25", url: "https://www.stocktitan.net/news/HEI/heico-corporation-announces-regular-quarterly-conference-p5vyuiau5qnv.html" },
+      { label: "Intelligence Community News — HEICO AeroAntenna Acquisition", url: "https://intelligencecommunitynews.com/heico-completes-acquisition-of-aeroantenna" }
+    ]
+  },
+
+  hig: {
+    name: "H.I.G. Capital",
+    logo: "",
+    isNew: true,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "No major public announcements Jul 19–Aug 4. Middle-market M&A activity recovering in H2 2026 — H.I.G. deal volume rising. Portfolio analytics and LP reporting complexity growing with each new portfolio company. Private firm — signals come via hiring and press.",
+    signal: "medium",
+    summary: "H.I.G. Capital remains active with ~$69B AUM and 153 portfolio companies. No new public announcements Jul 19–Aug 4. Middle-market M&A recovery in H2 2026 is accelerating deal flow at PE firms. Portfolio analytics lead and FP&A manager roles remain open. The firm's investment in AI-assisted due diligence and LP reporting is growing. IBM Planning Analytics for multi-portfolio financial consolidation is the pitch.",
+    signals: [
+      "H2 2026 middle-market M&A recovery accelerating — H.I.G. deal volume and complexity rising simultaneously",
+      "Portfolio analytics lead and FP&A manager roles still open — internal data capability build underway",
+      "LP ESG and performance reporting mandates intensifying — data infrastructure demands growing",
+      "No new public signals Jul 19–Aug 4 — hiring signals and industry press are the monitoring channels"
+    ],
+    hiring: [
+      "Portfolio analytics lead and FP&A manager roles open",
+      "Investment operations manager roles posted",
+      "Quantitative analyst and data science roles appearing — AI in investment decisioning is live",
+      "ESG reporting specialist roles open — LP ESG reporting mandate creating new data needs"
+    ],
+    external: [
+      "Private capital AUM globally set to double to $18T+ by 2027 — PE firms scaling rapidly",
+      "SEC private fund rules tightening — PE firms face new reporting and compliance infrastructure requirements",
+      "AI-assisted due diligence tools proliferating — H.I.G. must govern AI used in investment decisioning"
+    ],
+    why: [
+      "IBM Planning Analytics as the FP&A intelligence layer across 153 portfolio companies — multi-entity consolidation",
+      "AI Governance fits PE firms using AI in investment decisioning and LP reporting under new SEC rules",
+      "LP ESG reporting mandate creates IBM Data Fabric opportunity for cross-portfolio data unification"
+    ],
+    trackerNews: "H2 M&A recovery accelerating; $69B AUM 153 portfolio cos; no new public signals Aug 4",
+    trackerHiring: "Portfolio analytics, FP&A manager, investment ops, LP relations, quant analyst roles open",
+    trackerExternal: "PE AUM doubling; LP reporting complexity rising; middle-market M&A recovering",
+    trackerTech: "Portfolio monitoring platform evaluation; LP reporting AI tools in assessment",
+    snavId: "28523",
+    personas: ["CFO","CIO","COO","VP Finance","Portfolio Analytics Lead","FP&A Manager","Investment Ops Manager","LP Relations Lead"],
+    sources: [
+      { label: "H.I.G. Capital — Official Site", url: "https://www.higcapital.com" }
+    ]
+  },
+
+  kforce: {
+    name: "Kforce Inc.",
+    logo: "",
+    isNew: true,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "Kforce reported Q2 2026 on July 27 — revenue $349.3M, up 4.5% YoY, beating estimates. Earnings call highlighted 'strong revenue growth and strategic AI focus.' Stock up ~5.5% post-earnings. The AI pipeline remains up ~50% YoY — governance and Planning Analytics plays are timely.",
+    signal: "high",
+    summary: "Kforce reported Q2 2026 on July 27 — revenue $349.3M (+4.5% YoY), beating consensus estimates. The GuruFocus earnings call summary explicitly highlighted 'Strong Revenue Growth and Strategic AI Focus.' Stock up ~5.5% post-earnings. The data and AI pipeline remains up ~50% YoY. Post-earnings is the ideal window to reach in — CFO is in a positive mood and the AI studio build is actively underway.",
+    signals: [
+      "July 27: Q2 2026 revenue $349.3M (+4.5% YoY), beat estimates — stock +5.5% post-earnings",
+      "Earnings call explicitly highlighted 'Strategic AI Focus' — AI is the stated growth driver for H2 2026",
+      "Data and AI pipeline still up ~50% YoY — Kforce's own AI tooling and governance needs are growing with revenue",
+      "Post-earnings positive sentiment = ideal window to reach in this week"
+    ],
+    hiring: [
+      "Workforce planning manager and FP&A analyst roles active",
+      "AI/data consulting delivery roles growing as AI pipeline expands",
+      "AI talent acquisition lead roles posted — Kforce building its own AI talent bench",
+      "Workforce analytics engineer roles being added — internal data capability investment"
+    ],
+    external: [
+      "Technology staffing demand recovering broadly — 6 of top 10 sectors showing YoY growth",
+      "AI talent premium growing — Kforce margin expansion opportunity as AI demand outpaces supply",
+      "Enterprise AI project demand outpacing available talent supply — Kforce in the tightest demand segment"
+    ],
+    why: [
+      "Post-beat earnings window is open this week — CFO positive, AI story confirmed, ideal moment to pitch",
+      "AI pipeline +50% YoY means Kforce's own AI governance and planning needs are growing with revenue",
+      "IBM Planning Analytics and watsonx automate workforce demand forecasting and billing analytics at scale"
+    ],
+    trackerNews: "Q2 Jul 27: $349.3M +4.5% YoY, beat; earnings call flagged 'Strategic AI Focus'; stock +5.5%",
+    trackerHiring: "Workforce planning, FP&A analyst, AI delivery, AI talent acquisition, analytics engineer open",
+    trackerExternal: "Tech staffing recovering; AI talent premium growing; enterprise AI demand outpacing supply",
+    trackerTech: "AI innovation studio building; AI delivery capability scaling",
+    snavId: "18877",
+    personas: ["CFO","CIO","COO","VP Finance","FP&A Director","Workforce Planning Manager","HR Analytics Manager","AI Delivery Lead"],
+    sources: [
+      { label: "Business Wire — Kforce Q2 2026 Results", url: "https://www.businesswire.com/news/home/20260727/kforce-reports-second-quarter-2026" },
+      { label: "GuruFocus — Kforce Q2 2026 Earnings Call Highlights", url: "https://www.gurufocus.com/news/kforce-q2-2026-earnings-strategic-ai-focus" }
+    ]
+  },
+
+  bk: {
+    name: "Burger King / Restaurant Brands International",
+    logo: "",
+    isNew: true,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "RBI reported mixed Q2 results: revenue $2.41B (+15%), beat estimates, but EPS $0.94 missed the $0.97 consensus. Burger King International comps +4.1% YoY. Company reiterated 8%+ organic operating income growth guidance. Miami HQ remains the IBM entry point.",
+    signal: "high",
+    summary: "Restaurant Brands International (NYSE: QSR) reported mixed Q2 results: revenue $2.41B (+15%), beating the $2.34B consensus, but EPS $0.94 slightly missed $0.97 estimate. Burger King International comps were up 4.1% YoY and Tim Hortons Canada up 3.6%. System-wide sales rose 5.3% YoY. Company reiterated 8%+ organic adjusted operating income growth guidance through 2028. AI headset pilot in stores is confirmed live. The franchise data complexity play is the IBM angle.",
+    signals: [
+      "Q2 2026 revenue $2.41B (+15%), beat estimates; EPS $0.94 slightly missed $0.97 — mixed quarter",
+      "BK International comps +4.1% YoY; Tim Hortons Canada +3.6% — international strength confirmed",
+      "8%+ organic adjusted OI growth guidance reiterated through 2028 — long-term franchise expansion plan live",
+      "AI headset pilot active in stores — IBM AI Governance is the compliance and scaling layer needed"
+    ],
+    hiring: [
+      "Restaurant technology lead and franchise analytics manager roles open across brands",
+      "Digital ordering lead being recruited — digital channel investment accelerating",
+      "Labor planning manager roles active — workforce scheduling optimization priority",
+      "Data engineering roles posted for digital ordering platform modernization"
+    ],
+    external: [
+      "QSR value-seeking consumer recovery — BK's value proposition benefiting vs. casual dining",
+      "AI in restaurant operations accelerating — drive-through voice AI to kitchen automation",
+      "Digital ordering now 30%+ of QSR revenue — data infrastructure must scale with digital growth"
+    ],
+    why: [
+      "Mixed Q2 (beat on revenue, slight EPS miss) means CFO is open to cost discipline tools — Planning Analytics timing",
+      "AI headset is live in stores — IBM AI Governance is the compliance layer for scaling store-level AI",
+      "1,800 net new restaurants per year through 2028 = massive data volume growth; IBM Data Fabric is the play"
+    ],
+    trackerNews: "Q2 rev $2.41B (+15%), EPS $0.94 (slight miss); BK Intl comps +4.1%; AI headset live in stores",
+    trackerHiring: "Restaurant tech lead, franchise analytics, digital ordering, labor planning roles open",
+    trackerExternal: "QSR value recovery; AI in restaurants accelerating; digital ordering 30%+ of revenue",
+    trackerTech: "AI headset pilot live; digital ordering platform investment; kitchen automation evaluation",
+    snavId: "166764",
+    personas: ["CFO","CIO","COO","VP Finance","Restaurant Technology Lead","Franchise Analytics Manager","Digital Ordering Lead","Labor Planning Manager"],
+    sources: [
+      { label: "Investing.com — RBI Q2 Mixed Results", url: "https://au.investing.com/news/earnings/burger-king-owner-rbi-reports-mixed-q2-results-confirms-outlook-3964606" }
+    ]
+  },
+
+  seaworld: {
+    name: "SeaWorld / United Parks & Resorts",
+    logo: "",
+    isNew: true,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "August 16 is National Roller Coaster Day — SeaWorld Orlando is running a special event (Coaster Challenge). Q2 2026 results are expected early August. Peak summer attendance season is underway. Real-time guest analytics and demand forecasting are the active pain points right now.",
+    signal: "medium",
+    summary: "United Parks & Resorts (NYSE: PRKS) is in its peak summer season — August is the highest-attendance month of the year for SeaWorld parks. Q2 2026 results are expected in early August. National Roller Coaster Day event Aug 16 signals active marketing investment. Q1 2026 attendance was down 5% (to 3.22M) due to weather, but per-capita in-park spend rose 5.3% to $40.62 — the bifurcation between attendance and spend is the analytics story for IBM.",
+    signals: [
+      "Peak summer season underway — August is highest-attendance month; real-time analytics demand at peak",
+      "Q2 2026 results expected early August — pre-call engagement window open now",
+      "National Roller Coaster Day event Aug 16 — active marketing investment and guest experience tech focus",
+      "Q1 attendance -5% but per-capita spend +5.3% — bifurcation signals need for better demand + revenue modeling"
+    ],
+    hiring: [
+      "Revenue management and guest analytics roles growing as attendance volatility increases",
+      "Finance team needs park-level planning models for attendance, pricing, and in-park spend",
+      "Technology and digital teams investing in guest journey visibility across channels"
+    ],
+    external: [
+      "Epic Universe (Universal) is open in Orlando — SeaWorld needs differentiated experience analytics to compete",
+      "Weather volatility impacting Florida, Texas, and San Diego attendance materially",
+      "International visitation declines pressuring top-line attendance recovery"
+    ],
+    why: [
+      "Peak season + pre-earnings = ideal window for a real-time analytics and demand forecasting pitch",
+      "Attendance/spend bifurcation is a classic Planning Analytics signal — model the two levers together",
+      "Epic Universe competitive pressure makes guest analytics and differentiation a board-level priority"
+    ],
+    trackerNews: "Peak summer season; Q2 results early August; Roller Coaster Day Aug 16; Q1 attendance -5%, spend +5.3%",
+    trackerHiring: "Revenue management, guest analytics, park finance, digital tech roles growing",
+    trackerExternal: "Epic Universe competition; weather volatility; international visitation decline",
+    trackerTech: "Real-time guest analytics; park-level demand forecasting; digital commerce expansion",
+    snavId: "1653128",
+    personas: ["CFO","CIO","Chief Marketing Officer","VP Finance","Revenue Management Lead","Guest Experience Lead","Data & Analytics Leader"],
+    sources: [
+      { label: "United Parks IR — Q1 2026 Results", url: "https://www.unitedparksinvestors.com/news-releases/news-release-details/2026/United-Parks--Resorts-Inc--Reports-First-Quarter-2026-Results/default.aspx" },
+      { label: "PositivelyOsceola — National Roller Coaster Day SeaWorld Aug 16", url: "https://www.positivelyosceola.com/spend-national-roller-coaster-day-at-seaworld-the-coaster-capital-of-orlando" }
+    ]
+  },
+
+  icahn: {
+    name: "Icahn Enterprises LP",
+    logo: "",
+    isNew: true,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "Icahn Enterprises Q2 2026 earnings were expected July 31 — results may have just dropped. CVR Energy (energy segment) refining margins are the key watch item. Food packaging restructuring completed Q2 — post-restructuring reporting normalization is the IBM Planning Analytics play.",
+    signal: "medium",
+    summary: "Icahn Enterprises LP (NYSE: IEP) Q2 2026 earnings were expected July 31. CVR Energy refining margins and energy segment EBITDA are the key performance drivers. Food packaging restructuring completed Q2 2026 — the reporting normalization and segment consolidation work is now active. Multi-segment holding company FP&A across energy (CVR), automotive, pharma, real estate, and food packaging is among the most complex planning use cases.",
+    signals: [
+      "Q2 2026 earnings expected July 31 — results may be just released; follow up on the beat/miss",
+      "Food packaging restructuring completed Q2 2026 — segment reporting normalization now active",
+      "CVR Energy refining margins are the swing factor — crack spread volatility driving quarterly variability",
+      "Multi-segment complexity growing post-restructuring — five segments now require unified analytics"
+    ],
+    hiring: [
+      "Segment finance lead and enterprise data lead roles active across divisions",
+      "Portfolio operations manager being recruited — centralized oversight of multi-segment portfolio",
+      "Financial analyst roles posted at CVR Energy — energy analytics and refining margin modeling"
+    ],
+    external: [
+      "Energy commodity prices volatile — CVR refining margins highly sensitive to crack spread movements",
+      "Activist investor reputation creates governance complexity — board expects auditable segment reporting",
+      "Food packaging sector consolidation ongoing — integration reporting demands growing post-restructuring"
+    ],
+    why: [
+      "Post-earnings window (Jul 31) is open — engage CFO on Planning Analytics for multi-segment consolidation",
+      "Food packaging restructuring completed = active reporting normalization work IBM Planning Analytics solves",
+      "Board-level governance pressure means every segment number must be traceable — IBM AI Governance fits"
+    ],
+    trackerNews: "Q2 earnings Jul 31 (just dropped); food packaging restructuring complete; CVR energy key driver",
+    trackerHiring: "Segment finance lead, enterprise data lead, portfolio ops manager, CVR financial analyst roles open",
+    trackerExternal: "Energy commodity volatility; governance pressure; food packaging integration",
+    trackerTech: "Holding company IT centralization underway; data consolidation across segments active",
+    snavId: "12432",
+    personas: ["CFO","CIO","COO","VP Finance","FP&A Director","Segment Finance Lead","Enterprise Data Lead","Portfolio Operations Manager"],
+    sources: [
+      { label: "MarketBeat — IEP Q2 2026 Earnings Expected July 31", url: "https://www.marketbeat.com/instant-alerts/icahn-enterprises-iep-expected-to-announce-quarterly-earnings-on-wednesday-2026-04-29" }
+    ]
+  },
+
+  ansco: {
+    name: "ANSCO & Associates Inc.",
+    logo: "",
+    isNew: true,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "Parent Dycom Industries Q2 FY2026 earnings call is scheduled August 20 — ANSCO engineering pipeline is growing proportionally with Dycom's record $11.9B backlog. BEAD broadband funding is accelerating across multiple states. This is a background-monitoring account; outreach through Dycom parent is the primary path.",
+    signal: "medium",
+    summary: "ANSCO & Associates (Dycom subsidiary) continues to benefit from the parent's record $11.9B backlog (+46.5% YoY). Parent Dycom Q2 earnings call is August 20 — ANSCO's engineering volume is growing proportionally. BEAD broadband funding is releasing project procurements across multiple states. No direct ANSCO public announcements Jul 19–Aug 4. The IBM play here runs through Dycom Industries as the parent account.",
+    signals: [
+      "Dycom parent Q2 earnings Aug 20 — ANSCO engineering pipeline growing with $11.9B parent backlog",
+      "BEAD funding releasing across multiple states — ANSCO project procurements entering active phase",
+      "60+ offices and 1,200+ employees managing accelerating BEAD and 5G project volume",
+      "No direct ANSCO public signals — primary outreach path is through Dycom Industries parent"
+    ],
+    hiring: [
+      "Field operations manager and workforce scheduling lead roles across regions",
+      "Project manager roles across multiple states — BEAD project ramp creating headcount demand",
+      "Outside plant engineering lead roles growing — 5G densification driving expansion"
+    ],
+    external: [
+      "BEAD (Broadband Equity, Access, and Deployment) program funding accelerating fiber builds",
+      "5G densification driving outside plant engineering demand through 2028",
+      "Labor shortages in outside plant engineering — workforce planning and scheduling are mission-critical"
+    ],
+    why: [
+      "Dycom parent's record backlog means ANSCO is under capacity pressure — IBM Automation for workforce scheduling",
+      "BEAD compliance reporting requirements create IBM AI Governance entry through Dycom parent",
+      "60+ decentralized offices is an IBM Data Fabric use case — coordinate through Dycom account team"
+    ],
+    trackerNews: "Dycom parent Q2 Aug 20; BEAD funding active; $11.9B parent backlog; no direct ANSCO news",
+    trackerHiring: "Field ops manager, workforce scheduling, project manager, outside plant engineer roles open",
+    trackerExternal: "BEAD funding; 5G densification; outside plant labor shortage",
+    trackerTech: "Project management platform under pressure; workforce scheduling tools being evaluated",
+    snavId: "880528",
+    personas: ["CFO","CIO","COO","VP Finance","Field Operations Manager","Workforce Scheduling Lead","Project Manager","IT Systems Admin"],
+    sources: [
+      { label: "Dycom Industries — Parent Company IR", url: "https://investor.dycomind.com" }
+    ]
+  },
+
+  dycom: {
+    name: "Dycom Industries Inc.",
+    logo: "",
+    isNew: true,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "Dycom Q2 FY2026 earnings call is scheduled August 20 — the pre-call window is OPEN NOW. Dycom also announced acquisition of Power Solutions (premier data center electrical contractor), positioning for accelerated growth in data center infrastructure. Reach in this week.",
+    signal: "high",
+    summary: "Dycom Industries (NYSE: DY) Q2 FY2026 earnings call is August 20 — pre-call window is open this week. Dycom announced the acquisition of Power Solutions, a premier data center electrical contractor, creating a new segment for accelerated growth in digital and data center infrastructure. Combined with the existing $11.9B backlog and prior $275M data center acquisition, Dycom is now a multi-segment infrastructure leader. Post-acquisition IT integration complexity is growing.",
+    signals: [
+      "Q2 FY2026 earnings call Aug 20 — pre-call outreach window OPEN NOW; act this week",
+      "Power Solutions acquisition announced — premier data center electrical contractor adding new segment",
+      "Prior $275M data center acquisition still being integrated — two consecutive data center deals signal strategic commitment",
+      "Record backlog $11.9B (+46.5% YoY) — FP&A and project data management needs at enterprise scale"
+    ],
+    hiring: [
+      "Field operations IT manager and integration lead roles active post-acquisition",
+      "Data center operations roles being added for new data center subsidiary",
+      "BEAD compliance and government reporting specialist roles being recruited",
+      "FP&A roles growing to manage multi-segment $7.38B+ guidance"
+    ],
+    external: [
+      "AI data center infrastructure buildout driving hyperscaler fiber and power demand",
+      "BEAD broadband funding accelerating rural fiber deployment — multi-year revenue visibility",
+      "Telecom carrier capex recovery accelerating — AT&T, Verizon, T-Mobile all increasing budgets"
+    ],
+    why: [
+      "Pre-Q2 earnings window (Aug 20) is this week — reach in now before quiet period",
+      "Power Solutions + prior data center acquisition = two data center deals needing IBM Data Fabric integration",
+      "Record $11.9B backlog + multi-segment guidance of $7.38B+ requires IBM Planning Analytics — not Excel"
+    ],
+    trackerNews: "Q2 earnings Aug 20 (pre-call window open); Power Solutions acquisition announced; backlog $11.9B",
+    trackerHiring: "Field ops IT, integration lead, data center ops, BEAD compliance, FP&A roles open",
+    trackerExternal: "AI data center demand; BEAD funding; AT&T/Verizon/T-Mobile capex recovery",
+    trackerTech: "Post-acquisition IT integration active; data center ops being stood up; storage evaluation",
+    snavId: "19434",
+    personas: ["CFO","CIO","COO","VP Finance","FP&A Director","Field Operations Manager","Project Data Manager","Integration Lead","IT Systems Admin"],
+    sources: [
+      { label: "StockTitan — Dycom Q2 FY2026 Earnings Call Aug 20", url: "https://www.stocktitan.net/news/DY/dycom-industries-inc-to-host-fiscal-2026-second-quarter-results-fq6lf7kzakmq.html" },
+      { label: "StockTitan — Dycom Acquires Power Solutions (Data Center)", url: "https://www.stocktitan.net/news/DY/dycom-industries-inc-to-acquire-power-solutions-premier-data-center.html" }
+    ]
+  },
+
+  herc: {
+    name: "Herc Rentals Inc. / Herc Holdings",
+    logo: "",
+    isNew: true,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "Herc Holdings Q2 2026 earnings were expected July 28 — results may be just released. Analysts expected revenue of $944M (+11.3% YoY). H&E Equipment IT integration is complete. 2026 guidance: rental revenue $4.275–$4.4B, EBITDA $2.0–$2.1B. Act on the earnings result this week.",
+    signal: "high",
+    summary: "Herc Holdings (NYSE: HRI) Q2 2026 earnings were expected July 28 — results likely just released. Analysts expected revenue of $944M (+11.3% YoY). H&E Equipment IT systems migration is complete. 2026 guidance of $4.275–$4.4B rental revenue and $2.0–$2.1B EBITDA is under active investor scrutiny. The combined entity is now the third-largest equipment rental company in North America — fleet utilization analytics and demand forecasting are the IBM plays.",
+    signals: [
+      "Q2 2026 earnings expected July 28 — results just released; engage on beat/miss outcome this week",
+      "H&E Equipment IT integration complete — post-integration analytics and reporting needs are active now",
+      "2026 guidance: rental revenue $4.275–$4.4B, EBITDA $2.0–$2.1B — investor pressure to execute",
+      "Third-largest equipment rental company in North America — fleet management at enterprise scale"
+    ],
+    hiring: [
+      "Fleet planning manager and utilization analyst roles active",
+      "FP&A analyst roles growing — CFO managing EBITDA guidance for combined entity",
+      "IT roles posted for fleet management system optimization",
+      "Supply chain and procurement lead roles being added as fleet grows"
+    ],
+    external: [
+      "Construction spending elevated through 2026 — infrastructure law funding flowing into Herc's core markets",
+      "Equipment rental market growing at 8–10% annually through 2027",
+      "United Rentals (largest competitor) aggressive on pricing — Herc needs data-driven utilization analytics"
+    ],
+    why: [
+      "Post-earnings engagement window is open this week — act on Q2 result immediately",
+      "H&E integration complete = enterprise data unification need; IBM Data Fabric and Planning Analytics play",
+      "Fleet utilization analytics and demand forecasting are direct IBM watsonx.data use cases"
+    ],
+    trackerNews: "Q2 earnings Jul 28 (just released); H&E IT integration complete; 2026 guidance $4.275–4.4B",
+    trackerHiring: "Fleet planning, utilization analyst, FP&A analyst, IT, supply chain roles open",
+    trackerExternal: "Construction spending elevated; rental market +8–10%; United Rentals competition",
+    trackerTech: "H&E IT integration complete; fleet management system optimization underway",
+    snavId: "2848055",
+    personas: ["CFO","CIO","COO","VP Finance","FP&A Director","Fleet Planning Manager","Utilization Analyst","Rental Operations Lead"],
+    sources: [
+      { label: "Yahoo Finance — Herc Q2 2026 Expected Results", url: "https://finance.yahoo.com/news/earnings-watch-herc-hri-reports-030820623.html" }
+    ]
+  },
+
+  dmab: {
+    name: "Data Management Associates of Brevard Inc.",
+    logo: "",
+    isNew: true,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "No new public signals Jul 19–Aug 4. DMAB is a private IBM mainframe MSP. The IBM Z modernization wave is active and Space Coast federal clients are evaluating hybrid cloud bridge architecture. This is a co-sell account — coordinate with IBM partner team.",
+    signal: "medium",
+    summary: "Data Management Associates of Brevard (DMAB) is a private IBM mainframe MSP serving Space Coast federal and government clients. No public signals Jul 19–Aug 4. The IBM Z modernization wave and COBOL talent shortage continue to drive managed services demand. Federal BEAD and DoD technology budgets are stable. DMAB is a co-sell and channel account — the IBM SE team should coordinate with the partner team rather than approaching direct.",
+    signals: [
+      "IBM Z mainframe modernization wave active — federal clients evaluating hybrid cloud bridge architecture now",
+      "COBOL talent shortage creating managed services demand growth for DMAB",
+      "Space Coast DoD/NASA base stable — federal technology budgets protected",
+      "No new public signals — co-sell coordination with IBM partner team is the action item"
+    ],
+    hiring: [
+      "z/OS systems programmer roles active — mainframe talent demand growing",
+      "Disaster recovery lead and federal contract manager roles open",
+      "Hybrid cloud architect roles being added for federal clients"
+    ],
+    external: [
+      "IBM Z mainframe installed base being modernized — hybrid cloud bridge is the credible path",
+      "Federal government mainframe budgets stable despite broader IT pressure",
+      "FedRAMP and FISMA compliance requirements expanding — federal IT procurement demands expertise"
+    ],
+    why: [
+      "IBM Z modernization and Storage co-sell: DMAB brings federal clients into IBM pipeline",
+      "CMMC RPO and federal security — DMAB is a channel multiplier into NASA, DoD, and contractors",
+      "Coordinate with IBM partner team this week — joint account planning call before Compass 2026"
+    ],
+    trackerNews: "IBM mainframe MSP; Space Coast federal ecosystem; z/OS modernization wave active; no new news",
+    trackerHiring: "z/OS systems programmer, disaster recovery lead, federal contract manager, hybrid cloud roles",
+    trackerExternal: "Mainframe modernization; federal budgets stable; COBOL talent shortage",
+    trackerTech: "z/OS managed services active; hybrid cloud bridge architecture being deployed",
+    snavId: "163065",
+    personas: ["CFO","CIO","COO","VP Finance","z/OS Systems Programmer","Disaster Recovery Lead","Federal Contract Manager"],
+    sources: [
+      { label: "IBM Z Customer Council — Mainframe Events 2026", url: "https://ibm-zcouncil.com/events/ibm-z-customer-council-portlandme-2026" }
+    ]
+  },
+
+  memorial: {
+    name: "Memorial Healthcare System",
+    logo: "",
+    isNew: true,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "Douglas Road Emergency Room opens August 2026 — this week. New facility opening = active IT procurement and clinical technology deployment. Reach in NOW with IBM Security and AI Governance for the new ER's expanded attack surface and Epic workflow AI.",
+    signal: "high",
+    summary: "Memorial Healthcare System's new Douglas Road Emergency Room is opening this month (August 2026) — creating a live IT procurement window. The $670M Surgical and Patient Bed Tower groundbreaking earlier in 2026 continues to drive clinical technology and IT security investments. Epic on-prem to Azure cloud migration (awarded RFP) is underway. HIPAA security hardening and SOC buildout are active. New ER opening is an ideal IBM Security and AI Governance conversation starter.",
+    signals: [
+      "Douglas Road ER opening August 2026 — THIS MONTH; new facility IT procurement is live NOW",
+      "$670M Surgical Tower project active — largest capital project in Memorial history; IT procurement ongoing",
+      "Epic on-prem to Azure cloud migration (awarded RFP) underway — hybrid cloud integration work active",
+      "IT Security Audit RFP in progress (ransomware, IAM, ePHI) — IBM Security / QRadar entry point"
+    ],
+    hiring: [
+      "Clinical informatics lead and IT security manager roles active — tied directly to tower and ER projects",
+      "EHR systems manager and revenue cycle lead roles open",
+      "HIPAA compliance specialist roles being added as new facility data scope expands",
+      "IT infrastructure lead roles growing as tower construction proceeds"
+    ],
+    external: [
+      "Healthcare cybersecurity attacks on Florida health systems intensifying",
+      "CMS AI in healthcare policy guidance active — clinical AI requires explainability audit trails",
+      "Epic to Azure migration creates hybrid cloud integration challenge across 6 hospitals"
+    ],
+    why: [
+      "New ER opening THIS MONTH — contact IT Security Director and CIO now about expanded attack surface",
+      "Epic to Azure RFP awarded = IBM Hybrid Cloud and Red Hat OpenShift are the integration layer",
+      "IT Security Audit RFP (ransomware, IAM, ePHI) is a direct IBM Security / QRadar SIEM entry point"
+    ],
+    trackerNews: "Douglas Rd ER opening August 2026 (this month); $670M tower active; Epic Azure migration underway",
+    trackerHiring: "Clinical informatics, IT security, EHR systems, revenue cycle, data analytics roles open",
+    trackerExternal: "Healthcare cybersecurity intensifying; CMS AI policy; Epic Azure migration active",
+    trackerTech: "Epic on-prem to Azure migration; clinical AI governance evaluation; SOC buildout planned",
+    snavId: "15052",
+    personas: ["CIO","CISO","CFO","VP Information Technology","VP Revenue Cycle","Epic Project Lead","IT Security Director","Director of Infrastructure"],
+    sources: [
+      { label: "Robins & Morton — $670M Surgical Tower Groundbreaking", url: "https://www.facebook.com/RobinsMorton/posts/we-have-begun-work-on-the-new-670-million-memorial-regional-hospital-surgical-an/1445116457501043" }
+    ]
+  },
+
+  mastec: {
+    name: "MasTec Inc.",
+    logo: "",
+    isNew: true,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "MasTec completed the $1.65B Superior Plus Energy Services acquisition on July 7 — post-acquisition IT integration is live RIGHT NOW. Q2 2026 earnings are expected early August. The integration window is the IBM Data Fabric entry point. Reach in this week on the acquisition news.",
+    signal: "high",
+    summary: "MasTec (NYSE: MTZ) closed the $1.65B Superior Plus Energy Services acquisition on July 7, 2026 — post-acquisition IT integration is active this week. Q2 2026 earnings are expected early August (pre-call window open). Record Q1 2026 revenue of $3.83B (+34.5% YoY) and record 18-month backlog of $20.3B set a strong foundation. Five-segment structure post-acquisition needs unified data management. IBM Data Fabric is the integration layer.",
+    signals: [
+      "July 7: $1.65B Superior Plus acquisition closed — post-acquisition IT integration is LIVE NOW",
+      "Q2 2026 earnings expected early August — pre-call outreach window open; reach in this week",
+      "Record Q1 2026: $3.83B revenue +34.5% YoY; backlog $20.3B (+$4.4B YoY)",
+      "FY2026 guidance raised to $17.5B revenue — investor pressure to execute on record backlog"
+    ],
+    hiring: [
+      "Data integration architect roles appearing as Superior Plus IT integration begins",
+      "Finance and FP&A roles posted for acquisition integration — finance team scaling",
+      "Clean energy compliance and reporting roles growing as IRA funding creates new requirements",
+      "Field operations IT manager and integration lead roles active"
+    ],
+    external: [
+      "AI data center infrastructure buildout driving hyperscaler fiber and power demand",
+      "IRA (Inflation Reduction Act) clean energy spending accelerating through 2027",
+      "Utility infrastructure modernization cycle — power grid expansion creating sustained demand"
+    ],
+    why: [
+      "$1.65B acquisition closed July 7 — post-acquisition data integration window is OPEN NOW; IBM Data Fabric",
+      "Pre-Q2 earnings window (early August) is this week — reach in before quiet period",
+      "Five-segment business post-acquisition needs IBM Planning Analytics for multi-segment consolidation"
+    ],
+    trackerNews: "$1.65B Superior Plus acquisition closed Jul 7; Q2 earnings early August; Q1 rev $3.83B record",
+    trackerHiring: "Data integration architect, finance/FP&A, clean energy compliance, field ops IT roles open",
+    trackerExternal: "AI data center demand; IRA clean energy spending; utility grid modernization",
+    trackerTech: "Post-acquisition IT integration active (started July 7); enterprise data management evaluation",
+    snavId: "5350",
+    personas: ["CFO","CIO","COO","VP Finance","FP&A Director","Project Data Manager","Supply Chain Lead","Integration Lead"],
+    sources: [
+      { label: "MasTec IR — Superior Plus Acquisition Closed July 7", url: "https://ir.mastec.com/news-releases" },
+      { label: "StockStory — MasTec Record Q1 CY2026 Revenue +34.5%", url: "https://stockstory.org/us/stocks/nyse/mtz/news/earnings/mastec-nysemtz-reports-strong-q1-cy2026-stock-soars" }
+    ]
+  },
+
+  frontline: {
+    name: "Frontline Insurance Managers",
+    logo: "",
+    isNew: true,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "No major public signals Jul 19–Aug 4. FIRE reciprocal exchange entity (rated BBB+ May 2026) is still standing up IT infrastructure. Florida insurance market rate decreases are being implemented for the first time since 2015. This is a mid-priority account; actuarial and compliance leads are the target personas.",
+    signal: "medium",
+    summary: "Frontline Insurance's FIRE reciprocal exchange entity (rated BBB+ by KBRA, May 2026) continues to build its IT infrastructure. No new public signals Jul 19–Aug 4. Florida property insurance market reform is delivering results — rate decreases for 2026 are the first since 2015, improving economics and creating technology investment appetite. FIRE entity IT decisions are being made now — IBM Planning Analytics for actuarial and rate adequacy modeling is the play.",
+    signals: [
+      "FIRE entity IT infrastructure build still active — platform decisions being made this month",
+      "Florida insurance market rate decreases implementing — margin recovery window improving tech investment ROI",
+      "Multi-state compliance complexity growing as 5-state expansion adds regulatory filing demands",
+      "No new public signals Jul 19–Aug 4 — actuarial and compliance leads are the monitoring channel"
+    ],
+    hiring: [
+      "Actuarial analyst and risk modeling manager roles active",
+      "IT and data analytics roles being added for FIRE entity standup",
+      "Multi-state regulatory filing specialist roles growing"
+    ],
+    external: [
+      "Florida HB 837/SB 2A reforms stabilizing property insurance market — loss ratios improving",
+      "Reinsurance costs plateauing after 3 years of hardening — margin recovery window open",
+      "Climate risk modeling complexity growing — AI-powered risk assessment is a competitive advantage"
+    ],
+    why: [
+      "FIRE entity IT infrastructure decisions being made NOW — IBM Planning Analytics for actuarial and rate modeling",
+      "Rate decrease environment = improved economics + willingness to invest in technology",
+      "AI Governance required for any AI-assisted underwriting under Florida DOI regulatory review"
+    ],
+    trackerNews: "FIRE entity BBB+ rated (May 2026); FL rate decreases implementing; no new public signals",
+    trackerHiring: "Actuarial analyst, risk modeling, IT/data analytics, regulatory filing specialist roles open",
+    trackerExternal: "FL insurance reform working; reinsurance costs plateauing; climate risk modeling complex",
+    trackerTech: "FIRE entity IT infrastructure being built; AI underwriting evaluation underway",
+    snavId: "2523441",
+    personas: ["CFO","CIO","COO","VP Finance","Actuarial Analyst","Product Manager","Compliance Lead","Risk Modeling Manager"],
+    sources: [
+      { label: "Reinsurance News — Frontline FIRE Entity BBB+ by KBRA", url: "https://www.reinsurancene.ws/frontline-gets-new-florida-reciprocal-insurer-fire-rated-by-kbra" }
+    ]
+  },
+
+  odp: {
+    name: "Office Depot / ODP Corporation",
+    logo: "",
+    isNew: true,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "MAJOR UPDATE: Atlas Holdings completed the acquisition of ODP Corporation in December 2025 — ODP is now PRIVATE. New CEO Craig Gunckel was appointed. The company delisted from NASDAQ. Focus is now on two core businesses: Office Depot OfficeMax retail and ODP Business Solutions B2B. New private ownership = new technology vendor relationships open for IBM.",
+    signal: "high",
+    summary: "MATERIAL CHANGE since July 19 edition: ODP Corporation (parent of Office Depot) went private in December 2025 via Atlas Holdings acquisition (~$1B). New CEO Craig Gunckel was appointed. ODP delisted from NASDAQ. The company is refocusing on two core businesses: Office Depot OfficeMax retail and ODP Business Solutions B2B. Private ownership under Atlas = new leadership, new vendor relationships, and technology modernization appetite. This is a clean-slate entry opportunity.",
+    signals: [
+      "ODP went private under Atlas Holdings (Dec 2025) — new CEO Craig Gunckel, new technology vendor relationships",
+      "Atlas Holdings strategy: 'renewed focus and discipline' with 'autonomy to execute' — CFO is evaluating all vendors",
+      "Two core businesses: Office Depot OfficeMax retail + ODP Business Solutions B2B — IT stack being rationalized",
+      "Private ownership means no quarterly earnings pressure — long-term technology investment is feasible"
+    ],
+    hiring: [
+      "New CEO Craig Gunckel building out leadership team — technology vendor relationships being reset",
+      "B2B analytics and procurement technology leads open — B2B focus driving new hiring",
+      "IT rationalization roles posted as Atlas rationalizes the combined platform"
+    ],
+    external: [
+      "Office products retail in secular decline — B2B pivot to ODP Business Solutions is the growth play",
+      "Atlas Holdings backing gives ODP long-term private capital for technology investment",
+      "Competitor Amazon Business and Staples growing B2B market share"
+    ],
+    why: [
+      "New CEO + private ownership = all vendor relationships are under review — IBM has a clean entry",
+      "B2B pivot (ODP Business Solutions) creates IBM Automation and AI opportunity in procurement workflow",
+      "Atlas Holdings backing + no earnings pressure = long-term technology investment decisions being made now"
+    ],
+    trackerNews: "ODP now PRIVATE (Atlas Holdings, Dec 2025); new CEO Craig Gunckel; NASDAQ delisted",
+    trackerHiring: "New CEO building team; B2B analytics, procurement tech, IT rationalization roles open",
+    trackerExternal: "Retail decline; Atlas private backing; Amazon Business competition",
+    trackerTech: "IT stack rationalization active under new private ownership; B2B platform modernization",
+    snavId: "3492",
+    personas: ["CEO","CFO","CIO","COO","VP Finance","B2B Analytics Lead","Procurement Tech Lead","IT Systems Admin"],
+    sources: [
+      { label: "The Recycler — Atlas Holdings Completes ODP Acquisition", url: "https://therecycler.com/posts/atlas-holdings-completes-acquisition-of-the-odp-corporation" },
+      { label: "SAHM Capital — ODP Delists from NASDAQ", url: "https://www.sahmcapital.com/news/content/odp-corporation-delists-from-nasdaq-after-atlas-holdings-acquisition-2025-12-10" }
+    ]
+  },
+
+  chewy: {
+    name: "Chewy Inc.",
+    logo: "",
+    isNew: true,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "Chewy Q2 FY2026 results are expected late August (Chewy's fiscal Q2 ends ~July 31). Analysts are bullish — expecting EPS +37.5% YoY and continued Autoship growth. Modern Animal (vet telehealth) integration is underway. AI is live in production across customer service and personalization.",
+    signal: "high",
+    summary: "Chewy (NYSE: CHWY) Q2 FY2026 results are expected in late August — pre-call outreach window opens soon. Q1 CY2026 revenue was $3.36B (+7.7% YoY, in-line) with 20.8M active customers (+3.8% YoY). Modern Animal (vet platform + telehealth) acquisition is being integrated. AI is live in production for customer service, personalization, and pharmacy operations — CEO confirmed AI-fueled margins as the primary 2026/2027 driver. IBM AI Governance is the compliance layer needed now.",
+    signals: [
+      "Q2 FY2026 results expected late August — pre-call window opens this week; reach in now",
+      "Modern Animal vet/telehealth integration active — two-platform data architecture challenge",
+      "AI live in production (customer service, personalization, pharmacy) — CEO confirmed as primary margin driver",
+      "Analysts bullish: Q2 EPS expected +37.5% YoY — post-earnings engagement will be highly receptive"
+    ],
+    hiring: [
+      "Personalization AI lead and data science lead roles active — AI production teams scaling",
+      "Vet platform tech lead and pharmacy ops manager roles open",
+      "Healthcare data architect roles appearing — Modern Animal integration adds new data domain",
+      "Pharmacy compliance and regulatory roles being added as AI touches medication data"
+    ],
+    external: [
+      "US pet market $150B+ — sustaining growth through 2027",
+      "Amazon and Walmart growing pet e-commerce — AI personalization is a strategic necessity",
+      "HIPAA-adjacent regulations applying to vet health records and pharmacy data"
+    ],
+    why: [
+      "AI live in production + CEO committed to AI margins = IBM AI Governance is needed NOW",
+      "Modern Animal creates data architecture complexity across e-commerce + healthcare — IBM Data Fabric",
+      "Pre-earnings window (late August) is 3 weeks out — reach in this week ahead of the call"
+    ],
+    trackerNews: "Q2 results late August; Modern Animal integration active; AI in production across three use cases",
+    trackerHiring: "Personalization AI, vet platform tech, pharmacy ops, data science, AI/ML engineering open",
+    trackerExternal: "Pet market $150B+; Amazon/Walmart competition; vet telehealth disruption",
+    trackerTech: "AI customer service and personalization live; vet telehealth platform integration active",
+    snavId: "3497540",
+    personas: ["CFO","CIO","COO","VP Finance","Personalization AI Lead","Vet Platform Tech Lead","Pharmacy Ops Manager","Data Science Lead"],
+    sources: [
+      { label: "TipRanks — Chewy Q2 Earnings Preview", url: "https://www.tipranks.com/news/is-chewy-chwy-a-buy-ahead-of-q2-earnings" }
+    ]
+  },
+
+  chicos: {
+    name: "Chico's FAS / KnitWell Group",
+    logo: "",
+    isNew: true,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "No new public signals Jul 19–Aug 4. KnitWell Group (~$6B, 8 brands) is privately held by Sycamore Partners and actively integrating shared IT services across brands. Merchandise planning lead and demand forecasting roles remain open. Summer inventory planning decisions are being made now.",
+    signal: "medium",
+    summary: "KnitWell Group (parent of Chico's FAS, Ann Taylor, LOFT, Talbots, and others) remains active on IT platform standardization across its 8 brands and 1,250+ stores. No new public signals Jul 19–Aug 4. Sycamore Partners PE ownership keeps strict EBITDA targets and portfolio optimization mandate active. Summer inventory planning and fall merchandise buying decisions are being made right now — a perfect IBM Planning Analytics timing signal.",
+    signals: [
+      "Summer inventory and fall merchandise buying decisions being made NOW — Planning Analytics timing is ideal",
+      "IT platform standardization across 8 brands still active — window to influence platform decisions before commitments lock",
+      "Sycamore PE ownership: strict EBITDA targets driving cost discipline mandate",
+      "No new public signals Jul 19–Aug 4 — hiring signals are the monitoring channel"
+    ],
+    hiring: [
+      "Merchandise planning lead and demand forecasting manager roles open",
+      "Retail tech lead and customer analytics lead roles active",
+      "IT integration roles posted as KnitWell standardizes systems across brands",
+      "Supply chain analytics roles growing as merchandise planning complexity across 8 brands compounds"
+    ],
+    external: [
+      "Women's specialty retail recovering — traffic returning to physical stores",
+      "PE ownership means earnings targets are strict — cost discipline and planning accuracy required",
+      "Multi-brand consolidation trend in specialty retail — platform economics require unified analytics"
+    ],
+    why: [
+      "8-brand financial consolidation is a textbook IBM Planning Analytics use case — reach in to CFO now",
+      "IT platform standardization decisions being made this quarter — window to become the analytics standard",
+      "Sycamore PE mandate: CFO under EBITDA pressure — IBM Planning Analytics for scenario modeling"
+    ],
+    trackerNews: "KnitWell $6B platform; Sycamore PE ownership; 8-brand IT standardization active; no new news",
+    trackerHiring: "Merchandise planning, demand forecasting, retail tech, customer analytics, IT integration open",
+    trackerExternal: "Women's retail recovering; PE EBITDA discipline; LVMH/Tapestry analytics investment",
+    trackerTech: "Multi-brand IT standardization active; planning and analytics platform evaluation underway",
+    snavId: "11398",
+    personas: ["CFO","CIO","COO","VP Finance","Merchandise Planning Lead","Demand Forecasting Manager","Retail Tech Lead","Customer Analytics Lead"],
+    sources: [
+      { label: "Retail Dive — Chico's FAS Acquired by Sycamore → KnitWell", url: "https://www.retaildive.com/news/private-equity-sycamore-knitwell-acquires-chicos/703762" }
+    ]
+  },
+
+  sbhd: {
+    name: "South Broward Hospital District",
+    logo: "",
+    isNew: true,
+    coverage: "Jul 19 – Aug 4, 2026",
+    pulse: "IT Security Audit RFP covering ransomware readiness, IAM, and ePHI transmission security is in active evaluation — a vendor may be selected this month. Epic on-premises to Azure cloud migration (RFP awarded) is progressing. New Douglas Road ER (Memorial system) opens this month. Act NOW on the Security Audit RFP.",
+    signal: "high",
+    summary: "South Broward Hospital District (d/b/a Memorial Healthcare System) has an IT Security Audit RFP in active evaluation covering ransomware readiness, identity and access management, and ePHI transmission security — a vendor selection may be imminent. Epic on-prem to Azure cloud migration is progressing. FY2025 net patient revenue was $3.22B (+7.1% YoY) with AA S&P credit rating. Windows Server license renewal and Data Center ASCO equipment replacement are both in active procurement cycles.",
+    signals: [
+      "IT Security Audit RFP (ransomware, IAM, ePHI) in active evaluation — vendor selection may be imminent",
+      "Epic on-prem to Azure cloud migration (RFP awarded) actively progressing — hybrid cloud integration work underway",
+      "Windows Server license renewal + Data Center ASCO replacement both in active procurement",
+      "New Security Operations Center (SOC) under planning — IBM QRadar SOAR opportunity in planning phase"
+    ],
+    hiring: [
+      "IT security audit and IT infrastructure roles active",
+      "Finance and revenue cycle teams managing 7.1% net patient revenue growth",
+      "Epic cloud migration project team roles being posted",
+      "SOC buildout roles expected in Q3/Q4 2026"
+    ],
+    external: [
+      "HIPAA enforcement: Memorial has a prior OCR settlement — security posture investment is non-negotiable",
+      "Healthcare cybersecurity attacks on Florida health systems intensifying",
+      "Epic to Azure migration creates hybrid cloud integration challenge across 6 hospitals"
+    ],
+    why: [
+      "IT Security Audit RFP is in active evaluation NOW — IBM Security / QRadar SIEM / Guardium entry point",
+      "Prior HIPAA OCR settlement makes security hardening a board mandate — IBM is credible for compliance-driven buyers",
+      "Epic to Azure = IBM Hybrid Cloud and Red Hat OpenShift as the integration layer"
+    ],
+    trackerNews: "IT Security Audit RFP in evaluation (ransomware, IAM, ePHI); Epic Azure migration progressing; Windows Server renewal active",
+    trackerHiring: "IT security, cloud infrastructure, Epic implementation, revenue cycle roles active",
+    trackerExternal: "Prior OCR HIPAA settlement; Epic Azure migration; ransomware readiness investment",
+    trackerTech: "Epic on-prem to Azure migration; Windows Server renewal; Data Center ASCO; SOC buildout planned",
+    snavId: "164682",
+    personas: ["CIO","CISO","CFO","VP Information Technology","VP Revenue Cycle","Epic Project Lead","IT Security Director","Director of Infrastructure"],
+    sources: [
+      { label: "Memorial Healthcare System — Financial Report", url: "https://www.mhs.net/-/media/mhs/files/about-us/finances/sbhd-financial-report-2025.pdf" },
+      { label: "DemandStar — Epic On-prem to Azure RFP", url: "https://www.demandstar.com/app/agencies/florida/memorial-healthcare-system-south-broward-hospital-district/procurement-opportunities/eb67bdda-3955-4921-aa02-a208fd0c0a5a" }
+    ]
+  }
+
+};
+
+// Merge new accounts into accounts object
+for (var k in newAccounts) { accounts[k] = newAccounts[k]; }
+
+// ── RENDER FUNCTION ───────────────────────────────────────────
+function render(key) {
+  var a = accounts[key];
+  if (!a) return;
+
+  // Logo
+  var logoEl = document.getElementById('acctLogo');
+  var logoName = document.getElementById('logoName');
+  if (a.logo) {
+    logoEl.src = a.logo;
+    logoEl.style.display = 'inline-block';
+  } else {
+    logoEl.style.display = 'none';
+  }
+  logoName.textContent = a.name;
+
+  // Pills
+  var pillAccount = document.getElementById('pillAccount');
+  pillAccount.innerHTML = a.name + (a.isNew ? ' <span class="badge-new">● NEW</span>' : '');
+  document.getElementById('pillCoverage').textContent = a.coverage;
+
+  var sigEl = document.getElementById('pillSignal');
+  if (a.signal === 'high') sigEl.innerHTML = '<span class="badge-h">HIGH</span>';
+  else if (a.signal === 'medium') sigEl.innerHTML = '<span class="badge-m">MED</span>';
+  else sigEl.innerHTML = '<span class="badge-l">LOW</span>';
+
+  // Pulse box
+  var pulseBox = document.getElementById('pulseBox');
+  var pulseText = document.getElementById('pulseText');
+  if (a.pulse) {
+    pulseBox.classList.add('visible');
+    pulseText.textContent = a.pulse;
+  } else {
+    pulseBox.classList.remove('visible');
+  }
+
+  // Summary header
+  document.getElementById('summaryHdr').textContent = 'Account Pulse Summary — Week of Aug 4, 2026';
+  document.getElementById('summaryText').textContent = a.summary;
+
+  // Lists
+  function renderList(id, arr) {
+    var el = document.getElementById(id);
+    el.innerHTML = arr.map(function(i){ return '<li>' + i + '</li>'; }).join('');
+  }
+  renderList('signalsList', a.signals);
+  renderList('hiringList', a.hiring);
+  renderList('externalList', a.external);
+  renderList('whyList', a.why);
+
+  // Tracker
+  document.getElementById('trackerNews').textContent = a.trackerNews;
+  document.getElementById('trackerHiring').textContent = a.trackerHiring;
+  document.getElementById('trackerExternal').textContent = a.trackerExternal;
+  document.getElementById('trackerTech').textContent = a.trackerTech;
+
+  // Personas with SNav buttons
+  var snavBase = 'https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A' + a.snavId + '%2CselectionType%3AINCLUDED)))))';
+  var personasHtml = a.personas.map(function(p) {
+    return '<div class="persona-tag">' + p +
+      '<a class="snav-btn" href="' + snavBase + '" target="_blank" rel="noopener">SNav</a>' +
+      '</div>';
+  }).join('');
+  personasHtml += '<div class="snav-keywords"><strong>SNav Search:</strong> "' +
+    a.name.split(' ')[0] + '" + ' + a.personas.slice(0,5).join(', ') + '</div>';
+  document.getElementById('personasList').innerHTML = personasHtml;
+
+  // Sources
+  var sourcesHtml = a.sources.map(function(s) {
+    return '<a class="source-chip" href="' + s.url + '" target="_blank" rel="noopener">' + s.label + '</a>';
+  }).join('');
+  document.getElementById('sourcesList').innerHTML = sourcesHtml;
+}
+
+// ── CLICK LISTENER ─────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  var nav = document.getElementById('accountNav');
+  var items = nav.querySelectorAll('.nav-item');
+
+  items.forEach(function(item) {
+    item.addEventListener('click', function() {
+      items.forEach(function(i){ i.classList.remove('active'); });
+      item.classList.add('active');
+      render(item.getAttribute('data-account'));
+    });
+  });
+
+  // Default: load first account
+  render('nclh');
+  items[0].classList.add('active');
+});
+</script>
