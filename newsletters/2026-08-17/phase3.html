@@ -97,6 +97,8 @@ a{text-decoration:none;}
 .acct-hdr{background:var(--card);border-bottom:3px solid var(--accent);padding:20px 28px;}
 .acct-hdr-top{display:flex;align-items:flex-start;gap:16px;margin-bottom:10px;}
 .acct-ticker{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:800;color:var(--muted);background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:8px 14px;flex-shrink:0;min-width:64px;text-align:center;}
+.acct-logo-cell{flex-shrink:0;width:100px;height:60px;display:flex;align-items:center;justify-content:center;background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:6px 10px;overflow:hidden;}
+.acct-logo-cell img{max-width:88px;max-height:48px;object-fit:contain;mix-blend-mode:multiply;}
 .acct-title{flex:1;}
 .acct-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#6b8cb8;margin-bottom:3px;}
 .acct-name{font-size:22px;font-weight:900;color:var(--navy);line-height:1.1;letter-spacing:-0.3px;}
@@ -451,7 +453,7 @@ const PANELS={};
 PANELS['heico']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">HEI</div>
+    <div class="acct-logo-cell"><img src="LOGOS/heico-vector-logo.png" alt="HEICO"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">HEICO Corporation</div>
@@ -670,7 +672,7 @@ PANELS['heico']=`
 PANELS['mastec']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">MTZ</div>
+    <div class="acct-logo-cell"><img src="LOGOS/MasTec_Logo.jpg" alt="MasTec"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">MasTec Inc.</div>
@@ -906,7 +908,7 @@ PANELS['mastec']=`
 PANELS['dycom']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">DY</div>
+    <div class="acct-logo-cell"><img src="LOGOS/DYCOM-Logo-Color-1-1024x168.png" alt="Dycom"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Dycom Industries</div>
@@ -1095,7 +1097,7 @@ PANELS['dycom']=`
 PANELS['memorial']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">MHS</div>
+    <div class="acct-logo-cell"><img src="LOGOS/MemorialHealthSystem_BlueLogo.jpg" alt="Memorial Healthcare"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Memorial Healthcare System</div>
@@ -1282,7 +1284,7 @@ PANELS['memorial']=`
 PANELS['kforce']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">KFRC</div>
+    <div class="acct-logo-cell"><img src="LOGOS/kforce_trademark_fullcolor_500.png" alt="Kforce"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Kforce Inc.</div>
@@ -1470,7 +1472,7 @@ PANELS['kforce']=`
 PANELS['chewy']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">CHWY</div>
+    <div class="acct-logo-cell"><img src="LOGOS/chewy.png" alt="Chewy"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Chewy Inc.</div>
@@ -1658,7 +1660,7 @@ PANELS['chewy']=`
 PANELS['herc']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">HRI</div>
+    <div class="acct-logo-cell"><img src="LOGOS/herc.jpeg" alt="Herc Rentals"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Herc Holdings (Herc Rentals)</div>
@@ -1846,7 +1848,7 @@ PANELS['herc']=`
 PANELS['sgws']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">SGWS</div>
+    <div class="acct-logo-cell"><img src="LOGOS/SGWS.png" alt="SGWS"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Southern Glazer's Wine &amp; Spirits</div>
@@ -2034,7 +2036,7 @@ PANELS['sgws']=`
 PANELS['nclh']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">NCLH</div>
+    <div class="acct-logo-cell"><img src="LOGOS/NCLW.webp" alt="NCLH"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Norwegian Cruise Line Holdings</div>
@@ -2244,7 +2246,7 @@ PANELS['nclh']=`
 PANELS['jmf']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">JMF</div>
+    <div class="acct-logo-cell"><img src="LOGOS/jmfamily.png" alt="JM Family"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">JM Family Enterprises</div>
@@ -2355,7 +2357,7 @@ PANELS['jmf']=`
 PANELS['citco']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">CITCO</div>
+    <div class="acct-logo-cell"><img src="LOGOS/citco.png" alt="Citco"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Citco Group</div>
@@ -2444,7 +2446,7 @@ PANELS['citco']=`
 PANELS['hexfed']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">HEX-FED</div>
+    <div class="acct-logo-cell"><img src="LOGOS/hexagonfederal.png" alt="Hexagon Federal"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Hexagon Federal</div>
@@ -2513,7 +2515,7 @@ PANELS['hexfed']=`
 PANELS['hexmin']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">HEX-MIN</div>
+    <div class="acct-logo-cell"><img src="LOGOS/Hexagon_logo_mining.svg" alt="Hexagon Mining"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Hexagon Mining</div>
@@ -2583,7 +2585,7 @@ PANELS['hexmin']=`
 PANELS['hexoct']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">HEX-OCT</div>
+    <div class="acct-logo-cell"><img src="LOGOS/octave-logo.png" alt="Hexagon Octave"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Hexagon Octave</div>
@@ -2653,7 +2655,7 @@ PANELS['hexoct']=`
 PANELS['pellera']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">PELL</div>
+    <div class="acct-logo-cell"><img src="LOGOS/Pellera_Technologies_Pellera_Technologies_Launches_Official_New.jpg" alt="Pellera"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Pellera Technologies</div>
@@ -2722,7 +2724,7 @@ PANELS['pellera']=`
 PANELS['lennar']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">LEN</div>
+    <div class="acct-logo-cell"><img src="LOGOS/lennar.jpg" alt="Lennar"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Lennar Corporation</div>
@@ -2840,7 +2842,7 @@ PANELS['lennar']=`
 PANELS['lenmar']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">LEN-M</div>
+    <div class="acct-logo-cell"><img src="LOGOS/lennarmort_logo.png" alt="Lennar Mortgage"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Lennar Mortgage</div>
@@ -2910,7 +2912,7 @@ PANELS['lenmar']=`
 PANELS['seaworld']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">PRKS</div>
+    <div class="acct-logo-cell"><img src="LOGOS/seaworld.png" alt="SeaWorld"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">SeaWorld / United Parks &amp; Resorts</div>
@@ -2980,7 +2982,7 @@ PANELS['seaworld']=`
 PANELS['frontline']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">FNLN</div>
+    <div class="acct-logo-cell"><img src="LOGOS/Frontline_Insurance_Logo.jpg" alt="Frontline Insurance"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Frontline Insurance</div>
@@ -3069,7 +3071,7 @@ PANELS['frontline']=`
 PANELS['odp']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">ODP</div>
+    <div class="acct-logo-cell"><img src="LOGOS/ODP_Wht-e1594114705114.jpg" alt="ODP / Office Depot"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">ODP Corporation / Office Depot</div>
@@ -3139,7 +3141,7 @@ PANELS['odp']=`
 PANELS['icahn']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">IEP</div>
+    <div class="acct-logo-cell"><img src="LOGOS/icahn-enterprises-l-p.jpeg" alt="Icahn Enterprises"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Icahn Enterprises</div>
@@ -3209,7 +3211,7 @@ PANELS['icahn']=`
 PANELS['ansco']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">ANSCO</div>
+    <div class="acct-logo-cell"><img src="LOGOS/ansco-and-associates-squarelogo-1555338841264.webp" alt="ANSCO"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">ANSCO &amp; Associates</div>
@@ -3279,7 +3281,7 @@ PANELS['ansco']=`
 PANELS['dmab']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">DMAB</div>
+    <div class="acct-logo-cell"><img src="LOGOS/dmab-logo.svg" alt="DMAB"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Data Management Brevard</div>
@@ -3349,7 +3351,7 @@ PANELS['dmab']=`
 PANELS['hig']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">HIG</div>
+    <div class="acct-logo-cell"><img src="LOGOS/HIG_Capital_Logo.jpeg" alt="H.I.G. Capital"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">H.I.G. Capital</div>
@@ -3419,7 +3421,7 @@ PANELS['hig']=`
 PANELS['bk']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">QSR</div>
+    <div class="acct-logo-cell"><img src="LOGOS/burgerking.png" alt="Burger King"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Burger King / Restaurant Brands International</div>
@@ -3502,7 +3504,7 @@ PANELS['bk']=`
 PANELS['chicos']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">CHS</div>
+    <div class="acct-logo-cell"><img src="LOGOS/Chicos_FAS.jpg" alt="Chico's FAS"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">Chico's FAS / KnitWell Group</div>
@@ -3572,7 +3574,7 @@ PANELS['chicos']=`
 PANELS['sbhd']=`
 <div class="acct-hdr">
   <div class="acct-hdr-top">
-    <div class="acct-ticker">SBHD</div>
+    <div class="acct-logo-cell"><img src="LOGOS/broward-and-memorial-logos.jpg" alt="South Broward Hospital District"></div>
     <div class="acct-title">
       <div class="acct-eyebrow">SE Horizon · Aug 17, 2026 · Edition 05</div>
       <div class="acct-name">South Broward Hospital District</div>
