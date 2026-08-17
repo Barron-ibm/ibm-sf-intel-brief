@@ -1,0 +1,2729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SE Horizon — Account Radar · Phase 1 · Aug 17, 2026 · Batch 1–2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ground:#07091A;
+  --panel:#0C0F20;
+  --panel-2:#111428;
+  --panel-3:#171B30;
+  --rule:#1E2338;
+  --rule-hi:#2C3250;
+  --ink:#E8ECFF;
+  --ink-mid:#9AA4CC;
+  --ink-low:#5A6280;
+  --ibm:#54A0FF;
+  --ibm-deep:#0F62FE;
+  --ibm-dim:rgba(84,160,255,.10);
+  --ibm-line:rgba(84,160,255,.35);
+  --t0:#2C3358;
+  --t1:#5E3C8F;
+  --t2:#A63C74;
+  --t3:#E05E3B;
+  --t4:#F7A63E;
+  --t5:#FFDD97;
+  --ok:#3FB98C;
+  --radius:6px;
+  --display:'IBM Plex Sans Condensed','Helvetica Neue',Arial,sans-serif;
+  --body:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--body);font-size:14px;line-height:1.6;
+  background:var(--ground);color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:'';position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -8%,rgba(15,98,254,.18) 0%,transparent 65%),
+    radial-gradient(ellipse 45% 35% at 50% -4%,rgba(84,160,255,.10) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 40% at 15% 100%,rgba(15,98,254,.05) 0%,transparent 60%);
+  pointer-events:none;z-index:0;
+}
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-repeat:repeat;background-size:200px 200px;
+  pointer-events:none;z-index:0;
+}
+a{color:var(--ibm);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* ── NAV BAR ── */
+.topnav{
+  position:sticky;top:0;z-index:300;
+  background:rgba(7,9,26,.97);backdrop-filter:blur(16px);
+  border-top:3px solid var(--ibm-deep);
+  border-bottom:1px solid var(--rule);
+  height:51px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 28px;
+}
+.tn-left{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.tn-ibm{font-family:var(--display);font-size:20px;font-weight:700;color:#fff;letter-spacing:-.5px;}
+.tn-div{width:1px;height:18px;background:var(--rule-hi);}
+.tn-title{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);}
+.tn-badge{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  background:var(--ibm-deep);color:#fff;padding:2px 10px;border-radius:20px;}
+.tn-links{display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;}
+.tn-links::-webkit-scrollbar{display:none;}
+.tn-links a{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-low);padding:6px 14px;border-bottom:2px solid transparent;white-space:nowrap;transition:color .12s;}
+.tn-links a:hover{color:var(--ibm);text-decoration:none;}
+.tn-links a.active{color:#fff;border-bottom-color:var(--ibm-deep);background:rgba(15,98,254,.12);}
+.tn-links a.sub{color:var(--ink-low);opacity:.6;font-size:9px;}
+.tn-links a.sub:hover{opacity:1;color:var(--ibm);}
+.tn-sep{color:var(--rule-hi);padding:0 4px;font-size:11px;user-select:none;}
+.tn-right{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-low);white-space:nowrap;flex-shrink:0;}
+
+/* ── URGENCY JUMP BAR ── */
+.jumpbar{
+  position:sticky;top:51px;z-index:299;
+  background:rgba(12,15,32,.98);border-bottom:1px solid var(--rule);
+  height:40px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;
+}
+.jb-jumps{display:flex;align-items:center;gap:6px;}
+.jb-jump{
+  font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  padding:4px 12px;border-radius:2px;cursor:pointer;white-space:nowrap;
+  border:1px solid var(--rule-hi);color:var(--ink-low);background:transparent;
+  text-decoration:none;
+}
+.jb-jump:hover{color:var(--ink);border-color:var(--ink-low);text-decoration:none;}
+.jb-jump.t5{color:var(--t5);border-color:rgba(255,221,151,.35);}
+.jb-jump.t4{color:var(--t4);border-color:rgba(247,166,62,.3);}
+.jb-jump.t3{color:var(--t3);border-color:rgba(224,94,59,.3);}
+.jb-jump.t0{color:var(--ink-low);border-color:var(--rule);}
+.jb-count{
+  font-family:var(--mono);font-size:8px;font-weight:600;
+  padding:1px 5px;border-radius:2px;margin-left:5px;vertical-align:middle;display:inline-block;
+}
+.jb-count.t5{background:var(--t5);color:#000;}
+.jb-count.t4{background:var(--t4);color:#000;}
+.jb-count.t3{background:var(--t3);color:#fff;}
+.jb-count.t0{background:var(--rule-hi);color:var(--ink-low);}
+.jb-right{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-low);}
+
+/* ── MASTHEAD ── */
+.masthead{
+  position:relative;z-index:1;
+  padding:36px 28px 32px;border-bottom:1px solid var(--rule);
+  background:linear-gradient(180deg,rgba(15,98,254,.06) 0%,transparent 100%);
+}
+.mh-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;}
+.mh-eye{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--ibm);display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.mh-eye::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:var(--ibm-deep);box-shadow:0 0 8px var(--ibm-deep);}
+.mh-title{font-family:var(--mono);font-weight:600;font-size:clamp(20px,2.5vw,28px);
+  line-height:1.15;letter-spacing:-.01em;color:#fff;}
+.mh-title span{display:block;font-family:var(--mono);font-weight:400;color:var(--ink-low);
+  font-size:.55em;letter-spacing:.06em;margin-top:5px;text-transform:uppercase;}
+.mh-sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-low);margin-top:12px;}
+.mh-stats{display:flex;gap:12px;align-self:center;}
+.mh-stat{
+  background:var(--panel);border:1px solid var(--rule-hi);
+  border-radius:var(--radius);padding:18px 24px;text-align:center;min-width:100px;
+  position:relative;overflow:hidden;
+}
+.mh-stat::before{content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(15,98,254,.08),transparent 60%);}
+.mh-stat-n{font-family:var(--mono);font-weight:600;font-size:32px;line-height:1;color:var(--ibm);position:relative;}
+.mh-stat-l{font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink-low);margin-top:6px;position:relative;}
+
+/* ── FILTER STRIP ── */
+.filters{
+  position:relative;z-index:1;
+  background:var(--panel);border-bottom:1px solid var(--rule);padding:14px 28px;
+}
+.filters-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
+.f-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.f-lbl{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-low);white-space:nowrap;width:80px;flex-shrink:0;}
+.f-pills{display:flex;flex-wrap:wrap;gap:5px;flex:1;}
+.f-pill{
+  font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 10px;border-radius:2px;cursor:pointer;
+  border:1px solid var(--rule-hi);color:var(--ink-low);background:transparent;
+  user-select:none;white-space:nowrap;transition:all .12s;
+}
+.f-pill:hover{color:var(--ink);border-color:var(--ink-low);}
+.f-pill.on{color:var(--ibm);border-color:var(--ibm-line);background:var(--ibm-dim);}
+.f-pill-scroll{display:flex;gap:5px;overflow-x:auto;flex:1;scrollbar-width:none;padding-bottom:1px;}
+.f-pill-scroll::-webkit-scrollbar{display:none;}
+
+/* ── INDUSTRY PULSE ── */
+.ind-pulse{
+  position:relative;z-index:1;
+  background:var(--panel-2);border-bottom:1px solid var(--rule);padding:16px 28px;
+}
+.ind-pulse::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--ibm-deep);}
+.ind-inner{max-width:1200px;margin:0 auto;}
+.ind-hdr{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-low);margin-bottom:12px;display:flex;align-items:center;gap:12px;}
+.ind-hdr::after{content:'';flex:1;height:1px;background:var(--rule);}
+.ind-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.ind-signal{background:var(--panel);padding:12px 16px;position:relative;}
+.ind-signal::before{content:'';position:absolute;inset:0 auto 0 0;width:2px;background:var(--tc,var(--ibm));}
+.ind-tag{font-family:var(--mono);font-size:8.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  padding:1px 6px;display:inline-block;margin-bottom:6px;color:#fff;}
+.iv-aero{background:#6929c4;}
+.iv-infra{background:var(--ok);}
+.iv-health{background:var(--t2);}
+.iv-staffing{background:var(--ibm-deep);}
+.ind-headline{font-family:var(--display);font-weight:600;font-size:13px;line-height:1.25;color:var(--ink);margin-bottom:4px;}
+.ind-ibm-angle{font-size:11px;color:var(--ink-low);line-height:1.45;}
+
+/* ── MAIN WRAPPER ── */
+.main{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:32px 28px 64px;}
+
+/* ── GROUP HEADER ── */
+.group{margin-bottom:44px;}
+.group-hdr{display:flex;align-items:center;gap:16px;margin-bottom:18px;scroll-margin-top:92px;}
+.group-label{
+  font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  padding:4px 12px;border-radius:2px;white-space:nowrap;
+}
+.gl-t5{background:var(--t5);color:#000;}
+.gl-t4{background:var(--t4);color:#000;}
+.gl-t3{background:var(--t3);color:#fff;}
+.gl-t0{background:var(--panel-2);color:var(--ink-low);border:1px solid var(--rule-hi);}
+.g-rule{flex:1;height:1px;}
+.g-rule.t5{background:rgba(255,221,151,.2);}
+.g-rule.t4{background:rgba(247,166,62,.18);}
+.g-rule.t3{background:rgba(224,94,59,.18);}
+.g-rule.t0{background:var(--rule);}
+
+/* ── CARD ── */
+.card{
+  background:var(--panel);border:1px solid var(--rule);
+  border-radius:var(--radius);
+  display:grid;grid-template-columns:200px 1fr 230px;
+  margin-bottom:12px;overflow:hidden;
+  transition:border-color .18s,box-shadow .18s,transform .15s;
+  position:relative;
+  box-shadow:0 2px 16px rgba(0,0,0,.3);
+}
+.card:hover{
+  border-color:var(--rule-hi);
+  transform:translateY(-2px);
+  box-shadow:0 6px 28px rgba(0,0,0,.45);
+}
+.card::before{
+  content:'';position:absolute;inset:0 0 auto 0;height:3px;
+  background:var(--tc,var(--t0));z-index:2;
+  border-radius:var(--radius) var(--radius) 0 0;
+}
+.card::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--tc,var(--t0)) 8%,transparent) 0%,transparent 35%);z-index:0;}
+.card>*{position:relative;z-index:1;}
+.card.t5{--tc:var(--t5);}
+.card.t4{--tc:var(--t4);}
+.card.t3{--tc:var(--t3);}
+.card.t0{--tc:var(--t0);}
+@keyframes pulse-ring{
+  0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--t5) 50%,transparent);}
+  70%{box-shadow:0 0 0 5px transparent;}
+  100%{box-shadow:0 0 0 0 transparent;}
+}
+.card.t5 .cu-dot{animation:pulse-ring 2s ease-out infinite;}
+
+/* LEFT COL */
+.c-left{padding:16px 14px 14px;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:8px;}
+.c-acct-name{font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);line-height:1.2;letter-spacing:-.01em;}
+.c-meta{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--ink-low);line-height:1.5;}
+.c-urg{
+  display:inline-flex;align-items:center;gap:5px;align-self:flex-start;
+  font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 8px;border-radius:2px;border:1px solid;
+}
+.cu-t5{color:var(--t5);border-color:rgba(255,221,151,.4);background:rgba(255,221,151,.07);}
+.cu-t4{color:var(--t4);border-color:rgba(247,166,62,.4);background:rgba(247,166,62,.07);}
+.cu-t3{color:var(--t3);border-color:rgba(224,94,59,.4);background:rgba(224,94,59,.07);}
+.cu-t0{color:var(--ink-low);border-color:var(--rule-hi);background:transparent;}
+.cu-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;background:currentColor;box-shadow:0 0 5px currentColor;}
+.c-entry-section{display:flex;flex-direction:column;gap:3px;}
+.c-lbl{font-family:var(--mono);font-size:8.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);}
+.c-entry-badge{
+  font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  padding:3px 8px;border-radius:2px;display:inline-block;align-self:flex-start;
+}
+.br-data{background:var(--ibm-deep);color:#fff;}
+.br-auto{background:#198038;color:#fff;}
+.br-stor{background:#6929c4;color:#fff;}
+.br-pc{background:var(--t2);color:#fff;}
+.c-also{display:flex;flex-direction:column;gap:3px;}
+.c-also-item{display:flex;align-items:flex-start;gap:5px;}
+.c-brand-sm{
+  font-family:var(--mono);font-size:8px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:1px 5px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px;opacity:.8;
+}
+.c-also-txt{font-size:10.5px;color:var(--ink-low);line-height:1.35;}
+
+/* MID COL */
+.c-mid{padding:16px 16px 14px;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:10px;}
+.c-pulse{
+  font-size:12px;font-style:italic;color:var(--ink-mid);line-height:1.55;
+  padding-bottom:10px;border-bottom:1px solid var(--rule);
+}
+.c-section{display:flex;flex-direction:column;gap:4px;}
+.c-sec-lbl{font-family:var(--mono);font-size:8.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);}
+.c-bullets{list-style:none;display:flex;flex-direction:column;gap:4px;padding:0;}
+.c-bullets li{font-size:11.5px;color:var(--ink-mid);line-height:1.45;padding-left:14px;position:relative;}
+.c-bullets li::before{content:'—';position:absolute;left:0;color:var(--ibm-line);font-size:10px;top:2px;}
+.c-angle{
+  border-left:2px solid var(--ibm);padding:9px 12px;
+  background:linear-gradient(90deg,var(--ibm-dim),transparent 80%);
+  border-radius:0 2px 2px 0;
+}
+.c-angle-lbl{font-family:var(--mono);font-size:8.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ibm);margin-bottom:4px;}
+.c-angle-txt{font-size:11.5px;color:var(--ink);line-height:1.5;}
+.c-talk{
+  border-left:2px solid var(--ok);padding:9px 12px;
+  background:linear-gradient(90deg,rgba(63,185,140,.08),transparent 80%);
+  border-radius:0 2px 2px 0;
+}
+.c-talk-lbl{font-family:var(--mono);font-size:8.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ok);margin-bottom:4px;}
+.c-talk-txt{font-size:11.5px;color:var(--ink-mid);line-height:1.5;font-style:italic;}
+
+/* RIGHT COL */
+.c-right{padding:16px 14px 14px;display:flex;flex-direction:column;gap:5px;}
+.c-who-lbl{font-family:var(--mono);font-size:8.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:5px;}
+.c-persona{display:flex;flex-direction:column;gap:2px;margin-bottom:6px;}
+.c-pbadge{
+  font-family:var(--mono);font-size:7.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  padding:1px 6px;border-radius:2px;display:inline-block;align-self:flex-start;
+}
+.pb-lead{background:var(--ibm-deep);color:#fff;}
+.pb-sec{background:var(--panel-3);color:var(--ink-mid);border:1px solid var(--rule-hi);}
+.pb-low{background:transparent;color:var(--ink-low);border:1px solid var(--rule);}
+.c-prole{font-family:var(--display);font-weight:600;font-size:13px;color:var(--ink);letter-spacing:-.005em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.c-pwhy{font-size:10px;color:var(--ink-low);line-height:1.35;}
+.c-divider{height:1px;background:var(--rule);margin:4px 0;}
+.c-actions{display:flex;gap:6px;margin-top:auto;padding-top:10px;}
+.c-btn{
+  font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  padding:6px 14px;border-radius:20px;white-space:nowrap;cursor:pointer;display:inline-block;
+  transition:all .14s;
+}
+.c-btn-intel{background:var(--ibm-deep);color:#fff;border:none;}
+.c-btn-intel:hover{background:var(--ibm);text-decoration:none;color:#fff;transform:translateY(-1px);}
+.c-btn-snav{background:transparent;color:var(--ibm);border:1px solid var(--ibm-line);}
+.c-btn-snav:hover{background:var(--ibm-dim);text-decoration:none;}
+
+/* ── SIDE DOCK ── */
+.side-dock{
+  position:fixed;right:16px;top:50%;transform:translateY(-50%);
+  z-index:400;display:flex;flex-direction:column;gap:2px;
+  background:var(--panel);border:1px solid var(--rule-hi);
+  border-radius:10px;padding:8px 6px;
+  box-shadow:0 4px 24px rgba(0,0,0,.5);
+  max-height:80vh;overflow-y:auto;scrollbar-width:none;
+}
+.side-dock::-webkit-scrollbar{display:none;}
+.sd-top{
+  display:flex;align-items:center;justify-content:center;
+  padding-bottom:7px;border-bottom:1px solid var(--rule);margin-bottom:2px;
+}
+.sd-label{font-family:var(--mono);font-size:7px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);}
+.sd-group{display:flex;flex-direction:column;}
+.sd-group-hdr{
+  display:flex;align-items:center;justify-content:space-between;gap:6px;
+  padding:5px 7px;border-radius:6px;cursor:pointer;
+  border:1px solid transparent;transition:background .13s;
+  user-select:none;min-width:104px;
+}
+.sd-group-hdr:hover{background:var(--panel-2);}
+.sd-group-hdr.open{background:var(--panel-2);border-color:var(--rule-hi);}
+.sd-tier{
+  font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:1px 6px;border-radius:3px;white-space:nowrap;
+}
+.sd-t5{background:var(--t5);color:#000;}
+.sd-t4{background:var(--t4);color:#000;}
+.sd-t3{background:var(--t3);color:#fff;}
+.sd-count{font-family:var(--mono);font-size:8px;color:var(--ink-low);}
+.sd-chevron{font-family:var(--mono);font-size:10px;color:var(--ink-low);transition:transform .18s;line-height:1;}
+.sd-group-hdr.open .sd-chevron{transform:rotate(90deg);}
+.sd-accts{
+  display:none;flex-direction:column;gap:1px;
+  padding:3px 0 3px 6px;border-left:2px solid var(--rule-hi);margin-left:10px;
+}
+.sd-group.open .sd-accts{display:flex;}
+.sd-acct{
+  font-family:var(--mono);font-size:8px;letter-spacing:.03em;
+  color:var(--ink-mid);padding:4px 7px;border-radius:4px;
+  text-decoration:none;white-space:nowrap;max-width:110px;
+  overflow:hidden;text-overflow:ellipsis;
+  transition:color .12s,background .12s;border:1px solid transparent;
+}
+.sd-acct:hover{color:var(--ibm);background:var(--ibm-dim);border-color:var(--ibm-line);text-decoration:none;}
+.sd-acct.active{color:var(--ibm);font-weight:600;}
+.sd-group.in-view .sd-group-hdr{border-color:var(--rule-hi);}
+.sd-group.in-view .sd-tier.sd-t5{box-shadow:0 0 6px rgba(255,221,151,.5);}
+.sd-group.in-view .sd-tier.sd-t4{box-shadow:0 0 6px rgba(247,166,62,.5);}
+.sd-group.in-view .sd-tier.sd-t3{box-shadow:0 0 6px rgba(224,94,59,.5);}
+
+/* ── FOOTER ── */
+.page-footer{
+  position:relative;z-index:1;
+  border-top:1px solid var(--rule);padding:24px 28px;
+  text-align:center;
+  font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-low);
+}
+
+/* ── FILTER JS HIDE ── */
+.card[data-hidden="true"]{display:none;}
+.group[data-empty="true"]{display:none;}
+</style>
+</head>
+<body>
+
+<!-- ── TOP NAV ── -->
+<nav class="topnav">
+  <div class="tn-left">
+    <span class="tn-ibm">IBM</span>
+    <div class="tn-div"></div>
+    <span class="tn-title">SE Horizon</span>
+    <span class="tn-badge">Phase 1</span>
+  </div>
+  <div class="tn-links">
+    <a href="phase1.html" class="active">Account Radar</a>
+    <a href="phase2.html">Intel Brief</a>
+    <a href="phase3.html">My Accounts</a>
+    <span class="tn-sep">·</span>
+    <a href="#" class="sub">Data &amp; AI</a>
+    <a href="#" class="sub">Automation</a>
+    <a href="#" class="sub">Storage</a>
+    <a href="#" class="sub">Power &amp; Cloud</a>
+  </div>
+  <span class="tn-right">South Florida · Edition 05 · Aug 17, 2026</span>
+</nav>
+
+<!-- ── JUMP BAR ── -->
+<div class="jumpbar">
+  <div class="jb-jumps">
+    <a href="#grp-t5" class="jb-jump t5">Strike <span class="jb-count t5" id="cnt-t5">2</span></a>
+    <a href="#grp-t4" class="jb-jump t4">Engage <span class="jb-count t4" id="cnt-t4">7</span></a>
+    <a href="#grp-t3" class="jb-jump t3">Standby <span class="jb-count t3" id="cnt-t3">18</span></a>
+  </div>
+  <span class="jb-right" id="jb-right-txt">27 accounts · All Batches · Aug 4 – Aug 17, 2026</span>
+</div>
+
+<!-- ── MASTHEAD ── -->
+<div class="masthead">
+  <div class="mh-inner">
+    <div class="mh-left">
+      <div class="mh-eye">Account Intelligence Platform</div>
+      <div class="mh-title">SE Horizon: Account Radar<span>Phase 1 &nbsp;·&nbsp; Urgency-Sorted &nbsp;·&nbsp; Edition 05 &nbsp;·&nbsp; All 27 Accounts</span></div>
+      <div class="mh-sub">Coverage: Aug 4 – Aug 17, 2026 &nbsp;·&nbsp; Territory 26 &nbsp;·&nbsp; South Florida &nbsp;·&nbsp; Monday Morning Briefing</div>
+    </div>
+    <div class="mh-stats">
+      <div class="mh-stat">
+        <div class="mh-stat-n">27</div>
+        <div class="mh-stat-l">Accounts</div>
+      </div>
+      <div class="mh-stat">
+        <div class="mh-stat-n">3</div>
+        <div class="mh-stat-l">Strike</div>
+      </div>
+      <div class="mh-stat">
+        <div class="mh-stat-n">14</div>
+        <div class="mh-stat-l">Engage</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FILTER STRIP ── -->
+<div class="filters">
+  <div class="filters-inner">
+    <div class="f-row">
+      <span class="f-lbl">Urgency</span>
+      <div class="f-pills">
+        <span class="f-pill on" data-filter="urgency" data-val="t5">Strike</span>
+        <span class="f-pill on" data-filter="urgency" data-val="t4">Engage</span>
+        <span class="f-pill on" data-filter="urgency" data-val="t3">Standby</span>
+      </div>
+    </div>
+    <div class="f-row">
+      <span class="f-lbl">Brand</span>
+      <div class="f-pills">
+        <span class="f-pill on" data-filter="brand" data-val="all">All</span>
+        <span class="f-pill" data-filter="brand" data-val="data-ai">Data &amp; AI</span>
+        <span class="f-pill" data-filter="brand" data-val="automation">Automation</span>
+        <span class="f-pill" data-filter="brand" data-val="storage">Storage</span>
+        <span class="f-pill" data-filter="brand" data-val="power-cloud">Power &amp; Cloud</span>
+      </div>
+    </div>
+    <div class="f-row">
+      <span class="f-lbl">Account</span>
+      <div class="f-pill-scroll">
+        <span class="f-pill on" data-filter="account" data-val="all">All</span>
+        <span class="f-pill" data-filter="account" data-val="heico">HEICO</span>
+        <span class="f-pill" data-filter="account" data-val="mastec">MasTec</span>
+        <span class="f-pill" data-filter="account" data-val="dycom">Dycom</span>
+        <span class="f-pill" data-filter="account" data-val="memorial">Memorial / SBHD</span>
+        <span class="f-pill" data-filter="account" data-val="nclh">NCLH</span>
+        <span class="f-pill" data-filter="account" data-val="kforce">Kforce</span>
+        <span class="f-pill" data-filter="account" data-val="chewy">Chewy</span>
+        <span class="f-pill" data-filter="account" data-val="seaworld">SeaWorld</span>
+        <span class="f-pill" data-filter="account" data-val="herc">Herc Rentals</span>
+        <span class="f-pill" data-filter="account" data-val="sgws">Southern Glazer's</span>
+        <span class="f-pill" data-filter="account" data-val="citco">Citco</span>
+        <span class="f-pill" data-filter="account" data-val="frontline">Frontline Ins.</span>
+        <span class="f-pill" data-filter="account" data-val="odp">ODP / Office Depot</span>
+        <span class="f-pill" data-filter="account" data-val="icahn">Icahn Enterprises</span>
+        <span class="f-pill" data-filter="account" data-val="lennar">Lennar</span>
+        <span class="f-pill" data-filter="account" data-val="lenmar">Lennar Mortgage</span>
+        <span class="f-pill" data-filter="account" data-val="jmf">JM Family</span>
+        <span class="f-pill" data-filter="account" data-val="hexfed">Hexagon Federal</span>
+        <span class="f-pill" data-filter="account" data-val="octave">Octave</span>
+        <span class="f-pill" data-filter="account" data-val="pellera">Pellera</span>
+        <span class="f-pill" data-filter="account" data-val="ansco">ANSCO</span>
+        <span class="f-pill" data-filter="account" data-val="dmab">Data Mgmt. Brevard</span>
+        <span class="f-pill" data-filter="account" data-val="hexmin">Hexagon Mining</span>
+        <span class="f-pill" data-filter="account" data-val="hig">H.I.G. Capital</span>
+        <span class="f-pill" data-filter="account" data-val="bk">Burger King / RBI</span>
+        <span class="f-pill" data-filter="account" data-val="chicos">Chico's / KnitWell</span>
+        <span class="f-pill" data-filter="account" data-val="sbhd">S. Broward Hospital</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── INDUSTRY PULSE ── -->
+<div class="ind-pulse">
+  <div class="ind-inner">
+    <div class="ind-hdr">Market Pulse — Edition 05 · Aug 17, 2026 · Batches 1–2</div>
+    <div class="ind-grid">
+      <div class="ind-signal" style="--tc:var(--t5)">
+        <span class="ind-tag iv-aero">Aerospace &amp; Defense</span>
+        <div class="ind-headline">HEICO Q3 results Aug 25 — quiet period starts this week; last outreach window today</div>
+        <div class="ind-ibm-angle">Two consecutive acquisitions (AeroAntenna + prior). IBM Data Fabric as multi-entity integration layer. Act today.</div>
+      </div>
+      <div class="ind-signal" style="--tc:var(--ok)">
+        <span class="ind-tag iv-infra">Infrastructure</span>
+        <div class="ind-headline">MasTec record Q2 $4.4B + Dycom earnings Aug 20 — two live windows this week</div>
+        <div class="ind-ibm-angle">MasTec: post-record CFO receptive. Dycom: quiet period Wednesday. Both need IBM Data Fabric for multi-acquisition integration.</div>
+      </div>
+      <div class="ind-signal" style="--tc:var(--t2)">
+        <span class="ind-tag iv-health">Consumer / Hospitality</span>
+        <div class="ind-headline">SeaWorld Q2 miss: attendance -2.9%, EPS $1.78 vs $1.93 — SAP live but analytics gap open</div>
+        <div class="ind-ibm-angle">New SAP cost already expensed. IBM Planning Analytics fills the demand forecasting gap. Post-miss CFO needs a better planning story for Q3.</div>
+      </div>
+      <div class="ind-signal" style="--tc:var(--ibm-deep)">
+        <span class="ind-tag iv-staffing">Tech Staffing / E-Commerce</span>
+        <div class="ind-headline">Chewy Q2 results late August — AI live in production across 3 domains, governance gap open</div>
+        <div class="ind-ibm-angle">AI in customer service, personalization, pharmacy — CEO committed to AI margins. IBM AI Governance is the compliance layer needed before the call.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MAIN ── -->
+<div class="main">
+
+  <!-- STRIKE GROUP -->
+  <div class="group" id="grp-t5">
+    <div class="group-hdr">
+      <span class="group-label gl-t5">Strike</span>
+      <div class="g-rule t5"></div>
+    </div>
+
+    <!-- CARD: HEICO -->
+    <div class="card t5" data-urgency="t5" data-brands="data-ai storage power-cloud" data-account="heico">
+      <div class="c-left">
+        <div class="c-acct-name">HEICO Corporation</div>
+        <div class="c-meta">NYSE: HEI &nbsp;·&nbsp; Aerospace &amp; Defense &nbsp;·&nbsp; ~$5.5B rev</div>
+        <div class="c-urg cu-t5"><span class="cu-dot"></span>Strike: Q3 earnings Aug 25 — 8 days out</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-stor">Storage</span><span class="c-also-txt">Multi-acquisition data pipeline &amp; archive</span></div>
+          <div class="c-also-item"><span class="c-brand-sm br-data">AI Gov</span><span class="c-also-txt">ITAR/EAR compliance — AI governance layer</span></div>
+          <div class="c-also-item"><span class="c-brand-sm br-pc">Power &amp; Cloud</span><span class="c-also-txt">IBM Power10 — post-acquisition workload consolidation across two acquired IT stacks</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Q3 results drop August 25 — conference call August 26. Pre-call quiet period begins mid-week. AeroAntenna acquisition closed July 2026. Two consecutive acquisitions creating live IT integration needs right now."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>Q3 FY2026 results release Aug 25 (call Aug 26) — S-3ASR shelf filed Aug 10; CFO in planning mode</li>
+            <li>AeroAntenna acquisition closed July 2026 — second consecutive M&amp;A deal in 60 days</li>
+            <li>Q2 FY2026 record: net income +49%, revenue $1.38B (+25%), operating margin 25.5%</li>
+            <li>Stock +17% YTD — management confirmed healthy acquisition pipeline for H2 2026</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>M&amp;A integration lead and supply chain planner roles open post-AeroAntenna</li>
+            <li>Controller, IT systems admin roles active — post-acquisition back-office modernization</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">Two consecutive acquisitions = two separate IT stacks in integration. IBM Data Fabric as the multi-entity unification layer. Pre-earnings window (Aug 25) is open TODAY — this is the last clear outreach window before quiet period closes Wednesday.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"HEICO just closed two acquisitions back-to-back — we work with aerospace companies managing exactly this kind of multi-entity data challenge. Wanted to reach out ahead of your Q3 call with something specific."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CFO (Carlos Macau Jr.)</span>
+          <span class="c-pwhy">Pre-earnings window + multi-acquisition M&amp;A analytics</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CIO</span>
+          <span class="c-pwhy">Post-acquisition IT integration owner</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">VP Finance / FP&amp;A Director</span>
+          <span class="c-pwhy">Multi-acquisition reporting complexity owner</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">M&amp;A Integration Lead</span>
+          <span class="c-pwhy">Day-to-day AeroAntenna IT integration</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Compliance Lead</span>
+          <span class="c-pwhy">ITAR/EAR — AI governance bottom-up entry</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#heico">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A163065%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: MasTec -->
+    <div class="card t5" data-urgency="t5" data-brands="data-ai automation power-cloud" data-account="mastec">
+      <div class="c-left">
+        <div class="c-acct-name">MasTec Inc.</div>
+        <div class="c-meta">NYSE: MTZ &nbsp;·&nbsp; Infrastructure &nbsp;·&nbsp; $18.2B rev guidance</div>
+        <div class="c-urg cu-t5"><span class="cu-dot"></span>Strike: Record Q2 beat — post-earnings window</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span><span class="c-also-txt">Planning Analytics — $18.2B multi-segment FP&amp;A</span></div>
+          <div class="c-also-item"><span class="c-brand-sm br-pc">Power &amp; Cloud</span><span class="c-also-txt">IBM Power10 — data center electrical contractor segment; mission-critical infrastructure workloads</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Q2 2026 reported July 30 — record $4.4B revenue (+23% YoY), record backlog $21.4B (+$4.9B YoY). Superior Group acquisition closed. FY guidance raised to $18.2B. Stock +26% YTD. CFO in a positive mood — act now."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>Q2 reported Jul 30: record $4.4B revenue (+23% YoY), Adj. EPS $2.22 — both records</li>
+            <li>Record backlog $21.4B (+$4.9B YoY) — FY guidance raised to $18.2B revenue</li>
+            <li>Superior Group acquisition closed — electrical contracting + data center infrastructure added</li>
+            <li>Stock +26% YTD; Alex Spiro appointed to Board July 30</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Data integration architect roles active post-Superior Group acquisition</li>
+            <li>FP&amp;A roles scaling for multi-segment $18.2B guidance modeling</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">Post-record earnings = CFO in best possible mood. Five-segment business post-acquisition running $18.2B — IBM Planning Analytics is the command center. IBM Data Fabric as the Superior Group + existing data center acquisition integration layer.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"Congratulations on a record quarter — with Superior now closed and backlog at $21.4B, the FP&amp;A and data integration complexity at that scale is exactly where IBM has been helping infrastructure companies like MasTec."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CFO</span>
+          <span class="c-pwhy">Post-record earnings — most receptive window of the year</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CIO</span>
+          <span class="c-pwhy">Post-acquisition IT integration owner — Superior Group</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">VP Finance / FP&amp;A Director</span>
+          <span class="c-pwhy">Modeling $18.2B multi-segment guidance — needs better tools</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Project Data Manager</span>
+          <span class="c-pwhy">$21.4B backlog data — bottom-up analytics entry</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Integration Lead</span>
+          <span class="c-pwhy">Superior Group + data center acquisition IT integration</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#mastec">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A5350%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /group t5 -->
+
+  <!-- ENGAGE GROUP -->
+  <div class="group" id="grp-t4">
+    <div class="group-hdr">
+      <span class="group-label gl-t4">Engage</span>
+      <div class="g-rule t4"></div>
+    </div>
+
+    <!-- CARD: Dycom -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai storage automation power-cloud" data-account="dycom">
+      <div class="c-left">
+        <div class="c-acct-name">Dycom Industries Inc.</div>
+        <div class="c-meta">NYSE: DY &nbsp;·&nbsp; Telecom Infrastructure &nbsp;·&nbsp; $7.38B+ rev</div>
+        <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage: Q2 earnings call Aug 20 — 3 days</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-stor">Storage</span><span class="c-also-txt">Data center ops — two acquisitions building data infra</span></div>
+          <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span><span class="c-also-txt">BEAD compliance reporting automation</span></div>
+          <div class="c-also-item"><span class="c-brand-sm br-pc">Power &amp; Cloud</span><span class="c-also-txt">IBM Power Systems — workload infrastructure for two acquired data center operations</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Q2 FY2026 earnings call is August 20 — 3 days away. Pre-call quiet period starts mid-week. Power Solutions acquisition added data center electrical contracting. Record $11.9B backlog. Act today or wait until post-earnings window."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>Q2 FY2026 earnings call Aug 20 — pre-call outreach window closes Wednesday; act TODAY</li>
+            <li>Power Solutions acquisition: premier data center electrical contractor — new segment live</li>
+            <li>Prior $275M data center acquisition still integrating — two consecutive data center deals</li>
+            <li>Record backlog $11.9B (+46.5% YoY) — FP&amp;A and project data management at enterprise scale</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Field operations IT manager and integration lead roles active post-acquisition</li>
+            <li>FP&amp;A roles growing to manage multi-segment $7.38B+ guidance</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">Two data center acquisitions in 12 months = IBM Data Fabric as the integration backbone. Record $11.9B backlog requires IBM Planning Analytics — not spreadsheets. BEAD compliance reporting is an IBM Automation workflow play.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"With two data center acquisitions and a record $11.9B backlog going into your Q2 call Wednesday, I wanted to reach out before the quiet period — IBM is working with infrastructure companies managing exactly this kind of multi-segment data complexity."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CFO</span>
+          <span class="c-pwhy">Pre-earnings window + multi-segment FP&amp;A owner</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CIO</span>
+          <span class="c-pwhy">Post-acquisition IT integration — two data center deals</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">VP Finance / FP&amp;A Director</span>
+          <span class="c-pwhy">$11.9B backlog modeling + multi-segment consolidation</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Project Data Manager</span>
+          <span class="c-pwhy">BEAD and fiber project data — bottom-up analytics</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Integration Lead</span>
+          <span class="c-pwhy">Power Solutions + data center acquisition IT</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#dycom">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A19434%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: Memorial Healthcare / SBHD -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai" data-account="memorial">
+      <div class="c-left">
+        <div class="c-acct-name">Memorial Healthcare System</div>
+        <div class="c-meta">South Broward Hospital Dist. &nbsp;·&nbsp; Healthcare &nbsp;·&nbsp; $3.22B net patient rev</div>
+        <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage: IT Security Audit RFP — vendor selection imminent</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-data">Security</span><span class="c-also-txt">QRadar SIEM · Guardium · IAM — RFP active now</span></div>
+          <div class="c-also-item"><span class="c-brand-sm br-auto">Hybrid Cloud</span><span class="c-also-txt">Red Hat OpenShift — Epic to Azure migration</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Douglas Road ER opened this month — new attack surface live TODAY. IT Security Audit RFP (ransomware, IAM, ePHI) in active evaluation — vendor selection may be imminent. Epic on-prem to Azure migration progressing. This is a live RFP opportunity."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>IT Security Audit RFP (ransomware readiness, IAM, ePHI) in active evaluation — vendor selection this month</li>
+            <li>Douglas Road ER opened August 2026 — expanded attack surface; IT security procurement live</li>
+            <li>Epic on-prem to Azure cloud migration (RFP awarded) actively progressing — hybrid cloud integration</li>
+            <li>New SOC under planning — IBM QRadar SOAR opportunity in Q3/Q4 planning phase</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>IT security audit and IT infrastructure roles active — directly tied to ER and tower projects</li>
+            <li>Epic cloud migration project team roles being posted — hybrid cloud architect demand</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">IT Security Audit RFP is in active evaluation NOW — IBM Security / QRadar SIEM / Guardium is the direct fit. Prior HIPAA OCR settlement makes security hardening a board mandate. Epic to Azure = IBM Hybrid Cloud + Red Hat OpenShift as the integration layer.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"With your new Douglas Road ER just opening and the IT security audit RFP in evaluation, IBM has a complete story on ePHI protection, ransomware readiness, and Epic-to-cloud integration that maps directly to what Memorial is working through right now."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CIO / IT Security Director</span>
+          <span class="c-pwhy">IT Security Audit RFP owner + Epic migration sponsor</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CISO</span>
+          <span class="c-pwhy">Ransomware readiness + IAM RFP — HIPAA compliance</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">VP Information Technology</span>
+          <span class="c-pwhy">Epic Azure migration project + SOC buildout oversight</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Epic Project Lead</span>
+          <span class="c-pwhy">On-prem to Azure migration execution lead</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Director of Infrastructure</span>
+          <span class="c-pwhy">New ER IT infrastructure + Windows Server renewal</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#memorial">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A15052%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: NCLH -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai automation" data-account="nclh">
+      <div class="c-left">
+        <div class="c-acct-name">Norwegian Cruise Line Holdings</div>
+        <div class="c-meta">NYSE: NCLH &nbsp;·&nbsp; Hospitality &nbsp;·&nbsp; $2.53B Q2 rev</div>
+        <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage: post-Q2 beat window; Q3 occupancy 104%</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span><span class="c-also-txt">Planning Analytics — revenue &amp; demand modeling</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Q2 beat July 30: $2.53B revenue (+7% YoY), EPS $0.52. Q3 occupancy guidance set at 104%. Elliott activist stake still active. Stock at $19.55 (Aug 13, +3.3% that day). Three-brand data fragmentation persists — the conversation window is now."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>Q2 beat Jul 30: rev $2.53B (+7% YoY), EPS $0.52 — both ahead of consensus estimates</li>
+            <li>Q3 2026 occupancy guidance: ~104% — record wave season bookings driving above-capacity planning</li>
+            <li>Elliott activist stake still active — board cost discipline mandate ongoing; margin story is the pitch</li>
+            <li>Stock at $19.55 (Aug 13, +3.3%) — still undervalued per GuruFocus; investor sentiment cautiously improving</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Revenue management and data analytics roles hiring at Miami HQ</li>
+            <li>Cloud architect and platform engineering roles still active</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">Elliott is watching the margin story — IBM Data Fabric as the cost-takeout narrative for three-brand data fragmentation (NCL, Oceania, Regent). 104% occupancy in Q3 = revenue management analytics under peak pressure. IBM Planning Analytics for demand forecasting at scale.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"With 104% occupancy guidance for Q3 and Elliott watching the margin story, I wanted to reach out — IBM is helping multi-brand travel companies unify the data behind that narrative in a way that directly supports the board's cost discipline mandate."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CFO</span>
+          <span class="c-pwhy">Elliott pressure + margin story + post-beat window</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CIO</span>
+          <span class="c-pwhy">Three-brand platform modernization owner</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">Revenue Management Lead</span>
+          <span class="c-pwhy">104% Q3 occupancy — demand forecasting under peak pressure</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">FP&amp;A Director</span>
+          <span class="c-pwhy">Multi-brand financial scenario planning</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#nclh">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A2297%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: Kforce -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai automation" data-account="kforce">
+      <div class="c-left">
+        <div class="c-acct-name">Kforce Inc.</div>
+        <div class="c-meta">NASDAQ: KFRC &nbsp;·&nbsp; Tech Staffing &nbsp;·&nbsp; $349.3M Q2 rev</div>
+        <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage: Q3 guidance raised; AI pipeline +50% YoY</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span><span class="c-also-txt">Workforce demand forecasting — Planning Analytics</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Q2 2026 beat: revenue $349.3M (+4.5% YoY), EPS $0.73 vs $0.70 est. Q3 guidance $0.71–$0.79 EPS, ~$353M revenue — slightly above analyst estimates. AI/consulting placements confirmed as key growth driver. Stock steady at $57–58. Strongest quarter among professional staffing peers."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>Q2 beat: $349.3M (+4.5% YoY), EPS $0.73 — highest guidance raise among staffing peers</li>
+            <li>Q3 guidance ~$353M revenue, EPS $0.71–$0.79 — AI/consulting placements as primary growth driver</li>
+            <li>Data and AI pipeline still up ~50% YoY — Kforce's own AI governance needs grow with pipeline</li>
+            <li>William Blair labor report: temp help employment returned to positive — sector tailwind building</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>AI delivery and consulting roles growing — AI innovation studio scaling</li>
+            <li>Workforce analytics and FP&amp;A analyst roles active — internal data capability build</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">AI pipeline +50% YoY means Kforce's own AI governance needs grow with every placement. IBM AI Governance and watsonx are the tools Kforce's AI clients will need — making Kforce a co-sell partner and a direct prospect simultaneously.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"With your AI pipeline up 50% and the strongest guidance raise among your peers, I wanted to connect — IBM's AI Governance platform is what the enterprise clients Kforce is placing AI talent into will need, and we think there's a co-sell motion worth exploring."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CFO</span>
+          <span class="c-pwhy">Post-beat window + AI pipeline growth driving FP&amp;A needs</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CIO / CTO</span>
+          <span class="c-pwhy">AI innovation studio build — IBM watsonx fit</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">Chief Revenue Officer</span>
+          <span class="c-pwhy">AI co-sell motion — IBM + Kforce client overlap</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Workforce Planning Manager</span>
+          <span class="c-pwhy">Planning Analytics for talent demand forecasting</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#kforce">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A18877%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: Chewy -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai power-cloud" data-account="chewy">
+      <div class="c-left">
+        <div class="c-acct-name">Chewy Inc.</div>
+        <div class="c-meta">NYSE: CHWY &nbsp;·&nbsp; Pet E-Commerce &nbsp;·&nbsp; $3.36B Q1 rev</div>
+        <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage: Q2 results late August — AI live in prod</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-data">AI Gov</span><span class="c-also-txt">AI in pharmacy + health records — HIPAA-adjacent</span></div>
+          <div class="c-also-item"><span class="c-brand-sm br-pc">Power &amp; Cloud</span><span class="c-also-txt">IBM Hybrid Cloud — Modern Animal + e-comm unified architecture; multi-cloud data residency for vet health records</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Q2 FY2026 results expected late August — pre-call window opens now. AI live in production across customer service, personalization, and pharmacy. Modern Animal vet/telehealth integration active. CEO committed to AI-fueled margins as primary 2026–2027 driver. Governance gap is open."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>Q2 FY2026 results expected late August — pre-call window open NOW; analysts bullish EPS +37.5% YoY</li>
+            <li>AI live in production: customer service, personalization, pharmacy — CEO confirmed as primary margin driver</li>
+            <li>Modern Animal vet/telehealth integration active — two-platform data architecture challenge</li>
+            <li>20.8M active customers (+3.8% YoY) — personalization AI scale requires governance layer</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Personalization AI lead and data science roles active — AI production teams scaling</li>
+            <li>Vet platform tech lead and pharmacy compliance roles open post-Modern Animal integration</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">AI live in three production domains with no governance layer = IBM AI Governance is needed right now. Modern Animal creates a healthcare + e-commerce data architecture problem IBM Data Fabric solves. Pre-earnings window is the right moment to get in front of the CIO.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"With AI running live in customer service, personalization, and pharmacy — and a vet health platform now integrated — IBM AI Governance is the layer that makes all of that auditable before your next earnings call puts it in the spotlight."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CIO / CTO</span>
+          <span class="c-pwhy">AI governance across 3 production domains — owns the risk</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CFO</span>
+          <span class="c-pwhy">Pre-earnings window + AI margin commitment to analysts</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">Chief Data Officer</span>
+          <span class="c-pwhy">Modern Animal + e-comm data unification — Data Fabric</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Personalization AI Lead</span>
+          <span class="c-pwhy">20.8M customer AI personalization — governance entry</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#chewy">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A3497540%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: Herc Rentals — Strike (post-beat, raised guidance) -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai automation" data-account="herc">
+      <div class="c-left">
+        <div class="c-acct-name">Herc Rentals / Herc Holdings</div>
+        <div class="c-meta">NYSE: HRI &nbsp;·&nbsp; Equipment Rental &nbsp;·&nbsp; $1.20B Q2 rev</div>
+        <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage: Q2 beat +88% EPS — 2026 guidance raised</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span><span class="c-also-txt">Planning Analytics — fleet utilization &amp; demand forecasting</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Q2 2026 reported July 28 — revenue $1.20B (+20.2% YoY), EPS $1.43 vs $0.76 est (+88.2% beat). H&amp;E integration synergies delivering. 2026 guidance raised. Post-earnings window is open this week — CFO is in positive mode."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>Q2 beat Jul 28: $1.20B revenue (+20.2% YoY), EPS $1.43 vs $0.76 est — 88.2% EPS beat</li>
+            <li>H&amp;E Equipment IT integration complete — synergies delivering; 2026 guidance raised</li>
+            <li>Dollar utilization improved 100bps to 39.3% — fleet analytics and demand forecasting needs growing</li>
+            <li>$838.4M share repurchase program completed — capital allocation decisions now refocused on growth</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Fleet planning manager and utilization analyst roles active — enterprise-scale fleet management</li>
+            <li>FP&amp;A analyst roles growing — CFO managing raised EBITDA guidance for combined entity</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">H&amp;E integration complete = enterprise data unification need NOW. IBM Data Fabric as the combined entity analytics layer. Fleet utilization analytics and demand forecasting are direct IBM watsonx.data use cases — post-beat CFO is most receptive this week.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"Congratulations on the Q2 beat — with H&amp;E now integrated and guidance raised, this is exactly the window where IBM helps equipment rental companies turn integration synergies into a real analytics advantage. Can we find 20 minutes this week?"</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CFO</span>
+          <span class="c-pwhy">Post-beat + raised guidance — most receptive window now</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CIO</span>
+          <span class="c-pwhy">H&amp;E IT integration complete — next step is analytics unification</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">VP Finance / FP&amp;A Director</span>
+          <span class="c-pwhy">Modeling raised $4.275–4.4B guidance — needs better tools</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Fleet Planning Manager</span>
+          <span class="c-pwhy">Utilization analytics — IBM watsonx.data entry point</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#herc">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A2848055%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: SGWS -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai power-cloud" data-account="sgws">
+      <div class="c-left">
+        <div class="c-acct-name">Southern Glazer's Wine &amp; Spirits</div>
+        <div class="c-meta">Private &nbsp;·&nbsp; Beverage Distribution &nbsp;·&nbsp; ~$25B+ rev</div>
+        <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage: AI transformation live — governance gap open</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-data">AI Gov</span><span class="c-also-txt">Proof Commerce AI live — governance layer needed now</span></div>
+          <div class="c-also-item"><span class="c-brand-sm br-pc">Power &amp; Cloud</span><span class="c-also-txt">IBM Power Systems — ~$25B private ERP &amp; distribution core infrastructure; proven footprint at beverage distribution scale</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Proof Commerce AI platform is live and scaling — inside sales replacing field reps for independent accounts. 220 job cuts tied to AI confirmed. RNDC territory fallout reshaping competitor landscape. Adding new brand portfolio (Beluga, Oyster Gin, Palm Republic Rum). CFO-level AI ROI conversation is the entry point."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>Proof Commerce AI platform scaling — inside sales replacing field reps for independent accounts</li>
+            <li>RNDC competitor fallout reshaping distribution territory — market share opportunity for SGWS</li>
+            <li>New brand additions: Beluga Vodka, Oyster Gin, Palm Republic Rum — portfolio complexity growing</li>
+            <li>Private company: no earnings pressure — tech investment decisions driven by operational ROI</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Customer Solutions Team (inside sales) growing as Proof Commerce scales nationally</li>
+            <li>Data analytics and compliance analyst roles active amid regulatory and pricing complexity</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">Proof Commerce is live AI with no governance layer — IBM AI Governance is the only credible compliance pitch at this scale. IBM watsonx.data as the intelligence layer behind the AI model. Post-restructuring CFO laser-focused on AI ROI — IBM frames the ROI story.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"Proof Commerce is a live AI system making customer-facing decisions for thousands of independent accounts — IBM AI Governance is what makes that auditable and defensible at the regulatory and board level. I'd like to show you what that looks like in practice."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CFO</span>
+          <span class="c-pwhy">AI ROI mandate — Proof Commerce is his cost justification</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CIO / CTO</span>
+          <span class="c-pwhy">Proof Commerce platform owner — AI governance entry</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">VP Data Analytics</span>
+          <span class="c-pwhy">Data and AI platform intelligence layer — watsonx.data fit</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Compliance Manager</span>
+          <span class="c-pwhy">Three-tier distribution regulatory complexity — AI governance</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#sgws">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A10408%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /group t4 -->
+
+  <!-- STANDBY GROUP -->
+  <div class="group" id="grp-t3">
+    <div class="group-hdr">
+      <span class="group-label gl-t3">Standby</span>
+      <div class="g-rule t3"></div>
+    </div>
+
+    <!-- CARD: SeaWorld -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai automation" data-account="seaworld">
+      <div class="c-left">
+        <div class="c-acct-name">SeaWorld / United Parks &amp; Resorts</div>
+        <div class="c-meta">NYSE: PRKS &nbsp;·&nbsp; Theme Parks &nbsp;·&nbsp; $483.3M Q2 rev</div>
+        <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby: Q2 miss — post-earnings regroup window</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span><span class="c-also-txt">Planning Analytics — attendance vs. per-capita modeling</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Q2 2026 just reported — revenue $483.3M (1.4% miss), EPS $1.78 vs $1.93 est. Attendance -2.9%, but in-park per-capita spending hit a record $39.51 (+5.1%). New SAP system cost already being expensed. The attendance-vs-revenue bifurcation is exactly the IBM Planning Analytics story."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>Q2 miss: $483.3M (-1.4% YoY), EPS $1.78 vs $1.93 — attendance -2.9%; per-capita record $39.51 (+5.1%)</li>
+            <li>New SAP system live and being amortized — added to operating expenses in Q2</li>
+            <li>Management leaning on Howl-O-Scream (Q3) and new IP partnerships — revenue diversification signal</li>
+            <li>Epic Universe (Universal) competition intensifying — SeaWorld needs data-driven differentiation</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Revenue management and guest analytics roles growing as attendance volatility increases</li>
+            <li>Finance team needs park-level planning models for attendance, pricing, and per-capita spend</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">SAP is live — but SAP doesn't do the attendance forecasting and per-capita revenue modeling SeaWorld needs. IBM Planning Analytics fills that gap. Post-miss CFO is in active scenario planning mode — ideal timing to show what better demand forecasting looks like.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"Q2 showed a classic attendance-per-capita split — that's a planning model problem, not a marketing one. IBM Planning Analytics is what theme park operators use to model those two levers together and build scenarios for Q3 ahead of Howl-O-Scream season."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CFO</span>
+          <span class="c-pwhy">Post-miss scenario planning — needs better demand modeling tools</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CIO</span>
+          <span class="c-pwhy">New SAP live — IBM Planning Analytics as complementary layer</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">VP Revenue Management</span>
+          <span class="c-pwhy">Attendance vs. per-capita bifurcation owner — direct pitch</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Guest Experience Tech Lead</span>
+          <span class="c-pwhy">Digital guest journey analytics — bottom-up AI entry</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#seaworld">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A1653128%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: Citco -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai" data-account="citco">
+      <div class="c-left">
+        <div class="c-acct-name">Citco Group</div>
+        <div class="c-meta">Private &nbsp;·&nbsp; Fund Administration &nbsp;·&nbsp; $70.4B H1 AUM inflows</div>
+        <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby: Legacy modernization live — SVP Sales role open</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-data">AI Gov</span><span class="c-also-txt">SEC/AIFMD/ESG disclosure — AI governance layer</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Record $70.4B H1 2026 AUM inflows — more funds, more data sources, more consolidation complexity. SVP Sales &amp; BD role still actively recruiting — growth mandate confirmed. Legacy modernization statement from executive still active. No new public signals Aug 4–17."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>Record $70.4B H1 2026 AUM inflows — data consolidation pressure growing with every new fund</li>
+            <li>SVP Sales &amp; BD role still open — senior growth mandate and new executive relationships forming</li>
+            <li>Fund operations and data governance roles open across global offices</li>
+            <li>PE fund admin market: $4T+ AUM expected to double by 2027 — platform scale demands growing</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Investor reporting technology leads being recruited — platform modernization signal</li>
+            <li>Data governance and compliance tech roles open globally — SEC/AIFMD/ESG complexity</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">Record H1 inflows = the pain is NOW — IBM Data Fabric is the solution to consolidation complexity they are actively experiencing. SVP Sales hire = new executive window forming. IBM Manta for data lineage answers the specific client question fund managers are asking under FCA CP25/2.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"With $70.4B in new AUM inflows this half, the data consolidation challenge across Citco's multi-fund, multi-jurisdiction platform is exactly the problem IBM Data Fabric was built to solve — and IBM Manta gives you the data lineage story your clients are asking for under FCA CP25/2."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CIO / CTO</span>
+          <span class="c-pwhy">Legacy modernization mandate — Data Fabric platform owner</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">Head of Data / CDO</span>
+          <span class="c-pwhy">AUM inflow data consolidation — direct IBM Data Fabric pitch</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">Compliance Director</span>
+          <span class="c-pwhy">SEC/AIFMD/ESG reporting — IBM AI Governance + Manta</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Data Governance Lead</span>
+          <span class="c-pwhy">Investor reporting platform modernization — bottom-up</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#citco">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A3439%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: Frontline Insurance -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai" data-account="frontline">
+      <div class="c-left">
+        <div class="c-acct-name">Frontline Insurance Managers</div>
+        <div class="c-meta">Private &nbsp;·&nbsp; Florida P&amp;C Insurance &nbsp;·&nbsp; 5-state expansion</div>
+        <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby: FIRE entity IT build active — actuarial entry</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span><span class="c-also-txt">Planning Analytics — actuarial &amp; rate adequacy modeling</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"FIRE reciprocal exchange entity (rated BBB+ by KBRA, May 2026) is still building its IT infrastructure — platform decisions being made this quarter. Florida property insurance rate decreases implementing for first time since 2015. Improved economics = tech investment window open."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>FIRE entity IT infrastructure build active — platform decisions being made this quarter</li>
+            <li>Florida insurance market rate decreases implementing — first time since 2015; margin recovery window</li>
+            <li>5-state expansion adding multi-state compliance filing complexity</li>
+            <li>KBRA BBB+ rating (May 2026) signals institutional credibility — vendor conversations opening up</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Actuarial analyst and risk modeling manager roles active</li>
+            <li>IT and data analytics roles being added for FIRE entity standup</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">FIRE entity IT infrastructure decisions being made NOW — IBM Planning Analytics for actuarial modeling and rate adequacy scenario planning. Rate decrease environment = improved economics and willingness to invest. IBM AI Governance required for any AI-assisted underwriting under Florida DOI review.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"With FIRE's IT infrastructure taking shape and Florida rates finally moving in your favor, this is the right window to talk about IBM Planning Analytics for actuarial and rate adequacy modeling — before the platform decisions lock in for the year."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CFO / Chief Actuary</span>
+          <span class="c-pwhy">FIRE entity platform decisions — rate modeling owner</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CIO</span>
+          <span class="c-pwhy">FIRE entity IT infrastructure build — platform selection</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">Compliance Lead</span>
+          <span class="c-pwhy">5-state multi-jurisdiction regulatory filing complexity</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Actuarial Analyst</span>
+          <span class="c-pwhy">Rate adequacy and risk modeling — Planning Analytics entry</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#frontline">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A2523441%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BATCH 4: ODP, Icahn, Lennar, Lennar Mortgage ── -->
+
+    <!-- CARD: ODP / Office Depot -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai automation" data-account="odp">
+      <div class="c-left">
+        <div class="c-acct-name">Office Depot / ODP Corporation</div>
+        <div class="c-meta">Private (Atlas Holdings) &nbsp;·&nbsp; Office Products &amp; B2B &nbsp;·&nbsp; Boca Raton FL</div>
+        <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby: New CEO + private ownership — clean entry</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span><span class="c-also-txt">B2B procurement workflow — ODP Business Solutions</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"ODP went private under Atlas Holdings (Dec 2025). New CEO Craig Gunckel named. NASDAQ delisted. Atlas strategy: 'renewed focus and discipline.' All vendor relationships under review. IT stack rationalization active. This is a clean-slate IBM entry — no legacy baggage."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>Private under Atlas Holdings since Dec 2025 — CEO Craig Gunckel building new leadership team</li>
+            <li>All vendor relationships under review — IBM has a clean, uncontested entry opportunity</li>
+            <li>Focus on two core businesses: Office Depot OfficeMax retail + ODP Business Solutions B2B</li>
+            <li>No quarterly earnings pressure — Atlas backing enables long-term technology investment decisions</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>B2B analytics and procurement technology leads being hired — B2B pivot driving new roles</li>
+            <li>IT rationalization roles posted as Atlas consolidates the platform post-acquisition</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">New CEO + private ownership = all vendor relationships open. IBM Planning Analytics for B2B revenue forecasting and cost modeling. IBM Automation for procurement workflow. No earnings pressure means decisions can be made on long-term value — IBM's strongest footing.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"With Atlas's focus on building ODP Business Solutions into the core growth engine, IBM has helped B2B distribution companies modernize procurement analytics and workflow automation in exactly the way Atlas's playbook calls for — would love to get 20 minutes with Craig's team."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CEO (Craig Gunckel)</span>
+          <span class="c-pwhy">New leadership — all vendor decisions flow through him</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CFO</span>
+          <span class="c-pwhy">Atlas EBITDA mandate — cost discipline and modeling tools</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CIO</span>
+          <span class="c-pwhy">IT stack rationalization under new ownership</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">B2B Analytics Lead</span>
+          <span class="c-pwhy">ODP Business Solutions — Planning Analytics entry</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#odp">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A3492%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: Icahn Enterprises -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai automation" data-account="icahn">
+      <div class="c-left">
+        <div class="c-acct-name">Icahn Enterprises LP</div>
+        <div class="c-meta">NASDAQ: IEP &nbsp;·&nbsp; Diversified Holdings &nbsp;·&nbsp; $3.0B Q2 rev</div>
+        <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby: Q2 reported Aug 5 — post-earnings window open</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span><span class="c-also-txt">Planning Analytics — multi-segment FP&amp;A consolidation</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Q2 reported Aug 5 — revenue $3.0B (up from $2.4B YoY), but net loss widened to -$355M. CVR Energy remains the swing factor. $0.50/unit distribution payable Sept 23. Record of holders is today (Aug 17). Post-earnings window is open — CFO is in active multi-segment scenario planning mode."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>Q2 reported Aug 5: revenue $3.0B (+25% YoY), net loss -$355M — multi-segment reporting complexity live</li>
+            <li>$0.50/unit distribution payable Sept 23 — record date TODAY (Aug 17); CFO focused on capital allocation</li>
+            <li>CVR Energy (71% owned) remains swing factor — crack spread and refining margin volatility</li>
+            <li>Indicative NAV decreased $765M from Q1 — board-level pressure on data transparency and governance</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Segment finance lead and enterprise data lead roles active across divisions</li>
+            <li>Portfolio operations manager being recruited — centralized oversight of multi-segment portfolio</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">Five segments — energy, automotive, pharma, real estate, food packaging — all requiring unified analytics. IBM Planning Analytics as the multi-entity consolidation command center. Post-loss quarters mean every segment number must be traceable — IBM AI Governance for board-level reporting defensibility.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"Managing five segments — each with different drivers — in one reporting structure is exactly where IBM Planning Analytics creates the most value. With Q2 results just published and CVR driving the variability, I'd like to show you what unified scenario planning looks like at IEP's scale."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CFO</span>
+          <span class="c-pwhy">Post-Q2 window — multi-segment consolidation owner</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CIO</span>
+          <span class="c-pwhy">IT centralization across five segments — Data Fabric</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">Segment Finance Lead</span>
+          <span class="c-pwhy">CVR + food packaging FP&amp;A — Planning Analytics entry</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Enterprise Data Lead</span>
+          <span class="c-pwhy">Portfolio data unification — IBM Data Fabric play</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#icahn">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A12432%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: Lennar -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai automation power-cloud" data-account="lennar">
+      <div class="c-left">
+        <div class="c-acct-name">Lennar Corporation</div>
+        <div class="c-meta">NYSE: LEN &nbsp;·&nbsp; Homebuilding &nbsp;·&nbsp; Miami FL &nbsp;·&nbsp; ~$33B rev</div>
+        <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby: Q3 earnings soon — EPS est -34.5% YoY</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span><span class="c-also-txt">Planning Analytics — rate scenario modeling &amp; FP&amp;A</span></div>
+          <div class="c-also-item"><span class="c-brand-sm br-pc">Power &amp; Cloud</span><span class="c-also-txt">IBM Hybrid Cloud — Lead Cloud Engineer hiring confirms modernization; Red Hat OpenShift for homebuilder app platform</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Q3 earnings approaching — analysts expect EPS $1.31 (-34.5% YoY). Mortgage rates back to ~6.5%. Land-light model under pressure from affordability headwinds. CFO is actively running rate scenarios. 512 open roles signals investment appetite despite miss. Pre-earnings outreach window is open now."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>Q3 earnings approaching — EPS est $1.31 (-34.5% YoY); CFO in active scenario-planning mode</li>
+            <li>Mortgage rates back to ~6.5% — affordability pressure forcing incentives and ASP reductions</li>
+            <li>Q3 guidance: ~85,000 home deliveries, ASP $375–$380K — land-light model stress-tested</li>
+            <li>512 open roles — cloud engineer and FP&amp;A roles confirm modernization budget exists</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Lead Cloud Engineer and Senior Accountant (Miami) — modernization investment ongoing</li>
+            <li>FP&amp;A and finance analyst roles scaling — rate scenario modeling workload growing</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">Rate pressure + declining EPS = CFO running multiple rate and incentive scenarios monthly. IBM Planning Analytics replaces the Excel models and gives real-time visibility across 7 homebuilding segments. Pre-Q3 earnings window is the right time — CFO receptive to cost-takeout narrative.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"With mortgage rates back to 6.5% and Q3 delivery guidance under pressure, the CFO at Lennar is running more rate scenarios than ever — IBM Planning Analytics is what homebuilders use to model those scenarios across all seven segments without rebuilding Excel every time rates move."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CFO</span>
+          <span class="c-pwhy">Rate scenario modeling — active pressure pre-Q3 earnings</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CIO</span>
+          <span class="c-pwhy">Cloud engineer hiring — modernization budget confirmed</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">VP Finance / FP&amp;A Director</span>
+          <span class="c-pwhy">7-segment financial consolidation — Planning Analytics fit</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Financial Modeler</span>
+          <span class="c-pwhy">Rate and incentive scenario modeling — bottom-up entry</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#lennar">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A4605%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: Lennar Mortgage -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai power-cloud" data-account="lenmar">
+      <div class="c-left">
+        <div class="c-acct-name">Lennar Mortgage</div>
+        <div class="c-meta">Lennar Financial Services &nbsp;·&nbsp; Mortgage &nbsp;·&nbsp; Miami FL</div>
+        <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby: CFPB AI lending rules — compliance clock ticking</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span><span class="c-also-txt">Workflow automation — digital mortgage + compliance</span></div>
+          <div class="c-also-item"><span class="c-brand-sm br-pc">Power &amp; Cloud</span><span class="c-also-txt">IBM Cloud — digital mortgage platform modernization; hybrid cloud for loan origination data residency &amp; compliance</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Financial Services segment ~-$57M in Q2 — elevated rates crushing origination margins. CFPB AI risk guidance active: any AI-assisted underwriting or decisioning requires explainability framework. Top 4 Tech All-Star Award (2026) signals innovation-receptive CIO. Compliance deadline is the urgency anchor."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>FS segment ~-$57M in Q2 — mortgage rates at 6.5% compressing origination margins and volume</li>
+            <li>CFPB AI in lending guidance active — AI-assisted underwriting requires explainability audit trail</li>
+            <li>Top 4 Tech All-Star Award (2026) — innovation-receptive IT leadership confirmed</li>
+            <li>Parent Lennar Q3 earnings approaching — financial services under pressure to show improvement</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Digital mortgage and compliance technology leads being recruited</li>
+            <li>Risk analytics manager and underwriting manager roles open</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">CFPB AI mandate is a hard compliance deadline — IBM AI Governance is the explainability framework for AI-assisted mortgage decisioning. Tech All-Star CIO is receptive to innovation. Margin pressure makes automation and cost-takeout messaging resonate at the CFO level.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"The CFPB's AI lending guidance means any AI touching underwriting or pricing decisions needs an explainability trail — IBM AI Governance is how Top 4 mortgage companies are building that compliance layer before the regulators ask for it."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CIO</span>
+          <span class="c-pwhy">Tech All-Star — receptive to IBM AI Governance pitch</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CFO</span>
+          <span class="c-pwhy">FS segment loss — automation and cost-takeout narrative</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">Compliance Tech Lead</span>
+          <span class="c-pwhy">CFPB AI lending rule — explainability framework owner</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Risk Analytics Manager</span>
+          <span class="c-pwhy">AI underwriting risk model governance — bottom-up entry</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#lennarmtg">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A4605%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BATCH 5: JM Family, Hexagon Federal, Octave, Pellera ── -->
+
+    <!-- CARD: JM Family -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai automation power-cloud" data-account="jmf">
+      <div class="c-left">
+        <div class="c-acct-name">JM Family Enterprises</div>
+        <div class="c-meta">Private &nbsp;·&nbsp; Automotive Distribution &nbsp;·&nbsp; Deerfield Beach FL</div>
+        <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby: CFO transition + GenAI pilot active</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span><span class="c-also-txt">Planning Analytics — Toyota EV inventory &amp; FP&amp;A</span></div>
+          <div class="c-also-item"><span class="c-brand-sm br-pc">Power &amp; Cloud</span><span class="c-also-txt">IBM Power Systems — existing footprint; EV transition modernization is the $200M Power10 upgrade &amp; hybrid cloud expansion window</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"CFO transition still active — new finance leadership window remains open for IBM Planning Analytics pitch. GenAI intern program confirmed internally. Toyota EV lineup expansion keeping supply chain and inventory complexity elevated. Private company — monitor hiring signals for timing."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>CFO transition in progress — new finance leadership window open; IBM Planning Analytics is the pitch</li>
+            <li>GenAI intern program active internally — AI investment appetite confirmed at executive level</li>
+            <li>Southeast Toyota Distributors: EV inventory complexity growing — supply chain analytics demand live</li>
+            <li>No new public signals — hiring patterns are the monitoring channel for a private company</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>IT and data engineering roles open at Deerfield Beach HQ</li>
+            <li>Finance and FP&amp;A analyst roles active — budget planning modernization interest confirmed</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">CFO transition is still the primary window — every week that passes without outreach is a missed opportunity. GenAI pilot signals IBM watsonx and Planning Analytics are the natural next conversation. Multi-division structure creates a Data Fabric opportunity for Toyota EV and F&amp;I data consolidation.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"With a CFO transition underway and Toyota's EV lineup adding new inventory complexity across Southeast Toyota Distributors, IBM Planning Analytics is what JM Family's finance team needs to model multiple EV adoption scenarios without rebuilding spreadsheets every quarter."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CFO (incoming)</span>
+          <span class="c-pwhy">Transition window — new leader open to new vendor relationships</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CIO</span>
+          <span class="c-pwhy">GenAI pilot owner — IBM watsonx next logical conversation</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">VP Finance / FP&amp;A Director</span>
+          <span class="c-pwhy">Multi-division EV scenario planning — Planning Analytics fit</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">GenAI Program Lead</span>
+          <span class="c-pwhy">Intern program sponsor — watsonx governance entry</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#jmf">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A5765%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: Hexagon Federal -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai" data-account="hexfed">
+      <div class="c-left">
+        <div class="c-acct-name">Hexagon Federal</div>
+        <div class="c-meta">Private &nbsp;·&nbsp; Government Technology &nbsp;·&nbsp; Federal IT</div>
+        <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby: Compass 2026 conference Aug 25–27</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-data">Security</span><span class="c-also-txt">CMMC / zero-trust — OMB AI policy compliance</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Compass 2026 federal user conference is August 25–27 — 8 days away. Pre-conference outreach window closes this week. OMB AI policy mandates are live. Federal technology leaders will be receptive to IBM AI Governance and Security conversations. Send the 'see you at Compass' message today."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>Compass 2026 federal conference Aug 25–27 — 8 days out; pre-event outreach window closes this week</li>
+            <li>OMB AI policy mandates live — all federal vendors must comply; IBM AI Governance is a direct fit</li>
+            <li>DoD contracts active — federal technology budgets remain open under FY2027 planning cycle</li>
+            <li>CMMC Phase II requirements — compliance complexity creating IBM Security entry point</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Program manager and capture lead roles active — federal contract pursuit pipeline growing</li>
+            <li>Cybersecurity engineer roles open — CMMC compliance expansion</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">Compass conference is the anchor — "Are you attending Compass? We'd love to connect on OMB AI policy compliance" is the opener. IBM AI Governance aligns with federal AI mandates. Security plays tie directly to CMMC and zero-trust. Coordinate with Pellera (IBM partner, CMMC RPO) for a co-sell approach.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"Are you attending Compass next week? We've been working with federal technology vendors on OMB AI policy compliance and would love to connect on how IBM AI Governance maps to what your DoD clients are going to require."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CIO / VP Federal Programs</span>
+          <span class="c-pwhy">Compass conference anchor — OMB AI policy compliance owner</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">Capture Lead</span>
+          <span class="c-pwhy">DoD contract pursuits — IBM as differentiator in federal bids</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">Cybersecurity Engineer</span>
+          <span class="c-pwhy">CMMC compliance — IBM Security / zero-trust bottom-up</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Systems Integrator</span>
+          <span class="c-pwhy">Geospatial AI platform — IBM watsonx integration entry</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#hexfed">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A163065%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: Octave -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai" data-account="octave">
+      <div class="c-left">
+        <div class="c-acct-name">Octave (formerly Hexagon ALI)</div>
+        <div class="c-meta">Independent (May 2026 spinoff) &nbsp;·&nbsp; Industrial Software &nbsp;·&nbsp; SaaS</div>
+        <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby: Post-spinoff IT build — procurement window peak</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span><span class="c-also-txt">Red Hat OpenShift — clean-slate IT platform build</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Now 3+ months post-spinoff from Hexagon AB (completed May 2026). Independent IT stack procurement is at its peak — decisions being locked in now. Platform engineering and cloud architect roles still open. New Octave brand identity established. No prior IBM relationship — clean entry, no baggage."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>3+ months post-spinoff — IT procurement and stack decisions being made and locked in now</li>
+            <li>Platform engineering and cloud architect roles still open — IT build actively underway</li>
+            <li>Progressive TSL Elite Channel Partner named — ecosystem and partner strategy building</li>
+            <li>New CTO and engineering leadership being established — relationship window open</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Cloud architect and platform engineering roles active — SaaS transition accelerating</li>
+            <li>Capture manager and federal sales leads open — government vertical expansion</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">Post-spinoff IT build window is OPEN and closing. Red Hat OpenShift as the clean-slate platform. IBM AI Governance for the industrial AI platform they are building. New procurement team has no legacy IBM relationship — ideal clean entry before decisions lock.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"Post-spinoff is the moment when platform decisions get made that last a decade. IBM has helped industrial software companies like Octave stand up Red Hat OpenShift as the infrastructure layer that scales with their SaaS model — would love to show you what that looks like."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CTO / CIO</span>
+          <span class="c-pwhy">Post-spinoff IT platform decision — clean entry, no legacy</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CFO</span>
+          <span class="c-pwhy">New entity budget allocation — IBM long-term platform value</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">Platform Engineering Lead</span>
+          <span class="c-pwhy">Red Hat OpenShift as the SaaS infra layer — direct fit</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Cloud Architect</span>
+          <span class="c-pwhy">IT stack decisions — OpenShift and AI governance entry</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#octave">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A163065%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: Pellera Technologies -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai" data-account="pellera">
+      <div class="c-left">
+        <div class="c-acct-name">Pellera Technologies</div>
+        <div class="c-meta">IBM Partner / MSP &nbsp;·&nbsp; CMMC RPO &nbsp;·&nbsp; CRN #34</div>
+        <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby: IBM co-sell partner — Compass 2026 coordination</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-data">Security</span><span class="c-also-txt">CMMC RPO — IBM Security co-sell into federal accounts</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"IBM Edge of IT podcast feature (July) with IBM's Chris Bailey. CRN #34 ranking. IBM hackathon co-hosting. CMMC RPO status aligns with Compass 2026 pre-event outreach. This is a co-sell call — joint account planning ahead of Compass this week is the action item."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>IBM Edge of IT podcast feature (July 2026) — executive visibility and IBM partnership depth confirmed</li>
+            <li>CRN Solution Provider 500 #34 — active, growing co-sell partner with IBM revenue momentum</li>
+            <li>Co-hosting IBM hackathons — deepening IBM practice investment; watsonx and Power Systems active</li>
+            <li>CMMC RPO status + Compass 2026 (Aug 25–27) — joint federal outreach window is this week</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>IBM practice lead and hybrid cloud architect roles open — IBM practice growing</li>
+            <li>Defense practice lead being recruited — CMMC RPO expansion into federal accounts</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">Active IBM co-sell partner — joint account planning call this week ahead of Compass 2026. CMMC RPO status + IBM Security portfolio = co-sell motion for federal accounts. Podcast feature signals executive access and receptivity to IBM collaboration at the highest level.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"With Compass next week and your CMMC RPO status, I wanted to get on a call this week to align on the IBM joint story for Hexagon Federal and any other federal accounts we can approach together — let's find 30 minutes."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">IBM Practice Lead</span>
+          <span class="c-pwhy">Co-sell coordination — Compass 2026 joint account planning</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">VP Alliances</span>
+          <span class="c-pwhy">IBM partnership depth — watsonx and Power co-sell strategy</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">Defense Practice Lead</span>
+          <span class="c-pwhy">CMMC RPO + IBM Security — federal co-sell motion</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Hybrid Cloud Architect</span>
+          <span class="c-pwhy">IBM OpenShift + watsonx deployment — technical alignment</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#pellera">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A163065%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BATCH 6: ANSCO, DMAB, Hexagon Mining, HIG Capital ── -->
+
+    <!-- CARD: ANSCO -->
+    <div class="card t3" data-urgency="t3" data-brands="automation data-ai" data-account="ansco">
+      <div class="c-left">
+        <div class="c-acct-name">ANSCO &amp; Associates Inc.</div>
+        <div class="c-meta">Dycom Subsidiary &nbsp;·&nbsp; Telecom Engineering &nbsp;·&nbsp; Palm Harbor FL</div>
+        <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby: Parent Dycom Q2 earnings Aug 20 — co-monitor</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-auto">Automation</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-data">Data &amp; AI</span><span class="c-also-txt">Data Fabric — 60+ decentralized field offices</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Parent Dycom Q2 earnings call is Aug 20 — ANSCO's engineering pipeline is growing proportionally with Dycom's record $11.9B backlog. BEAD broadband funding accelerating project procurements across multiple states. Primary outreach path runs through Dycom parent account."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>Parent Dycom Q2 earnings Aug 20 — ANSCO volume growing with $11.9B parent backlog</li>
+            <li>BEAD funding releasing project procurements — field engineering capacity under pressure</li>
+            <li>60+ offices and 1,200+ employees managing accelerating BEAD and 5G project volume</li>
+            <li>Dycom also presenting at Broadband Communities Summit Aug 25–27 — BEAD momentum confirmed</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Field operations manager and workforce scheduling lead roles across regions</li>
+            <li>Outside plant engineering leads growing — 5G densification driving expansion</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">Dycom parent's record backlog means ANSCO is under capacity pressure — IBM Automation for workforce scheduling across 60+ field offices. BEAD compliance reporting creates IBM AI Governance entry through Dycom parent. Coordinate this account through the Dycom SE.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"With BEAD project volume ramping across 60+ ANSCO offices, IBM Automation for workforce scheduling and project management is what prevents the capacity crunch from becoming a delivery problem — best approached through the Dycom account team."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">Field Operations Manager</span>
+          <span class="c-pwhy">Workforce scheduling — IBM Automation direct use case</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CIO (via Dycom parent)</span>
+          <span class="c-pwhy">Coordinate ANSCO through Dycom account team</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">Workforce Scheduling Lead</span>
+          <span class="c-pwhy">BEAD project ramp — IBM Automation entry point</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">IT Systems Admin</span>
+          <span class="c-pwhy">60+ decentralized offices — Data Fabric unification</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#ansco">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A880528%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: Data Mgmt. Brevard -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai storage" data-account="dmab">
+      <div class="c-left">
+        <div class="c-acct-name">Data Mgmt. Associates of Brevard</div>
+        <div class="c-meta">Private IBM MSP &nbsp;·&nbsp; z/OS Mainframe &nbsp;·&nbsp; Melbourne FL</div>
+        <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby: IBM Z modernization wave — co-sell account</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-stor">Storage</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-data">Data &amp; AI</span><span class="c-also-txt">IBM Z modernization — hybrid cloud bridge architecture</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Private IBM mainframe MSP serving Space Coast federal clients. IBM Z modernization wave and COBOL talent shortage continue to drive managed services demand. This is a co-sell and channel account — coordinate with IBM partner team this week ahead of Compass 2026."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>IBM Z mainframe modernization wave active — federal clients evaluating hybrid cloud bridge now</li>
+            <li>COBOL talent shortage creating managed services demand growth for DMAB</li>
+            <li>Space Coast DoD/NASA base stable — federal technology budgets protected</li>
+            <li>Co-sell coordination with IBM partner team is the action item ahead of Compass 2026</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>z/OS systems programmer roles active — mainframe talent demand growing</li>
+            <li>Hybrid cloud architect roles being added for federal clients transitioning to hybrid</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">IBM Z modernization and Storage co-sell: DMAB brings Space Coast federal clients into IBM pipeline. CMMC RPO and federal security — DMAB is a channel multiplier into NASA, DoD, and contractors. Call the IBM partner team this week ahead of Compass.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"With Compass coming up next week, I wanted to connect on DMAB's federal client base — IBM Z modernization and Storage are the right plays for Space Coast, and I think we have a co-sell story worth aligning on before the conference."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">IBM Partner Team</span>
+          <span class="c-pwhy">Co-sell coordination — call IBM partner desk this week</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CIO / IT Director</span>
+          <span class="c-pwhy">Hybrid cloud bridge — IBM Z modernization conversation</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">Federal Contract Manager</span>
+          <span class="c-pwhy">Space Coast DoD/NASA — IBM federal portfolio alignment</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">z/OS Systems Programmer</span>
+          <span class="c-pwhy">Mainframe modernization — technical bottom-up entry</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#dmab">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A163065%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: Hexagon Mining -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai storage" data-account="hexmin">
+      <div class="c-left">
+        <div class="c-acct-name">Hexagon Mining</div>
+        <div class="c-meta">Hexagon AB subsidiary &nbsp;·&nbsp; Mining Technology Software</div>
+        <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby: MinePlan 2026 live — copper price tailwind</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-stor">Storage</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-data">Data &amp; AI</span><span class="c-also-txt">Data Fabric — mining operations data pipeline</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"MinePlan 2026 Release 1 live — Scenario Management in Schedule Optimiser 14.5. Copper at ~$6.13/lb sustaining mining capex expansion. 5x Mining Magazine Award shortlist. Background monitoring account — IBM Storage co-sell through mining customer base is the primary angle."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>MinePlan 2026 R1 live — Scenario Management in Schedule Optimiser 14.5 available to customers</li>
+            <li>Copper at ~$6.13/lb — mining operators accelerating capex and technology budgets</li>
+            <li>5x Mining Magazine Award shortlist — product momentum and vendor credibility strong</li>
+            <li>Critical minerals demand (copper, lithium, cobalt) creating global mining investment wave</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Mining operations leads and fleet analytics managers recruited globally</li>
+            <li>Autonomy engineers and safety technology leads open as HxGN Mine platform scales</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">MinePlan R1 launch is a conversation starter — align IBM Storage to data pipeline needs from mine-floor sensors to cloud. Copper price tailwind = expanding IT budgets at major mining customers they serve. Mining Magazine Award shortlist = vendor credibility moment for partnership discussions.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"Congratulations on the MinePlan 2026 R1 release — IBM Storage and Data Fabric are what mining technology platforms use to manage the data pipeline from field sensors to enterprise analytics at the scale your customers operate."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CIO / CTO</span>
+          <span class="c-pwhy">MinePlan platform data pipeline — IBM Storage fit</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">Mining Operations Lead</span>
+          <span class="c-pwhy">Fleet analytics and autonomy — IBM Data Fabric entry</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">VP Alliances / Partnerships</span>
+          <span class="c-pwhy">IBM co-sell through mining customer base</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Fleet Analytics Manager</span>
+          <span class="c-pwhy">HxGN Mine platform — watsonx.data analytics entry</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#hexmin">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A163065%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: H.I.G. Capital -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai" data-account="hig">
+      <div class="c-left">
+        <div class="c-acct-name">H.I.G. Capital Inc.</div>
+        <div class="c-meta">Private Equity &nbsp;·&nbsp; ~$69B AUM &nbsp;·&nbsp; Miami FL &nbsp;·&nbsp; 153 portfolio cos.</div>
+        <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby: H2 M&amp;A recovery — portfolio analytics needs growing</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span><span class="c-also-txt">Planning Analytics — 153-company FP&amp;A consolidation</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"~$69B AUM, 153 portfolio companies. H2 2026 middle-market M&amp;A recovery accelerating — deal volume and complexity rising simultaneously. Portfolio analytics lead and FP&amp;A manager roles still open. LP ESG reporting mandates intensifying. No new public signals — hiring is the monitoring channel."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>H2 2026 middle-market M&amp;A recovery accelerating — deal flow and reporting complexity growing</li>
+            <li>Portfolio analytics lead and FP&amp;A manager roles still open — internal data capability build underway</li>
+            <li>LP ESG and performance reporting mandates intensifying — SEC private fund rules tightening</li>
+            <li>AI-assisted due diligence tools proliferating — H.I.G. must govern AI used in investment decisioning</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Quantitative analyst and data science roles appearing — AI in investment decisioning is live</li>
+            <li>ESG reporting specialist roles open — LP ESG mandate creating new data infrastructure needs</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">IBM Planning Analytics as the FP&amp;A intelligence layer across 153 portfolio companies — multi-entity consolidation. IBM AI Governance fits PE firms using AI in investment decisioning under new SEC rules. LP ESG reporting mandate creates IBM Data Fabric opportunity for cross-portfolio data unification.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"With 153 portfolio companies and deal flow accelerating in H2, the FP&amp;A consolidation and LP reporting complexity at H.I.G. is exactly what IBM Planning Analytics and Data Fabric are built for — and the SEC's new private fund reporting rules make AI governance a compliance priority now."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CFO</span>
+          <span class="c-pwhy">153-portfolio FP&amp;A consolidation — Planning Analytics owner</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CTO / Head of Technology</span>
+          <span class="c-pwhy">AI in investment decisioning — IBM AI Governance fit</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">Portfolio Analytics Lead</span>
+          <span class="c-pwhy">Cross-portfolio monitoring — IBM watsonx.data entry</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">LP Relations Lead</span>
+          <span class="c-pwhy">ESG reporting — IBM Data Fabric for LP data unification</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#hig">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A28523%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BATCH 7: Burger King, Chico's/KnitWell, South Broward Hospital ── -->
+
+    <!-- CARD: Burger King / RBI -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai automation" data-account="bk">
+      <div class="c-left">
+        <div class="c-acct-name">Burger King / RBI</div>
+        <div class="c-meta">NYSE: QSR &nbsp;·&nbsp; QSR / Restaurant &nbsp;·&nbsp; Miami FL HQ</div>
+        <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby: Strong Q2 — BK U.S. outperformed industry +9pts</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span><span class="c-also-txt">Franchise analytics — 16,570 restaurants, 5 brands</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Q2 reported Aug 6 — strong results: 3%+ global comp sales, double-digit earnings growth. BK U.S. outperformed burger QSR industry by 9 points. 21st consecutive quarter of positive international comps. AI headset pilot live in stores. 5% net restaurant growth target by 2028. Post-earnings engagement window open."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>Q2 Aug 6: strong — 3%+ global comp sales, double-digit earnings growth, BK U.S. +9pts vs industry</li>
+            <li>21st consecutive quarter of positive international comps — franchise data complexity at global scale</li>
+            <li>5% net restaurant growth by 2028 — 1,800+ new restaurants/yr generating new data volume</li>
+            <li>AI headset pilot live in stores — IBM AI Governance needed to scale store-level AI responsibly</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Restaurant technology and franchise analytics roles open across brands</li>
+            <li>Digital ordering lead being recruited — digital channel investment accelerating</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">AI headset is live in stores — IBM AI Governance is the compliance layer for scaling store-level AI across 16,570 restaurants. 5-brand, multi-segment data at global franchise scale is an IBM Data Fabric use case. Post-strong-earnings CFO is in positive, forward-thinking mode.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"Congratulations on 21 consecutive quarters of international comp growth — with the AI headset pilot live and 5% restaurant growth targeted through 2028, IBM AI Governance is how you scale that store-level AI responsibly across 16,570 locations without creating a compliance liability."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CIO / CTO</span>
+          <span class="c-pwhy">AI headset pilot owner — governance scaling is the pitch</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CFO</span>
+          <span class="c-pwhy">Post-strong-earnings window — Data Fabric ROI narrative</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">Restaurant Technology Lead</span>
+          <span class="c-pwhy">AI headset + digital ordering — IBM AI Governance entry</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Franchise Analytics Manager</span>
+          <span class="c-pwhy">16,570-restaurant data — IBM Data Fabric at franchise scale</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#bk">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A166764%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: Chico's FAS / KnitWell -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai automation" data-account="chicos">
+      <div class="c-left">
+        <div class="c-acct-name">Chico's FAS / KnitWell Group</div>
+        <div class="c-meta">Sycamore Partners (PE) &nbsp;·&nbsp; Retail Apparel &nbsp;·&nbsp; 8 brands &nbsp;·&nbsp; ~$6B</div>
+        <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby: Fall merchandise buying decisions underway now</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span><span class="c-also-txt">Planning Analytics — 8-brand merchandise planning</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"Fall merchandise buying decisions being made NOW across 8 brands and 1,250+ stores. IT platform standardization active across KnitWell portfolio. Sycamore PE ownership keeps strict EBITDA targets in place. Merchandise planning lead and demand forecasting roles still open."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>Fall merchandise and inventory decisions being made NOW — Planning Analytics timing is ideal</li>
+            <li>IT platform standardization across 8 brands still active — influence platform decisions before lock-in</li>
+            <li>Sycamore PE ownership: strict EBITDA targets driving cost discipline and ROI mandate</li>
+            <li>Merchandise planning lead and demand forecasting manager roles still open</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>Merchandise planning lead and demand forecasting manager roles open</li>
+            <li>IT integration roles posted as KnitWell standardizes systems across brands</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">8-brand financial consolidation is a textbook IBM Planning Analytics use case. IT platform standardization decisions being made this quarter — window to become the analytics standard. Sycamore EBITDA mandate means CFO is under pressure to model and hit planning targets precisely.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"With fall buying decisions underway across 8 brands and Sycamore expecting precise EBITDA performance, IBM Planning Analytics is how KnitWell's finance team models merchandise and demand scenarios across all brands without rebuilding spreadsheets for each one."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CFO</span>
+          <span class="c-pwhy">Sycamore EBITDA mandate — 8-brand planning model owner</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CIO</span>
+          <span class="c-pwhy">IT platform standardization across 8 brands — IBM fit</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">Merchandise Planning Lead</span>
+          <span class="c-pwhy">Fall buying cycle — Planning Analytics direct use case</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">Demand Forecasting Manager</span>
+          <span class="c-pwhy">8-brand demand modeling — IBM Planning Analytics entry</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#chicos">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A11398%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SBHD ── -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai" data-account="sbhd">
+      <div class="c-left">
+        <div class="c-acct-name">South Broward Hospital District</div>
+        <div class="c-meta">Public Health System &nbsp;·&nbsp; Healthcare &nbsp;·&nbsp; $3.22B net patient rev &nbsp;·&nbsp; S&P AA</div>
+        <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby: IT Security Audit RFP in active evaluation — security + AI window open</div>
+        <div class="c-entry-section">
+          <div class="c-lbl">Lead With</div>
+          <span class="c-entry-badge br-data">Data &amp; AI</span>
+        </div>
+        <div class="c-also">
+          <div class="c-lbl">Also Relevant</div>
+          <div class="c-also-item"><span class="c-brand-sm br-data">Data &amp; AI</span><span class="c-also-txt">IBM Security (QRadar SIEM) — ePHI ransomware &amp; IAM</span></div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-pulse">"IT Security Audit RFP is in active evaluation now — ransomware defense, IAM, and ePHI compliance are the stated drivers. Epic-to-Azure cloud migration is live and expanding. Windows Server renewal cycle imminent. SOC buildout is planned. This is an IBM Security + watsonx entry with the urgency of a live procurement."</div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Top Signals</div>
+          <ul class="c-bullets">
+            <li>IT Security Audit RFP in active evaluation — ransomware, IAM, ePHI compliance are stated priorities (live procurement)</li>
+            <li>Epic-to-Azure cloud migration live and expanding — hybrid AI and data governance opportunity</li>
+            <li>Windows Server renewal cycle imminent — infrastructure modernization in motion</li>
+            <li>SOC buildout planned — QRadar SIEM / IBM Security is a direct fit</li>
+          </ul>
+        </div>
+        <div class="c-section">
+          <div class="c-sec-lbl">Hiring Signals</div>
+          <ul class="c-bullets">
+            <li>IT Security Analyst and IAM Engineer roles posted — confirming active SOC/security buildout</li>
+            <li>Cloud Infrastructure Engineer roles open — Epic-Azure migration team scaling up</li>
+          </ul>
+        </div>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-txt">Live IT Security RFP is a direct QRadar SIEM entry — ePHI ransomware protection and IAM are textbook IBM Security use cases. Epic-to-Azure migration creates a hybrid data governance and watsonx platform opportunity. AA credit rating and $3.22B scale means budget and infrastructure appetite both exist.</div>
+        </div>
+        <div class="c-talk">
+          <div class="c-talk-lbl">Suggested Talk Track</div>
+          <div class="c-talk-txt">"With your IT Security Audit RFP active and Epic migrating to Azure, IBM Security gives South Broward a unified SIEM, IAM, and ePHI ransomware defense layer — and our watsonx platform plugs directly into your Azure environment so you're not building a separate AI stack on top of your new cloud infrastructure."</div>
+        </div>
+      </div>
+      <div class="c-right">
+        <div class="c-who-lbl">Who to Call</div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-lead">Lead</span>
+          <span class="c-prole">CISO / VP Information Security</span>
+          <span class="c-pwhy">IT Security RFP owner — ransomware, IAM, SOC buildout</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">CIO</span>
+          <span class="c-pwhy">Epic-Azure migration sponsor — hybrid cloud &amp; AI platform decision</span>
+        </div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-sec">Secondary</span>
+          <span class="c-prole">VP of IT / Director Infrastructure</span>
+          <span class="c-pwhy">Windows Server renewal + SOC buildout — IBM infrastructure fit</span>
+        </div>
+        <div class="c-divider"></div>
+        <div class="c-persona">
+          <span class="c-pbadge pb-low">Below C</span>
+          <span class="c-prole">IT Security Analyst</span>
+          <span class="c-pwhy">QRadar SIEM evaluation — ePHI and ransomware use cases</span>
+        </div>
+        <div class="c-actions">
+          <a class="c-btn c-btn-intel" href="phase2.html#sbhd">Full Intel →</a>
+          <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A164682%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /group t3 -->
+
+</div><!-- /main -->
+
+<!-- ── SIDE DOCK ── -->
+<nav class="side-dock" id="side-dock">
+  <div class="sd-top"><span class="sd-label">Nav</span></div>
+
+  <div class="sd-group open" data-tier="t5">
+    <div class="sd-group-hdr open" data-tier-toggle="t5">
+      <span class="sd-tier sd-t5">Strike</span>
+      <span class="sd-count">2</span>
+      <span class="sd-chevron">›</span>
+    </div>
+    <div class="sd-accts">
+      <a class="sd-acct" href="#" data-acct-scroll="heico">HEICO</a>
+      <a class="sd-acct" href="#" data-acct-scroll="mastec">MasTec</a>
+    </div>
+  </div>
+
+  <div class="sd-group" data-tier="t4">
+    <div class="sd-group-hdr" data-tier-toggle="t4">
+      <span class="sd-tier sd-t4">Engage</span>
+      <span class="sd-count">7</span>
+      <span class="sd-chevron">›</span>
+    </div>
+    <div class="sd-accts">
+      <a class="sd-acct" href="#" data-acct-scroll="dycom">Dycom</a>
+      <a class="sd-acct" href="#" data-acct-scroll="memorial">Memorial / SBHD</a>
+      <a class="sd-acct" href="#" data-acct-scroll="nclh">NCLH</a>
+      <a class="sd-acct" href="#" data-acct-scroll="kforce">Kforce</a>
+      <a class="sd-acct" href="#" data-acct-scroll="chewy">Chewy</a>
+      <a class="sd-acct" href="#" data-acct-scroll="herc">Herc Rentals</a>
+      <a class="sd-acct" href="#" data-acct-scroll="sgws">Southern Glazer's</a>
+    </div>
+  </div>
+
+  <div class="sd-group" data-tier="t3">
+    <div class="sd-group-hdr" data-tier-toggle="t3">
+      <span class="sd-tier sd-t3">Standby</span>
+      <span class="sd-count">18</span>
+      <span class="sd-chevron">›</span>
+    </div>
+    <div class="sd-accts">
+      <a class="sd-acct" href="#" data-acct-scroll="seaworld">SeaWorld / PRKS</a>
+      <a class="sd-acct" href="#" data-acct-scroll="citco">Citco</a>
+      <a class="sd-acct" href="#" data-acct-scroll="frontline">Frontline Ins.</a>
+      <a class="sd-acct" href="#" data-acct-scroll="odp">ODP / Office Depot</a>
+      <a class="sd-acct" href="#" data-acct-scroll="icahn">Icahn Enterprises</a>
+      <a class="sd-acct" href="#" data-acct-scroll="lennar">Lennar</a>
+      <a class="sd-acct" href="#" data-acct-scroll="lenmar">Lennar Mortgage</a>
+      <a class="sd-acct" href="#" data-acct-scroll="jmf">JM Family</a>
+      <a class="sd-acct" href="#" data-acct-scroll="hexfed">Hexagon Federal</a>
+      <a class="sd-acct" href="#" data-acct-scroll="octave">Octave</a>
+      <a class="sd-acct" href="#" data-acct-scroll="pellera">Pellera</a>
+      <a class="sd-acct" href="#" data-acct-scroll="ansco">ANSCO</a>
+      <a class="sd-acct" href="#" data-acct-scroll="dmab">Data Mgmt. Brevard</a>
+      <a class="sd-acct" href="#" data-acct-scroll="hexmin">Hexagon Mining</a>
+      <a class="sd-acct" href="#" data-acct-scroll="hig">H.I.G. Capital</a>
+      <a class="sd-acct" href="#" data-acct-scroll="bk">Burger King / RBI</a>
+      <a class="sd-acct" href="#" data-acct-scroll="chicos">Chico's / KnitWell</a>
+      <a class="sd-acct" href="#" data-acct-scroll="sbhd">S. Broward Hospital</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── FOOTER ── -->
+<div class="page-footer">
+  Made with IBM Bob &nbsp;·&nbsp; SE Horizon &nbsp;·&nbsp; Phase 1 &nbsp;·&nbsp; Edition 05 &nbsp;·&nbsp; All 27 Accounts &nbsp;·&nbsp; Aug 17, 2026 &nbsp;·&nbsp; Coverage: Aug 4 – Aug 17, 2026
+</div>
+
+<script>
+// ── FILTER ENGINE ─────────────────────────────────────────────
+(function(){
+  var state = { urgency: { t5: true, t4: true, t3: true }, brand: 'all', account: 'all' };
+
+  function applyFilters() {
+    var cards = document.querySelectorAll('.card');
+    cards.forEach(function(card) {
+      var urg = card.getAttribute('data-urgency');
+      var brands = card.getAttribute('data-brands') || '';
+      var acct = card.getAttribute('data-account');
+
+      var showUrg = state.urgency[urg] !== false;
+      var showBrand = (state.brand === 'all') || brands.split(' ').indexOf(state.brand) !== -1;
+      var showAcct = (state.account === 'all') || (acct === state.account);
+
+      card.setAttribute('data-hidden', (!showUrg || !showBrand || !showAcct) ? 'true' : 'false');
+    });
+
+    // Hide empty groups
+    var groups = document.querySelectorAll('.group');
+    groups.forEach(function(grp) {
+      var visible = grp.querySelectorAll('.card:not([data-hidden="true"])');
+      grp.setAttribute('data-empty', visible.length === 0 ? 'true' : 'false');
+    });
+  }
+
+  document.querySelectorAll('.f-pill').forEach(function(pill) {
+    pill.addEventListener('click', function() {
+      var filter = pill.getAttribute('data-filter');
+      var val = pill.getAttribute('data-val');
+
+      if (filter === 'urgency') {
+        if (val === 'all') {
+          state.urgency = { t5: true, t4: true, t3: true };
+          document.querySelectorAll('[data-filter="urgency"]').forEach(function(p){ p.classList.add('on'); });
+        } else {
+          state.urgency[val] = !state.urgency[val];
+          pill.classList.toggle('on');
+        }
+      } else if (filter === 'brand') {
+        state.brand = val;
+        document.querySelectorAll('[data-filter="brand"]').forEach(function(p){ p.classList.remove('on'); });
+        pill.classList.add('on');
+      } else if (filter === 'account') {
+        state.account = val;
+        document.querySelectorAll('[data-filter="account"]').forEach(function(p){ p.classList.remove('on'); });
+        pill.classList.add('on');
+      }
+
+      applyFilters();
+        });
+      });
+    })();
+    
+    // ── SIDE DOCK: accordion + scroll-to + IntersectionObserver ──
+    (function(){
+      document.addEventListener('DOMContentLoaded', function(){
+    
+        // accordion toggle
+        document.querySelectorAll('[data-tier-toggle]').forEach(function(hdr){
+          hdr.addEventListener('click', function(){
+            var tier = hdr.getAttribute('data-tier-toggle');
+            var group = document.querySelector('.sd-group[data-tier="'+tier+'"]');
+            if(!group) return;
+            var isOpen = group.classList.contains('open');
+            document.querySelectorAll('.sd-group').forEach(function(g){
+              g.classList.remove('open');
+              g.querySelector('.sd-group-hdr').classList.remove('open');
+            });
+            if(!isOpen){
+              group.classList.add('open');
+              hdr.classList.add('open');
+            }
+          });
+        });
+    
+        // account link — smooth scroll to card + flash outline
+        document.querySelectorAll('.sd-acct[data-acct-scroll]').forEach(function(link){
+          link.addEventListener('click', function(e){
+            e.preventDefault();
+            var acct = link.getAttribute('data-acct-scroll');
+            var target = document.querySelector('.card[data-account="'+acct+'"]');
+            if(target){
+              target.scrollIntoView({behavior:'smooth',block:'center'});
+              target.style.outline='2px solid var(--ibm)';
+              setTimeout(function(){target.style.outline='';},1400);
+            }
+            document.querySelectorAll('.sd-acct').forEach(function(a){a.classList.remove('active');});
+            link.classList.add('active');
+          });
+        });
+    
+        // IntersectionObserver — glow active tier in dock as you scroll
+        if('IntersectionObserver' in window){
+          var dockObs = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+              var tier = entry.target.id.replace('grp-','');
+              var g = document.querySelector('.sd-group[data-tier="'+tier+'"]');
+              if(g) g.classList.toggle('in-view', entry.isIntersecting);
+            });
+          },{rootMargin:'-20% 0px -50% 0px'});
+          ['grp-t5','grp-t4','grp-t3'].forEach(function(id){
+            var el = document.getElementById(id);
+            if(el) dockObs.observe(el);
+          });
+        }
+    
+      });
+    })();
+    </script>
+</body>
+</html>
