@@ -1,16 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
-  <rect width="200" height="80" rx="4" fill="#0f1c3a"/>
-  <rect x="8" y="8" width="184" height="64" rx="3" fill="#0f1c3a" stroke="#1a3a6a" stroke-width="1"/>
-  <!-- IBM blue bar -->
-  <rect x="8" y="8" width="184" height="6" rx="2" fill="#0f62fe"/>
-  <!-- "DMAB" acronym block -->
-  <rect x="16" y="22" width="44" height="36" rx="3" fill="#0f62fe"/>
-  <text x="38" y="45" font-family="Arial,sans-serif" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">DM</text>
-  <text x="38" y="56" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#a8c8ff" text-anchor="middle" letter-spacing="1">AB</text>
-  <!-- Full name text -->
-  <text x="70" y="34" font-family="Arial,sans-serif" font-size="9" font-weight="800" fill="#fff" letter-spacing="0.3">DATA MGMT.</text>
-  <text x="70" y="46" font-family="Arial,sans-serif" font-size="9" font-weight="800" fill="#fff" letter-spacing="0.3">ASSOCIATES OF</text>
-  <text x="70" y="58" font-family="Arial,sans-serif" font-size="9" font-weight="800" fill="#a8c8ff" letter-spacing="0.3">BREVARD</text>
-  <!-- IBM partner indicator -->
-  <text x="16" y="72" font-family="Arial,sans-serif" font-size="7" font-weight="600" fill="#0f62fe" letter-spacing="0.5">IBM BUSINESS PARTNER · MAINFRAME</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" width="220" height="80">
+  <!-- Background -->
+  <rect width="220" height="80" rx="5" fill="#ffffff"/>
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="220" height="5" rx="5" fill="#0f62fe"/>
+  <!-- Blue icon block -->
+  <rect x="12" y="14" width="52" height="52" rx="4" fill="#0f1c3a"/>
+  <rect x="12" y="14" width="52" height="5" rx="2" fill="#0f62fe"/>
+  <!-- DM text in block -->
+  <text x="38" y="40" font-family="Arial Black,Arial,sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle">DM</text>
+  <text x="38" y="56" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#a8c8ff" text-anchor="middle" letter-spacing="1.5">BREVARD</text>
+  <!-- Company name -->
+  <text x="75" y="30" font-family="Arial,sans-serif" font-size="10" font-weight="800" fill="#0f1c3a" letter-spacing="0.5">DATA MANAGEMENT</text>
+  <text x="75" y="44" font-family="Arial,sans-serif" font-size="10" font-weight="800" fill="#0f1c3a" letter-spacing="0.5">ASSOCIATES OF</text>
+  <text x="75" y="58" font-family="Arial,sans-serif" font-size="10" font-weight="800" fill="#0f62fe" letter-spacing="0.5">BREVARD, INC.</text>
+  <!-- IBM Partner badge -->
+  <rect x="75" y="63" width="120" height="12" rx="2" fill="#f4f6f9" stroke="#dde1e9" stroke-width="0.5"/>
+  <text x="135" y="72" font-family="Arial,sans-serif" font-size="7" font-weight="600" fill="#525252" text-anchor="middle" letter-spacing="0.3">IBM BUSINESS PARTNER · MAINFRAME</text>
 </svg>
