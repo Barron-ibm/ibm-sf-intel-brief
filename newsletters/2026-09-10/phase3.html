@@ -214,6 +214,19 @@ a{text-decoration:none;}
 .bet-why{font-size:11.5px;color:#2d3f5a;line-height:1.6;margin-bottom:8px;}
 .bet-size{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;color:var(--muted);display:inline-block;background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:3px;}
 
+/* WHO TO CALL */
+.wtc-block{background:var(--card);border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-bottom:4px;}
+.wtc-hdr{background:#0a1628;padding:10px 16px;font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#a8c8ff;border-bottom:1px solid rgba(255,255,255,0.08);}
+.wtc-list{display:flex;flex-direction:column;gap:0;}
+.wtc-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;padding:12px 16px;border-bottom:1px solid var(--border);}
+.wtc-row:last-child{border-bottom:none;}
+.wtc-title{font-size:12px;font-weight:700;color:var(--text);line-height:1.3;}
+.wtc-role{font-size:11px;color:var(--muted);margin-top:2px;}
+.wtc-hook{font-size:11px;color:var(--accent);font-style:italic;margin-top:2px;}
+.wtc-p4-note{display:flex;align-items:center;gap:8px;padding:10px 16px;background:#edf3ff;border-top:1px solid #c8d8ff;}
+.wtc-p4-badge{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:2px 8px;border-radius:2px;background:var(--accent);color:#fff;white-space:nowrap;flex-shrink:0;}
+.wtc-p4-txt{font-size:11px;color:#1e3a6a;line-height:1.5;}
+
 @media(max-width:900px){
   .p3-shell{grid-template-columns:1fr;}
   .rail{height:auto;max-height:260px;}
@@ -501,6 +514,16 @@ PANELS['heico']=`
       <span class="bet-size">Deal size: $300K–800K/yr</span>
     </div>
   </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — HEICO Corporation</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CIO / VP IT</div><div class="wtc-role">AeroAntenna integration owner</div><div class="wtc-hook">Data Fabric, IBM Storage</div></div>
+      <div class="wtc-row"><div class="wtc-title">CFO</div><div class="wtc-role">Q3 results owner, shelf filing</div><div class="wtc-hook">Planning Analytics, integration ROI</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP Engineering / Data Platform</div><div class="wtc-role">MRO + defense data systems</div><div class="wtc-hook">watsonx.governance for defense AI</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
+  </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
     <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">Send Gartner AI Governance MQ PDF to HEICO CIO and CAO today. Subject: "ITAR AI compliance — Gartner just named IBM #1." One sentence on ITAR/EAR AI risk, one sentence on the credential. No pitch deck.</div></div>
@@ -605,6 +628,16 @@ PANELS['mastec']=`
       <span class="bet-size">Deal size: $150K–350K/yr</span>
     </div>
   </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — MasTec Inc.</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CIO / VP IT</div><div class="wtc-role">M&amp;A integration + field tech owner</div><div class="wtc-hook">Data Fabric, Maximo</div></div>
+      <div class="wtc-row"><div class="wtc-title">CFO / VP FP&amp;A</div><div class="wtc-role">Backlog-to-revenue forecasting</div><div class="wtc-hook">Planning Analytics</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP Field Operations</div><div class="wtc-role">Crew scheduling, work orders</div><div class="wtc-hook">Maximo field ops management</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
+  </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
     <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">Reference MTZ +5.4% Sep 8 in your outreach opener — "Saw the move on Monday. With $21.4B backlog across five segments, IBM Planning Analytics can give your CFO a single command center for all of it. 30 minutes?"</div></div>
@@ -708,6 +741,16 @@ PANELS['hig']=`
       <span class="bet-size">Deal size: $400K–1M transaction</span>
     </div>
   </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — H.I.G. Capital</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">Managing Director / Operating Partner</div><div class="wtc-role">Portfolio value creation lead</div><div class="wtc-hook">Planning Analytics, benchmarking</div></div>
+      <div class="wtc-row"><div class="wtc-title">Chief Data Officer / VP Technology</div><div class="wtc-role">Portfolio tech transformation</div><div class="wtc-hook">watsonx.governance, watsonx.data</div></div>
+      <div class="wtc-row"><div class="wtc-title">Portfolio Operations Lead</div><div class="wtc-role">Cross-company analytics and KPIs</div><div class="wtc-hook">Planning Analytics consolidated view</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
+  </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
     <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">Reach out to H.I.G. CFO / Chief Operating Partner. Reference the three deals in 8 days: "Outcomes One, Homewerks, Click Here Digital — your operating team's consolidation workload just grew again. IBM Planning Analytics gives you a single platform for all 153 portfolio companies."</div></div>
@@ -802,6 +845,16 @@ PANELS['pellera']=`
       <div class="bet-why">The Converge + Mainline merger created Pellera Technologies in August 2026 — confirmed by CRN. At $1B+ combined revenue, this is the largest IBM-aligned MSP in the SE territory. Both legacy entities ran separate IBM practices (Power, Cloud, storage). The 90-day post-merger vendor alignment window is closing fast — if IBM doesn't consolidate the Partner Plus framework now, a hyperscaler will define the merged entity's primary cloud story. Every Pellera watsonx delivery to its 500+ SE enterprise clients becomes IBM SaaS revenue. This is the highest-leverage channel opportunity in the territory.</div>
       <span class="bet-size">Multi-brand co-sell: Channel SaaS attach + Tx</span>
     </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Pellera Technologies</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CEO / President, Pellera Technologies</div><div class="wtc-role">Post-merger strategy and partner alignment owner</div><div class="wtc-hook">IBM Partner Plus framework, SE region co-sell strategy</div></div>
+      <div class="wtc-row"><div class="wtc-title">CTO / VP Practice Development</div><div class="wtc-role">Combined IBM technology practice build-out</div><div class="wtc-hook">watsonx practice, IBM Cloud, Power practice consolidation</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP Sales / Chief Revenue Officer</div><div class="wtc-role">Combined go-to-market and co-sell pipeline</div><div class="wtc-hook">IBM co-sell motions, deal registration, channel incentives</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
   </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
@@ -906,6 +959,16 @@ PANELS['chewy']=`
       <span class="bet-size">Deal size: $800K–2M transaction</span>
     </div>
   </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Chewy Inc.</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">Chief Data Officer / CDO</div><div class="wtc-role">AI platform and governance owner</div><div class="wtc-hook">watsonx.governance, AI lifecycle</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP AI / VP Data Science</div><div class="wtc-role">Three AI domain lead</div><div class="wtc-hook">watsonx.ai, model management</div></div>
+      <div class="wtc-row"><div class="wtc-title">CIO</div><div class="wtc-role">Technology investment post-Q2</div><div class="wtc-hook">watsonx.data, AI infrastructure</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
+  </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
     <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">Call or email Chewy CTO today — reference the Sep 9 earnings call AI announcement: "Chewy confirmed AI live in pharmacy, personalization, and customer service. The governance layer for those models needs to be in place before HIPAA scrutiny arrives. IBM watsonx.governance is that layer — 20 minutes?"</div></div>
@@ -1009,6 +1072,16 @@ PANELS['bk']=`
       <span class="bet-size">Deal size: $1M–3M transaction</span>
     </div>
   </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Burger King / RBI</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">SVP &amp; Chief Information Officer</div><div class="wtc-role">Multi-brand AI and tech platform owner</div><div class="wtc-hook">watsonx.governance, AI lifecycle</div></div>
+      <div class="wtc-row"><div class="wtc-title">CDO / VP Analytics</div><div class="wtc-role">Brand-level AI and data strategy</div><div class="wtc-hook">watsonx.data, governance</div></div>
+      <div class="wtc-row"><div class="wtc-title">CFO / VP FP&amp;A</div><div class="wtc-role">Franchise network financial modeling</div><div class="wtc-hook">Planning Analytics</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
+  </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
     <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">Reference Barclays Consumer Conference Sep 9 in your outreach to CIO / Chief Digital Officer: "Saw your leadership at Barclays yesterday. The AI headset rollout is impressive — the governance layer for those models at 16,570 locations is the conversation I'd like to have. IBM watsonx.governance — 20 minutes?"</div></div>
@@ -1103,6 +1176,16 @@ PANELS['nclh']=`
       <div class="bet-why">John Chidsey became CEO of NCLH with an explicit $225M cost savings mandate. Three cruise brands (Norwegian, Oceania, Regent) operating on separate data estates is the compounding inefficiency that makes the savings target achievable with IBM. Data Fabric unifies the three-brand data layer without migrating systems; IBM Automation removes the manual workflows across guest operations and supply chain. The new CEO outreach window is open — Chidsey is still in his first 90 days and receptive to efficiency platforms with a clear ROI story.</div>
       <span class="bet-size">Deal size: $500K–1.5M combined</span>
     </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Norwegian Cruise Line Holdings</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CIO / SVP Technology</div><div class="wtc-role">Technology transformation under new CEO</div><div class="wtc-hook">IBM automation, cost transformation</div></div>
+      <div class="wtc-row"><div class="wtc-title">CFO</div><div class="wtc-role">$225M savings program owner</div><div class="wtc-hook">Planning Analytics, cost modeling</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP Revenue Management</div><div class="wtc-role">Fleet yield optimization</div><div class="wtc-hook">Planning Analytics, yield modeling</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
   </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
@@ -1199,6 +1282,16 @@ PANELS['lennar']=`
       <span class="bet-size">Deal size: $500K–1.5M combined</span>
     </div>
   </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Lennar Corporation</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CIO / Chief Technology Officer</div><div class="wtc-role">Lennar Technology Group — AI platform strategy</div><div class="wtc-hook">watsonx.ai, watsonx.data — homebuilding AI use cases</div></div>
+      <div class="wtc-row"><div class="wtc-title">CFO / Chief Financial Officer</div><div class="wtc-role">Margin recovery and cost efficiency mandate (post Q3)</div><div class="wtc-hook">Supply chain optimization, cost reduction ROI</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP Supply Chain / VP Construction</div><div class="wtc-role">Construction scheduling and materials procurement owner</div><div class="wtc-hook">IBM Sterling Supply Chain, watsonx scheduling AI</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
+  </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
     <div class="move-row"><span class="move-lbl">Sep 16</span><div class="move-text">Listen to Lennar Q3 earnings call. Note specific language about AI investments, construction efficiency, and margin recovery initiatives. These become your personalized outreach hooks for the following week.</div></div>
@@ -1292,6 +1385,16 @@ PANELS['lenmar']=`
       <div class="bet-why">Lennar Mortgage is using AI in underwriting decisions. CFPB AI fair lending scrutiny is intensifying in 2026 — any lender using AI in credit decisions without a documented governance layer is building a regulatory liability. IBM watsonx.governance provides the model documentation and audit trail CFPB examiners will require. watsonx.ai optimizes the underwriting models themselves. Two plays, one conversation, one regulatory risk story.</div>
       <span class="bet-size">Deal size: $300K–700K combined</span>
     </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Lennar Mortgage</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">President / CEO, Lennar Mortgage</div><div class="wtc-role">P&amp;L owner — capture rate and mortgage efficiency</div><div class="wtc-hook">watsonx.ai underwriting automation ROI, capture rate improvement</div></div>
+      <div class="wtc-row"><div class="wtc-title">Chief Risk Officer / VP Compliance</div><div class="wtc-role">CFPB, HMDA, fair lending compliance owner</div><div class="wtc-hook">watsonx.governance — Gartner AI Governance Leader credential</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP Technology / Head of Digital Mortgage</div><div class="wtc-role">Loan origination system and AI platform owner</div><div class="wtc-hook">watsonx.ai integration, watsonx.data for LOS data unification</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
   </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
@@ -1388,6 +1491,16 @@ PANELS['jmf']=`
       <span class="bet-size">Deal size: $400K–900K/yr SaaS</span>
     </div>
   </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — JM Family Enterprises</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CIO / Chief Technology Officer</div><div class="wtc-role">Enterprise technology strategy across all JMF entities</div><div class="wtc-hook">watsonx.data enterprise data platform, AI roadmap</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP Analytics / Chief Data Officer</div><div class="wtc-role">Dealer performance analytics, F&amp;I product analytics owner</div><div class="wtc-hook">watsonx.ai demand forecasting, F&amp;I recommendation models</div></div>
+      <div class="wtc-row"><div class="wtc-title">President, World Omni / Southeast Toyota Finance</div><div class="wtc-role">Auto finance P&amp;L — CFPB compliance and AI model risk</div><div class="wtc-hook">watsonx.governance, fair lending compliance</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
+  </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
     <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">Reach JM Family CIO and Chief Data Officer. Lead with the Toyota EV transition: "As Toyota's EV lineup accelerates, your 5-state dealer network needs demand forecasting that understands BEV demand patterns — IBM watsonx.ai does that. 30 minutes?"</div></div>
@@ -1481,6 +1594,16 @@ PANELS['sgws']=`
       <span class="bet-size">Deal size: $400K–1M combined</span>
     </div>
   </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Southern Glazer's Wine &amp; Spirits</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CIO / Chief Technology Officer</div><div class="wtc-role">Enterprise technology and AI platform strategy</div><div class="wtc-hook">watsonx.data unified data layer, watsonx.ai distribution AI</div></div>
+      <div class="wtc-row"><div class="wtc-title">Chief Data Officer / VP Analytics</div><div class="wtc-role">Demand forecasting and key account analytics platform owner</div><div class="wtc-hook">watsonx.ai demand forecasting, key account AI</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP Supply Chain / VP Operations</div><div class="wtc-role">Route-to-market and distribution network efficiency</div><div class="wtc-hook">IBM Sterling Supply Chain, route optimization AI</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
+  </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
     <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">Reach SGWS CIO and Chief Data Officer. Lead with the 20,000+ SKU demand forecasting story: "IBM watsonx.ai can model the demand complexity across your full SKU portfolio and 44-state network — and the ROI shows up in inventory cost and route efficiency within the first quarter. 30 minutes?"</div></div>
@@ -1573,6 +1696,16 @@ PANELS['kforce']=`
       <div class="bet-why">Ohio State Teachers' Retirement System took a new $4.34M position in Kforce on Sep 4 — institutional conviction that Kforce's AI consulting practice is investable. IBM watsonx positions Kforce as the AI delivery partner for its technology staffing clients, differentiating its consulting practice with an enterprise AI platform. The pension buy signals Kforce leadership is telling an AI transformation story to investors — IBM needs to be the platform behind it.</div>
       <span class="bet-size">Deal size: $200K–500K/yr SaaS + services</span>
     </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Kforce Inc.</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CEO / President</div><div class="wtc-role">AI thesis and partnership strategy</div><div class="wtc-hook">Co-sell watsonx.governance partnership</div></div>
+      <div class="wtc-row"><div class="wtc-title">CIO / CDO</div><div class="wtc-role">Internal AI governance and data platform</div><div class="wtc-hook">Planning Analytics, watsonx.governance</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP AI Innovation / VP Partnerships</div><div class="wtc-role">AI client engagement and co-sell</div><div class="wtc-hook">watsonx.governance co-sell motion</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
   </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
@@ -1669,6 +1802,16 @@ PANELS['dycom']=`
       <span class="bet-size">Deal size: $250K–600K combined</span>
     </div>
   </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Dycom Industries</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CIO / VP IT</div><div class="wtc-role">Field tech + M&amp;A integration owner</div><div class="wtc-hook">Maximo, Data Fabric</div></div>
+      <div class="wtc-row"><div class="wtc-title">CFO / VP FP&amp;A</div><div class="wtc-role">Backlog-to-revenue forecasting</div><div class="wtc-hook">Planning Analytics</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP Field Operations</div><div class="wtc-role">Crew scheduling, work orders, safety</div><div class="wtc-hook">Maximo field ops management</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
+  </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
     <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">Reach Dycom CFO and VP Finance: "CEO bought 850 shares at $296 yesterday — that's conviction on the backlog. IBM Planning Analytics gives you a single FP&amp;A command center for the $12.2B backlog across every project segment. 30 minutes?"</div></div>
@@ -1761,6 +1904,16 @@ PANELS['herc']=`
       <div class="bet-why">JPMorgan upgraded Herc Holdings to Overweight on Sep 10 with a price target increase to $165–175. The H&E Equipment integration is complete and Herc is now operating a 50,000+ unit fleet across North America. IBM Data Fabric unifies the combined fleet data estate from the H&E merger. IBM watsonx.ai powers predictive maintenance and fleet utilization optimization at this scale. The JPMorgan upgrade signals institutional confidence — executive energy is high.</div>
       <span class="bet-size">Deal size: $300K–700K combined</span>
     </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Herc Holdings</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CIO / VP IT</div><div class="wtc-role">H&amp;E integration + fleet tech owner</div><div class="wtc-hook">watsonx.data, Data Fabric</div></div>
+      <div class="wtc-row"><div class="wtc-title">CFO / VP FP&amp;A</div><div class="wtc-role">Fleet utilization forecasting</div><div class="wtc-hook">Planning Analytics</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP Fleet Management / VP Operations</div><div class="wtc-role">Equipment utilization and availability</div><div class="wtc-hook">Planning Analytics, Maximo</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
   </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
@@ -1855,6 +2008,16 @@ PANELS['ansco']=`
       <span class="bet-size">Deal size: $300K–800K combined</span>
     </div>
   </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — ANSCO &amp; Associates</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CEO / President</div><div class="wtc-role">Growth strategy and operational scale decisions</div><div class="wtc-hook">IBM Maximo field services ROI, operational efficiency at scale</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP Operations / Chief Operating Officer</div><div class="wtc-role">Field workforce and project delivery owner</div><div class="wtc-hook">IBM Maximo work order management, workforce scheduling</div></div>
+      <div class="wtc-row"><div class="wtc-title">CFO / VP Finance</div><div class="wtc-role">Project cost control and financial planning</div><div class="wtc-hook">IBM Planning Analytics, watsonx.ai project cost forecasting</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
+  </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
     <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">Reach ANSCO COO / VP Operations: "AT&amp;T's infrastructure investment means your OSP backlog is growing faster than almost any contractor in the SE. IBM Maximo Application Suite is the field work management platform built for exactly this scale — 30 minutes to show you what it looks like for an OSP contractor?"</div></div>
@@ -1947,6 +2110,16 @@ PANELS['citco']=`
       <div class="bet-why">Citco Group administers over $1T in hedge fund AUM. Hedge funds using AI in investment decisions, risk models, or client-facing operations face intensifying SEC scrutiny around model documentation and explainability. IBM watsonx.governance is the platform that provides the audit trail and model governance documentation that SEC examiners will require. Gartner #1 in AI Governance is the credibility opener for the GC/CRO conversation.</div>
       <span class="bet-size">Deal size: $200K–500K/yr SaaS</span>
     </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Citco Group</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CTO / Head of Technology</div><div class="wtc-role">Legacy modernization program owner</div><div class="wtc-hook">IBM Manta, DataStage</div></div>
+      <div class="wtc-row"><div class="wtc-title">CDO / Head of Data</div><div class="wtc-role">NAV data lineage and governance</div><div class="wtc-hook">Manta Data Lineage, watsonx.governance</div></div>
+      <div class="wtc-row"><div class="wtc-title">Head of Compliance / CCO</div><div class="wtc-role">SEC/AIFMD audit readiness</div><div class="wtc-hook">Manta audit trail, regulatory reporting</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
   </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
@@ -2041,6 +2214,16 @@ PANELS['frontline']=`
       <span class="bet-size">Deal size: $200K–500K combined</span>
     </div>
   </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Frontline Insurance</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CTO / CIO</div><div class="wtc-role">FIRE entity IT build owner</div><div class="wtc-hook">watsonx.data, infrastructure foundation</div></div>
+      <div class="wtc-row"><div class="wtc-title">Chief Actuary / VP Underwriting</div><div class="wtc-role">AI-driven underwriting decision owner</div><div class="wtc-hook">watsonx.governance, Florida DOI compliance</div></div>
+      <div class="wtc-row"><div class="wtc-title">Chief Compliance Officer</div><div class="wtc-role">Florida DOI regulatory compliance</div><div class="wtc-hook">watsonx.governance, model explainability</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
+  </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
     <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">Reach CTO/CIO and Chief Actuary simultaneously — different pitches, same timing. CTO: watsonx.data as the FIRE entity data foundation. Chief Actuary: watsonx.governance for Florida DOI actuarial AI compliance. Lead both with the Gartner AI Governance Leader credential.</div></div>
@@ -2133,6 +2316,16 @@ PANELS['odp']=`
       <div class="bet-why">ODP went private under Atlas Holdings PE — transformation is the mandate. PE-backed tech transformations have a defined timeline and budget. IBM Consulting + watsonx.data positions IBM as the transformation partner for ODP's B2B distribution pivot. IBM is the credible enterprise AI and data platform for a PE firm trying to squeeze operational efficiency out of a legacy office products distributor rebuilding for B2B.</div>
       <span class="bet-size">Deal size: $300K–700K consulting + SaaS</span>
     </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — ODP / Office Depot</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CEO — Craig Gunckel</div><div class="wtc-role">New Atlas-appointed CEO, owns transformation mandate</div><div class="wtc-hook">IBM Consulting transformation + watsonx.data business case</div></div>
+      <div class="wtc-row"><div class="wtc-title">CIO / VP Technology</div><div class="wtc-role">Legacy ODP IT stack rationalization owner</div><div class="wtc-hook">Systems consolidation, watsonx.data, automation</div></div>
+      <div class="wtc-row"><div class="wtc-title">CFO</div><div class="wtc-role">Atlas-appointed financial discipline owner</div><div class="wtc-hook">Cost reduction ROI framing for IBM Consulting entry</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
   </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
@@ -2227,6 +2420,16 @@ PANELS['icahn']=`
       <span class="bet-size">Deal size: $200K–500K/yr SaaS</span>
     </div>
   </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Icahn Enterprises</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CFO / Chief Financial Officer</div><div class="wtc-role">Portfolio financial consolidation and reporting</div><div class="wtc-hook">IBM Planning Analytics, multi-entity P&amp;L consolidation</div></div>
+      <div class="wtc-row"><div class="wtc-title">CIO / VP Technology</div><div class="wtc-role">Holding company IT stack owner</div><div class="wtc-hook">watsonx.data portfolio data integration</div></div>
+      <div class="wtc-row"><div class="wtc-title">Chief Risk Officer / General Counsel</div><div class="wtc-role">Regulatory and ESG compliance across holdings</div><div class="wtc-hook">watsonx.governance, ESG reporting</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
+  </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
     <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">Reach Icahn CFO with the multi-entity consolidation story: "IBM Planning Analytics is used by holding companies managing more entities than IEP at similar scale — multi-entity P&L, scenario modeling, board reporting in one place. 30-minute demo?"</div></div>
@@ -2318,6 +2521,16 @@ PANELS['hexfed']=`
       <div class="bet-why">Hexagon Federal serves US government agencies subject to EO 13960 (AI in federal use) and OMB M-24-10 (AI governance requirements). IBM is the only AI governance vendor with FedRAMP-authorized watsonx.governance and IBM Cloud FedRAMP High. No other competitor can make this argument at the federal compliance level. Hexagon Federal's government clients require this — IBM is the only platform that delivers both the capability and the authorization.</div>
       <span class="bet-size">Deal size: $300K–700K/yr SaaS</span>
     </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Hexagon Federal</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CTO / VP Technology (Federal)</div><div class="wtc-role">Federal AI architecture and FedRAMP compliance</div><div class="wtc-hook">IBM watsonx.governance FedRAMP, IBM Cloud FedRAMP High</div></div>
+      <div class="wtc-row"><div class="wtc-title">Program Director / VP Contracts</div><div class="wtc-role">Federal contract compliance owner — AI governance mandates</div><div class="wtc-hook">EO 13960 / OMB M-24-10 compliance briefing</div></div>
+      <div class="wtc-row"><div class="wtc-title">Chief Information Security Officer</div><div class="wtc-role">Cleared systems and FedRAMP authorization owner</div><div class="wtc-hook">IBM Cloud FedRAMP High, secure AI processing</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
   </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
@@ -2412,6 +2625,16 @@ PANELS['octave']=`
       <span class="bet-size">Deal size: $200K–450K/yr SaaS</span>
     </div>
   </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Octave</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CTO / VP Technology</div><div class="wtc-role">Clinical data platform and AI infrastructure owner</div><div class="wtc-hook">watsonx.data, watsonx.governance HIPAA BAA</div></div>
+      <div class="wtc-row"><div class="wtc-title">Chief Clinical Officer / VP Clinical Operations</div><div class="wtc-role">Measurement-based care and outcome analytics owner</div><div class="wtc-hook">watsonx.ai clinical outcome models, MBC analytics</div></div>
+      <div class="wtc-row"><div class="wtc-title">Chief Compliance Officer / Privacy Officer</div><div class="wtc-role">HIPAA compliance and PHI data governance</div><div class="wtc-hook">watsonx.governance HIPAA compliance, PHI audit trail</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
+  </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
     <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">Lead with Chief Compliance Officer / Privacy Officer on the HIPAA-covered AI governance angle — PHI in AI systems requires a documented BAA and governance framework. IBM watsonx.governance delivers this. Gartner just named IBM the Leader in AI Governance Platforms.</div></div>
@@ -2504,6 +2727,16 @@ PANELS['hexmin']=`
       <div class="bet-why">Hexagon Mining's MinePlan R1 launch and the critical minerals demand surge (copper, lithium, rare earths) create a massive industrial data management requirement. Autonomous mining AI and real-time IoT sensor data from mine operations require IBM FlashSystem at scale for latency-sensitive processing. IBM Data Fabric provides the unified platform for operational and geological data across multi-mine operations. The copper price tailwind means capital budgets are open.</div>
       <span class="bet-size">Deal size: $400K–1M combined</span>
     </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Hexagon Mining</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CTO / VP Technology (Mining)</div><div class="wtc-role">Autonomous mining AI and IoT platform architecture</div><div class="wtc-hook">IBM watsonx.ai industrial, watsonx.data IoT platform</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP Product / Chief Product Officer</div><div class="wtc-role">Autonomous fleet and operational intelligence product roadmap</div><div class="wtc-hook">IBM watsonx.ai integration into Hexagon Mining product stack</div></div>
+      <div class="wtc-row"><div class="wtc-title">Chief Safety Officer / VP Safety Engineering</div><div class="wtc-role">Collision avoidance and life-safety AI governance</div><div class="wtc-hook">IBM watsonx.governance for life-safety AI systems</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
   </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
@@ -2598,6 +2831,16 @@ PANELS['chicos']=`
       <span class="bet-size">Deal size: $300K–700K/yr SaaS</span>
     </div>
   </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Chico's / KnitWell</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CIO / Chief Technology Officer (KnitWell)</div><div class="wtc-role">Combined brand technology rationalization owner</div><div class="wtc-hook">watsonx.data multi-brand data unification, AI platform</div></div>
+      <div class="wtc-row"><div class="wtc-title">Chief Digital Officer / VP Digital</div><div class="wtc-role">Omnichannel personalization and digital commerce platform</div><div class="wtc-hook">watsonx.ai personalization, customer data AI</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP Supply Chain / VP Merchandising</div><div class="wtc-role">Multi-brand inventory planning and demand forecasting</div><div class="wtc-hook">IBM Sterling Supply Chain, watsonx.ai demand forecasting</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
+  </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
     <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">Target CIO / CTO at KnitWell Group level — the technology rationalization conversation must happen at the holding company level, not legacy Chico's. Lead with multi-brand data unification — one platform for all 7 brands. Request a discovery call to understand the current consolidation timeline.</div></div>
@@ -2690,6 +2933,16 @@ PANELS['memorial']=`
       <span class="bet-size">Deal size: $300K–700K/yr SaaS</span>
     </div>
   </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Memorial Healthcare System</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CIO / Chief Information Officer</div><div class="wtc-role">Clinical AI platform and Epic integration strategy</div><div class="wtc-hook">watsonx.data + Epic integration, watsonx.governance HIPAA</div></div>
+      <div class="wtc-row"><div class="wtc-title">Chief Medical Officer / VP Clinical Quality</div><div class="wtc-role">Clinical AI governance and patient safety oversight</div><div class="wtc-hook">watsonx.governance clinical AI explainability</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP Population Health / Chief Analytics Officer</div><div class="wtc-role">Broward County population health analytics platform owner</div><div class="wtc-hook">watsonx.ai population health models, watsonx.data</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
+  </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
     <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">Lead with CIO on the clinical AI governance angle — public health system accountability requires documented model governance. Use Gartner AI Governance Leader credential as the opening. Simultaneously engage VP Population Health with the watsonx.data Broward County population health analytics story.</div></div>
@@ -2781,6 +3034,16 @@ PANELS['sbhd']=`
       <div class="bet-why">South Broward Hospital District is expanding into Western Broward with a new facility and Epic EHR deployment. Clinical AI governance requirements in a new facility build are established at go-live — not retrofitted. IBM watsonx.governance with a HIPAA BAA is the platform that gets designed into the new facility's AI architecture from day one. Winning the governance platform now wins the 10-year clinical AI platform decision.</div>
       <span class="bet-size">Deal size: $200K–500K/yr SaaS</span>
     </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — South Broward Hospital District</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CIO / Chief Information Officer, SBHD</div><div class="wtc-role">Epic platform and clinical AI strategy — independent buyer</div><div class="wtc-hook">watsonx.data Epic integration, watsonx.governance HIPAA</div></div>
+      <div class="wtc-row"><div class="wtc-title">CMO / VP Clinical Quality</div><div class="wtc-role">Clinical AI governance and care quality oversight</div><div class="wtc-hook">watsonx.governance clinical explainability, patient safety AI</div></div>
+      <div class="wtc-row"><div class="wtc-title">CFO / VP Finance</div><div class="wtc-role">Capital investment and operational efficiency mandate</div><div class="wtc-hook">Operational efficiency ROI for IBM watsonx platform</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
   </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
@@ -2875,6 +3138,16 @@ PANELS['seaworld']=`
       <span class="bet-size">Deal size: $250K–600K combined</span>
     </div>
   </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — SeaWorld / United Parks</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">CFO / Interim CFO</div><div class="wtc-role">Post-miss scenario planning owner</div><div class="wtc-hook">Planning Analytics, scenario modeling</div></div>
+      <div class="wtc-row"><div class="wtc-title">CIO</div><div class="wtc-role">SAP integration and analytics layer</div><div class="wtc-hook">Planning Analytics on SAP</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP Revenue Management</div><div class="wtc-role">Attendance and per-capita modeling</div><div class="wtc-hook">Planning Analytics demand modeling</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
+  </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
     <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">Reach CRO / VP Revenue Management: "Howl-O-Scream launches Sep 11 — IBM watsonx.ai for dynamic pricing and yield optimization is the platform that maximizes revenue per guest per event. The gap between a full house and a half-full park is AI. 30 minutes?"</div></div>
@@ -2967,6 +3240,16 @@ PANELS['dmab']=`
       <div class="bet-why">Data Management Brevard is a Space Coast MSP with federal and defense clients on Cape Canaveral. IBM Partner Plus Storage and Security co-sell through DMAB gives IBM access to federal and defense clients that require ITAR/EAR-compliant infrastructure. Every IBM Storage and Security deal DMAB closes with a federal client is IBM revenue through the channel. Position IBM as the preferred infrastructure partner for DMAB's federal client base.</div>
       <span class="bet-size">Channel co-sell: Storage + Security + watsonx</span>
     </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">Who to Call</span><div class="sec-line"></div></div>
+  <div class="wtc-block">
+    <div class="wtc-hdr">Target Positions — Data Management Brevard</div>
+    <div class="wtc-list">
+      <div class="wtc-row"><div class="wtc-title">President / CEO</div><div class="wtc-role">Partner strategy and IBM relationship owner</div><div class="wtc-hook">IBM Partner Plus, resell and advisory partnership</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP Technology / Lead Engineer</div><div class="wtc-role">Technical platform decisions — storage, security, cloud</div><div class="wtc-hook">IBM Storage FlashSystem, IBM Security QRadar</div></div>
+      <div class="wtc-row"><div class="wtc-title">VP Sales / Business Development</div><div class="wtc-role">Client-facing advisory and new service development</div><div class="wtc-hook">IBM watsonx advisory practice, FL data compliance advisory</div></div>
+    </div>
+  <div class="wtc-p4-note"><span class="wtc-p4-badge">Phase 4</span><span class="wtc-p4-txt">Named contacts with LinkedIn profiles, emails, and direct connection paths are in production in Phase 4 — coming next edition.</span></div>
   </div>
   <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
   <div class="move">
