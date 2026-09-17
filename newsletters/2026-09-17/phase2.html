@@ -8,83 +8,87 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
-/* ── TOKENS ── */
+/* ── TOKENS — light theme matching Phase 1 ── */
 :root{
-  --bg:#f0f2f5;
-  --card:#ffffff;
-  --surface:#f4f6f9;
-  --border:#dde1e9;
-  --text:#161616;
-  --muted:#525252;
-  --accent:#0f62fe;
-  --accent-dk:#0043ce;
-  --navy:#0f1c3a;
-  --green:#006e2e;
-  --grid-bg:#13192a;
-  --grid-mid:#0f1420;
-  --grid-right:#0c1018;
+  --bg:#F4F6FA;
+  --card:#FFFFFF;
+  --surface:#F0F2F7;
+  --surface-2:#E8EBF3;
+  --border:#DDE1EC;
+  --border-hi:#C8CEDD;
+  --text:#161C2D;
+  --text-mid:#3A4460;
+  --muted:#6B779A;
+  --accent:#0043CE;
+  --accent-hi:#0F62FE;
+  --accent-dim:rgba(0,67,206,.07);
+  --accent-line:rgba(0,67,206,.25);
+  --green:#006644;
+  --green-dim:rgba(0,102,68,.08);
+  --radius:5px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'IBM Plex Sans',-apple-system,sans-serif;font-size:14px;line-height:1.6;background:var(--bg);color:var(--text);}
-a{text-decoration:none;}
+body{font-family:'IBM Plex Sans',-apple-system,sans-serif;font-size:14px;line-height:1.6;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
 
 /* ── PAGE CARD ── */
-.page{width:100%;background:var(--card);border-top:3px solid var(--accent);box-shadow:0 2px 16px rgba(0,0,0,0.07);margin-bottom:20px;scroll-margin-top:52px;}
+.page{width:100%;background:var(--card);border-top:3px solid var(--accent-hi);box-shadow:0 1px 4px rgba(0,0,0,.06);margin-bottom:20px;scroll-margin-top:90px;}
 
 /* ── TOPBAR ── */
-.se-topbar{background:#1a1a1a;border-bottom:3px solid var(--accent);padding:0 24px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.se-topbar{background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-top:3px solid var(--accent-hi);border-bottom:1px solid var(--border);padding:0 24px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
 .se-topbar-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
-.se-topbar-ibm{font-family:'IBM Plex Sans',sans-serif;font-size:18px;font-weight:900;color:#fff;letter-spacing:-0.5px;}
-.se-topbar-div{width:1px;height:16px;background:#3a3a3a;}
-.se-topbar-title{font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:600;color:#a8c8ff;white-space:nowrap;}
-.se-topbar-badge{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;background:var(--accent);color:#fff;padding:2px 9px;border-radius:20px;white-space:nowrap;}
+.se-topbar-ibm{font-size:18px;font-weight:700;color:var(--accent-hi);letter-spacing:-0.5px;}
+.se-topbar-div{width:1px;height:16px;background:var(--border-hi);}
+.se-topbar-title{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+.se-topbar-badge{font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--accent-hi);color:#fff;padding:2px 9px;border-radius:20px;white-space:nowrap;}
 .se-topbar-mid{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1;justify-content:center;}
 .se-topbar-mid::-webkit-scrollbar{display:none;}
-.se-topbar-mid a{font-family:'IBM Plex Sans',sans-serif;font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);padding:5px 10px;border-radius:3px;white-space:nowrap;border-bottom:2px solid transparent;}
-.se-topbar-mid a:hover{color:#fff;background:rgba(255,255,255,0.07);}
-.se-topbar-mid a.se-active{color:#fff;border-bottom-color:var(--accent);}
-.se-topbar-mid a.se-back{color:#a8c8ff;font-size:10.5px;}
-.se-topbar-mid .se-divider{color:#3a3a3a;padding:0 4px;font-size:11px;user-select:none;}
+.se-topbar-mid a{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:5px 10px;border-bottom:2px solid transparent;white-space:nowrap;transition:color .12s;}
+.se-topbar-mid a:hover{color:var(--accent);text-decoration:none;}
+.se-topbar-mid a.se-active{color:var(--accent-hi);border-bottom-color:var(--accent-hi);}
+.se-topbar-mid a.se-back{color:var(--muted);font-size:10px;}
+.se-topbar-mid .se-divider{color:var(--border-hi);padding:0 4px;font-size:11px;user-select:none;}
 .se-topbar-right-area{display:flex;align-items:center;gap:12px;flex-shrink:0;}
-.se-topbar-date{font-size:10px;color:#5a5a5a;white-space:nowrap;display:none;}
+.se-topbar-date{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap;display:none;}
 @media(min-width:700px){.se-topbar-date{display:block;}}
 
 /* ── ACCOUNTS DROPDOWN ── */
 .acct-dropdown{position:relative;}
-.acct-dropdown-btn{display:flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:#fff;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);padding:5px 12px;border-radius:3px;cursor:pointer;white-space:nowrap;user-select:none;}
-.acct-dropdown-btn:hover{background:rgba(255,255,255,0.15);}
+.acct-dropdown-btn{display:flex;align-items:center;gap:6px;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);background:var(--surface);border:1px solid var(--border);padding:5px 12px;border-radius:3px;cursor:pointer;white-space:nowrap;user-select:none;}
+.acct-dropdown-btn:hover{border-color:var(--border-hi);background:var(--surface-2);}
 .acct-dropdown-chevron{font-size:10px;transition:transform .2s;display:inline-block;}
 .acct-dropdown-btn.open .acct-dropdown-chevron{transform:rotate(180deg);}
-.acct-dropdown-menu{display:none;position:absolute;right:0;top:calc(100% + 6px);background:#1e1e1e;border:1px solid #333;border-radius:4px;min-width:200px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.35);z-index:300;max-height:70vh;overflow-y:auto;}
+.acct-dropdown-menu{display:none;position:absolute;right:0;top:calc(100% + 6px);background:var(--card);border:1px solid var(--border);border-radius:4px;min-width:200px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.1);z-index:300;max-height:70vh;overflow-y:auto;}
 .acct-dropdown-menu.open{display:block;}
-.acct-dropdown-menu a{display:block;font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:500;color:rgba(255,255,255,0.75);padding:9px 16px;border-bottom:1px solid #2a2a2a;}
+.acct-dropdown-menu a{display:block;font-size:12px;font-weight:500;color:var(--text-mid);padding:9px 16px;border-bottom:1px solid var(--border);}
 .acct-dropdown-menu a:last-child{border-bottom:none;}
-.acct-dropdown-menu a:hover{background:var(--accent);color:#fff;}
-.acct-dropdown-menu a.cover-link{color:#a8c8ff;font-weight:700;}
-.acct-dropdown-menu .dd-group-lbl{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#555;padding:8px 16px 4px;border-bottom:1px solid #2a2a2a;pointer-events:none;}
+.acct-dropdown-menu a:hover{background:var(--accent-dim);color:var(--accent);text-decoration:none;}
+.acct-dropdown-menu a.cover-link{color:var(--accent);font-weight:700;}
+.acct-dropdown-menu .dd-group-lbl{font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);padding:8px 16px 4px;border-bottom:1px solid var(--border);pointer-events:none;background:var(--surface);}
 
 /* ── COVER PAGE ── */
-.cover-page{width:100%;background:var(--card);border-top:3px solid var(--accent);box-shadow:0 2px 16px rgba(0,0,0,0.07);margin-bottom:20px;}
-.cover-hero{display:grid;grid-template-columns:220px 1fr;min-height:200px;}
-.cover-sidebar{background:#0f1c3a;padding:28px 24px;display:flex;flex-direction:column;gap:10px;}
-.cover-ibm-word{font-family:'IBM Plex Sans',sans-serif;font-size:34px;font-weight:900;color:#fff;letter-spacing:-1px;line-height:1;}
-.cover-title{font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:700;color:#a8c8ff;line-height:1.4;margin-top:2px;}
-.cover-meta{font-family:'IBM Plex Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#4a6080;margin-top:4px;line-height:1.8;}
-.cover-edition{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#2a3a55;margin-top:auto;}
+.cover-page{width:100%;background:var(--card);border-top:3px solid var(--accent-hi);box-shadow:0 1px 4px rgba(0,0,0,.06);margin-bottom:20px;}
+.cover-hero{display:grid;grid-template-columns:220px 1fr;min-height:180px;}
+.cover-sidebar{background:var(--accent);padding:28px 24px;display:flex;flex-direction:column;gap:10px;}
+.cover-ibm-word{font-size:34px;font-weight:700;color:#fff;letter-spacing:-1px;line-height:1;}
+.cover-title{font-size:13px;font-weight:600;color:rgba(255,255,255,.85);line-height:1.4;margin-top:2px;}
+.cover-meta{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px;line-height:1.8;}
+.cover-edition{font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:auto;}
 .cover-signal-area{background:var(--surface);display:flex;align-items:center;justify-content:center;padding:20px;overflow:hidden;}
 .cover-body{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);}
 .cover-col{padding:24px 28px;}
 .cover-col-l{border-right:1px solid var(--border);}
-.cover-section-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:block;}
-.top-play-card{background:#0f1c3a;border-radius:5px;padding:12px 14px;margin-bottom:9px;display:flex;gap:10px;align-items:flex-start;border-left:3px solid var(--accent);}
-.top-play-num{font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:700;color:var(--accent);line-height:1;flex-shrink:0;min-width:22px;}
-.top-play-company{font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:800;color:#e8f0ff;line-height:1.2;}
-.top-play-signal{font-size:10.5px;color:#8a9ab8;font-style:italic;margin-top:2px;line-height:1.4;}
-.top-play-badges{display:flex;gap:4px;margin-top:5px;flex-wrap:wrap;}
+.cover-section-lbl{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:block;}
+.top-play-card{background:var(--surface);border-radius:var(--radius);padding:12px 14px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start;border-left:3px solid var(--accent-hi);}
+.top-play-num{font-size:16px;font-weight:700;color:var(--accent-hi);line-height:1;flex-shrink:0;min-width:22px;}
+.top-play-company{font-size:12px;font-weight:700;color:var(--text);line-height:1.2;}
+.top-play-signal{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.45;}
+.top-play-badges{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap;}
 .qp-table{width:100%;border-collapse:collapse;}
 .qp-table thead tr{background:var(--accent);}
-.qp-table thead th{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;padding:8px 10px;text-align:left;}
+.qp-table thead th{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#fff;padding:8px 10px;text-align:left;}
 .qp-table tbody tr{border-bottom:1px solid var(--border);}
 .qp-table tbody tr:last-child{border-bottom:none;}
 .qp-table tbody tr:hover{background:var(--surface);}
@@ -92,134 +96,209 @@ a{text-decoration:none;}
 .qp-acct{font-size:12px;font-weight:700;color:var(--accent);cursor:pointer;}
 .qp-acct:hover{text-decoration:underline;}
 .qp-play{font-size:11px;color:var(--muted);line-height:1.4;}
-.qp-badge{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap;display:inline-block;}
-.qp-badge.b-strike{background:#3a0000;color:#ff8080;border:1px solid rgba(255,128,128,.3);}
-.qp-badge.b-engage{background:#1c1500;color:#d4a017;border:1px solid rgba(212,160,23,.3);}
-.qp-badge.b-standby{background:#0a1220;color:#6ea8d0;border:1px solid rgba(110,168,208,.3);}
-.cover-pill-nav{background:var(--surface);border-top:1px solid var(--border);padding:10px 28px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
-.cover-pill-lbl{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-right:4px;}
-.cover-pill{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;background:var(--card);border:1px solid var(--border);color:var(--muted);padding:4px 12px;border-radius:20px;text-decoration:none;}
-.cover-pill:hover{border-color:var(--accent);color:var(--accent);}
+.qp-badge{font-size:8px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap;display:inline-block;}
+.qp-badge.b-strike{background:rgba(124,75,0,.1);color:#7C4B00;border:1px solid rgba(124,75,0,.25);}
+.qp-badge.b-engage{background:rgba(180,83,9,.1);color:#B45309;border:1px solid rgba(180,83,9,.25);}
+.qp-badge.b-standby{background:rgba(197,48,48,.1);color:#C53030;border:1px solid rgba(197,48,48,.25);}
+.cover-pill-nav{background:var(--surface);border-top:1px solid var(--border);padding:10px 28px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+.cover-pill-lbl{font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-right:4px;}
+.cover-pill{font-size:10px;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--text-mid);padding:3px 11px;border-radius:20px;text-decoration:none;}
+.cover-pill:hover{border-color:var(--accent-line);color:var(--accent);text-decoration:none;}
 
 /* ── BRAND BADGES ── */
-.acct-brand-badge{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:3px 9px;border-radius:3px;}
-.br-dai{background:#001d6c;color:#a8c8ff;border:1px solid rgba(168,200,255,.3);}
-.br-auto{background:#1c0f30;color:#d4bbff;border:1px solid rgba(212,187,255,.3);}
-.br-stor{background:#061a0e;color:#6fdc8c;border:1px solid rgba(111,220,140,.3);}
-.br-pc{background:#1c1500;color:#d4a017;border:1px solid rgba(212,160,23,.3);}
+.acct-brand-badge{font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:3px;display:inline-block;}
+.br-dai{background:rgba(0,67,206,.1);color:#0043CE;border:1px solid rgba(0,67,206,.2);}
+.br-auto{background:rgba(90,24,154,.1);color:#5A189A;border:1px solid rgba(90,24,154,.2);}
+.br-stor{background:rgba(0,102,68,.1);color:#006644;border:1px solid rgba(0,102,68,.2);}
+.br-pc{background:rgba(180,83,9,.1);color:#B45309;border:1px solid rgba(180,83,9,.2);}
 
 /* ── ACCOUNT HEADER ── */
-.acct-header-row{display:flex;align-items:center;padding:20px 32px;gap:20px;border-bottom:1px solid var(--border);background:var(--card);}
-.acct-logo-cell{min-width:80px;display:flex;align-items:center;justify-content:center;}
-.acct-logo-placeholder{width:76px;height:46px;display:flex;align-items:center;justify-content:center;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:800;color:var(--muted);letter-spacing:0.5px;}
+.acct-header-row{display:flex;align-items:center;padding:20px 28px;gap:18px;border-bottom:1px solid var(--border);background:var(--card);}
+.acct-logo-cell{min-width:72px;display:flex;align-items:center;justify-content:center;}
+.acct-logo-placeholder{width:68px;height:42px;display:flex;align-items:center;justify-content:center;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.05em;}
+.acct-logo{max-width:68px;max-height:42px;object-fit:contain;}
 .acct-header-text{flex:1;}
-.acct-se-horizon{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#6b8cb8;margin-bottom:4px;}
-.acct-name-large{font-family:'IBM Plex Sans',sans-serif;font-size:23px;font-weight:900;color:#0f1c3a;line-height:1.1;letter-spacing:-0.3px;}
-.acct-date-line{font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:500;color:var(--muted);margin-top:3px;}
+.acct-se-horizon{font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.acct-name-large{font-size:22px;font-weight:700;color:var(--text);line-height:1.1;letter-spacing:-0.3px;}
+.acct-date-line{font-size:12px;color:var(--muted);margin-top:3px;}
 .acct-brand-row{display:flex;gap:6px;align-items:center;margin-top:8px;flex-wrap:wrap;}
-.acct-brand-lbl{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#6b8cb8;margin-right:2px;}
+.acct-brand-lbl{font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-right:2px;}
+
+/* ── TIER BADGES (newer card format) ── */
+.tier-badge{font-size:8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:2px;white-space:nowrap;display:inline-block;}
+.tier-strike{background:rgba(124,75,0,.1);color:#7C4B00;border:1px solid rgba(124,75,0,.25);}
+.tier-engage{background:rgba(180,83,9,.1);color:#B45309;border:1px solid rgba(180,83,9,.25);}
+.tier-standby{background:rgba(197,48,48,.1);color:#C53030;border:1px solid rgba(197,48,48,.25);}
+.industry-tag,.coverage-tag{font-size:10px;color:var(--muted);}
 
 /* ── LABEL PILL ── */
-.lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:var(--accent);padding:4px 0;min-width:110px;width:110px;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;flex-shrink:0;}
-.lbl.lbl-dark{background:#0f1c3a;color:#a8c8ff;border:1px solid #1e3a6a;}
-.lbl.lbl-green{background:#0a2e12;color:#42be65;border:1px solid #1a5a28;}
+.lbl{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--accent);padding:4px 10px;min-width:90px;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;flex-shrink:0;}
+.lbl.lbl-dark{background:var(--surface-2);color:var(--text-mid);border:1px solid var(--border);}
+.lbl.lbl-green{background:var(--green-dim);color:var(--green);border:1px solid rgba(0,102,68,.2);}
 .lbl.lbl-muted{background:var(--surface);color:var(--muted);border:1px solid var(--border);}
 
 /* ── PULSE ROW ── */
-.pulse-row{background:#edf3ff;border-left:4px solid var(--accent);padding:12px 32px;display:flex;gap:14px;align-items:flex-start;}
-.pulse-text{font-size:12px;color:#1e3a6a;font-style:italic;line-height:1.6;}
+.pulse-row{background:var(--accent-dim);border-left:4px solid var(--accent-hi);padding:12px 28px;display:flex;gap:14px;align-items:flex-start;}
+.pulse-text{font-size:12.5px;color:var(--text-mid);line-height:1.65;}
 .dashed-div{border:none;border-top:1px dashed var(--border);margin:0;}
 
 /* ── META ROWS ── */
-.meta-rows{padding:0 32px 4px;background:var(--card);}
-.meta-row{display:flex;align-items:flex-start;gap:14px;padding:10px 0;border-bottom:1px solid var(--border);}
+.meta-rows{padding:0 28px 4px;background:var(--card);}
+.meta-row{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
 .meta-row:last-child{border-bottom:none;}
-.meta-value-italic{font-size:12px;color:#2d3f5a;line-height:1.6;font-style:italic;}
+.meta-value-italic{font-size:13px;color:var(--text-mid);line-height:1.65;}
 
 /* ── LINKEDIN ROW ── */
-.linkedin-row{display:flex;align-items:center;gap:10px;padding:9px 32px;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-.li-text{font-size:11px;color:#5a7090;line-height:1.5;}
+.linkedin-row{display:flex;align-items:center;gap:10px;padding:9px 28px;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.li-text{font-size:11.5px;color:var(--muted);line-height:1.5;}
 .li-text strong{font-weight:700;color:var(--accent);}
 
-/* ── DARK INTEL GRID ── */
-.dark-grid{display:grid;grid-template-columns:1fr 1fr 210px;grid-auto-rows:auto;border-top:3px solid var(--accent);}
-.grid-col-left{background:var(--grid-bg);padding:16px 20px;}
-.grid-col-mid{background:var(--grid-mid);padding:16px 20px;}
-.grid-col-right{background:var(--grid-right);padding:16px 20px;}
+/* ── INTEL GRID (light — replaces dark-grid) ── */
+.dark-grid,.intel-grid{display:grid;grid-template-columns:1fr 1fr 230px;grid-auto-rows:auto;border-top:1px solid var(--border);}
+.grid-col-left,.grid-col-mid,.grid-col-right,
+.grid-col.grid-col-left,.grid-col.grid-col-mid,.grid-col.grid-col-right{padding:18px 22px;border-bottom:1px solid var(--border);}
+.grid-col-left,.grid-col.grid-col-left{background:var(--card);border-right:1px solid var(--border);}
+.grid-col-mid,.grid-col.grid-col-mid{background:var(--surface);border-right:1px solid var(--border);}
+.grid-col-right,.grid-col.grid-col-right{background:var(--surface-2);}
 .grid-label{display:flex;align-items:center;gap:6px;margin-bottom:10px;}
-.grid-chevron{background:rgba(255,255,255,0.1);color:#a8c8ff;font-size:11px;font-weight:900;padding:2px 6px;border-radius:2px;letter-spacing:-1px;}
-.grid-label-text{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#a8c8ff;}
+.grid-chevron{background:var(--accent-dim);color:var(--accent);font-size:10px;font-weight:700;padding:2px 5px;border-radius:2px;letter-spacing:-1px;}
+.grid-label-text{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
+/* old dark list items → light */
 .grid-col-left ul,.grid-col-mid ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px;}
-.grid-col-left li,.grid-col-mid li{font-size:11px;color:rgba(200,216,234,0.85);padding-left:12px;position:relative;line-height:1.5;}
-.grid-col-left li::before,.grid-col-mid li::before{content:'—';position:absolute;left:0;color:rgba(168,200,255,0.35);font-size:9px;top:3px;}
-.contact-entry{padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+.grid-col-left li,.grid-col-mid li{font-size:12px;color:var(--text-mid);padding-left:14px;position:relative;line-height:1.55;}
+.grid-col-left li::before,.grid-col-mid li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:9px;top:3px;font-weight:700;}
+/* contact cards */
+.contact-entry{padding:8px 0;border-bottom:1px solid var(--border);}
 .contact-entry:last-child{border-bottom:none;}
-.contact-name{font-size:11px;font-weight:700;color:#e0e6f0;}
-.contact-role{font-size:10px;color:rgba(200,216,234,0.5);}
-.contact-hook{font-size:10px;color:#6ea8d0;font-style:italic;}
-.play-li-row{display:grid;grid-template-columns:1fr 1fr;grid-column:1 / -1;}
-.ibm-play-bar-full{background:var(--accent);padding:14px 20px;}
-.snav-panel{background:var(--accent-dk);padding:14px 20px;display:flex;flex-direction:column;gap:8px;}
-.play-bar-label{display:flex;align-items:center;gap:6px;margin-bottom:8px;}
-.play-bar-label-text{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;}
-.play-main-text{font-size:13px;font-weight:800;color:#fff;margin-bottom:4px;}
-.play-supporting-text{font-size:11px;color:rgba(255,255,255,0.65);margin-bottom:6px;}
-.play-why-text{font-size:11px;color:rgba(255,255,255,0.5);font-style:italic;border-top:1px solid rgba(255,255,255,0.15);padding-top:7px;margin-top:4px;}
-.snav-label{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#a8c8ff;margin-bottom:6px;}
-.snav-btn{display:inline-flex;align-items:center;gap:5px;background:#fff;color:var(--accent-dk);font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:3px;white-space:nowrap;}
-.snav-keywords{font-size:10px;color:rgba(255,255,255,0.55);font-style:italic;line-height:1.5;border-top:1px solid rgba(255,255,255,0.15);padding-top:6px;margin-top:2px;}
+.contact-name{font-size:12px;font-weight:700;color:var(--text);}
+.contact-role{font-size:11px;color:var(--muted);margin-top:1px;}
+.contact-hook{font-size:11px;color:var(--accent);font-style:italic;margin-top:2px;}
+/* play bar row — full width, no snav split */
+.play-li-row{grid-column:1 / -1;}
+.ibm-play-bar-full{background:var(--accent);padding:20px 24px;}
+/* header row: left (label+title+supporting) + right (meta block) */
+.play-bar-header{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;}
+.play-bar-left{flex:1;min-width:0;}
+.play-bar-right{flex-shrink:0;display:flex;flex-direction:column;gap:6px;align-items:flex-end;text-align:right;min-width:200px;}
+.play-bar-label{display:flex;align-items:center;gap:6px;margin-bottom:10px;}
+.play-bar-label-text{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.65);}
+.play-main-text{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;line-height:1.3;}
+.play-supporting-text{font-size:12px;color:rgba(255,255,255,.75);margin-bottom:0;}
+/* right-side meta elements */
+.play-meta-tier{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:3px;display:inline-block;white-space:nowrap;}
+.play-meta-tier.t-strike{background:rgba(255,255,255,.22);color:#fff;}
+.play-meta-tier.t-engage{background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);}
+.play-meta-tier.t-standby{background:rgba(255,255,255,.1);color:rgba(255,255,255,.75);}
+.play-meta-window{font-size:10px;font-weight:600;color:rgba(255,255,255,.85);white-space:nowrap;}
+.play-meta-window span{color:rgba(255,255,255,.5);font-weight:400;}
+.play-meta-entry{font-size:11px;color:rgba(255,255,255,.65);line-height:1.45;text-align:right;max-width:220px;}
+.play-meta-entry strong{color:#fff;font-weight:700;}
+/* ranked play grid */
+.play-detail-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid rgba(255,255,255,.18);margin-top:14px;}
+.play-detail-col{padding:16px 18px;border-right:1px solid rgba(255,255,255,.12);position:relative;}
+.play-detail-col:last-child{border-right:none;}
+/* rank badge */
+.play-rank-badge{display:inline-flex;align-items:center;gap:6px;margin-bottom:9px;}
+.play-rank-num{font-size:10px;font-weight:700;letter-spacing:.05em;background:rgba(255,255,255,.15);color:#fff;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+.play-rank-num.r1{background:#fff;color:var(--accent);}
+.play-rank-lbl{font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.45);}
+.play-rank-lbl.r1{color:rgba(255,255,255,.75);}
+/* play name */
+.play-detail-name{font-size:13px;font-weight:700;color:#fff;margin-bottom:5px;line-height:1.3;}
+.play-detail-col:not(:first-child) .play-detail-name{color:rgba(255,255,255,.88);}
+/* hook line */
+.play-detail-hook{font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px;}
+.play-detail-col:first-child .play-detail-hook{color:rgba(255,255,255,.7);}
+/* body */
+.play-detail-body{font-size:12.5px;color:rgba(255,255,255,.82);line-height:1.65;}
+.play-detail-col:first-child .play-detail-body{color:rgba(255,255,255,.92);}
+.play-detail-body strong{color:#fff;font-weight:700;}
+/* legacy */
+.play-why-text{font-size:12px;color:rgba(255,255,255,.75);border-top:1px solid rgba(255,255,255,.2);padding-top:8px;margin-top:4px;line-height:1.6;}
+
+/* ── NEWER INTEL GRID (signal-list format) ── */
+.signal-list{display:flex;flex-direction:column;gap:7px;margin-top:2px;}
+.signal-item{font-size:12px;color:var(--text-mid);padding-left:14px;position:relative;line-height:1.55;}
+.signal-item::before{content:'▸';position:absolute;left:0;font-size:9px;top:3px;font-weight:700;}
+.signal-orange::before{color:#B45309;}
+.signal-blue::before{color:var(--accent-hi);}
+.signal-green::before{color:var(--green);}
+.intel-body{font-size:12.5px;color:var(--text-mid);line-height:1.65;}
+
+/* ── CARD HEADER (newer format) ── */
+.card-header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--border);background:var(--card);gap:16px;flex-wrap:wrap;}
+.card-header-left{display:flex;align-items:center;gap:14px;}
+.card-header-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.account-number{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.1em;min-width:22px;}
+.logo-lockup{display:flex;align-items:center;gap:10px;}
+.acct-name{font-size:18px;font-weight:700;color:var(--text);letter-spacing:-0.2px;line-height:1.2;}
+.acct-sub{font-size:11px;color:var(--muted);margin-top:2px;}
 
 /* ── LOWER SECTION ── */
-.lower-section{padding:16px 32px;display:flex;flex-direction:column;gap:12px;background:var(--surface);border-top:1px solid var(--border);}
-.lower-row{display:flex;gap:14px;align-items:flex-start;}
-.action-text{font-size:11.5px;color:#1e2d45;line-height:1.6;}
-.talk-track-text{font-size:11.5px;color:var(--muted);font-style:italic;line-height:1.6;border-left:3px solid var(--accent);padding-left:10px;}
+.lower-section{padding:20px 28px;display:flex;flex-direction:column;gap:16px;background:var(--surface);border-top:1px solid var(--border);}
+.lower-row{display:flex;gap:16px;align-items:flex-start;}
+.action-text{font-size:13px;color:var(--text-mid);line-height:1.7;}
+.talk-track-text{font-size:13px;color:var(--text-mid);line-height:1.7;border-left:3px solid var(--accent-hi);padding-left:14px;background:var(--card);border-radius:0 4px 4px 0;padding:10px 14px 10px 14px;border-left:3px solid var(--accent-hi);}
+
+/* ── SIGNALS + HIRING ── */
+.signals-section{padding:18px 28px;background:var(--card);border-top:1px solid var(--border);}
+.hiring-section{padding:18px 28px;background:var(--surface);border-top:1px solid var(--border);}
+.section-lbl-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.section-lbl{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);background:var(--surface-2);border:1px solid var(--border);padding:3px 10px;border-radius:3px;white-space:nowrap;flex-shrink:0;}
+.section-lbl.lbl-hiring{background:var(--green-dim);color:var(--green);border-color:rgba(0,102,68,.2);}
+.bullets-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 28px;}
+.bullet-item{font-size:13px;color:var(--text-mid);line-height:1.6;padding-left:16px;position:relative;}
+.bullet-item::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:9px;top:4px;font-weight:700;}
+.bullet-item.hi-green::before{color:var(--green);}
+@media(max-width:640px){.bullets-grid{grid-template-columns:1fr;}}
+
+/* ── THESIS / SITUATION ROW ── */
+.thesis-row{padding:14px 28px;background:var(--accent-dim);border-top:1px solid var(--border);border-left:4px solid var(--accent);display:flex;gap:16px;align-items:flex-start;}
+.thesis-text{font-size:13px;color:var(--text-mid);line-height:1.7;}
+.thesis-text strong{color:var(--text);font-weight:700;}
+
+/* ── INTEL GRID: make it more readable ── */
+.intel-body{font-size:13px;color:var(--text-mid);line-height:1.7;}
+.intel-body strong{color:var(--text);}
+.signal-item{font-size:13px;color:var(--text-mid);padding-left:16px;position:relative;line-height:1.6;}
+.grid-col-left,.grid-col.grid-col-left{background:var(--card);border-right:1px solid var(--border);padding:20px 24px;}
+.grid-col-mid,.grid-col.grid-col-mid{background:var(--surface);border-right:1px solid var(--border);padding:20px 24px;}
+.grid-col-right,.grid-col.grid-col-right{background:var(--surface-2);padding:20px 24px;}
+.grid-col-left li,.grid-col-mid li{font-size:13px;color:var(--text-mid);padding-left:16px;position:relative;line-height:1.6;}
+.contact-name{font-size:13px;font-weight:700;color:var(--text);}
+.contact-role{font-size:12px;color:var(--muted);margin-top:2px;}
+.contact-hook{font-size:12px;color:var(--accent);margin-top:3px;}
+.contact-entry{padding:10px 0;}
+.play-main-text{font-size:14px;font-weight:700;color:#fff;margin-bottom:5px;}
+.play-supporting-text{font-size:12px;color:rgba(255,255,255,.8);margin-bottom:8px;}
+.play-why-text{font-size:12.5px;color:rgba(255,255,255,.75);line-height:1.65;border-top:1px solid rgba(255,255,255,.2);padding-top:10px;margin-top:6px;}
 
 /* ── SOURCES ROW ── */
-.sources-row{display:flex;align-items:flex-start;gap:14px;padding:10px 32px;background:var(--surface);border-top:1px solid var(--border);flex-wrap:wrap;}
+.sources-row{display:flex;align-items:flex-start;gap:14px;padding:10px 28px;background:var(--surface);border-top:1px solid var(--border);flex-wrap:wrap;}
 .sources-links{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
-.sources-links a{font-size:10.5px;color:var(--accent);line-height:1.5;}
+.sources-links a{font-size:11px;color:var(--accent);line-height:1.5;}
 .sources-links a:hover{text-decoration:underline;}
-.src-sep{color:var(--border);font-size:10px;}
-
-/* ── PAGE FOOTER ── */
-.page-footer{background:var(--surface);border-top:1px solid var(--border);padding:9px 32px;display:flex;justify-content:space-between;align-items:center;}
-.footer-brand{font-family:'IBM Plex Sans',sans-serif;font-size:11px;font-weight:700;color:#6b8cb8;}
-.footer-brand span{color:var(--accent);}
-.footer-made{font-size:10px;color:#a0a8b8;}
-.footer-back-link{font-size:10px;color:var(--accent);text-decoration:none;}
-.footer-back-link:hover{text-decoration:underline;}
+.src-sep{color:var(--border-hi);font-size:10px;}
 
 /* ── BRAND FILTER BAR ── */
-.brand-filter-bar{background:#1a1a1a;border-bottom:1px solid #2a2a2a;padding:0 24px;height:38px;display:flex;align-items:center;gap:10px;position:sticky;top:46px;z-index:190;}
-.bf-lbl{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#555;white-space:nowrap;flex-shrink:0;}
+.brand-filter-bar{background:rgba(244,246,250,.98);border-bottom:1px solid var(--border);padding:0 24px;height:40px;display:flex;align-items:center;gap:10px;position:sticky;top:46px;z-index:190;}
+.bf-lbl{font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);white-space:nowrap;flex-shrink:0;}
 .bf-pills{display:flex;gap:5px;flex-wrap:nowrap;}
-.bf-pill{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:4px 13px;border-radius:2px;cursor:pointer;user-select:none;border:1px solid #2e2e2e;color:#666;background:transparent;transition:all .12s;white-space:nowrap;}
-.bf-pill:hover{color:#aaa;border-color:#555;}
-.bf-pill.active{color:#fff;border-color:rgba(168,200,255,.5);background:rgba(168,200,255,.08);}
-.bf-pill.active.p-dai{background:#001d6c;color:#a8c8ff;border-color:rgba(168,200,255,.5);}
-.bf-pill.active.p-auto{background:#1c0f30;color:#d4bbff;border-color:rgba(212,187,255,.5);}
-.bf-pill.active.p-stor{background:#061a0e;color:#6fdc8c;border-color:rgba(111,220,140,.5);}
-.bf-pill.active.p-pc{background:#1c1500;color:#d4a017;border-color:rgba(212,160,23,.5);}
+.bf-pill{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 12px;border-radius:2px;cursor:pointer;user-select:none;border:1px solid var(--border);color:var(--muted);background:transparent;transition:all .12s;white-space:nowrap;}
+.bf-pill:hover{color:var(--text);border-color:var(--border-hi);}
+.bf-pill.active{background:var(--accent-dim);color:var(--accent);border-color:var(--accent-line);}
 .bf-pill.active.p-all{background:var(--accent);color:#fff;border-color:var(--accent);}
 .page[data-hidden="true"]{display:none;}
 
-/* ── SIGNALS + HIRING ── */
-.signals-section{padding:14px 32px;background:var(--card);border-top:1px solid var(--border);}
-.hiring-section{padding:14px 32px;background:var(--surface);border-top:1px solid var(--border);}
-.section-lbl-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
-.section-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:#0f1c3a;padding:4px 10px;border-radius:3px;white-space:nowrap;flex-shrink:0;}
-.section-lbl.lbl-hiring{background:#006e2e;}
-.bullets-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;}
-.bullet-item{font-size:11.5px;color:#2d3f5a;line-height:1.55;padding-left:14px;position:relative;}
-.bullet-item::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:9px;top:3px;font-weight:700;}
-.bullet-item.hi-green::before{color:#006e2e;}
-@media(max-width:640px){.bullets-grid{grid-template-columns:1fr;}}
-
 /* ── RESPONSIVE ── */
 @media(max-width:760px){
-  .dark-grid,.play-li-row{grid-template-columns:1fr;}
-  .play-li-row{grid-column:1;}
+  .dark-grid,.intel-grid{grid-template-columns:1fr;}
+  .play-bar-header{flex-direction:column;gap:12px;}
+  .play-bar-right{align-items:flex-start;text-align:left;min-width:0;}
+  .play-meta-entry{text-align:left;}
+  .play-detail-grid{grid-template-columns:1fr;}
+  .play-detail-col{border-right:none;border-bottom:1px solid rgba(255,255,255,.12);padding:14px 16px;}
+  .play-detail-col:last-child{border-bottom:none;}
   .cover-hero,.cover-body{grid-template-columns:1fr;}
   .cover-col-l{border-right:none;border-bottom:1px solid var(--border);}
 }
@@ -505,7 +584,7 @@ a{text-decoration:none;}
       </ul>
     </div>
     <div class="grid-col-mid">
-      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">Pain Point</span></div>
+      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">The Problem</span></div>
       <ul>
         <li>Serial M&amp;A without repeatable data integration creates compounding technical debt per deal</li>
         <li>Aerospace MRO parts traceability at scale requires IBM Storage — compliance records for FAA audits</li>
@@ -522,26 +601,49 @@ a{text-decoration:none;}
       <div class="contact-entry"><div class="contact-name">VP Engineering / Data Platform</div><div class="contact-role">MRO + defense data systems</div><div class="contact-hook">watsonx.governance for defense AI</div></div>
     </div>
     <div class="play-li-row">
-      <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM Data Fabric + Storage</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> watsonx.governance, Planning Analytics</div>
-        <div class="play-why-text">HEICO acquires every quarter. IBM Data Fabric is the integration layer that makes the next deal cheaper to absorb. IBM Storage handles MRO parts and compliance records at aerospace scale. 14-week open window — best outreach time all year.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A163065%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — HEICO ↗</a>
-        <div class="snav-keywords">Search: CIO, VP IT, M&amp;A Integration, CFO, Data Platform, VP Engineering, IT Director</div>
+              <div class="ibm-play-bar-full">
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM Data Fabric + Storage</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> watsonx.governance, Planning Analytics</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-strike">Strike</span>
+            <div class="play-meta-window">14-week open window — now through Dec 17</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> VP IT / M&amp;A Integration Lead → CFO → VP Engineering</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM Data Fabric (M&amp;A Integration Layer)</div>
+            <div class="play-detail-hook">Serial acquirer — each deal is a new IBM deal</div>
+            <div class="play-detail-body"><strong>HEICO closes an acquisition every quarter.</strong> IBM Data Fabric is the repeatable integration layer that makes the next deal cheaper to absorb than the last one. AeroAntenna is live — the next target is already in diligence. Every day without a data integration platform means the next integration cost compounds. This is the #1 revenue conversation in the account.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM Storage (MRO &amp; Compliance Records)</div>
+            <div class="play-detail-hook">Aerospace MRO + defense compliance = IBM Storage use case</div>
+            <div class="play-detail-body">MRO parts records, airworthiness documentation, and defense compliance archives must be retained at aerospace standards for decades. IBM Storage handles the compliance record layer that AeroAntenna and future acquisitions generate. Pair with Data Fabric as the infrastructure + integration bundle.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM Planning Analytics</div>
+            <div class="play-detail-hook">CFO needs M&amp;A integration ROI model</div>
+            <div class="play-detail-body">Post-acquisition integration cost modeling and backlog-to-revenue visibility for the CFO. Planning Analytics lets HEICO's finance team model the cost of integration vs. the revenue timeline on each acquisition — directly addressing the shelf registration and Q3 outperformance narrative.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Call VP IT / M&amp;A Integration Lead this week — reference the Q3 record beat as the opener, then pivot to the AeroAntenna data integration layer. Propose a 30-minute briefing on IBM Data Fabric as the repeatable M&amp;A integration infrastructure. Position before the third acquisition closes.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"Congratulations on a record Q3 — three consecutive quarters of M&amp;A and HEICO keeps delivering. With AeroAntenna live and another deal likely before Dec 17, IBM Data Fabric is how the largest aerospace MRO companies build a repeatable integration platform that gets cheaper with every acquisition, not more expensive."</span>
     </div>
   </div>
@@ -619,7 +721,7 @@ a{text-decoration:none;}
       </ul>
     </div>
     <div class="grid-col-mid">
-      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">Pain Point</span></div>
+      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">The Problem</span></div>
       <ul>
         <li>$21.4B backlog across 5 segments — work order management at this scale requires Maximo</li>
         <li>Three M&amp;A integrations in 18 months — fragmented data estate compounding</li>
@@ -636,25 +738,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM Maximo + Data Fabric</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> Planning Analytics, watsonx.data</div>
-        <div class="play-why-text">AT&amp;T's $250B commitment means MasTec's field operation volume is growing materially. IBM Maximo manages work orders and crew scheduling at $21B+ backlog scale. IBM Data Fabric unifies the three M&amp;A data environments. Use the stock momentum as the opener.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A5350%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — MasTec ↗</a>
-        <div class="snav-keywords">Search: CIO, VP IT, VP Operations, CFO, Field Technology, Data Platform, M&amp;A Integration</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM Maximo + Data Fabric</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> Planning Analytics, watsonx.data</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-strike">Strike</span>
+            <div class="play-meta-window">Reach out this week — AT&amp;T ramp underway</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CFO (MTZ momentum) → VP Operations / CIO</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM Maximo Application Suite</div>
+            <div class="play-detail-hook">AT&amp;T $250B commitment = field ops must scale now</div>
+            <div class="play-detail-body"><strong>$21.4B backlog growing with AT&amp;T's infrastructure spend — MasTec's field operation volume is scaling faster than any legacy work management system can handle.</strong> IBM Maximo is the only enterprise platform purpose-built for field services contractors at this backlog scale: work orders, crew scheduling, safety compliance, and equipment utilization in a single system. This is the entry conversation.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM Data Fabric (M&amp;A Data Unification)</div>
+            <div class="play-detail-hook">3 acquisitions in 18 months = 3 fragmented data environments</div>
+            <div class="play-detail-body">Three M&amp;A integrations have left MasTec with fragmented data estates across telecom, energy, and utilities segments. IBM Data Fabric unifies those environments into a single operational view for the CIO. Pair with Maximo as the operational data foundation for field ops.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM Planning Analytics</div>
+            <div class="play-detail-hook">Backlog-to-revenue forecasting at $21B scale</div>
+            <div class="play-detail-body">AT&amp;T's $250B commitment generates multi-year backlog — the CFO needs a forecasting model that converts that backlog to revenue by segment, quarter, and crew type. IBM Planning Analytics is built for exactly that complexity.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Email CFO referencing MTZ +5.4% and raised guidance — congratulate on the AT&amp;T commitment and pivot to the backlog management technology conversation. Parallel outreach to VP Operations / CIO on IBM Maximo for the AT&amp;T contract ramp.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"AT&amp;T's $250B infrastructure commitment is one of the most significant tailwinds in MasTec's history — IBM Maximo is what the largest infrastructure contractors use to manage work orders and crew scheduling at $20B+ backlog scale without adding proportional overhead."</span>
     </div>
   </div>
@@ -731,7 +856,7 @@ a{text-decoration:none;}
       </ul>
     </div>
     <div class="grid-col-mid">
-      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">Pain Point</span></div>
+      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">The Problem</span></div>
       <ul>
         <li>Three AI model categories each with different regulatory exposure — no unified governance platform</li>
         <li>HIPAA AI governance for Chewy Health — clinical AI decisions need explainability and audit trails</li>
@@ -748,25 +873,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM watsonx.governance</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> watsonx.data, watsonx.ai</div>
-        <div class="play-why-text">Chewy has AI in 3 domains with 3 different compliance exposures. IBM watsonx.governance manages all three under one platform — HIPAA for vet health, FDA for pharmacy, bias monitoring for recommendations. Q2 beat + FY raise = best outreach day of the quarter. Lead with Gartner Leader credential.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A3497540%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — Chewy ↗</a>
-        <div class="snav-keywords">Search: CDO, CIO, VP Data Science, VP AI, MLOps Lead, AI Platform, Chief Data Officer</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM watsonx.governance</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> watsonx.data, watsonx.ai</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-strike">Strike</span>
+            <div class="play-meta-window">Q2 beat + FY raise — best window this quarter</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CDO / VP AI → CIO → VP Data Science</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM watsonx.governance</div>
+            <div class="play-detail-hook">3 AI domains, 3 compliance regimes — one platform</div>
+            <div class="play-detail-body"><strong>HIPAA for Chewy Health, FDA for pet pharmacy, bias monitoring for Autoship recommendations — three separate compliance frameworks running in parallel with no unified governance platform.</strong> IBM watsonx.governance manages all three. Gartner named IBM the Leader in AI Governance Platforms (June 2026). Q2 beat + FY guidance raised = best outreach window of the quarter. Lead with this credential today.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM watsonx.data</div>
+            <div class="play-detail-hook">AI infrastructure for 3-domain scaling</div>
+            <div class="play-detail-body">As Chewy's AI scales across health, pharmacy, and recommendations simultaneously, the data layer underneath must unify three separate data environments. IBM watsonx.data is the foundation — a single query layer across the AI infrastructure that feeds all three domains. Pair with watsonx.governance as the platform play.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM watsonx.ai</div>
+            <div class="play-detail-hook">Clinical and pharmacy AI model development</div>
+            <div class="play-detail-body">Chewy Health's vet AI models and pharmacy recommendation systems are active and growing. IBM watsonx.ai provides the model development, deployment, and monitoring platform — a natural upsell once watsonx.governance is the conversation entry.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Reach out to CDO / VP AI today while Q2 results are fresh. Lead with Gartner AI Governance Platforms MQ (IBM named Leader, June 2026). Reference the three AI domains: "you're scaling AI across CX, recommendations, and Chewy Health simultaneously — three different compliance frameworks running in parallel."</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"Congratulations on the Q2 beat — raising FY guidance with AI active in three domains is a strong signal. Those three domains each carry a different compliance obligation. IBM watsonx.governance manages all three under one roof. Gartner just named IBM the Leader in AI Governance Platforms for the first time."</span>
     </div>
   </div>
@@ -844,7 +992,7 @@ a{text-decoration:none;}
       </ul>
     </div>
     <div class="grid-col-mid">
-      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">Pain Point</span></div>
+      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">The Problem</span></div>
       <ul>
         <li>$12.2B backlog across thousands of concurrent field crews — work order management requires Maximo</li>
         <li>AT&amp;T contract ramp will stress current field ops technology</li>
@@ -861,25 +1009,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM Maximo + Planning Analytics</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> watsonx.data, IBM Storage</div>
-        <div class="play-why-text">CEO insider buy at $296 + AT&amp;T's $250B commitment = Dycom's pipeline is real and growing. IBM Maximo scales field ops for a $12.2B backlog without linear headcount growth. IBM Planning Analytics models backlog-to-revenue conversion. Use the insider buy as the hook — reach out this week.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A19434%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — Dycom ↗</a>
-        <div class="snav-keywords">Search: CIO, VP IT, VP Operations, CFO, Field Technology, Project Management, IT Director</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM Maximo + Planning Analytics</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> watsonx.data, IBM Storage</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-engage">Engage</span>
+            <div class="play-meta-window">This week — CEO insider buy signal active</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CIO + VP Operations → CFO</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM Maximo Application Suite</div>
+            <div class="play-detail-hook">CEO insider buy + AT&amp;T $250B = backlog is real</div>
+            <div class="play-detail-body"><strong>CEO bought $296 stock this week — that's the single strongest conviction signal in the portfolio.</strong> AT&amp;T's $250B infrastructure commitment means Dycom's $12.2B backlog will grow materially. IBM Maximo scales work orders and crew scheduling for telecom infrastructure contractors without proportional headcount growth. This is an this-week conversation — insider buy momentum fades fast.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM Planning Analytics</div>
+            <div class="play-detail-hook">Backlog-to-revenue model for the CFO</div>
+            <div class="play-detail-body">A $12.2B backlog across telecom, underground utilities, and electrical is complex to forecast. IBM Planning Analytics gives Dycom's CFO a real-time backlog-to-revenue conversion model segmented by contract type, region, and crew. Direct ROI story that lands in a single conversation.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM watsonx.data</div>
+            <div class="play-detail-hook">Data unification for field ops visibility</div>
+            <div class="play-detail-body">Dycom's multi-segment field operations generate fragmented data across different systems. IBM watsonx.data unifies crew scheduling, work order, and equipment data into a single analytics layer — foundation for the Planning Analytics and Maximo plays.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Reach out to CIO and VP Operations this week — use the CEO insider buy as the opener. Reference the AT&amp;T $250B commitment as the reason the field ops technology conversation is urgent now. Propose a 30-minute briefing on IBM Maximo for telecom infrastructure contractors at $10B+ backlog scale.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"The CEO buying stock at $296 this week, combined with AT&amp;T's $250B infrastructure commitment, tells me Dycom's backlog is about to get materially larger. IBM Maximo is what the largest telecom infrastructure contractors use to manage work orders and crew scheduling at $12B+ backlog scale without adding proportional overhead."</span>
     </div>
   </div>
@@ -956,7 +1127,7 @@ a{text-decoration:none;}
       </ul>
     </div>
     <div class="grid-col-mid">
-      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">Pain Point</span></div>
+      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">The Problem</span></div>
       <ul>
         <li>3 new portfolio companies in 8 days — each has a separate data environment to benchmark</li>
         <li>Portfolio operations team needs consolidated financial analytics across all companies</li>
@@ -973,25 +1144,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM Planning Analytics + watsonx.governance</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> watsonx.data (Click Here Digital angle)</div>
-        <div class="play-why-text">3 deals in 8 days = H.I.G. needs portfolio analytics now. IBM Planning Analytics for cross-portfolio benchmarking. IBM watsonx.governance for Outcomes One AI compliance. Lead with the deal velocity.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A28523%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — H.I.G. ↗</a>
-        <div class="snav-keywords">Search: Managing Director, Operating Partner, VP Technology, Chief Data Officer, Portfolio Operations</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM Planning Analytics + watsonx.governance</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> watsonx.data (Click Here Digital angle)</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-engage">Engage</span>
+            <div class="play-meta-window">3 deals in 8 days — analytics window open now</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> Operating Partner → CDO / VP Technology</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM Planning Analytics (Portfolio Analytics)</div>
+            <div class="play-detail-hook">3 acquisitions in 8 days = analytics needed now</div>
+            <div class="play-detail-body"><strong>Three deals in eight days — Outcomes One, Homewerks, and Click Here Digital each bring a different P&amp;L, a different data environment, and a different KPI framework.</strong> IBM Planning Analytics is the industry standard for PE portfolio cross-company benchmarking and consolidated financial reporting. Lead with the deal velocity — this is the most direct urgency argument IBM has in this account.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM watsonx.governance (Outcomes One)</div>
+            <div class="play-detail-hook">Healthcare AI company = compliance mandate at exit</div>
+            <div class="play-detail-body">Outcomes One uses AI in healthcare settings — any future exit due diligence will require documented AI model governance. IBM watsonx.governance builds that compliance documentation now, before it becomes a deal blocker. Strongest angle with the CDO or VP Technology.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM watsonx.data (Click Here Digital)</div>
+            <div class="play-detail-hook">Digital agency customer data unification</div>
+            <div class="play-detail-body">Click Here Digital's digital marketing customer data is a high-value portfolio asset. IBM watsonx.data unifies it with the rest of the H.I.G. portfolio data layer — the foundation play once Planning Analytics is established.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Reach out to the Operating Partner / Portfolio Operations lead this week — open with the 3-deal-in-8-days observation. Lead with Outcomes One as the AI governance hook. Request an in-person Miami meeting.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"Three acquisitions in eight days — Outcomes One, Homewerks, and Click Here Digital each bring a different data environment into the portfolio. IBM Planning Analytics gives your portfolio operations team a consolidated view across all of them, and IBM watsonx.governance gives Outcomes One's AI models the documentation they'll need for any exit due diligence process."</span>
     </div>
   </div>
@@ -1068,7 +1262,7 @@ a{text-decoration:none;}
       </ul>
     </div>
     <div class="grid-col-mid">
-      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">Pain Point</span></div>
+      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">The Problem</span></div>
       <ul>
         <li>Three AI systems across three brands — no unified governance, compliance exposure growing</li>
         <li>BK AI headset models need bias monitoring and explainability at 7,000+ restaurant scale</li>
@@ -1085,25 +1279,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM watsonx.governance + Planning Analytics</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> watsonx.data</div>
-        <div class="play-why-text">RBI has AI in 3 brands with no unified governance. IBM watsonx.governance covers all three. IBM Planning Analytics for franchise network FP&amp;A. Post-Barclays is the warm outreach window — use it this week.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A166764%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — RBI ↗</a>
-        <div class="snav-keywords">Search: CIO, CDO, VP Technology, VP Digital, VP Analytics, Chief Information Officer</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM watsonx.governance + Planning Analytics</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> watsonx.data</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-engage">Engage</span>
+            <div class="play-meta-window">Post-Barclays window — this week</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> SVP &amp; CIO → CDO / VP Analytics → CFO</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM watsonx.governance (Multi-Brand AI)</div>
+            <div class="play-detail-hook">BK AI headsets + Tim Hortons loyalty + Popeyes = 3 compliance gaps</div>
+            <div class="play-detail-body"><strong>Three live AI systems, three separate compliance obligations — Burger King AI drive-thru, Tim Hortons loyalty personalization, and Popeyes recommendations.</strong> No governance vendor manages all three as a unified platform the way IBM watsonx.governance does. Post-Barclays is the warmest outreach window IBM has had all quarter. Lead with the Gartner AI Governance Leader credential today.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM Planning Analytics (Franchise FP&amp;A)</div>
+            <div class="play-detail-hook">40,000+ franchise locations = IBM's Planning Analytics scale</div>
+            <div class="play-detail-body">40,000+ franchise locations across three brands generating royalty revenue, food cost, and guest traffic data. IBM Planning Analytics models that complexity as a consolidated franchise network P&amp;A platform — the CFO and VP FP&amp;A conversation.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM watsonx.data (Multi-Brand Data Platform)</div>
+            <div class="play-detail-hook">One data layer across BK, Tim Hortons, Popeyes</div>
+            <div class="play-detail-body">Three brand data environments generating customer, supply chain, and operational data. IBM watsonx.data is the unified query and analytics layer — foundation for the governance and Planning Analytics plays.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Reach out to SVP &amp; CIO this week — reference the Barclays conference as the warm opener and pivot to the multi-brand AI governance gap. Request an in-person Miami meeting.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"I caught the Barclays presentation yesterday — with AI headsets live in BK and loyalty personalization scaling at Tim Hortons, you now have three separate AI systems under one governance obligation. IBM watsonx.governance manages all three under one roof — and Gartner just named IBM the Leader in AI Governance Platforms."</span>
     </div>
   </div>
@@ -1180,7 +1397,7 @@ a{text-decoration:none;}
       </ul>
     </div>
     <div class="grid-col-mid">
-      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">Pain Point</span></div>
+      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">The Problem</span></div>
       <ul>
         <li>$225M savings target — automation of cruise ops workflows is the fastest path to cost reduction</li>
         <li>Three brands with separate operational systems — consolidation opportunity</li>
@@ -1197,25 +1414,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM Automation + Planning Analytics</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> watsonx.ai for guest personalization</div>
-        <div class="play-why-text">New CEO + $225M savings mandate = IBM's classic entry scenario. IBM automation addresses the cost reduction mandate directly. IBM Planning Analytics for fleet-level yield modeling across three brands. Reach out in the new CEO's first 90 days — this window closes fast.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A2297%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — NCLH ↗</a>
-        <div class="snav-keywords">Search: CIO, CFO, SVP Technology, VP Operations, Chief Information Officer, VP Revenue Management</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM Automation + Planning Analytics</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> watsonx.ai for guest personalization</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-engage">Engage</span>
+            <div class="play-meta-window">90-day new CEO window — closing fast</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CIO + CFO → VP Revenue Management</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM Automation (Cost Reduction)</div>
+            <div class="play-detail-hook">$225M savings mandate in new CEO's first 90 days</div>
+            <div class="play-detail-body"><strong>New CEO + $225M annualized savings target is IBM's textbook entry scenario — and the 90-day window closes fast.</strong> IBM automation of cruise operations workflows (booking, crew scheduling, fleet maintenance) is where the fastest measurable savings come from at NCLH's scale. New CEOs lock in technology partnerships before the first board presentation. This is a time-sensitive window.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM Planning Analytics (Fleet Yield)</div>
+            <div class="play-detail-hook">Norwegian, Oceania, Regent = 3-brand yield model</div>
+            <div class="play-detail-body">Fleet yield optimization across three cruise brands with different pricing models, passenger profiles, and deployment strategies. IBM Planning Analytics models all three under a consolidated view — the CFO and VP Revenue Management conversation. Directly addresses the $225M target.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM watsonx.ai (Guest Personalization)</div>
+            <div class="play-detail-hook">AI-driven upsell at 60+ ships scale</div>
+            <div class="play-detail-body">NCLH operates 60+ ships across three brands — guest personalization and pre-cruise upsell AI is a documented revenue opportunity at scale. IBM watsonx.ai is the platform play once automation and analytics are established.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Reach out to CIO and CFO in the new CEO's first 90 days — frame as "IBM can help NCLH hit the $225M savings target through automation of cruise operations workflows." Request an introductory meeting while the new CEO is still in the vendor evaluation phase.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"With a new CEO and a $225M annualized savings mandate, the question is which technology investments deliver savings fastest. IBM automation of cruise operations workflows — booking, crew scheduling, fleet maintenance — is typically where the fastest measurable cost reduction comes from at the scale NCLH operates."</span>
     </div>
   </div>
@@ -1292,7 +1532,7 @@ a{text-decoration:none;}
       </ul>
     </div>
     <div class="grid-col-mid">
-      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">Pain Point</span></div>
+      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">The Problem</span></div>
       <ul>
         <li>H&amp;E creates two separate fleet data environments — unification is the integration priority</li>
         <li>Fleet utilization optimization across combined Herc + H&amp;E fleet requires unified analytics</li>
@@ -1309,25 +1549,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM Planning Analytics + watsonx.data</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> IBM Maximo for fleet maintenance</div>
-        <div class="play-why-text">JPMorgan's upgrade thesis is fleet utilization — IBM Planning Analytics delivers that directly. H&amp;E creates the watsonx.data unification case. JPMorgan upgrade today is the best outreach hook of the week — use it immediately.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A2848055%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — Herc ↗</a>
-        <div class="snav-keywords">Search: CIO, CFO, VP Operations, VP Fleet Management, Chief Information Officer, VP Analytics</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM Planning Analytics + watsonx.data</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> IBM Maximo for fleet maintenance</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-engage">Engage</span>
+            <div class="play-meta-window">Today — JPMorgan upgrade hook live now</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CFO + VP Fleet Management → CIO</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM Planning Analytics (Fleet Utilization)</div>
+            <div class="play-detail-hook">JPMorgan upgrade thesis = IBM's entry argument</div>
+            <div class="play-detail-body"><strong>JPMorgan just upgraded Herc to Overweight with fleet utilization as the explicit thesis — IBM Planning Analytics is the platform that makes that optimization measurable and actionable across the combined Herc + H&amp;E fleet.</strong> This is a same-day outreach opportunity. Call CFO and VP Fleet Management now — the JPMorgan upgrade hook will not be this fresh tomorrow.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM watsonx.data (H&amp;E Integration)</div>
+            <div class="play-detail-hook">H&amp;E integration live = two fleets, two data environments</div>
+            <div class="play-detail-body">H&amp;E Equipment acquisition is live — two rental fleet data environments now need a unified analytics layer. IBM watsonx.data is that foundation: a single data platform across equipment inventory, utilization, maintenance, and customer data for the combined fleet. CIO conversation.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM Maximo (Fleet Maintenance)</div>
+            <div class="play-detail-hook">Equipment maintenance scheduling at combined fleet scale</div>
+            <div class="play-detail-body">IBM Maximo for predictive maintenance scheduling across the combined Herc + H&amp;E fleet — reduces downtime and extends asset life. Third-conversation play once Planning Analytics and watsonx.data are established.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Call CFO and VP Fleet Management TODAY — JPMorgan upgrade is the hook. Reference fleet utilization as the upgrade thesis and IBM Planning Analytics as the platform that makes it measurable and actionable.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"JPMorgan just upgraded Herc to Overweight this morning with fleet utilization as the thesis — IBM Planning Analytics is the platform that makes that utilization optimization measurable across the combined Herc + H&amp;E fleet. With the H&amp;E integration live, this is the right time to build that unified analytics layer."</span>
     </div>
   </div>
@@ -1404,7 +1667,7 @@ a{text-decoration:none;}
       </ul>
     </div>
     <div class="grid-col-mid">
-      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">Pain Point</span></div>
+      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">The Problem</span></div>
       <ul>
         <li>AI clients need governance — Kforce places AI talent but clients lack the governance platform</li>
         <li>Internal workforce demand forecasting at $349M scale requires Planning Analytics, not spreadsheets</li>
@@ -1421,25 +1684,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM watsonx.governance (Co-Sell) + Planning Analytics</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> watsonx.ai for AI Innovation Studio</div>
-        <div class="play-why-text">Dual motion: co-sell watsonx.governance through Kforce into their AI clients + IBM Planning Analytics for Kforce's internal workforce forecasting. Ohio pension buy + Q2 beat = CEO in highest receptivity mode. Propose a QBR with the co-sell pitch this week.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A18877%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — Kforce ↗</a>
-        <div class="snav-keywords">Search: CEO, CIO, CDO, VP AI Innovation, VP Partnerships, Chief Data Officer, VP Technology</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM watsonx.governance (Co-Sell) + Planning Analytics</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> watsonx.ai for AI Innovation Studio</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-engage">Engage</span>
+            <div class="play-meta-window">Ohio pension buy + Q2 beat — reach out this week</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CEO / President → VP Partnerships → CIO</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM watsonx.governance (Co-Sell Partner)</div>
+            <div class="play-detail-hook">Kforce places AI talent — their clients need governance</div>
+            <div class="play-detail-body"><strong>Every enterprise client Kforce places AI talent into is a watsonx.governance prospect. Kforce brings the relationship, IBM brings the platform, and Kforce earns margin on both the placement and the software.</strong> Ohio pension buy + Q2 beat = CEO at peak receptivity. This is a partner co-sell motion — not just a direct sale. Propose the dual-revenue QBR this week.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM Planning Analytics (Workforce Forecasting)</div>
+            <div class="play-detail-hook">60,000+ contractors = complex workforce demand model</div>
+            <div class="play-detail-body">Kforce's staffing demand model across technology and finance verticals is complex to forecast. IBM Planning Analytics gives the CEO and CFO a real-time workforce demand forecasting platform — direct internal value that makes Kforce's own planning more accurate.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM watsonx.ai (AI Innovation Studio)</div>
+            <div class="play-detail-hook">Kforce's AI Innovation Studio is an IBM watsonx.ai fit</div>
+            <div class="play-detail-body">Kforce's AI Innovation Studio places AI practitioners — IBM watsonx.ai is the platform their practitioners work on. Positioning IBM watsonx.ai as the preferred platform for Kforce AI placements expands the co-sell motion downstream to each client engagement.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Reference Ohio pension buy + Q2 beat as the opener. Pitch the dual motion: "Kforce as both an IBM watsonx.governance SaaS customer and a co-sell partner into your AI client base." Propose a 45-minute QBR with CEO and VP Partnerships to map the co-sell pipeline.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"With your AI pipeline driving the Q2 beat and institutional investors now building positions in KFRC, I wanted to connect — the enterprise clients Kforce is placing AI talent into are going to need IBM watsonx.governance, and there's a co-sell motion worth exploring. Kforce brings the relationship, IBM brings the governance platform, and you get margin on both the placement and the software."</span>
     </div>
   </div>
@@ -1516,7 +1802,7 @@ a{text-decoration:none;}
       </ul>
     </div>
     <div class="grid-col-mid">
-      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">Pain Point</span></div>
+      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">The Problem</span></div>
       <ul>
         <li>SAP doesn't model attendance vs. per-capita revenue trade-offs — Planning Analytics fills that gap</li>
         <li>Post-miss CFO needs live scenario models for Howl-O-Scream attendance ranges</li>
@@ -1533,25 +1819,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM Planning Analytics + watsonx.data</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> watsonx.ai for guest personalization</div>
-        <div class="play-why-text">Howl-O-Scream launches tomorrow — CFO is in the most active planning mode of the year. IBM Planning Analytics models the attendance-per-capita trade-off on top of SAP. Reach out today while the seasonal urgency is at its peak.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A1653128%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — SeaWorld ↗</a>
-        <div class="snav-keywords">Search: CFO, Interim CFO, CIO, Chief Accounting Officer, VP Finance, VP Revenue Management</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM Planning Analytics + watsonx.data</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> watsonx.ai for guest personalization</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-engage">Engage</span>
+            <div class="play-meta-window">Today — Howl-O-Scream launches tomorrow</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CFO / VP Revenue Management → CIO</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM Planning Analytics (Revenue Modeling on SAP)</div>
+            <div class="play-detail-hook">Howl-O-Scream launches tomorrow — CFO in peak planning mode</div>
+            <div class="play-detail-body"><strong>Q2 bifurcated attendance vs. per-capita spend — that is a planning model problem, not a marketing problem.</strong> IBM Planning Analytics models both levers simultaneously on top of SAP, the exact environment United Parks runs. Howl-O-Scream launches tomorrow. The CFO is in the most intensive planning cycle of the year. Reach out today — this window closes with the season.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM watsonx.data (Multi-Brand Guest Analytics)</div>
+            <div class="play-detail-hook">SeaWorld, Busch Gardens, Aquatica = 3 guest data environments</div>
+            <div class="play-detail-body">Three theme park brands with distinct guest profiles generating separate customer data environments. IBM watsonx.data unifies them into a single guest analytics layer — the foundation for personalization and demand modeling across United Parks' combined portfolio.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM watsonx.ai (Guest Personalization)</div>
+            <div class="play-detail-hook">AI-driven upsell for seasonal revenue recovery</div>
+            <div class="play-detail-body">AI-driven dynamic pricing and guest personalization is a documented revenue recovery lever for theme park operators under attendance pressure. IBM watsonx.ai is the platform once the data and analytics foundation is established.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Reach out to CFO / VP Revenue Management today — Howl-O-Scream launches tomorrow and the finance team is in peak planning mode. Lead with the Q2 attendance-per-capita bifurcation as the conversation hook.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"Q2 showed the attendance-per-capita split your team is managing into Howl-O-Scream — that's a planning model problem, not a marketing one. IBM Planning Analytics is what theme park operators use to model those two levers together and build live Q3 scenarios directly on top of your new SAP environment."</span>
     </div>
   </div>
@@ -1626,7 +1935,7 @@ a{text-decoration:none;}
       </ul>
     </div>
     <div class="grid-col-mid">
-      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">Pain Point</span></div>
+      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">The Problem</span></div>
       <ul>
         <li>Monthly NAV reporting across 4,000+ funds — fragmented data lineage creates audit liability</li>
         <li>SEC examiners increasingly ask for data lineage documentation in fund admin audits</li>
@@ -1643,25 +1952,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM Manta Data Lineage + watsonx.governance</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> IBM DataStage for ETL within modernized platform</div>
-        <div class="play-why-text">Legacy modernization is in progress — enter through the program and position Manta as the compliance layer built in, not bolted on. SEC/AIFMD audit trail requirement is the urgency driver. watsonx.governance for AI reporting models as the upsell.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A3439%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — Citco ↗</a>
-        <div class="snav-keywords">Search: CTO, CDO, VP Technology, Head of Data, Head of Compliance, SVP Operations</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM Manta Data Lineage + watsonx.governance</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> IBM DataStage for ETL within modernized platform</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-engage">Engage</span>
+            <div class="play-meta-window">Active modernization program — enter now</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CTO / Head of Data → Head of Compliance</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM Manta Data Lineage</div>
+            <div class="play-detail-hook">Modernization in progress = compliance layer must be built in</div>
+            <div class="play-detail-body"><strong>The biggest risk in Citco's modernization is going live without end-to-end NAV data lineage — and SEC/AIFMD auditors will ask for exactly that on day one.</strong> IBM Manta Data Lineage is the platform that makes a modernized reporting environment audit-ready from the start, not retrofitted after the first examination. Enter through the modernization program now — before the environment goes live.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM watsonx.governance (AI Reporting Models)</div>
+            <div class="play-detail-hook">Fund administrators using AI in reporting need governance</div>
+            <div class="play-detail-body">As Citco modernizes its reporting environment, AI-driven NAV and performance models are the natural next step. IBM watsonx.governance provides the compliance documentation those AI models require under SEC and AIFMD — the upsell once Manta Data Lineage is the entry.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM DataStage (ETL Modernization)</div>
+            <div class="play-detail-hook">DataStage as the ETL layer within the modernized platform</div>
+            <div class="play-detail-body">IBM DataStage is the enterprise ETL standard — positioning it as the data movement and transformation layer within Citco's modernized platform adds IBM revenue alongside Manta. Technical conversation with the data engineering lead.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Enter through the modernization program — reach out to CTO or Head of Data with a specific Manta Data Lineage brief. Frame it as: "the compliance layer your modernization project needs before you go live." Request a 30-minute technical briefing with the data engineering lead.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"Fund administrators at Citco's scale face a specific SEC risk: if a regulator asks 'where did this NAV number come from?', the answer has to be traceable end-to-end. IBM Manta Data Lineage is the platform that makes your modernized reporting environment audit-ready from day one — built in from the start, not retrofitted after the first examination."</span>
     </div>
   </div>
@@ -1737,7 +2069,7 @@ a{text-decoration:none;}
       </ul>
     </div>
     <div class="grid-col-mid">
-      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">Pain Point</span></div>
+      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">The Problem</span></div>
       <ul>
         <li>Florida DOI requires AI model explainability for underwriting — no governance platform = regulatory risk</li>
         <li>FIRE entity greenfield build needs a data platform that handles policy, claims, and reinsurance data</li>
@@ -1754,25 +2086,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM watsonx.governance + watsonx.data</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> IBM DataStage for policy/claims data integration</div>
-        <div class="play-why-text">Greenfield FIRE entity build = rarest entry scenario. IBM watsonx.governance for Florida DOI actuarial AI compliance built in from day one. IBM watsonx.data as the policy/claims data foundation. Lead with Gartner AI Governance Leader credential — strongest possible opener for a compliance-driven conversation.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A2523441%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — Frontline ↗</a>
-        <div class="snav-keywords">Search: CTO, CIO, Chief Actuary, VP Technology, VP Data, Head of IT, VP Underwriting</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM watsonx.governance + watsonx.data</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> IBM DataStage for policy/claims data integration</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-standby">Standby</span>
+            <div class="play-meta-window">Greenfield build — earliest entry window in territory</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CTO / CIO + Chief Actuary simultaneously</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM watsonx.governance (Florida DOI Compliance)</div>
+            <div class="play-detail-hook">Greenfield FIRE entity = build compliance in from day one</div>
+            <div class="play-detail-body"><strong>Building a FIRE entity from scratch is the rarest IBM entry scenario — no incumbent, no legacy debt, no renewal cycle.</strong> Florida DOI already requires carriers to document how AI models make underwriting decisions. IBM watsonx.governance built in from day one prevents the compliance retrofit every other Florida insurer is scrambling to complete retroactively. Lead with the Gartner AI Governance Leader credential — strongest opener available.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM watsonx.data (Policy &amp; Claims Foundation)</div>
+            <div class="play-detail-hook">FIRE entity needs a data platform from the ground up</div>
+            <div class="play-detail-body">A greenfield FIRE entity has no legacy data infrastructure — IBM watsonx.data is the policy, claims, and actuarial data foundation built right from the start. CTO / CIO conversation: "build the data platform that scales with your FIRE entity without having to rip it out later."</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM DataStage (Policy Data Integration)</div>
+            <div class="play-detail-hook">Policy + claims + actuarial data integration at launch</div>
+            <div class="play-detail-body">IBM DataStage for the ETL and data integration layer within the FIRE entity's new environment — pairs with watsonx.data as the processing and movement layer for policy, claims, and actuarial data at launch.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Reach out to CTO / CIO and Chief Actuary simultaneously — different pitches, same timing. CTO: watsonx.data as the FIRE entity data foundation. Chief Actuary: watsonx.governance for Florida DOI actuarial AI compliance. Lead with Gartner Leader credential on both conversations.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"Building the FIRE entity from scratch is a rare opportunity to get the foundation right — and Florida DOI is already requiring carriers to document how AI models make underwriting decisions. IBM watsonx.governance is the platform that makes your actuarial AI compliant with state requirements before you scale, and Gartner just named IBM the Leader in AI Governance Platforms for the first time."</span>
     </div>
   </div>
@@ -1837,25 +2192,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM Consulting Transformation + IBM watsonx.data</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> IBM Business Automation Workflow for procurement/order management</div>
-        <div class="play-why-text">PE-backed transformation = high urgency, fast decisions. Atlas Holdings wants measurable cost reduction in 12 months. Lead with IBM Consulting's PE transformation track record — then layer watsonx.data for B2B customer data unification and automation for procurement efficiency. Strike before Atlas locks in a competing SI.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A3492%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — ODP ↗</a>
-        <div class="snav-keywords">Search: CIO, VP Technology, CFO, VP Operations, Head of IT, Chief Digital Officer</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM Consulting Transformation + IBM watsonx.data</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> IBM Business Automation Workflow for procurement/order management</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-standby">Standby</span>
+            <div class="play-meta-window">90-day Atlas audit — window closing</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CIO + CFO → VP Operations</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM Consulting (PE Transformation)</div>
+            <div class="play-detail-hook">Atlas Holdings needs measurable ROI in 12 months — IBM delivers it</div>
+            <div class="play-detail-body"><strong>PE-backed transformations move at a different speed — Atlas Holdings needs measurable cost reduction within 12 months and they will lock in a systems integrator before the 90-day audit completes.</strong> IBM Consulting has the PE transformation track record that Atlas-style investors recognize. Strike before a competing SI gets the scoping engagement. This is a time-sensitive, competitive situation.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM watsonx.data (B2B Data Unification)</div>
+            <div class="play-detail-hook">B2B customer data is the ODP asset that Atlas wants monetized</div>
+            <div class="play-detail-body">ODP's B2B customer data across Office Depot business accounts is the primary commercial asset Atlas Holdings acquired. IBM watsonx.data unifies that data environment — the foundation for analytics and AI that turns it into a revenue engine. CIO + CFO conversation.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM Business Automation Workflow</div>
+            <div class="play-detail-hook">Procurement and order management automation for cost reduction</div>
+            <div class="play-detail-body">IBM automation of procurement and order management workflows directly addresses Atlas's cost reduction mandate — measurable savings in the first 12 months. Strongest operational ROI story once IBM Consulting is the engagement vehicle.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Target CIO / VP Technology and CFO simultaneously. Position IBM Consulting as the PE transformation partner Atlas Holdings needs for the first-wave systems rationalization. Use watsonx.data as the B2B data unification story. Request a discovery call within 30 days — before the Atlas 90-day audit locks in recommendations.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"When Atlas Holdings took ODP private, the clock started on a 90-day systems audit. IBM Consulting has run exactly this playbook for PE-backed distribution businesses — rapid cost and systems rationalization with measurable results. We'd like 30 minutes to show you how we've done it and what we'd scope for ODP's B2B transformation."</span>
     </div>
   </div>
@@ -1920,25 +2298,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM Planning Analytics + IBM watsonx.data</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> IBM watsonx.governance for portfolio analytics model explainability</div>
-        <div class="play-why-text">Activist PE holding companies live and die by portfolio visibility. IBM Planning Analytics is the most powerful multi-entity financial consolidation platform available — used by major holding companies globally. Lead with a demo of multi-entity P&L and scenario planning, then expand with watsonx.data as the unified portfolio data layer. Low competition in this segment.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A12432%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — Icahn ↗</a>
-        <div class="snav-keywords">Search: CFO, CIO, VP Finance, Head of Technology, Chief Risk Officer, General Counsel</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM Planning Analytics + IBM watsonx.data</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> IBM watsonx.governance for portfolio analytics model explainability</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-standby">Standby</span>
+            <div class="play-meta-window">No earnings pressure — move now</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CFO → CIO → Chief Risk Officer</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM Planning Analytics (Portfolio Consolidation)</div>
+            <div class="play-detail-hook">8+ portfolio companies = no unified financial view</div>
+            <div class="play-detail-body"><strong>Running consolidated financials across CVR Energy, Newell Brands, and 6+ other portfolio companies on a single platform is exactly what IBM Planning Analytics was built for.</strong> Multi-entity P&amp;L, scenario modeling, and board reporting in one place. Low competition in this segment — most IBM sellers don't pursue holding companies with this angle. Bring a multi-entity demo to the first meeting.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM watsonx.data (Portfolio Data Layer)</div>
+            <div class="play-detail-hook">Unified data layer across 8+ portfolio companies</div>
+            <div class="play-detail-body">IBM watsonx.data as the unified portfolio data layer — a single query and analytics environment across IEP's energy, consumer goods, real estate, and industrial holdings. Pairs with Planning Analytics as the data foundation.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM watsonx.governance (ESG &amp; Model Reporting)</div>
+            <div class="play-detail-hook">Activist PE with public reporting obligations</div>
+            <div class="play-detail-body">IEP has public unit holder obligations — ESG reporting and financial model explainability are growing requirements. IBM watsonx.governance provides the documentation layer for portfolio analytics models and ESG data across holdings.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Target CFO and CIO. Lead with IBM Planning Analytics as the multi-entity financial consolidation story — specific, demonstrable value for a holding company with 8+ portfolio companies. Request a discovery call to understand current portfolio reporting stack and identify consolidation gaps.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"Running consolidated financials across CVR Energy, Newell Brands, and the rest of the portfolio on a single platform is exactly what IBM Planning Analytics was built for — multi-entity P&L, scenario modeling, and board reporting in one place. We work with holding companies managing more entities than IEP at similar scale. Can we show you a 30-minute demo?"</span>
     </div>
   </div>
@@ -2004,25 +2405,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM watsonx.ai + IBM Supply Chain (Sterling)</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> IBM watsonx.data for construction/mortgage/customer data unification</div>
-        <div class="play-why-text">Post-Q3 earnings pressure creates maximum CFO receptivity. IBM watsonx.ai for dynamic pricing and construction AI is directly on Lennar's stated technology roadmap. IBM Sterling for supply chain visibility at 18K+ closings scale is a concrete ROI story. Time the outreach for Sep 16–23 — the post-earnings window. Lead with efficiency and margin recovery framing.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A4605%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — Lennar ↗</a>
-        <div class="snav-keywords">Search: CIO, CTO, Chief Digital Officer, VP Technology, VP Supply Chain, CFO, VP Construction</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM watsonx.ai + IBM Supply Chain (Sterling)</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> IBM watsonx.data for construction/mortgage/customer data unification</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-standby">Standby</span>
+            <div class="play-meta-window">Sep 16–23 post-earnings window</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CIO / CTO (LTG) + CFO simultaneously</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM watsonx.ai (Construction &amp; Pricing AI)</div>
+            <div class="play-detail-hook">Lennar Technology Group has published AI roadmap — IBM executes it</div>
+            <div class="play-detail-body"><strong>Lennar Technology Group is publicly committed to AI-driven dynamic pricing and construction scheduling.</strong> IBM watsonx.ai is the enterprise platform that executes that roadmap at 18,000+ annual closings scale. Post-Q3 earnings (Sep 16) creates maximum CFO and CIO receptivity simultaneously. Time outreach for Sep 16–23 — do not approach before earnings.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM Sterling Supply Chain (Construction Materials)</div>
+            <div class="play-detail-hook">Supply chain visibility at 18K closings = concrete ROI story</div>
+            <div class="play-detail-body">IBM Sterling Supply Chain for construction materials cost visibility and procurement efficiency at 18,000+ annual closings. Post-Q3 margin pressure makes this the CFO's most receptive conversation — measurable cost reduction, specific to homebuilding operations.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM watsonx.data (Unified Homebuilder Data Platform)</div>
+            <div class="play-detail-hook">Construction, mortgage, and customer data in one platform</div>
+            <div class="play-detail-body">IBM watsonx.data unifies Lennar's construction operations, mortgage origination, and customer data — the foundation layer for watsonx.ai modeling. Pairs with both the AI and supply chain plays.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Time outreach for Sep 16–23 (post-Q3 earnings window). Lead with CIO / CTO at Lennar Technology Group — reference their published AI commitments and IBM's homebuilding AI capabilities. Simultaneously reach CFO with margin recovery / supply chain efficiency framing. Urgency is highest in the 5 business days after the earnings call.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"Lennar Technology Group has been public about AI-driven dynamic pricing and construction scheduling — and with Q3 margins under pressure, the timing couldn't be better to show how IBM watsonx.ai accelerates exactly that roadmap. We've helped builders at your scale cut construction cycle time and improve materials cost visibility. Can we get 30 minutes with your team the week of the 16th?"</span>
     </div>
   </div>
@@ -2089,25 +2513,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM watsonx.ai + IBM watsonx.governance (Mortgage Underwriting Automation)</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> IBM watsonx.data for unified buyer and loan data pipeline</div>
-        <div class="play-why-text">Captive mortgage + rate pressure = highest urgency underwriting automation use case in the portfolio. IBM watsonx.ai accelerates underwriting and pre-qualification. IBM watsonx.governance provides CFPB/HMDA compliance for AI models — lead with Gartner's AI Governance Leader designation (June 2026) as the risk/compliance opener. Coordinate Lennar Mortgage outreach with Lennar Corp (A15) — same earnings event, same timing window Sep 16–23.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A4605%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — Lennar (parent) ↗</a>
-        <div class="snav-keywords">Search: Lennar Mortgage President, CRO Mortgage, VP Digital Mortgage, Head of Underwriting, VP Compliance</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM watsonx.ai + IBM watsonx.governance (Mortgage Underwriting Automation)</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> IBM watsonx.data for unified buyer and loan data pipeline</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-standby">Standby</span>
+            <div class="play-meta-window">Sep 16–23 — coordinate with Lennar Corp (A15)</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> President / CEO Lennar Mortgage + CRO</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM watsonx.ai (Underwriting Automation)</div>
+            <div class="play-detail-hook">Capture rate = fastest underwriting cycle wins the buyer</div>
+            <div class="play-detail-body"><strong>In a rate-sensitive market, the fastest AI-assisted underwriting cycle wins the buyer.</strong> IBM watsonx.ai cuts manual underwriting review time significantly — directly improving Lennar Mortgage's capture rate, which is the metric that drives the P&amp;L. Coordinate with Lennar Corp (A15) — same Sep 16–23 post-earnings window, different buyer, complementary conversation.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM watsonx.governance (CFPB/HMDA Compliance)</div>
+            <div class="play-detail-hook">AI in mortgage underwriting = CFPB compliance mandate</div>
+            <div class="play-detail-body">IBM watsonx.governance ensures CFPB and HMDA compliance for AI underwriting models from day one — Gartner's AI Governance Leader designation is the risk/compliance door-opener. Lead with Chief Risk Officer on this conversation: "AI in underwriting without documented governance is a fair lending liability."</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM watsonx.data (LOS Data Unification)</div>
+            <div class="play-detail-hook">Loan origination data unified for AI modeling</div>
+            <div class="play-detail-body">IBM watsonx.data unifies Lennar Mortgage's loan origination system data — application, property, appraisal, and credit data in a single layer for watsonx.ai modeling. Technical play with VP Technology / Head of Digital Mortgage.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Coordinate with Lennar Corp (A15) outreach — same timing window, different buyers. Target President/CEO of Lennar Mortgage and Chief Risk Officer. Lead with capture rate improvement via AI-driven underwriting and CFPB/HMDA governance compliance. Use Gartner AI Governance Leader credential for the compliance angle. Time for Sep 16–23 post-earnings window.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"Lennar Mortgage's capture rate is the metric that matters — and in this rate environment, the fastest underwriting cycle wins the buyer. IBM watsonx.ai can cut manual underwriting review time significantly, and watsonx.governance ensures your AI models are CFPB and HMDA compliant from day one. Gartner just named IBM the Leader in AI Governance Platforms. We'd like to show you how this applies specifically to your pre-qualification and underwriting pipeline."</span>
     </div>
   </div>
@@ -2174,25 +2621,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM watsonx.ai + IBM watsonx.data (Automotive Dealer Network AI)</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> IBM watsonx.governance for CFPB/auto finance model compliance</div>
-        <div class="play-why-text">JM Family's Toyota EV transition is forcing a rebuild of dealer inventory analytics — IBM watsonx.ai is the platform that can model BEV demand at 5-state scale. Private company = faster decisions. Lead with CIO on the enterprise data platform story (watsonx.data unifying SET, JM&A, World Omni), then bring in the watsonx.ai EV forecasting demo. Reference LinkedIn ID 5765 for SNav targeting.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A5765%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — JM Family ↗</a>
-        <div class="snav-keywords">Search: CIO, CTO, Chief Data Officer, VP Analytics, VP Technology, VP Finance, Head of IT</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM watsonx.ai + IBM watsonx.data (Automotive Dealer Network AI)</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> IBM watsonx.governance for CFPB/auto finance model compliance</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-standby">Standby</span>
+            <div class="play-meta-window">No earnings calendar — move now</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CIO / CTO → CDO / VP Analytics → World Omni President</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM watsonx.ai (EV Demand Forecasting)</div>
+            <div class="play-detail-hook">Toyota EV acceleration = dealer analytics must be rebuilt</div>
+            <div class="play-detail-body"><strong>Toyota's EV lineup acceleration is forcing a rebuild of dealer demand forecasting — ICE-optimized models don't work for BEV.</strong> IBM watsonx.ai models BEV demand at 5-state scale for Southeast Toyota. Private company = faster decisions, no public company governance drag. Lead with CIO / CTO on the enterprise data platform story, then bring in the EV forecasting demo.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM watsonx.data (SET + JM&amp;A + World Omni Unification)</div>
+            <div class="play-detail-hook">Multi-entity auto business = fragmented data problem</div>
+            <div class="play-detail-body">Southeast Toyota Distributors, JM&amp;A Finance &amp; Insurance, and World Omni auto finance each generate separate data environments. IBM watsonx.data unifies all three into a single enterprise data layer — the foundation for the watsonx.ai EV forecasting and the World Omni CFPB compliance plays.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM watsonx.governance (World Omni CFPB Compliance)</div>
+            <div class="play-detail-hook">Auto finance AI = CFPB fair lending compliance mandate</div>
+            <div class="play-detail-body">World Omni's auto finance AI models are subject to CFPB fair lending compliance — any AI used in credit decisions requires documented governance. IBM watsonx.governance provides that compliance layer. Entry at World Omni President or Chief Risk Officer.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Lead with CIO / CTO on the enterprise data unification story — one platform across SET Distributors, JM&A, and World Omni. Bring in watsonx.ai EV demand forecasting as the headline use case for Southeast Toyota. Reach Chief Data Officer / VP Analytics for the dealer performance analytics conversation. No earnings calendar pressure — move now.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"JM Family runs one of the most complex multi-entity auto businesses in the country — Southeast Toyota distribution, JM&A F&I, World Omni finance, all under one roof. As Toyota's EV lineup accelerates, your dealers need demand forecasting that understands BEV vs. ICE at a market level. IBM watsonx.ai is built for exactly that, and IBM watsonx.data unifies your enterprise data layer across all entities. Can we get 30 minutes with your CIO and analytics team?"</span>
     </div>
   </div>
@@ -2259,25 +2729,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM watsonx.governance (FedRAMP) + IBM Cloud FedRAMP High</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> IBM watsonx.ai FedRAMP for geospatial AI on authorized federal cloud</div>
-        <div class="play-why-text">Federal AI governance mandates are real and enforceable — Hexagon Federal's AI systems on government contracts must comply with EO 13960 and OMB M-24-10. IBM watsonx.governance is FedRAMP authorized. Lead with Gartner AI Governance Leader credential (June 2026) and the federal compliance mandate. This is a compliance-driven conversation — not a nice-to-have.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A163065%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — Hexagon (parent) ↗</a>
-        <div class="snav-keywords">Search: Federal CTO, VP Technology Federal, Program Director, CISO, VP Contracts, Head of Federal IT</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM watsonx.governance (FedRAMP) + IBM Cloud FedRAMP High</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> IBM watsonx.ai FedRAMP for geospatial AI on authorized federal cloud</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-standby">Standby</span>
+            <div class="play-meta-window">Federal fiscal year end — budget active</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> Federal CTO + Program Director → CISO</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM watsonx.governance (FedRAMP Authorized)</div>
+            <div class="play-detail-hook">EO 13960 + OMB M-24-10 = federal AI governance is mandatory</div>
+            <div class="play-detail-body"><strong>Federal AI governance under EO 13960 and OMB M-24-10 is enforceable — Hexagon Federal's geospatial AI and digital twin systems on government contracts must comply.</strong> IBM watsonx.governance is the only FedRAMP-authorized AI governance platform. Gartner AI Governance Leader + FedRAMP authorization is an unmatched credential combination. This is a compliance conversation, not a nice-to-have.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM Cloud FedRAMP High (Secure AI Processing)</div>
+            <div class="play-detail-hook">Cleared systems require FedRAMP High authorized infrastructure</div>
+            <div class="play-detail-body">IBM Cloud FedRAMP High for secure AI processing on classified and cleared systems — the infrastructure play for Hexagon Federal's government contracts. CISO conversation: "your AI processing for government work needs to run on FedRAMP High authorized infrastructure."</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM watsonx.ai FedRAMP (Geospatial AI)</div>
+            <div class="play-detail-hook">Geospatial AI on authorized federal cloud</div>
+            <div class="play-detail-body">IBM watsonx.ai FedRAMP for geospatial AI model development and deployment on authorized federal cloud infrastructure. Technical conversation with the Federal CTO — pairs with the governance and cloud plays as the complete FedRAMP AI stack.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Identify Hexagon Federal's CTO and Program Director in SNav. Lead with the federal AI governance compliance angle — EO 13960 and OMB M-24-10 require action, not just awareness. IBM watsonx.governance FedRAMP is the solution. Request a briefing call; bring IBM Federal team if available for credibility.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"Federal AI governance requirements under EO 13960 and OMB M-24-10 are now enforceable on government contractors using AI in federal systems. IBM watsonx.governance is the only FedRAMP-authorized AI governance platform, and Gartner just named IBM the Leader in AI Governance Platforms. For Hexagon Federal's geospatial AI and digital twin systems on government contracts, compliance isn't optional — we'd like to brief your team on what's required and how IBM can make it straightforward."</span>
     </div>
   </div>
@@ -2342,25 +2835,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM watsonx.governance (HIPAA BAA) + IBM watsonx.data</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> IBM watsonx.ai for clinical outcome prediction and payer optimization</div>
-        <div class="play-why-text">Behavioral health tech with PHI-covered AI = clear governance mandate. IBM watsonx.governance with HIPAA BAA support is the compliance-driven opener. Layer watsonx.data for the measurement-based care analytics platform story. Lead with the Gartner AI Governance Leader credential (June 2026) for the Chief Compliance Officer angle, then expand to CTO with the data platform play.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/search/results/companies/?keywords=Octave+behavioral+health" target="_blank" rel="noopener" class="snav-btn">Search Octave on LinkedIn ↗</a>
-        <div class="snav-keywords">Search: CTO, VP Technology, Chief Clinical Officer, Chief Compliance Officer, VP Data, Head of Engineering</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM watsonx.governance (HIPAA BAA) + IBM watsonx.data</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> IBM watsonx.ai for clinical outcome prediction and payer optimization</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-standby">Standby</span>
+            <div class="play-meta-window">No time pressure — move systematically</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> Chief Compliance Officer → CTO → Chief Clinical Officer</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM watsonx.governance (HIPAA BAA)</div>
+            <div class="play-detail-hook">PHI-covered AI = documented governance is mandatory, not optional</div>
+            <div class="play-detail-body"><strong>Every AI model Octave runs that touches patient health information is a HIPAA-covered system requiring a Business Associate Agreement and documented governance framework.</strong> IBM watsonx.governance provides both — with a healthcare-specific HIPAA BAA. Gartner AI Governance Leader designation makes this the cleanest compliance story available. Lead with Chief Compliance Officer: getting this right now prevents a compliance problem later.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM watsonx.data (Measurement-Based Care Platform)</div>
+            <div class="play-detail-hook">1,000+ clinicians = clinical outcome data at scale</div>
+            <div class="play-detail-body">IBM watsonx.data enables Octave's measurement-based care analytics platform — integrating clinical outcome data across 1,000+ clinicians for population health analytics and payer optimization. CTO conversation: the data foundation for the clinical AI story.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM watsonx.ai (Clinical Outcome Prediction)</div>
+            <div class="play-detail-hook">AI-driven outcome prediction and payer optimization</div>
+            <div class="play-detail-body">IBM watsonx.ai for clinical outcome prediction and payer optimization — a direct ROI story for Octave's value-based care model. Third-conversation play once governance and data platform are established.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Lead with Chief Compliance Officer / Privacy Officer on the HIPAA-covered AI governance angle — PHI in AI systems requires a documented BAA and governance framework. IBM watsonx.governance delivers this. Simultaneously engage CTO on the measurement-based care data platform story. Position IBM as the healthcare AI compliance infrastructure partner.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"Every AI model Octave runs that touches PHI is a HIPAA-covered system that needs a documented governance framework, a Business Associate Agreement, and an audit trail. IBM watsonx.governance provides exactly that — and Gartner just named IBM the Leader in AI Governance Platforms. For a measurement-based care model at Octave's scale, getting the AI governance foundation right now prevents a compliance problem later. Can we show you how IBM handles this for healthcare technology companies?"</span>
     </div>
   </div>
@@ -2425,25 +2941,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM Partner Plus Consolidation + watsonx Channel Practice</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> IBM Cloud / Power / Storage practice unification for Pellera's combined go-to-market</div>
-        <div class="play-why-text">This is the #1 channel opportunity in the SE territory. A $1B+ IBM-aligned MSP is being formed right now — IBM must be in the room during post-merger partner alignment or risk losing the combined practice to a competing cloud vendor. Request an executive partner alignment meeting with Pellera CEO and IBM PartnerWorld team within 30 days. Strike before the 90-day window closes.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/search/results/companies/?keywords=Pellera+Technologies" target="_blank" rel="noopener" class="snav-btn">Search Pellera on LinkedIn ↗</a>
-        <div class="snav-keywords">Search: CEO Pellera, CTO, VP Practice, Chief Revenue Officer, VP Sales, Head of IBM Practice</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM Partner Plus Consolidation + watsonx Channel Practice</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> IBM Cloud / Power / Storage practice unification for Pellera's combined go-to-market</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-strike">Strike</span>
+            <div class="play-meta-window">90-day post-merger window — act within 30 days</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CEO (Pellera) + CTO → IBM PartnerWorld team</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM Partner Plus (Channel Consolidation)</div>
+            <div class="play-detail-hook">#1 channel opportunity in SE territory — act within 30 days</div>
+            <div class="play-detail-body"><strong>A $1B+ IBM-aligned managed services partner is being formed through the Converge + Mainline merger — IBM must be in the room during post-merger partner alignment or risk the combined practice drifting to a competing cloud vendor.</strong> This is the #1 channel opportunity in the SE territory. Request an executive partner alignment meeting within 30 days. The 90-day post-merger window is closing.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM watsonx (Channel Practice Build)</div>
+            <div class="play-detail-hook">Pellera's customer base = IBM watsonx pipeline</div>
+            <div class="play-detail-body">Pellera's combined customer base across Converge and Mainline is IBM's most efficient channel into the SE market. Building a Pellera watsonx advisory practice creates a co-sell pipeline that generates IBM revenue without direct outreach costs. CTO / VP Practice Development conversation.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM Cloud + Power + Storage (Unified Practice)</div>
+            <div class="play-detail-hook">Consolidate two IBM practices into one scaled partner</div>
+            <div class="play-detail-body">Converge and Mainline each had separate IBM infrastructure practices. Consolidating those into a single IBM Partner Plus tier for the merged Pellera entity simplifies deal registration, increases tier benefits, and gives IBM cleaner channel coverage in the SE territory.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">IMMEDIATE: Request an executive partner alignment meeting with Pellera CEO and CTO within 30 days. Involve IBM PartnerWorld and the SE IBM Channel team. Agenda: unified IBM partner tier for the merged entity, co-sell motion for watsonx and IBM Cloud, deal registration framework. This is a STRIKE-tier urgency — 90-day post-merger window is closing.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"The Converge + Mainline merger creates something that doesn't exist yet in the IBM SE channel — a $1B+ managed services partner with IBM infrastructure and cloud practices already in place. We want to make sure Pellera's combined IBM partnership is structured for the scale you're now operating at: unified partner tier, co-sell motion on watsonx and IBM Cloud, and deal registration that works for the merged go-to-market. Can we get 60 minutes with your leadership team to map this out?"</span>
     </div>
   </div>
@@ -2510,25 +3049,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM Maximo Application Suite + IBM watsonx.ai (Field Services at Scale)</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> IBM Planning Analytics for project portfolio financial management</div>
-        <div class="play-why-text">AT&amp;T's $250B telecom spend is the best external tailwind in the SE territory. ANSCO is scaling faster than its operational systems can handle. IBM Maximo is the field services platform purpose-built for this — lead with OSP-specific work order management and workforce scheduling. Back it with watsonx.ai cost forecasting. This is a 3–5 year platform sale if won now.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A880528%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — ANSCO ↗</a>
-        <div class="snav-keywords">Search: CEO, COO, VP Operations, CFO, VP Finance, Head of Technology, Director Field Operations</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM Maximo Application Suite + IBM watsonx.ai (Field Services at Scale)</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> IBM Planning Analytics for project portfolio financial management</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-engage">Engage</span>
+            <div class="play-meta-window">AT&amp;T ramp underway — reach out now</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> COO / VP Operations → CFO</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM Maximo Application Suite (OSP Field Services)</div>
+            <div class="play-detail-hook">AT&amp;T $250B = ANSCO scaling faster than current systems allow</div>
+            <div class="play-detail-body"><strong>AT&amp;T's infrastructure investment is generating OSP backlog growth that will overwhelm any manual or legacy work management platform.</strong> IBM Maximo is purpose-built for telecom field services contractors — OSP-specific work order management, crew scheduling, and safety compliance. If IBM wins this now, it is a 3–5 year platform relationship through the full AT&amp;T build-out cycle. No other vendor has Maximo's OSP field services depth.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM Planning Analytics (Project Cost Control)</div>
+            <div class="play-detail-hook">Field services at ANSCO's scale needs project financial management</div>
+            <div class="play-detail-body">Project cost control, crew utilization forecasting, and backlog financial planning across multiple AT&amp;T contracts. IBM Planning Analytics gives ANSCO's CFO and VP Finance the project portfolio financial management platform that scales with the backlog. Pairs with Maximo as the financial layer.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM watsonx.ai (Field Cost Forecasting)</div>
+            <div class="play-detail-hook">AI-driven project cost prediction for OSP contractors</div>
+            <div class="play-detail-body">IBM watsonx.ai for AI-driven project cost forecasting — predicting materials, crew, and subcontractor costs before they overrun. Third-conversation play once Maximo is established as the field ops platform.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Lead with COO / VP Operations — IBM Maximo for field workforce and work order management is the most concrete value story. Reference AT&amp;T's infrastructure spend as the framing: "You're about to scale faster than your current systems allow — here's how IBM Maximo handles that for field services contractors." Request a discovery call to map the current work order and scheduling stack.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"AT&amp;T's infrastructure investment means ANSCO's backlog is growing faster than almost any contractor in the SE. The risk isn't winning the work — it's delivering it at scale without cost overruns or workforce bottlenecks. IBM Maximo is the work management platform that telecom field services contractors use to manage exactly that kind of growth. We'd like 30 minutes to show you what Maximo looks like at ANSCO's scale."</span>
     </div>
   </div>
@@ -2593,25 +3155,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM Partner Plus (Channel) — Storage + Security + watsonx Advisory</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> Florida data privacy compliance advisory practice built on IBM Guardium</div>
-        <div class="play-why-text">Regional MSPs with compliance-oriented client bases are IBM's most efficient channel for SME and local government AI readiness. DMB's Space Coast client base has elevated security and compliance requirements — IBM Storage and Security are the hardware story, watsonx advisory is the growth story. Position IBM as the vendor that makes DMB's clients compliant and AI-ready.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/search/results/companies/?keywords=Data+Management+Brevard" target="_blank" rel="noopener" class="snav-btn">Search DMB on LinkedIn ↗</a>
-        <div class="snav-keywords">Search: CEO, President, VP Technology, Head of Sales, Director IT Services, Lead Engineer</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM Partner Plus (Channel) — Storage + Security + watsonx Advisory</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> Florida data privacy compliance advisory practice built on IBM Guardium</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-standby">Standby</span>
+            <div class="play-meta-window">Florida compliance advisory demand growing</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> President / CEO → VP Technology → VP Sales</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM Partner Plus (Space Coast Channel)</div>
+            <div class="play-detail-hook">Space Coast clients want AI readiness + compliance — IBM delivers both</div>
+            <div class="play-detail-body"><strong>DMB's Space Coast client base — NASA-adjacent, defense contractors, healthcare — demands IBM-grade security and compliance.</strong> IBM Partner Plus makes DMB the AI readiness and data compliance partner for the entire Space Coast SME and local government market. IBM watsonx advisory practice is the new revenue line DMB's clients are actively asking about. Lead with President / CEO on the partner revenue opportunity.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM Storage + QRadar Security (Infrastructure Play)</div>
+            <div class="play-detail-hook">NASA-adjacent and defense-adjacent clients need IBM-grade infrastructure</div>
+            <div class="play-detail-body">IBM Storage FlashSystem and IBM QRadar Security for DMB's compliance-oriented client base — proven in NASA-adjacent and defense environments. Positions IBM as the preferred infrastructure vendor for DMB's Space Coast accounts. VP Technology conversation.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM Guardium (Florida Data Privacy Compliance)</div>
+            <div class="play-detail-hook">Florida Digital Bill of Rights = compliance advisory market</div>
+            <div class="play-detail-body">IBM Guardium for Florida data privacy compliance advisory — a growing client need that DMB can deliver as an IBM partner service. Positions DMB as the Florida data compliance advisory firm for SME and local government, building a recurring advisory revenue stream.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Lead with President / CEO on the IBM partner opportunity — specifically the Florida data compliance advisory market and IBM watsonx advisory practice. Offer IBM Partner Plus enrollment and a joint go-to-market plan for the Space Coast. Identify current storage and security vendor stack to position IBM FlashSystem and QRadar.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"Data Management Brevard's Space Coast clients are exactly the profile that's asking about AI readiness and Florida data compliance right now — local government, healthcare, aerospace-adjacent. IBM has a partner program that lets regional MSPs like DMB deliver watsonx AI advisory and IBM-backed data governance without building a practice from scratch. We'd like to show you how other Florida MSPs are using IBM Partner Plus to win that advisory business."</span>
     </div>
   </div>
@@ -2676,25 +3261,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM watsonx.ai (Industrial) + IBM watsonx.data (Mining IoT)</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> IBM watsonx.governance for life-safety AI system compliance</div>
-        <div class="play-why-text">Hexagon Mining is building the AI stack for the next decade of autonomous mining — IBM watsonx is the enterprise AI platform that can scale from POC to global fleet deployment. Critical minerals demand is driving client investment at unprecedented levels. The safety AI governance angle (watsonx.governance for collision avoidance AI) is a unique and differentiated opener with the Chief Safety Officer.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A163065%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — Hexagon (parent) ↗</a>
-        <div class="snav-keywords">Search: Hexagon Mining CTO, VP Technology Mining, Chief Safety Officer, VP Product Mining, Head of IoT</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM watsonx.ai (Industrial) + IBM watsonx.data (Mining IoT)</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> IBM watsonx.governance for life-safety AI system compliance</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-standby">Standby</span>
+            <div class="play-meta-window">Critical minerals demand — client budgets open</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CTO / VP Technology → VP Product → Chief Safety Officer</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM watsonx.ai (Industrial — Autonomous Mining)</div>
+            <div class="play-detail-hook">Critical minerals demand driving autonomous fleet investment</div>
+            <div class="play-detail-body"><strong>Hexagon Mining is building the AI stack for the next decade of autonomous mining — IBM watsonx.ai is the only enterprise platform that scales from proof-of-concept to global autonomous fleet deployment.</strong> Critical minerals demand is at an all-time high, driving mining client investment at unprecedented levels. This is a product integration conversation — bring IBM Industry AI team to the technical briefing.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM watsonx.governance (Life-Safety AI Systems)</div>
+            <div class="play-detail-hook">Collision avoidance AI = safety governance mandate</div>
+            <div class="play-detail-body">AI systems controlling collision avoidance and autonomous haulage decisions in mining must hold up to safety audits and regulatory scrutiny. IBM watsonx.governance for life-safety AI system compliance is uniquely differentiated — no competitor has both the Gartner AI Governance Leader credential and industrial safety AI governance capability. Entry with Chief Safety Officer.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM watsonx.data (Mining IoT Platform)</div>
+            <div class="play-detail-hook">Industrial IoT data at global mining fleet scale</div>
+            <div class="play-detail-body">IBM watsonx.data handles industrial IoT data at the scale Hexagon Mining's global fleet clients generate — sensor data, equipment telemetry, and operational data in a unified platform. Foundation for the watsonx.ai modeling play.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Identify Hexagon Mining's CTO and VP Product in SNav (search within Hexagon parent). Lead with the industrial AI platform story — IBM watsonx.ai for autonomous mining use cases is a differentiated fit. Use the safety AI governance angle with Chief Safety Officer. Request a technical briefing call — this is a product integration conversation, not just an enterprise software sale.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"Hexagon Mining is at the leading edge of autonomous fleet technology — and the AI models that drive collision avoidance and haulage decisions need a governance framework that can hold up to safety audits and regulatory scrutiny. IBM watsonx.governance is built for exactly that. Beyond governance, IBM watsonx.data handles industrial IoT data at the scale your mining clients operate. We'd like to explore how IBM's enterprise AI platform fits into Hexagon Mining's product architecture."</span>
     </div>
   </div>
@@ -2759,25 +3367,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM watsonx.data + IBM watsonx.ai (Multi-Brand Retail Unification)</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> IBM Supply Chain (Sterling) for multi-brand inventory and vendor management</div>
-        <div class="play-why-text">Post-acquisition PE technology consolidation in specialty apparel = high-urgency platform decision. KnitWell is choosing the unified data and AI platform for 7 brands and 2,400+ stores right now. IBM watsonx.data for multi-brand data unification is the foundation; watsonx.ai for personalization and demand forecasting is the growth story. Fort Myers HQ gives SE team natural territory coverage.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A11398%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — Chico's/KnitWell ↗</a>
-        <div class="snav-keywords">Search: CIO, CTO, Chief Digital Officer, VP Technology, VP Supply Chain, VP Merchandising, Head of IT</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM watsonx.data + IBM watsonx.ai (Multi-Brand Retail Unification)</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> IBM Supply Chain (Sterling) for multi-brand inventory and vendor management</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-standby">Standby</span>
+            <div class="play-meta-window">Post-acquisition rationalization underway</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CIO / CTO (KnitWell Group level) → CDO → VP Supply Chain</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM watsonx.data (Multi-Brand Retail Unification)</div>
+            <div class="play-detail-hook">7 brands, 2,400+ stores — platform decision being made now</div>
+            <div class="play-detail-body"><strong>Sycamore Partners-backed KnitWell is choosing the unified data and AI platform for 7 specialty apparel brands and 2,400+ stores right now.</strong> IBM watsonx.data unifies customer, inventory, and supply chain data across all 7 brands in a single platform. The technology rationalization follows every Sycamore acquisition — this is an active decision, not a pipeline account. Fort Myers HQ is SE home territory.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM watsonx.ai (Personalization &amp; Demand Forecasting)</div>
+            <div class="play-detail-hook">Multi-brand specialty apparel AI = personalization + inventory</div>
+            <div class="play-detail-body">IBM watsonx.ai for AI-driven personalization across 7 brands and demand forecasting for 2,400+ store inventory planning. Pairs with watsonx.data as the growth story — once the data foundation is established, the AI is the revenue upside.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM Sterling Supply Chain (Multi-Brand Inventory)</div>
+            <div class="play-detail-hook">2,400+ stores = supply chain platform at scale</div>
+            <div class="play-detail-body">IBM Sterling Supply Chain for multi-brand inventory visibility and vendor management at KnitWell's combined scale. VP Supply Chain / VP Merchandising conversation — a concrete operational ROI story for the Sycamore cost efficiency mandate.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Target CIO / CTO at KnitWell Group level (not just legacy Chico's). The technology rationalization conversation must happen at the holding company level. Lead with multi-brand data unification — one platform for Chico's, WHBM, Soma, Ann Taylor, Loft, and Lane Bryant. Bring IBM Supply Chain and watsonx.ai personalization as the growth narrative. Request a discovery call to understand the current rationalization timeline.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"KnitWell Group is now operating 7 specialty apparel brands from a single holding company — and the technology rationalization that follows any Sycamore acquisition moves fast. IBM watsonx.data is built to unify customer, inventory, and supply chain data across multi-brand retail portfolios, and IBM watsonx.ai drives the personalization and demand forecasting that specialty apparel needs to compete. We'd like to understand where KnitWell is in its technology consolidation and show you what IBM can do at your scale."</span>
     </div>
   </div>
@@ -2844,25 +3475,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM watsonx.ai + IBM watsonx.data (Beverage Distribution AI)</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> IBM Supply Chain (Sterling) for distributor-to-retailer network visibility</div>
-        <div class="play-why-text">$26B private company HQ'd in Miami = one of the best SE territory enterprise accounts. SGWS's distribution scale creates real AI ROI — IBM watsonx.ai for demand forecasting across 20K+ SKUs in 44 states is a concrete, demonstrable value case. Lead with CIO and Chief Data Officer simultaneously. Private company = faster decision cycle. Move now.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A10408%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — Southern Glazer's ↗</a>
-        <div class="snav-keywords">Search: CIO, CTO, Chief Data Officer, VP Analytics, VP Technology, VP Supply Chain, VP Operations</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM watsonx.ai + IBM watsonx.data (Beverage Distribution AI)</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> IBM Supply Chain (Sterling) for distributor-to-retailer network visibility</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-standby">Standby</span>
+            <div class="play-meta-window">Private company — no earnings constraint</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CIO + CDO simultaneously → VP Supply Chain</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM watsonx.ai (Demand Forecasting)</div>
+            <div class="play-detail-hook">$26B distributor, 20K+ SKUs, 44 states — AI ROI is concrete</div>
+            <div class="play-detail-body"><strong>Southern Glazer's distribution complexity — 20,000+ SKUs across 44 states with demand that varies by market, season, account type, and state regulation — is the ideal IBM watsonx.ai demand forecasting use case.</strong> The margin impact on inventory and route efficiency is measurable and direct. Private company = faster decision cycle. Miami HQ = SE home territory. Lead with CIO and Chief Data Officer simultaneously.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM watsonx.data (Enterprise Data Unification)</div>
+            <div class="play-detail-hook">Beverage distribution data layer for analytics and AI</div>
+            <div class="play-detail-body">IBM watsonx.data unifies SGWS's distributor, retailer, supplier, and market data into a single analytics layer — the foundation for watsonx.ai demand forecasting and key account analytics. CIO conversation: one data platform for the most complex distribution network in the country.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM Sterling Supply Chain (Distribution Network)</div>
+            <div class="play-detail-hook">Route-to-market visibility at 44-state scale</div>
+            <div class="play-detail-body">IBM Sterling Supply Chain for route-to-market and distribution network visibility — tracking inventory from supplier through distributor to retailer across 44 states. VP Supply Chain / VP Operations conversation with a concrete operational efficiency ROI.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Lead with CIO and Chief Data Officer simultaneously. Demand forecasting at 20,000+ SKU scale is the headline use case — it's concrete, measurable, and directly affects SGWS's operating economics. Layer the key account analytics story for VP Sales. Request a discovery call to map the current demand planning and analytics stack, then bring in a watsonx.ai demo tailored to beverage distribution.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"Southern Glazer's runs the most complex beverage distribution network in the country — 20,000+ SKUs across 44 states, with demand that varies by market, season, and account type. IBM watsonx.ai can model that complexity and generate demand forecasts that your current planning tools can't match. We've done this for large-scale distributors and the margin impact on inventory and route efficiency is measurable. Can we get 30 minutes with your Chief Data Officer and VP Supply Chain?"</span>
     </div>
   </div>
@@ -2927,25 +3581,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM watsonx.governance (HIPAA) + IBM watsonx.data (Population Health)</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> IBM watsonx.ai for clinical decision support and readmission prediction</div>
-        <div class="play-why-text">Public health system at 2.7M patient scale with active clinical AI = highest-urgency AI governance conversation in the healthcare segment. Lead with the Gartner AI Governance Leader credential (June 2026) for the CMO and CIO angle. IBM watsonx.governance + HIPAA BAA is the compliance entry. Layer population health analytics (watsonx.data + watsonx.ai) as the growth story. Epic integration is the technical credibility signal.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A15052%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — Memorial Healthcare ↗</a>
-        <div class="snav-keywords">Search: CIO, CMO, Chief Analytics Officer, VP Population Health, VP Technology, Chief Data Officer</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM watsonx.governance (HIPAA) + IBM watsonx.data (Population Health)</div>
+            <div class="play-supporting-text"><strong>Supporting:</strong> IBM watsonx.ai for clinical decision support and readmission prediction</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-engage">Engage</span>
+            <div class="play-meta-window">Active clinical AI program — engage now</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CIO → VP Population Health → CMO</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM watsonx.governance (HIPAA + Public Accountability)</div>
+            <div class="play-detail-hook">Public health system at 2.7M patient scale = highest governance standard</div>
+            <div class="play-detail-body"><strong>As a public health system using clinical AI at 2.7M patient scale, Memorial faces a higher accountability standard than any private health system.</strong> Every AI model that influences a clinical decision must be documented, explainable, and auditable. IBM watsonx.governance + HIPAA BAA is the compliance infrastructure that satisfies that standard. Gartner AI Governance Leader designation is the highest-credibility opener available for CIO and CMO.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM watsonx.data (Population Health Analytics)</div>
+            <div class="play-detail-hook">2.7M patient Broward County dataset = population health platform</div>
+            <div class="play-detail-body">IBM watsonx.data for population health analytics — integrating Epic EHR, claims, and community health data for Broward County's 2.7M patient population. VP Population Health / Chief Analytics Officer conversation. Pairs with governance as the growth play once compliance is the entry.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM watsonx.ai (Clinical Decision Support)</div>
+            <div class="play-detail-hook">Readmission prediction and clinical quality AI</div>
+            <div class="play-detail-body">IBM watsonx.ai for clinical decision support — readmission prediction, patient flow optimization, and clinical quality analytics. Third-conversation play once governance and population health data platform are established.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Lead with CIO on the clinical AI governance angle — public health system accountability requires documented model governance. Use Gartner AI Governance Leader credential as the opening. Simultaneously engage VP Population Health with the watsonx.data population health analytics story. Request a briefing call; bring IBM Healthcare Industry team for clinical AI credibility.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"Memorial Healthcare is one of the few health systems operating clinical AI at 2.7 million patient scale — and as a public system, the accountability standard for those AI models is higher than a private health system. IBM watsonx.governance is the platform that provides the model explainability, audit trail, and HIPAA compliance documentation that public health systems need. Gartner just named IBM the Leader in AI Governance Platforms. Can we brief your CIO and CMO on what enterprise AI governance looks like for a system at Memorial's scale?"</span>
     </div>
   </div>
@@ -3010,25 +3687,48 @@ a{text-decoration:none;}
     </div>
     <div class="play-li-row">
       <div class="ibm-play-bar-full">
-        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
-        <div class="play-main-text">IBM watsonx.governance (HIPAA) + IBM watsonx.data (Epic Integration)</div>
-        <div class="play-supporting-text"><strong>Supporting:</strong> IBM watsonx.ai for clinical decision support and operational efficiency</div>
-        <div class="play-why-text">SBHD is a smaller, more accessible entry point for IBM's healthcare AI platform than the full Memorial Healthcare System — single CIO, two hospitals, growth pressure. Use the same play as A26 but position IBM as "right-sized for a district hospital system." Coordinate with Memorial Healthcare outreach timing — if IBM wins A26, use as a reference for SBHD. If not, SBHD is an independent entry. Lead with Gartner AI Governance credential + HIPAA BAA.</div>
-      </div>
-      <div class="snav-panel">
-        <div class="snav-label">LinkedIn Sales Navigator</div>
-        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A164682%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — SBHD ↗</a>
-        <div class="snav-keywords">Search: CIO, CMO, CFO, VP Technology, Chief Medical Officer, VP Clinical Quality, Head of IT</div>
+        <div class="play-bar-header">
+          <div class="play-bar-left">
+            <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+            <div class="play-main-text">IBM QRadar SIEM — Active IT Security RFP in Evaluation Now</div>
+            <div class="play-supporting-text"><strong>Second conversation:</strong> IBM watsonx.governance (HIPAA) + IBM watsonx.data (Epic Integration) — same governance play as A26 but sized for a district hospital system</div>
+          </div>
+          <div class="play-bar-right">
+            <span class="play-meta-tier t-standby">Standby</span>
+            <div class="play-meta-window">RFP in active evaluation — window is narrow</div>
+            <div class="play-meta-entry"><strong>Entry:</strong> CISO / VP IT Security → CIO → CMO</div>
+          </div>
+        </div>
+        <div class="play-detail-grid">
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r1">1</span><span class="play-rank-lbl r1">Best Play</span></div>
+            <div class="play-detail-name">IBM QRadar SIEM (Active RFP — Window Is Narrow)</div>
+            <div class="play-detail-hook">IT Security Audit RFP in active evaluation — respond now</div>
+            <div class="play-detail-body"><strong>SBHD has an IT Security Audit RFP in active evaluation right now.</strong> IBM QRadar SIEM provides healthcare-specific threat detection and compliance reporting that satisfies the HIPAA Security Rule and Florida public district procurement standards. IBM's government track record simplifies the vendor approval process — a critical differentiator in public district procurement. Identify CISO / VP IT Security today and respond to the RFP. Window is narrow.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r2">2</span><span class="play-rank-lbl r2">Play 2</span></div>
+            <div class="play-detail-name">IBM watsonx.governance (HIPAA + Public Entity AI)</div>
+            <div class="play-detail-hook">Same play as Memorial (A26) — independent buyer, smaller scale</div>
+            <div class="play-detail-body">SBHD's growth trajectory and public accountability mandate create the same AI governance urgency as Memorial Healthcare (A26) — but with a single CIO buyer and a faster decision cycle. IBM watsonx.governance for HIPAA + public entity AI compliance. Use Memorial as a reference if IBM wins A26 first.</div>
+          </div>
+          <div class="play-detail-col">
+            <div class="play-rank-badge"><span class="play-rank-num r3">3</span><span class="play-rank-lbl r3">Play 3</span></div>
+            <div class="play-detail-name">IBM watsonx.data (Epic EHR Integration)</div>
+            <div class="play-detail-hook">Epic data asset = clinical analytics foundation</div>
+            <div class="play-detail-body">IBM watsonx.data for Epic EHR data integration and clinical analytics — operational efficiency and quality analytics for SBHD's two-hospital district. Pairs with watsonx.governance as the second conversation once QRadar is the RFP entry.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="lower-section">
     <div class="lower-row">
-      <span class="lbl lbl-dark">Action</span>
+      <span class="lbl lbl-dark">Do This Now</span>
       <span class="action-text">Treat SBHD as independent from Memorial (A26) — different CIO, different board, different budget. Lead with CIO on HIPAA + public entity AI governance angle and Epic integration story. Time outreach to align with Memorial Healthcare outreach but do not assume a Memorial win transfers. Smaller district = faster decision cycle — advantage over the full Memorial system.</span>
     </div>
     <div class="lower-row">
-      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="lbl lbl-muted">What to Say</span>
       <span class="talk-track-text">"South Broward Hospital District is growing with western Broward — and as that growth continues, the clinical AI tools your team needs to manage patient flow, quality, and compliance have to scale with it. IBM watsonx provides the Epic integration, clinical AI governance, and HIPAA compliance framework that public hospital districts need. Gartner named IBM the Leader in AI Governance Platforms. We'd like 30 minutes with your CIO and CMO to show how IBM's platform fits a district hospital system at SBHD's scale."</span>
     </div>
   </div>
@@ -3098,10 +3798,10 @@ a{text-decoration:none;}
 })();
 </script>
 
-<footer style="background:#13192a;color:#6b7a99;font-family:'IBM Plex Sans',sans-serif;font-size:11px;text-align:center;padding:24px 16px 20px;border-top:1px solid #1e2840;margin-top:8px;">
-  <div style="font-weight:700;color:#a8c8ff;letter-spacing:0.5px;margin-bottom:6px;">SE HORIZON · EDITION 06 · SEP 10, 2026</div>
-  <div style="margin-bottom:4px;">Intel Brief — Phase 2: 27 Accounts · Coverage Aug 17 – Sep 17, 2026</div>
-  <div style="color:#3a4a6b;">Confidential — IBM South Florida Systems Engineering · Internal Use Only</div>
+<footer style="background:var(--surface);color:var(--muted);font-family:'IBM Plex Sans',sans-serif;font-size:11px;text-align:center;padding:20px 16px;border-top:1px solid var(--border);margin-top:8px;">
+  <div style="font-weight:700;color:var(--text-mid);letter-spacing:0.5px;margin-bottom:4px;">SE HORIZON · EDITION 06 · SEP 10, 2026</div>
+  <div style="margin-bottom:3px;">Intel Brief — Phase 2: 27 Accounts · Coverage Aug 17 – Sep 17, 2026</div>
+  <div>Confidential — IBM South Florida Systems Engineering · Internal Use Only</div>
 </footer>
 
 </body>
