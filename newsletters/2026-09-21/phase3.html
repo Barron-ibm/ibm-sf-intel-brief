@@ -28,12 +28,13 @@ a{text-decoration:none;}
 .se-topbar-title{font-size:12px;font-weight:600;color:#a8c8ff;}
 .se-topbar-badge{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;background:var(--accent);color:#fff;padding:2px 9px;border-radius:20px;}
 .se-topbar-mid{display:flex;align-items:center;gap:2px;flex:1;justify-content:center;}
-.se-topbar-mid a{font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);padding:5px 10px;border-radius:3px;border-bottom:2px solid transparent;}
+.se-topbar-mid a{font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);padding:5px 10px;border-radius:3px;border-bottom:2px solid transparent;text-decoration:none;white-space:nowrap;}
 .se-topbar-mid a:hover{color:#fff;background:rgba(255,255,255,0.07);}
-.se-topbar-mid a.active{color:#fff;border-bottom-color:var(--accent);}
-.se-topbar-mid a.back{color:#a8c8ff;font-size:10.5px;}
-.se-topbar-mid .div{color:#3a3a3a;padding:0 4px;font-size:11px;}
-.se-topbar-right{font-size:10px;color:#5a5a5a;flex-shrink:0;}
+.se-topbar-mid a.se-active{color:#fff;border-bottom-color:var(--accent);}
+.se-topbar-mid a.se-back{color:#a8c8ff;font-size:10.5px;}
+.se-topbar-mid a.coming-soon{opacity:.45;font-size:9px;pointer-events:none;cursor:default;}
+.se-topbar-mid .se-divider{color:#3a3a3a;padding:0 4px;font-size:11px;}
+.se-topbar-right{font-size:10px;color:#5a5a5a;flex-shrink:0;white-space:nowrap;}
 
 /* MOCK BANNER */
 .mock-banner{background:#1c0f30;border-bottom:2px solid #6929c4;padding:7px 24px;display:flex;align-items:center;gap:10px;}
@@ -300,13 +301,15 @@ a{text-decoration:none;}
     <span class="se-topbar-badge">Phase 3</span>
   </div>
   <div class="se-topbar-mid">
-    <a href="phase1.html" class="back">← Radar</a>
-    <span class="div">|</span>
-    <a href="phase2.html">Phase 2</a>
-    <span class="div">|</span>
-    <a href="phase3.html" class="active">Phase 3</a>
+    <a href="phase1.html" class="se-back">← Radar</a>
+    <span class="se-divider">|</span>
+    <a href="phase2.html">Intel Brief</a>
+    <span class="se-divider">|</span>
+    <a href="phase3.html" class="se-active">My Accounts</a>
+    <span class="se-divider">|</span>
+    <a href="#" class="coming-soon">Phase 4 — Coming Soon</a>
   </div>
-  <span class="se-topbar-right">SE Horizon · Edition 08 · Sep 21, 2026</span>
+  <span class="se-topbar-right">South Florida · Edition 08 · Sep 21, 2026</span>
 </div>
 
 <div class="mock-banner">
