@@ -2282,19 +2282,31 @@ a{color:var(--ibm);text-decoration:none;}a:hover{text-decoration:underline;}
 // ── Auto-populate stat counters ──
 (function(){
   function updateStats(){
-    var t5 = document.querySelectorAll('.card[data-urgency="t5"]:not([data-hidden="true"])').length;
-    var t4 = document.querySelectorAll('.card[data-urgency="t4"]:not([data-hidden="true"])').length;
-    var t3 = document.querySelectorAll('.card[data-urgency="t3"]:not([data-hidden="true"])').length;
+    var t5all = document.querySelectorAll('.card[data-urgency="t5"]').length;
+    var t4all = document.querySelectorAll('.card[data-urgency="t4"]').length;
+    var t3all = document.querySelectorAll('.card[data-urgency="t3"]').length;
+    var t5 = document.querySelectorAll('.card[data-urgency="t5"]:not([data-hidden="true"])').length || t5all;
+    var t4 = document.querySelectorAll('.card[data-urgency="t4"]:not([data-hidden="true"])').length || t4all;
+    var t3 = document.querySelectorAll('.card[data-urgency="t3"]:not([data-hidden="true"])').length || t3all;
+    /* masthead stat boxes */
     var s = document.getElementById('stat-strike');
     var e = document.getElementById('stat-engage');
-    if(s) s.textContent = t5 || document.querySelectorAll('.card[data-urgency="t5"]').length;
-    if(e) e.textContent = t4 || document.querySelectorAll('.card[data-urgency="t4"]').length;
+    if(s) s.textContent = t5;
+    if(e) e.textContent = t4;
+    /* jumpbar count badges */
+    var c5 = document.getElementById('cnt-t5');
+    var c4 = document.getElementById('cnt-t4');
+    var c3 = document.getElementById('cnt-t3');
+    if(c5) c5.textContent = t5;
+    if(c4) c4.textContent = t4;
+    if(c3) c3.textContent = t3;
+    /* side-dock counts */
     var sd5 = document.getElementById('sd-count-t5');
     var sd4 = document.getElementById('sd-count-t4');
     var sd3 = document.getElementById('sd-count-t3');
-    if(sd5) sd5.textContent = document.querySelectorAll('.card[data-urgency="t5"]').length;
-    if(sd4) sd4.textContent = document.querySelectorAll('.card[data-urgency="t4"]').length;
-    if(sd3) sd3.textContent = document.querySelectorAll('.card[data-urgency="t3"]').length;
+    if(sd5) sd5.textContent = t5all;
+    if(sd4) sd4.textContent = t4all;
+    if(sd3) sd3.textContent = t3all;
   }
   document.addEventListener('DOMContentLoaded', updateStats);
 })();

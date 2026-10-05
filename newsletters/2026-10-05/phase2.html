@@ -4102,6 +4102,30 @@ a:hover{text-decoration:underline;}
   <div style="margin-top:8px; font-size:11px; color:#94A3B8;">Built with IBM Bob · Confidential Territory Resource</div>
 </footer>
 
+<script>
+function toggleDropdown(){
+  var btn  = document.getElementById('acctDropdownBtn');
+  var menu = document.getElementById('acctDropdownMenu');
+  if(!btn || !menu) return;
+  var open = menu.classList.contains('open');
+  if(open){
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+  } else {
+    menu.classList.add('open');
+    btn.classList.add('open');
+  }
+}
+document.addEventListener('click', function(e){
+  var dd = document.getElementById('acctDropdown');
+  if(dd && !dd.contains(e.target)){
+    var menu = document.getElementById('acctDropdownMenu');
+    var btn  = document.getElementById('acctDropdownBtn');
+    if(menu) menu.classList.remove('open');
+    if(btn)  btn.classList.remove('open');
+  }
+});
+</script>
 </body>
 </html>
 
