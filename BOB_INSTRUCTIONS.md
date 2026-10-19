@@ -105,6 +105,20 @@ GitHub Actions will deploy the site automatically within ~30 seconds.
 
 ---
 
+## Standing Rules (set by user, Oct 19, 2026 — always follow)
+
+> Full per-edition runbook and validation checklist: `EDITION_BUILD_README.md`. Read it at the start of every new chat.
+
+- **Build Phases 1–3 ONE PHASE AT A TIME, THREE ACCOUNTS AT A TIME.** Never patch all three phases in the same pass,
+  and never rewrite or patch all 27 accounts in one pass. Do Phase 1 for a batch of 3, verify, next batch of 3, and so on;
+  then Phase 2; then Phase 3. Tick off each phase/batch separately. (Edition 11 was built across all three phases per batch
+  with a one-time user OK on Oct 19, 2026 — do not repeat.)
+- **Phase 4 (named contacts) must use the `account-intel-brief` skill** (Sales Navigator Account IQ + 6 LinkedIn
+  people searches, verified current employees and real `/in/` URLs, warmth, Champion flag, 0–100 score, play track).
+  Run in `contacts` mode only (no outreach drafting) unless the user asks for `full`.
+- **Phase 4 needs debug Chrome** (`--remote-debugging-port=9222`, logged in to LinkedIn / Sales Navigator).
+
+
 ## Notes
 
 - Never delete old newsletter folders — the archive must be preserved

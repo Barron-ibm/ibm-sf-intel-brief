@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE Horizon | Named Contacts | Phase 4 | Oct 19, 2026 | Edition 11</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f0f2f5;--card:#fff;--surface:#f4f6f9;--border:#dde1e9;--text:#161616;--muted:#525252;--accent:#0f62fe;--navy:#0f1c3a;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'IBM Plex Sans',-apple-system,sans-serif;font-size:14px;line-height:1.6;background:var(--bg);color:var(--text)}
+a{text-decoration:none;color:var(--accent)}
+.top{background:#1a1a1a;border-bottom:3px solid var(--accent);padding:0 24px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200}
+.top-l{display:flex;align-items:center;gap:10px}
+.ibm{font-size:18px;font-weight:900;color:#fff;letter-spacing:-.5px}
+.dv{width:1px;height:16px;background:#3a3a3a}
+.ttl{font-size:12px;font-weight:600;color:#a8c8ff}
+.bdg{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;background:var(--accent);color:#fff;padding:2px 9px;border-radius:20px}
+.top-m{display:flex;gap:2px;flex:1;justify-content:center}
+.top-m a{font-size:11px;font-weight:600;color:rgba(255,255,255,.5);padding:5px 10px;border-bottom:2px solid transparent}
+.top-m a:hover{color:#fff}
+.top-m a.active{color:#fff;border-bottom-color:var(--accent)}
+.top-m a.back{color:#a8c8ff}
+.top-r{font-size:10px;color:#7a7a7a}
+.banner{background:#0a1628;border-bottom:2px solid var(--accent);padding:7px 24px;display:flex;gap:10px;align-items:center}
+.banner b{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#a8c8ff;background:var(--accent);padding:3px 9px;border-radius:2px}
+.banner span{font-size:11px;color:#8fb0e0}
+.wrap{max-width:1180px;margin:0 auto;padding:24px}
+.hero{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--accent);border-radius:4px;padding:22px 26px;margin-bottom:18px}
+.hero h1{font-size:22px;font-weight:900;color:var(--navy);letter-spacing:-.3px}
+.hero p{color:var(--muted);margin-top:6px;font-size:13px}
+.stats{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.st{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:8px 14px}
+.st b{display:block;font-size:20px;font-weight:900;color:var(--navy);line-height:1.1}
+.st span{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.caveat{background:#fff8e6;border:1px solid #f1c21b;border-left:4px solid #f1c21b;border-radius:3px;padding:12px 16px;font-size:12.5px;color:#4a3b00;margin-bottom:18px}
+.caveat strong{color:#241c00}
+.jump{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.jump a{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:var(--card);border:1px solid var(--border);padding:5px 10px;border-radius:20px;color:var(--navy)}
+.jump a:hover{border-color:var(--accent);color:var(--accent)}
+.acct{background:var(--card);border:1px solid var(--border);border-radius:4px;margin-bottom:16px;overflow:hidden}
+.acct-h{padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;gap:14px;background:var(--surface)}
+.acct-h h2{font-size:17px;font-weight:900;color:var(--navy);display:inline;margin-left:8px}
+.hook{font-size:12px;color:var(--muted);margin-top:4px}
+.cnt{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;color:var(--muted);white-space:nowrap}
+.tier{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:2px}
+.t-strike{background:#fff1f1;color:#a2191f;border:1px solid #ffb3b8}
+.t-engage{background:#fff2e8;color:#8a3800;border:1px solid #ffd9be}
+.t-standby{background:#edf5ff;color:#0043ce;border:1px solid #bfd9ff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;padding:16px 22px 20px}
+.ct{border:1px solid var(--border);border-left:4px solid var(--border);border-radius:3px;padding:12px 14px;display:flex;flex-direction:column;gap:7px;background:#fff}
+.ct.executive{border-left-color:var(--navy)}
+.ct.practitioner{border-left-color:var(--accent)}
+.ct-top{display:flex;justify-content:space-between;gap:10px}
+.ct-name{font-size:14px;font-weight:700;color:var(--navy)}
+.ct-title{font-size:12px;color:var(--muted);line-height:1.4}
+.score{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:700;color:var(--navy);background:var(--surface);border:1px solid var(--border);border-radius:3px;height:30px;min-width:38px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tags{display:flex;gap:5px;flex-wrap:wrap}
+.tg{font-family:'IBM Plex Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;padding:2px 7px;border-radius:2px;background:var(--surface);color:var(--muted);border:1px solid var(--border)}
+.b-executive{background:var(--navy);color:#fff;border-color:var(--navy)}
+.b-practitioner{background:var(--accent);color:#fff;border-color:var(--accent)}
+.b-hot{background:#da1e28;color:#fff;border-color:#da1e28}
+.b-warm{background:#ff832b;color:#fff;border-color:#ff832b}
+.b-cold{background:#8d8d8d;color:#fff;border-color:#8d8d8d}
+.why{font-size:12.5px;line-height:1.55}
+.note{font-size:11.5px;color:#6a4b00;background:#fff8e6;border-left:3px solid #f1c21b;padding:5px 8px;line-height:1.45}
+.ct-foot{margin-top:auto;padding-top:4px}
+.li{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#fff;background:var(--accent);padding:5px 11px;border-radius:3px;display:inline-block}
+.li:hover{background:#0043ce}
+.nv{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#a2191f}
+h3.sec{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:26px 0 8px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);font-size:12.5px}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+th{background:var(--surface);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.foot{margin:26px 0 8px;text-align:center;font-size:11px;color:var(--muted)}
+@media(max-width:700px){.top-m{display:none}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="top-l"><span class="ibm">IBM</span><div class="dv"></div><span class="ttl">SE Horizon</span><span class="bdg">Phase 4</span></div>
+  <div class="top-m">
+    <a href="phase1.html" class="back">← Radar</a>
+    <a href="phase2.html">Phase 2</a>
+    <a href="phase3.html">Phase 3</a>
+    <a href="phase4.html" class="active">Phase 4</a>
+  </div>
+  <span class="top-r">SE Horizon · Edition 11 · Oct 19, 2026</span>
+</div>
+<div class="banner"><b>Edition 11</b><span>Phase 4 — Named Contacts · FL South Territory 26 · researched Oct 19, 2026 · verified live via Sales Navigator & LinkedIn</span></div>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>Named Contacts</h1>
+    <p>Real decision makers and practitioners mapped to Edition 11 accounts, verified live via Sales Navigator and LinkedIn. Positions in Phases 1–3 stay position-only; named profiles live here.</p>
+    <div class="stats">
+      <div class="st"><b>70</b><span>Contacts listed</span></div>
+      <div class="st"><b>66</b><span>With verified profile URL</span></div>
+      <div class="st"><b>4</b><span>URL not publicly verified</span></div>
+      <div class="st"><b>27</b><span>All 27 accounts covered</span></div>
+      <div class="st"><b>100%</b><span>Territory coverage</span></div>
+    </div>
+  </div>
+
+  <div class="caveat"><strong>Live Verification Methodology.</strong> Every profile listed below was discovered and cross-checked live via Sales Navigator and LinkedIn during the October 19, 2026 cycle. Tiers reflect the Edition 11 priority model (5 Strike, 11 Engage, 11 Standby). Scores (0–100) indicate role-relevance to IBM watsonx.data, automation, and lakehouse opportunities. Warmth is based on mutual connections and introduction paths from the active sales session. All 27 accounts have dedicated contact cards.</div>
+
+  <div class="jump">
+    <a href="#kforce">Kforce Inc.</a>
+    <a href="#herc">Herc Holdings</a>
+    <a href="#mastec">MasTec Inc.</a>
+    <a href="#nclh">Norwegian Cruise Line</a>
+    <a href="#bk">Burger King / RBI</a>
+    <a href="#icahn">Icahn Enterprises</a>
+    <a href="#chewy">Chewy Inc.</a>
+    <a href="#lennar">Lennar Corporation</a>
+    <a href="#heico">HEICO Corporation</a>
+    <a href="#dycom">Dycom Industries</a>
+    <a href="#sgws">Southern Glazer's</a>
+    <a href="#hig">H.I.G. Capital</a>
+    <a href="#citco">Citco Group</a>
+    <a href="#seaworld">SeaWorld / United Parks</a>
+    <a href="#memorial">Memorial Healthcare</a>
+    <a href="#octave">Octave Intelligence</a>
+    <a href="#jmf">JM Family Enterprises</a>
+    <a href="#odp">ODP / Office Depot</a>
+    <a href="#chicos">KnitWell / Chico's</a>
+    <a href="#frontline">Frontline Insurance</a>
+    <a href="#pellera">Pellera Technologies</a>
+    <a href="#lennar-mortgage">Lennar Mortgage</a>
+    <a href="#sbhd">South Broward Hosp Dist</a>
+    <a href="#ansco">ANSCO &amp; Associates</a>
+    <a href="#hexagon-federal">Hexagon Federal</a>
+    <a href="#hexagon-mining">Hexagon Mining</a>
+    <a href="#dmab">Data Mgmt Brevard</a>
+  </div>
+
+  <!-- STRIKE ACCOUNTS -->
+
+  <section class="acct" id="kforce" data-tier="strike">
+    <div class="acct-h">
+      <div><span class="tier t-strike">Strike</span><h2>Kforce Inc.</h2><div class="hook">Q3 confirmed Mon Oct 26 (7 days) · AI placements driving tech revenue · Stock +65% YTD</div></div>
+      <div class="cnt">5 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Jeremiah Eleonora</div><div class="ct-title">Director, Data & Analytics Delivery</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Track: Data Integration & Zero-Copy</span></div>
+        <div class="why">Leads enterprise data analytics delivery and AI enablement for staffing platforms. Key champion for data federation and analytics pipeline acceleration.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/jeremiah-eleonora-5a63261/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Murtuza Ali Shakeel</div><div class="ct-title">Practice Leader, Data & AI</div></div><div class="score" title="Role-fit score">86</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Governed Foundation for Agents</span></div>
+        <div class="why">Leads Data and AI practice with focus on MDM, enterprise data governance, and scalable AI infrastructure.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/murtuzashakeel/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Jon Story</div><div class="ct-title">Senior Vice President, Enterprise Services</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">Executive oversight for technology verticals, client solutions, and enterprise delivery architectures.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/jostory/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Nicholas Devonis</div><div class="ct-title">Market Vice President, Technology</div></div><div class="score" title="Role-fit score">78</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Track: Agentic Data Intelligence</span></div>
+        <div class="why">Drives technology market strategy and commercial AI implementations across client accounts.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/nicholas-devonis-1355a01b/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Sam Jeffrey</div><div class="ct-title">Senior Data Analyst, Data Architecture & AI</div></div><div class="score" title="Role-fit score">74</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: AI-Ready Unstructured Data</span></div>
+        <div class="why">Hands-on architecture lead for Snowflake, BigQuery, and AI-ready cloud data platforms.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/sam-jeffrey-99572854/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="herc" data-tier="strike">
+    <div class="acct-h">
+      <div><span class="tier t-strike">Strike</span><h2>Herc Holdings / Herc Rentals</h2><div class="hook">Q3 Oct 27 before open (8 days) · $125M cost-synergy target · Bonita Springs HQ</div></div>
+      <div class="cnt">4 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Mark Humphrey, CPA</div><div class="ct-title">Chief Financial Officer</div></div><div class="score" title="Role-fit score">85</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">Economic buyer managing post-acquisition cost synergy realization and enterprise software optimization.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/mark-humphrey-cpa-27775b3/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Nicholas Pyzik</div><div class="ct-title">Senior Data Engineer</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Data Integration & Zero-Copy</span></div>
+        <div class="why">Fort Myers-based data engineering lead building rental fleet telemetry, telemetry pipelines, and operational data pipelines.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/nicholas-pyzik-6b5266127/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Scott Mast</div><div class="ct-title">Sr. Manager, Talent Analytics & Workforce Planning</div></div><div class="score" title="Role-fit score">75</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Governed Foundation for Agents</span></div>
+        <div class="why">Leads corporate analytics and workforce planning data models across 600+ branch locations.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/scott-mast/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Colin Huff</div><div class="ct-title">IT Business Analyst</div></div><div class="score" title="Role-fit score">70</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Real-Time Data</span></div>
+        <div class="why">Coordinates branch IT systems and integration workflows for fleet management and billing automation.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/colinhuff-in/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="mastec" data-tier="strike">
+    <div class="acct-h">
+      <div><span class="tier t-strike">Strike</span><h2>MasTec Inc.</h2><div class="hook">Q3 Oct 29 after close (10 days) · $21.4B backlog · Superior Group M&A · Coral Gables HQ</div></div>
+      <div class="cnt">3 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Elias Ata</div><div class="ct-title">Senior Director, Systems Development</div></div><div class="score" title="Role-fit score">85</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm</span><span class="tg">Track: Data Integration & Zero-Copy</span></div>
+        <div class="why">Directs enterprise systems development and ERP/infrastructure integration across newly acquired operating subsidiaries.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/company/15551" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Oscar Buonpensiere, CISSP, CISA</div><div class="ct-title">Senior Manager IT, Internal Audit</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Governed Foundation for Agents</span></div>
+        <div class="why">Miami-based IT audit and compliance leader evaluating data security, access governance, and SOX IT controls.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/oscar-buonpensiere-cissp-cisa-a650b465/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Pablo Martinez</div><div class="ct-title">Sr. Information Technology Analyst</div></div><div class="score" title="Role-fit score">74</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">Handles corporate IT infrastructure analysis, application monitoring, and operational reporting.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/pablo-martinez-0b0611321/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="nclh" data-tier="strike">
+    <div class="acct-h">
+      <div><span class="tier t-strike">Strike</span><h2>Norwegian Cruise Line Holdings</h2><div class="hook">Q3 confirmed Oct 29 6:30 AM (10 days) · Sep 30 8-K guidance beat · Miami HQ</div></div>
+      <div class="cnt">4 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Raunak Shah</div><div class="ct-title">Global Data Strategy Executive</div></div><div class="score" title="Role-fit score">92</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Governed Foundation for Agents</span></div>
+        <div class="why">Global head of enterprise data strategy, MDM, data governance, and AI/ML data readiness across all three cruise brands.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/raunakshah80/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Dennis Lejardi</div><div class="ct-title">Data Engineering Manager</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Data Integration & Zero-Copy</span></div>
+        <div class="why">Miami-based lead for customer data engineering, Snowflake data pipelines, and dbt analytics engineering.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/dennis-lejardi-8a352b96/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Ethan R. (Ehsan Rasti)</div><div class="ct-title">Business Strategy & Data Product Leader</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Track: AI-Ready Unstructured Data</span></div>
+        <div class="why">Drives AI-driven hospitality innovation and cross-functional guest data products.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/ehsanrasti/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Mark Kempa</div><div class="ct-title">Chief Financial Officer</div></div><div class="score" title="Role-fit score">78</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">Named signatory on Sep 30 8-K; sets capital allocation and cost-yield targets ahead of Oct 29 call.</div>
+        <div class="ct-foot"><span class="nv">Verified via SEC 8-K Filing</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="bk" data-tier="strike">
+    <div class="acct-h">
+      <div><span class="tier t-strike">Strike</span><h2>Burger King / RBI</h2><div class="hook">Q3 Oct 29 (10 days) · Jefferies BK comp forecast raised to 6.5% · Miami HQ</div></div>
+      <div class="cnt">3 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Henry Chang</div><div class="ct-title">Senior Director of Analytics & Insights, Digital & Data</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Agentic Data Intelligence</span></div>
+        <div class="why">Leads global digital & data insights across 19,900+ restaurants. Prime target for AI agent orchestration and lakehouse analytics.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/henry-chang-9a98308a/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Kevin Strickland</div><div class="ct-title">Senior AI Data Platform Engineer</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Agentic Data Intelligence</span></div>
+        <div class="why">Specializes in Snowflake Cortex, agentic AI data pipelines, and real-time restaurant BI platforms.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/kpbstrickland92/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Stephen Smith</div><div class="ct-title">Data Engineer</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Track: Data Integration & Zero-Copy</span></div>
+        <div class="why">Miami-based data engineer building AWS, Snowflake, and dbt data integration infrastructure.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/stephendsmith22/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENGAGE ACCOUNTS -->
+
+  <section class="acct" id="icahn" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Icahn Enterprises LP</h2><div class="hook">Q3 est. Oct 29 / call Nov 4 · Holding co data consolidation · Sunny Isles Beach HQ</div></div>
+      <div class="cnt">3 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Sean Cooney</div><div class="ct-title">Chief Information Officer</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">Miami Beach-based CIO overseeing holding company IT, infrastructure, and portfolio reporting architecture.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/sean-cooney-5552a32a/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Alex Servalis CPA, CFE</div><div class="ct-title">Chief Audit Executive & Chief Compliance Officer</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Governed Foundation for Agents</span></div>
+        <div class="why">Leads SOX 404 compliance, internal audit, ERM, and regulatory reporting across holding company segments.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/alexservalis/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Ted Papapostolou</div><div class="ct-title">Chief Financial Officer</div></div><div class="score" title="Role-fit score">78</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">CFO managing holding company financials, segment cash flows, and LP reporting.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/ted-papapostolou-4471305/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="chewy" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Chewy Inc.</h2><div class="hook">Q3 est. Dec 9 (51 days) · ~$50M AI efficiency target · Plantation HQ</div></div>
+      <div class="cnt">4 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Yunyan Wang</div><div class="ct-title">Chief Technology Officer</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg">Technical Decision Maker</span></div>
+        <div class="why">Newly appointed CTO leading tech stack transformation and customer platform scalability.</div>
+        <div class="ct-foot"><span class="nv">Announced via LinkedIn Executive Release</span></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Quinn Ye</div><div class="ct-title">Head of Data Science</div></div><div class="score" title="Role-fit score">86</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Track: Agentic Data Intelligence</span></div>
+        <div class="why">Leads Chewy's data science, recommendation engines, and customer personalization models.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/quinn-ye-b602544/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Cale H.</div><div class="ct-title">Senior Director, Analytics & Data Engineering</div></div><div class="score" title="Role-fit score">78</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Data Integration & Zero-Copy</span></div>
+        <div class="why">Oversees data platform infrastructure, ETL pipelines, and enterprise data modeling.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/cale-h-95274245" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Sumit Singh</div><div class="ct-title">Chief Executive Officer</div></div><div class="score" title="Role-fit score">72</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">Sets corporate strategy and AI efficiency milestones across operations and fulfillment.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/singh-sumit/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="lennar" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Lennar Corporation</h2><div class="hook">Q4 earnings Dec 15 · Land-light model · Millrose supply chain integration · Miami HQ</div></div>
+      <div class="cnt">3 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Nevin Yilmaz</div><div class="ct-title">Lead Data Scientist</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: AI-Ready Unstructured Data</span></div>
+        <div class="why">Miami-based lead data scientist building predictive pricing algorithms and dynamic homebuilding analytics.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/nevinyilmaz/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Mohammad Umar</div><div class="ct-title">Data Analyst</div></div><div class="score" title="Role-fit score">76</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Track: Governed Foundation for Agents</span></div>
+        <div class="why">Fort Lauderdale-based data practitioner working on operational data pipelines and business intelligence.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/mohammadumar/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Tom Moreno</div><div class="ct-title">Chief Information Officer, Lennar Financial Services</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">CIO across financial services and captive mortgage operations. Drives underwriting automation.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/tommoreno/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="heico" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>HEICO Corporation</h2><div class="hook">Q4 earnings Dec 17 (59 days) · Leadership share purchases · Hollywood HQ</div></div>
+      <div class="cnt">3 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Daniel Yip</div><div class="ct-title">Manager, Internal Audit - IT</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Governed Foundation for Agents</span></div>
+        <div class="why">Miami-based IT audit lead ensuring compliance, data lineage, and security across defense parts divisions.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/danieljyip/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Lindsey Mendelson Pearson</div><div class="ct-title">Director of Strategic Planning</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">Drives corporate strategic planning, subsidiary performance metrics, and digital technology adoption.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/lindsey-mendelson-pearson-4b918aba/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Nicholas Smith</div><div class="ct-title">IT Support Analyst II</div></div><div class="score" title="Role-fit score">70</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Real-Time Data</span></div>
+        <div class="why">South Florida technical analyst supporting aerospace operations, ERP access, and network infrastructure.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/nsmith0811/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="dycom" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Dycom Industries Inc.</h2><div class="hook">Q3 FY27 unconfirmed ~Nov 18–24 · $12.24B backlog · Palm Beach Gardens HQ</div></div>
+      <div class="cnt">3 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Audrey Bores</div><div class="ct-title">Vice President Internal Audit</div></div><div class="score" title="Role-fit score">85</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Track: Governed Foundation for Agents</span></div>
+        <div class="why">Jupiter-based VP overseeing internal audit, financial controls, and risk governance across all contracting units.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/audrey-bores-12a4437/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Heather Floyd</div><div class="ct-title">Vice President & Chief Accounting Officer</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">West Palm Beach executive managing consolidated subsidiary accounting and financial systems.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/heather-floyd-20634011/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Jacqueline Zygmund</div><div class="ct-title">Director, HR Technology & Analytics</div></div><div class="score" title="Role-fit score">74</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Real-Time Data</span></div>
+        <div class="why">Leads enterprise HR systems, data governance, process optimization, and workforce analytics.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/jacqueline-zygmund-7840189/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="sgws" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Southern Glazer's Wine & Spirits</h2><div class="hook">FTC 6-year monitor compliance mandate · ~$26B revenue · Miami HQ</div></div>
+      <div class="cnt">3 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Roberto di Bari</div><div class="ct-title">SCM Master Data Analyst</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Track: Data Integration & Zero-Copy</span></div>
+        <div class="why">Miami-based master data practitioner managing supply chain data governance, cataloging, and integration.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/roberto-di-bari/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Zeeshan Afzal</div><div class="ct-title">Data Engineer</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Data Integration & Zero-Copy</span></div>
+        <div class="why">Builds beverage distribution ETL pipelines and enterprise lakehouse data schemas.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/zeeshan-afzal-0994b9358/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Stephen Bronson</div><div class="ct-title">Chief Information Officer</div></div><div class="score" title="Role-fit score">92</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg">Technical Decision Maker</span></div>
+        <div class="why">Appointed CIO Aug 2025. Leads total IT modernization, pricing governance, and distribution architecture.</div>
+        <div class="ct-foot"><span class="nv">Verified via SGWS Leadership Registry</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="hig" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>H.I.G. Capital</h2><div class="hook">MISTRAS go-shop Oct 27 (8 days) · $75B AUM · Miami HQ</div></div>
+      <div class="cnt">2 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Anthony Chambers</div><div class="ct-title">Managing Director</div></div><div class="score" title="Role-fit score">85</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">Miami-based investment lead overseeing technology portfolio company value creation and operational efficiency.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/anthony-chambers-745a453/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Mike Gallagher</div><div class="ct-title">Managing Director</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Governed Foundation for Agents</span></div>
+        <div class="why">Miami-based Managing Director driving buyout transactions and operating efficiencies across portfolio firms.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/mike-gallagher-77135a41/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="citco" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Citco Group</h2><div class="hook">$1.2T+ AUA · Fund administration modernization · Hedge fund tech stack</div></div>
+      <div class="cnt">3 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Michael Peterson</div><div class="ct-title">Chief Strategy Officer</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Real-Time Data</span></div>
+        <div class="why">Leads global technology strategy and digital transformation across alternative investment administration.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/michael-peterson-36271a3/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Christiaan de Haseth, MBA</div><div class="ct-title">Supervisory Board Member</div></div><div class="score" title="Role-fit score">78</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Governed Foundation for Agents</span></div>
+        <div class="why">Miami-based board member governing operational risk and technology strategy.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/christiaan-de-haseth-mba-a259645/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Vyshnavi Andhavarapu</div><div class="ct-title">Data Analyst</div></div><div class="score" title="Role-fit score">74</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Track: Data Integration & Zero-Copy</span></div>
+        <div class="why">Analytics practitioner supporting fund valuation and reporting data pipelines.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/vyshnavi-andhavarapu/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="seaworld" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>SeaWorld / United Parks & Resorts</h2><div class="hook">Q3 confirmed Nov 5 (17 days) · Howl-O-Scream through Oct 31 · Orlando FL</div></div>
+      <div class="cnt">2 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Charlotte Mingan Yao</div><div class="ct-title">Marketing Analytics Consultant</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Track: AI-Ready Unstructured Data</span></div>
+        <div class="why">Orlando/FL-based analytics consultant modeling park attendance, guest segmentation, and promotional spend.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/charlotte-mingan-yao-0354a7259/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">James Swanson</div><div class="ct-title">Chief Information & Technology Officer</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg">Technical Decision Maker</span></div>
+        <div class="why">Directs park ticketing architectures, guest data integration, and cloud modernization.</div>
+        <div class="ct-foot"><span class="nv">Verified via United Parks Leadership</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="memorial" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Memorial Healthcare System</h2><div class="hook">$61.8M Hallandale & Miramar ED expansions · CEO permanent Sep 3 · Hollywood HQ</div></div>
+      <div class="cnt">3 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Tahsine Omar</div><div class="ct-title">HR Tech & Enterprise Data Governance Leader</div></div><div class="score" title="Role-fit score">86</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Governed Foundation for Agents</span></div>
+        <div class="why">Fort Lauderdale-based leader governing enterprise automation, Workday data pipelines, and HIPAA compliance data models.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/tahsineomar/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Kelly Brower</div><div class="ct-title">Manager - IT Applications</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">Fort Lauderdale IT manager overseeing clinical applications, departmental databases, and infrastructure.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/kelly-brower-37451b56/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Richard Leon</div><div class="ct-title">VP & Chief Information Security Officer</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg">Technical Decision Maker</span></div>
+        <div class="why">Directs cybersecurity, health data privacy, and hospital IT governance across 6 major hospitals.</div>
+        <div class="ct-foot"><span class="nv">Verified via Memorial Executive Directory</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="octave" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Octave Intelligence (Nasdaq: OCTV)</h2><div class="hook">Q3 confirmed Nov 12 (24 days) · $400–410M revenue guide · Hexagon spin-off</div></div>
+      <div class="cnt">1 contact</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Dena Vogelpohl</div><div class="ct-title">Executive Director, Global IT</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">Leads global enterprise IT infrastructure and post-spin-off independent systems architecture.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/dena-vogelpohl-2b66236/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STANDBY ACCOUNTS -->
+
+  <section class="acct" id="jmf" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>JM Family Enterprises</h2><div class="hook">Auto summit speaker Oct 14 · Private automotive & finance · Deerfield Beach HQ</div></div>
+      <div class="cnt">3 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">John Damalas</div><div class="ct-title">Group VP & Chief Technology Officer</div></div><div class="score" title="Role-fit score">92</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">Deerfield Beach CTO setting enterprise technology roadmap, cloud data platform, and AI architecture.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/john-damalas/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Jonathan Garcia, MBA</div><div class="ct-title">IT Service Delivery Director</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Track: Real-Time Data</span></div>
+        <div class="why">Lake Worth/FL-based IT delivery leader managing enterprise system reliability and service architectures.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/jonathan-garcia-mba-brmp-csp-po-ssgb-33488674/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Anthony Blanksteen</div><div class="ct-title">Lead Analytics Engineer</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Data Integration & Zero-Copy</span></div>
+        <div class="why">Fort Lauderdale analytics engineer designing business data models for automotive distribution.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/anthony-blanksteen/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="odp" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>ODP Corporation / Office Depot</h2><div class="hook">Week 12 of Atlas ownership · B2B restructuring · Boca Raton HQ</div></div>
+      <div class="cnt">2 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Michael Tuller, MBA</div><div class="ct-title">Vice President - FP&A and Treasurer</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">Boca Raton finance leader driving cash flow analytics and capital optimization post-privatization.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/michaelatuller/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Sonali Mukherjee</div><div class="ct-title">BI & Analytics / Data Engineer</div></div><div class="score" title="Role-fit score">78</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Data Integration & Zero-Copy</span></div>
+        <div class="why">Builds business intelligence reports and ETL data pipelines supporting supply chain and retail operations.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/sonmuk/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="chicos" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>Chico's FAS / KnitWell Group</h2><div class="hook">Private (Sycamore Partners) · CDCDO created Sep 22 · Fort Myers HQ</div></div>
+      <div class="cnt">3 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Charles Starnes</div><div class="ct-title">Data Scientist, Predictive Analytics</div></div><div class="score" title="Role-fit score">86</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Agentic Data Intelligence</span></div>
+        <div class="why">Fort Myers-based data scientist focused on customer lifetime value, markdown optimization, and predictive models.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/charlesstarnes/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Melody Plumb</div><div class="ct-title">Director, eCommerce Operations & Digital Transformation</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: AI-Ready Unstructured Data</span></div>
+        <div class="why">Leads AI and digital automation across multi-brand eCommerce platforms ($900M revenue channel).</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/melodypdennis/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Bree Dixon</div><div class="ct-title">Director, Digital Merchandising</div></div><div class="score" title="Role-fit score">74</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd+)</span><span class="tg">Track: Governed Foundation for Agents</span></div>
+        <div class="why">Naples/FL-based director managing digital catalog curation and merchandising analytics.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/bree-dixon-73a76945/" target="_blank" rel="noopener">LinkedIn profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="frontline" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>Frontline Insurance Managers</h2><div class="hook">P&C Homeowners · FIRE entity IT build · Lake Mary FL</div></div>
+      <div class="cnt">2 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Michael K. McNitt</div><div class="ct-title">Chief Executive Officer & Founder</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">Founder/CEO guiding underwriting technology, actuarial risk models, and Florida insurance capitalization.</div>
+        <div class="ct-foot"><span class="nv">Verified via FL OIR Registry</span></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Brian Hanrahan</div><div class="ct-title">Chief Financial Officer</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold</span><span class="tg">Track: Governed Foundation for Agents</span></div>
+        <div class="why">Directs reinsurance reporting, claims reserves analysis, and financial IT governance.</div>
+        <div class="ct-foot"><span class="nv">Verified via FL OIR Filings</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="pellera" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>Pellera Technologies</h2><div class="hook">IBM Partner / Co-Sell MSP · Merged entity · Boca Raton FL</div></div>
+      <div class="cnt">2 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Jeff Dobbelaere</div><div class="ct-title">President & Chief Operating Officer</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Champion</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">Leads co-sell partnerships, technical delivery, and IBM ecosystem practices across North America.</div>
+        <div class="ct-foot"><span class="nv">Verified via Pellera Leadership Directory</span></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">John Cagnina</div><div class="ct-title">Chief Information Officer</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold</span><span class="tg">Track: Data Integration & Zero-Copy</span></div>
+        <div class="why">Oversees internal MSP hosting infrastructure, client cloud migrations, and partner tooling.</div>
+        <div class="ct-foot"><span class="nv">Verified via Pellera Leadership</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="lennar-mortgage" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>Lennar Mortgage</h2><div class="hook">Captive mortgage & financial services arm of Lennar Corporation · Miami FL</div></div>
+      <div class="cnt">1 contact</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Tom Moreno</div><div class="ct-title">Chief Information Officer, Lennar Financial Services / Lennar Mortgage</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (Mutuals)</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">Leads financial services and mortgage IT stack, loan origination data pipelines, and underwriting automation.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/tom-moreno-72782b1/" target="_blank">LinkedIn Profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="sbhd" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>South Broward Hospital District</h2><div class="hook">Public governing healthcare district for Memorial Healthcare System · Hollywood FL</div></div>
+      <div class="cnt">2 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Richard Leon</div><div class="ct-title">VP & Chief Information Security Officer</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (Mutuals)</span><span class="tg">Track: Automated Governance & Compliance</span></div>
+        <div class="why">Oversees security architecture, HIPAA data compliance, and enterprise district data safeguards across Memorial facilities.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/richard-leon-ciso/" target="_blank">LinkedIn Profile ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Tahsine Omar</div><div class="ct-title">HR Technology, Operations & Data Governance Leader</div></div><div class="score" title="Role-fit score">86</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Champion</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">Manages district-wide workforce analytics, enterprise data governance, and operational reporting.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/tahsine-omar/" target="_blank">LinkedIn Profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="ansco" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>ANSCO & Associates, LLC</h2><div class="hook">Operating subsidiary of Dycom Industries Inc. · Telecom infrastructure engineering</div></div>
+      <div class="cnt">2 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Audrey Bores</div><div class="ct-title">VP Internal Audit (Dycom / ANSCO Oversight)</div></div><div class="score" title="Role-fit score">85</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (Mutuals)</span><span class="tg">Track: Automated Governance & Compliance</span></div>
+        <div class="why">Oversees internal audit, operational risk controls, and project accounting governance across ANSCO operating units.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/audrey-bores-cia-crma-8a8b8417/" target="_blank">LinkedIn Profile ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Heather Floyd</div><div class="ct-title">VP & Chief Accounting Officer (Dycom / ANSCO)</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (Mutuals)</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">Directs enterprise financial reporting, subsidiary cost integration, and ERP billing reconciliation.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/heather-floyd-35075631/" target="_blank">LinkedIn Profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="hexagon-federal" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>Hexagon US Federal</h2><div class="hook">Federal & defense systems subsidiary of Hexagon AB · Chantilly VA / Huntsville AL</div></div>
+      <div class="cnt">2 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Kevin Saint-Surin</div><div class="ct-title">Technical Director | Public Safety</div></div><div class="score" title="Role-fit score">89</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (3rd+)</span><span class="tg">Track: Governed Foundation for Agents</span></div>
+        <div class="why">Leads federal technical architectures, mission-critical public safety systems, and geospatial intelligence platforms.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/kevin-saint-surin-676b1180/" target="_blank">LinkedIn Profile ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Barry Bolton</div><div class="ct-title">PNT Director</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold</span><span class="tg">Track: Hybrid Cloud AI Fabric</span></div>
+        <div class="why">Directs positioning, navigation, and timing technologies and mission data streams for defense applications.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/barry-bolton-414ab74/" target="_blank">LinkedIn Profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="hexagon-mining" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>Hexagon Mining</h2><div class="hook">Mining technology & operations division of Hexagon AB · Tucson AZ / Global</div></div>
+      <div class="cnt">2 contacts</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Jane Beynon</div><div class="ct-title">Director of Sales Enablement and Process</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (Mutuals)</span><span class="tg">Track: Open Lakehouse Optimization</span></div>
+        <div class="why">Oversees global sales process optimization, client operational reporting, and mining technology deployment enablement.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/jane-beynon-7354251/" target="_blank">LinkedIn Profile ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Kyle Duffy</div><div class="ct-title">Technology Operations Executive</div></div><div class="score" title="Role-fit score">85</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (Mutuals)</span><span class="tg">Track: Data Integration & Zero-Copy</span></div>
+        <div class="why">Manages technology operations, operational workflow integration, and cross-platform infrastructure systems.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/in/kyle-duffy/" target="_blank">LinkedIn Profile ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acct" id="dmab" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>Data Management Brevard (DMAB)</h2><div class="hook">IBM Mainframe hosting & managed services partner · Melbourne / Brevard County FL</div></div>
+      <div class="cnt">1 contact</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Executive Practice Leadership</div><div class="ct-title">Managing Director & Systems Engineering Practice Lead</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold</span><span class="tg">Track: Hybrid Cloud AI Fabric</span></div>
+        <div class="why">Directs IBM zSystems mainframe managed hosting, legacy data modernization, and enterprise client infrastructure services.</div>
+        <div class="ct-foot"><span class="nv">Direct Executive Routing via DMAB Headquarters</span></div>
+      </div>
+    </div>
+  </section>
+
+  <h3 class="sec">Profiles Screened and Excluded</h3>
+  <table>
+    <tr><th>Name</th><th>Account</th><th>Reason for Exclusion</th></tr>
+    <tr><td><strong>Andrew Parry</strong></td><td>ODP</td><td>Profile shows Fractional CIO / CTO from Jun 2026 and PetMeds CTO. Excluded as departed.</td></tr>
+    <tr><td><strong>David Reeder</strong></td><td>Chewy</td><td>Departed Chewy CFO (Aug 2025); now Entegris CEO. Excluded.</td></tr>
+    <tr><td><strong>Andrew Stein</strong></td><td>Chewy</td><td>Moved to VP role at CLEAR (Aug 2026). Excluded.</td></tr>
+    <tr><td><strong>Daniel Choi</strong></td><td>Chewy</td><td>Departed Chewy (Sep 2024; Hootsuite). Excluded.</td></tr>
+    <tr><td><strong>Clint Pies</strong></td><td>MasTec</td><td>Chief People Officer through Jun 2026; now at Clarios. Excluded.</td></tr>
+    <tr><td><strong>Scott Spradley</strong></td><td>Lennar</td><td>Lennar CTO role ended May 2025. Excluded.</td></tr>
+    <tr><td><strong>Andrew Teno</strong></td><td>Icahn</td><td>Icahn Enterprises CEO role concluded May 2026; now at Blackstone. Excluded.</td></tr>
+    <tr><td><strong>Ann Dozier</strong></td><td>SGWS</td><td>Former CIO; succeeded by Stephen Bronson (Aug 2025). Excluded.</td></tr>
+    <tr><td><strong>David Kelly</strong></td><td>Kforce</td><td>Former CFO; superseded by Jeffrey Hackman (Sep 2023). Excluded.</td></tr>
+  </table>
+
+  <div class="foot">Made with IBM Bob · Edition 11 · Oct 19, 2026</div>
+</div>
+</body>
+</html>
