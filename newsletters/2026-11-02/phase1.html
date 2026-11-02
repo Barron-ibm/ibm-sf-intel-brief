@@ -1,0 +1,2411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SE Horizon — Account Radar · Phase 1 · Nov 2, 2026 · Edition 13</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ground:#F4F6FA;--panel:#FFFFFF;--panel-2:#F0F2F7;--panel-3:#E8EBF3;
+  --rule:#DDE1EC;--rule-hi:#C8CEDD;--ink:#161C2D;--ink-mid:#3A4460;--ink-low:#6B779A;
+  --ibm:#0043CE;--ibm-deep:#0F62FE;--ibm-dim:rgba(0,67,206,.07);--ibm-line:rgba(0,67,206,.25);
+  --t0:#2C3358;--t1:#5E3C8F;--t2:#A63C74;--t3:#C53030;--t4:#B45309;--t5:#7C4B00;--ok:#006644;
+  --saas:#006644;--saas-dim:rgba(0,102,68,.07);--saas-line:rgba(0,102,68,.3);
+  --trans:#5A189A;--trans-dim:rgba(90,24,154,.07);--trans-line:rgba(90,24,154,.3);
+  --radius:6px;
+  --display:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+  --body:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+  --mono:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--body);font-size:14px;line-height:1.6;background:var(--ground);color:var(--ink);-webkit-font-smoothing:antialiased;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -8%,rgba(15,98,254,.04) 0%,transparent 65%);pointer-events:none;z-index:0;}
+a{color:var(--ibm);text-decoration:none;}a:hover{text-decoration:underline;}
+
+/* NAV */
+.topnav{position:sticky;top:0;z-index:300;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-top:3px solid var(--ibm-deep);border-bottom:1px solid var(--rule);height:51px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;}
+.tn-left{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.tn-ibm{font-family:var(--display);font-size:20px;font-weight:700;color:var(--ibm-deep);letter-spacing:-.5px;}
+.tn-div{width:1px;height:18px;background:var(--rule-hi);}
+.tn-title{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);}
+.tn-badge{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:var(--ibm-deep);color:#fff;padding:2px 10px;border-radius:20px;}
+.tn-links{display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;}
+.tn-links::-webkit-scrollbar{display:none;}
+.tn-links a{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-low);padding:6px 14px;border-bottom:2px solid transparent;white-space:nowrap;transition:color .12s;}
+.tn-links a:hover{color:var(--ibm);text-decoration:none;}
+.tn-links a.active{color:var(--ibm-deep);border-bottom-color:var(--ibm-deep);background:rgba(15,98,254,.08);}
+.tn-links a.sub{color:var(--ink-low);opacity:.6;font-size:9px;}
+.tn-sep{color:var(--rule-hi);padding:0 4px;user-select:none;}
+.tn-right{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-low);white-space:nowrap;flex-shrink:0;}
+
+/* JUMP BAR */
+.jumpbar{position:sticky;top:51px;z-index:299;background:rgba(244,246,250,.98);border-bottom:1px solid var(--rule);height:40px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;}
+.jb-jumps{display:flex;align-items:center;gap:6px;}
+.jb-jump{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:2px;cursor:pointer;white-space:nowrap;border:1px solid var(--rule-hi);color:var(--ink-low);background:transparent;text-decoration:none;}
+.jb-jump:hover{color:var(--ink);border-color:var(--ink-low);text-decoration:none;}
+.jb-jump.t5{color:var(--t5);border-color:rgba(124,75,0,.3);background:rgba(124,75,0,.06);}
+.jb-jump.t4{color:var(--t4);border-color:rgba(180,83,9,.3);background:rgba(180,83,9,.06);}
+.jb-jump.t3{color:var(--t3);border-color:rgba(197,48,48,.3);background:rgba(197,48,48,.06);}
+.jb-count{font-family:var(--mono);font-size:8px;font-weight:600;padding:1px 5px;border-radius:2px;margin-left:5px;vertical-align:middle;display:inline-block;}
+.jb-count.t5{background:var(--t5);color:#fff;}
+.jb-count.t4{background:var(--t4);color:#fff;}
+.jb-count.t3{background:var(--t3);color:#fff;}
+.jb-right{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-low);}
+
+/* MASTHEAD */
+.masthead{position:relative;z-index:1;padding:36px 28px 32px;border-bottom:1px solid var(--rule);background:linear-gradient(180deg,rgba(15,98,254,.05) 0%,transparent 100%);}
+.mh-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;}
+.mh-eye{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--ibm);display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.mh-eye::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ibm-deep);box-shadow:0 0 8px var(--ibm-deep);}
+.mh-title{font-family:var(--body);font-weight:700;font-size:clamp(20px,2.5vw,28px);line-height:1.15;color:var(--ink);}
+.mh-title span{display:block;font-family:var(--body);font-weight:400;color:var(--ink-low);font-size:.55em;letter-spacing:.06em;margin-top:5px;text-transform:uppercase;}
+.mh-sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-low);margin-top:12px;}
+.mh-stats{display:flex;gap:12px;align-self:center;}
+.mh-stat{background:var(--panel);border:1px solid var(--rule-hi);border-radius:var(--radius);padding:18px 24px;text-align:center;min-width:100px;position:relative;overflow:hidden;}
+.mh-stat::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,98,254,.08),transparent 60%);}
+.mh-stat-n{font-family:var(--mono);font-weight:600;font-size:32px;line-height:1;color:var(--ibm);position:relative;}
+.mh-stat-l{font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-top:6px;position:relative;}
+
+/* FILTERS */
+.filters{position:relative;z-index:1;background:var(--panel);border-bottom:1px solid var(--rule);padding:14px 28px;}
+.filters-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
+.f-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.f-lbl{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);white-space:nowrap;width:80px;flex-shrink:0;}
+.f-pills{display:flex;flex-wrap:wrap;gap:5px;flex:1;}
+.f-pill{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px;cursor:pointer;border:1px solid var(--rule-hi);color:var(--ink-low);background:transparent;user-select:none;white-space:nowrap;transition:all .12s;}
+.f-pill:hover{color:var(--ink);border-color:var(--ink-low);}
+.f-pill.on{color:var(--ibm);border-color:var(--ibm-line);background:var(--ibm-dim);}
+.f-pill-scroll{display:flex;gap:5px;overflow-x:auto;flex:1;scrollbar-width:none;padding-bottom:1px;}
+.f-pill-scroll::-webkit-scrollbar{display:none;}
+
+/* INDUSTRY PULSE */
+.ind-pulse{position:relative;z-index:1;background:var(--panel-2);border-bottom:1px solid var(--rule);padding:16px 28px;}
+.ind-pulse::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--ibm-deep);}
+.ind-inner{max-width:1200px;margin:0 auto;}
+.ind-hdr{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-low);margin-bottom:12px;display:flex;align-items:center;gap:12px;}
+.ind-hdr::after{content:'';flex:1;height:1px;background:var(--rule);}
+.ind-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.ind-signal{background:var(--panel);padding:12px 16px;position:relative;}
+.ind-signal::before{content:'';position:absolute;inset:0 auto 0 0;width:2px;background:var(--tc,var(--ibm));}
+.ind-tag{font-family:var(--mono);font-size:8.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:1px 6px;display:inline-block;margin-bottom:6px;color:#fff;}
+.iv-aero{background:#6929c4;}.iv-infra{background:var(--ok);}.iv-health{background:var(--t2);}.iv-ecom{background:var(--ibm-deep);}.iv-fin{background:var(--t4);}
+.ind-headline{font-family:var(--body);font-weight:600;font-size:13px;line-height:1.25;color:var(--ink);margin-bottom:4px;}
+.ind-ibm-angle{font-size:11px;color:var(--ink-low);line-height:1.45;}
+
+/* MAIN */
+.main{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:32px 28px 64px;}
+
+/* GROUP */
+.group{margin-bottom:48px;}
+.group[data-empty="true"]{display:none;}
+.group-hdr{display:flex;align-items:center;gap:16px;margin-bottom:20px;}
+.group-label{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:3px 12px;border-radius:2px;white-space:nowrap;}
+.gl-t5{background:var(--t5);color:#fff;}
+.gl-t4{background:var(--t4);color:#fff;}
+.gl-t3{background:var(--t3);color:#fff;}
+.g-rule{flex:1;height:1px;}
+.g-rule.t5{background:linear-gradient(90deg,rgba(124,75,0,.4),transparent);}
+.g-rule.t4{background:linear-gradient(90deg,rgba(180,83,9,.4),transparent);}
+.g-rule.t3{background:linear-gradient(90deg,rgba(197,48,48,.4),transparent);}
+/* OWNER GROUPS (Edition 13) */
+.gl-own{background:var(--ibm-deep);color:#fff;font-size:11px;letter-spacing:.14em;padding:5px 14px;}
+.g-sub{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--ink-low);white-space:nowrap;}
+.g-rule.own{background:linear-gradient(90deg,var(--ibm-line),transparent);}
+.jb-count.own{background:var(--ibm-deep);color:#fff;}
+.sd-own{background:var(--ibm-deep);}
+.c-work{font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--ink-low);text-align:right;max-width:340px;line-height:1.5;}
+.c-work-lbl{display:inline-block;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ibm);margin-right:6px;}
+
+
+
+/* CARD */
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);margin-bottom:16px;overflow:hidden;display:flex;flex-direction:column;}
+.card[data-hidden="true"]{display:none;}
+.card.t5{border-left:3px solid var(--t5);}
+.card.t4{border-left:3px solid var(--t4);}
+.card.t3{border-left:3px solid var(--t3);}
+
+/* C-LEFT */
+.c-left{display:flex;justify-content:space-between;align-items:flex-start;padding:16px 20px 14px;border-bottom:1px solid var(--rule);background:var(--panel-2);gap:16px;}
+.c-left-meta{flex:1;}
+.c-left-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;}
+.c-acct-name{font-family:var(--body);font-weight:700;font-size:16px;color:var(--ink);line-height:1.2;}
+.c-meta{font-family:var(--mono);font-size:10px;color:var(--ink-low);letter-spacing:.08em;margin-top:3px;}
+.c-urg{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:6px;}
+.cu-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.cu-t5{color:var(--t5);}.cu-t5 .cu-dot{background:var(--t5);}
+.cu-t4{color:var(--t4);}.cu-t4 .cu-dot{background:var(--t4);}
+.cu-t3{color:var(--t3);}.cu-t3 .cu-dot{background:var(--t3);}
+.c-entry-section{display:flex;align-items:center;gap:8px;}
+.c-lbl{font-family:var(--mono);font-size:8px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-low);}
+.c-entry-badge{font-family:var(--mono);font-size:8.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:2px;color:#fff;}
+.br-data{background:#0043CE;}.br-auto{background:#198038;}.br-stor{background:#6929C4;}.br-pc{background:#005D5D;}.br-saas{background:#006644;}.br-trans{background:#5A189A;}
+.c-also{display:flex;flex-wrap:wrap;gap:5px;justify-content:flex-end;}
+.c-brand-sm{font-family:var(--mono);font-size:7.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:1px 6px;border-radius:2px;color:#fff;}
+.c-also-txt{font-size:10px;color:var(--ink-low);}
+
+/* C-MID */
+.c-mid{display:flex;gap:0;flex:1;}
+.c-mid-left{flex:1;padding:20px;border-right:1px solid var(--rule);}
+.c-right{width:280px;flex-shrink:0;padding:20px;display:flex;flex-direction:column;gap:12px;}
+.c-sales-hdr{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-low);padding-bottom:7px;border-bottom:1px solid var(--rule);margin-bottom:2px;}
+.c-sales-block{display:flex;flex-direction:column;gap:3px;padding:8px 10px;border-radius:4px;}
+.c-sales-block.saas{background:var(--saas-dim);border-left:2px solid var(--saas);}
+.c-sales-block.trans{background:var(--trans-dim);border-left:2px solid var(--trans);}
+.c-sales-block.motion{background:var(--ibm-dim);border-left:2px solid var(--ibm-line);}
+.c-sales-type{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;}
+.c-sales-type.saas{color:var(--saas);}
+.c-sales-type.trans{color:var(--trans);}
+.c-sales-type.motion{color:var(--ibm);}
+.c-sales-txt{font-size:11.5px;color:var(--ink-mid);line-height:1.55;}
+.c-sales-txt strong{color:var(--ink);}
+.c-sales-pill{font-family:var(--mono);font-size:7.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:2px;display:inline-block;align-self:flex-start;margin-top:2px;}
+.c-sales-pill.saas{background:var(--saas);color:#fff;}
+.c-sales-pill.trans{background:var(--trans);color:#fff;}
+
+
+/* SECTIONS */
+.c-section{margin-bottom:16px;}
+.c-sec-lbl{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid var(--rule);}
+.c-bullets{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.c-bullets li{font-size:13px;color:var(--ink-mid);line-height:1.55;padding-left:16px;position:relative;}
+.c-bullets li::before{content:'▸';position:absolute;left:0;color:var(--ibm);font-size:10px;top:3px;}
+.c-bullets li strong{color:var(--ink);font-weight:600;}
+.c-bullets li em{color:var(--ink-low);font-style:italic;}
+
+
+/* ANGLE + TALK */
+.c-angle{background:var(--ibm-dim);border:1px solid var(--ibm-line);border-radius:var(--radius);padding:12px 14px;margin-bottom:14px;}
+.c-angle-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ibm);margin-bottom:5px;}
+.c-angle-txt{font-size:12px;color:var(--ink-mid);line-height:1.55;}
+.c-talk{background:var(--panel-2);border:1px solid var(--rule);border-radius:var(--radius);padding:12px 14px;}
+.c-talk-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:5px;}
+.c-talk-txt{font-size:12px;color:var(--ink-mid);line-height:1.55;font-style:italic;}
+
+/* SIGNAL INTEL PANEL */
+.si-hdr{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-low);padding-bottom:8px;border-bottom:1px solid var(--rule);margin-bottom:12px;}
+/* Scorecard */
+.si-scorecard{margin-bottom:14px;}
+.si-sc-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-low);margin-bottom:8px;}
+.si-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.si-row-name{font-family:var(--mono);font-size:9px;color:var(--ink-mid);width:100px;flex-shrink:0;letter-spacing:.04em;}
+.si-bar-wrap{flex:1;height:5px;background:var(--panel-3);border-radius:3px;overflow:hidden;}
+.si-bar{height:100%;border-radius:3px;transition:width .3s;}
+.si-bar.lo{width:25%;background:var(--rule-hi);}
+.si-bar.md{width:55%;background:var(--t4);}
+.si-bar.hi{width:85%;background:var(--t5);}
+.si-bar.crit{width:100%;background:#C53030;}
+.si-trend{font-size:9px;width:12px;flex-shrink:0;text-align:center;}
+.si-trend.up{color:#006644;}
+.si-trend.dn{color:#C53030;}
+.si-trend.fl{color:var(--ink-low);}
+/* Clock */
+.si-clock{border-top:1px solid var(--rule);padding-top:12px;}
+.si-ck-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-low);margin-bottom:8px;}
+.si-deadline{display:flex;align-items:baseline;gap:6px;margin-bottom:7px;}
+.si-dl-icon{font-size:9px;flex-shrink:0;color:var(--ink-low);}
+.si-dl-label{font-size:10.5px;color:var(--ink-mid);flex:1;line-height:1.3;}
+.si-dl-days{font-family:var(--mono);font-size:9px;font-weight:700;white-space:nowrap;flex-shrink:0;}
+.si-dl-days.urgent{color:var(--t5);}
+.si-dl-days.soon{color:var(--t4);}
+.si-dl-days.open{color:var(--ink-low);}
+.c-divider{height:1px;background:var(--rule);margin:8px 0;}
+
+/* ACTIONS */
+.c-actions{display:flex;align-items:center;gap:10px;padding:12px 20px;border-top:1px solid var(--rule);background:var(--panel-2);}
+.c-btn{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:2px;cursor:pointer;white-space:nowrap;border:1px solid transparent;}
+.c-btn-intel{background:var(--ibm-deep);color:#fff;border-color:var(--ibm-deep);}
+.c-btn-intel:hover{background:#003399;text-decoration:none;color:#fff;}
+.c-btn-snav{background:transparent;color:var(--ink-low);border-color:var(--rule-hi);}
+.c-btn-snav:hover{color:var(--ink);border-color:var(--ink-low);text-decoration:none;}
+
+/* SIDE DOCK */
+.side-dock{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:200;background:var(--panel);border:1px solid var(--rule);border-right:none;border-radius:6px 0 0 6px;padding:10px 0;min-width:130px;box-shadow:-2px 0 12px rgba(22,28,45,.06);}
+.sd-top{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-low);padding:0 12px 8px;border-bottom:1px solid var(--rule);margin-bottom:6px;}
+.sd-group{overflow:hidden;}
+.sd-group-hdr{display:flex;align-items:center;gap:6px;padding:5px 12px;cursor:pointer;user-select:none;}
+.sd-group-hdr:hover .sd-tier{opacity:.8;}
+.sd-tier{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:1px 7px;border-radius:2px;color:#fff;flex:1;}
+.sd-t5{background:var(--t5);}.sd-t4{background:var(--t4);}.sd-t3{background:var(--t3);}
+.sd-count{font-family:var(--mono);font-size:8px;font-weight:600;color:var(--ink-low);}
+.sd-chevron{font-size:11px;color:var(--ink-low);transition:transform .15s;display:inline-block;}
+.sd-group-hdr.open .sd-chevron{transform:rotate(90deg);}
+.sd-accts{display:none;padding:2px 0 6px;}
+.sd-group.open .sd-accts{display:block;}
+.sd-acct{display:block;font-family:var(--mono);font-size:9px;color:var(--ink-low);padding:3px 20px;cursor:pointer;white-space:nowrap;text-decoration:none;}
+.sd-acct:hover{color:var(--ibm);text-decoration:none;}
+.sd-acct.active{color:var(--ibm-deep);font-weight:600;}
+
+/* PAGE FOOTER */
+.page-footer{text-align:center;font-family:var(--mono);font-size:10px;color:var(--ink-low);letter-spacing:.12em;text-transform:uppercase;padding:24px 28px;border-top:1px solid var(--rule);margin-top:8px;}
+
+@media(max-width:768px){
+  .c-mid{flex-direction:column;}
+  .c-mid-left{border-right:none;border-bottom:1px solid var(--rule);}
+  .c-right{width:100%;}
+  .side-dock{display:none;}
+  .mh-stats{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── TOP NAV ── -->
+<nav class="topnav">
+  <div class="tn-left">
+    <span class="tn-ibm">IBM</span>
+    <span class="tn-div"></span>
+    <span class="tn-title">SE Horizon</span>
+    <span class="tn-badge">Edition 13</span>
+  </div>
+  <div class="tn-links">
+    <a href="phase1.html" class="active">Phase 1 — Radar</a>
+    <span class="tn-sep">·</span>
+    <a href="phase2.html">Phase 2 — Intel</a>
+    <span class="tn-sep">·</span>
+    <a href="phase3.html">Phase 3 — Accounts</a>
+    <span class="tn-sep">·</span>
+    <a href="phase4.html">Phase 4 — Contacts</a>
+  </div>
+  <div class="tn-right">Nov 2, 2026 · Edition 13</div>
+</nav>
+
+<!-- ── JUMP BAR ── -->
+<div class="jumpbar">
+  <div class="jb-jumps">
+    <a class="jb-jump" href="#grp-jim">Jim <span class="jb-count own">3</span></a>
+    <a class="jb-jump" href="#grp-ricardo">Ricardo <span class="jb-count own">3</span></a>
+    <a class="jb-jump" href="#grp-pratap">Pratap <span class="jb-count own">2</span></a>
+    <a class="jb-jump" href="#grp-spencer">Spencer <span class="jb-count own">2</span></a>
+    <a class="jb-jump" href="#grp-shari">Shari <span class="jb-count own">3</span></a>
+    <a class="jb-jump" href="#grp-michael">Michael <span class="jb-count own">3</span></a>
+    <a class="jb-jump" href="#grp-hazem">Hazem <span class="jb-count own">3</span></a>
+    <a class="jb-jump" href="#grp-mijee">Mijee <span class="jb-count own">7</span></a>
+  </div>
+  <div class="jb-right">26 Accounts · South Florida · Territory 26</div>
+</div>
+
+<!-- ── MASTHEAD ── -->
+<div class="masthead">
+  <div class="mh-inner">
+    <div>
+      <div class="mh-eye">SE Horizon · Account Radar · Phase 1</div>
+      <div class="mh-title">South Florida Territory — Account Radar
+        <span>Edition 13 · Nov 2, 2026 · Coverage: Oct 26 – Nov 2, 2026</span>
+      </div>
+      <div class="mh-sub">26 Accounts · Territory 26 · Grouped by account owner · IBM Data &amp; AI · Automation · Storage · Power &amp; Cloud</div>
+    </div>
+    <div class="mh-stats">
+      <div class="mh-stat"><div class="mh-stat-n">26</div><div class="mh-stat-l">Accounts</div></div>
+      <div class="mh-stat"><div class="mh-stat-n" id="stat-strike">—</div><div class="mh-stat-l">Strike</div></div>
+      <div class="mh-stat"><div class="mh-stat-n" id="stat-engage">—</div><div class="mh-stat-l">Engage</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FILTERS ── -->
+<div class="filters">
+  <div class="filters-inner">
+    <!-- OWNER-ROW -->
+    <div class="f-row">
+      <span class="f-lbl">Owner</span>
+      <div class="f-pills">
+        <span class="f-pill on" data-filter="owner" data-val="all">All Owners</span>
+        <span class="f-pill" data-filter="owner" data-val="jim">Jim</span>
+        <span class="f-pill" data-filter="owner" data-val="ricardo">Ricardo</span>
+        <span class="f-pill" data-filter="owner" data-val="pratap">Pratap</span>
+        <span class="f-pill" data-filter="owner" data-val="spencer">Spencer</span>
+        <span class="f-pill" data-filter="owner" data-val="shari">Shari</span>
+        <span class="f-pill" data-filter="owner" data-val="michael">Michael</span>
+        <span class="f-pill" data-filter="owner" data-val="hazem">Hazem</span>
+        <span class="f-pill" data-filter="owner" data-val="mijee">Mijee</span>
+      </div>
+    </div>
+    <div class="f-row">
+      <span class="f-lbl">Specialists</span>
+      <div class="f-pills">
+        <span class="f-pill on" data-filter="bss" data-val="all">All Accounts</span>
+        <span class="f-pill" data-filter="bss" data-val="yes">BSS-Covered (11)</span>
+      </div>
+    </div>
+    <!-- /OWNER-ROW -->
+    <div class="f-row">
+      <span class="f-lbl">Urgency</span>
+      <div class="f-pills">
+        <span class="f-pill on" data-filter="urgency" data-val="t5">Strike</span>
+        <span class="f-pill on" data-filter="urgency" data-val="t4">Engage</span>
+        <span class="f-pill on" data-filter="urgency" data-val="t3">Standby</span>
+      </div>
+    </div>
+    <div class="f-row">
+      <span class="f-lbl">Brand</span>
+      <div class="f-pills">
+        <span class="f-pill on" data-filter="brand" data-val="all">All Brands</span>
+        <span class="f-pill" data-filter="brand" data-val="data-ai">Data &amp; AI</span>
+        <span class="f-pill" data-filter="brand" data-val="automation">Automation</span>
+        <span class="f-pill" data-filter="brand" data-val="storage">Storage</span>
+        <span class="f-pill" data-filter="brand" data-val="power-cloud">Power &amp; Cloud</span>
+      </div>
+    </div>
+    <div class="f-row">
+      <span class="f-lbl">Account</span>
+      <div class="f-pill-scroll">
+        <span class="f-pill on" data-filter="account" data-val="all">All</span>
+        <span class="f-pill" data-filter="account" data-val="lennar">Lennar</span>
+        <span class="f-pill" data-filter="account" data-val="chewy">Chewy</span>
+        <span class="f-pill" data-filter="account" data-val="dycom">Dycom</span>
+        <span class="f-pill" data-filter="account" data-val="mastec">MasTec</span>
+        <span class="f-pill" data-filter="account" data-val="heico">HEICO</span>
+        <span class="f-pill" data-filter="account" data-val="nclh">NCLH</span>
+        <span class="f-pill" data-filter="account" data-val="sgws">Southern Glazer's</span>
+        <span class="f-pill" data-filter="account" data-val="hig">H.I.G. Capital</span>
+        <span class="f-pill" data-filter="account" data-val="odp">ODP</span>
+        <span class="f-pill" data-filter="account" data-val="herc">Herc Rentals</span>
+        <span class="f-pill" data-filter="account" data-val="bk">Burger King / RBI</span>
+        <span class="f-pill" data-filter="account" data-val="kforce">Kforce</span>
+        <span class="f-pill" data-filter="account" data-val="citco">Citco</span>
+        <span class="f-pill" data-filter="account" data-val="frontline">Frontline</span>
+        <span class="f-pill" data-filter="account" data-val="icahn">Icahn</span>
+        <span class="f-pill" data-filter="account" data-val="lenmar">Lennar Mtg.</span>
+        <span class="f-pill" data-filter="account" data-val="jmf">JM Family</span>
+        <span class="f-pill" data-filter="account" data-val="seaworld">SeaWorld</span>
+        <span class="f-pill" data-filter="account" data-val="chicos">Chico's</span>
+        <span class="f-pill" data-filter="account" data-val="memorial">Memorial / S. Broward</span>
+        <span class="f-pill" data-filter="account" data-val="hexfed">Hex. Federal</span>
+        <span class="f-pill" data-filter="account" data-val="hexmin">Hex. Mining</span>
+        <span class="f-pill" data-filter="account" data-val="octave">Octave</span>
+        <span class="f-pill" data-filter="account" data-val="pellera">Pellera</span>
+        <span class="f-pill" data-filter="account" data-val="ansco">ANSCO</span>
+        <span class="f-pill" data-filter="account" data-val="dmab">Data Mgmt. Brevard</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MARKET PULSE ── -->
+<div class="ind-pulse">
+  <div class="ind-inner">
+    <div class="ind-hdr">Market Pulse — Edition 13 · Nov 2, 2026 · Coverage: Oct 26 – Nov 2</div>
+    <div class="ind-grid">
+      <div class="ind-signal" style="--tc:var(--t5)">
+        <span class="ind-tag iv-ecom">Coming up this week</span>
+        <div class="ind-headline">Three accounts have a dated event inside 10 days. Icahn Enterprises reports Q3 tomorrow, Tue Nov 3 (1 day). SeaWorld / United Parks reports Thu Nov 5 before the open (3 days). Octave reports Thu Nov 12 (10 days).</div>
+        <div class="ind-ibm-angle">These are the three Strike accounts: Shari (Icahn), Jim (SeaWorld) and Mijee (Octave). Call before the report, not after.</div>
+      </div>
+      <div class="ind-signal" style="--tc:var(--t4)">
+        <span class="ind-tag iv-infra">Reported this week</span>
+        <div class="ind-headline">Herc beat on Oct 27 and raised its outlook. MasTec grew sales 30% to $5.152B on Oct 29 with a $24.5B backlog. NCLH and Burger King / RBI also reported Oct 29. Kforce reported Oct 26. Dycom is next, about Nov 24 (22 days, not confirmed).</div>
+        <div class="ind-ibm-angle">Use the results as a reason to call. Each card says what changed and what it means for IBM.</div>
+      </div>
+      <div class="ind-signal" style="--tc:var(--t4)">
+        <span class="ind-tag iv-fin">Deals and rules</span>
+        <div class="ind-headline">H.I.G.'s MISTRAS deal got no rival bids; shareholders vote Nov 24 (22 days). Southern Glazer's is under a six-year FTC price order (court approval pending). Berkshire now owns more than 10% of Lennar.</div>
+        <div class="ind-ibm-angle">H.I.G.: portfolio planning and AI oversight. SGWS: proof that pricing is fair. Lennar: margin planning for the CFO.</div>
+      </div>
+      <div class="ind-signal" style="--tc:var(--t3)">
+        <span class="ind-tag iv-aero">Open questions to ask</span>
+        <div class="ind-headline">Lennar Mortgage faces data-exposure lawsuits; its free credit-monitoring sign-up ends Nov 20 (18 days). Hexagon AB posted its best growth in five years and keeps buying companies. Several older claims (Chewy, HEICO, Lennar dates) were not re-verified.</div>
+        <div class="ind-ibm-angle">Ask, do not assert. Lennar Mortgage: lead with cost per loan and data control. Hexagon family: one parent-level conversation.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ══ OWNER: Jim Gilbert ══ -->
+  <div class="group" id="grp-jim">
+    <div class="group-hdr"><span class="group-label gl-own">Jim Gilbert</span><span class="g-sub">Book 1 · 3 accounts · 1 Strike · 2 Standby</span><div class="g-rule own"></div></div>
+
+    <!-- SeaWorld / United Parks & Resorts -->
+    <div class="card t5" data-urgency="t5" data-brands="data-ai automation" data-account="seaworld" data-owner="jim" data-bss="no">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">SeaWorld / United Parks &amp; Resorts</div>
+          <div class="c-meta">NYSE: PRKS · Theme Parks · $483.3M Q2 sales (−1.4%) · 13 parks · Q3 results Thu Nov 5</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t5"><span class="cu-dot"></span>Strike — Q3 results Thu Nov 5 before the open, call 9:00 AM ET (3 days)</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>United Parks reports Q3 on Thu Nov 5, before the market opens. The call is at 9:00 AM ET (company date announcement, Oct 8). Analysts expect EPS of about $1.88–$2.04 on about $511–512M of sales. The finance team is finishing the Q3 close right now.</li>
+              <li>The stock closed at $30.80 on Oct 30 (down 2.56% that day). Its 52-week range is $28.77–$52.03, so it is trading near the bottom. Citigroup kept a "Neutral" rating but cut its price target from $49 to $34 on Oct 8. Management needs to show it can control costs and keep guests coming.</li>
+              <li>Q2 sales fell 1.4% to $483.3M. Two things drive park sales: how many people come (attendance) and how much each person spends (per-capita spend). Finance has to model both at once.</li>
+              <li>The company is promoting its holiday events (SeaWorld Christmas, Busch Gardens Christmas Town, both announced Oct 29), so the next busy season is already being planned. The earlier note about two leadership appointments was not verified.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan. The earlier revenue-management and guest-analytics roles were not re-verified; confirm before citing.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">Finance needs to answer "what if attendance drops 5% but each guest spends 8% more?" quickly. IBM Planning Analytics runs those "what if" cases on top of the ERP the team already uses. IBM watsonx.data can pull ERP, ticketing and food-and-drink register data into one place behind it. Results are 3 days away, so lead with speed.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"With Q3 results on Thursday, your finance team is weighing attendance against what each guest spends. IBM Planning Analytics runs those 'what if' cases on top of the ERP you already have, and we can show it quickly. Could we talk after the call on Nov 5?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>Planning Analytics SaaS</strong> — attendance vs. per-guest spend "what if" cases on top of the ERP. "Plan the holiday season before it starts."</div>
+            <span class="c-sales-pill saas">Planning Analytics SaaS</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>watsonx.data</strong> — one guest-data layer joining ERP, ticketing and food-and-drink registers. A one-time project.</div>
+            <span class="c-sales-pill trans">watsonx.data Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Send a short note to the CFO or VP of FP&amp;A before Thursday.<br>2. Follow up right after the Nov 5 call.<br>3. Planning Analytics first; watsonx.data as the follow-on project.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#seaworld">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+    <!-- Frontline Insurance -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai" data-account="frontline" data-owner="jim" data-bss="no">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Frontline Insurance</div>
+          <div class="c-meta">Private · Home and property insurance · Florida homeowners · Lake Mary, FL · Hurricane season ends Nov 30 (28 days)</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby — no company event this week; storm season and AI-rule scrutiny are the background</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-data">AI Gov</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>No company announcement turned up between Oct 26 and Nov 2, which is why this stays Standby. Two small items did surface. On Sep 3 an independent agency (Greene &amp; Associates) said it is now appointed to sell Frontline policies. On Oct 19 a law firm said it settled a Frontline wind-and-hail lawsuit in Indian River County for under 15% of the estimated exposure. The suit turned on late notice (219 days) and missing proof of loss. Claims handling is where Frontline spends effort.</li>
+              <li>The Atlantic hurricane season runs through Nov 30, 28 days from now. Carriers that sort claims faster and price risk better with AI win share, and regulators expect AI decisions on claims and pricing to be explainable.</li>
+              <li>Carried from Edition 12, not re-checked: Hurricane Isaias hit near Destin on Oct 9, and the claim counts were lower than expected at other carriers. Frontline's own Panhandle exposure was never verified. Florida regulators also approved an average 12.8% rate cut for more than 120,000 rental policies (Oct 2). Lead with resilience, not with someone else's storm.</li>
+              <li>Carried from Oct 5, not re-verified: the new insurance company's IT stack is still being built. If true, every data and governance choice is still open. Ask about it.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">A company that is still building its systems is IBM's best way in. IBM watsonx.governance added early costs far less than adding explainability later. IBM watsonx.data joins policy, claims and reinsurance data, which is exactly what a storm surge of claims tests. Lead with resilience, not opportunism.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"With storm season still running, claims sorting and pricing data get tested, and Florida regulators expect you to explain how AI reaches those decisions. IBM watsonx.governance and watsonx.data let you scale claims and underwriting and keep the audit trail. Worth 20 minutes?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>watsonx.governance</strong> — annual subscription. Explains and records AI-assisted underwriting and claims sorting. Build it in during the IT build.</div>
+            <span class="c-sales-pill saas">watsonx.governance SaaS</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>watsonx.data</strong> — one data platform for policy, claims history and reinsurance feeds. A base layer for the IT build.</div>
+            <span class="c-sales-pill trans">watsonx.data Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Lead with storm-season resilience and claims handling. Be respectful.<br>2. Call the CTO or CIO and the Chief Claims Officer.<br>3. Use "explainable AI decisions" as the regulatory frame.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#frontline">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+    <!-- Data Management Brevard -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai storage" data-account="dmab" data-owner="jim" data-bss="no">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Data Management Brevard</div>
+          <div class="c-meta">Private · Hosting and managed IT services · Brevard County, FL · Space Coast</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby — no company news this week; partner-training play around AI on IBM Z</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-stor">Storage</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>No company news turned up between Oct 26 and Nov 2. The case rests on IBM's own mainframe momentum, not on an event at this account.</li>
+              <li><strong>Check this first:</strong> one company database lists the legal name "Data Management Associates of Brevard, Inc." under ColoBarn, a hosting and colocation business with sites in the Phoenix area and on Florida's Space Coast. We could not confirm it is the same company as our account. Before the next touch, check the company's own website and your CRM record.</li>
+              <li>What older editions said (LinkedIn profile, not re-verified): the company hosts IT systems and runs managed services such as computer operations, systems programming and disaster recovery, with deep mainframe (z/OS) skills.</li>
+              <li>IBM's story for mainframe shops is "stay on Z and add AI." IBM z17 pairs AI helpers with Z software, and IBM Data Gate for watsonx moves mainframe data into watsonx.data. Keep the pitch to what IBM has published.</li>
+              <li>The "Telum II" and Space Coast defense client claims from Oct 5 were never verified. Do not use them.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">This is a referral and co-sell partner, not a direct-revenue account. Give them the AI-on-Z and Data Gate story, and use their hosting and disaster-recovery services as the way to attach IBM Storage. Training now becomes pipeline in Q1.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"Your clients run key workloads on Z, and many will ask how to add AI without moving data off the platform. IBM has a clear answer in z17 and Data Gate for watsonx. I'd like to run a partner training session so your team can lead those talks."</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>watsonx.data + Data Gate</strong> — co-sell to their mainframe clients to bring Z data into a governed lakehouse.</div>
+            <span class="c-sales-pill saas">watsonx.data for Z</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>IBM Storage FlashSystem</strong> — storage refresh sold through them for hosted and disaster-recovery systems.</div>
+            <span class="c-sales-pill trans">FlashSystem Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Confirm who this company is (see the check above).<br>2. Book a Q4 partner training session.<br>3. Pick 2–3 hosted-client accounts for joint talks. Storage is the first deal.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#dmab">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+  </div><!-- /group jim -->
+
+  <!-- ══ OWNER: Ricardo Valdes ══ -->
+  <div class="group" id="grp-ricardo">
+    <div class="group-hdr"><span class="group-label gl-own">Ricardo Valdes</span><span class="g-sub">Book 2 · 3 accounts · 1 Engage · 2 Standby</span><div class="g-rule own"></div></div>
+
+    <!-- Dycom Industries -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai storage automation" data-account="dycom" data-owner="ricardo" data-bss="no">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Dycom Industries</div>
+          <div class="c-meta">NYSE: DY · Telecom &amp; Fiber Contractor · $12.24B record backlog · Palm Beach Gardens HQ · Parent of ANSCO</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage — Q3 (FY27) results expected about Nov 24 (date not confirmed, ~22 days)</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-stor">Storage</span></div>
+            <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>Dycom has not confirmed its Q3 date. Data sites show about Nov 24 before the market opens. Analysts expect EPS of about $4.73 on about $2.0B of sales. Dycom's own EPS target for the quarter is $4.33–$4.79. No dated event is confirmed inside the next 10 days.</li>
+              <li>Backlog (signed work not yet done) is a record $12.24B, tied to fiber and data-center connections. Dycom raised its full-year (FY27) sales outlook to $7.48–$7.66B. Part of that comes from buying National Technology Integrators for $275M, which builds the wiring inside data centers.</li>
+              <li>Timing is the weak spot. Dycom moved about $150M of wireless work into FY28, and profit margins in its Communications business are expected to be lower than last year. Big customers make up much of the work, so schedule changes matter.</li>
+              <li>Net debt is about 2.3x EBITDA (pro forma), and liquidity is above $1.086B. The board approved a new $150M share buyback through February 2028. These figures come from the last report and were not re-checked this week.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">Dycom has a lot of signed work, a fast-moving schedule and a new acquisition to absorb. IBM Planning Analytics lets finance test "what if" cases when projects slip from one year to the next. IBM FlashSystem speeds up the maps and fiber-routing searches. IBM Data Fabric joins the data from Dycom's many subsidiaries. Plan this together with ANSCO.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"With a record backlog and some work moving into next year, your finance team needs a plan that updates faster than a spreadsheet. IBM Planning Analytics lets you test 'what if' cases when schedules shift. Can we find 20 minutes with finance or IT before the next earnings cycle?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>Planning Analytics</strong> — annual subscription. One planning tool for every subsidiary, with "what if" cases when work shifts between years. Pitch: "your backlog needs a real planning engine, not Excel."</div>
+            <span class="c-sales-pill saas">Planning Analytics SaaS</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>FlashSystem + Data Fabric</strong> — fast map and fiber-routing searches, plus one view of subsidiary data. Broadband grant (BEAD) reporting can be added with Automation.</div>
+            <span class="c-sales-pill trans">FlashSystem + Data Fabric</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Reach the CFO and the VP of FP&amp;A. Open on the $12.24B backlog and the work that moved to FY28.<br>2. Lead with Planning Analytics.<br>3. Scope FlashSystem and Data Fabric with the CIO. Line this up with ANSCO.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#dycom">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+    <!-- ODP Corp / Office Depot -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai automation" data-account="odp" data-owner="ricardo" data-bss="yes">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">ODP Corp / Office Depot</div>
+          <div class="c-meta">Private (Atlas Holdings) · Office supplies for businesses and retail · About $7B in sales · New CEO · Boca Raton HQ</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby — no new company news this week; Atlas is still reshaping the business</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span></div>
+          </div>
+          <div class="c-work"><span class="c-work-lbl">Work with</span>Alyssa (Data &amp; AI) · Gavin (Automation) · William (Storage) · Rick &amp; Kevin (Power &amp; Cloud)</div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>No new company news turned up between Oct 26 and Nov 2, which is why this stays Standby. Atlas Holdings bought ODP and took it private, and the business is still being reshaped (about 13 weeks of Atlas ownership, a count carried from Edition 12 and not re-verified).</li>
+              <li>CEO Craig Gunckel told OPI (early October) that Atlas "fundamentally disagreed" with the old leadership. One of his first big moves was to shut Veyer, the logistics unit, as a standalone business and fold it into the B2B arm, now called Office Depot Business. His plan is "back to basics": a distributor that wins on service and adds new product types. Store closures continue.</li>
+              <li>That leaves two main operating areas to join up: Office Depot Business (with logistics inside) and retail stores. A merge like this is a data-joining job.</li>
+              <li>Court context, not a company event: a shareholder lawsuit (<em>Zappia v. The ODP Corporation</em>, Southern District of Florida) says the Atlas price was unfair. A law firm's notice dated Oct 20 says investors who want to lead the case must apply by <strong>Nov 3</strong> (tomorrow). Mention only if the customer raises it.</li>
+              <li>Carried from earlier editions, not re-checked: GenAI pilots paused pending the new leader's sign-off, and a CFO or VP of FP&amp;A role still being filled. Ask about both in discovery.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">A private-equity owner with a fresh CEO has no old vendor loyalty and wants quick wins. IBM Planning Analytics gives one demand forecast across Office Depot Business and retail. IBM Sterling Supply Chain helps run the combined logistics. watsonx.governance can restart any paused GenAI pilots with proper guardrails. Pitch: "help deliver the back-to-basics plan, with numbers you can trust."</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"Folding logistics into the B2B business is a big data-joining job. IBM Planning Analytics gives distributors at your scale one forecast across orders, stock and stores. Could we show how that works while the new plan is still being set?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>Planning Analytics</strong> — annual subscription. One demand and supply plan across the B2B business and retail. Aim at the CFO and the head of supply chain.</div>
+            <span class="c-sales-pill saas">Planning Analytics SaaS</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>watsonx.governance + Sterling Supply Chain</strong> — guardrails for paused GenAI pilots, and tools for the combined logistics and B2B ordering.</div>
+            <span class="c-sales-pill trans">watsonx.gov + Sterling Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Reach the CEO or the technology lead while the plan is still forming.<br>2. Open on the Veyer fold-in and the back-to-basics plan.<br>3. Ask about paused GenAI pilots. Do not assert them.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#odp">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+    <!-- ANSCO & Associates -->
+    <div class="card t3" data-urgency="t3" data-brands="automation data-ai" data-account="ansco" data-owner="ricardo" data-bss="no">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">ANSCO &amp; Associates</div>
+          <div class="c-meta">Part of Dycom Industries · Telecom construction · Southeast U.S. · Parent Q3 about Nov 24 (22 days, unconfirmed)</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby — wait for parent Dycom's Q3 report; coordinate with the Dycom plan</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-auto">Automation</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-data">Data &amp; AI</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>No news about ANSCO itself turned up between Oct 26 and Nov 2. Its tech budget follows its parent, so work through the Dycom conversation first.</li>
+              <li>Parent Dycom: MarketBeat estimates its Q3 fiscal 2027 report for about Tue Nov 24 (22 days away), "based on past reporting schedules." The company has not confirmed the date. Its quarter ended Oct 31. Dycom guided Q3 revenue to $1.90–$1.98B and the full year to $7.48–$7.66B, and moved about $150M of wireless work into fiscal 2028.</li>
+              <li>Carried from Edition 12, not re-checked: Dycom's backlog of work already booked was a record $12.24B (+53.2% year over year, as of Aug 1).</li>
+              <li>Oct 22: ANSCO was on the list of 159 companies in NATE's STAR safety program for 2026–2027 (Wireless Estimator). It is a safety signal, not a buying signal.</li>
+              <li>Carried: Trinity Partners announced two industrial leases for ANSCO in Georgia, including Macon. The lease dates were not confirmed. Treat as a growth hint.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>An Underground Telecom Laborer posting (Valdosta, GA) surfaced on a job board this week, but it is undated, so confirm it is still open. Field hiring in Georgia means more crews and work orders to schedule.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">More field crews and new Georgia sites mean more work orders, equipment and schedules to track. IBM Maximo handles field work and equipment, with watsonx.data or Planning Analytics for project cost forecasts. Line up the deal with the Dycom plan first, so IBM does not collide with itself inside one parent company.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"As field hiring grows and new Georgia sites open, the hard part is keeping crews, equipment and work orders in one view. IBM Maximo is how large field-service companies do that without adding back-office staff. Open to a short working session?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>Maximo Application Suite</strong> — annual subscription. Work orders, crews and equipment in one place as ANSCO grows.</div>
+            <span class="c-sales-pill saas">Maximo SaaS</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>watsonx.data</strong> — one layer for project, field and billing data. Set the deal shape with the Dycom parent first.</div>
+            <span class="c-sales-pill trans">watsonx.data Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Align with the Dycom plan before any ANSCO outreach.<br>2. Open on field-crew growth and the Georgia sites.<br>3. Time the follow-up to Dycom's Q3 report once the date is confirmed.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#ansco">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+  </div><!-- /group ricardo -->
+
+  <!-- ══ OWNER: Pratap Kesarkar ══ -->
+  <div class="group" id="grp-pratap">
+    <div class="group-hdr"><span class="group-label gl-own">Pratap Kesarkar</span><span class="g-sub">Book 3 · 2 accounts · 1 Engage · 1 Standby</span><div class="g-rule own"></div></div>
+
+    <!-- Kforce Inc. -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai automation" data-account="kforce" data-owner="pratap" data-bss="no">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Kforce Inc.</div>
+          <div class="c-meta">NASDAQ: KFRC · Tech &amp; Finance Staffing · $357.8M Q3 sales (+7.5%)</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage — Q3 reported Oct 26 (beat); no dated event in the next 10 days</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>Kforce reported Q3 on Mon Oct 26. Sales were $357.8M, up 7.5%. GAAP EPS was $0.90, 19.7% above what analysts expected. That EPS includes a one-time $0.12 per share gain from company-owned life insurance, so the "real" beat is smaller.</li>
+              <li>The outlook is good. Q4 sales are guided at about $356M (midpoint), above the $349.5M analysts expected. Kforce says its AI consulting pipeline is up about 20%. Even so, the stock fell about 2.7% to about $56.86 by Tuesday's close.</li>
+              <li>Kforce sells people and projects to clients that want AI work done. That makes it two things at once: a client of IBM for its own planning, and a partner that can bring IBM into its customers' AI projects.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">Two plays in one. First, IBM Planning Analytics helps Kforce forecast how many people it needs and where. Second, IBM watsonx.governance is the layer that keeps client AI projects safe and well documented. Kforce earns fees for the setup work and IBM earns the subscription. Propose a small pilot on two AI client projects.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"Congratulations on a strong Q3, and on the growth in your AI consulting pipeline. Clients who build AI need rules and records for it, and that is what IBM watsonx.governance does. Would you be open to a pilot where IBM supports two of your AI client projects?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry (two plays)</div>
+            <div class="c-sales-txt"><strong>watsonx.governance co-sell</strong> — IBM joins Kforce's AI client projects as the governance layer. Plus <strong>Planning Analytics</strong> for Kforce's own staffing forecasts.</div>
+            <span class="c-sales-pill saas">watsonx.gov + Planning Analytics</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>watsonx.governance setup services</strong> — delivered through Kforce's AI practice. Kforce earns the setup fees; IBM earns the subscription.</div>
+            <span class="c-sales-pill trans">Co-Sell Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Open on the Q3 beat and the 20% growth in the AI pipeline.<br>2. Pitch both plays: Planning Analytics inside, watsonx.governance with clients.<br>3. Propose a pilot on two AI client projects.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#kforce">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+    <!-- Chico's FAS / KnitWell Group -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai automation" data-account="chicos" data-owner="pratap" data-bss="no">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Chico's FAS / KnitWell Group</div>
+          <div class="c-meta">Private (Sycamore Partners) · Women's clothing retail · Fort Myers HQ · Chico's, White House Black Market, Soma</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby — no company news this week; the new digital and data chief (Sep 22) is the live hook</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>No new company news turned up between Oct 26 and Nov 2, which is why this stays Standby.</li>
+              <li><strong>Reminder:</strong> Chico's FAS is no longer a public company. Sycamore Partners bought it for $1B in 2024 and put Chico's, White House Black Market and Soma into KnitWell Group, next to Ann Taylor, LOFT and Talbots (about $6B in combined yearly sales per the 2024 announcement). Ignore any older "NYSE: CHS" figures.</li>
+              <li>On Sep 22 (41 days ago) KnitWell created a Chief Digital &amp; Customer Data Officer role, covering customer data, AI marketing tools and personalization. A brand-new executive who owns data and AI is the best buying signal here.</li>
+              <li>A White House Black Market merchandise planner role was posted at the Fort Myers office on Oct 10 (23 days ago). Planning capacity is being added at headquarters.</li>
+              <li>Sycamore also owns Staples, Torrid and Lane Bryant. A private-equity group with many brands is a natural fit for one shared planning system. Whether holiday inventory is already locked is not verified, so ask.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>Merchandise Planner (White House Black Market), Fort Myers — posted Oct 10, 2026 (FashionJobs).</li>
+              <li>Carried from Edition 12, undated, confirm before citing: Designer, Non-Apparel (White House Black Market, Fort Myers) and a contact-center knowledge role (KnitWell).</li>
+              <li>The Sep 22 appointment suggests more digital and data hires will follow under the new role.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">Three brands in Fort Myers, a parent with six or more brands, and a new executive who owns customer data and AI. IBM Planning Analytics puts brand-level merchandise planning into one CFO view. IBM watsonx.ai and watsonx.data support the new leader's personalization and AI plans. Fort Myers is close, so go in person.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"With a new Chief Digital &amp; Customer Data Officer setting the data and AI direction, IBM helps multi-brand retailers join customer and merchandise data and plan from one place. Could we get 30 minutes at your Fort Myers office?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>Planning Analytics</strong> — annual subscription. Merchandise and demand planning for Chico's, WHBM and Soma in one CFO view.</div>
+            <span class="c-sales-pill saas">Planning Analytics SaaS</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>watsonx.ai + watsonx.data</strong> — customer-data base and AI personalization for the new digital leader.</div>
+            <span class="c-sales-pill trans">watsonx.ai Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Lead with the new Chief Digital &amp; Customer Data Officer.<br>2. Also target the VP of Merchandise Planning and the CFO in Fort Myers. Go in person.<br>3. Planning Analytics for brand planning, watsonx for customer data.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#chicos">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+  </div><!-- /group pratap -->
+
+  <!-- ══ OWNER: Spencer Fenelon ══ -->
+  <div class="group" id="grp-spencer">
+    <div class="group-hdr"><span class="group-label gl-own">Spencer Fenelon</span><span class="g-sub">Book 4 · 2 accounts · 2 Engage</span><div class="g-rule own"></div></div>
+
+    <!-- Burger King / RBI -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai automation" data-account="bk" data-owner="spencer" data-bss="no">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Burger King / RBI</div>
+          <div class="c-meta">NYSE: QSR · Fast-Food Restaurants · Miami FL HQ · 4 brands (Burger King, Tim Hortons, Popeyes, Firehouse Subs)</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage — Q3 reported Oct 29 (Burger King U.S. strong, Popeyes weak); no dated event in the next 10 days</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>RBI reported Q3 on Thu Oct 29. Burger King U.S. "same-store sales" (sales at restaurants open a year or more) rose 8.4%. Burger King profit from operations (adjusted operating income) was $136M, up 10.6%. Across all four brands, adjusted operating income was $737M, up 5.0%, and net income from ongoing business was $704M, up 59.8%.</li>
+              <li>The brands are not moving together. Tim Hortons adjusted operating income rose 4.2% to $317M. Popeyes fell 8.0% to $58M, with same-store sales down and leadership changes (Simply Wall St). Firehouse Subs rose 11.1% to $16M. International rose 8.9% to $205M.</li>
+              <li>The board kept the quarterly dividend at $0.65 per share. Management is in "growth story" mode, which is a good time for technology talks.</li>
+              <li>The "Royal Reset" plan (up to $550M for ads, remodels, restaurant technology and kitchen equipment through 2028) was $194M funded as of June 30. That figure was not re-checked this week.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan. The earlier notes on a Director of Software Engineering (Miami) and a Tim Hortons marketing analytics role were not re-verified; confirm before citing.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">One brand is booming, one is struggling, and AI is spreading across nearly 20,000 Burger King restaurants. Two needs follow. First, IBM Planning Analytics gives finance a profit view for each brand, side by side. Second, IBM watsonx.governance watches every AI model and keeps a record of what it did, so a mistake does not turn into a legal or PR problem. IBM Data Fabric joins the four brands' data. RBI is based in Miami, so ask for an in-person meeting.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"Congratulations on a strong Burger King quarter. With one brand surging and another struggling, finance needs a clean profit view for each. And as AI rolls out across restaurants, you will want a record of what every AI model does. IBM helps with both. Can we find 30 minutes at your Miami office?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>watsonx.governance</strong> — annual subscription. Watches AI models across the restaurant technology rollout. "Set the rules before it spreads, not after."</div>
+            <span class="c-sales-pill saas">watsonx.governance</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>Data Fabric</strong> — join the data of all four brands. The base for brand-by-brand planning and for AI monitoring.</div>
+            <span class="c-sales-pill trans">Data Fabric Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Ask for an in-person meeting at the Miami office.<br>2. Open on the split between Burger King (up) and Popeyes (down).<br>3. Lead with watsonx.governance; add Data Fabric after.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#bk">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+    <!-- H.I.G. Capital -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai automation" data-account="hig" data-owner="spencer" data-bss="no">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">H.I.G. Capital Inc.</div>
+          <div class="c-meta">Private equity · $75B under management · Miami, FL · 153+ companies · MISTRAS vote Nov 24 (22 days)</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage — MISTRAS got no rival bids; shareholder vote is Nov 24, outside the 10-day window</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>MISTRAS Group (industrial inspection) agreed on Sep 17 to be bought by H.I.G. for $20.35 a share in cash, about $866M including debt. The 40-day "go-shop" (a window to find better offers) ended Oct 27 with <strong>no rival bids</strong>, even after MISTRAS contacted 122 outside parties (company release, Oct 28). MISTRAS can no longer shop the deal, except in narrow cases.</li>
+              <li>MISTRAS shareholders vote on <strong>Nov 24</strong> (22 days away). Closing is expected in late 2026 or early 2027, after the vote and regulator approvals. MISTRAS uses AI to spot flaws in inspection data, so the new owner will want to know how those models are governed.</li>
+              <li>Carried from Edition 12, not re-checked: two deals closed Oct 5–9 (Torque Holdings, a UK supply-chain firm, and Outcomes One, an Orlando healthcare-services firm), and H.I.G. is raising a second infrastructure fund, aiming for about $2.6B. Every new company adds to the reporting work.</li>
+              <li>With $75B across 153+ companies and year-end investor reports coming, rolling up numbers by hand is the pain Planning Analytics removes.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">Every deal H.I.G. closes adds consolidation work. IBM Planning Analytics puts every portfolio company's financials in one place, so each new deal adds value instead of work. IBM watsonx.governance helps document and monitor the AI inside acquired companies like MISTRAS. Year-end investor reporting is the urgency.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"With MISTRAS cleared of rival bids and more deals closing, each new company adds to the reporting load. Planning Analytics gives your team one view across the portfolio. Could we connect before year-end investor reporting gets busy?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>Planning Analytics</strong> — annual subscription. Portfolio-wide planning and reporting in one place. Pitch to the CFO or Head of Portfolio Operations: "every deal you close adds to the problem IBM solves."</div>
+            <span class="c-sales-pill saas">Planning Analytics SaaS</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>watsonx.governance</strong> — AI oversight for portfolio companies that use AI in inspection, healthcare and logistics. MISTRAS and Outcomes One set the first scope.</div>
+            <span class="c-sales-pill trans">watsonx.governance Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Open on the MISTRAS go-shop result and the Nov 24 vote.<br>2. Pitch Planning Analytics for portfolio reporting ahead of year-end.<br>3. Bring up watsonx.governance in discovery for AI-enabled acquisitions.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#hig">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+  </div><!-- /group spencer -->
+
+  <!-- ══ OWNER: Shari Zahed ══ -->
+  <div class="group" id="grp-shari">
+    <div class="group-hdr"><span class="group-label gl-own">Shari Zahed</span><span class="g-sub">Book 5 · 3 accounts · 1 Strike · 2 Engage</span><div class="g-rule own"></div></div>
+
+    <!-- Icahn Enterprises L.P. -->
+    <div class="card t5" data-urgency="t5" data-brands="data-ai automation" data-account="icahn" data-owner="shari" data-bss="no">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Icahn Enterprises L.P.</div>
+          <div class="c-meta">NASDAQ: IEP · Holding company (owns many businesses) · Sunny Isles Beach HQ · Q3 results Tue Nov 3</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t5"><span class="cu-dot"></span>Strike — Q3 results TOMORROW, Tue Nov 3 at 10:00 AM ET (1 day)</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>Icahn reports Q3 results tomorrow, Tue Nov 3. The webcast starts at 10:00 AM ET. Analysts expect about $0.09 per unit on $2.33B of sales. Last quarter (Q2) was a loss of $0.52 per unit on $2.975B of sales, so people will read this report closely.</li>
+              <li>The stock (called "units") closed at $5.31 on Oct 28, down 4.5% that day. Icahn pays $2.00 per unit each year. At about $5.19 that is a yield of roughly 38% (yield = yearly payout divided by price). A payout that big makes investors ask, "Can they keep paying it?"</li>
+              <li>CVR Energy, the oil refiner that Icahn owns about 71% of, also reports tomorrow (call at 1:00 PM ET). Its results feed straight into Icahn's totals.</li>
+              <li>Pep Boys was sold to Mavis for about $700M in cash. Icahn kept the land (real estate), AAMCO and Precision Tune. The exact closing date is not re-verified. Fewer businesses means the numbers being added up have changed.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan. The new CFO (took the role in May 2026 while staying Chief Accounting Officer) is from earlier research and was not re-verified this week.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">Icahn has to add up results from five businesses, plus two companies that also report on their own (CVR Energy and CVR Partners). Doing that by hand in spreadsheets is slow and easy to get wrong. IBM Planning Analytics puts it all in one model, so the CFO can test "what if" cases for the payout. IBM Manta Data Lineage shows where every number came from, like a receipt for each figure. Reach out today, then follow up right after Tuesday's results.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"Your Q3 results come out tomorrow, and investors are watching your payout and the value of your holdings. Adding up five businesses by hand is where mistakes sneak in. IBM Planning Analytics puts it in one model, and Manta Lineage shows where each number came from. Can we show your finance team a 30-minute demo this week?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>Planning Analytics</strong> — annual subscription. One model that adds up all the businesses and tests "what if" cases for the payout. CFO pitch: "replace the spreadsheet rollup."</div>
+            <span class="c-sales-pill saas">Planning Analytics SaaS</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>IBM Manta Data Lineage</strong> — a clear trail showing where each financial number came from, across Icahn and its subsidiaries. Auditors like this. Time it right after results.</div>
+            <span class="c-sales-pill trans">Manta Lineage Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Today: send a short note to the CFO and the VP of Finance &amp; Accounting, ahead of tomorrow's results.<br>2. After Tuesday's call: offer a Planning Analytics demo built on "many businesses, one view."<br>3. Ask who handles the CVR reconciliation, then position Manta Lineage.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#icahn">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+    <!-- Herc Rentals -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai automation" data-account="herc" data-owner="shari" data-bss="no">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Herc Rentals / Herc Holdings</div>
+          <div class="c-meta">NYSE: HRI · Equipment Rental · $1.364B Q3 sales · New CEO starts Jan 1, 2027</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage — Q3 reported Oct 27 (beat, raised outlook); next dated event is the CEO change Jan 1</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>Herc reported Q3 on Tue Oct 27 and beat. Sales were $1.364B (up 5%). Adjusted EPS was $3.91 vs about $2.96 expected. Adjusted EBITDA (a common measure of cash profit) was $603M, up 9%, a 44.2% margin. The stock jumped sharply that day; the exact close is not verified.</li>
+              <li>Herc raised its full-year targets: adjusted EBITDA of $2.10–2.15B and rental revenue of about $4.475–4.55B. A higher target means the team now has to prove it, quarter after quarter.</li>
+              <li>Costs are the weak spot. Rental profit margin slipped 0.7 points (70bps) because of fuel and freight costs. Debt is 3.9x EBITDA (net leverage). Herc plans to spend $1.0–1.1B on new equipment, and about $150M of 2027 spending was moved up into this year.</li>
+              <li>Herc is bringing H&amp;E's rental prices up to its own level in three steps (one-third each year). Year one is done. Aaron Birnbaum becomes CEO on Jan 1, 2027, when Larry Silber steps down. A new CEO often means new priorities.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan. The earlier notes on Senior Talent Acquisition and FP&amp;A roles were not re-verified; confirm before citing.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">Herc promised more profit while fuel and freight costs squeeze margins and debt stays high. That is a "know your numbers" problem: where is each machine, how busy is it, and what does it earn? IBM watsonx.data puts the fleet data from Herc and H&amp;E in one place. IBM Planning Analytics lets finance test "what if" cases on spending and prices. IBM Data Fabric connects the two companies' systems without a big rebuild.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"Congratulations on a strong Q3 and a higher outlook. With fuel and freight costs up and a new CEO coming in January, finance will need a clear view of how busy every machine is and what it earns. IBM helps rental companies build that view. Can we find 20 minutes this week?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>watsonx.data + Planning Analytics</strong> — one view of fleet use and "what if" planning for the combined Herc and H&amp;E. Pitch: "deliver on the higher target you just set."</div>
+            <span class="c-sales-pill saas">watsonx.data SaaS</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>Data Fabric</strong> — a one-time project to join H&amp;E's systems with Herc's. Reporting on environmental goals (ESG) can be added to the same project.</div>
+            <span class="c-sales-pill trans">Data Fabric Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Lead with the raised outlook: "the analytics to back up the new numbers."<br>2. SaaS: fleet-use view for Herc + H&amp;E together.<br>3. Data Fabric as the project that joins the two companies' data.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#herc">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+    <!-- MasTec Inc. -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai automation power-cloud" data-account="mastec" data-owner="shari" data-bss="no">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">MasTec Inc.</div>
+          <div class="c-meta">NYSE: MTZ · Infrastructure Contractor · $24.5B record backlog · Coral Gables HQ</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage — Q3 reported Oct 29 (sales +30%, record backlog); no dated event in the next 10 days</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span></div>
+            <div class="c-also-item"><span class="c-brand-sm br-pc">Power</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>MasTec reported Q3 on Thu Oct 29. Sales were $5.152B (up 30%). Adjusted EBITDA (cash profit) was $486M. Adjusted EPS was $2.96, in line with what analysts expected. The stock closed at $186.06 on Oct 30 (up 4.63%), vs $172.59 on Oct 26.</li>
+              <li>Backlog (signed work not yet finished) hit a record $24.5B for the next 18 months. That is up $3B from last quarter and more than $7B from last year. New orders were 1.6x sales (book-to-bill). Power delivery sales jumped 65%, with $8.9B of backlog.</li>
+              <li>The Superior Group deal added $1.8B of backlog and about 3,500 people. MasTec now has over 42,000 employees, so two companies' systems have to roll into one set of numbers.</li>
+              <li>Profit is getting squeezed. Operating margin fell to 5.3% from 6.4%. The full-year EBITDA outlook ($1.58B midpoint) is slightly below the $1.60B analysts wanted. Debt is 2.5x EBITDA and is expected to fall below 2x by year-end. More than $1B of gas power-plant work is still waiting for a "go" signal.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan. The earlier Financial Reporting Analyst posting and the Chief Data Center Officer role were not re-verified; confirm before citing.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">MasTec has more work than ever, more people than ever, and thinner margins. That is a planning problem. IBM Planning Analytics puts every business segment, plus Superior, into one view and lets the CFO test "what if" cases for cash and debt. IBM Data Fabric connects Superior's systems to MasTec's without waiting on a big ERP move. IBM Power and Storage fit the data-center work Superior brings. Start with Investor Relations for a warm introduction to the CFO and CIO.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"Congratulations on the record backlog. With margins tighter and Superior still being folded in, finance needs one clear view across every segment. IBM Planning Analytics gives your CFO that view and lets the team test 'what if' cases. Can we find 20 minutes with finance or IT leadership this week?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>Planning Analytics</strong> — annual subscription. One planning tool for all segments plus Superior, with cash and debt "what if" cases. Pitch: "your backlog is too big for spreadsheets."</div>
+            <span class="c-sales-pill saas">Planning Analytics SaaS</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>Data Fabric + Power10</strong> — join Superior's data to MasTec's. Folding in Superior is the first project; data-center and clean-energy analytics is the next step.</div>
+            <span class="c-sales-pill trans">Data Fabric + Power10</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Reach Investor Relations: "congratulations on Q3; wanted to connect on planning across segments."<br>2. Ask for a CFO / CIO introduction around margins and cash.<br>3. Scope Data Fabric for the Superior integration.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#mastec">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+  </div><!-- /group shari -->
+
+  <!-- ══ OWNER: Michael Sanchez ══ -->
+  <div class="group" id="grp-michael">
+    <div class="group-hdr"><span class="group-label gl-own">Michael Sanchez</span><span class="g-sub">Book 6 · 3 accounts · 3 Engage</span><div class="g-rule own"></div></div>
+
+    <!-- HEICO Corporation -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai storage power-cloud" data-account="heico" data-owner="michael" data-bss="no">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">HEICO Corporation</div>
+          <div class="c-meta">NYSE: HEI · Aerospace &amp; Defense · $5.6B+ sales · Hollywood, FL · Next earnings about Dec 17 (45 days, not re-verified)</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage — buying more companies, stock moving back up; no dated event in the next 10 days</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-stor">Storage</span></div>
+            <div class="c-also-item"><span class="c-brand-sm br-pc">Power</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>HEICO has record backlog (signed orders not yet delivered), and customers want faster deliveries. Analysts expect sales to grow about 12.6% and EPS about 13.9% next year (Zacks, Oct 9). Demand is not the problem. The challenge is getting everything built and joined together.</li>
+              <li>HEICO keeps buying companies. Recent deals include a 90% stake in CalRamic Technologies, EthosEnergy Accessories &amp; Components, Sherwood Avionics and Southwest Antennas. The credit line was raised from $2.0B to $2.2B (it can grow to $3.0B, due June 2031) to pay for more deals. Every new company brings its own data and reports.</li>
+              <li>Leaders and directors bought shares on Oct 8 (SEC Form 4 filings), including Class A shares at $220.30. That means insiders were buying while the stock was down. On Oct 30 the stock moved back above its 200-day average price line (MarketBeat), and it was up about 6.5% over four weeks (Zacks).</li>
+              <li>The Co-CEOs received the Wright Brothers Memorial Award from the Greater Miami Aviation Association on Oct 10. That is a good local conversation starter. The next earnings date of about Dec 17 was not re-verified, so there is a long open window.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">HEICO buys a company about every quarter. IBM Data Fabric makes each new purchase cheaper to join, because it plugs into one shared data layer and not a custom project each time. For defense work, AI needs clear rules and records, and IBM watsonx.governance provides them. IBM FlashSystem is the safe, fast storage for engineering and repair records.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"HEICO keeps adding companies, and each one brings new systems and reports. IBM Data Fabric helps you plug in the next one faster and for less. Could we show your IT and integration team how other acquirers do this?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>watsonx.governance</strong> — annual subscription. A list of every AI model plus a record of what it did, for defense electronics and export-control rules.</div>
+            <span class="c-sales-pill saas">watsonx.governance</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>Data Fabric + FlashSystem</strong> — a repeatable way to plug in each new company, plus fast, safe storage for engineering and repair records.</div>
+            <span class="c-sales-pill trans">Data Fabric + FlashSystem</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Call the VP of IT and the head of deal integration. Open on the larger credit line and the pace of deals.<br>2. Offer a briefing on Data Fabric as the standard way to plug in each new company.<br>3. Bring watsonx.governance to the defense electronics compliance lead.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#heico">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+    <!-- Chewy Inc. -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai power-cloud automation" data-account="chewy" data-owner="michael" data-bss="no">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Chewy Inc.</div>
+          <div class="c-meta">NYSE: CHWY · Online Pet Store · $13.46–$13.57B FY26 sales guide · Dania Beach HQ · Next earnings about Dec 9 (37 days, not confirmed)</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage — AI savings plan of about $50M in FY27; stock slipped below its 50-day average on Oct 29; no dated event in the next 10 days</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-pc">Power</span></div>
+            <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>Chewy's last report (Q2 FY26) had sales of $3.33B (up 7.3%) and adjusted EPS of $0.36, in line. It raised its full-year sales guide to $13.46–$13.57B. On Oct 29 the stock fell below its 50-day average price (MarketBeat). Analysts expect about $0.76 EPS for the year. The next report is estimated around Dec 9; that date is not confirmed.</li>
+              <li>Chewy has told investors that AI will save "low tens of millions" in FY26, growing to about $50M a year in FY27. Its customer-facing AI assistant handled about 30% of chats by itself in early use. A savings number that big has to be measured and proven.</li>
+              <li>From the last check (Oct 26, not re-verified this week): short interest rose 33% to 30.6M shares (7.6% of shares available to trade). That means some investors are betting the stock will fall. Insiders sold about $6.7M of shares over 12 months with no buying (GuruFocus).</li>
+              <li>The company is growing in new areas: Chewy Vet Care, Modern Animal and SmartPak. Pharmacy and vet records are fast-growing and sensitive. The Q3 guide ($3.323–$3.358B, adjusted EPS about $0.39) assumes shoppers do not spend more.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">Chewy has promised about $50M in AI savings. Finance needs a way to prove it. IBM watsonx.governance keeps a record of what each AI model does and saves, and warns when a model starts to go off track (called "drift"). IBM Turbonomic finds wasted cloud spending (often 20–30%) on the computers that run the AI. That saving can pay for the governance subscription. Two plays, same budget owner.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"You have told investors AI will save about $50M a year by FY27. How will finance prove that number? IBM watsonx.governance tracks what each AI model does and saves, and Turbonomic finds wasted cloud spending that can help pay for it. Can we run a free 14-day cloud check?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>watsonx.governance</strong> — annual subscription. Tracks every AI model and the savings it delivers. Tied to the FY27 ~$50M savings target.</div>
+            <span class="c-sales-pill saas">watsonx.governance</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>Turbonomic + Data Fabric</strong> — win back wasted cloud spending and join the data behind the AI. The savings can pay for the governance subscription.</div>
+            <span class="c-sales-pill trans">Turbonomic + Data Fabric</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Reach the VP of FP&amp;A and the CIO. Open on the ~$50M savings target: "how will finance prove it?"<br>2. Offer the free 14-day Turbonomic check, which shows wasted cloud spend before the call.<br>3. Scope watsonx.governance for the AI assistant and pharmacy AI.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#chewy">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+    <!-- Memorial Healthcare System / South Broward Hospital District (one account) -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai automation" data-account="memorial" data-owner="michael" data-bss="no">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Memorial Healthcare System · South Broward Hospital District</div>
+          <div class="c-meta">Public · Healthcare · $3.8B operating revenue · 6 hospitals · Hollywood, FL · One account: the District is the public board that runs Memorial</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage — record year and a $670M tower under way; no dated event in the next 10 days</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li><strong>One account, one IBM story.</strong> The South Broward Hospital District is the public special district. Its board runs Memorial Healthcare System, and Memorial is the name patients know. Treat them as a single account and use one set of touches.</li>
+              <li>Record fiscal 2026 (company release): $3.8B operating revenue (+7.7%), operating income up more than 60% to $220.7M, and a record $487.6M left after expenses. That strong position pays for technology plans. The board held the tax rate at the lowest in district history (Sep 25).</li>
+              <li>The board made the President &amp; CEO permanent on Sep 3 (60 days ago). He had been interim since late 2024. This is steady leadership, not a new CEO.</li>
+              <li>Growth is visible: a $670M surgical and patient-bed tower at Memorial Regional (finish planned for 2031) and a $69M office complex purchase. Plans for another free-standing emergency department in Hallandale Beach were reported Oct 13. Every new site must connect to the same records, imaging and cyber-protection systems.</li>
+              <li>Latest news (Oct 28, company release): Joe DiMaggio Children's Hospital began offering Inspire, an implant therapy for sleep apnea. Memorial was also ranked #73 on Fortune's Best Workplaces for Women. These are good conversation openers, not buying signals.</li>
+              <li>An "IT security RFP" from older editions could not be verified. Do not state it as fact. Ask the CIO whether any technology review is open, and check the District's public board agendas.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">A public system with a record surplus and a $670M build can fund a data and AI base. watsonx.data brings records, imaging, lab and pharmacy data together. watsonx.governance keeps any clinical AI explainable and monitored. Planning Analytics helps plan capital and service lines against the tower. watsonx Orchestrate can take over repeat admin work like prior authorizations. Ask about current AI use in discovery, since earlier claims of live pilots were never confirmed. Visit in person at Hollywood HQ.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"Congratulations on a record year. With the Regional tower under way, new sites coming and AI moving into clinical work, IBM watsonx.data and watsonx.governance help health systems grow AI safely on one clean data base. Can we meet at Hollywood this month?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>watsonx.governance</strong> — annual subscription. Monitors clinical and operations AI models for bias and drift across the six hospitals.</div>
+            <span class="c-sales-pill saas">watsonx.governance SaaS</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>watsonx.data</strong> — one clinical data platform across records, imaging, lab and pharmacy. It is the base for governance and clinical analytics.</div>
+            <span class="c-sales-pill trans">watsonx.data Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Ask for an in-person meeting at Hollywood HQ: CIO, Chief Medical Information Officer or CFO.<br>2. Open on the record year and the tower. Ask where AI stands today.<br>3. Check the District's board agendas for any open technology review.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#memorial">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+  </div><!-- /group michael -->
+
+  <!-- ══ OWNER: Hazem Marzouk ══ -->
+  <div class="group" id="grp-hazem">
+    <div class="group-hdr"><span class="group-label gl-own">Hazem Marzouk</span><span class="g-sub">Book 7 · Backup: Srajan Dube · 3 accounts · 2 Engage · 1 Standby</span><div class="g-rule own"></div></div>
+
+    <!-- Lennar Corporation -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai automation power-cloud" data-account="lennar" data-owner="hazem" data-bss="yes">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Lennar Corporation</div>
+          <div class="c-meta">NYSE: LEN · Homebuilder · $8.05B Q3 sales · Miami HQ · Next earnings about Dec 15 (43 days, not re-verified)</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage — Berkshire now owns more; Millrose questions still open; no dated event in the next 10 days</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span></div>
+            <div class="c-also-item"><span class="c-brand-sm br-pc">Power</span></div>
+          </div>
+          <div class="c-work"><span class="c-work-lbl">Work with</span>Alyssa (Data &amp; AI) · Gavin (Automation) · William (Storage) · Rick &amp; Kevin (Power &amp; Cloud)</div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>Lennar's last report (Q3, quarter ended Aug 31) was weak. Sales were $8.05B, down 8.7%. EPS was $1.19 vs $2.29 a year ago. Net earnings fell 52% to $283.9M. Gross margin (profit on each home sold) fell to 15.8% from 17.5%. The margin problem has not gone away.</li>
+              <li>The Q4 guide shows a gap: 22,000–23,000 homes to deliver but only 19,500–20,500 new orders. Margin is guided at 15.5–16.0% and EPS at $1.30–$1.65, vs about $2.00 expected. Lennar is offering about 12% of the price in incentives (discounts and help with mortgage costs). The CFO has to explain margin community by community.</li>
+              <li>Warren Buffett's Berkshire Hathaway has bought about $595M of Lennar stock, at prices from $76.39 to $81.90, and now owns more than 10%. The stock was $83.45 on Oct 28. A Wall Street average "fair value" of $77.73 sits below that price.</li>
+              <li>In early October, Hunterbrook Media alleged that Millrose Properties (spun off from Lennar in 2025) bought about $200M of finished Lennar homes, many in the last week of Lennar's quarter. Lennar's stock fell 6.7% and Millrose's 8.5% after the report. These are allegations. Both companies declined to comment on specific claims, and law firms have announced investigations. Mortgage rates were back above 7%. Earnings are about Dec 15 (date not re-verified), so there is a long open window.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">Lennar chose to give up some profit to sell more homes, and the numbers show orders running behind deliveries. IBM Planning Analytics replaces division-by-division spreadsheet models with one live system. The CFO can see which communities need which discount to close a sale, and test the margin hit before approving it. watsonx can automate mortgage pre-qualification to pull overhead costs (SG&amp;A) back toward the 8.7–9.0% target. IBM Data Fabric joins the data from 40+ divisions.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"With orders trailing deliveries and discounts around 12% of price, finance needs to see margin for every community before approving an incentive. IBM Planning Analytics gives your team that view in one place. Could we run a 20-minute workshop on incentive modeling?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>Planning Analytics</strong> — annual subscription. One live system for discounts and margin across 40+ divisions. CFO pitch: "see the margin impact of every incentive before you approve it."</div>
+            <span class="c-sales-pill saas">Planning Analytics SaaS</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>watsonx.ai + Data Fabric</strong> — automate mortgage pre-qualification and join data across divisions. Aims at the 8.7–9.0% overhead target.</div>
+            <span class="c-sales-pill trans">watsonx.ai + Data Fabric</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Call the CFO and the VP of FP&amp;A. Open on the gap between deliveries and orders.<br>2. Send a homebuilder margin comparison. Peer numbers build trust fast.<br>3. Ask for a 20-minute incentive-modeling workshop, and bring in the CIO on joining division data.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#lennar">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+    <!-- Lennar Mortgage -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai power-cloud" data-account="lenmar" data-owner="hazem" data-bss="yes">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Lennar Mortgage</div>
+          <div class="c-meta">Part of Lennar · Home loans · About $3B in loans a year · Parent earnings about Dec 15 (43 days, not re-verified)</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage — a data-exposure incident and lawsuits are open; no company event in the next 10 days</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-pc">Hybrid Cloud</span></div>
+          </div>
+          <div class="c-work"><span class="c-work-lbl">Work with</span>Alyssa (Data &amp; AI) · Gavin (Automation) · William (Storage) · Rick &amp; Kevin (Power &amp; Cloud)</div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li><strong>Developing story, from news and court-tracking sites (not from Lennar).</strong> Lennar Mortgage had a "social engineering" incident (someone tricked into giving access) from May 26 to Jun 1, 2026. Lennar says at least 61,295 people were affected. One lawsuit claims about 348,416. Lennar Corp had a separate incident in March (6,643 people). No class has been approved and there is no settlement.</li>
+              <li>The main lawsuit is <em>Ramkissoon v. Lennar Corp</em> in federal court in Miami. A second one, <em>Montoya v. Lennar Mortgage</em>, is also open. Mediation (a settlement meeting) was set for Oct 15. A court entry on Oct 21 closed some party or case, but we could not tell which one. Check the docket before you mention it.</li>
+              <li>The free credit-monitoring sign-up for affected Lennar Mortgage customers ends <strong>Nov 20, 2026</strong> (18 days away, per HousingWire). That is a customer deadline, not a Lennar event, so this card stays Engage.</li>
+              <li>The parent's weak Q3 (EPS $1.19 vs $2.29 a year ago) set a cost-cutting push that reaches every unit. Mortgage rates are still high: Freddie Mac's 30-year rate was 7.41% (HousingWire). Fewer loans means cost per loan matters more.</li>
+              <li>Coordinate with the Lennar Corp card. Same executives, separate budgets.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">Lead with knowing where customer data lives. IBM Data Fabric and data lineage show which systems hold borrower data and how it moves, so a future incident touches fewer people and the answer to "who was affected?" comes faster. watsonx.governance then keeps AI-assisted underwriting explainable. Keep the tone careful. Do not open on the incident. Open on cost per loan and data control, and let them bring up the incident.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"With loan volume tied to rates and a cost push from the parent, the lever is cost per loan and knowing exactly where borrower data sits. IBM Data Fabric maps that across your origination systems. Could we spend 20 minutes on what a clear data map would save you?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>watsonx.governance</strong> — annual subscription. Keeps AI-assisted underwriting explainable and monitored. Entry point is the Chief Compliance Officer.</div>
+            <span class="c-sales-pill saas">watsonx.governance SaaS</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>Data Fabric + data lineage</strong> — one map of borrower data across application, underwriting, appraisal and closing systems. Also feeds cost-per-loan reporting.</div>
+            <span class="c-sales-pill trans">Data Fabric Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Coordinate with the Lennar Corp outreach. Same executives.<br>2. Open on cost per loan and data control, not on the incident.<br>3. Watch for Dec 15 parent earnings and any settlement news.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#lennarmtg">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+    <!-- Pellera Technologies -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai" data-account="pellera" data-owner="hazem" data-bss="yes">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Pellera Technologies</div>
+          <div class="c-meta">Private (Converge + Mainline merged) · IBM co-sell partner · IT services</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby — no new Pellera news this week; Q4 partner planning is the timing</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-data">Data &amp; AI</span></div>
+          </div>
+          <div class="c-work"><span class="c-work-lbl">Work with</span>Alyssa (Data &amp; AI) · Gavin (Automation) · William (Storage) · Rick &amp; Kevin (Power &amp; Cloud)</div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>No new Pellera news turned up between Oct 26 and Nov 2. That is why this stays Standby. The only item found was an older listing for "IBM Power for Google Cloud" (Feb 2026), which is not new.</li>
+              <li>Carried from Edition 10, not re-dated: NetApp named Pellera its state, local and education (SLED) partner award winner for FY26. That shows strong reach in public-sector accounts, where IBM data and governance offers can ride along.</li>
+              <li>Pellera sells for many vendors (Cisco, NetApp, ServiceNow, Red Hat). IBM has to compete for attention, so a joint plan with named target accounts works better than a general intro.</li>
+              <li>Q4 is when IBM partners plan next year's co-sell goals and shared target accounts. This is the normal yearly cycle, not a dated Pellera event.</li>
+              <li>Not re-verified, carried from earlier editions: the Converge and Mainline merger, about $4B revenue, about 3,200 employees, and H.I.G. Capital ownership. Confirm these in the IBM partner portal before you quote them. If H.I.G. owns Pellera, line this up with the H.I.G. Capital card.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">This is a partner play, not a direct sale. Bring a short joint plan built on Pellera's public-sector and regulated customers, with watsonx.governance, watsonx.data and Power attached where Pellera already does the services work. Show up with named target accounts and a way to enable their team.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"As we plan next year's co-sell, I'd like to bring 3–5 joint target accounts from your public-sector and regulated base where governed AI and data work could sit next to your services. Can we set a planning session this month?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>watsonx co-sell</strong> — governance, data and AI sold through Pellera's customers. A joint pipeline plan is the way in.</div>
+            <span class="c-sales-pill saas">watsonx Co-Sell SaaS</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>Services through Pellera</strong> — Pellera earns services revenue, IBM earns the software subscription. Start with 2–3 joint accounts.</div>
+            <span class="c-sales-pill trans">Co-Sell Impl. Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Check Pellera's IBM partner status in the partner portal.<br>2. Ask for a Q4 co-sell planning session.<br>3. Bring a short list of joint target accounts.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#pellera">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+  </div><!-- /group hazem -->
+
+  <!-- ══ OWNER: Mijee Walker ══ -->
+  <div class="group" id="grp-mijee">
+    <div class="group-hdr"><span class="group-label gl-own">Mijee Walker</span><span class="g-sub">Books 8 + 9 · 7 accounts · 1 Strike · 3 Engage · 3 Standby</span><div class="g-rule own"></div></div>
+
+    <!-- Octave Intelligence -->
+    <div class="card t5" data-urgency="t5" data-brands="data-ai" data-account="octave" data-owner="mijee" data-bss="yes">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Octave Intelligence</div>
+          <div class="c-meta">Nasdaq: OCTV · Software spun off from Hexagon AB (May 2026) · Huntsville, AL HQ per press releases · ~$1.6B FY25 sales</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t5"><span class="cu-dot"></span>Strike — Q3 results Thu Nov 12, 7:00 AM ET, call 8:00 AM ET (10 days)</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-data">AI Gov</span></div>
+          </div>
+          <div class="c-work"><span class="c-work-lbl">Work with</span>Alyssa (Data &amp; AI) · Gavin (Automation) · William (Storage) · Rick &amp; Kevin (Power &amp; Cloud)</div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>Octave reports Q3 on Thu Nov 12 (company release, Oct 6). That is 10 days from today. Octave guided Q3 sales of $400–410M. In Q2 it cut its full-year sales outlook because some big one-time ("perpetual") license deals slipped. Subscription ("SaaS") sales grew 21% and yearly recurring revenue (ARR) grew 7%. Investors will look for proof that the move to subscriptions is working.</li>
+              <li>Octave is a public company, trading on Nasdaq New York and Nasdaq Stockholm since May 28, 2026, after splitting off from Hexagon. FY25: $1.6B sales, $1.1B ARR, about 7,200 employees in 45 countries, about 3,200 customers. Morgan Stanley started coverage at Equal-weight, pointing to the risk of the subscription shift.</li>
+              <li>Octave is renaming and combining products under "Tempo" and "Octave Reliance" (formerly ETQ). Merging products usually means cleaning up data and standardizing platforms.</li>
+              <li>On Oct 15 the research firm ARC named Octave a Leader in two of its market reports. CoLabs, its AI "agent" program launched in July 2026, is gaining attention. An agent is software that does tasks on its own, and each one needs rules and monitoring.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan. Not confirmed: whether Octave has a South Florida office. Check Sales Navigator before outreach.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">A new public company, merging products and under pressure to prove its subscription growth, needs clean data and safe AI. IBM watsonx.governance sets rules and keeps records for the CoLabs agents and AI features. IBM watsonx.data gives one place for the merged product data. Use the Hexagon AB parent for a warm introduction, and coordinate with Hexagon Mining and Hexagon Federal.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"As Octave brings products together under Tempo and Reliance and rolls out CoLabs agents, customers and investors will ask about consistent data and well-governed AI. IBM works with newly independent software companies on exactly that. Can we compare notes before your Nov 12 results?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>watsonx.governance SaaS</strong> — rules, monitoring and records for CoLabs agents and AI features across the product line.</div>
+            <span class="c-sales-pill saas">watsonx.governance</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>watsonx.data</strong> — one data foundation for the merged product and analytics data.</div>
+            <span class="c-sales-pill trans">watsonx.data Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Check for a South Florida presence before outreach.<br>2. Ask the Hexagon AB parent for a warm introduction.<br>3. Time the first note before Nov 12 and the follow-up right after results.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#octave">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+    <!-- Southern Glazer's Wine & Spirits -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai automation" data-account="sgws" data-owner="mijee" data-bss="yes">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Southern Glazer's Wine &amp; Spirits</div>
+          <div class="c-meta">Private · Beverage distribution · About $26B in sales · Miami HQ · FTC deal filed Oct 2 (31 days ago), court approval still pending</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage — six years of FTC price oversight; new Bacardi deal Oct 28; no dated event in the next 10 days</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span></div>
+          </div>
+          <div class="c-work"><span class="c-work-lbl">Work with</span>Alyssa (Data &amp; AI) · Gavin (Automation) · William (Storage) · Rick &amp; Kevin (Power &amp; Cloud)</div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>On Oct 2 the FTC filed a proposed settlement with Southern Glazer's. It is the first Robinson-Patman win in 26 years. That law bans charging a small store more than a big chain for the same goods. As of mid-October it was still a <em>proposed</em> order, waiting for a federal judge to approve it.</li>
+              <li>The rules are specific. For six years, in 26 states, the order watches pairs of sales: a chain buys a product, and within 45 days (75 for some chains) a nearby independent store buys a similar one at a much higher price. "Nearby" means 1.5 to 2.5 miles in cities, 6 miles in suburbs and 12 miles in rural areas. Twice a year, SGWS must hand its sales data to an independent monitor, and SGWS pays for the monitor.</li>
+              <li>If the monitor finds an overcharge, SGWS can fix it by paying the store 1.5 times the price gap. If it does not fix it and the FTC has to go to court, the payment goes to 2 times. That means SGWS has to check every pair of sales, all the time.</li>
+              <li>Oct 28: Bacardi shifted its U.S. distribution. Reyes Beverage Group takes over 11 markets on Jan 1 (60 days away), including Florida. SGWS keeps 36 states and stays Bacardi's largest U.S. distributor by volume. Bacardi did not say who handled those 11 markets before, so we cannot say SGWS lost them.</li>
+              <li>Still integrating: SGWS bought Clare Rose (Long Island) this spring. On Oct 28 its old East Yaphank warehouse was listed for sale while SGWS leases it for two years and moves to other sites. More deals mean more systems to join up.</li>
+              <li>Not re-verified: a California state review reported on Oct 9. Treat as a question to ask, not a fact to quote.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">SGWS now has to prove, twice a year for six years, that small stores are not overcharged. IBM watsonx and Data Fabric can match chain and independent-store sales automatically, flag a gap before it turns into a 1.5x payment, and keep the record the monitor will ask for. Planning Analytics then gives finance one view of price, margin and demand across states. Open with the General Counsel or Chief Compliance Officer, then bring in the CFO.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"With the FTC order in place for six years, the question is how you show, every period, that no nearby independent store pays much more than a chain. IBM watsonx can check those sale pairs for you and keep the record. Could we spend 20 minutes on how that would work with your pricing data?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>watsonx compliance monitoring</strong> — annual subscription. Flags price gaps between chain and independent sales before they cost 1.5x to fix. Pitch to the General Counsel and CFO.</div>
+            <span class="c-sales-pill saas">watsonx Compliance SaaS</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>Planning Analytics + Data Fabric</strong> — one trusted view of price, margin and demand across states. The same numbers serve the monitor and finance.</div>
+            <span class="c-sales-pill trans">Planning Analytics Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Open on the FTC order and the twice-a-year data reports.<br>2. Call the General Counsel or Chief Compliance Officer, then the CFO.<br>3. Bring Planning Analytics in once the compliance scope is agreed. Watch for the judge's approval.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#sgws">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+    <!-- Norwegian Cruise Line Holdings -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai automation" data-account="nclh" data-owner="mijee" data-bss="yes">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Norwegian Cruise Line Holdings</div>
+          <div class="c-meta">NYSE: NCLH · Cruise Line · 3 brands · Miami HQ · $2.95B Q3 sales</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage — Q3 reported Oct 29 (beat, raised full-year outlook); Q4 outlook is weak; no dated event in the next 10 days</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span></div>
+          </div>
+          <div class="c-work"><span class="c-work-lbl">Work with</span>Alyssa (Data &amp; AI) · Gavin (Automation) · William (Storage) · Rick &amp; Kevin (Power &amp; Cloud)</div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>NCLH reported Q3 on Thu Oct 29 and beat its own targets. Sales were $2.95B, flat vs last year. Adjusted EBITDA (a common measure of cash profit) was $937M vs a $874M target. Adjusted EPS was $1.12 vs a $0.90 target. The stock jumped 10.9% to $17.80 right after the report; the final close is not verified.</li>
+              <li>NCLH raised its full-year outlook: adjusted EBITDA of about $2.55B and adjusted EPS of about $1.70 (it was $1.50). Costs per ship-day are now expected to be slightly lower than last year, "driven by ongoing savings."</li>
+              <li>The next quarter looks weak. Q4 "net yield" (what the company earns per passenger cruise day) is expected to fall about 6.5%. Q4 adjusted EBITDA is guided at $414M, below what analysts wanted. Two causes: the new Seven Seas Prestige ship is late (now late December) and some Seven Seas Voyager trips through the Suez Canal were cancelled.</li>
+              <li>CEO John Chidsey says the company is in "the next phase of our turnaround," with a sharper brand focus and better marketing. Norwegian, Oceania and Regent Seven Seas still run on separate systems, so one clear view of demand across the three brands is hard to get.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan. Earlier notes on cost-transformation and revenue-management roles were not re-verified; confirm before citing.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">A turnaround CEO, a weak Q4 yield and a goal to keep cutting costs all point to one need: see demand and profit per voyage across all three brands in one place. IBM Planning Analytics gives the CFO one demand model for Norwegian, Oceania and Regent, with "what if" cases for pricing and ship delays. IBM Data Fabric joins the three brands' data. The pitch is "find the next round of savings," not "buy software."</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"Congratulations on a strong Q3 and a higher outlook. With Q4 yield under pressure and ship timing moving around, leadership needs one view of demand across all three brands. IBM Planning Analytics and Data Fabric do that for multi-brand cruise operators. Can we connect this week?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>Planning Analytics</strong> — annual subscription. Demand forecasting and voyage profit for all three brands, with "what if" cases for yield and delays.</div>
+            <span class="c-sales-pill saas">Planning Analytics SaaS</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>Data Fabric</strong> — join Norwegian, Oceania and Regent Seven Seas data into one layer. The data base behind the savings plan.</div>
+            <span class="c-sales-pill trans">Data Fabric Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Open on the Q3 beat and the weak Q4 yield.<br>2. Ask for the CFO or the head of revenue management.<br>3. Planning Analytics first; Data Fabric as the follow-on project.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#nclh">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+    <!-- Citco Group -->
+    <div class="card t4" data-urgency="t4" data-brands="data-ai" data-account="citco" data-owner="mijee" data-bss="yes">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Citco Group</div>
+          <div class="c-meta">Private · Fund administration · About $1.2T in assets and 4,000+ funds (carried, not re-verified) · Modernization program under way</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t4"><span class="cu-dot"></span>Engage — new Q3 hedge fund report Oct 27, awards, and fast growth in new fund types; no dated event in the next 10 days</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-data">AI Gov</span></div>
+          </div>
+          <div class="c-work"><span class="c-work-lbl">Work with</span>Alyssa (Data &amp; AI) · Gavin (Automation) · William (Storage) · Rick &amp; Kevin (Power &amp; Cloud)</div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>Oct 27 (6 days ago): Citco's Q3 hedge fund report was covered by Alternatives Watch. Hedge funds it runs lost 0.7% on average in Q3, after a 12.3% gain in Q2, but 53% of funds still ended the quarter up. Investors kept adding money: well over $100B of new money through September this year.</li>
+              <li>Most of that money went to the biggest funds. Funds with more than $10B in assets brought in $24.9B, about 69% of the quarter's total. Multi-strategy and hybrid funds took about 77%. Bigger, more complex funds mean more data for Citco to calculate, check and explain.</li>
+              <li>Oct 21: a news site reported that Citco hired a new global head of special purpose vehicles (SPVs). We could only see the headline. It is a small sign Citco is building out this service.</li>
+              <li>Carried from Edition 12, not re-checked: Citco won the Hedgeweek US award for Fund Administrator of the Year: Middle Office Services (Oct 8, 25 days ago), and two awards on Sep 24. The first transaction on J.P. Morgan's Kinexys Fund Flow (a blockchain record of fund investors) involved Citco (Oct 12).</li>
+              <li>Q4 is when fund numbers (NAVs) are audited and when platform choices get made. It is much cheaper to build in a record of where each number came from now than to add it after an investor or examiner asks.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">IBM Manta Data Lineage follows every number in a NAV back to its source. That is the trail an auditor or investor committee can follow. As Citco takes on larger and more complex funds, it also adds more automation and AI, so watsonx.governance keeps those models explained and monitored. Enter through the modernization program and time it to Q4 prep.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"Your Q3 report shows money flowing into bigger, more complex funds. That means more data sources behind every NAV. IBM Manta Data Lineage lets you trace any number back to where it came from, built in during modernization instead of added after an audit finding. Could we take 20 minutes before Q4 reporting?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>watsonx.governance</strong> — annual subscription. Keeps any AI used in reporting explained and monitored. "Govern every model that touches a NAV."</div>
+            <span class="c-sales-pill saas">watsonx.governance SaaS</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>IBM Manta Data Lineage</strong> — a full trail behind NAV reporting across fund types. Scope it inside the modernization program, timed to Q4.</div>
+            <span class="c-sales-pill trans">Manta Lineage Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Open on the Oct 27 report: bigger funds, more data.<br>2. Pitch Manta as part of the modernization, not an add-on.<br>3. Call the COO or CIO and the head of middle-office services.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#citco">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+    <!-- JM Family Enterprises -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai automation power-cloud" data-account="jmf" data-owner="mijee" data-bss="yes">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">JM Family Enterprises</div>
+          <div class="c-meta">Private · Auto and financial services · About $16B in sales (company description) · Deerfield Beach HQ</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby — no new JM Family business news this week; Q4 budget season is the timing</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-auto">Automation</span></div>
+            <div class="c-also-item"><span class="c-brand-sm br-pc">Hybrid Cloud</span></div>
+          </div>
+          <div class="c-work"><span class="c-work-lbl">Work with</span>Alyssa (Data &amp; AI) · Gavin (Automation) · William (Storage) · Rick &amp; Kevin (Power &amp; Cloud)</div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>No new business news turned up between Oct 26 and Nov 2. That is why this stays Standby. The only items were community ones: the South Florida Business Journal (Oct 29) ranked JM Family #1 for giving in South Florida, at $57.5M in cash last year. It also backed a new exhibit at the Museum of Discovery &amp; Science.</li>
+              <li>Q4 is when budget owners lock next year's technology spending. IBM needs to reach the SVP &amp; CFO and the finance leads of each business before that happens.</li>
+              <li>Not re-verified, carried from Oct 5: GenAI pilots may be running at World Omni (auto lending), JM&amp;A (finance and insurance products) and Southeast Toyota with no shared AI governance. Ask about this in discovery. Do not quote it as fact.</li>
+              <li>Also carried: World Omni lends using AI models. A federal rule that took effect Jul 21 changed how fair-lending claims work (it removed "disparate impact" claims under the ECOA). Lead with explaining and monitoring models, not with a new legal mandate.</li>
+              <li>This account stays Standby until a dated reason to call appears.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan. The postings that surfaced were summer 2027 intern roles (sales operations, compensation), not technology roles.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">One relationship, three IBM plays. First, watsonx.governance to put guardrails on GenAI pilots before they go live. Second, watsonx.governance to explain World Omni's lending models. Third, Planning Analytics for Southeast Toyota dealer-demand forecasting. The SVP &amp; CFO is the single door into all three.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"JM Family uses models to make decisions in lending, finance products and distribution. IBM watsonx.governance makes those models explainable and checkable before they go live. Could we talk ahead of Q4 planning?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>watsonx.governance</strong> — annual subscription. One place to govern AI across World Omni, JM&amp;A and Southeast Toyota. CFO pitch: "govern all your AI before pilots become production."</div>
+            <span class="c-sales-pill saas">watsonx.governance SaaS</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>Planning Analytics</strong> — dealer-demand forecasting and finance-product mix for Southeast Toyota, tied to the planning cycle.</div>
+            <span class="c-sales-pill trans">Planning Analytics Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Send a short Q4-timing note to the SVP &amp; CFO and the World Omni finance lead.<br>2. Ask about GenAI pilots. Do not assert them.<br>3. Use Planning Analytics for Southeast Toyota as the first project.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#jmf">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+    <!-- Hexagon Mining -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai storage" data-account="hexmin" data-owner="mijee" data-bss="yes">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Hexagon Mining</div>
+          <div class="c-meta">Part of Hexagon AB · Mining technology and AI · MinePlan software · Parent reported Q3 (scheduled Oct 23)</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby — parent had a strong Q3 and is buying companies; nothing dated for Mining itself</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-stor">Storage</span></div>
+          </div>
+          <div class="c-work"><span class="c-work-lbl">Work with</span>Alyssa (Data &amp; AI) · Gavin (Automation) · William (Storage) · Rick &amp; Kevin (Power &amp; Cloud)</div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>Hexagon AB's Q3 report (scheduled Oct 23, per its Oct 2 release) was strong. Sales were €1,049M, and organic growth (growth without counting deals or currency) was 13%, the best in five years. Profit margin before certain costs (EBITAC, excluding robotics) rose to 25.3%. It was the first full quarter since the parent spun off Octave on May 22. The report did not break out Mining on its own, so we have no Mining-only numbers.</li>
+              <li>The parent keeps buying. The Q3 report lists agreed deals for Guidance Marine, ZG automation technology and Rocscience (a geotechnical software company, about $535M, announced Oct 9). Another deal, Waygate Technologies, is expected to finish in Q4. More acquired software means more data to join with MinePlan.</li>
+              <li>The Mine to Mission event (Oct 27–29, dates carried from Edition 10, not re-verified) was built around moving AI "from pilots to production" in mining. If it did run, it is now over. Use it as a talking point, not as a deadline.</li>
+              <li>Not re-verified, carried from earlier editions: MinePlan return figures (28% productivity, 31% fuel). Do not quote them.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">"Pilots to production" is the division's own message, and governance is what gets AI models through that gate. IBM watsonx.governance fits MinePlan AI. IBM Storage fits the heavy sensor and machine data from autonomous fleets and monitoring. Rocscience and the other deals give a data-joining reason to talk. Go in through the Hexagon AB parent. Do not cold-call Mining on its own.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"With Hexagon adding companies like Rocscience and pushing mining AI toward production, the question customers will ask is how those models are governed and how the data behind them is managed. That is what IBM works on. Is that worth a short conversation?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>watsonx.governance</strong> — annual subscription. Governs MinePlan AI models as mining customers move from pilot to production.</div>
+            <span class="c-sales-pill saas">watsonx.governance</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>IBM Storage</strong> — a home for sensor and machine data from autonomous fleets and ground monitoring.</div>
+            <span class="c-sales-pill trans">IBM Storage Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Use the parent-level Hexagon AB door. One IBM–Hexagon story across Mining, Federal and Octave.<br>2. Mention Rocscience and the production-AI message.<br>3. Wait for a dated reason before pushing harder.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#hexmin">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+    <!-- Hexagon US Federal -->
+    <div class="card t3" data-urgency="t3" data-brands="data-ai" data-account="hexfed" data-owner="mijee" data-bss="yes">
+      <div class="c-left">
+        <div class="c-left-meta">
+          <div class="c-acct-name">Hexagon US Federal</div>
+          <div class="c-meta">Part of Hexagon AB · Defense and location-data AI · Chantilly, VA · Federal contracts</div>
+        </div>
+        <div class="c-left-right">
+          <div class="c-urg cu-t3"><span class="cu-dot"></span>Standby — no news for this unit; the parent's defense-driven growth is the only signal</div>
+          <div class="c-entry-section"><div class="c-lbl">Lead</div><span class="c-entry-badge br-data">Data &amp; AI</span></div>
+          <div class="c-also">
+            <div class="c-also-item"><span class="c-brand-sm br-data">AI Gov</span></div>
+          </div>
+          <div class="c-work"><span class="c-work-lbl">Work with</span>Alyssa (Data &amp; AI) · Gavin (Automation) · William (Storage) · Rick &amp; Kevin (Power &amp; Cloud)</div>
+        </div>
+      </div>
+      <div class="c-mid">
+        <div class="c-mid-left">
+          <div class="c-section">
+            <div class="c-sec-lbl">Why Now — Nov 2, 2026</div>
+            <ul class="c-bullets">
+              <li>No news about Hexagon US Federal itself turned up between Oct 26 and Nov 2. Treat this as a parent-led account.</li>
+              <li>Parent signal: in Hexagon AB's Q3 report (scheduled Oct 23), Autonomous Solutions grew 23% (its best quarter ever) on strong demand for aerospace and defense products, including anti-jamming positioning gear. Overall organic growth was 13%. The report did not break out the U.S. federal unit.</li>
+              <li>Hexagon is also adding companies (Guidance Marine, ZG automation technology, Rocscience, and Waygate, which should close in Q4). The company says it is focusing on precision measurement and positioning.</li>
+              <li>The U.S. government's new budget year started Oct 1, so agencies are placing next-year spending now. That is the normal yearly cycle, not a trigger for this account.</li>
+              <li>Not verified, carried from Oct 5: that the federal AI-use rule OMB M-25-21 sets requirements for Hexagon Federal, and that watsonx.governance has a specific FedRAMP approval. Check both with IBM Federal before putting either in an email.</li>
+            </ul>
+          </div>
+          <div class="c-section">
+            <div class="c-sec-lbl">Hiring Signals</div>
+            <ul class="c-bullets">
+              <li>No dated job postings were verified in the Oct 26 – Nov 2 scan. Check Sales Navigator for AI and federal compliance roles before outreach.</li>
+            </ul>
+          </div>
+          <div class="c-angle">
+            <div class="c-angle-lbl">IBM Angle</div>
+            <div class="c-angle-txt">The idea is AI governance built into Hexagon's federal location-data AI products. The FedRAMP claim needs IBM Federal to confirm first. Go in through the Hexagon AB parent and run one joined-up conversation with Hexagon Mining and Octave. Do not cold-call this unit alone.</div>
+          </div>
+          <div class="c-talk">
+            <div class="c-talk-lbl">What to Say</div>
+            <div class="c-talk-txt">"As your AI products reach agency decision-making, buyers will ask how those models are governed and audited. IBM can show how governance is built in, not added later. Is 20 minutes this month worth it while next-year budgets are being placed?"</div>
+          </div>
+        </div>
+        <div class="c-right">
+          <div class="c-sales-hdr">How to Sell</div>
+          <div class="c-sales-block saas">
+            <div class="c-sales-type saas">SaaS Entry</div>
+            <div class="c-sales-txt"><strong>watsonx.governance</strong> — annual subscription. Model governance built into federal AI products. Confirm FedRAMP status with IBM Federal first.</div>
+            <span class="c-sales-pill saas">watsonx.governance</span>
+          </div>
+          <div class="c-sales-block trans">
+            <div class="c-sales-type trans">Transaction</div>
+            <div class="c-sales-txt"><strong>watsonx.data</strong> — one data platform for location and 3D-scan data. Federal buying route (GSA, SEWP or OTA) still to be confirmed.</div>
+            <span class="c-sales-pill trans">watsonx.data Tx</span>
+          </div>
+          <div class="c-sales-block motion">
+            <div class="c-sales-type motion">Do This Now</div>
+            <div class="c-sales-txt">1. Hold direct outreach until the parent-level conversation is set up.<br>2. Check the FedRAMP and OMB claims with IBM Federal.<br>3. Wait for a dated reason before pushing harder.</div>
+          </div>
+        </div>
+      </div>
+      <div class="c-actions">
+        <a class="c-btn c-btn-intel" href="phase2.html#hexfed">Full Intel →</a>
+        <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+      </div>
+    </div>
+
+  </div><!-- /group mijee -->
+
+</div><!-- /main -->
+
+<!-- ── SIDE DOCK ── -->
+<nav class="side-dock" id="side-dock">
+  <div class="sd-top"><span class="sd-label">Nav</span></div>
+  <div class="sd-group open" data-tier="jim">
+    <div class="sd-group-hdr open" data-tier-toggle="jim">
+      <span class="sd-tier sd-own">Jim</span>
+      <span class="sd-count">3</span>
+      <span class="sd-chevron">›</span>
+    </div>
+    <div class="sd-accts">
+      <a class="sd-acct" href="#" data-acct-scroll="seaworld">SeaWorld</a>
+      <a class="sd-acct" href="#" data-acct-scroll="frontline">Frontline</a>
+      <a class="sd-acct" href="#" data-acct-scroll="dmab">Data Mgmt. Brevard</a>
+    </div>
+  </div>
+  <div class="sd-group" data-tier="ricardo">
+    <div class="sd-group-hdr" data-tier-toggle="ricardo">
+      <span class="sd-tier sd-own">Ricardo</span>
+      <span class="sd-count">3</span>
+      <span class="sd-chevron">›</span>
+    </div>
+    <div class="sd-accts">
+      <a class="sd-acct" href="#" data-acct-scroll="dycom">Dycom</a>
+      <a class="sd-acct" href="#" data-acct-scroll="odp">ODP</a>
+      <a class="sd-acct" href="#" data-acct-scroll="ansco">ANSCO</a>
+    </div>
+  </div>
+  <div class="sd-group" data-tier="pratap">
+    <div class="sd-group-hdr" data-tier-toggle="pratap">
+      <span class="sd-tier sd-own">Pratap</span>
+      <span class="sd-count">2</span>
+      <span class="sd-chevron">›</span>
+    </div>
+    <div class="sd-accts">
+      <a class="sd-acct" href="#" data-acct-scroll="kforce">Kforce</a>
+      <a class="sd-acct" href="#" data-acct-scroll="chicos">Chico's</a>
+    </div>
+  </div>
+  <div class="sd-group" data-tier="spencer">
+    <div class="sd-group-hdr" data-tier-toggle="spencer">
+      <span class="sd-tier sd-own">Spencer</span>
+      <span class="sd-count">2</span>
+      <span class="sd-chevron">›</span>
+    </div>
+    <div class="sd-accts">
+      <a class="sd-acct" href="#" data-acct-scroll="bk">Burger King / RBI</a>
+      <a class="sd-acct" href="#" data-acct-scroll="hig">H.I.G. Capital</a>
+    </div>
+  </div>
+  <div class="sd-group" data-tier="shari">
+    <div class="sd-group-hdr" data-tier-toggle="shari">
+      <span class="sd-tier sd-own">Shari</span>
+      <span class="sd-count">3</span>
+      <span class="sd-chevron">›</span>
+    </div>
+    <div class="sd-accts">
+      <a class="sd-acct" href="#" data-acct-scroll="icahn">Icahn</a>
+      <a class="sd-acct" href="#" data-acct-scroll="herc">Herc Rentals</a>
+      <a class="sd-acct" href="#" data-acct-scroll="mastec">MasTec</a>
+    </div>
+  </div>
+  <div class="sd-group" data-tier="michael">
+    <div class="sd-group-hdr" data-tier-toggle="michael">
+      <span class="sd-tier sd-own">Michael</span>
+      <span class="sd-count">3</span>
+      <span class="sd-chevron">›</span>
+    </div>
+    <div class="sd-accts">
+      <a class="sd-acct" href="#" data-acct-scroll="heico">HEICO</a>
+      <a class="sd-acct" href="#" data-acct-scroll="chewy">Chewy</a>
+      <a class="sd-acct" href="#" data-acct-scroll="memorial">Memorial / S. Broward</a>
+    </div>
+  </div>
+  <div class="sd-group" data-tier="hazem">
+    <div class="sd-group-hdr" data-tier-toggle="hazem">
+      <span class="sd-tier sd-own">Hazem</span>
+      <span class="sd-count">3</span>
+      <span class="sd-chevron">›</span>
+    </div>
+    <div class="sd-accts">
+      <a class="sd-acct" href="#" data-acct-scroll="lennar">Lennar</a>
+      <a class="sd-acct" href="#" data-acct-scroll="lenmar">Lennar Mtg.</a>
+      <a class="sd-acct" href="#" data-acct-scroll="pellera">Pellera</a>
+    </div>
+  </div>
+  <div class="sd-group" data-tier="mijee">
+    <div class="sd-group-hdr" data-tier-toggle="mijee">
+      <span class="sd-tier sd-own">Mijee</span>
+      <span class="sd-count">7</span>
+      <span class="sd-chevron">›</span>
+    </div>
+    <div class="sd-accts">
+      <a class="sd-acct" href="#" data-acct-scroll="octave">Octave</a>
+      <a class="sd-acct" href="#" data-acct-scroll="sgws">Southern Glazer's</a>
+      <a class="sd-acct" href="#" data-acct-scroll="nclh">NCLH</a>
+      <a class="sd-acct" href="#" data-acct-scroll="citco">Citco</a>
+      <a class="sd-acct" href="#" data-acct-scroll="jmf">JM Family</a>
+      <a class="sd-acct" href="#" data-acct-scroll="hexmin">Hex. Mining</a>
+      <a class="sd-acct" href="#" data-acct-scroll="hexfed">Hex. Federal</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── FOOTER ── -->
+<div class="page-footer">
+  Made with IBM Bob &nbsp;·&nbsp; SE Horizon &nbsp;·&nbsp; Phase 1 · Account Radar &nbsp;·&nbsp; Edition 13 &nbsp;·&nbsp; 26 Accounts &nbsp;·&nbsp; Nov 2, 2026
+</div>
+
+<script>
+(function(){
+  var state = { urgency: { t5: true, t4: true, t3: true }, brand: 'all', account: 'all', owner: 'all', bss: 'all' };
+  function applyFilters() {
+    document.querySelectorAll('.card').forEach(function(card) {
+      var urg = card.getAttribute('data-urgency');
+      var brands = card.getAttribute('data-brands') || '';
+      var acct = card.getAttribute('data-account');
+      var showUrg = state.urgency[urg] !== false;
+      var showBrand = (state.brand === 'all') || brands.split(' ').indexOf(state.brand) !== -1;
+      var showAcct = (state.account === 'all') || (acct === state.account);
+      var showOwner = (state.owner === 'all') || (card.getAttribute('data-owner') === state.owner);
+      var showBss = (state.bss === 'all') || (card.getAttribute('data-bss') === state.bss);
+      card.setAttribute('data-hidden', (!showUrg || !showBrand || !showAcct || !showOwner || !showBss) ? 'true' : 'false');
+    });
+    document.querySelectorAll('.group').forEach(function(grp) {
+      var visible = grp.querySelectorAll('.card:not([data-hidden="true"])');
+      grp.setAttribute('data-empty', visible.length === 0 ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.f-pill').forEach(function(pill) {
+    pill.addEventListener('click', function() {
+      var filter = pill.getAttribute('data-filter');
+      var val = pill.getAttribute('data-val');
+      if (filter === 'urgency') {
+        state.urgency[val] = !state.urgency[val];
+        pill.classList.toggle('on');
+      } else {
+        state[filter] = val;
+        document.querySelectorAll('[data-filter="' + filter + '"]').forEach(function(p){ p.classList.remove('on'); });
+        pill.classList.add('on');
+      }
+      applyFilters();
+    });
+  });
+})();
+
+// ── Auto-populate stat counters ──
+(function(){
+  function updateStats(){
+    var t5all = document.querySelectorAll('.card[data-urgency="t5"]').length;
+    var t4all = document.querySelectorAll('.card[data-urgency="t4"]').length;
+    var t3all = document.querySelectorAll('.card[data-urgency="t3"]').length;
+    var t5 = document.querySelectorAll('.card[data-urgency="t5"]:not([data-hidden="true"])').length || t5all;
+    var t4 = document.querySelectorAll('.card[data-urgency="t4"]:not([data-hidden="true"])').length || t4all;
+    var t3 = document.querySelectorAll('.card[data-urgency="t3"]:not([data-hidden="true"])').length || t3all;
+    /* masthead stat boxes */
+    var s = document.getElementById('stat-strike');
+    var e = document.getElementById('stat-engage');
+    if(s) s.textContent = t5;
+    if(e) e.textContent = t4;
+    /* jumpbar count badges */
+    var c5 = document.getElementById('cnt-t5');
+    var c4 = document.getElementById('cnt-t4');
+    var c3 = document.getElementById('cnt-t3');
+    if(c5) c5.textContent = t5;
+    if(c4) c4.textContent = t4;
+    if(c3) c3.textContent = t3;
+    /* side-dock counts */
+    var sd5 = document.getElementById('sd-count-t5');
+    var sd4 = document.getElementById('sd-count-t4');
+    var sd3 = document.getElementById('sd-count-t3');
+    if(sd5) sd5.textContent = t5all;
+    if(sd4) sd4.textContent = t4all;
+    if(sd3) sd3.textContent = t3all;
+  }
+  document.addEventListener('DOMContentLoaded', updateStats);
+})();
+
+(function(){
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('[data-tier-toggle]').forEach(function(hdr){
+      hdr.addEventListener('click', function(){
+        var tier = hdr.getAttribute('data-tier-toggle');
+        var group = document.querySelector('.sd-group[data-tier="'+tier+'"]');
+        if(!group) return;
+        var isOpen = group.classList.contains('open');
+        document.querySelectorAll('.sd-group').forEach(function(g){
+          g.classList.remove('open');
+          g.querySelector('.sd-group-hdr').classList.remove('open');
+        });
+        if(!isOpen){ group.classList.add('open'); hdr.classList.add('open'); }
+      });
+    });
+    document.querySelectorAll('.sd-acct[data-acct-scroll]').forEach(function(link){
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        var acct = link.getAttribute('data-acct-scroll');
+        var target = document.querySelector('.card[data-account="'+acct+'"]');
+        if(target){
+          target.scrollIntoView({behavior:'smooth',block:'center'});
+          target.style.outline='2px solid var(--ibm)';
+          setTimeout(function(){target.style.outline='';},1400);
+        }
+        document.querySelectorAll('.sd-acct').forEach(function(a){a.classList.remove('active');});
+        link.classList.add('active');
+      });
+    });
+    if('IntersectionObserver' in window){
+      var dockObs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          var tier = entry.target.id.replace('grp-','');
+          var g = document.querySelector('.sd-group[data-tier="'+tier+'"]');
+          if(g) g.classList.toggle('in-view', entry.isIntersecting);
+        });
+      },{rootMargin:'-20% 0px -50% 0px'});
+      document.querySelectorAll('.group[id^="grp-"]').forEach(function(el){ dockObs.observe(el); });
+    }
+  });
+})();
+</script>
+</body>
+</html>

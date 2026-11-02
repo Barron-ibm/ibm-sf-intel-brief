@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE Horizon | Named Contacts | Phase 4 | Nov 2, 2026 | Edition 13</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f0f2f5;--card:#fff;--surface:#f4f6f9;--border:#dde1e9;--text:#161616;--muted:#525252;--accent:#0f62fe;--navy:#0f1c3a;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'IBM Plex Sans',-apple-system,sans-serif;font-size:14px;line-height:1.6;background:var(--bg);color:var(--text)}
+a{text-decoration:none;color:var(--accent)}
+.top{background:#1a1a1a;border-bottom:3px solid var(--accent);padding:0 24px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200}
+.top-l{display:flex;align-items:center;gap:10px}
+.ibm{font-size:18px;font-weight:900;color:#fff;letter-spacing:-.5px}
+.dv{width:1px;height:16px;background:#3a3a3a}
+.ttl{font-size:12px;font-weight:600;color:#a8c8ff}
+.bdg{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;background:var(--accent);color:#fff;padding:2px 9px;border-radius:20px}
+.top-m{display:flex;gap:2px;flex:1;justify-content:center}
+.top-m a{font-size:11px;font-weight:600;color:rgba(255,255,255,.5);padding:5px 10px;border-bottom:2px solid transparent}
+.top-m a:hover{color:#fff}
+.top-m a.active{color:#fff;border-bottom-color:var(--accent)}
+.top-m a.back{color:#a8c8ff}
+.top-r{font-size:10px;color:#7a7a7a}
+.banner{background:#0a1628;border-bottom:2px solid var(--accent);padding:7px 24px;display:flex;gap:10px;align-items:center}
+.banner b{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#a8c8ff;background:var(--accent);padding:3px 9px;border-radius:2px}
+.banner span{font-size:11px;color:#8fb0e0}
+.wrap{max-width:1180px;margin:0 auto;padding:24px}
+.hero{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--accent);border-radius:4px;padding:22px 26px;margin-bottom:18px}
+.hero h1{font-size:22px;font-weight:900;color:var(--navy);letter-spacing:-.3px}
+.hero p{color:var(--muted);margin-top:6px;font-size:13px}
+.stats{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.st{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:8px 14px}
+.st b{display:block;font-size:20px;font-weight:900;color:var(--navy);line-height:1.1}
+.st span{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.caveat{background:#fff8e6;border:1px solid #f1c21b;border-left:4px solid #f1c21b;border-radius:3px;padding:12px 16px;font-size:12.5px;color:#4a3b00;margin-bottom:18px}
+.caveat strong{color:#241c00}
+.jump{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.jump a{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:var(--card);border:1px solid var(--border);padding:5px 10px;border-radius:20px;color:var(--navy)}
+.jump a:hover{border-color:var(--accent);color:var(--accent)}
+.acct{background:var(--card);border:1px solid var(--border);border-radius:4px;margin-bottom:16px;overflow:hidden}
+.acct-h{padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;gap:14px;background:var(--surface)}
+.acct-h h2{font-size:17px;font-weight:900;color:var(--navy);display:inline;margin-left:8px}
+.hook{font-size:12px;color:var(--muted);margin-top:4px}
+.cnt{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;color:var(--muted);white-space:nowrap}
+.tier{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:2px}
+.t-strike{background:#fff1f1;color:#a2191f;border:1px solid #ffb3b8}
+.t-engage{background:#fff2e8;color:#8a3800;border:1px solid #ffd9be}
+.t-standby{background:#edf5ff;color:#0043ce;border:1px solid #bfd9ff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;padding:16px 22px 20px}
+.ct{border:1px solid var(--border);border-left:4px solid var(--border);border-radius:3px;padding:12px 14px;display:flex;flex-direction:column;gap:7px;background:#fff}
+.ct.executive{border-left-color:var(--navy)}
+.ct.practitioner{border-left-color:var(--accent)}
+.ct-top{display:flex;justify-content:space-between;gap:10px}
+.ct-name{font-size:14px;font-weight:700;color:var(--navy)}
+.ct-title{font-size:12px;color:var(--muted);line-height:1.4}
+.score{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:700;color:var(--navy);background:var(--surface);border:1px solid var(--border);border-radius:3px;height:30px;min-width:38px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tags{display:flex;gap:5px;flex-wrap:wrap}
+.tg{font-family:'IBM Plex Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;padding:2px 7px;border-radius:2px;background:var(--surface);color:var(--muted);border:1px solid var(--border)}
+.b-executive{background:var(--navy);color:#fff;border-color:var(--navy)}
+.b-practitioner{background:var(--accent);color:#fff;border-color:var(--accent)}
+.b-strike{background:#da1e28;color:#fff;border-color:#da1e28}
+.b-hot{background:#da1e28;color:#fff;border-color:#da1e28}
+.b-warm{background:#ff832b;color:#fff;border-color:#ff832b}
+.b-cold{background:#8d8d8d;color:#fff;border-color:#8d8d8d}
+.why{font-size:12.5px;line-height:1.55}
+.note{font-size:11.5px;color:#6a4b00;background:#fff8e6;border-left:3px solid #f1c21b;padding:5px 8px;line-height:1.45}
+.ct-foot{margin-top:auto;padding-top:4px}
+.li{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#fff;background:var(--accent);padding:5px 11px;border-radius:3px;display:inline-block}
+.li:hover{background:#0043ce}
+.nv{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#a2191f}
+.owner-band{display:flex;align-items:baseline;gap:14px;padding:12px 22px;margin:26px 0 12px;background:var(--navy);color:#fff;border-radius:3px}
+.owner-band .ob-name{font-size:15px;font-weight:700;letter-spacing:.04em}
+.owner-band .ob-sub{font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+h3.sec{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:26px 0 8px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);font-size:12.5px}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+th{background:var(--surface);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.foot{margin:26px 0 8px;text-align:center;font-size:11px;color:var(--muted)}
+@media(max-width:700px){.top-m{display:none}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="top-l"><span class="ibm">IBM</span><div class="dv"></div><span class="ttl">SE Horizon</span><span class="bdg">Phase 4</span></div>
+  <div class="top-m">
+    <a href="phase1.html" class="back">← Radar</a>
+    <a href="phase2.html">Phase 2</a>
+    <a href="phase3.html">Phase 3</a>
+    <a href="phase4.html" class="active">Phase 4</a>
+  </div>
+  <span class="top-r">SE Horizon · Edition 13 · Nov 2, 2026</span>
+</div>
+<div class="banner"><b>Edition 13</b><span>Phase 4 — Named Contacts · FL South Territory 26 · grouped by account owner · contacts pulled live from Sales Navigator on Nov 2</span></div>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>Named Contacts</h1>
+    <p>Real decision makers and practitioners mapped to the 26 Edition 13 accounts, grouped by account owner. Contacts were pulled live from Sales Navigator on Nov 2, 2026. Positions in Phases 1–3 stay position-only; named profiles live here.</p>
+    <div class="stats">
+      <div class="st"><b>150</b><span>Contacts listed</span></div>
+      <div class="st"><b>150</b><span>With profile link</span></div>
+      <div class="st"><b>0</b><span>No public link</span></div>
+      <div class="st"><b>25 of 26</b><span>Accounts with contacts</span></div>
+      <div class="st"><b>1</b><span>Account with no company page (DMAB)</span></div>
+    </div>
+  </div>
+
+  <div class="caveat"><strong>How to read this page.</strong> Contacts were pulled live from Sales Navigator on Nov 2 (the top 25 results per account, then the best-fit six). Sales Nav shows each person's current title, but confirm a person is still in role before you reach out. Where a name from Edition 12 was not found, the account shows a note. Accounts are grouped under their account owner. The tier on each card follows this edition: 3 Strike, 14 Engage, 9 Standby. Scores (0–100) show how well the role fits IBM watsonx.data, automation and lakehouse plays. South Broward Hospital District is part of the Memorial account.</div>
+
+  <div class="jump">
+    <a href="#own-jim" style="background:var(--accent);color:#fff;border-color:var(--accent)">Jim Gilbert</a>
+    <a href="#seaworld">SeaWorld / United Parks & Resorts</a>
+    <a href="#frontline">Frontline Insurance Managers</a>
+    <a href="#dmab">Data Management Brevard (DMAB)</a>
+    <a href="#own-ricardo" style="background:var(--accent);color:#fff;border-color:var(--accent)">Ricardo Valdes</a>
+    <a href="#dycom">Dycom Industries Inc.</a>
+    <a href="#odp">ODP Corporation / Office Depot</a>
+    <a href="#ansco">ANSCO & Associates, LLC</a>
+    <a href="#own-pratap" style="background:var(--accent);color:#fff;border-color:var(--accent)">Pratap Kesarkar</a>
+    <a href="#kforce">Kforce Inc.</a>
+    <a href="#chicos">Chico's FAS / KnitWell Group</a>
+    <a href="#own-spencer" style="background:var(--accent);color:#fff;border-color:var(--accent)">Spencer Fenelon</a>
+    <a href="#bk">Burger King / RBI</a>
+    <a href="#hig">H.I.G. Capital</a>
+    <a href="#own-shari" style="background:var(--accent);color:#fff;border-color:var(--accent)">Shari Zahed</a>
+    <a href="#icahn">Icahn Enterprises LP</a>
+    <a href="#herc">Herc Holdings / Herc Rentals</a>
+    <a href="#mastec">MasTec Inc.</a>
+    <a href="#own-michael" style="background:var(--accent);color:#fff;border-color:var(--accent)">Michael Sanchez</a>
+    <a href="#heico">HEICO Corporation</a>
+    <a href="#chewy">Chewy Inc.</a>
+    <a href="#memorial">Memorial Healthcare System</a>
+    <a href="#own-hazem" style="background:var(--accent);color:#fff;border-color:var(--accent)">Hazem Marzouk</a>
+    <a href="#lennar">Lennar Corporation</a>
+    <a href="#lennar-mortgage">Lennar Mortgage</a>
+    <a href="#pellera">Pellera Technologies</a>
+    <a href="#own-mijee" style="background:var(--accent);color:#fff;border-color:var(--accent)">Mijee Walker</a>
+    <a href="#octave">Octave Intelligence (Nasdaq: OCTV)</a>
+    <a href="#sgws">Southern Glazer's Wine & Spirits</a>
+    <a href="#nclh">Norwegian Cruise Line Holdings</a>
+    <a href="#citco">Citco Group</a>
+    <a href="#jmf">JM Family Enterprises</a>
+    <a href="#hexagon-mining">Hexagon Mining</a>
+    <a href="#hexagon-federal">Hexagon US Federal</a>
+  </div>
+
+  <div class="owner-band" id="own-jim"><span class="ob-name">Jim Gilbert</span><span class="ob-sub">Book 1 · 3 accounts</span></div>
+
+  <section class="acct" id="seaworld" data-tier="strike">
+    <div class="acct-h">
+      <div><span class="tier t-strike">Strike</span><h2>SeaWorld / United Parks & Resorts</h2><div class="hook">Q3 results Thu Nov 5 before the open, call 9:00 AM ET (3 days) · Theme parks · 13 parks · Owner: Jim Gilbert</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">William (Bill) Sandusky, DBA</div><div class="ct-title">Director, IT Infrastructure &amp; Cloud Operations</div></div><div class="score" title="Role-fit score">92</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Update CRM</span><span class="tg">2 TeamLink</span><span class="tg">Play: Turbonomic</span><span class="tg">1 yr 2 mo in role</span></div>
+        <div class="why">Runs the cloud and server side of IT in Greater Orlando. IBM has talked to him before (CRM says Update CRM). He has 1 mutual connection and 2 TeamLink paths, the warmest way in at this account.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAECa5cB47FDHYKn9AJTG7Fen6-G4a7OzbE,NAME_SEARCH,7FJP" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Simon Zhang</div><div class="ct-title">VP of Data Science</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">New: 3 mo in role</span></div>
+        <div class="why">New to the job 3 months ago and leads data science. A new leader is often open to new tools for dynamic pricing and park AI.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAATQYpoBR6uuax6ED6R9Kj5ZkKnTSE0VfSg,NAME_SEARCH,dDwo" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Jason McCarty</div><div class="ct-title">Corporate Director, Information Technology</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: Data Fabric</span><span class="tg">5 yr 6 mo in role</span></div>
+        <div class="why">Has led corporate IT in Orlando for over 5 years. IBM has history with him (Update CRM). He knows how the park systems fit together.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAL2GLYBScyfaislLh41129vKr9ayX_hhmM,NAME_SEARCH,iRJk" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Eric Culberson, CRME</div><div class="ct-title">Vice President Revenue Analytics</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Planning Analytics</span><span class="tg">8 mo in role</span></div>
+        <div class="why">Owns revenue numbers and pricing analytics. Q3 results come out Thu Nov 5, so this is the right time to talk about pricing "what if" models.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAABP_XpYBxoyjuzu4qR9TKxcaF1e3XKJfmok,NAME_SEARCH,IN-E" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Brian Lamka</div><div class="ct-title">VP of Digital Product</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: watsonx.data</span><span class="tg">6 yr in role</span></div>
+        <div class="why">Runs the digital products guests use (apps and tickets). Guest data from these products is a key input for AI.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAAJq8UBJkhPe3x6sWFJHEVcFuSKLFegkZI,NAME_SEARCH,D1wZ" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Jim Forrester</div><div class="ct-title">Interim CFO &amp; Treasurer</div></div><div class="score" title="Role-fit score">78</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Planning Analytics</span><span class="tg">1 yr 1 mo in role</span></div>
+        <div class="why">Interim CFO and a long-time employee (7+ years). Owns the money side. Interim leaders can be a good contact for planning tools ahead of a permanent hire.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAADzhjIB2aRpUggVpxyATNxqstwysFJhTKI,NAME_SEARCH,a02y" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Not found in this pull: James Swanson (Chief Information &amp; Technology Officer) from Edition 12 did not appear in the top results. Confirm he is still in role before using his name.</div></div>
+    </div>
+  </section>
+
+  <section class="acct" id="frontline" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>Frontline Insurance Managers</h2><div class="hook">No company event this week · Florida home insurance · Hurricane season ends Nov 30 · Lake Mary, FL · Owner: Jim Gilbert</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Mike Moscater</div><div class="ct-title">VP of Data Management and Analytics</div></div><div class="score" title="Role-fit score">92</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">1 TeamLink</span><span class="tg">Play: watsonx.data + governance</span></div>
+        <div class="why">Leads data management and analytics in Lake Mary. He has 1 TeamLink path and is already in the CRM. Best fit for data and AI-rule plays.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAsN6YgBNzS0A5q41rvzory8Q40Tk2ZEo14,NAME_SEARCH,_eMY" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Hema Reddy</div><div class="ct-title">Senior Vice President, IT</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Data Fabric</span><span class="tg">5 yr 11 mo in role</span></div>
+        <div class="why">Top IT leader (10+ years at the company). The account shows high buyer intent. Good first call on the policy and claims systems.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAGBI7kBNQLykJUGoJWrIL__dcq3orBSBjE,NAME_SEARCH,Apqc" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Carlos Pacheco</div><div class="ct-title">IT Vice President of Architecture</div></div><div class="score" title="Role-fit score">86</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Data Fabric</span><span class="tg">1 yr 5 mo in role</span></div>
+        <div class="why">Designs how the systems connect. Joining policy, claims and storm data is an architecture question.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAUEVCoBPJy2x7HzjkiZCi3ztgwj8BdDdAE,NAME_SEARCH,Pc10" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Ryan Weatherbee</div><div class="ct-title">Vice President IT Infrastructure Operations</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">2 TeamLink</span><span class="tg">Play: Turbonomic</span><span class="tg">3 yr 11 mo in role</span></div>
+        <div class="why">Runs IT infrastructure. 2 TeamLink paths. Storm season spikes load on the systems, so cloud cost and capacity are on his mind.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAV6UJkBNyuRbXaUvAV1c9w2DVdOPf3qZik,NAME_SEARCH,oW4J" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Manish Kumar Dhimole</div><div class="ct-title">Vice President of Application Development</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">1 TeamLink</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">1 yr 5 mo in role</span></div>
+        <div class="why">Builds the apps. IBM has history with him (Update CRM) and 1 TeamLink path. Fits automation of claims paperwork.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAAS3ZoBsnf-D9AAuGre-Gj752UIRGJoSBU,NAME_SEARCH,vpPR" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Diana Moscater, CPA</div><div class="ct-title">Chief Financial Officer, Frontline Insurance Reciprocal Exchange</div></div><div class="score" title="Role-fit score">78</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Planning Analytics</span><span class="tg">8 mo in role</span></div>
+        <div class="why">CFO of the reciprocal exchange (an insurance entity inside the group), with 15+ years at the company. The account shows high buyer intent.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAPerqgBhdSWHzDyJktaVpmhoaqFV1FYwWY,NAME_SEARCH,-aT6" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Not found in this pull: Michael K. McNitt (CEO &amp; Founder) and Brian Hanrahan (CFO) from Edition 12 did not appear in the first 25 of 58 results. Confirm they are still in role before using their names.</div></div>
+    </div>
+  </section>
+
+  <section class="acct" id="dmab" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>Data Management Brevard (DMAB)</h2><div class="hook">No company news this week · IBM Z hosting and managed IT partner · Brevard County, FL · Owner: Jim Gilbert</div></div>
+      <div class="cnt">0 named contacts · company not found in Sales Nav</div>
+    </div>
+    <div class="grid">
+      <div class="ct"><div class="note">No company page matching Data Management Brevard (DMAB) was found in Sales Navigator, and nothing was guessed. The earlier card named a role, not a person. Confirm the exact company name (it may be ColoBarn) before searching again.</div></div>
+    </div>
+  </section>
+
+  <div class="owner-band" id="own-ricardo"><span class="ob-name">Ricardo Valdes</span><span class="ob-sub">Book 2 · 3 accounts</span></div>
+
+  <section class="acct" id="dycom" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Dycom Industries Inc.</h2><div class="hook">Q3 results expected about Nov 24, date not confirmed (22 days) · Telecom contractor · $12.24B record backlog · Palm Beach Gardens, FL · Owner: Ricardo Valdes</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Regina Salazar</div><div class="ct-title">SVP, Chief Information &amp; Digital Officer</div></div><div class="score" title="Role-fit score">94</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Update CRM</span><span class="tg">6 TeamLink</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">New: 8 mo in role</span></div>
+        <div class="why">Top technology leader and new to the job (8 months). She has 6 TeamLink paths and IBM has talked to her before (Update CRM). The best first call at Dycom.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAABbJGcBNfK8tDdNEG_k46uJ4vadCp_ineo,NAME_SEARCH,JRXa" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Kevin Wetherington</div><div class="ct-title">Chief Operating Officer</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">1 TeamLink</span><span class="tg">Play: Maximo</span><span class="tg">2 yr 2 mo in role</span></div>
+        <div class="why">Runs field work across the crews. IBM has history with him (Update CRM) and 1 TeamLink path. Good for talks on keeping trucks, tools and sites running.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAACYDxZEB5KJJ4_hZOudFI9A85bhzRmQZynE,NAME_SEARCH,loza" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Ryan C.</div><div class="ct-title">Senior Director, IT Infrastructure &amp; Operations</div></div><div class="score" title="Role-fit score">86</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Turbonomic</span><span class="tg">3 yr 11 mo in role</span></div>
+        <div class="why">Runs the servers and cloud that power the business. Cloud cost and capacity are his daily work. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAACpPgjQBVD-H817p5DYJFh1obitV_Ase4bs,NAME_SEARCH,gwwg" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Simone Williams</div><div class="ct-title">Senior Director, Information Technology</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: Data Fabric</span><span class="tg">4 yr 10 mo in role</span></div>
+        <div class="why">Senior IT leader for almost 5 years. IBM has history with her (Update CRM). Knows how the business systems connect.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAjQv-0By-AMTfSzKsnp9j2iazMbjzVQD98,NAME_SEARCH,rmFW" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Claudia Cuesta</div><div class="ct-title">Director of Software Engineering</div></div><div class="score" title="Role-fit score">78</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: watsonx.data</span><span class="tg">4 yr 6 mo in role</span></div>
+        <div class="why">Leads the people who build Dycom's software. IBM has history with her (Update CRM). A good link to the data behind the $12.24B backlog.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAANVvskBEvJETfpYHFhigfi1FuEDgoLPLug,NAME_SEARCH,VuRD" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Audrey Bores</div><div class="ct-title">Vice President, Internal Audit</div></div><div class="score" title="Role-fit score">74</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Update CRM</span><span class="tg">2 TeamLink</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">New: 7 mo in role</span></div>
+        <div class="why">Checks the rules and controls across Dycom. She has 2 TeamLink paths and is new (7 months). Good for talks on keeping AI safe and auditable.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAFPePIB3iFdb4q_83UhBHaaA9APv2dq0UU,NAME_SEARCH,2Q9e" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">No CFO or finance leader appeared in the first 25 of 85 results. Edition 12 names Heather Floyd (Chief Accounting Officer) and Jacqueline Zygmund; neither appeared in this pull, so confirm they are still in role before using their names. Dan Peyovich (President &amp; CEO, 3rd degree, Update CRM) is also in Sales Nav if you want a top-level contact.</div></div>
+    </div>
+  </section>
+
+  <section class="acct" id="odp" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>ODP Corporation / Office Depot</h2><div class="hook">No company news this week · Office supplies · Atlas Holdings owns it · Boca Raton, FL · Owner: Ricardo Valdes · Also covered by BSS</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Khalid Saleem</div><div class="ct-title">Vice President, Omnichannel Operations &amp; Technology - Retail</div></div><div class="score" title="Role-fit score">92</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">New: 9 mo in role</span></div>
+        <div class="why">Leads the technology that connects stores and online. New to the job 9 months ago, and his profile calls him a Chief Digital &amp; Technology Officer. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAABjpIoBXeswmh4f8hkrdKfIHF1zOOKwj1A,NAME_SEARCH,UDqt" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Ranjith Chalasani</div><div class="ct-title">Senior Director, Advanced Analytics &amp; Data Science</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: watsonx.data</span><span class="tg">8 yr 8 mo in role</span></div>
+        <div class="why">Runs analytics and data science from Wellington, FL, and has 21 years at the company. He knows where the data lives.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAACkpBgB6Gdg9KD85w4NskkPFoiigKquvkw,NAME_SEARCH,MPfy" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Shana Redden</div><div class="ct-title">Director of IT Service Management</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Instana</span><span class="tg">6 yr 3 mo in role</span></div>
+        <div class="why">Runs how IT problems are tracked and fixed, in Boca Raton. Good for talks on spotting issues early.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAC2wbEBSMdoZHf2E7WmpM_HIj1mNQnQTiM,NAME_SEARCH,tm_l" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Michael Tuller, MBA</div><div class="ct-title">Vice President, FP&amp;A and Treasurer</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Planning Analytics</span><span class="tg">New: 9 mo in role</span></div>
+        <div class="why">Owns planning and cash for the company in Boca Raton. Atlas Holdings now owns ODP, so budget tools matter.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAABUibxEBzf5XotfJRrBEbGQ0MtSXxd5HEaw,NAME_SEARCH,KXAZ" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Anthony King</div><div class="ct-title">Vice President, Business Analytics</div></div><div class="score" title="Role-fit score">76</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: Planning Analytics</span><span class="tg">15 yr 11 mo in role</span></div>
+        <div class="why">Finance and analytics leader based in Orlando. Long-time employee. Not yet in the CRM and outside your network, so view the profile first.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAABWNcvUBsEUmUudyF39xHr8fkV3jljF8OPQ,OUT_OF_NETWORK,DwW3" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">David Centrella</div><div class="ct-title">EVP &amp; President, ODP Business Solutions</div></div><div class="score" title="Role-fit score">74</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: watsonx.data</span><span class="tg">4 yr 7 mo in role</span></div>
+        <div class="why">Leads the business-customer side, ODP's B2B restructuring. 28 years at the company. IBM has history with him (Update CRM).</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAChCbUBfBHoD0u1Pj-c8qlCY6JNJMW4u1E,NAME_SEARCH,qRaW" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Not found in this pull: Sonali Mukherjee (BI &amp; Analytics / Data Engineer) from Edition 12 did not appear in the top results. Confirm she is still in role before using her name. Sales Nav shows 161 matches for technology, data and finance roles at Office Depot.</div></div>
+    </div>
+  </section>
+
+  <section class="acct" id="ansco" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>ANSCO & Associates, LLC</h2><div class="hook">Wait for parent Dycom Q3 about Nov 24 · Telecom construction · Dycom subsidiary · Owner: Ricardo Valdes</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Dubi Kazula</div><div class="ct-title">President</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: Maximo</span><span class="tg">New: 5 mo in role</span></div>
+        <div class="why">Runs ANSCO and is new in the role (5 months). Not yet in the CRM. Best top-level contact if Dycom opens the door.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAJfvSwBZLBlZFjXlEgGcQ4g2VSRh3-u4IU,NAME_SEARCH,6Gsg" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Aron Soffer, CPA</div><div class="ct-title">Officer, Finance and Accounting</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Planning Analytics</span><span class="tg">4 yr 7 mo in role</span></div>
+        <div class="why">Top finance person we could find at ANSCO, in Atlanta. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAtA2iEBnMv9WgBOiHURiIhmn48Ut7MYCQs,NAME_SEARCH,Vm1W" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Bradford Sartain</div><div class="ct-title">Manager, Data Systems</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: Data Fabric</span><span class="tg">10 yr 5 mo in role</span></div>
+        <div class="why">The one data-focused role found at ANSCO. IBM has history with him (Update CRM) and he has been there over 10 years.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAoPMX4BSpQ27I-LDsCNP7f_ZXPuFHNOXPA,NAME_SEARCH,GnN8" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Andy Sams</div><div class="ct-title">Vice President, Wireless Operations</div></div><div class="score" title="Role-fit score">76</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: Maximo</span><span class="tg">3 yr 5 mo in role</span></div>
+        <div class="why">Runs the wireless crews. Field work and equipment uptime are his daily focus.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAfLHE0BDWoc52emIyVKQ1oN0YaDgzgPYqc,NAME_SEARCH,zbPt" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Patrick Ravita</div><div class="ct-title">Vice President, Wireline Operations</div></div><div class="score" title="Role-fit score">74</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Maximo</span><span class="tg">5 yr 4 mo in role</span></div>
+        <div class="why">Runs the wired (fiber and cable) crews, based in Alpharetta, GA. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAZO0UMB1dLZFRs6GHQVSfLN_7ROOsOroa8,NAME_SEARCH,ZLhD" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Michelle Grego</div><div class="ct-title">Financial Planning &amp; Analysis Manager</div></div><div class="score" title="Role-fit score">70</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Planning Analytics</span><span class="tg">New: 4 mo in role</span></div>
+        <div class="why">Builds the budgets and forecasts. Already in the CRM and the account shows high buyer intent.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAA_pnl8BBFSE1E4z5XCGmko-Qjh3sJRk3LM,NAME_SEARCH,QtYX" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">No CIO, IT director or CFO appeared in the 217 matches we scanned (first 25). ANSCO is a Dycom subsidiary, so IT decisions may sit at Dycom. Work this account together with the Dycom plan. Edition 12 names Audrey Bores and Heather Floyd (both Dycom-level); Audrey is now listed under Dycom.</div></div>
+    </div>
+  </section>
+
+  <div class="owner-band" id="own-pratap"><span class="ob-name">Pratap Kesarkar</span><span class="ob-sub">Book 3 · 2 accounts</span></div>
+
+  <section class="acct" id="kforce" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Kforce Inc.</h2><div class="hook">Q3 reported Oct 26, beat · no dated event in the next 10 days · Tech & finance staffing · $357.8M Q3 sales (+7.5%) · Tampa, FL · Owner: Pratap Kesarkar</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Taylor Howard</div><div class="ct-title">Chief Information Officer</div></div><div class="score" title="Role-fit score">94</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">New: 10 mo in role</span></div>
+        <div class="why">Top technology leader, based in St. Petersburg, FL, and new to the CIO job (10 months). Already in the CRM and the account shows high buyer intent. Best first call at Kforce.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAGRUskB8vJsL7ZkrwLPTYGAMkBC7lbDa7k,NAME_SEARCH,Ntla" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Joseph Buccini</div><div class="ct-title">Vice President of Technology Operations</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">5 TeamLink</span><span class="tg">Play: Turbonomic</span><span class="tg">4 yr 7 mo in role</span></div>
+        <div class="why">Runs day-to-day technology operations in Tampa and has 17 years at Kforce. He has 5 TeamLink paths, a warm way in.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAEKmTYB10I2HOlKH5jsfiOWVbO0lJ3jlxQ,NAME_SEARCH,VgfR" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Jerry Gates</div><div class="ct-title">VP, IT Emerging Technology</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">2 TeamLink</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">2 yr 6 mo in role</span></div>
+        <div class="why">Leads new technology (like AI) in Tampa. IBM has history with him (Update CRM) and he has 2 TeamLink paths.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAiXzcwBNJb-p2AMS5myI81uimLBkiaR2AY,NAME_SEARCH,wqwT" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Jeremiah Eleonora</div><div class="ct-title">Director, Data &amp; Analytics Delivery</div></div><div class="score" title="Role-fit score">86</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">In CRM</span><span class="tg">Play: watsonx.data</span><span class="tg">2 yr 4 mo in role</span></div>
+        <div class="why">Delivers data and analytics projects. He is a 2nd-degree connection with 1 mutual connection, the closest link on this list. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAA5wc4BMdl5a7b_mNmWrU2BgCYg8smnYJ4,NAME_SEARCH,h-EA" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Allan Walker</div><div class="ct-title">Senior Director, Business Intelligence &amp; Analytics</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Data Fabric</span><span class="tg">New: 11 mo in role</span></div>
+        <div class="why">Runs reports and analytics from the Tampa Bay area and has almost 25 years at the company. Just moved into this role. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAEbNeABzJg5m0AbkPr3g3X7tDEmVWVo4jg,NAME_SEARCH,JjRT" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Anil M.</div><div class="ct-title">Director of IT, BI and Analytics | AI</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">New: 4 mo in role</span></div>
+        <div class="why">New to the job 4 months ago and focused on AI, in Tampa. Not yet in the CRM, so this is a fresh name.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAFR3EcBDX6BJO-e-BWWFuHbecTlMKAscyU,NAME_SEARCH,M6q1" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Not found in this pull: Murtuza Ali Shakeel (Practice Leader, Data &amp; AI), Eric Duffek and Michael Pirone from Edition 12 were not chosen from the first 25 of 244 results. Confirm they are still in role before using their names. Many Kforce Sales Nav matches are Kforce sales and recruiting leaders, who were left out on purpose.</div></div>
+    </div>
+  </section>
+
+  <section class="acct" id="chicos" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>Chico's FAS / KnitWell Group</h2><div class="hook">No company news this week · New digital and data chief named Sep 22 · Women's clothing retail · Fort Myers, FL · Owner: Pratap Kesarkar</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Gary King</div><div class="ct-title">EVP and Chief Information Officer</div></div><div class="score" title="Role-fit score">92</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: Data Fabric</span><span class="tg">Tenure not shown</span></div>
+        <div class="why">Top technology leader in Fort Myers. IBM has history with him (Update CRM) and the account shows high buyer intent. Sales Nav shows no start date, so confirm he is still in role.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAAVqv0BGraucsQJdhnE9vL4fgnvQiBV9hI,NAME_SEARCH,azhK" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Matthew Sheret</div><div class="ct-title">Senior Vice President, Finance | Divisional CFO</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Planning Analytics</span><span class="tg">2 yr 5 mo in role</span></div>
+        <div class="why">Divisional CFO in Fort Myers with 8+ years at the company. Owns the brand budgets. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAKz0pkBsowyQbBp3bRv-NJI9otiqqgvKkQ,NAME_SEARCH,F5K0" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Sam S.</div><div class="ct-title">Senior Director of Applications, Commerce</div></div><div class="score" title="Role-fit score">86</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">1 TeamLink</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">9 yr 4 mo in role</span></div>
+        <div class="why">Runs the apps behind online shopping, in Fort Myers. IBM has history with him (Update CRM) and he has 1 TeamLink path.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAI2XsAB63vmkyFJkOnKQeC604DcbXmbIHE,NAME_SEARCH,eeCV" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Melody Plumb</div><div class="ct-title">Director, Digital Operations &amp; Content Management</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: watsonx.data</span><span class="tg">3 yr 4 mo in role</span></div>
+        <div class="why">Runs the eCommerce operations side. IBM has history with her (Update CRM). Carried over from Edition 12 and still in this pull.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAVkLqkBQ-NjRhgPIiwAFA3s-NE9yebot-8,NAME_SEARCH,qX5j" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Katie LaPiere</div><div class="ct-title">Director of Customer + Associate Experience, Technology and Product Integration</div></div><div class="score" title="Role-fit score">78</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">New: 11 mo in role</span></div>
+        <div class="why">Connects customer and staff experience with technology, based in the Tampa Bay area. IBM has history with her (Update CRM).</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAATLwzIBou3OfSyfKvuFVOwYE-WsS_zRVN8,NAME_SEARCH,tRYi" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Tim Record</div><div class="ct-title">Vice President, Loyalty, CRM, and Payments</div></div><div class="score" title="Role-fit score">76</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: watsonx.data</span><span class="tg">1 yr 10 mo in role</span></div>
+        <div class="why">Owns loyalty, customer data and payments. Customer data is the base for the new data-and-AI direction. Not yet in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAYDbD4Bq9nK0nsh4MVfOHT3LzyrwsEBp9g,NAME_SEARCH,6qWm" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Not found in this pull: the new Chief Digital &amp; Customer Data Officer named Sep 22 did not appear as a named profile in the results we scanned. Search Sales Nav by that exact title and confirm the name before reaching out. Edition 12 names Charles Starnes (Data Scientist) and Bree Dixon; Bree is still in the account but was not chosen this time.</div></div>
+    </div>
+  </section>
+
+  <div class="owner-band" id="own-spencer"><span class="ob-name">Spencer Fenelon</span><span class="ob-sub">Book 4 · 2 accounts</span></div>
+
+  <section class="acct" id="bk" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Burger King / RBI</h2><div class="hook">Q3 reported Oct 29 (Burger King U.S. strong, Popeyes weak) · no dated event in the next 10 days · 4 brands · Miami, FL · Owner: Spencer Fenelon</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Daniel Becker</div><div class="ct-title">Director of AI Enablement</div></div><div class="score" title="Role-fit score">98</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Not in CRM</span><span class="tg">1 TeamLink</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">New: 7 mo in role</span></div>
+        <div class="why">Leads AI enablement in Miami. A 2nd-degree connection with 1 mutual connection and 1 TeamLink path. The warmest AI contact at Burger King's parent.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAhu_IMBe_qImWScXBCIYbAvn5KDYGaMqGQ,NAME_SEARCH,zztK" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Marshall Lew</div><div class="ct-title">Vice President, Information Technology</div></div><div class="score" title="Role-fit score">94</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">13 TeamLink</span><span class="tg">Play: Turbonomic</span><span class="tg">2 yr 7 mo in role</span></div>
+        <div class="why">Senior IT leader in Miami with 13 TeamLink paths, the most of anyone in this batch. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAADVWMUBdo1DDUIDm3-sOJ6Ox0xao6t_-Xs,NAME_SEARCH,gIxD" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Chris Main</div><div class="ct-title">Chief Information Officer</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">2 TeamLink</span><span class="tg">Play: Data Fabric</span><span class="tg">3 yr 9 mo in role</span></div>
+        <div class="why">Top technology leader for the whole company, based in Toronto. 2 TeamLink paths and already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAEHW_YBkcb6F_BTqVt96k6ib3UmI73CJTo,NAME_SEARCH,nV1x" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Justin Domnitz</div><div class="ct-title">Senior Director of Data, Software Engineering</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">1 TeamLink</span><span class="tg">Play: watsonx.data</span><span class="tg">New: 10 mo in role</span></div>
+        <div class="why">Leads data and software engineering in Miami. New in the role (10 months) and has 1 TeamLink path.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAAnvp4B6o8tD89lcWz9Tq-BkWe-2j6tx0U,NAME_SEARCH,vm6F" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Pat Thompson</div><div class="ct-title">Director, IT Corporate Platforms &amp; Services</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">4 TeamLink</span><span class="tg">Play: Instana</span><span class="tg">2 yr 5 mo in role</span></div>
+        <div class="why">Runs the company's core business systems from Boca Raton. IBM has history with him (Update CRM) and he has 4 TeamLink paths.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAABtq7gB2qHE63x3A73tEaUdXso8vJtKEhI,NAME_SEARCH,g6Ca" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Henry Chang</div><div class="ct-title">Senior Director, Analytics &amp; Insights, Digital &amp; Data, RBI EMEA</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: watsonx.data</span><span class="tg">New: 6 mo in role</span></div>
+        <div class="why">Leads digital analytics for Europe, Middle East and Africa, but is based in Miami. Already in the CRM and has 11 years at the company.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAABL8-JEBBRJ8wEvBIwIuyREUjhVY6uXKhVg,NAME_SEARCH,BZJ7" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Edition 12 names Theodora Costley-White (UK) and Manuel Wild (Switzerland). Both are still in the pull but sit outside Florida, so they were left out this time. Sales Nav shows 262 matches at Restaurant Brands International, so more names are available on request.</div></div>
+    </div>
+  </section>
+
+  <section class="acct" id="hig" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>H.I.G. Capital</h2><div class="hook">MISTRAS shareholder vote Nov 24, no rival bids (22 days) · Private equity · $75B under management · 153+ companies · Miami, FL · Owner: Spencer Fenelon</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Luis Suarez</div><div class="ct-title">Chief Technology Officer</div></div><div class="score" title="Role-fit score">94</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">5 TeamLink</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">21 yr 7 mo in role</span></div>
+        <div class="why">Top technology leader and a 21-year veteran at H.I.G. IBM has history with him (Update CRM) and he has 5 TeamLink paths. Best first call.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAACAEqsBPUZ8th9JD_nRYn5xWj1RwliSAHQ,NAME_SEARCH,sQz1" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Marcos Marrero</div><div class="ct-title">Chief Information Security Officer</div></div><div class="score" title="Role-fit score">92</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">In CRM</span><span class="tg">4 TeamLink</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">9 yr 10 mo in role</span></div>
+        <div class="why">Miami-based. A 2nd-degree connection with 1 mutual and 4 TeamLink paths, the warmest way into H.I.G. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAGWfDQBlaVgNWFKWVlYLcbzJ8-Er05mPAo,NAME_SEARCH,AEGe" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Jay Maher</div><div class="ct-title">Global Chief Operating Officer</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Data Fabric</span><span class="tg">3 yr 1 mo in role</span></div>
+        <div class="why">Runs operations for the whole firm from Miami. Already in the CRM. Good for talks on joining data across 153+ portfolio companies.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAANPMpsBpQK21XE2R82tfxfEKV9uAKbNC9A,NAME_SEARCH,RR7T" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Mark Fiske</div><div class="ct-title">Managing Director, AI &amp; Commercial</div></div><div class="score" title="Role-fit score">86</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">New: 11 mo in role</span></div>
+        <div class="why">Leads AI and commercial work (based in San Francisco). New in the role (11 months). A direct AI voice at the firm.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAABj1bgByp3GrCyRGUUP5gezFW6JeJf1F94,NAME_SEARCH,DAje" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Kevin Barnes</div><div class="ct-title">Group Head &amp; Senior Operating Partner, Portfolio Technology</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: Turbonomic</span><span class="tg">1 yr 11 mo in role</span></div>
+        <div class="why">Guides technology across the portfolio companies. IBM has history with him (Update CRM). One conversation can reach many companies.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAFwlRoBOioJCdyl7-pMgUq6AiQEU7ZL7rk,NAME_SEARCH,XqZN" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Stephen Simmons</div><div class="ct-title">Head of Data and Performance Reporting</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: watsonx.data</span><span class="tg">2 yr 5 mo in role</span></div>
+        <div class="why">Owns the data and reporting the firm uses to track its companies. IBM has history with him (Update CRM).</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAAvOcAB4nHH7s0__HjnZxQcB4-2uqZNkIk,NAME_SEARCH,qPw6" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Not found in this pull: Anthony Chambers and Mike Gallagher (both Managing Directors) from Edition 12 did not appear in the first 25 of 242 results. Confirm they are still in role before using their names. Brian Schwartz (CEO, Miami, Not in CRM, high buyer intent) is also in Sales Nav if you want a top-level contact.</div></div>
+    </div>
+  </section>
+
+  <div class="owner-band" id="own-shari"><span class="ob-name">Shari Zahed</span><span class="ob-sub">Book 5 · 3 accounts</span></div>
+
+  <section class="acct" id="icahn" data-tier="strike">
+    <div class="acct-h">
+      <div><span class="tier t-strike">Strike</span><h2>Icahn Enterprises LP</h2><div class="hook">Q3 results Tue Nov 3, 10:00 AM ET (1 day) · Holding company that owns many businesses · Sunny Isles Beach, FL · Owner: Shari Zahed</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Sean Cooney</div><div class="ct-title">Chief Information Officer</div></div><div class="score" title="Role-fit score">92</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">1 TeamLink</span><span class="tg">Play: Data Fabric</span><span class="tg">5 yr 11 mo in role</span></div>
+        <div class="why">Top technology leader, based in Miami Beach. Already in the CRM and has 1 TeamLink path. Best first call before and after Q3 results on Tue Nov 3.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAYX-VEBezg6-ncYwpUga0f2Ixje8OcPeOE,NAME_SEARCH,sC3H" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Ted Papapostolou</div><div class="ct-title">Chief Financial Officer</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Planning Analytics</span><span class="tg">5 yr 1 mo in role</span></div>
+        <div class="why">Listed as CFO with 5+ years in role, and he is carried over from Edition 12. Q3 results come out Tue Nov 3, so this is the time to talk about planning across many businesses.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAADokXcBbC4Wrw3JdlyFE7KcFeH9FBbaAiA,NAME_SEARCH,m43T" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Robert E. Flint</div><div class="ct-title">Chief Financial Officer</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Planning Analytics</span><span class="tg">Tenure not shown</span></div>
+        <div class="why">Also listed as CFO at Icahn Enterprises, based in Miami Beach. Two CFOs appear in Sales Nav, so confirm who holds the role before reaching out.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAACLe-gB1cKQqYQkhgfrDmCnOLLYz_f51cI,NAME_SEARCH,jBxX" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Alex Servalis, CPA, CFE</div><div class="ct-title">Chief Audit Executive &amp; Chief Compliance Officer</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">4 yr 7 mo in role</span></div>
+        <div class="why">Checks the rules and controls across the group, in the Miami area. Good for talks on keeping AI safe and auditable.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAABjT48BkE0V2SdKBryDuh1aBGNGfC590Pg,NAME_SEARCH,6kGz" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Daniel DelloRusso</div><div class="ct-title">Director of IT</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Turbonomic</span><span class="tg">1 yr 11 mo in role</span></div>
+        <div class="why">Runs day-to-day IT in Miami and has 8 years at the company. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAABXRDccBTEnr_biAWMF7JNwvqIQ0cwa7e98,NAME_SEARCH,IbtG" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Mazin Aldibs</div><div class="ct-title">Director of Financial Projects</div></div><div class="score" title="Role-fit score">74</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: Planning Analytics</span><span class="tg">7 yr 11 mo in role</span></div>
+        <div class="why">Builds financial projections in Miami. The account shows moderate buyer intent. Not yet in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAv0WBQBm2SqyJg7MFHAB77uTTeBmSKG0HY,NAME_SEARCH,AFtm" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Sales Nav shows only 18 matches at Icahn Enterprises, so this is close to the full list of directors, VPs and chiefs. Two people appear as CFO (Papapostolou and Flint). Confirm which is current before using either name.</div></div>
+    </div>
+  </section>
+
+  <section class="acct" id="herc" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Herc Holdings / Herc Rentals</h2><div class="hook">Q3 reported Oct 27 (beat, raised outlook) · next dated event is the CEO change Jan 1 · Equipment rental · $1.364B Q3 sales · Bonita Springs, FL · Owner: Shari Zahed</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Tamir Peres</div><div class="ct-title">SVP &amp; Chief Information Officer</div></div><div class="score" title="Role-fit score">96</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">9 TeamLink</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">9 yr 11 mo in role</span></div>
+        <div class="why">Top technology leader, based in Bonita Springs, FL, with almost 10 years in the role. He has 9 TeamLink paths, the most at Herc. Not yet in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAA2SmQBdn-VZRzR45FNlRVEUZhS5B3DTeA,NAME_SEARCH,d5U_" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Rony Gotesdyner</div><div class="ct-title">Vice President, AI &amp; Digital Platforms Engineering</div></div><div class="score" title="Role-fit score">94</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">2 TeamLink</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">2 yr 2 mo in role</span></div>
+        <div class="why">Leads AI and digital platforms. IBM has history with him (Update CRM) and he has 2 TeamLink paths. The most direct AI contact.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAABzjQ0BZniSHc2luWY5DdJKv03zUbefAg8,NAME_SEARCH,naC9" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Suraj Pandya, PMP</div><div class="ct-title">Senior Director, Digital Strategy and Transformation</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">3 TeamLink</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">3 yr in role</span></div>
+        <div class="why">Plans how Herc changes its digital tools. 3 TeamLink paths. Not yet in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAFdqdYB6IW4EqpZFI23nRzQ0OEo5bdd-rQ,NAME_SEARCH,FdRB" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Manoj Joshi</div><div class="ct-title">Vice President, IT Enterprise Applications</div></div><div class="score" title="Role-fit score">86</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">2 TeamLink</span><span class="tg">Play: Data Fabric</span><span class="tg">2 yr 9 mo in role</span></div>
+        <div class="why">Runs the core business apps. 12 years at Herc and 2 TeamLink paths.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAKqmZQBjM3uIaLOaPO-2t62q_ncAINIRgE,NAME_SEARCH,UgM2" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Mark Humphrey, CPA</div><div class="ct-title">Chief Financial Officer</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">2 TeamLink</span><span class="tg">Play: Planning Analytics</span><span class="tg">Tenure not shown</span></div>
+        <div class="why">CFO based in Fort Myers. Already in the CRM and has 2 TeamLink paths. Q3 beat and a raised outlook make this a good time to talk planning.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAClJLsBvROLcq4S4rDe-NWjdgMZUbWC6jg,NAME_SEARCH,AuuF" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">John Burns</div><div class="ct-title">Senior Director, Finance Systems &amp; Transformation</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">2 TeamLink</span><span class="tg">Play: Planning Analytics</span><span class="tg">New: 5 mo in role</span></div>
+        <div class="why">New to the job 5 months ago and owns the finance systems. Already in the CRM and has 2 TeamLink paths.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAADgI1IBZEqbbe0z78oKiF9mNPgnWgbXvO0,NAME_SEARCH,3YxP" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Not found in this pull: Nicholas Pyzik (Senior Data Engineer) from Edition 12 did not appear in the first 25 of 54 results. Edward Goodan (Director of Sales Operations) is still at Herc but changed roles 3 months ago. Confirm names before using them.</div></div>
+    </div>
+  </section>
+
+  <section class="acct" id="mastec" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>MasTec Inc.</h2><div class="hook">Q3 reported Oct 29 (sales +30%, record $24.5B backlog) · no dated event in the next 10 days · Infrastructure contractor · Coral Gables, FL · Owner: Shari Zahed</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Albert Iturrey</div><div class="ct-title">Chief Information Officer</div></div><div class="score" title="Role-fit score">94</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">16 yr 2 mo in role</span></div>
+        <div class="why">Top technology leader, based in Miami, with 16 years in the CIO seat. Already in the CRM. Best first call after the record $24.5B backlog.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAADOKXMB62u94I595XsVXvYSNulRvdi_A3U,NAME_SEARCH,cTXz" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Avinash Devagan</div><div class="ct-title">Director of Information Technology</div></div><div class="score" title="Role-fit score">92</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">In CRM</span><span class="tg">3 TeamLink</span><span class="tg">Play: Data Fabric</span><span class="tg">3 yr 1 mo in role</span></div>
+        <div class="why">A 2nd-degree connection with 1 mutual and 3 TeamLink paths, a warm way in. Already in the CRM. Carried over from Edition 12.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAy-jnEB9kv4JLxJyle5CvbOtqiaI4b0l5A,NAME_SEARCH,mH-H" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Elias Ata</div><div class="ct-title">Senior Director, Systems Development</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Not in CRM</span><span class="tg">1 TeamLink</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">3 yr 8 mo in role</span></div>
+        <div class="why">Builds the company's internal systems (Dallas-Fort Worth). A 2nd-degree connection with 1 mutual and 1 TeamLink path. Not yet in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAARoAvEBG0wAvkrXVnQcoJBmWa19XOZ8KCM,NAME_SEARCH,BQDA" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Brian Santarcangelo</div><div class="ct-title">VP, Technology Solutions</div></div><div class="score" title="Role-fit score">86</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Turbonomic</span><span class="tg">10 yr 9 mo in role</span></div>
+        <div class="why">Miami-based technology VP with 20 years at MasTec. Already in the CRM and the account shows high buyer intent.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAAP3tUBJUNiuk2exlvUvLmDUueQkPEb7Fk,NAME_SEARCH,DiF8" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Kevin Lanners</div><div class="ct-title">IT Director</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">In CRM</span><span class="tg">2 TeamLink</span><span class="tg">Play: Instana</span><span class="tg">1 yr 11 mo in role</span></div>
+        <div class="why">A 2nd-degree connection with 1 mutual and 2 TeamLink paths, though based in Fargo, ND. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAFhPq8BICulG5Ht35VHlh6kaj7qybXa1BA,NAME_SEARCH,vZhv" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Frank A. Quereau, PMP</div><div class="ct-title">Director, PMO &amp; Business Analytics</div></div><div class="score" title="Role-fit score">78</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: Planning Analytics</span><span class="tg">5 yr 9 mo in role</span></div>
+        <div class="why">Runs project tracking and business analytics in Miami. Carried over from Edition 12. Not yet in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAExCYYB8y8YbkZ0HwBPf5SrAbKqVI8X2hI,NAME_SEARCH,Gupf" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Not found in this pull: Oscar Buonpensiere (Senior Manager IT, Internal Audit) from Edition 12 was not chosen from the first 25 of 90 results. Confirm he is still in role before using his name. H. Edison Humphries (VP &amp; CISO, Fort Lauderdale, In CRM) is also in Sales Nav. David Roberts (Chief Data Center Officer) is there too, but is based in Illinois.</div></div>
+    </div>
+  </section>
+
+  <div class="owner-band" id="own-michael"><span class="ob-name">Michael Sanchez</span><span class="ob-sub">Book 6 · 3 accounts</span></div>
+
+  <section class="acct" id="heico" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>HEICO Corporation</h2><div class="hook">Buying more companies, stock moving back up · no dated event in the next 10 days · next earnings about Dec 17, not re-verified · Aerospace & defense · Hollywood, FL · Owner: Michael Sanchez</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">William M. Velez</div><div class="ct-title">Chief Information Officer (CIO)</div></div><div class="score" title="Role-fit score">94</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">In CRM</span><span class="tg">4 TeamLink</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">2 yr 4 mo in role</span></div>
+        <div class="why">Top technology leader in the Miami-Fort Lauderdale area. A 2nd-degree connection with 4 TeamLink paths, and already in the CRM. Best first call at HEICO.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAAzg2cBgxcJs_J9qOXCkJGQYVemTF22r9A,NAME_SEARCH,vni0" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Harold Boada</div><div class="ct-title">Director of IT Services</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">2 TeamLink</span><span class="tg">Play: Instana</span><span class="tg">8 yr 4 mo in role</span></div>
+        <div class="why">Runs IT services from Hollywood, FL, with 20 years at HEICO. 2 TeamLink paths and already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAQ9WBUBQG784EsRC_K6KWs-1SJFQuKuQfg,NAME_SEARCH,-z-r" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Alexander M.</div><div class="ct-title">Vice President, Information Technology (HEICO Aerospace)</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: Data Fabric</span><span class="tg">Tenure not shown</span></div>
+        <div class="why">IT VP at HEICO Aerospace in Hollywood, FL. Not yet in the CRM, and you have viewed his profile before.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAC-yTCAB587u3MshblHcBRkVwe5RNB0XIyk,NAME_SEARCH,3--V" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Lindsey Mendelson Pearson</div><div class="ct-title">Director of Strategic Planning</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">1 TeamLink</span><span class="tg">Play: Planning Analytics</span><span class="tg">New: 11 mo in role</span></div>
+        <div class="why">Plans where HEICO goes next, in the Miami area. New in the role and has 1 TeamLink path. Carried over from Edition 12.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAABlMek0BHfVunzqfiNJqMaruRPVaHPl7ruQ,NAME_SEARCH,HjbV" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Matthew Moore</div><div class="ct-title">Director of Acquisitions</div></div><div class="score" title="Role-fit score">78</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">1 TeamLink</span><span class="tg">Play: watsonx.data</span><span class="tg">1 yr 11 mo in role</span></div>
+        <div class="why">Finds the companies HEICO buys, in Miami. HEICO is buying more companies, so joining their data fast matters. 1 TeamLink path and high buyer intent.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAABClgzoB5QLp_6Kll-2eTHHITj80l3A6f0k,NAME_SEARCH,1LJc" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Bradley Rowen</div><div class="ct-title">Chief Accounting Officer &amp; Assistant Treasurer</div></div><div class="score" title="Role-fit score">74</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Planning Analytics</span><span class="tg">1 yr 10 mo in role</span></div>
+        <div class="why">Top accounting leader, based in Pompano Beach. Already in the CRM. Good for talks on closing the books after each purchase.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAA_9GS8Bi8qICP634YChRJWtct4dIvda7J4,NAME_SEARCH,6S9t" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Not found in this pull: Daniel Yip (Manager, Internal Audit - IT) and Nicholas Smith (IT Support Analyst II) from Edition 12 did not appear in the first 25 of 45 results. Confirm they are still in role before using their names. HEICO is a group of many companies, so Sales Nav also lists many sales and engineering leaders, who were left out on purpose.</div></div>
+    </div>
+  </section>
+
+  <section class="acct" id="chewy" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Chewy Inc.</h2><div class="hook">AI savings plan of about $50M in FY27 · no dated event in the next 10 days · next earnings about Dec 9, not confirmed · Online pet store · Dania Beach, FL · Owner: Michael Sanchez</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Kiran Hegde</div><div class="ct-title">Senior Director, AI &amp; Agentic Platforms | Technical Advisor to the CEO</div></div><div class="score" title="Role-fit score">96</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">In CRM</span><span class="tg">11 TeamLink</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">1 yr 8 mo in role</span></div>
+        <div class="why">Leads AI and agent platforms and advises the CEO. A 2nd-degree connection with 1 mutual and 11 TeamLink paths, the best way in at Chewy. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAL3o7sBsXJtQcYz2-hV4Ghzi5pVhsYZgqg,NAME_SEARCH,mn1E" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Yunyan Wang</div><div class="ct-title">Chief Technology Officer</div></div><div class="score" title="Role-fit score">92</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">New: 7 mo in role</span></div>
+        <div class="why">Top technology leader, new in the job (7 months), based in Seattle. A new CTO sets the tools for the AI savings plan. Not yet in the CRM, high buyer intent.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAABCZJgBGtgUMRwF5F4hjGhFkrPYHREUAq4,NAME_SEARCH,iiqO" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Quinn Ye</div><div class="ct-title">Head of Data Science</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Not in CRM</span><span class="tg">1 TeamLink</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">1 yr 11 mo in role</span></div>
+        <div class="why">Leads data science. A 2nd-degree connection with 1 mutual and 1 TeamLink path. Carried over from Edition 12.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAC_jngBLrRuA2_HXULG-G6aU2EWF1i3vYA,NAME_SEARCH,tLYQ" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Jeff Greenfield</div><div class="ct-title">VP and Head of AI &amp; Data</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: watsonx.data</span><span class="tg">2 yr 2 mo in role</span></div>
+        <div class="why">Top AI and data leader in the Seattle group. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAK_hWQBFZ6EAWL7iBFRvB3IWoOoSPki7FY,NAME_SEARCH,iuwI" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Selen Onel</div><div class="ct-title">Associate Director, Pricing Data Science</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">1 TeamLink</span><span class="tg">Play: Planning Analytics</span><span class="tg">3 yr 4 mo in role</span></div>
+        <div class="why">One of the Florida-based data leaders (Hollywood, FL). Works on pricing models. Already in the CRM with 1 TeamLink path.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAADGyzYBKXl-kqolRkqOOk5GNjYPb9838yM,NAME_SEARCH,mpod" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Pete Brousseau</div><div class="ct-title">Director, Data Engineering, Science, and Analytics</div></div><div class="score" title="Role-fit score">78</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: watsonx.data</span><span class="tg">2 yr 3 mo in role</span></div>
+        <div class="why">Leads data engineering from Fort Lauderdale, close to the Dania Beach HQ. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAABeCxkIBovomy-4Nl-CgNasqUyEX4hY719k,NAME_SEARCH,B-7l" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Not found in this pull: Sumit Singh (CEO) from Edition 12 was not in the first 25 of 223 results. Cale H. (Senior Director, Analytics) is still at Chewy but is based in Phoenix. Miguel Gonzalez (Director of Financial Intelligence, Miami, In CRM) is also in Sales Nav if you want a finance contact. Confirm names before using them.</div></div>
+    </div>
+  </section>
+
+  <section class="acct" id="memorial" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Memorial Healthcare System</h2><div class="hook">Record year ($3.8B revenue) and a $670M tower under way · no dated event in the next 10 days · Public hospital system · 6 hospitals · Hollywood, FL · Owner: Michael Sanchez</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Humberto Quintanar</div><div class="ct-title">VP &amp; Chief Technology Officer</div></div><div class="score" title="Role-fit score">96</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">5 TeamLink</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">4 yr 9 mo in role</span></div>
+        <div class="why">Top technology leader, based in Hollywood, FL. IBM has history with him (Update CRM) and he has 5 TeamLink paths. Best first call at Memorial.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAA-P4kBMkp7PX4wXTzm2RU6meUJn_0Oa3s,NAME_SEARCH,kgC1" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Samir Wadhwa</div><div class="ct-title">Senior Director, Information Technology</div></div><div class="score" title="Role-fit score">92</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Update CRM</span><span class="tg">4 TeamLink</span><span class="tg">Play: Turbonomic</span><span class="tg">4 yr 2 mo in role</span></div>
+        <div class="why">Senior IT leader in Fort Lauderdale. A 2nd-degree connection with 1 mutual and 4 TeamLink paths, a warm way in. IBM has history with him (Update CRM).</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAEQMewBBtviVc7nWq5viyA0lyxiMOYuZfA,NAME_SEARCH,ctv-" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Wendy Walschlager</div><div class="ct-title">Director, Business Intelligence, Clinical Analytics</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: watsonx.data</span><span class="tg">10 yr 3 mo in role</span></div>
+        <div class="why">Runs the reports and data that doctors and nurses rely on. Has been in the role over 10 years. IBM has history with her (Update CRM).</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAwWFhwB_h71TczbqcjYoh5wBWpajcVNtYw,NAME_SEARCH,z37q" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Irfan Mirza</div><div class="ct-title">Chief Financial Officer</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: Planning Analytics</span><span class="tg">New: 5 mo in role</span></div>
+        <div class="why">Top money leader, new in the job (5 months), in Fort Lauderdale. A new CFO often reviews tools and budgets. Good for talks on the record year and the $670M tower.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAMCN0wBJiUg8rp9-LlZrlgTLkJRUgLjOnA,NAME_SEARCH,mfK_" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Rayna Ziadie</div><div class="ct-title">Senior Director, Digital Consumer Experience</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">2 yr 2 mo in role</span></div>
+        <div class="why">Runs the digital front door for patients (online booking and sign-up). 22 years at Memorial. IBM has history with her (Update CRM).</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAk_mYoB8GP2ASU9jK0FDf_SWzkAulOxMaM,NAME_SEARCH,pji-" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Steven Wilson</div><div class="ct-title">Director, Information Technology Infrastructure</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: Instana</span><span class="tg">3 yr 6 mo in role</span></div>
+        <div class="why">Runs the servers and networks behind 6 hospitals, in Fort Lauderdale. IBM has history with him (Update CRM). Fits new sites that must connect to the same systems.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAwSLeUBT2vEGxRgzMTTWeNFpHpUZ7LzOJE,NAME_SEARCH,UiKl" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Not found in this pull: Tahsine Omar, Kelly Brower and Richard Leon (CISO) from Edition 12 did not appear in the first 25 of 240 results. Confirm they are still in role before using their names. Sergio Santos, CPA, is also listed as Chief Financial Officer (7 months in role, 1 TeamLink path), so confirm which CFO is current. Memorial and the South Broward Hospital District are one account.</div></div>
+    </div>
+  </section>
+
+  <div class="owner-band" id="own-hazem"><span class="ob-name">Hazem Marzouk</span><span class="ob-sub">Book 7 · 3 accounts</span></div>
+
+  <section class="acct" id="lennar" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Lennar Corporation</h2><div class="hook">Berkshire now owns more than 10%, Millrose questions still open · no dated event in the next 10 days · next earnings about Dec 15, not re-verified · Homebuilder · Miami, FL · Owner: Hazem Marzouk</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Lee Slezak</div><div class="ct-title">SVP, Technology: Data &amp; AI</div></div><div class="score" title="Role-fit score">96</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">7 TeamLink</span><span class="tg">Play: watsonx.data</span><span class="tg">3 yr 7 mo in role</span></div>
+        <div class="why">Top data and AI leader, based in Miami. Already in the CRM and he has 7 TeamLink paths. Best first call at Lennar.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAE7X0oBoBcD5d19ipFEOvfbJyng6NjHhR8,NAME_SEARCH,bpNr" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Mike Ball</div><div class="ct-title">Director of Applied A.I. &amp; Agentic Solution Designs</div></div><div class="score" title="Role-fit score">94</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">In CRM</span><span class="tg">2 TeamLink</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">1 yr 1 mo in role</span></div>
+        <div class="why">Designs the AI agents (software helpers that do tasks) in Fort Lauderdale. A 2nd-degree connection with 1 mutual and 2 TeamLink paths. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAABn37EB_M8lHb-9Au8KIOQ4BW9It9eKeOw,NAME_SEARCH,1P0r" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Jason Astacio</div><div class="ct-title">VP of Cloud &amp; Cybersecurity</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: Turbonomic</span><span class="tg">3 yr 2 mo in role</span></div>
+        <div class="why">Leads cloud and cyber protection from the Miami-Fort Lauderdale area. IBM has history with him (Update CRM). Good for talks on cutting cloud cost.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAhvOxoBlt7mC0oxqYBjPOWE6mlzk_DCVBU,NAME_SEARCH,bPPB" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Chris Jones</div><div class="ct-title">Chief of Staff and Director, Enterprise Data, Analytics &amp; AI</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">2 yr 7 mo in role</span></div>
+        <div class="why">Runs enterprise data and AI plans and works close to leadership. IBM has history with him (Update CRM). Good for the margin-by-community questions.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAX7DMcB5KZFxkOkIqbgOX3rX037n64WEJs,NAME_SEARCH,fKOn" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Seth Amigo</div><div class="ct-title">Director, Data Analytics</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Data Fabric</span><span class="tg">4 yr 11 mo in role</span></div>
+        <div class="why">Leads data analytics from Fort Lauderdale for almost 5 years. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAHUNcYBoG1hfPChOQ_Ero9FGgumjSzKXH4,NAME_SEARCH,3R9C" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Dan A.</div><div class="ct-title">Director, Finance &amp; Planning - Technology &amp; Corporate</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">1 TeamLink</span><span class="tg">Play: Planning Analytics</span><span class="tg">9 mo in role</span></div>
+        <div class="why">Plans the money side of technology and corporate costs, in Miami. 1 TeamLink path. Not yet in the CRM. Good for cost-cutting talks.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAV1dl0BTzkohFkuzFUoEHV-8HiN99l-89Y,NAME_SEARCH,y5pe" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Not found in this pull: Nevin Yilmaz, Mohammad Umar and Tom Moreno (CIO, Lennar Financial Services) from Edition 12 did not appear in the first 25 of 254 results. Confirm they are still in role before using their names. Lennar has many people in sales and building roles, who were left out on purpose.</div></div>
+    </div>
+  </section>
+
+  <section class="acct" id="lennar-mortgage" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Lennar Mortgage</h2><div class="hook">Data-exposure incident and lawsuits are open · no company event in the next 10 days · credit-monitoring sign-up ends Nov 20 · Home loans · Part of Lennar · Owner: Hazem Marzouk</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Laura Escobar</div><div class="ct-title">President, Lennar Mortgage</div></div><div class="score" title="Role-fit score">94</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">1 TeamLink</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">8 yr 4 mo in role</span></div>
+        <div class="why">Runs the whole mortgage business, based in Miami. IBM has history with her (Update CRM) and 1 TeamLink path. The top-level contact after the data-exposure incident.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAANk4cIBMeaKSAVYKi-ShpLiiPtPYbncQ60,NAME_SEARCH,yX5h" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Mark Mudrey</div><div class="ct-title">Director, Data &amp; Analytics</div></div><div class="score" title="Role-fit score">92</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: watsonx.data</span><span class="tg">10 yr 7 mo in role</span></div>
+        <div class="why">Leads data and analytics from Clearwater, FL, for over 10 years. Already in the CRM. The closest data role found.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAEcl-kB49MeiC-xpHxBOgS-8XJa6IktHD0,NAME_SEARCH,kq2O" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Cindy Wortham, CRCM</div><div class="ct-title">Chief Compliance Officer</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">New: 2 mo in role</span></div>
+        <div class="why">Top rules-and-safety leader, new in the job (2 months), based in the Dallas-Fort Worth area. Not yet in the CRM. Good for talks on protecting customer data.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAJdlmMBUgquLEaU4PSD0F6878AEoJIjORY,NAME_SEARCH,oQoO" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Patti D.</div><div class="ct-title">SVP, Chief Legal and Risk Officer</div></div><div class="score" title="Role-fit score">86</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: Data Fabric</span><span class="tg">8 yr 8 mo in role</span></div>
+        <div class="why">Top legal and risk leader, based in Colorado. Not yet in the CRM. Owns the lawsuits and risk questions.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAKd0GoBxUsv1EfZiwpo2pnG6seVBUtagnc,NAME_SEARCH,83-L" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Hilda Melendez</div><div class="ct-title">Quality Control Systems Director</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: Instana</span><span class="tg">12 yr 10 mo in role</span></div>
+        <div class="why">Runs the systems that check loan quality, in Miami. IBM has history with her (Update CRM).</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAADxVisBkdAQcjooWoShMCIk-Hm1Z6gbH2g,NAME_SEARCH,p1ZM" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Stacey Reid</div><div class="ct-title">Senior Director of FP&amp;A</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: Planning Analytics</span><span class="tg">1 yr 4 mo in role</span></div>
+        <div class="why">Plans and tracks the money (FP&amp;A), based in Largo, FL. IBM has history with her (Update CRM). Good for cost-per-loan talks.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAEP3t4BXt3LU-_XqD_2mbrl3US-bFyUGlk,NAME_SEARCH,QJzJ" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Not found in this pull: Tom Moreno (CIO, Lennar Financial Services) from Edition 12 was not among the 27 Lennar Mortgage results. No CIO or CTO appears in this company, so tech may sit with parent Lennar. Confirm before using his name. Most people here are mortgage operations and are based outside Florida.</div></div>
+    </div>
+  </section>
+
+  <section class="acct" id="pellera" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>Pellera Technologies</h2><div class="hook">No new Pellera news this week · Q4 partner planning is the timing · IBM co-sell partner · Converge + Mainline merged · Boca Raton, FL · Owner: Hazem Marzouk</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Greg Berard</div><div class="ct-title">Chief Executive Officer</div></div><div class="score" title="Role-fit score">96</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">In CRM</span><span class="tg">207 TeamLink</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">1 yr 8 mo in role</span></div>
+        <div class="why">Top leader of the company. A 2nd-degree connection with 2 mutuals and 207 TeamLink paths, the warmest way in. Already in the CRM. Pellera is an IBM co-sell partner, so this is a partnership talk.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAABTy84BnwRlRon06ql280-xQ4A-EQphPRc,NAME_SEARCH,rsQX" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Darrin Nelson</div><div class="ct-title">Executive Vice President of Strategic Growth and GTM Enablement</div></div><div class="score" title="Role-fit score">94</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Update CRM</span><span class="tg">327 TeamLink</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">1 yr 3 mo in role</span></div>
+        <div class="why">Works out how Pellera takes new offers to market, based in Boca Raton. A 2nd-degree connection with 2 mutuals and 327 TeamLink paths. IBM has history with him (Update CRM).</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAAZLOsBRAewUehfm4MZ9nL-F0OMXzm4L0o,NAME_SEARCH,Dknv" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Manoj Khabe</div><div class="ct-title">VP of Observability &amp; Intelligent Operations, Office of the CTO, AI Governance</div></div><div class="score" title="Role-fit score">92</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">In CRM</span><span class="tg">130 TeamLink</span><span class="tg">Play: Instana</span><span class="tg">13 yr 10 mo in role</span></div>
+        <div class="why">Leads the monitoring and AI-governance work in the CTO office (New York). 130 TeamLink paths and already in the CRM. A natural fit for Instana and watsonx.governance.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAIITmAB2ZFGHWidPQ_WRvo85JBe0x4oqZ8,NAME_SEARCH,PUl_" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">David Luftig</div><div class="ct-title">Executive Vice President, Advanced Solutions</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Update CRM</span><span class="tg">261 TeamLink</span><span class="tg">Play: Data Fabric</span><span class="tg">1 yr 5 mo in role</span></div>
+        <div class="why">Leads the advanced technology offers, in New York. A 2nd-degree connection with 2 mutuals and 261 TeamLink paths. IBM has history with him (Update CRM).</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAA041cBTxkjZSwGPQUPee3vxS0pNxTzOU8,NAME_SEARCH,jiio" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Farhan Hussain</div><div class="ct-title">Vice President - Hybrid Cloud, Application Modernization and Data</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Update CRM</span><span class="tg">55 TeamLink</span><span class="tg">Play: watsonx.data</span><span class="tg">1 yr 5 mo in role</span></div>
+        <div class="why">Owns the cloud, app update and data offers (Dallas-Fort Worth). A 2nd-degree connection with 1 mutual and 55 TeamLink paths. IBM has history with him (Update CRM).</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAB18WMBhfZDWmIAE5sGJWfcLU4gwsaUSrk,NAME_SEARCH,vSBN" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Maneesh Kapoor</div><div class="ct-title">Global Head of Infrastructure &amp; IT Operations</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Update CRM</span><span class="tg">3 TeamLink</span><span class="tg">Play: Turbonomic</span><span class="tg">6 yr 11 mo in role</span></div>
+        <div class="why">Runs Pellera's own IT and servers worldwide. A 2nd-degree connection with 3 TeamLink paths. IBM has history with him (Update CRM). The best contact for Pellera as a customer, not just a partner.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAABXg6cBBOyNtpRU5Jn15UreJqIMilpCm6M,NAME_SEARCH,oRPl" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Not found in this pull: Jeff Dobbelaere (President &amp; COO) and John Cagnina (CIO) from Edition 12 did not appear in the first 25 of 187 results. Confirm they are still in role before using their names. Pellera is an IBM co-sell partner with a national team, so most people here are outside Florida. Darrin Nelson (Boca Raton) and Doug Harrell (Regional VP of Sales, Tallahassee, In CRM) are the Florida names.</div></div>
+    </div>
+  </section>
+
+  <div class="owner-band" id="own-mijee"><span class="ob-name">Mijee Walker</span><span class="ob-sub">Books 8 + 9 · 7 accounts</span></div>
+
+  <section class="acct" id="octave" data-tier="strike">
+    <div class="acct-h">
+      <div><span class="tier t-strike">Strike</span><h2>Octave Intelligence (Nasdaq: OCTV)</h2><div class="hook">Q3 results Thu Nov 12, 7:00 AM ET (10 days) · Software company spun off from Hexagon in May 2026 · about $1.6B sales · Huntsville, AL · Owner: Mijee Walker</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Julio P. Roque</div><div class="ct-title">VP, Engineering Excellence / Head of Application and AI Security</div></div><div class="score" title="Role-fit score">96</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Update CRM</span><span class="tg">13 TeamLink</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">New: 5 mo in role</span></div>
+        <div class="why">The only South Florida (Miami-Fort Lauderdale) leader found. New in the role. A 2nd-degree connection with 1 mutual and 13 TeamLink paths. IBM has history with him (Update CRM). Best first call at Octave.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAACnS0BmhGwqaCjDWXpArOk4EnAKKCK2Ms,NAME_SEARCH,m9Zv" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Dena Vogelpohl</div><div class="ct-title">Executive Director, Global IT</div></div><div class="score" title="Role-fit score">94</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Update CRM</span><span class="tg">2 TeamLink</span><span class="tg">Play: Turbonomic</span><span class="tg">New: 6 mo in role</span></div>
+        <div class="why">Runs IT worldwide from Huntsville, AL. New in the role (6 months). A 2nd-degree connection with 1 mutual and 2 TeamLink paths. IBM has history with her (Update CRM). Carried over from Edition 12 and still in this pull.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAA68GuEBEnSBYcij-3xkHecpoMu8B6Lf2Sw,NAME_SEARCH,oqUK" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Lawrence Benson</div><div class="ct-title">Vice President - Data &amp; AI Platform Capability</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">11 TeamLink</span><span class="tg">Play: watsonx.data</span><span class="tg">1 yr 1 mo in role</span></div>
+        <div class="why">Leads the data and AI platform, based in Austin, TX. IBM has history with him (Update CRM) and he has 11 TeamLink paths. Good for talks on the product clean-up under "Tempo".</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAFNPGMBaCOgUkysMwewjRR5hS0LLYNwkIo,NAME_SEARCH,Qr9s" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Vivek Mokashi</div><div class="ct-title">Chief Technology Officer</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: Data Fabric</span><span class="tg">New: 9 mo in role</span></div>
+        <div class="why">Top technology leader, new in the job (9 months), based in Alpharetta, GA. Not yet in the CRM. A new CTO often reviews the tools.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAARIEGYBGc9tocas0sJa2Bk0E0HYSp6I0ng,NAME_SEARCH,fEDZ" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Ben Maslen</div><div class="ct-title">EVP and Chief Financial Officer</div></div><div class="score" title="Role-fit score">86</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: Planning Analytics</span><span class="tg">1 yr 1 mo in role</span></div>
+        <div class="why">Top money leader, based in London. Not yet in the CRM. Good for talks before the Nov 12 results, on the shift to subscription sales.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAA-iXXsB85IcAKmS3zZDcjII4q9BK57SwfA,NAME_SEARCH,J564" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Margaret Dellinger, PMP</div><div class="ct-title">Vice President Technology Operations</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: Instana</span><span class="tg">New: 7 mo in role</span></div>
+        <div class="why">Runs day-to-day technology operations from Decatur, AL. New in the role. IBM has history with her (Update CRM).</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAABHrEoBxtKPjkVQoxluAsPl_7JhbgmN6e8,NAME_SEARCH,9RQy" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Octave is a global software company (HQ Huntsville, AL), and 375 results came back. Only Julio P. Roque is in the Miami-Fort Lauderdale area. Mattias Stenberg (CEO, Huntsville, 3rd degree, Not in CRM) is also in Sales Nav if you want a top-level contact. Edition 12 named only Dena Vogelpohl, and she is still in this pull.</div></div>
+    </div>
+  </section>
+
+  <section class="acct" id="sgws" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Southern Glazer's Wine & Spirits</h2><div class="hook">New Bacardi deal Oct 28 · six years of FTC price oversight · no dated event in the next 10 days · Beverage distributor · about $26B in sales · Miami, FL · Owner: Mijee Walker</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Stephen B.</div><div class="ct-title">Chief Information and Technology Officer</div></div><div class="score" title="Role-fit score">96</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Not in CRM</span><span class="tg">10 TeamLink</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">1 yr 4 mo in role</span></div>
+        <div class="why">Top technology leader, based in Fort Lauderdale. A 2nd-degree connection with 1 mutual and 10 TeamLink paths. Not yet in the CRM. Best first call at SGWS.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAAMdpUBL842mORbDB-ql11kL4lQeH8HB24,NAME_SEARCH,diQV" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Ulbricht Sylvestre</div><div class="ct-title">Sr. Director, Data Platforms &amp; AI (Cloud, Agentic AI, Security &amp; FinOps)</div></div><div class="score" title="Role-fit score">94</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Not in CRM</span><span class="tg">17 TeamLink</span><span class="tg">Play: watsonx.data</span><span class="tg">3 yr 7 mo in role</span></div>
+        <div class="why">Owns the data platforms and AI, including cloud cost (FinOps). A 2nd-degree connection with 1 mutual and 17 TeamLink paths. Not yet in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAABFX0UBsu2J3CvCtCMRoBOORDrpnyexxIQ,NAME_SEARCH,g0Gn" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Tiffany N Thompson</div><div class="ct-title">Vice President of Technology</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Update CRM</span><span class="tg">3 TeamLink</span><span class="tg">Play: Turbonomic</span><span class="tg">2 yr 11 mo in role</span></div>
+        <div class="why">Technology VP in Fort Lauderdale. A 2nd-degree connection with 1 mutual and 3 TeamLink paths. IBM has history with her (Update CRM).</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAA-b_YBR4tQBWAYP17XgZw43m4uSKkuD44,NAME_SEARCH,8rEy" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Sundeep PV</div><div class="ct-title">Sr. Director, Enterprise Architecture</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Update CRM</span><span class="tg">27 TeamLink</span><span class="tg">Play: Data Fabric</span><span class="tg">2 yr 5 mo in role</span></div>
+        <div class="why">Designs how SGWS systems fit together, based in Miami. A 2nd-degree connection with 3 mutuals and 27 TeamLink paths, a warm way in. IBM has history with him (Update CRM).</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAABSZiYgBcuz2VI3JUQLYn-zB8yX8xmsd-VY,NAME_SEARCH,bEnl" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Matt Xhemajli</div><div class="ct-title">Director, Data &amp; AI Product Leader</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">1 yr 11 mo in role</span></div>
+        <div class="why">Leads data and AI products from the Miami-Fort Lauderdale area. IBM has history with him (Update CRM).</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAMq2zkBa8QPjPMKxt0NMovDqrQXcxPWY_U,NAME_SEARCH,5dGa" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Bharathi Sampangi</div><div class="ct-title">SVP Data and AI</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">1 yr 3 mo in role</span></div>
+        <div class="why">Top data and AI leader, based in the San Francisco Bay Area (outside Florida). IBM has history with her (Update CRM). Good for the company-wide AI plan.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAnQPYwBp0PYGmxVV4_bIcYim6UXEmzaL5E,NAME_SEARCH,pPg-" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Not found in this pull: Roberto di Bari, Zeeshan Afzal and Stephen Bronson from Edition 12 did not appear in the first 25 of 774 results. Confirm they are still in role before using their names. SGWS is a national company, so Sales Nav also lists many sales and regional leaders outside Florida, who were left out on purpose.</div></div>
+    </div>
+  </section>
+
+  <section class="acct" id="nclh" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Norwegian Cruise Line Holdings</h2><div class="hook">Q3 reported Oct 29 (beat, raised full-year outlook) · Q4 outlook is weak · no dated event in the next 10 days · Cruise line · 3 brands · $2.95B Q3 sales · Miami, FL · Owner: Mijee Walker</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Daniel Henry</div><div class="ct-title">EVP - Chief Digital &amp; Technology Officer</div></div><div class="score" title="Role-fit score">96</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">In CRM</span><span class="tg">33 TeamLink</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">1 yr 5 mo in role</span></div>
+        <div class="why">Top technology leader, based in Dallas-Fort Worth. A 2nd-degree connection with 1 mutual and 33 TeamLink paths, the warmest way in. Already in the CRM. Best first call at NCLH.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAAJQjYBVFdetOs7BF2tEKeimn9kskj7ypc,NAME_SEARCH,owkZ" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Justin Martin, MBA, PMP, CBPP, CPMAI</div><div class="ct-title">Director of Operational AI &amp; Innovation</div></div><div class="score" title="Role-fit score">94</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">In CRM</span><span class="tg">11 TeamLink</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">New: 2 mo in role</span></div>
+        <div class="why">Leads AI that runs day-to-day work, based in Hollywood, FL. New in the role (2 months). A 2nd-degree connection with 1 mutual and 11 TeamLink paths. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAfTW2cBtN7tH8sPYnc3wI6u21SH8o6U1ho,NAME_SEARCH,b9KY" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Abhilash Vareekal</div><div class="ct-title">Vice President of Technology</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">In CRM</span><span class="tg">2 TeamLink</span><span class="tg">Play: Turbonomic</span><span class="tg">4 yr 10 mo in role</span></div>
+        <div class="why">Technology VP in the Miami-Fort Lauderdale area. A 2nd-degree connection with 1 mutual and 2 TeamLink paths. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAPEuewBJ08MOBuL1SgTxFSILmU9ivyW_iY,NAME_SEARCH,b6Gy" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Reinaldo Calzadilla, MBA, CISA, PMP</div><div class="ct-title">Vice President, Enterprise Data and Marketing Technology</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">1 TeamLink</span><span class="tg">Play: watsonx.data</span><span class="tg">3 yr 11 mo in role</span></div>
+        <div class="why">Owns company-wide data and marketing technology in the Miami-Fort Lauderdale area. Already in the CRM with 1 TeamLink path.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAAODtgBuiRWXj5yxIRdEOxsXDGkIU-BvYs,NAME_SEARCH,ps1D" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Mitchell Peacock</div><div class="ct-title">VP, Vessel Operations Analytics and Data Strategy</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">2 TeamLink</span><span class="tg">Play: Data Fabric</span><span class="tg">2 yr 9 mo in role</span></div>
+        <div class="why">Turns ship data into plans, in the Miami-Fort Lauderdale area. Already in the CRM with 2 TeamLink paths. Good for talks on data from the fleet.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAAcLscBuVfwffnRU_Z7hOvIWzCouYHhs7w,NAME_SEARCH,ACne" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Douglas Hungerford</div><div class="ct-title">Senior Director, Revenue Technology</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Update CRM</span><span class="tg">1 TeamLink</span><span class="tg">Play: Planning Analytics</span><span class="tg">New: 3 mo in role</span></div>
+        <div class="why">Runs the technology behind pricing and bookings, based in Miami. New in the role (3 months). A 2nd-degree connection with 1 mutual and 1 TeamLink path. IBM has history with him (Update CRM). Carried over from Edition 12 and still in this pull.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAALP8aIBZmtd4fN4GLdnts_44Q-rotcHRr0,NAME_SEARCH,tjKQ" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Edition 12 names still in this pull: Douglas Hungerford, Justin Martin and Nath M. (Nath M. was left out this time because he is based in San Diego). Not found in this pull: Aaron Fossum is still listed (Greater Seattle, Update CRM) but is outside Florida, so he was left out. Dennis Lejardi did not appear in the first 25 of 269 results. Confirm before using his name.</div></div>
+    </div>
+  </section>
+
+  <section class="acct" id="citco" data-tier="engage">
+    <div class="acct-h">
+      <div><span class="tier t-engage">Engage</span><h2>Citco Group</h2><div class="hook">New Q3 hedge fund report Oct 27 · fast growth in new fund types · no dated event in the next 10 days · Fund administration · Modernization program under way · Owner: Mijee Walker</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Stuart London</div><div class="ct-title">Head of IT, SEVP</div></div><div class="score" title="Role-fit score">96</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">1 TeamLink</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">29 yr 5 mo in role</span></div>
+        <div class="why">Top IT leader and the only Florida-based Citco leader found (Vero Beach, FL), with 29 years at the firm. IBM has history with him (Update CRM) and he has 1 TeamLink path. Best first call.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAB_KCQBW20ai4M-oBJv6oBz6E_agofvM2c,NAME_SEARCH,n3u0" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Girish Thiagaraj</div><div class="ct-title">Managing Director &amp; Global Head - Portfolio Data Operations</div></div><div class="score" title="Role-fit score">92</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">2 TeamLink</span><span class="tg">Play: watsonx.data</span><span class="tg">6 yr 11 mo in role</span></div>
+        <div class="why">Runs the data operations for fund portfolios worldwide (Singapore). IBM has history with him (Update CRM) and he has 2 TeamLink paths.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAADomGQB0OSu3SEzVgzl1EfSPEH2AYK2W-U,NAME_SEARCH,v3r_" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Laura Paltanea</div><div class="ct-title">Head of Data Governance</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">2 yr 9 mo in role</span></div>
+        <div class="why">Owns the rules for how data is used and protected, based in Luxembourg. Not yet in the CRM. A strong fit for AI governance.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAA4xr-cBculyn3DwmR1AkFmqtLuEd_kan7I,NAME_SEARCH,enwR" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Mark Hoare</div><div class="ct-title">Head of Information Technology and Business Process Optimisation</div></div><div class="score" title="Role-fit score">86</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Instana</span><span class="tg">4 yr 3 mo in role</span></div>
+        <div class="why">Runs IT and process improvement from Ireland. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAjChPoBBxFaBFP1lD-6DJdIkPn7IDN69mo,NAME_SEARCH,caIE" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Thomas McGuire</div><div class="ct-title">Global Co-Head of IT PMO (EVP)</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Turbonomic</span><span class="tg">1 yr 2 mo in role</span></div>
+        <div class="why">Co-leads the office that tracks IT projects worldwide, based in Ireland. Already in the CRM. Fits the modernization program.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAJLkioBzghG7kA5MaeaOX4jU5fkG1dsgGI,NAME_SEARCH,bvkE" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Rachid Taimouri</div><div class="ct-title">Head of Product - Fund Analytics</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: Planning Analytics</span><span class="tg">6 yr 11 mo in role</span></div>
+        <div class="why">Owns the fund analytics product, based in Dublin. Not yet in the CRM. Good for talks on faster, cleaner fund reports.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAC9wB4Bugkq1JeAraxa6zKhPMnL6gFmEOI,NAME_SEARCH,8XIi" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Citco is a global firm (323 results). Stuart London is the only Florida-based leader found, so most of these contacts are in Europe, Asia and North America. Edition 12 names Michael Peterson, Christiaan de Haseth and Vyshnavi Andhavarapu; none appeared in the first 25 results, so confirm they are still in role before using their names.</div></div>
+    </div>
+  </section>
+
+  <section class="acct" id="jmf" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>JM Family Enterprises</h2><div class="hook">No new JM Family business news this week · Q4 budget season is the timing · Auto and financial services · About $16B in sales · Deerfield Beach, FL · Owner: Mijee Walker</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">John Damalas</div><div class="ct-title">Group Vice President, Chief Technology Officer</div></div><div class="score" title="Role-fit score">96</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">14 TeamLink</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">3 yr 2 mo in role</span></div>
+        <div class="why">Top technology leader, based in Deerfield Beach. Already in the CRM and he has 14 TeamLink paths. Best first call at JM Family. Carried over from Edition 12.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAACOk50BQR18neu63en7iT83KMp_PPXLVUA,NAME_SEARCH,LNQ_" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Philip Austin</div><div class="ct-title">Director, Enterprise Data+AI Architect</div></div><div class="score" title="Role-fit score">94</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">In CRM</span><span class="tg">24 TeamLink</span><span class="tg">Play: watsonx.data</span><span class="tg">2 yr 6 mo in role</span></div>
+        <div class="why">Designs how data and AI fit together, in Fort Lauderdale. A 2nd-degree connection with 2 mutuals and 24 TeamLink paths, a warm way in. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAACOPVUBo2XEUGUun97HwH4P8QWCoC_YyTc,NAME_SEARCH,Z29e" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Joshua Bass</div><div class="ct-title">Vice President of AI at JM&amp;A Group</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">2 TeamLink</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">New: 4 mo in role</span></div>
+        <div class="why">Leads AI at the JM&amp;A Group business, in Pompano Beach. New in the role (4 months). IBM has history with him (Update CRM) and he has 2 TeamLink paths.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAAH77sBfpaYpYo0EdC_-L4LFEZ6dEUObzA,NAME_SEARCH,AhZf" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Larry Kreger</div><div class="ct-title">Director, Operations and Technology</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">In CRM</span><span class="tg">6 TeamLink</span><span class="tg">Play: Turbonomic</span><span class="tg">4 yr 6 mo in role</span></div>
+        <div class="why">Runs operations and technology in Deerfield Beach. A 2nd-degree connection with 2 mutuals and 6 TeamLink paths. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAASSIM8BXPth_qg3GEvK2SKR9zFKS_SyqMc,NAME_SEARCH,qGwK" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Jonathan Garcia, MBA</div><div class="ct-title">IT Delivery Director</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">In CRM</span><span class="tg">4 TeamLink</span><span class="tg">Play: Instana</span><span class="tg">3 yr 11 mo in role</span></div>
+        <div class="why">Gets IT projects delivered, based in Lake Worth. A 2nd-degree connection with 1 mutual and 4 TeamLink paths. Already in the CRM. Carried over from Edition 12 and still in this pull.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAA_KklgB8lDb10KPjEQjQbqvSr81bLyZILM,NAME_SEARCH,r-mU" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Kathy Vazquez</div><div class="ct-title">Vice President Information Technology</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: Data Fabric</span><span class="tg">5 yr 2 mo in role</span></div>
+        <div class="why">IT VP in Deerfield Beach for over 5 years. IBM has history with her (Update CRM).</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAGC01cB1FksZmTqM0v80ilISSI8v8Pq9YY,NAME_SEARCH,Nv5C" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Edition 12 names John Damalas and Jonathan Garcia are still in this pull. Anthony Blanksteen did not appear in the first 25 of 91 results. Confirm he is still in role before using his name. Victor Campos (CISO, Miami, In CRM, 3 TeamLink paths) is also in Sales Nav if you want a security contact.</div></div>
+    </div>
+  </section>
+
+  <section class="acct" id="hexagon-mining" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>Hexagon Mining</h2><div class="hook">Parent had a strong Q3 and is buying companies · nothing dated for Mining itself · Mining technology and AI · MinePlan software · Owner: Mijee Walker</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Dave Goddard</div><div class="ct-title">President, Mining Division</div></div><div class="score" title="Role-fit score">94</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">1 yr 4 mo in role</span></div>
+        <div class="why">Top leader of the mining business, based in Denver. IBM has history with him (Update CRM). Best first call at Hexagon Mining.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAADJQyIBWBBbhof2KjxXdgJzocIGn4AONtU,NAME_SEARCH,zJZp" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Zhanyou Huang</div><div class="ct-title">Director of Software Strategy &amp; Operations</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: watsonx.data</span><span class="tg">3 yr 4 mo in role</span></div>
+        <div class="why">Plans and runs the software side, based in Tucson, AZ. IBM has history with him (Update CRM). Fits the MinePlan software line.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAt4xOIBxcpV9-e2IYDa2ufYdWkImkSEvuk,NAME_SEARCH,Efog" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Russ Armbrust</div><div class="ct-title">Sr. Director of Global Strategic Accounts and Global Partnerships</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">14 TeamLink</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">2 yr 5 mo in role</span></div>
+        <div class="why">Manages the biggest accounts and partners worldwide, based in Denver. IBM has history with him (Update CRM) and he has 14 TeamLink paths, the warmest way in.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAIVtOUBOcZZHDTJb_FNq8jrMzpcpxWHfQ4,NAME_SEARCH,lH2y" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Kyle Duffy</div><div class="ct-title">Service &amp; Support Director, USCA</div></div><div class="score" title="Role-fit score">86</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Update CRM</span><span class="tg">5 TeamLink</span><span class="tg">Play: Instana</span><span class="tg">3 yr 2 mo in role</span></div>
+        <div class="why">Runs service and support for the US and Canada, based in Denver. A 2nd-degree connection with 1 mutual and 5 TeamLink paths. IBM has history with him (Update CRM). Carried over from Edition 12 and still in this pull.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAGUy7kBFF0pyBuVaSm5z8tk_-1WrnPQekA,NAME_SEARCH,DdzK" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Edgar Sepulveda</div><div class="ct-title">Global Technical Director, Operations</div></div><div class="score" title="Role-fit score">82</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: Turbonomic</span><span class="tg">2 yr 3 mo in role</span></div>
+        <div class="why">Leads technical operations worldwide, based in Tucson, AZ. Not yet in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAr0kpABhuX_ZywOyTdWRqgz5xuWu6mcNPQ,NAME_SEARCH,PKZc" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Jane Beynon</div><div class="ct-title">Director of Sales Enablement and Process</div></div><div class="score" title="Role-fit score">78</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-warm">Warm (2nd)</span><span class="tg">Not in CRM</span><span class="tg">3 TeamLink</span><span class="tg">Play: Data Fabric</span><span class="tg">2 yr 3 mo in role</span></div>
+        <div class="why">Sets up how the sales teams work and share data, based in Colorado. A 2nd-degree connection with 1 mutual and 3 TeamLink paths. Not yet in the CRM. Carried over from Edition 12 and still in this pull.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAA9h9kBHM22u5xRnWdbJvwkLEn-jCLXfAA,NAME_SEARCH,ivuy" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">No one in the first 25 of 65 results is based in Florida. Hexagon Mining is run from Denver, Tucson and other mining hubs, and the Florida link is the IBM account team only. Edition 12 names Jane Beynon and Kyle Duffy are still in this pull. Sales Nav tags this company "Exclude/Out", which is a filter flag in the saved account list. Check it before outreach.</div></div>
+    </div>
+  </section>
+
+  <section class="acct" id="hexagon-federal" data-tier="standby">
+    <div class="acct-h">
+      <div><span class="tier t-standby">Standby</span><h2>Hexagon US Federal</h2><div class="hook">No news for this unit · parent's defense-driven growth is the only signal · Defense and location-data AI · Chantilly, VA · Owner: Mijee Walker</div></div>
+      <div class="cnt">6 contacts · pulled from Sales Nav Nov 2</div>
+    </div>
+    <div class="grid">
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Andre' Leassear</div><div class="ct-title">Vice President</div></div><div class="score" title="Role-fit score">92</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: watsonx.ai + governance</span><span class="tg">6 yr 10 mo in role</span></div>
+        <div class="why">Senior leader of the federal unit, based in Woodbridge, VA. Not yet in the CRM. The top-level contact found.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAIm_SQBQsqTNiZX29LnL7fZkYNQhooAMaU,NAME_SEARCH,ilwR" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct executive">
+        <div class="ct-top"><div><div class="ct-name">Rob Mott</div><div class="ct-title">Vice President</div></div><div class="score" title="Role-fit score">90</div></div>
+        <div class="tags"><span class="tg b-executive">Executive</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: watsonx Orchestrate</span><span class="tg">Tenure not shown</span></div>
+        <div class="why">Senior leader, based in Sterling, VA. Already in the CRM. Sales Nav shows no start date for the role, so confirm he is still in it.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAALD9s0BNbSI0gzv2Qip9H940Bc4OB5mZBg,NAME_SEARCH,EbDE" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Kevin Saint-Surin</div><div class="ct-title">Technical Director</div></div><div class="score" title="Role-fit score">88</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Update CRM</span><span class="tg">Play: watsonx.data</span><span class="tg">2 yr 11 mo in role</span></div>
+        <div class="why">Leads technical work, based in Fairfax, VA. IBM has history with him (Update CRM). Carried over from Edition 12 and still in this pull.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAABFAH3oBbXBpQlKpXyD2I9HMm3FeSJEdx_M,NAME_SEARCH,DSAE" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Micah Bench</div><div class="ct-title">Executive Product Director</div></div><div class="score" title="Role-fit score">84</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">In CRM</span><span class="tg">Play: Data Fabric</span><span class="tg">5 yr 11 mo in role</span></div>
+        <div class="why">Owns the products, based in Dayton, OH. Already in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAT-Ef8Brft7mSdduuuevLLFS0c1uEj4ZJ8,NAME_SEARCH,lRSg" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Barry Bolton</div><div class="ct-title">PNT Director</div></div><div class="score" title="Role-fit score">80</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: Instana</span><span class="tg">New: 3 mo in role</span></div>
+        <div class="why">Leads PNT (positioning, navigation and timing, the tech behind precise location). New in the role (3 months), in the Washington DC-Baltimore area. Not yet in the CRM. Carried over from Edition 12 and still in this pull.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAADf5JABMVz-_IVPCefhHhL_juR02K6wn14,NAME_SEARCH,5CuJ" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct practitioner">
+        <div class="ct-top"><div><div class="ct-name">Ryan Morrison</div><div class="ct-title">Director of Geosystems</div></div><div class="score" title="Role-fit score">76</div></div>
+        <div class="tags"><span class="tg b-practitioner">Practitioner</span><span class="tg b-cold">Cold (3rd)</span><span class="tg">Not in CRM</span><span class="tg">Play: Turbonomic</span><span class="tg">4 yr 8 mo in role</span></div>
+        <div class="why">Runs the Geosystems line from Chantilly, VA, where the unit is based. Not yet in the CRM.</div>
+        <div class="ct-foot"><a class="li" href="https://www.linkedin.com/sales/lead/ACwAAAuiB3EBNuCqpbMsBock0J6npHuGrMEspIo,NAME_SEARCH,cnqu" target="_blank" rel="noopener">Sales Nav Lead ↗</a></div>
+      </div>
+      <div class="ct"><div class="note">Only 12 results came back and none are based in Florida. Edition 12 names Kevin Saint-Surin and Barry Bolton are still in this pull. Left out on purpose: Russ Holder (Sales Nav shows "Former Senior Vice President"), Ken Barnett (board member) and Gregory Vogel (consultant at a different firm).</div></div>
+    </div>
+  </section>
+
+  <h3 class="sec">Profiles Screened and Excluded</h3>
+  <p style="font-size:13px;color:#555;margin:0 0 8px">Departures below were found in the Edition 12 screening (Oct 26) and were not re-checked this week. People left out of this edition because they sit outside Florida or in a different role are explained in each account's note.</p>
+  <table>
+    <tr><th>Name</th><th>Account</th><th>Reason for Exclusion</th></tr>
+    <tr><td><strong>Andrew Parry</strong></td><td>ODP</td><td>Profile shows Fractional CIO / CTO from Jun 2026 and PetMeds CTO. Excluded as departed.</td></tr>
+    <tr><td><strong>David Reeder</strong></td><td>Chewy</td><td>Departed Chewy CFO (Aug 2025); now Entegris CEO. Excluded.</td></tr>
+    <tr><td><strong>Andrew Stein</strong></td><td>Chewy</td><td>Moved to VP role at CLEAR (Aug 2026). Excluded.</td></tr>
+    <tr><td><strong>Daniel Choi</strong></td><td>Chewy</td><td>Departed Chewy (Sep 2024; Hootsuite). Excluded.</td></tr>
+    <tr><td><strong>Clint Pies</strong></td><td>MasTec</td><td>Chief People Officer through Jun 2026; now at Clarios. Excluded.</td></tr>
+    <tr><td><strong>Scott Spradley</strong></td><td>Lennar</td><td>Lennar CTO role ended May 2025. Excluded.</td></tr>
+    <tr><td><strong>Andrew Teno</strong></td><td>Icahn</td><td>Icahn Enterprises CEO role concluded May 2026; now at Blackstone. Excluded.</td></tr>
+    <tr><td><strong>Ann Dozier</strong></td><td>SGWS</td><td>Former CIO; succeeded by Stephen Bronson (Aug 2025). Excluded.</td></tr>
+    <tr><td><strong>David Kelly</strong></td><td>Kforce</td><td>Former CFO; superseded by Jeffrey Hackman (Sep 2023). Excluded.</td></tr>
+    <tr><td><strong>Russ Holder</strong></td><td>Hexagon US Federal</td><td>Sales Nav shows "Former Senior Vice President". Excluded (Nov 2 pull).</td></tr>
+  </table>
+
+  <div class="foot">Made with IBM Bob · Edition 13 · Nov 2, 2026</div>
+</div>
+</body>
+</html>

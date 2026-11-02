@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE Horizon | My Accounts | Phase 3 | Nov 2, 2026 | Edition 13</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f0f2f5; --card:#ffffff; --surface:#f4f6f9; --border:#dde1e9;
+  --text:#161616; --muted:#525252; --accent:#0f62fe; --accent-dk:#0043ce;
+  --navy:#0f1c3a; --green:#006e2e;
+  --saas:#00A86B; --saas-dim:rgba(0,168,107,.10); --saas-line:rgba(0,168,107,.35);
+  --trans:#8B5CF6; --trans-dim:rgba(139,92,246,.10); --trans-line:rgba(139,92,246,.35);
+  --ibm:#0f62fe; --ibm-line:rgba(15,98,254,.35);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'IBM Plex Sans',-apple-system,sans-serif;font-size:14px;line-height:1.6;background:var(--bg);color:var(--text);}
+a{text-decoration:none;}
+
+/* TOPBAR */
+.se-topbar{background:#1a1a1a;border-bottom:3px solid var(--accent);padding:0 24px;height:46px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.se-topbar-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.se-topbar-ibm{font-size:18px;font-weight:900;color:#fff;letter-spacing:-0.5px;}
+.se-topbar-div{width:1px;height:16px;background:#3a3a3a;}
+.se-topbar-title{font-size:12px;font-weight:600;color:#a8c8ff;}
+.se-topbar-badge{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;background:var(--accent);color:#fff;padding:2px 9px;border-radius:20px;}
+.se-topbar-mid{display:flex;align-items:center;gap:2px;flex:1;justify-content:center;}
+.se-topbar-mid a{font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);padding:5px 10px;border-radius:3px;border-bottom:2px solid transparent;}
+.se-topbar-mid a:hover{color:#fff;background:rgba(255,255,255,0.07);}
+.se-topbar-mid a.active{color:#fff;border-bottom-color:var(--accent);}
+.se-topbar-mid a.back{color:#a8c8ff;font-size:10.5px;}
+.se-topbar-mid .div{color:#3a3a3a;padding:0 4px;font-size:11px;}
+.se-topbar-right{font-size:10px;color:#5a5a5a;flex-shrink:0;}
+
+/* MOCK BANNER */
+.mock-banner{background:#0a1628;border-bottom:2px solid var(--accent);padding:7px 24px;display:flex;align-items:center;gap:10px;}
+.mock-banner-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#a8c8ff;background:var(--accent);padding:3px 9px;border-radius:2px;}
+.mock-banner-txt{font-size:11px;color:#4a6a9a;}
+
+/* SHELL */
+.p3-shell{display:grid;grid-template-columns:300px 1fr;height:calc(100vh - 79px);overflow:hidden;}
+
+/* RAIL */
+.rail{background:var(--navy);overflow-y:auto;display:flex;flex-direction:column;border-right:1px solid rgba(255,255,255,0.08);}
+.rail-hdr{padding:12px 16px 10px;border-bottom:1px solid rgba(255,255,255,0.08);position:sticky;top:0;background:var(--navy);z-index:10;}
+.rail-title{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#4a6080;margin-bottom:8px;}
+.filter-zone-lbl{font-family:'IBM Plex Mono',monospace;font-size:7.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#2d4a6a;margin-bottom:5px;}
+.filter-zone-sep{height:1px;background:rgba(255,255,255,0.06);margin:8px 0;}
+.filter-row{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:5px;}
+.fp{font-family:'IBM Plex Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;cursor:pointer;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);background:transparent;transition:all .12s;}
+.fp:hover{border-color:rgba(255,255,255,0.35);color:rgba(255,255,255,0.85);}
+.fp.on{background:var(--accent);border-color:var(--accent);color:#fff;}
+.fp.dai{border-color:rgba(168,200,255,.25);color:#a8c8ff;}
+.fp.dai.on{background:#001d6c;border-color:#a8c8ff;}
+.fp.auto{border-color:rgba(212,187,255,.25);color:#d4bbff;}
+.fp.auto.on{background:#1c0f30;border-color:#d4bbff;}
+.fp.stor{border-color:rgba(111,220,140,.25);color:#6fdc8c;}
+.fp.stor.on{background:#061a0e;border-color:#6fdc8c;}
+.fp.pc{border-color:rgba(212,160,23,.25);color:#d4a017;}
+.fp.pc.on{background:#1c1500;border-color:#d4a017;}
+
+/* CLUSTER */
+.cluster{margin-top:2px;}
+.cluster-hdr{padding:9px 16px 5px;display:flex;justify-content:space-between;align-items:center;}
+.cluster-lbl{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#2d4a6a;}
+.cluster-ct{font-family:'IBM Plex Mono',monospace;font-size:8px;color:#2d4a6a;}
+.rail-body{flex:1;padding-bottom:16px;}
+
+/* RAIL ACCOUNT CARD */
+.ra{padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.04);cursor:pointer;transition:background .12s;border-left:3px solid transparent;}
+.ra:hover{background:rgba(255,255,255,0.04);}
+.ra.on{background:rgba(15,98,254,0.15);border-left-color:var(--accent);}
+.ra.on .ra-name{color:#fff;}
+.ra-top{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;margin-bottom:3px;}
+.ra-name{font-size:11.5px;font-weight:700;color:#c8d8ea;line-height:1.2;}
+.ra-urg{font-family:'IBM Plex Mono',monospace;font-size:7.5px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;padding:2px 6px;border-radius:2px;white-space:nowrap;flex-shrink:0;}
+.u-strike{background:#7f1d1d;color:#fca5a5;}
+.u-engage{background:#431407;color:#fdba74;}
+.u-standby{background:#0c1a2e;color:#93c5fd;}
+.ra-hook{font-size:10px;color:#4a6a8a;line-height:1.4;font-style:italic;margin-bottom:4px;}
+.ra-brands{display:flex;gap:3px;flex-wrap:wrap;}
+.rb{font-family:'IBM Plex Mono',monospace;font-size:7px;font-weight:700;letter-spacing:0.3px;text-transform:uppercase;padding:2px 6px;border-radius:2px;}
+.rb-dai{background:#001d6c;color:#a8c8ff;}
+.rb-auto{background:#1c0f30;color:#d4bbff;}
+.rb-stor{background:#061a0e;color:#6fdc8c;}
+.rb-pc{background:#1c1500;color:#d4a017;}
+
+/* DETAIL */
+.detail{background:var(--bg);overflow-y:auto;}
+.detail-empty{display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);font-size:13px;font-style:italic;}
+
+/* ACCOUNT HEADER */
+.acct-hdr{background:var(--card);border-bottom:3px solid var(--accent);padding:20px 28px;}
+.acct-hdr-top{display:flex;align-items:flex-start;gap:16px;margin-bottom:10px;}
+.acct-logo-cell{flex-shrink:0;width:100px;height:60px;display:flex;align-items:center;justify-content:center;background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:6px 10px;overflow:hidden;}
+.acct-logo-cell img{max-width:88px;max-height:48px;object-fit:contain;mix-blend-mode:multiply;}
+.acct-title{flex:1;}
+.acct-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#6b8cb8;margin-bottom:3px;}
+.acct-name{font-size:22px;font-weight:900;color:var(--navy);line-height:1.1;letter-spacing:-0.3px;}
+.acct-meta{font-size:12px;color:var(--muted);margin-top:2px;}
+.acct-hdr-bottom{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.acct-urg{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:3px;}
+.acct-badge{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:3px 9px;border-radius:3px;}
+.acct-thesis{font-size:12.5px;color:var(--muted);line-height:1.7;padding-top:12px;border-top:1px solid var(--border);}
+.acct-thesis strong{color:var(--text);font-weight:600;}
+.acct-thesis .thesis-angle{display:block;margin-top:8px;font-size:11.5px;color:#1e3a6a;background:#edf3ff;border-left:3px solid var(--accent);padding:7px 10px;border-radius:2px;line-height:1.6;font-style:normal;}
+.acct-vitals{display:flex;gap:0;margin-top:12px;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.vital{flex:1;padding:8px 12px;border-right:1px solid var(--border);background:var(--surface);}
+.vital:last-child{border-right:none;}
+.vital-lbl{font-family:'IBM Plex Mono',monospace;font-size:7.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:2px;}
+.vital-val{font-size:12px;font-weight:700;color:var(--text);line-height:1.3;}
+.vital-sub{font-size:10px;color:var(--muted);margin-top:1px;}
+
+/* SECTION HEADER */
+.detail-body{padding:0 28px 36px;}
+.sec{margin:22px 0 10px;display:flex;align-items:center;gap:10px;}
+.sec-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+.sec-line{flex:1;height:1px;background:var(--border);}
+
+/* SAAS & TRANSACTION SALES SECTION */
+.saas-tx-block{background:var(--card);border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-bottom:4px;}
+.saas-tx-hdr{background:#0a1628;padding:10px 16px;font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#a8c8ff;border-bottom:1px solid rgba(255,255,255,0.08);}
+.saas-tx-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;}
+.saas-tx-cell{padding:14px 16px;border-right:1px solid var(--border);}
+.saas-tx-cell:last-child{border-right:none;}
+.stc-type{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
+.stc-type.saas{color:var(--saas);}
+.stc-type.trans{color:var(--trans);}
+.stc-type.motion{color:var(--ibm);}
+.stc-bar{height:3px;border-radius:2px;margin-bottom:10px;}
+.stc-bar.saas{background:var(--saas);}
+.stc-bar.trans{background:var(--trans);}
+.stc-bar.motion{background:var(--ibm);}
+.stc-brand{font-family:'IBM Plex Mono',monospace;font-size:7.5px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;padding:2px 8px;border-radius:20px;display:inline-block;margin-bottom:8px;}
+.stc-brand.saas{background:var(--saas);color:#000;}
+.stc-brand.trans{background:var(--trans);color:#fff;}
+.stc-brand.motion{background:var(--ibm);color:#fff;}
+.stc-txt{font-size:11px;color:var(--muted);line-height:1.55;}
+
+/* HEAT SCORES */
+.heat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.heat-card{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--hc,var(--border));border-radius:5px;padding:12px 14px;}
+.heat-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;}
+.heat-play{font-size:11.5px;font-weight:700;color:var(--text);line-height:1.3;}
+.heat-score-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex-shrink:0;}
+.heat-score{font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:700;line-height:1;color:var(--hc,var(--muted));}
+.heat-rating{font-family:'IBM Plex Mono',monospace;font-size:7.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--hc,var(--muted));}
+.heat-bar{height:4px;background:var(--border);border-radius:2px;margin-bottom:6px;}
+.heat-fill{height:100%;border-radius:2px;background:var(--hc,var(--accent));width:var(--pct,50%);}
+.heat-deal{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--muted);margin-bottom:6px;}
+.heat-conviction{font-size:10.5px;color:#2d3f5a;line-height:1.5;border-top:1px solid var(--border);padding-top:6px;margin-top:2px;}
+
+/* ACTION SEQUENCE */
+.aseq{display:flex;flex-direction:column;gap:0;}
+.aseq-gate{background:#0f1c3a;border:1px solid rgba(168,200,255,0.12);border-left:4px solid var(--accent);border-radius:4px;padding:10px 14px;margin-bottom:12px;display:flex;align-items:flex-start;gap:10px;}
+.aseq-gate-icon{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#a8c8ff;background:var(--accent);padding:3px 8px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.aseq-gate-body{flex:1;}
+.aseq-gate-text{font-size:11.5px;color:#c8d8ea;line-height:1.5;font-weight:600;}
+.aseq-gate-sub{font-size:10px;color:#6b8cb8;line-height:1.4;margin-top:3px;}
+.aseq-step{background:var(--card);border:1px solid var(--border);border-radius:4px;margin-bottom:6px;overflow:hidden;display:flex;}
+.aseq-num{font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:700;color:var(--accent);background:var(--surface);border-right:1px solid var(--border);padding:12px 14px;display:flex;align-items:center;justify-content:center;min-width:52px;flex-shrink:0;line-height:1;}
+.aseq-body{flex:1;padding:11px 14px;}
+.aseq-who{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.aseq-action{font-size:12.5px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:4px;}
+.aseq-why{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:7px;}
+.aseq-meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
+.aseq-tag{font-family:'IBM Plex Mono',monospace;font-size:7.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:2px;white-space:nowrap;}
+.as-now{background:#7f1d1d;color:#fca5a5;}
+.as-week{background:#431407;color:#fdba74;}
+.as-month{background:#0c1a2e;color:#93c5fd;}
+
+/* WIN LIST */
+.win-list{display:flex;flex-direction:column;gap:8px;}
+.win-item{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start;}
+.win-num{font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:700;color:var(--accent);line-height:1;flex-shrink:0;min-width:24px;}
+.win-body{}
+.win-title{font-size:12px;font-weight:700;color:var(--text);margin-bottom:3px;line-height:1.3;}
+.win-why{font-size:11px;color:var(--muted);line-height:1.5;}
+
+/* THIS WEEK'S MOVE */
+.move{background:var(--navy);border-radius:5px;padding:16px 20px;margin-top:4px;}
+.move-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;}
+.move-row:last-child{margin-bottom:0;}
+.move-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:var(--accent);padding:5px 0;min-width:100px;width:100px;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.move-lbl-warn{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:#7f1d1d;padding:5px 0;min-width:100px;width:100px;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.move-text{font-size:12px;color:#c8d8ea;line-height:1.6;}
+.move-track-text{font-size:12px;color:#8a9ab8;font-style:italic;line-height:1.6;border-left:3px solid var(--accent);padding-left:10px;}
+
+/* BRIEF LINK */
+.brief-link-row{margin-top:16px;display:flex;justify-content:flex-end;}
+.brief-link{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:8px 20px;border-radius:3px;}
+.brief-link:hover{background:var(--accent-dk);}
+
+/* SIGNALS */
+.signals{display:flex;flex-direction:column;gap:10px;}
+.signal{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--sc,var(--border));border-radius:4px;padding:12px 14px;}
+.signal-top{display:flex;align-items:center;gap:8px;margin-bottom:5px;}
+.signal-type{font-family:'IBM Plex Mono',monospace;font-size:7.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:2px 7px;border-radius:2px;color:#fff;background:var(--sc,var(--muted));white-space:nowrap;flex-shrink:0;}
+.signal-ts{font-family:'IBM Plex Mono',monospace;font-size:8.5px;font-weight:600;letter-spacing:0.3px;color:var(--muted);}
+.signal-head{font-size:12px;font-weight:700;color:var(--text);margin-bottom:5px;line-height:1.3;}
+.signal-body{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:7px;}
+.signal-angle{font-size:11px;color:#1e3a6a;background:#edf3ff;border-left:3px solid var(--accent);padding:6px 10px;border-radius:2px;line-height:1.5;}
+.signal-angle strong{font-weight:700;color:var(--accent);}
+
+/* COMPETITIVE THREATS */
+.threats{display:flex;flex-direction:column;gap:10px;}
+.threat{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--tc2,#7f1d1d);border-radius:4px;padding:12px 14px;}
+.threat-top{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+.threat-name{font-size:13px;font-weight:800;color:var(--text);}
+.threat-level{font-family:'IBM Plex Mono',monospace;font-size:7.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:2px 8px;border-radius:2px;flex-shrink:0;}
+.tl-active{background:#7f1d1d;color:#fca5a5;}
+.tl-monitor{background:#1c1500;color:#d4a017;}
+.tl-emerging{background:#0c1a2e;color:#93c5fd;}
+.threat-doing{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:7px;}
+.threat-doing-lbl{font-family:'IBM Plex Mono',monospace;font-size:7.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px;}
+.threat-counter{font-size:11px;color:#166534;background:#dcfce7;border-left:3px solid #166534;padding:6px 10px;border-radius:2px;line-height:1.5;}
+.threat-counter-lbl{font-family:'IBM Plex Mono',monospace;font-size:7.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#166534;display:block;margin-bottom:2px;}
+/* OBJECTION HANDLER */
+.obj-list{display:flex;flex-direction:column;gap:10px;}
+.obj-card{background:var(--card);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.obj-q{padding:10px 14px 8px;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start;}
+.obj-q-icon{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:2px;background:#1c1500;color:#d4a017;white-space:nowrap;flex-shrink:0;margin-top:1px;}
+.obj-q-text{font-size:12px;font-weight:700;color:var(--text);line-height:1.4;font-style:italic;}
+.obj-a{padding:8px 14px 10px;background:var(--surface);}
+.obj-a-lbl{font-family:'IBM Plex Mono',monospace;font-size:7.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:4px;}
+.obj-a-text{font-size:11px;color:#2d3f5a;line-height:1.5;margin-bottom:6px;}
+.obj-kill{font-size:11px;font-weight:700;color:#fff;background:var(--navy);border-left:3px solid var(--accent);padding:5px 10px;border-radius:2px;line-height:1.4;}
+.obj-kill-lbl{font-family:'IBM Plex Mono',monospace;font-size:7px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#a8c8ff;display:block;margin-bottom:2px;}
+/* BETS */
+.bets-grid{display:flex;flex-direction:column;gap:10px;}
+.bet-card{border-radius:5px;padding:14px 16px;border:1px solid var(--border);border-left:4px solid var(--bc,var(--accent));background:var(--bs,var(--card));}
+.bet-tag{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--bc,var(--accent));margin-bottom:6px;}
+.bet-play{font-size:13px;font-weight:800;color:var(--text);line-height:1.3;margin-bottom:8px;}
+.bet-why{font-size:11.5px;color:#2d3f5a;line-height:1.6;margin-bottom:8px;}
+.bet-size{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;color:var(--muted);display:inline-block;background:var(--surface);border:1px solid var(--border);padding:3px 10px;border-radius:3px;}
+/* DISPLACEMENT MAP */
+.disp-table{width:100%;border-collapse:collapse;font-size:11px;}
+.disp-table thead tr{border-bottom:2px solid var(--border);}
+.disp-table th{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);padding:6px 10px;text-align:left;background:var(--surface);}
+.disp-table tbody tr{border-bottom:1px solid var(--border);}
+.disp-table tbody tr:last-child{border-bottom:none;}
+.disp-table td{padding:10px;vertical-align:top;background:var(--card);}
+.disp-num{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:var(--accent);}
+.disp-inc{font-size:12px;font-weight:700;color:var(--text);margin-bottom:3px;line-height:1.3;}
+.disp-window{font-size:10.5px;color:#1e3a6a;background:#edf3ff;border-left:3px solid var(--accent);padding:5px 9px;border-radius:2px;line-height:1.5;}
+.disp-window-lbl{font-family:'IBM Plex Mono',monospace;font-size:7.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--accent);display:inline-block;margin-right:6px;}
+.disp-arrow{font-size:18px;color:var(--muted);text-align:center;padding:10px 6px;vertical-align:middle;}
+.disp-ibm{font-size:12px;font-weight:700;color:var(--navy);margin-bottom:4px;line-height:1.3;}
+.disp-score-col{text-align:right;min-width:80px;vertical-align:middle;}
+.disp-score{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:700;line-height:1;display:block;margin-bottom:3px;}
+.disp-deal{font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:var(--muted);white-space:nowrap;margin-bottom:5px;display:block;}
+.disp-bar{height:5px;background:var(--border);border-radius:3px;width:72px;margin-left:auto;}
+.disp-bar-fill{height:100%;border-radius:3px;background:currentColor;width:var(--pct,50%);}
+@media(max-width:900px){
+  .p3-shell{grid-template-columns:1fr;}
+  .rail{height:auto;max-height:260px;}
+  .heat-grid{grid-template-columns:1fr 1fr;}
+  .saas-tx-grid{grid-template-columns:1fr;}
+  .saas-tx-cell{border-right:none;border-bottom:1px solid var(--border);}
+  .saas-tx-cell:last-child{border-bottom:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="se-topbar">
+  <div class="se-topbar-left">
+    <span class="se-topbar-ibm">IBM</span>
+    <div class="se-topbar-div"></div>
+    <span class="se-topbar-title">SE Horizon</span>
+    <span class="se-topbar-badge">Phase 3</span>
+  </div>
+  <div class="se-topbar-mid">
+    <a href="phase1.html" class="back">← Radar</a>
+    <span class="div">|</span>
+    <a href="phase2.html">Phase 2</a>
+    <span class="div">|</span>
+    <a href="phase3.html" class="active">Phase 3</a>
+    <span class="div">|</span>
+    <a href="phase4.html">Phase 4</a>
+  </div>
+  <span class="se-topbar-right">SE Horizon · Edition 13 · Nov 2, 2026</span>
+</div>
+
+<div class="mock-banner">
+  <span class="mock-banner-lbl">Edition 13</span>
+  <span class="mock-banner-txt">Phase 3 — My Accounts · Nov 2, 2026 · 26 accounts · SaaS &amp; Transaction Sales · Grouped by account owner + BSS views · Strike / Engage / Standby</span>
+</div>
+
+<div class="p3-shell">
+
+  <div class="rail">
+    <div class="rail-hdr">
+      <div class="rail-title">My Accounts</div>
+      <div class="filter-zone-lbl">TSL View</div>
+      <div class="filter-row">
+        <span class="fp on" id="fp-tsl" onclick="setFilter(this,'tsl')">Owners</span>
+      </div>
+      <div class="filter-zone-sep"></div>
+      <div class="filter-zone-lbl">BSS Coverage</div>
+      <div class="filter-row" id="bss-pills"></div>
+    </div>
+    <div class="rail-body" id="rail-body"></div>
+  </div>
+
+  <div class="detail" id="detail-panel">
+    <div class="detail-empty">← Select an account to open its brief</div>
+  </div>
+
+</div>
+
+<script>
+/* ── ACCOUNT DATA ── */
+const ACCOUNTS = [
+  /* Jim Gilbert · Book 1 */
+  {id:"seaworld", name:"SeaWorld / United Parks", urg:'strike', hook:"Q3 results Thu Nov 5 before the open, call 9:00 AM ET (3 days)", brands:['dai', 'auto'], bss:false, book:1},
+  {id:"frontline", name:"Frontline Insurance", urg:'standby', hook:"no company event this week; storm season and AI-rule scrutiny are the background", brands:['dai'], bss:false, book:1},
+  {id:"dmab", name:"Data Management Brevard", urg:'standby', hook:"no company news this week; partner-training play around AI on IBM Z", brands:['dai', 'stor'], bss:false, book:1},
+  /* Ricardo Valdes · Book 2 */
+  {id:"dycom", name:"Dycom Industries", urg:'engage', hook:"Q3 (FY27) results expected about Nov 24 (date not confirmed, ~22 days)", brands:['dai', 'stor', 'auto'], bss:false, book:2},
+  {id:"odp", name:"ODP Corp / Office Depot", urg:'standby', hook:"no new company news this week; Atlas is still reshaping the business", brands:['dai', 'auto'], bss:true, book:2},
+  {id:"ansco", name:"ANSCO & Associates", urg:'standby', hook:"wait for parent Dycom's Q3 report; coordinate with the Dycom plan", brands:['auto', 'dai'], bss:false, book:2},
+  /* Pratap Kesarkar · Book 3 */
+  {id:"kforce", name:"Kforce Inc.", urg:'engage', hook:"Q3 reported Oct 26 (beat); no dated event in the next 10 days", brands:['dai', 'auto'], bss:false, book:3},
+  {id:"chicos", name:"Chico's FAS / KnitWell Group", urg:'standby', hook:"no company news this week; the new digital and data chief (Sep 22) is the live hook", brands:['dai', 'auto'], bss:false, book:3},
+  /* Spencer Fenelon · Book 4 */
+  {id:"bk", name:"Burger King / RBI", urg:'engage', hook:"Q3 reported Oct 29 (Burger King U.S. strong, Popeyes weak); no dated event in the next 10 days", brands:['dai', 'auto'], bss:false, book:4},
+  {id:"hig", name:"H.I.G. Capital Inc.", urg:'engage', hook:"MISTRAS got no rival bids; shareholder vote is Nov 24, outside the 10-day window", brands:['dai', 'auto'], bss:false, book:4},
+  /* Shari Zahed · Book 5 */
+  {id:"icahn", name:"Icahn Enterprises L.P.", urg:'strike', hook:"Q3 results TOMORROW, Tue Nov 3 at 10:00 AM ET (1 day)", brands:['dai', 'auto'], bss:false, book:5},
+  {id:"herc", name:"Herc Rentals / Herc Holdings", urg:'engage', hook:"Q3 reported Oct 27 (beat, raised outlook); next dated event is the CEO change Jan 1", brands:['dai', 'auto'], bss:false, book:5},
+  {id:"mastec", name:"MasTec Inc.", urg:'engage', hook:"Q3 reported Oct 29 (sales +30%, record backlog); no dated event in the next 10 days", brands:['dai', 'auto', 'pc'], bss:false, book:5},
+  /* Michael Sanchez · Book 6 */
+  {id:"heico", name:"HEICO Corporation", urg:'engage', hook:"buying more companies, stock moving back up; no dated event in the next 10 days", brands:['dai', 'stor', 'pc'], bss:false, book:6},
+  {id:"chewy", name:"Chewy Inc.", urg:'engage', hook:"AI savings plan of about $50M in FY27; stock slipped below its 50-day average on Oct 29; no dated event in the next 10 days", brands:['dai', 'pc', 'auto'], bss:false, book:6},
+  {id:"memorial", name:"Memorial Healthcare System / S. Broward", urg:'engage', hook:"record year and a $670M tower under way; no dated event in the next 10 days", brands:['dai', 'auto'], bss:false, book:6},
+  /* Hazem Marzouk · Book 7 */
+  {id:"lennar", name:"Lennar Corporation", urg:'engage', hook:"Berkshire now owns more; Millrose questions still open; no dated event in the next 10 days", brands:['dai', 'auto', 'pc'], bss:true, book:7},
+  {id:"lenmar", name:"Lennar Mortgage", urg:'engage', hook:"a data-exposure incident and lawsuits are open; no company event in the next 10 days", brands:['dai', 'pc'], bss:true, book:7},
+  {id:"pellera", name:"Pellera Technologies", urg:'standby', hook:"no new Pellera news this week; Q4 partner planning is the timing", brands:['dai'], bss:true, book:7},
+  /* Mijee Walker · Books 8 + 9 */
+  {id:"octave", name:"Octave Intelligence", urg:'strike', hook:"Q3 results Thu Nov 12, 7:00 AM ET, call 8:00 AM ET (10 days)", brands:['dai'], bss:true, book:8},
+  {id:"sgws", name:"Southern Glazer's Wine & Spirits", urg:'engage', hook:"six years of FTC price oversight; new Bacardi deal Oct 28; no dated event in the next 10 days", brands:['dai', 'auto'], bss:true, book:8},
+  {id:"nclh", name:"Norwegian Cruise Line Holdings", urg:'engage', hook:"Q3 reported Oct 29 (beat, raised full-year outlook); Q4 outlook is weak; no dated event in the next 10 days", brands:['dai', 'auto'], bss:true, book:8},
+  {id:"citco", name:"Citco Group", urg:'engage', hook:"new Q3 hedge fund report Oct 27, awards, and fast growth in new fund types; no dated event in the next 10 days", brands:['dai'], bss:true, book:8},
+  {id:"jmf", name:"JM Family Enterprises", urg:'standby', hook:"no new JM Family business news this week; Q4 budget season is the timing", brands:['dai', 'auto', 'pc'], bss:true, book:8},
+  {id:"hexmin", name:"Hexagon Mining", urg:'standby', hook:"parent had a strong Q3 and is buying companies; nothing dated for Mining itself", brands:['dai', 'stor'], bss:true, book:8},
+  {id:"hexfed", name:"Hexagon Federal", urg:'standby', hook:"no news for this unit; the parent's defense-driven growth is the only signal", brands:['dai'], bss:true, book:8},
+];
+
+const BOOK_LABELS = {"1": "Jim Gilbert · Book 1", "2": "Ricardo Valdes · Book 2", "3": "Pratap Kesarkar · Book 3", "4": "Spencer Fenelon · Book 4", "5": "Shari Zahed · Book 5", "6": "Michael Sanchez · Book 6", "7": "Hazem Marzouk · Book 7", "8": "Mijee Walker · Books 8 + 9"};
+const URG = {strike:{l:'Strike',c:'u-strike'}, engage:{l:'Engage',c:'u-engage'}, standby:{l:'Standby',c:'u-standby'}};
+const BR  = {dai:{l:'D&AI',c:'rb-dai'}, auto:{l:'Auto',c:'rb-auto'}, stor:{l:'Storage',c:'rb-stor'}, pc:{l:'P&C',c:'rb-pc'}};
+
+const BSS_BRANDS = [
+  {id:'dai',  cls:'dai',  label:'D&AI'},
+  {id:'auto', cls:'auto', label:'Auto'},
+  {id:'stor', cls:'stor', label:'Storage'},
+  {id:'pc',   cls:'pc',   label:'P&C'},
+];
+
+function buildBssPills(){
+  const row = document.getElementById('bss-pills');
+  row.innerHTML = '';
+  BSS_BRANDS.forEach(b => {
+    const ct = ACCOUNTS.filter(a => a.bss && a.brands.includes(b.id)).length;
+    const pill = document.createElement('span');
+    pill.className = `fp ${b.cls}`;
+    pill.id = `fp-${b.id}`;
+    pill.innerHTML = `${b.label} <span style="font-family:'IBM Plex Mono',monospace;font-size:7px;opacity:0.6;">(${ct})</span>`;
+    pill.onclick = function(){ setFilter(this, b.id); };
+    row.appendChild(pill);
+  });
+}
+
+function buildRail(filter){
+  const body = document.getElementById('rail-body');
+  body.innerHTML = '';
+  const isBrand = ['dai','auto','stor','pc'].includes(filter);
+
+  if(isBrand){
+    const list = ACCOUNTS.filter(a => a.bss && a.brands.includes(filter))
+      .sort((a,b)=>{ const o={strike:0,engage:1,standby:2}; return o[a.urg]-o[b.urg]; });
+    const brandName = {dai:'Data & AI',auto:'Automation',stor:'Storage',pc:'Power & Cloud'};
+    const hdr = document.createElement('div');
+    hdr.style.cssText='padding:10px 16px 6px;border-bottom:1px solid rgba(255,255,255,0.06);';
+    hdr.innerHTML=`<div style="font-family:'IBM Plex Mono',monospace;font-size:7.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#4a6080;margin-bottom:2px;">BSS View · Coverage Only</div><div style="font-size:11px;font-weight:700;color:#a8c8ff;">${brandName[filter]} Accounts</div><div style="font-family:'IBM Plex Mono',monospace;font-size:8px;color:#2d4a6a;margin-top:2px;">${list.length} accounts</div>`;
+    body.appendChild(hdr);
+    const w = document.createElement('div');
+    list.forEach(a => w.appendChild(makeCard(a, filter)));
+    body.appendChild(w);
+  } else {
+    const books = {};
+    ACCOUNTS.forEach(a => {
+      if(!books[a.book]) books[a.book] = [];
+      books[a.book].push(a);
+    });
+    Object.keys(books).sort((a,b)=>+a-+b).forEach(b => {
+      const cl = document.createElement('div'); cl.className='cluster';
+      const hasBss = books[b].some(a=>a.bss);
+      const bookTag = hasBss ? ' <span style="font-family:\'IBM Plex Mono\',monospace;font-size:7px;color:#1e3a5a;margin-left:4px;">BSS</span>' : '';
+      cl.innerHTML=`<div class="cluster-hdr"><span class="cluster-lbl">${BOOK_LABELS[b]}${bookTag}</span><span class="cluster-ct">${books[b].length}</span></div>`;
+      const wrap = document.createElement('div');
+      books[b].forEach(a => wrap.appendChild(makeCard(a, 'tsl')));
+      cl.appendChild(wrap); body.appendChild(cl);
+    });
+  }
+}
+
+function makeCard(a, filter){
+  const d = document.createElement('div');
+  d.className = 'ra'; d.setAttribute('data-id', a.id);
+  d.onclick = function(){ selectAccount(a.id, this); };
+  const isBrandFilter = ['dai','auto','stor','pc'].includes(filter);
+  let brandsHtml;
+  if(isBrandFilter){
+    const secondary = a.brands.filter(b => b !== filter);
+    brandsHtml = secondary.length ? secondary.map(b=>`<span class="rb ${BR[b].c}" style="opacity:0.45;">${BR[b].l}</span>`).join('') : '';
+  } else {
+    brandsHtml = a.brands.map(b=>`<span class="rb ${BR[b].c}">${BR[b].l}</span>`).join('');
+  }
+  d.innerHTML = `<div class="ra-top"><div class="ra-name">${a.name}</div><span class="ra-urg ${URG[a.urg].c}">${URG[a.urg].l}</span></div><div class="ra-hook">${a.hook}</div>${brandsHtml ? `<div class="ra-brands">${brandsHtml}</div>` : ''}`;
+  return d;
+}
+
+let curFilter='tsl';
+function setFilter(el,f){
+  document.querySelectorAll('.fp').forEach(p=>p.classList.remove('on'));
+  el.classList.add('on'); curFilter=f; buildRail(f);
+  const dp=document.getElementById('detail-panel');
+  const aid=dp.getAttribute('data-active');
+  if(aid){const c=document.querySelector(`.ra[data-id="${aid}"]`);if(c)c.classList.add('on');}
+}
+
+function selectAccount(id,el){
+  document.querySelectorAll('.ra').forEach(c=>c.classList.remove('on'));
+  if(el)el.classList.add('on');
+  const dp=document.getElementById('detail-panel');
+  dp.setAttribute('data-active',id);
+  if(PANELS[id]){dp.innerHTML=PANELS[id];dp.scrollTop=0;}
+  else{
+    const a=ACCOUNTS.find(x=>x.id===id);
+    dp.innerHTML=`<div style="padding:40px 28px;"><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Nov 2, 2026 · Edition 13</div><div style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px;">${a?.name||id}</div><div style="font-size:13px;color:var(--muted);">Click below to open the Phase 2 deep-dive for this account.</div><div style="margin-top:16px;"><a href="phase2.html#${id}" style="display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:8px 20px;border-radius:3px;">→ Full Intel Brief</a></div></div>`;
+  }
+}
+
+/* ══════════════════════════════════════════
+   PANELS
+══════════════════════════════════════════ */
+const PANELS={};
+
+/* ─── HEICO ─── */
+PANELS['heico']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/heico.png" alt="HEICO"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Michael Sanchez</div>
+      <div class="acct-name">HEICO Corporation</div>
+      <div class="acct-meta">NYSE: HEI · Aerospace &amp; Defense · $5.6B+ sales · Hollywood, FL · Next earnings about Dec 17 (45 days, not re-verified)</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#431407;color:#fdba74;">● Engage</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-stor">Storage</span>
+    <span class="acct-badge rb-pc">Power</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">buying more companies, stock moving back up; no dated event in the next 10 days</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Michael Sanchez</div><div class="vital-sub">Book 6</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    HEICO buys a company about every quarter. IBM Data Fabric makes each new purchase cheaper to join, because it plugs into one shared data layer and not a custom project each time. For defense work, AI needs clear rules and records, and IBM watsonx.governance provides them. IBM FlashSystem is the safe, fast storage for engineering and repair records.
+    <span class="thesis-angle">IBM's opener: &quot;HEICO keeps adding companies, and each one brings new systems and reports. IBM Data Fabric helps you plug in the next one faster and for less. Could we show your IT and integration team how other acquirers do this?&quot;</span>
+<div class="detail-body">
+
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM Data Fabric<br>Repeatable Deal Integration</div><div class="heat-score-wrap"><div class="heat-score">89</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:89%;"></div></div>
+      <div class="heat-deal">SaaS: $220K–$420K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Each HEICO unit reports on its own by design. Data Fabric keeps that freedom and still lets corporate see old and new units in one place.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM Planning Analytics<br>Roll Up Units and New Companies</div><div class="heat-score-wrap"><div class="heat-score">81</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:81%;"></div></div>
+      <div class="heat-deal">Transaction: $850K–$2.2M · Brand: Storage</div>
+      <div class="heat-conviction">Aerospace and defense parts records carry export-control rules (ITAR/EAR). FlashSystem locked snapshots are a later talk behind the planning opener.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.governance<br>Defense AI Model Rules</div><div class="heat-score-wrap"><div class="heat-score">66</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:66%;"></div></div>
+      <div class="heat-deal">SaaS: $150K–$300K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Guardrails for predictive-maintenance and inspection AI used in defense electronics. Confirm which rules apply in discovery.</div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Call the VP of IT and the head of deal integration. Open on the larger credit line and the pace of deals. 2. Offer a briefing on Data Fabric as the standard way to plug in each new company. 3. Bring watsonx.governance to the defense electronics compliance lead.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">watsonx.governance — annual subscription. A list of every AI model plus a record of what it did, for defense electronics and export-control rules.</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"HEICO keeps adding companies, and each one brings new systems and reports. IBM Data Fabric helps you plug in the next one faster and for less. Could we show your IT and integration team how other acquirers do this?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#heico" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+/* ─── MASTEC ─── */
+PANELS['mastec']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/mastec.png" alt="MasTec"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Shari Zahed</div>
+      <div class="acct-name">MasTec Inc.</div>
+      <div class="acct-meta">NYSE: MTZ · Infrastructure Contractor · $24.5B record backlog · Coral Gables HQ</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#431407;color:#fdba74;">● Engage</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-auto">Automation</span>
+    <span class="acct-badge rb-pc">Power</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">Q3 reported Oct 29 (sales +30%, record backlog); no dated event in the next 10 days</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Shari Zahed</div><div class="vital-sub">Book 5</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    MasTec has more work than ever, more people than ever, and thinner margins. That is a planning problem. IBM Planning Analytics puts every business segment, plus Superior, into one view and lets the CFO test "what if" cases for cash and debt. IBM Data Fabric connects Superior's systems to MasTec's without waiting on a big ERP move. IBM Power and Storage fit the data-center work Superior brings. Start with Investor Relations for a warm introduction to the CFO and CIO.
+    <span class="thesis-angle">IBM's opener: &quot;Congratulations on the record backlog. With margins tighter and Superior still being folded in, finance needs one clear view across every segment. IBM Planning Analytics gives your CFO that view and lets the team test 'what if' cases. Can we find 20 minutes with finance or IT leadership this week?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM Planning Analytics<br>Segment Bridge &amp; Superior Rollup</div><div class="heat-score-wrap"><div class="heat-score">94</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:94%;"></div></div>
+      <div class="heat-deal">SaaS: $280K–$520K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">MasTec reported Q3 on Oct 29 and raised its outlook. A group-by-group bridge of the numbers is hard to build by hand in spreadsheets.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM Data Fabric (watsonx.data)<br>Join the Superior Systems</div><div class="heat-score-wrap"><div class="heat-score">85</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:85%;"></div></div>
+      <div class="heat-deal">Transaction: $1.2M–$2.5M · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Superior's systems must feed MasTec's reports. Data Fabric connects both sides so savings can be tracked without a multi-year ERP move.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM Power10 / Storage<br>Data-Center Infrastructure</div><div class="heat-score-wrap"><div class="heat-score">76</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:76%;"></div></div>
+      <div class="heat-deal">Transaction: $800K–$1.8M · Brand: P&amp;C</div>
+      <div class="heat-conviction">Clean-energy and telecom jobs create a lot of data. Power10 and storage are a later talk; try the Chief Data Center Officer as a second way in (role not re-verified).</div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Reach Investor Relations: "congratulations on Q3; wanted to connect on planning across segments." 2. Ask for a CFO / CIO introduction around margins and cash. 3. Scope Data Fabric for the Superior integration.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">Planning Analytics — annual subscription. One planning tool for all segments plus Superior, with cash and debt "what if" cases. Pitch: "your backlog is too big for spreadsheets."</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"Congratulations on the record backlog. With margins tighter and Superior still being folded in, finance needs one clear view across every segment. IBM Planning Analytics gives your CFO that view and lets the team test 'what if' cases. Can we find 20 minutes with finance or IT leadership this week?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#mastec" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+/* ─── H.I.G. CAPITAL ─── */
+PANELS['hig']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/hig.png" alt="H.I.G. Capital"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Spencer Fenelon</div>
+      <div class="acct-name">H.I.G. Capital</div>
+      <div class="acct-meta">Private equity · $75B under management · Miami, FL · 153+ companies · MISTRAS vote Nov 24 (22 days)</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#431407;color:#fdba74;">● Engage</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-auto">Automation</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">MISTRAS got no rival bids; shareholder vote is Nov 24, outside the 10-day window</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Spencer Fenelon</div><div class="vital-sub">Book 4</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    Every deal H.I.G. closes adds consolidation work. IBM Planning Analytics puts every portfolio company's financials in one place, so each new deal adds value instead of work. IBM watsonx.governance helps document and monitor the AI inside acquired companies like MISTRAS. Year-end investor reporting is the urgency.
+    <span class="thesis-angle">IBM's opener: &quot;With MISTRAS cleared of rival bids and more deals closing, each new company adds to the reporting load. Planning Analytics gives your team one view across the portfolio. Could we connect before year-end investor reporting gets busy?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM Planning Analytics<br>Combine 150+ Owned Companies</div><div class="heat-score-wrap"><div class="heat-score">90</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:90%;"></div></div>
+      <div class="heat-deal">SaaS: $280K–$550K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Operating partners need one place to build investor reports and track savings across 150+ companies. Year-end reporting makes it urgent.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.governance<br>AI Checks for Owned Companies</div><div class="heat-score-wrap"><div class="heat-score">83</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:83%;"></div></div>
+      <div class="heat-deal">Transaction: $950K–$2.5M · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Investors increasingly ask for proof that AI in owned companies is checked. Scope it for AI-based businesses like MISTRAS.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM Turbonomic<br>Lower Cloud Cost Across Companies</div><div class="heat-score-wrap"><div class="heat-score">74</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:74%;"></div></div>
+      <div class="heat-deal">SaaS: $200K–$450K/yr · Brand: Automation</div>
+      <div class="heat-conviction">Cuts wasted cloud spending across the software and tech companies H.I.G. owns.</div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Open on the MISTRAS go-shop result and the Nov 24 vote. 2. Pitch Planning Analytics for portfolio reporting ahead of year-end. 3. Bring up watsonx.governance in discovery for AI-enabled acquisitions.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">Planning Analytics — annual subscription. Portfolio-wide planning and reporting in one place. Pitch to the CFO or Head of Portfolio Operations: "every deal you close adds to the problem IBM solves."</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"With MISTRAS cleared of rival bids and more deals closing, each new company adds to the reporting load. Planning Analytics gives your team one view across the portfolio. Could we connect before year-end investor reporting gets busy?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#hig" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+/* ─── PELLERA ─── */
+PANELS['pellera']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/pellera.png" alt="Pellera Technologies"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Hazem Marzouk</div>
+      <div class="acct-name">Pellera Technologies</div>
+      <div class="acct-meta">Private (Converge + Mainline merged) · IBM co-sell partner · IT services</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#0c1a2e;color:#93c5fd;">● Standby</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Standby</div><div class="vital-sub">no new Pellera news this week; Q4 partner planning is the timing</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Hazem Marzouk</div><div class="vital-sub">Book 7</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    This is a partner play, not a direct sale. Bring a short joint plan built on Pellera's public-sector and regulated customers, with watsonx.governance, watsonx.data and Power attached where Pellera already does the services work. Show up with named target accounts and a way to enable their team.
+    <span class="thesis-angle">IBM's opener: &quot;As we plan next year's co-sell, I'd like to bring 3–5 joint target accounts from your public-sector and regulated base where governed AI and data work could sit next to your services. Can we set a planning session this month?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM Partner Plus<br>Q4 Co-Sell Planning</div><div class="heat-score-wrap"><div class="heat-score">91</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:91%;"></div></div>
+      <div class="heat-deal">Channel: Multi-brand co-sell · Brand: D&amp;AI + P&amp;C</div>
+      <div class="heat-conviction">A partner-led plan. Confirm Pellera's current IBM partner level and practices before designing a joint plan.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx + Data<br>Public-Sector &amp; Regulated Joint Targets</div><div class="heat-score-wrap"><div class="heat-score">83</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:83%;"></div></div>
+      <div class="heat-deal">Channel SaaS attach · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Public-sector and regulated customers are the pool where governed AI and data work can ride along with services.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM Power + Cloud<br>Infrastructure Co-Sell</div><div class="heat-score-wrap"><div class="heat-score">76</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:76%;"></div></div>
+      <div class="heat-deal">Transaction co-sell · Brand: P&amp;C</div>
+      <div class="heat-conviction">This depends on which IBM practices Pellera holds today.</div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Check Pellera's IBM partner status in the partner portal. 2. Ask for a Q4 co-sell planning session. 3. Bring a short list of joint target accounts.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">watsonx co-sell — governance, data and AI sold through Pellera's customers. A joint pipeline plan is the way in.</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"As we plan next year's co-sell, I'd like to bring 3–5 joint target accounts from your public-sector and regulated base where governed AI and data work could sit next to your services. Can we set a planning session this month?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#pellera" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+
+/* ─── CHEWY ─── */
+PANELS['chewy']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/chewy.png" alt="Chewy"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Michael Sanchez</div>
+      <div class="acct-name">Chewy Inc.</div>
+      <div class="acct-meta">NYSE: CHWY · Online Pet Store · $13.46–$13.57B FY26 sales guide · Dania Beach HQ · Next earnings about Dec 9 (37 days, not confirmed)</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#431407;color:#fdba74;">● Engage</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-pc">Power</span>
+    <span class="acct-badge rb-auto">Automation</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">AI savings plan of about $50M in FY27; stock slipped below its 50-day average on Oct 29; no dated event in the next 10 days</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Michael Sanchez</div><div class="vital-sub">Book 6</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    Chewy has promised about $50M in AI savings. Finance needs a way to prove it. IBM watsonx.governance keeps a record of what each AI model does and saves, and warns when a model starts to go off track (called "drift"). IBM Turbonomic finds wasted cloud spending (often 20–30%) on the computers that run the AI. That saving can pay for the governance subscription. Two plays, same budget owner.
+    <span class="thesis-angle">IBM's opener: &quot;You have told investors AI will save about $50M a year by FY27. How will finance prove that number? IBM watsonx.governance tracks what each AI model does and saves, and Turbonomic finds wasted cloud spending that can help pay for it. Can we run a free 14-day cloud check?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.governance<br>Guardrails for Pharmacy &amp; Customer AI</div><div class="heat-score-wrap"><div class="heat-score">92</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:92%;"></div></div>
+      <div class="heat-deal">SaaS: $250K–$450K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Pharmacy and customer-facing AI is live. An enterprise governance layer was not confirmed in this scan, so scope it in discovery. Stock pressure makes any audit finding costlier.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM Turbonomic<br>Cloud Savings That Fund AI</div><div class="heat-score-wrap"><div class="heat-score">86</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:86%;"></div></div>
+      <div class="heat-deal">SaaS/Tx: $400K–$900K · Brand: Automation</div>
+      <div class="heat-conviction">With the stock near $21 and a ~$50M savings plan, the CFO must show where savings come from. Offer the free 14-day cloud check.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM Data Fabric (watsonx.data)<br>One Lakehouse for Vet Brands</div><div class="heat-score-wrap"><div class="heat-score">72</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:72%;"></div></div>
+      <div class="heat-deal">Transaction: $600K–$1.2M · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Clinic, pharmacy and acquired-brand data (Vet Care, Modern Animal, SmartPak) is growing faster than the controls around it. A second-step talk after Turbonomic.</div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Reach the VP of FP&amp;A and the CIO. Open on the ~$50M savings target: "how will finance prove it?" 2. Offer the free 14-day Turbonomic check, which shows wasted cloud spend before the call. 3. Scope watsonx.governance for the AI assistant and pharmacy AI.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">watsonx.governance — annual subscription. Tracks every AI model and the savings it delivers. Tied to the FY27 ~$50M savings target.</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"You have told investors AI will save about $50M a year by FY27. How will finance prove that number? IBM watsonx.governance tracks what each AI model does and saves, and Turbonomic finds wasted cloud spending that can help pay for it. Can we run a free 14-day cloud check?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#chewy" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+
+/* ─── BURGER KING / RBI ─── */
+PANELS['bk']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/bk.png" alt="Burger King / RBI"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Spencer Fenelon</div>
+      <div class="acct-name">Burger King / Restaurant Brands International</div>
+      <div class="acct-meta">NYSE: QSR · Fast-Food Restaurants · Miami FL HQ · 4 brands (Burger King, Tim Hortons, Popeyes, Firehouse Subs)</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#431407;color:#fdba74;">● Engage</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-auto">Automation</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">Q3 reported Oct 29 (Burger King U.S. strong, Popeyes weak); no dated event in the next 10 days</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Spencer Fenelon</div><div class="vital-sub">Book 4</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    One brand is booming, one is struggling, and AI is spreading across nearly 20,000 Burger King restaurants. Two needs follow. First, IBM Planning Analytics gives finance a profit view for each brand, side by side. Second, IBM watsonx.governance watches every AI model and keeps a record of what it did, so a mistake does not turn into a legal or PR problem. IBM Data Fabric joins the four brands' data. RBI is based in Miami, so ask for an in-person meeting.
+    <span class="thesis-angle">IBM's opener: &quot;Congratulations on a strong Burger King quarter. With one brand surging and another struggling, finance needs a clean profit view for each. And as AI rolls out across restaurants, you will want a record of what every AI model does. IBM helps with both. Can we find 30 minutes at your Miami office?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.governance<br>AI Rules and Records for Restaurants</div><div class="heat-score-wrap"><div class="heat-score">83</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:83%;"></div></div>
+      <div class="heat-deal">SaaS: $300K–600K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">AI that touches customer data in thousands of stores needs a record legal can audit. The Gartner Leader credential is a good opener.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM Automation<br>Franchise Workflow Automation</div><div class="heat-score-wrap"><div class="heat-score">71</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:71%;"></div></div>
+      <div class="heat-deal">Transaction: $1M–3M · Brand: Automation</div>
+      <div class="heat-conviction">Franchise reports and approvals are still done by hand. Raise it as a time-saver during the governance talk.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.data<br>Data Platform for All Brands</div><div class="heat-score-wrap"><div class="heat-score">60</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:60%;"></div></div>
+      <div class="heat-deal">SaaS: $200K–400K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Profit-by-brand models help answer investor worries about Burger King strong and Popeyes weak.</div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Ask for an in-person meeting at the Miami office. 2. Open on the split between Burger King (up) and Popeyes (down). 3. Lead with watsonx.governance; add Data Fabric after.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">watsonx.governance — annual subscription. Watches AI models across the restaurant technology rollout. "Set the rules before it spreads, not after."</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"Congratulations on a strong Burger King quarter. With one brand surging and another struggling, finance needs a clean profit view for each. And as AI rolls out across restaurants, you will want a record of what every AI model does. IBM helps with both. Can we find 30 minutes at your Miami office?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#bk" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+
+
+/* ─── NCLH ─── */
+PANELS['nclh']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/nclh.png" alt="NCLH"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Mijee Walker</div>
+      <div class="acct-name">Norwegian Cruise Line Holdings</div>
+      <div class="acct-meta">NYSE: NCLH · Cruise Line · 3 brands · Miami HQ · $2.95B Q3 sales</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#431407;color:#fdba74;">● Engage</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-auto">Automation</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">Q3 reported Oct 29 (beat, raised full-year outlook); Q4 outlook is weak; no dated event in the next 10 days</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 8 + 9</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    A turnaround CEO, a weak Q4 yield and a goal to keep cutting costs all point to one need: see demand and profit per voyage across all three brands in one place. IBM Planning Analytics gives the CFO one demand model for Norwegian, Oceania and Regent, with "what if" cases for pricing and ship delays. IBM Data Fabric joins the three brands' data. The pitch is "find the next round of savings," not "buy software."
+    <span class="thesis-angle">IBM's opener: &quot;Congratulations on a strong Q3 and a higher outlook. With Q4 yield under pressure and ship timing moving around, leadership needs one view of demand across all three brands. IBM Planning Analytics and Data Fabric do that for multi-brand cruise operators. Can we connect this week?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM Planning Analytics<br>Savings Command Center</div><div class="heat-score-wrap"><div class="heat-score">84</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:84%;"></div></div>
+      <div class="heat-deal">SaaS: $180K–350K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">A turnaround CEO with a cost goal makes this a good time to talk to the CFO. Planning Analytics makes savings trackable across Norwegian, Oceania and Regent.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM Automation<br>Smoother Work Across 3 Brands</div><div class="heat-score-wrap"><div class="heat-score">76</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:76%;"></div></div>
+      <div class="heat-deal">Transaction: $600K–1.5M · Brand: Automation</div>
+      <div class="heat-conviction">Savings need smoother work. IBM Automation for port, crew and passenger-service tasks attaches to the planning talk.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.data<br>Join 3 Brand Data Stores</div><div class="heat-score-wrap"><div class="heat-score">61</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:61%;"></div></div>
+      <div class="heat-deal">SaaS: $150K–300K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Three separate data stores. A second-step talk after Planning Analytics is under way.</div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Open on the Q3 beat and the weak Q4 yield. 2. Ask for the CFO or the head of revenue management. 3. Planning Analytics first; Data Fabric as the follow-on project.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">Planning Analytics — annual subscription. Demand forecasting and voyage profit for all three brands, with "what if" cases for yield and delays.</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"Congratulations on a strong Q3 and a higher outlook. With Q4 yield under pressure and ship timing moving around, leadership needs one view of demand across all three brands. IBM Planning Analytics and Data Fabric do that for multi-brand cruise operators. Can we connect this week?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#nclh" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+
+/* ─── LENNAR ─── */
+PANELS['lennar']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/lennar.png" alt="Lennar"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Hazem Marzouk</div>
+      <div class="acct-name">Lennar Corporation</div>
+      <div class="acct-meta">NYSE: LEN · Homebuilder · $8.05B Q3 sales · Miami HQ · Next earnings about Dec 15 (43 days, not re-verified)</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#431407;color:#fdba74;">● Engage</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-auto">Automation</span>
+    <span class="acct-badge rb-pc">Power</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">Berkshire now owns more; Millrose questions still open; no dated event in the next 10 days</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Hazem Marzouk</div><div class="vital-sub">Book 7</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    Lennar chose to give up some profit to sell more homes, and the numbers show orders running behind deliveries. IBM Planning Analytics replaces division-by-division spreadsheet models with one live system. The CFO can see which communities need which discount to close a sale, and test the margin hit before approving it. watsonx can automate mortgage pre-qualification to pull overhead costs (SG&amp;A) back toward the 8.7–9.0% target. IBM Data Fabric joins the data from 40+ divisions.
+    <span class="thesis-angle">IBM's opener: &quot;With orders trailing deliveries and discounts around 12% of price, finance needs to see margin for every community before approving an incentive. IBM Planning Analytics gives your team that view in one place. Could we run a 20-minute workshop on incentive modeling?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM Planning Analytics<br>Incentive Margin Model for 40+ Divisions</div><div class="heat-score-wrap"><div class="heat-score">91</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:91%;"></div></div>
+      <div class="heat-deal">SaaS: $300K–$600K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Earnings are about Dec 15 (43 days away, not re-verified). Discounts across 40+ divisions are squeezing margin, so the CFO needs exact controls to protect guidance.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.ai / Orchestrate<br>Automate Mortgage Paperwork</div><div class="heat-score-wrap"><div class="heat-score">84</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:84%;"></div></div>
+      <div class="heat-deal">Transaction: $900K–$2.4M · Brand: Automation</div>
+      <div class="heat-conviction">Overhead was 9.2% of sales in Q3. Automating loan documents and buyer intake is a cost lever that adds no headcount.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM Turbonomic<br>Cloud Savings for Lennar Digital</div><div class="heat-score-wrap"><div class="heat-score">70</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:70%;"></div></div>
+      <div class="heat-deal">SaaS: $180K–$350K/yr · Brand: Automation</div>
+      <div class="heat-conviction">Cloud hosting for customer portals and design centers. A follow-on once the finance work is under way.</div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Call the CFO and the VP of FP&amp;A. Open on the gap between deliveries and orders. 2. Send a homebuilder margin comparison. Peer numbers build trust fast. 3. Ask for a 20-minute incentive-modeling workshop, and bring in the CIO on joining division data.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">Planning Analytics — annual subscription. One live system for discounts and margin across 40+ divisions. CFO pitch: "see the margin impact of every incentive before you approve it."</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"With orders trailing deliveries and discounts around 12% of price, finance needs to see margin for every community before approving an incentive. IBM Planning Analytics gives your team that view in one place. Could we run a 20-minute workshop on incentive modeling?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#lennar" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+/* ─── LENNAR MORTGAGE ─── */
+PANELS['lenmar']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/lenmar.png" alt="Lennar Mortgage"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Hazem Marzouk</div>
+      <div class="acct-name">Lennar Mortgage</div>
+      <div class="acct-meta">Part of Lennar · Home loans · About $3B in loans a year · Parent earnings about Dec 15 (43 days, not re-verified)</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#431407;color:#fdba74;">● Engage</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-pc">Hybrid Cloud</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">a data-exposure incident and lawsuits are open; no company event in the next 10 days</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Hazem Marzouk</div><div class="vital-sub">Book 7</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    Lead with knowing where customer data lives. IBM Data Fabric and data lineage show which systems hold borrower data and how it moves, so a future incident touches fewer people and the answer to "who was affected?" comes faster. watsonx.governance then keeps AI-assisted underwriting explainable. Keep the tone careful. Do not open on the incident. Open on cost per loan and data control, and let them bring up the incident.
+    <span class="thesis-angle">IBM's opener: &quot;With loan volume tied to rates and a cost push from the parent, the lever is cost per loan and knowing exactly where borrower data sits. IBM Data Fabric maps that across your origination systems. Could we spend 20 minutes on what a clear data map would save you?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.ai<br>Automatic Loan Document Intake</div><div class="heat-score-wrap"><div class="heat-score">87</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:87%;"></div></div>
+      <div class="heat-deal">Transaction: $600K–$1.5M · Brand: Automation</div>
+      <div class="heat-conviction">Handling borrower papers by hand slows loans. watsonx document AI is a cost-per-loan story that fits the parent company's cost push.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.governance<br>Explainable AI Underwriting</div><div class="heat-score-wrap"><div class="heat-score">80</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:80%;"></div></div>
+      <div class="heat-deal">SaaS: $180K–$360K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">AI-assisted underwriting is still a rules and lawsuit-risk topic. Lead with explainability, not a deadline.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM Planning Analytics<br>Loan Sale Pricing</div><div class="heat-score-wrap"><div class="heat-score">66</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:66%;"></div></div>
+      <div class="heat-deal">SaaS: $140K–$280K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Forecast the sale of loans and servicing margin as rates move up and down.</div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Coordinate with the Lennar Corp outreach. Same executives. 2. Open on cost per loan and data control, not on the incident. 3. Watch for Dec 15 parent earnings and any settlement news.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">watsonx.governance — annual subscription. Keeps AI-assisted underwriting explainable and monitored. Entry point is the Chief Compliance Officer.</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"With loan volume tied to rates and a cost push from the parent, the lever is cost per loan and knowing exactly where borrower data sits. IBM Data Fabric maps that across your origination systems. Could we spend 20 minutes on what a clear data map would save you?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#lennarmtg" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+/* ─── JM FAMILY ─── */
+PANELS['jmf']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/jmf.png" alt="JM Family"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Mijee Walker</div>
+      <div class="acct-name">JM Family Enterprises</div>
+      <div class="acct-meta">Private · Auto and financial services · About $16B in sales (company description) · Deerfield Beach HQ</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#0c1a2e;color:#93c5fd;">● Standby</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-auto">Automation</span>
+    <span class="acct-badge rb-pc">Hybrid Cloud</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Standby</div><div class="vital-sub">no new JM Family business news this week; Q4 budget season is the timing</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 8 + 9</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    One relationship, three IBM plays. First, watsonx.governance to put guardrails on GenAI pilots before they go live. Second, watsonx.governance to explain World Omni's lending models. Third, Planning Analytics for Southeast Toyota dealer-demand forecasting. The SVP &amp; CFO is the single door into all three.
+    <span class="thesis-angle">IBM's opener: &quot;JM Family uses models to make decisions in lending, finance products and distribution. IBM watsonx.governance makes those models explainable and checkable before they go live. Could we talk ahead of Q4 planning?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.governance<br>Rules for GenAI Pilots (Ask First)</div><div class="heat-score-wrap"><div class="heat-score">84</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:84%;"></div></div>
+      <div class="heat-deal">SaaS: $200K–$400K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Ask, do not assert, about GenAI pilots. Confirm their status in discovery before talking about governance.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM Data Fabric<br>Join Data From 5 Units</div><div class="heat-score-wrap"><div class="heat-score">76</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:76%;"></div></div>
+      <div class="heat-deal">Transaction: $800K–$2.0M · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Five units, five separate data stores. Data Fabric comes up in every discovery talk.</div>
+    </div>
+    <div class="heat-card" style="--hc:#006644;">
+      <div class="heat-top"><div class="heat-play">IBM Turbonomic<br>Cloud Savings for Digital Channels</div><div class="heat-score-wrap"><div class="heat-score">62</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:62%;"></div></div>
+      <div class="heat-deal">SaaS: $150K–$300K/yr · Brand: Automation</div>
+      <div class="heat-conviction">Cuts cloud cost for dealer portals and finance platforms.</div>
+    </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Send a short Q4-timing note to the SVP &amp; CFO and the World Omni finance lead. 2. Ask about GenAI pilots. Do not assert them. 3. Use Planning Analytics for Southeast Toyota as the first project.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">watsonx.governance — annual subscription. One place to govern AI across World Omni, JM&amp;A and Southeast Toyota. CFO pitch: "govern all your AI before pilots become production."</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"JM Family uses models to make decisions in lending, finance products and distribution. IBM watsonx.governance makes those models explainable and checkable before they go live. Could we talk ahead of Q4 planning?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#jmf" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+
+/* ─── SOUTHERN GLAZER'S ─── */
+PANELS['sgws']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/sgws.png" alt="Southern Glazer's"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Mijee Walker</div>
+      <div class="acct-name">Southern Glazer's Wine &amp; Spirits</div>
+      <div class="acct-meta">Private · Beverage distribution · About $26B in sales · Miami HQ · FTC deal filed Oct 2 (31 days ago), court approval still pending</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#431407;color:#fdba74;">● Engage</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-auto">Automation</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">six years of FTC price oversight; new Bacardi deal Oct 28; no dated event in the next 10 days</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 8 + 9</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    SGWS now has to prove, twice a year for six years, that small stores are not overcharged. IBM watsonx and Data Fabric can match chain and independent-store sales automatically, flag a gap before it turns into a 1.5x payment, and keep the record the monitor will ask for. Planning Analytics then gives finance one view of price, margin and demand across states. Open with the General Counsel or Chief Compliance Officer, then bring in the CFO.
+    <span class="thesis-angle">IBM's opener: &quot;With the FTC order in place for six years, the question is how you show, every period, that no nearby independent store pays much more than a chain. IBM watsonx can check those sale pairs for you and keep the record. Could we spend 20 minutes on how that would work with your pricing data?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.governance<br>FTC Monitor Evidence</div><div class="heat-score-wrap"><div class="heat-score">92</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:92%;"></div></div>
+      <div class="heat-deal">SaaS: $280K–$550K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">A six-year monitored term makes compliance technology a standing budget line. Millions of monthly sales cannot be checked by hand.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM Planning Analytics<br>Price &amp; Margin "What If" Cases</div><div class="heat-score-wrap"><div class="heat-score">83</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:83%;"></div></div>
+      <div class="heat-deal">Transaction: $400K–$1.0M · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Price and margin cases across states once compliance scope is agreed. The anchor for the CFO.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.ai<br>Forecast Demand for 20,000+ Products</div><div class="heat-score-wrap"><div class="heat-score">76</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:76%;"></div></div>
+      <div class="heat-deal">SaaS: $300K–$600K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">A second conversation, after governance is in place.</div>
+    </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Open on the FTC order and the twice-a-year data reports. 2. Call the General Counsel or Chief Compliance Officer, then the CFO. 3. Bring Planning Analytics in once the compliance scope is agreed. Watch for the judge's approval.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">watsonx compliance monitoring — annual subscription. Flags price gaps between chain and independent sales before they cost 1.5x to fix. Pitch to the General Counsel and CFO.</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"With the FTC order in place for six years, the question is how you show, every period, that no nearby independent store pays much more than a chain. IBM watsonx can check those sale pairs for you and keep the record. Could we spend 20 minutes on how that would work with your pricing data?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#sgws" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+
+/* ─── KFORCE ─── */
+PANELS['kforce']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/kforce.png" alt="Kforce"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Pratap Kesarkar</div>
+      <div class="acct-name">Kforce Inc.</div>
+      <div class="acct-meta">NASDAQ: KFRC · Tech &amp; Finance Staffing · $357.8M Q3 sales (+7.5%)</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#431407;color:#fdba74;">● Engage</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-auto">Automation</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">Q3 reported Oct 26 (beat); no dated event in the next 10 days</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Pratap Kesarkar</div><div class="vital-sub">Book 3</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    Two plays in one. First, IBM Planning Analytics helps Kforce forecast how many people it needs and where. Second, IBM watsonx.governance is the layer that keeps client AI projects safe and well documented. Kforce earns fees for the setup work and IBM earns the subscription. Propose a small pilot on two AI client projects.
+    <span class="thesis-angle">IBM's opener: &quot;Congratulations on a strong Q3, and on the growth in your AI consulting pipeline. Clients who build AI need rules and records for it, and that is what IBM watsonx.governance does. Would you be open to a pilot where IBM supports two of your AI client projects?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM Planning Analytics<br>Staffing Margin and Rate "What If" Models</div><div class="heat-score-wrap"><div class="heat-score">88</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:88%;"></div></div>
+      <div class="heat-deal">SaaS: $180K–$380K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Kforce reported Q3 on Oct 26 and beat. Next step: protect the pay-to-bill gap with live rate models. No dated event in the next 10 days, so this is Engage.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM Consulting Co-Sell<br>Watsonx and Cloud Talent for IBM Projects</div><div class="heat-score-wrap"><div class="heat-score">82</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:82%;"></div></div>
+      <div class="heat-deal">Co-Sell / Ecosystem · Brand: Consulting</div>
+      <div class="heat-conviction">IBM Consulting needs skilled contractors for watsonx and Red Hat projects. Kforce could supply them on Southeast deals.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.ai<br>Recruiter Candidate Matching</div><div class="heat-score-wrap"><div class="heat-score">69</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:69%;"></div></div>
+      <div class="heat-deal">SaaS: $140K–$280K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Matches candidates to job requests by meaning, not just keywords, to shorten time-to-fill.</div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Open on the Q3 beat and the 20% growth in the AI pipeline. 2. Pitch both plays: Planning Analytics inside, watsonx.governance with clients. 3. Propose a pilot on two AI client projects.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">Two plays in one. First, IBM Planning Analytics helps Kforce forecast how many people it needs and where. Second, IBM watsonx.governance is the layer that keeps client AI projects safe and well documented. Kforce earns fees for the setup work and IBM earns the subscription. Propose a small pilot on two AI client projects.</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"Congratulations on a strong Q3, and on the growth in your AI consulting pipeline. Clients who build AI need rules and records for it, and that is what IBM watsonx.governance does. Would you be open to a pilot where IBM supports two of your AI client projects?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#kforce" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+/* ─── DYCOM ─── */
+PANELS['dycom']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/dycom.png" alt="Dycom"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Ricardo Valdes</div>
+      <div class="acct-name">Dycom Industries</div>
+      <div class="acct-meta">NYSE: DY · Telecom &amp; Fiber Contractor · $12.24B record backlog · Palm Beach Gardens HQ · Parent of ANSCO</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#431407;color:#fdba74;">● Engage</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-stor">Storage</span>
+    <span class="acct-badge rb-auto">Automation</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">Q3 (FY27) results expected about Nov 24 (date not confirmed, ~22 days)</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Ricardo Valdes</div><div class="vital-sub">Book 2</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    Dycom has a lot of signed work, a fast-moving schedule and a new acquisition to absorb. IBM Planning Analytics lets finance test "what if" cases when projects slip from one year to the next. IBM FlashSystem speeds up the maps and fiber-routing searches. IBM Data Fabric joins the data from Dycom's many subsidiaries. Plan this together with ANSCO.
+    <span class="thesis-angle">IBM's opener: &quot;With a record backlog and some work moving into next year, your finance team needs a plan that updates faster than a spreadsheet. IBM Planning Analytics lets you test 'what if' cases when schedules shift. Can we find 20 minutes with finance or IT before the next earnings cycle?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM Planning Analytics<br>Backlog and Wireless-Timing "What If" Models</div><div class="heat-score-wrap"><div class="heat-score">89</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:89%;"></div></div>
+      <div class="heat-deal">SaaS: $180K–$360K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Big backlog plus shifting wireless dates is a finance problem. Planning Analytics lets the CFO re-run the plan whenever a carrier moves a date.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM Data Fabric<br>One View Across Companies and ANSCO</div><div class="heat-score-wrap"><div class="heat-score">81</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:81%;"></div></div>
+      <div class="heat-deal">Transaction: $700K–$1.8M · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Each purchase adds another business to fold in. Data Fabric joins project data across the Dycom companies, including ANSCO.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.data<br>Field and Customer Data in One Place</div><div class="heat-score-wrap"><div class="heat-score">68</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:68%;"></div></div>
+      <div class="heat-deal">SaaS: $150K–$300K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Field and customer data across carrier contracts, for performance reports. A second conversation, after planning is moving.</div>
+    </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Reach the CFO and the VP of FP&amp;A. Open on the $12.24B backlog and the work that moved to FY28. 2. Lead with Planning Analytics. 3. Scope FlashSystem and Data Fabric with the CIO. Line this up with ANSCO.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">Planning Analytics — annual subscription. One planning tool for every subsidiary, with "what if" cases when work shifts between years. Pitch: "your backlog needs a real planning engine, not Excel."</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"With a record backlog and some work moving into next year, your finance team needs a plan that updates faster than a spreadsheet. IBM Planning Analytics lets you test 'what if' cases when schedules shift. Can we find 20 minutes with finance or IT before the next earnings cycle?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#dycom" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+
+/* ─── HERC ─── */
+PANELS['herc']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/herc.png" alt="Herc Rentals"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Shari Zahed</div>
+      <div class="acct-name">Herc Holdings (Herc Rentals)</div>
+      <div class="acct-meta">NYSE: HRI · Equipment Rental · $1.364B Q3 sales · New CEO starts Jan 1, 2027</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#431407;color:#fdba74;">● Engage</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-auto">Automation</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">Q3 reported Oct 27 (beat, raised outlook); next dated event is the CEO change Jan 1</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Shari Zahed</div><div class="vital-sub">Book 5</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    Herc promised more profit while fuel and freight costs squeeze margins and debt stays high. That is a "know your numbers" problem: where is each machine, how busy is it, and what does it earn? IBM watsonx.data puts the fleet data from Herc and H&amp;E in one place. IBM Planning Analytics lets finance test "what if" cases on spending and prices. IBM Data Fabric connects the two companies' systems without a big rebuild.
+    <span class="thesis-angle">IBM's opener: &quot;Congratulations on a strong Q3 and a higher outlook. With fuel and freight costs up and a new CEO coming in January, finance will need a clear view of how busy every machine is and what it earns. IBM helps rental companies build that view. Can we find 20 minutes this week?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM Maximo Application Suite<br>One Herc + H&amp;E Fleet</div><div class="heat-score-wrap"><div class="heat-score">91</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:91%;"></div></div>
+      <div class="heat-deal">SaaS: $280K–$550K/yr · Brand: Automation</div>
+      <div class="heat-conviction">Repairs, asset life and value across two old systems are the hidden risk behind the savings goal. Maximo fixes it at the machine level.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM Planning Analytics<br>H&amp;E Savings Tracking</div><div class="heat-score-wrap"><div class="heat-score">86</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:86%;"></div></div>
+      <div class="heat-deal">SaaS: $180K–$360K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Analysts keep asking how much of the merger savings is real. The CFO needs a tracking model, not a hand-built spreadsheet.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM Data Fabric<br>Join the Herc + H&amp;E Data</div><div class="heat-score-wrap"><div class="heat-score">74</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:74%;"></div></div>
+      <div class="heat-deal">Transaction: $700K–$1.8M · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Two companies, two data stores. Data Fabric links fleet, repair and customer data without copying it, which makes Maximo and Planning Analytics accurate.</div>
+    </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Lead with the raised outlook: "the analytics to back up the new numbers." 2. SaaS: fleet-use view for Herc + H&amp;E together. 3. Data Fabric as the project that joins the two companies' data.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">watsonx.data + Planning Analytics — one view of fleet use and "what if" planning for the combined Herc and H&amp;E. Pitch: "deliver on the higher target you just set."</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"Congratulations on a strong Q3 and a higher outlook. With fuel and freight costs up and a new CEO coming in January, finance will need a clear view of how busy every machine is and what it earns. IBM helps rental companies build that view. Can we find 20 minutes this week?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#herc" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+
+/* ─── ANSCO ─── */
+PANELS['ansco']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/ansco.png" alt="ANSCO"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Ricardo Valdes</div>
+      <div class="acct-name">ANSCO &amp; Associates</div>
+      <div class="acct-meta">Part of Dycom Industries · Telecom construction · Southeast U.S. · Parent Q3 about Nov 24 (22 days, unconfirmed)</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#0c1a2e;color:#93c5fd;">● Standby</span>
+    <span class="acct-badge rb-auto">Automation</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Standby</div><div class="vital-sub">wait for parent Dycom's Q3 report; coordinate with the Dycom plan</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Ricardo Valdes</div><div class="vital-sub">Book 2</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">See brief</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    More field crews and new Georgia sites mean more work orders, equipment and schedules to track. IBM Maximo handles field work and equipment, with watsonx.data or Planning Analytics for project cost forecasts. Line up the deal with the Dycom plan first, so IBM does not collide with itself inside one parent company.
+    <span class="thesis-angle">IBM's opener: &quot;As field hiring grows and new Georgia sites open, the hard part is keeping crews, equipment and work orders in one view. IBM Maximo is how large field-service companies do that without adding back-office staff. Open to a short working session?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM Maximo Application Suite<br>Field Work-Order Management</div><div class="heat-score-wrap"><div class="heat-score">88</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:88%;"></div></div>
+      <div class="heat-deal">SaaS: $150K–$300K/yr · Brand: Automation</div>
+      <div class="heat-conviction">Managing more field work in one system is the first step. Lead with crew productivity and growth.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.ai + Planning Analytics<br>Project Cost Forecasting</div><div class="heat-score-wrap"><div class="heat-score">78</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:78%;"></div></div>
+      <div class="heat-deal">Transaction: $500K–$1.2M · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Cost forecasting comes up naturally once work management is in discussion.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM Sterling Supply Chain<br>Better Materials Buying</div><div class="heat-score-wrap"><div class="heat-score">60</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:60%;"></div></div>
+      <div class="heat-deal">Transaction: $300K–$700K · Brand: Automation</div>
+      <div class="heat-conviction">Buy materials to match job schedules, so there is less over-buying and fewer shortages.</div>
+    </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Align with the Dycom plan before any ANSCO outreach. 2. Open on field-crew growth and the Georgia sites. 3. Time the follow-up to Dycom's Q3 report once the date is confirmed.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">Maximo Application Suite — annual subscription. Work orders, crews and equipment in one place as ANSCO grows.</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"As field hiring grows and new Georgia sites open, the hard part is keeping crews, equipment and work orders in one view. IBM Maximo is how large field-service companies do that without adding back-office staff. Open to a short working session?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#ansco" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+
+/* ─── CITCO ─── */
+PANELS['citco']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/citco.png" alt="Citco" onerror="this.style.display='none'"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Mijee Walker</div>
+      <div class="acct-name">Citco Group</div>
+      <div class="acct-meta">Private · Fund administration · About $1.2T in assets and 4,000+ funds (carried, not re-verified) · Modernization program under way</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#431407;color:#fdba74;">● Engage</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-dai">AI Gov</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">new Q3 hedge fund report Oct 27, awards, and fast growth in new fund types; no dated event in the next 10 days</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 8 + 9</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    IBM Manta Data Lineage follows every number in a NAV back to its source. That is the trail an auditor or investor committee can follow. As Citco takes on larger and more complex funds, it also adds more automation and AI, so watsonx.governance keeps those models explained and monitored. Enter through the modernization program and time it to Q4 prep.
+    <span class="thesis-angle">IBM's opener: &quot;Your Q3 report shows money flowing into bigger, more complex funds. That means more data sources behind every NAV. IBM Manta Data Lineage lets you trace any number back to where it came from, built in during modernization instead of added after an audit finding. Could we take 20 minutes before Q4 reporting?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM FlashSystem NVMe<br>Peak NAV Calculation Speed</div><div class="heat-score-wrap"><div class="heat-score">91</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:91%;"></div></div>
+      <div class="heat-deal">Transaction: $900K–$2.2M · Brand: Storage</div>
+      <div class="heat-conviction">Q4 reporting season is the timing. FlashSystem NVMe targets slow NAV runs at peak; confirm the current setup in discovery.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.governance<br>Data Trail for Regulators</div><div class="heat-score-wrap"><div class="heat-score">85</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:85%;"></div></div>
+      <div class="heat-deal">SaaS: $180K–$350K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">SEC and AIFMD reporting needs a trail from each NAV back to source trades. Doing that by hand is high-risk at this size.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM Manta Data Lineage<br>Audit-Ready Modernization</div><div class="heat-score-wrap"><div class="heat-score">74</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:74%;"></div></div>
+      <div class="heat-deal">SaaS: $120K–$250K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Building Manta into the modernization program from day one avoids fixing compliance after go-live.</div>
+    </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Open on the Oct 27 report: bigger funds, more data. 2. Pitch Manta as part of the modernization, not an add-on. 3. Call the COO or CIO and the head of middle-office services.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">watsonx.governance — annual subscription. Keeps any AI used in reporting explained and monitored. "Govern every model that touches a NAV."</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"Your Q3 report shows money flowing into bigger, more complex funds. That means more data sources behind every NAV. IBM Manta Data Lineage lets you trace any number back to where it came from, built in during modernization instead of added after an audit finding. Could we take 20 minutes before Q4 reporting?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#citco" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+
+/* ─── FRONTLINE ─── */
+PANELS['frontline']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/frontline.png" alt="Frontline" onerror="this.style.display='none'"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Jim Gilbert</div>
+      <div class="acct-name">Frontline Insurance</div>
+      <div class="acct-meta">Private · Home and property insurance · Florida homeowners · Lake Mary, FL · Hurricane season ends Nov 30 (28 days)</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#0c1a2e;color:#93c5fd;">● Standby</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-dai">AI Gov</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Standby</div><div class="vital-sub">no company event this week; storm season and AI-rule scrutiny are the background</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Jim Gilbert</div><div class="vital-sub">Book 1</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    A company that is still building its systems is IBM's best way in. IBM watsonx.governance added early costs far less than adding explainability later. IBM watsonx.data joins policy, claims and reinsurance data, which is exactly what a storm surge of claims tests. Lead with resilience, not opportunism.
+    <span class="thesis-angle">IBM's opener: &quot;With storm season still running, claims sorting and pricing data get tested, and Florida regulators expect you to explain how AI reaches those decisions. IBM watsonx.governance and watsonx.data let you scale claims and underwriting and keep the audit trail. Worth 20 minutes?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM OpenPages + watsonx.governance<br>Insurance Rules and Records</div><div class="heat-score-wrap"><div class="heat-score">88</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:88%;"></div></div>
+      <div class="heat-deal">SaaS: $150K–$300K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">No company event this week, so this stays Standby. The long-term case is clear records for regulators as AI use grows.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.ai<br>Storm Claims Sorting</div><div class="heat-score-wrap"><div class="heat-score">82</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:82%;"></div></div>
+      <div class="heat-deal">Transaction: $600K–$1.4M · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Hurricane season runs to Nov 30. Faster claims sorting matters most during storms.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.data<br>Policy and Claims Data in One Place</div><div class="heat-score-wrap"><div class="heat-score">70</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:70%;"></div></div>
+      <div class="heat-deal">Transaction: $500K–$1.2M · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Policy, claims and reinsurance data sit apart. A shared base makes reporting faster. Confirm the company's current systems first.</div>
+    </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Lead with storm-season resilience and claims handling. Be respectful. 2. Call the CTO or CIO and the Chief Claims Officer. 3. Use "explainable AI decisions" as the regulatory frame.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">watsonx.governance — annual subscription. Explains and records AI-assisted underwriting and claims sorting. Build it in during the IT build.</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"With storm season still running, claims sorting and pricing data get tested, and Florida regulators expect you to explain how AI reaches those decisions. IBM watsonx.governance and watsonx.data let you scale claims and underwriting and keep the audit trail. Worth 20 minutes?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#frontline" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+
+/* ─── ODP ─── */
+PANELS['odp']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/odp.png" alt="ODP" onerror="this.style.display='none'"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Ricardo Valdes</div>
+      <div class="acct-name">ODP / Office Depot</div>
+      <div class="acct-meta">Private (Atlas Holdings) · Office supplies for businesses and retail · About $7B in sales · New CEO · Boca Raton HQ</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#0c1a2e;color:#93c5fd;">● Standby</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-auto">Automation</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Standby</div><div class="vital-sub">no new company news this week; Atlas is still reshaping the business</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Ricardo Valdes</div><div class="vital-sub">Book 2</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    A private-equity owner with a fresh CEO has no old vendor loyalty and wants quick wins. IBM Planning Analytics gives one demand forecast across Office Depot Business and retail. IBM Sterling Supply Chain helps run the combined logistics. watsonx.governance can restart any paused GenAI pilots with proper guardrails. Pitch: "help deliver the back-to-basics plan, with numbers you can trust."
+    <span class="thesis-angle">IBM's opener: &quot;Folding logistics into the B2B business is a big data-joining job. IBM Planning Analytics gives distributors at your scale one forecast across orders, stock and stores. Could we show how that works while the new plan is still being set?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.ai<br>Business Contract Renewal Warnings</div><div class="heat-score-wrap"><div class="heat-score">90</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:90%;"></div></div>
+      <div class="heat-deal">SaaS: $200K–$400K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Keeping existing business customers is likely the best first-year use for new leaders. No new company news this week, so this stays Standby.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM Data Fabric<br>Join Atlas-Era Commerce Systems</div><div class="heat-score-wrap"><div class="heat-score">85</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:85%;"></div></div>
+      <div class="heat-deal">Transaction: $800K–$2.0M · Brand: D&amp;AI</div>
+      <div class="heat-conviction">One view across older systems, without a re-platform, is what a private-equity review asks for.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM Consulting<br>Private-Equity Distribution Change</div><div class="heat-score-wrap"><div class="heat-score">76</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:76%;"></div></div>
+      <div class="heat-deal">Transaction: $1.5M–$4.0M · Brand: Consulting</div>
+      <div class="heat-conviction">IBM Consulting is the best choice to do the work if it is in the room early.</div>
+    </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Reach the CEO or the technology lead while the plan is still forming. 2. Open on the Veyer fold-in and the back-to-basics plan. 3. Ask about paused GenAI pilots. Do not assert them.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">Planning Analytics — annual subscription. One demand and supply plan across the B2B business and retail. Aim at the CFO and the head of supply chain.</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"Folding logistics into the B2B business is a big data-joining job. IBM Planning Analytics gives distributors at your scale one forecast across orders, stock and stores. Could we show how that works while the new plan is still being set?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#odp" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+
+/* ─── ICAHN ─── */
+PANELS['icahn']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/icahn.png" alt="Icahn" onerror="this.style.display='none'"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Shari Zahed</div>
+      <div class="acct-name">Icahn Enterprises L.P.</div>
+      <div class="acct-meta">NASDAQ: IEP · Holding company (owns many businesses) · Sunny Isles Beach HQ · Q3 results Tue Nov 3</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#7f1d1d;color:#fca5a5;">▲ Strike</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-auto">Automation</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Strike</div><div class="vital-sub">Q3 results TOMORROW, Tue Nov 3 at 10:00 AM ET (1 day)</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Shari Zahed</div><div class="vital-sub">Book 5</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    Icahn has to add up results from five businesses, plus two companies that also report on their own (CVR Energy and CVR Partners). Doing that by hand in spreadsheets is slow and easy to get wrong. IBM Planning Analytics puts it all in one model, so the CFO can test "what if" cases for the payout. IBM Manta Data Lineage shows where every number came from, like a receipt for each figure. Reach out today, then follow up right after Tuesday's results.
+    <span class="thesis-angle">IBM's opener: &quot;Your Q3 results come out tomorrow, and investors are watching your payout and the value of your holdings. Adding up five businesses by hand is where mistakes sneak in. IBM Planning Analytics puts it in one model, and Manta Lineage shows where each number came from. Can we show your finance team a 30-minute demo this week?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM Planning Analytics<br>Add Up the Five Businesses</div><div class="heat-score-wrap"><div class="heat-score">93</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:93%;"></div></div>
+      <div class="heat-deal">SaaS: $240K–$480K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">A small head-office team adds up five businesses plus two companies that report on their own. That is a tooling problem, not a hiring problem. Q3 results come out Tue Nov 3.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM Manta Data Lineage<br>Trail for Auditors</div><div class="heat-score-wrap"><div class="heat-score">88</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:88%;"></div></div>
+      <div class="heat-deal">SaaS/Tx: $200K–$450K · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Shows every number back to its source journal entry. A new CFO makes this a good time to set the standard (the CFO change was carried from earlier research, not re-verified).</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.data<br>Data Across Subsidiaries</div><div class="heat-score-wrap"><div class="heat-score">68</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:68%;"></div></div>
+      <div class="heat-deal">Transaction: $500K–$1.2M · Brand: D&amp;AI</div>
+      <div class="heat-conviction">A longer-term data base across the energy and factory businesses. Raise it after the core financial close is handled.</div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Today: send a short note to the CFO and the VP of Finance &amp; Accounting, ahead of tomorrow's results. 2. After Tuesday's call: offer a Planning Analytics demo built on "many businesses, one view." 3. Ask who handles the CVR reconciliation, then position Manta Lineage.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">Planning Analytics — annual subscription. One model that adds up all the businesses and tests "what if" cases for the payout. CFO pitch: "replace the spreadsheet rollup."</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"Your Q3 results come out tomorrow, and investors are watching your payout and the value of your holdings. Adding up five businesses by hand is where mistakes sneak in. IBM Planning Analytics puts it in one model, and Manta Lineage shows where each number came from. Can we show your finance team a 30-minute demo this week?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#icahn" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+/* ─── HEXAGON FEDERAL ─── */
+PANELS['hexfed']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/hexfed.png" alt="Hexagon Federal" onerror="this.style.display='none'"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Mijee Walker</div>
+      <div class="acct-name">Hexagon US Federal</div>
+      <div class="acct-meta">Part of Hexagon AB · Defense and location-data AI · Chantilly, VA · Federal contracts</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#0c1a2e;color:#93c5fd;">● Standby</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-dai">AI Gov</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Standby</div><div class="vital-sub">no news for this unit; the parent's defense-driven growth is the only signal</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 8 + 9</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    The idea is AI governance built into Hexagon's federal location-data AI products. The FedRAMP claim needs IBM Federal to confirm first. Go in through the Hexagon AB parent and run one joined-up conversation with Hexagon Mining and Octave. Do not cold-call this unit alone.
+    <span class="thesis-angle">IBM's opener: &quot;As your AI products reach agency decision-making, buyers will ask how those models are governed and audited. IBM can show how governance is built in, not added later. Is 20 minutes this month worth it while next-year budgets are being placed?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.governance<br>Federal GeoAI Rules</div><div class="heat-score-wrap"><div class="heat-score">90</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:90%;"></div></div>
+      <div class="heat-deal">Transaction: $900K–$2.5M · Brand: Storage</div>
+      <div class="heat-conviction">AI governance for location-data AI that reaches agency decisions. Pitch at published capability until compliance scope is confirmed.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM FlashSystem Storage<br>Fast Storage for Location Data</div><div class="heat-score-wrap"><div class="heat-score">83</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:83%;"></div></div>
+      <div class="heat-deal">SaaS: $220K–$480K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Fast storage for very large geospatial and sensor files. Confirm the setup and compliance needs in discovery.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM Power10 Systems<br>Mission Computing</div><div class="heat-score-wrap"><div class="heat-score">68</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:68%;"></div></div>
+      <div class="heat-deal">Transaction: $650K–$1.5M · Brand: P&amp;C</div>
+      <div class="heat-conviction">On-site computers for spatial processing are a later conversation.</div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Hold direct outreach until the parent-level conversation is set up. 2. Check the FedRAMP and OMB claims with IBM Federal. 3. Wait for a dated reason before pushing harder.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">watsonx.governance — annual subscription. Model governance built into federal AI products. Confirm FedRAMP status with IBM Federal first.</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"As your AI products reach agency decision-making, buyers will ask how those models are governed and audited. IBM can show how governance is built in, not added later. Is 20 minutes this month worth it while next-year budgets are being placed?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#hexfed" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+/* ─── OCTAVE ─── */
+PANELS['octave']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/octave.png" alt="Octave" onerror="this.style.display='none'"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Mijee Walker</div>
+      <div class="acct-name">Octave Intelligence</div>
+      <div class="acct-meta">Nasdaq: OCTV · Software spun off from Hexagon AB (May 2026) · Huntsville, AL HQ per press releases · ~$1.6B FY25 sales</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#7f1d1d;color:#fca5a5;">▲ Strike</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-dai">AI Gov</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Strike</div><div class="vital-sub">Q3 results Thu Nov 12, 7:00 AM ET, call 8:00 AM ET (10 days)</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 8 + 9</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    A new public company, merging products and under pressure to prove its subscription growth, needs clean data and safe AI. IBM watsonx.governance sets rules and keeps records for the CoLabs agents and AI features. IBM watsonx.data gives one place for the merged product data. Use the Hexagon AB parent for a warm introduction, and coordinate with Hexagon Mining and Hexagon Federal.
+    <span class="thesis-angle">IBM's opener: &quot;As Octave brings products together under Tempo and Reliance and rolls out CoLabs agents, customers and investors will ask about consistent data and well-governed AI. IBM works with newly independent software companies on exactly that. Can we compare notes before your Nov 12 results?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.governance<br>Rules for CoLabs AI Agents</div><div class="heat-score-wrap"><div class="heat-score">90</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:90%;"></div></div>
+      <div class="heat-deal">SaaS: $160K–$320K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Business customers will ask how CoLabs agents are controlled and audited.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM Planning Analytics<br>Finance &amp; Reports After the Split</div><div class="heat-score-wrap"><div class="heat-score">82</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:82%;"></div></div>
+      <div class="heat-deal">Transaction: $550K–$1.3M · Brand: Automation</div>
+      <div class="heat-conviction">A newly independent company is building its own finance and data setup. One planning and reporting view is the way in for Finance.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.data<br>Same Data Across Product Lines</div><div class="heat-score-wrap"><div class="heat-score">65</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:65%;"></div></div>
+      <div class="heat-deal">SaaS: $120K–$240K/yr · Brand: Automation</div>
+      <div class="heat-conviction">Renaming and merging products raises the need for consistent data across customers.</div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Check for a South Florida presence before outreach. 2. Ask the Hexagon AB parent for a warm introduction. 3. Time the first note before Nov 12 and the follow-up right after results.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">watsonx.governance SaaS — rules, monitoring and records for CoLabs agents and AI features across the product line.</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"As Octave brings products together under Tempo and Reliance and rolls out CoLabs agents, customers and investors will ask about consistent data and well-governed AI. IBM works with newly independent software companies on exactly that. Can we compare notes before your Nov 12 results?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#octave" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+/* ─── HEXAGON MINING ─── */
+PANELS['hexmin']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/hexagon-mining.svg" alt="Hexagon Mining" onerror="this.style.display='none'"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Mijee Walker</div>
+      <div class="acct-name">Hexagon Mining</div>
+      <div class="acct-meta">Part of Hexagon AB · Mining technology and AI · MinePlan software · Parent reported Q3 (scheduled Oct 23)</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#0c1a2e;color:#93c5fd;">● Standby</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-stor">Storage</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Standby</div><div class="vital-sub">parent had a strong Q3 and is buying companies; nothing dated for Mining itself</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 8 + 9</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    "Pilots to production" is the division's own message, and governance is what gets AI models through that gate. IBM watsonx.governance fits MinePlan AI. IBM Storage fits the heavy sensor and machine data from autonomous fleets and monitoring. Rocscience and the other deals give a data-joining reason to talk. Go in through the Hexagon AB parent. Do not cold-call Mining on its own.
+    <span class="thesis-angle">IBM's opener: &quot;With Hexagon adding companies like Rocscience and pushing mining AI toward production, the question customers will ask is how those models are governed and how the data behind them is managed. That is what IBM works on. Is that worth a short conversation?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.governance<br>Mining AI Rules</div><div class="heat-score-wrap"><div class="heat-score">87</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:87%;"></div></div>
+      <div class="heat-deal">SaaS: $120K–$250K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">AI that affects worker safety and self-driving machines needs records that hold up in an audit.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.data<br>Join Rocscience + MinePlan Data</div><div class="heat-score-wrap"><div class="heat-score">79</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:79%;"></div></div>
+      <div class="heat-deal">Transaction: $800K–$2.0M · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Fleet, sensor and ground-study data is growing across MinePlan and the new software. One data layer is the answer.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.ai<br>AI Engine for Future Mining Products</div><div class="heat-score-wrap"><div class="heat-score">68</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:68%;"></div></div>
+      <div class="heat-deal">SaaS/Partnership: $200K–$500K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">A partner conversation about the AI engines inside mining products, not a standard sale.</div>
+    </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Use the parent-level Hexagon AB door. One IBM–Hexagon story across Mining, Federal and Octave. 2. Mention Rocscience and the production-AI message. 3. Wait for a dated reason before pushing harder.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">watsonx.governance — annual subscription. Governs MinePlan AI models as mining customers move from pilot to production.</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"With Hexagon adding companies like Rocscience and pushing mining AI toward production, the question customers will ask is how those models are governed and how the data behind them is managed. That is what IBM works on. Is that worth a short conversation?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#hexmin" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+
+/* ─── CHICO'S ─── */
+PANELS['chicos']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/chicos.png" alt="Chico's" onerror="this.style.display='none'"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Pratap Kesarkar</div>
+      <div class="acct-name">Chico's FAS / KnitWell Group</div>
+      <div class="acct-meta">Private (Sycamore Partners) · Women's clothing retail · Fort Myers HQ · Chico's, White House Black Market, Soma</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#0c1a2e;color:#93c5fd;">● Standby</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-auto">Automation</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Standby</div><div class="vital-sub">no company news this week; the new digital and data chief (Sep 22) is the live hook</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Pratap Kesarkar</div><div class="vital-sub">Book 3</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">See brief</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    Three brands in Fort Myers, a parent with six or more brands, and a new executive who owns customer data and AI. IBM Planning Analytics puts brand-level merchandise planning into one CFO view. IBM watsonx.ai and watsonx.data support the new leader's personalization and AI plans. Fort Myers is close, so go in person.
+    <span class="thesis-angle">IBM's opener: &quot;With a new Chief Digital & Customer Data Officer setting the data and AI direction, IBM helps multi-brand retailers join customer and merchandise data and plan from one place. Could we get 30 minutes at your Fort Myers office?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.data<br>Customer and Merchandise Data for All Brands</div><div class="heat-score-wrap"><div class="heat-score">84</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:84%;"></div></div>
+      <div class="heat-deal">Transaction: $1.0M–$2.5M · Brand: D&amp;AI</div>
+      <div class="heat-conviction">A new owner of the data plan is the way in. The problem to solve is joining customer and merchandise data across brands.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM Planning Analytics<br>Brand Merging and Merchandise Planning</div><div class="heat-score-wrap"><div class="heat-score">76</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:76%;"></div></div>
+      <div class="heat-deal">SaaS: $250K–$500K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Helps plan around the brand merger. Check that the planning job posting is still open before you mention it.</div>
+    </div>
+    <div class="heat-card" style="--hc:#006644;">
+      <div class="heat-top"><div class="heat-play">IBM Sterling OMS<br>Order Management Across Brands</div><div class="heat-score-wrap"><div class="heat-score">63</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:63%;"></div></div>
+      <div class="heat-deal">Transaction: $600K–$1.5M · Brand: Automation</div>
+      <div class="heat-conviction">A later conversation. The idea that holiday stock is locked in mid-October was never verified, so ask about holiday planning instead.</div>
+    </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Lead with the new Chief Digital &amp; Customer Data Officer. 2. Also target the VP of Merchandise Planning and the CFO in Fort Myers. Go in person. 3. Planning Analytics for brand planning, watsonx for customer data.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">Planning Analytics — annual subscription. Merchandise and demand planning for Chico's, WHBM and Soma in one CFO view.</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"With a new Chief Digital &amp; Customer Data Officer setting the data and AI direction, IBM helps multi-brand retailers join customer and merchandise data and plan from one place. Could we get 30 minutes at your Fort Myers office?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#chicos" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+
+/* ─── MEMORIAL HEALTHCARE ─── */
+PANELS['memorial']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/memorial.png" alt="Memorial Healthcare"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Michael Sanchez</div>
+      <div class="acct-name">Memorial Healthcare System</div>
+      <div class="acct-meta">Public · Healthcare · $3.8B operating revenue · 6 hospitals · Hollywood, FL · One account: the District is the public board that runs Memorial</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#431407;color:#fdba74;">● Engage</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-auto">Automation</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">record year and a $670M tower under way; no dated event in the next 10 days</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Michael Sanchez</div><div class="vital-sub">Book 6</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    A public system with a record surplus and a $670M build can fund a data and AI base. watsonx.data brings records, imaging, lab and pharmacy data together. watsonx.governance keeps any clinical AI explainable and monitored. Planning Analytics helps plan capital and service lines against the tower. watsonx Orchestrate can take over repeat admin work like prior authorizations. Ask about current AI use in discovery, since earlier claims of live pilots were never confirmed. Visit in person at Hollywood HQ.
+    <span class="thesis-angle">IBM's opener: &quot;Congratulations on a record year. With the Regional tower under way, new sites coming and AI moving into clinical work, IBM watsonx.data and watsonx.governance help health systems grow AI safely on one clean data base. Can we meet at Hollywood this month?&quot;</span>
+<div class="detail-body">
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM FlashSystem Storage<br>Protect Epic Records &amp; Imaging</div><div class="heat-score-wrap"><div class="heat-score">89</div><div class="heat-rating">Critical</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:89%;"></div></div>
+      <div class="heat-deal">Transaction: $950K–$2.4M · Brand: Storage</div>
+      <div class="heat-conviction">Cyber-safe storage for Epic records and imaging. FlashSystem Safeguarded Copy gives fast recovery after an attack. Confirm the current setup in discovery.</div>
+    </div>
+    <div class="heat-card" style="--hc:#c2560c;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.governance<br>Clinical AI Checks</div><div class="heat-score-wrap"><div class="heat-score">82</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:82%;"></div></div>
+      <div class="heat-deal">SaaS: $200K–$450K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Clinical AI needs records, bias checks and audit trails before it reaches patients. Verify which AI is live; the earlier claim of active pilots was never confirmed.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM Planning Analytics<br>Beds &amp; Staffing Plan</div><div class="heat-score-wrap"><div class="heat-score">71</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:71%;"></div></div>
+      <div class="heat-deal">SaaS: $180K–$360K/yr · Brand: D&amp;AI</div>
+      <div class="heat-conviction">Plan capital and service lines against the tower build and staffing needs.</div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Ask for an in-person meeting at Hollywood HQ: CIO, Chief Medical Information Officer or CFO. 2. Open on the record year and the tower. Ask where AI stands today. 3. Check the District's board agendas for any open technology review.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">watsonx.governance — annual subscription. Monitors clinical and operations AI models for bias and drift across the six hospitals.</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"Congratulations on a record year. With the Regional tower under way, new sites coming and AI moving into clinical work, IBM watsonx.data and watsonx.governance help health systems grow AI safely on one clean data base. Can we meet at Hollywood this month?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#memorial" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+/* ─── SEAWORLD ─── */
+PANELS['seaworld']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/seaworld.png" alt="SeaWorld" onerror="this.style.display='none'"><div class="acct-logo-fallback" style="font-size:11px;font-weight:800;color:var(--muted);text-align:center;line-height:1.3;display:none;">SeaWorld<br>/ PRKS</div></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Jim Gilbert</div>
+      <div class="acct-name">SeaWorld / United Parks &amp; Resorts</div>
+      <div class="acct-meta">NYSE: PRKS · Theme Parks · $483.3M Q2 sales (−1.4%) · 13 parks · Q3 results Thu Nov 5</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#7f1d1d;color:#fca5a5;">▲ Strike</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-auto">Automation</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Strike</div><div class="vital-sub">Q3 results Thu Nov 5 before the open, call 9:00 AM ET (3 days)</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Jim Gilbert</div><div class="vital-sub">Book 1</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    Finance needs to answer "what if attendance drops 5% but each guest spends 8% more?" quickly. IBM Planning Analytics runs those "what if" cases on top of the ERP the team already uses. IBM watsonx.data can pull ERP, ticketing and food-and-drink register data into one place behind it. Results are 3 days away, so lead with speed.
+    <span class="thesis-angle">IBM's opener: &quot;With Q3 results on Thursday, your finance team is weighing attendance against what each guest spends. IBM Planning Analytics runs those 'what if' cases on top of the ERP you already have, and we can show it quickly. Could we talk after the call on Nov 5?&quot;</span>
+<div class="detail-body">
+
+  <div class="sec"><span class="sec-lbl">IBM Play Heat Scores</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card" style="--hc:#b91c1c;">
+      <div class="heat-top"><div class="heat-play">IBM Planning Analytics<br>Attendance and Spend "What If" Models</div><div class="heat-score-wrap"><div class="heat-score">84</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:84%;"></div></div>
+      <div class="heat-deal">Deal size: $500K–1.5M/yr</div>
+      <div class="heat-conviction">Q3 results are Nov 5, and the stock is near its low. Finance must show it can control costs and keep guests coming. Quick "what if" models help with both.</div>
+    </div>
+    <div class="heat-card" style="--hc:#0043ce;">
+      <div class="heat-top"><div class="heat-play">IBM watsonx.data<br>One View of Each Guest's Spend</div><div class="heat-score-wrap"><div class="heat-score">71</div><div class="heat-rating">Hot</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:71%;"></div></div>
+      <div class="heat-deal">Deal size: $400K–1.0M/yr</div>
+      <div class="heat-conviction">Ticket, food and shop sales sit in different systems. One view shows total spend per guest, which is the number the CFO is asked about.</div>
+    </div>
+    <div class="heat-card" style="--hc:#1d4ed8;">
+      <div class="heat-top"><div class="heat-play">IBM Maximo (MAS)<br>Ride and Attraction Uptime</div><div class="heat-score-wrap"><div class="heat-score">68</div><div class="heat-rating">Warm</div></div></div>
+      <div class="heat-bar"><div class="heat-fill" style="--pct:68%;"></div></div>
+      <div class="heat-deal">Deal size: $350K–750K</div>
+      <div class="heat-conviction">Later conversation. Rides that stay open earn money; unplanned closures cost it.</div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Send a short note to the CFO or VP of FP&amp;A before Thursday. 2. Follow up right after the Nov 5 call. 3. Planning Analytics first; watsonx.data as the follow-on project.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">Planning Analytics SaaS — attendance vs. per-guest spend "what if" cases on top of the ERP. "Plan the holiday season before it starts."</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"With Q3 results on Thursday, your finance team is weighing attendance against what each guest spends. IBM Planning Analytics runs those 'what if' cases on top of the ERP you already have, and we can show it quickly. Could we talk after the call on Nov 5?"</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#seaworld" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+/* ─── DATA MANAGEMENT BREVARD ─── */
+PANELS['dmab']=`
+<div class="acct-hdr">
+  <div class="acct-hdr-top">
+    <div class="acct-logo-cell"><img src="LOGOS/dmab.svg" alt="DMB" onerror="this.style.display='none'"></div>
+    <div class="acct-title">
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Jim Gilbert</div>
+      <div class="acct-name">Data Mgmt. Brevard</div>
+      <div class="acct-meta">Private · Hosting and managed IT services · Brevard County, FL · Space Coast</div>
+    </div>
+  </div>
+  <div class="acct-hdr-bottom">
+    <span class="acct-urg" style="background:#0c1a2e;color:#93c5fd;">● Standby</span>
+    <span class="acct-badge rb-dai">Data &amp; AI</span>
+    <span class="acct-badge rb-stor">Storage</span>
+  </div>
+  <div class="acct-vitals">
+    <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Standby</div><div class="vital-sub">no company news this week; partner-training play around AI on IBM Z</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Jim Gilbert</div><div class="vital-sub">Book 1</div></div>
+    <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
+    <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
+  </div>
+  <div class="acct-thesis">
+    This is a referral and co-sell partner, not a direct-revenue account. Give them the AI-on-Z and Data Gate story, and use their hosting and disaster-recovery services as the way to attach IBM Storage. Training now becomes pipeline in Q1.
+    <span class="thesis-angle">IBM's opener: &quot;Your clients run key workloads on Z, and many will ask how to add AI without moving data off the platform. IBM has a clear answer in z17 and Data Gate for watsonx. I'd like to run a partner training session so your team can lead those talks.&quot;</span>
+<div class="detail-body">
+      </div>
+    </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">Opportunity Heat</span><div class="sec-line"></div></div>
+  <div class="heat-grid">
+    <div class="heat-card">
+      <div class="heat-card-top">
+        <div class="heat-prod">IBM Z (z17) + Data Gate: AI on the Platform</div>
+        <div class="heat-score" style="background:#431407;color:#fdba74;">82</div>
+      </div>
+      <div class="heat-bar-wrap"><div class="heat-bar" style="width:82%;background:#fb923c;"></div></div>
+      <div class="heat-rating" style="color:#fb923c;">Hot</div>
+      <div class="heat-copy">Training on AI for IBM Z gives hosted clients a way to use AI without moving their data.</div>
+    </div>
+    <div class="heat-card">
+      <div class="heat-card-top">
+        <div class="heat-prod">IBM Partner Plus: Training and Joint Pipeline</div>
+        <div class="heat-score" style="background:#431407;color:#fdba74;">75</div>
+      </div>
+      <div class="heat-bar-wrap"><div class="heat-bar" style="width:75%;background:#fb923c;"></div></div>
+      <div class="heat-rating" style="color:#fb923c;">Hot</div>
+      <div class="heat-copy">Data Gate for watsonx connects mainframe data to analytics. Use it as the first shared technical talk.</div>
+    </div>
+    <div class="heat-card">
+      <div class="heat-card-top">
+        <div class="heat-prod">IBM Storage: First Joint Deal</div>
+        <div class="heat-score" style="background:#0c1a2e;color:#93c5fd;">61</div>
+      </div>
+      <div class="heat-bar-wrap"><div class="heat-bar" style="width:61%;background:#60a5fa;"></div></div>
+      <div class="heat-rating" style="color:#60a5fa;">Warm</div>
+      <div class="heat-copy">Storage is the likely first deal once training is done.</div>
+    </div>
+  </div>
+  <div class="sec"><span class="sec-lbl">This Week's Move</span><div class="sec-line"></div></div>
+  <div class="move">
+    <div class="move-row"><span class="move-lbl-warn">Now</span><div class="move-text">1. Confirm who this company is (see the check above). 2. Book a Q4 partner training session. 3. Pick 2–3 hosted-client accounts for joint talks. Storage is the first deal.</div></div>
+    <div class="move-row"><span class="move-lbl">Sell</span><div class="move-text">watsonx.data + Data Gate — co-sell to their mainframe clients to bring Z data into a governed lakehouse.</div></div>
+    <div class="move-row"><span class="move-lbl">Motion</span><div class="move-track-text">"Your clients run key workloads on Z, and many will ask how to add AI without moving data off the platform. IBM has a clear answer in z17 and Data Gate for watsonx. I'd like to run a partner training session so your team can lead those talks."</div></div>
+  </div>
+  <div class="brief-link-row"><a href="phase2.html#dmab" class="brief-link">→ Full Intel Brief (Phase 2)</a></div>
+</div>
+`;
+
+/* init */
+buildBssPills();
+buildRail('tsl');
+</script>
+</body>
+</html>
