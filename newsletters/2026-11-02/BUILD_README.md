@@ -11,18 +11,16 @@ Not mirrored to `se-horizon/editions/`. Not committed or pushed.
 4. **Phase 4 contacts pulled live.** Every account's contacts (6 per account, except DMAB) were pulled from Sales Navigator on Nov 2, in batches of 3 accounts.
 5. **26 accounts, not 27.** Memorial and South Broward Hospital District are one account.
 
-## Locked roster (confirmed by user Nov 2, 2026)
+## Updated Roster (Nov 6, 2026 Update)
+*Jim Gilbert and Ricardo Valdes off the team. Pratap, Jim, and Ricardo accounts transferred to Mijee Walker.*
 
 | Owner (TSL) | Books | Accounts |
 |---|---|---|
-| Jim Gilbert | 1 | SeaWorld, Frontline, DMAB |
-| Ricardo Valdes | 2 | Dycom, ODP (also BSS), ANSCO |
-| Pratap Kesarkar | 3 | Kforce, Chico's/KnitWell |
-| Spencer Fenelon | 4 | Burger King/RBI, H.I.G. Capital |
-| Shari Zahed | 5 | Icahn, Herc, MasTec |
-| Michael Sanchez | 6 | HEICO, Chewy, Memorial + South Broward (one card) |
-| Hazem Marzouk (backup: Srajan Dube) | 7 | Lennar, Lennar Mortgage, Pellera (all also BSS) |
-| Mijee Walker | 8 + 9 | Octave, SGWS, NCLH, Citco, JM Family, Hexagon Mining, Hexagon Federal (all also BSS) |
+| Spencer Fenelon | 4 | Burger King/RBI, H.I.G. Capital (2 accounts) |
+| Shari Zahed | 5 | Icahn, Herc, MasTec (3 accounts) |
+| Michael Sanchez | 6 | HEICO, Chewy, Memorial + South Broward (3 accounts) |
+| Hazem Marzouk (backup: Srajan Dube) | 7 | Lennar, Lennar Mortgage, Pellera (all also BSS, 3 accounts) |
+| Mijee Walker | 1, 2, 3, 8 + 9 | SeaWorld, Frontline, DMAB, Dycom, ODP (BSS), ANSCO, Kforce, Chico's/KnitWell, Octave (BSS), SGWS (BSS), NCLH (BSS), Citco (BSS), JM Family (BSS), Hexagon Mining (BSS), Hexagon Federal (BSS) (15 accounts) |
 
 **BSS specialists** all cover the same 11 accounts (not divided): Alyssa (Data & AI), Gavin (Automation), William (Storage), Rick & Kevin (Power & Cloud).
 Accounts: ODP, JM Family, SGWS, Lennar, Lennar Mortgage, Pellera, NCLH, Citco, Octave, Hexagon Mining, Hexagon Federal.

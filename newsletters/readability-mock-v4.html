@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE Horizon · Mock v4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #f0f2f5;
+  --card:     #ffffff;
+  --surface:  #f7f8fa;
+  --border:   #e0e4ed;
+  --ink:      #0f1c3a;
+  --ink-mid:  #374561;
+  --ink-low:  #7a8aaa;
+  --ibm:      #0f62fe;
+  --ibm-dk:   #0043ce;
+  --ibm-dim:  rgba(15,98,254,.05);
+  --ibm-line: rgba(15,98,254,.20);
+  --ok:       #007d5c;
+  --saas:     #006e48;
+  --saas-dim: rgba(0,110,72,.06);
+  --trans:    #6929c4;
+  --trans-dim:rgba(105,41,196,.06);
+  --strike:   #b45309;
+  --engage:   #c2400c;
+  --standby:  #1e5fa8;
+  --mono: 'IBM Plex Mono', monospace;
+  --body: 'IBM Plex Sans', sans-serif;
+  --r: 5px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--body);
+  font-size: 13px;
+  line-height: 1.55;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  padding: 28px 20px 60px;
+}
+a { color: var(--ibm); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.mock-label {
+  font-family: var(--mono); font-size: 9px; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--ink-low);
+  border: 1px solid var(--border); display: inline-block;
+  padding: 3px 10px; border-radius: 2px; margin-bottom: 20px;
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(0,0,0,.06);
+  margin-bottom: 20px;
+}
+.card.t5 { border-top: 3px solid var(--strike); }
+.card.t4 { border-top: 3px solid var(--engage); }
+.card.t3 { border-top: 3px solid var(--standby); }
+
+/* ── ZONE LABEL ── */
+.zlbl {
+  font-family: var(--mono); font-size: 8px; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  display: block; margin-bottom: 7px;
+}
+.zlbl.blue   { color: var(--ibm); }
+.zlbl.green  { color: var(--ok); }
+.zlbl.purple { color: var(--trans); }
+.zlbl.muted  { color: var(--ink-low); }
+
+/* ── HEADER ── */
+.z-header {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 13px 18px; gap: 12px; flex-wrap: wrap;
+  border-bottom: 1px solid var(--border);
+}
+.z-acct-name { font-size: 19px; font-weight: 900; color: var(--ink); line-height: 1.1; letter-spacing: -.3px; }
+.z-acct-meta { font-family: var(--mono); font-size: 9.5px; color: var(--ink-low); margin-top: 2px; }
+.z-header-right { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+
+.z-priority {
+  font-family: var(--mono); font-size: 9px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 3px;
+  display: inline-flex; align-items: center; gap: 5px;
+}
+.z-priority.t5 { background: rgba(180,83,9,.08);  color: var(--strike); border: 1px solid rgba(180,83,9,.22); }
+.z-priority.t4 { background: rgba(194,64,12,.08); color: var(--engage); border: 1px solid rgba(194,64,12,.22); }
+.z-priority.t3 { background: rgba(30,95,168,.08); color: var(--standby);border: 1px solid rgba(30,95,168,.22); }
+.z-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
+.badge {
+  font-family: var(--mono); font-size: 8px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 3px;
+}
+.bd-dai  { background: #0043ce; color: #fff; }
+.bd-stor { background: #6929c4; color: #fff; }
+.bd-auto { background: #198038; color: #fff; }
+.bd-pc   { background: #9f1853; color: #fff; }
+
+/* ── PULSE ── */
+.z-pulse {
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.z-pulse-text { font-size: 12.5px; font-style: italic; color: var(--ink-mid); line-height: 1.6; }
+
+/* ── GRID ROWS ── */
+.row { display: grid; border-bottom: 1px solid var(--border); }
+.row:last-child { border-bottom: none; }
+.row.c2      { grid-template-columns: 1fr 1fr; }
+.row.c3      { grid-template-columns: 1fr 1fr 1fr; }
+.row.c-wide  { grid-template-columns: 1.5fr 1fr; }
+
+.cell { padding: 13px 18px; }
+.cell + .cell { border-left: 1px solid var(--border); }
+
+/* ── BULLETS ── */
+.blist { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 5px; }
+.blist li {
+  font-size: 13px; color: var(--ink-mid);
+  line-height: 1.55; padding-left: 13px; position: relative;
+}
+.blist li::before { content: '▸'; position: absolute; left: 0; color: var(--ibm); font-size: 9px; top: 3px; }
+.blist.hire li::before { color: var(--ok); }
+.blist li strong { color: var(--ink); font-weight: 600; }
+
+/* ── ANGLE TEXT ── */
+.angle-txt { font-size: 13px; color: var(--ink-mid); line-height: 1.6; }
+.angle-txt strong { color: var(--ink); }
+
+/* ── ALSO RELEVANT ── */
+.also-item { display: flex; align-items: flex-start; gap: 6px; margin-bottom: 4px; }
+.also-txt  { font-size: 12px; color: var(--ink-low); line-height: 1.45; }
+
+/* ── SALES BLOCKS ── */
+.sales-block {
+  padding: 9px 11px; border-radius: 3px;
+  display: flex; flex-direction: column; gap: 4px; margin-top: 7px;
+}
+.sales-block.saas  { background: var(--saas-dim);  border-left: 3px solid var(--saas); }
+.sales-block.trans { background: var(--trans-dim); border-left: 3px solid var(--trans); }
+.sales-block.motion{ background: var(--ibm-dim);   border-left: 3px solid var(--ibm-line); }
+.sales-type {
+  font-family: var(--mono); font-size: 8px; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+}
+.sales-type.saas   { color: var(--saas); }
+.sales-type.trans  { color: var(--trans); }
+.sales-type.motion { color: var(--ibm); }
+.sales-text { font-size: 12.5px; color: var(--ink-mid); line-height: 1.55; }
+.sales-text strong { color: var(--ink); }
+.sales-pill {
+  font-family: var(--mono); font-size: 7.5px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 2px 7px; border-radius: 2px;
+  display: inline-block; margin-top: 2px; align-self: flex-start;
+}
+.sales-pill.saas  { background: var(--saas);  color: #fff; }
+.sales-pill.trans { background: var(--trans); color: #fff; }
+
+/* ── TALK TRACK ── */
+.z-talk {
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(90deg, rgba(0,125,92,.04), transparent 60%);
+}
+.z-talk-text {
+  font-size: 13px; font-style: italic;
+  color: var(--ink-mid); line-height: 1.65;
+  border-left: 3px solid var(--ok); padding-left: 12px; margin-top: 6px;
+}
+
+/* ── FOOTER ── */
+.z-footer {
+  display: flex; align-items: center;
+  justify-content: space-between; padding: 9px 18px;
+  background: var(--surface); gap: 12px;
+}
+.z-footer-meta { font-family: var(--mono); font-size: 8.5px; color: var(--ink-low); }
+.z-actions { display: flex; gap: 6px; }
+.btn {
+  font-family: var(--mono); font-size: 8.5px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 20px;
+  white-space: nowrap; display: inline-block; transition: all .14s;
+}
+.btn-primary { background: var(--ibm); color: #fff; border: none; }
+.btn-primary:hover { background: var(--ibm-dk); color: #fff; text-decoration: none; }
+.btn-outline { background: transparent; color: var(--ibm); border: 1px solid var(--ibm-line); }
+.btn-outline:hover { background: var(--ibm-dim); text-decoration: none; }
+
+@media (max-width: 680px) {
+  .row.c2, .row.c3, .row.c-wide { grid-template-columns: 1fr; }
+  .cell + .cell { border-left: none; border-top: 1px solid var(--border); }
+}
+</style>
+</head>
+<body>
+
+<div class="mock-label">Phase 1 · Mock v4 · Compact + plain-language signals</div>
+
+<div class="card t5">
+
+  <!-- HEADER -->
+  <div class="z-header">
+    <div>
+      <div class="z-acct-name">HEICO Corporation</div>
+      <div class="z-acct-meta">NYSE: HEI · Aerospace &amp; Defense · $5.6B+ rev · Hollywood, FL</div>
+    </div>
+    <div class="z-header-right">
+      <span class="z-priority t5"><span class="z-dot"></span>Strike</span>
+      <span class="badge bd-dai">Data &amp; AI</span>
+      <span class="badge bd-stor">Storage</span>
+      <span class="badge bd-pc">Power &amp; Cloud</span>
+    </div>
+  </div>
+
+  <!-- PULSE -->
+  <div class="z-pulse">
+    <span class="zlbl muted">Sep 10 Pulse</span>
+    <div class="z-pulse-text">Best quarter in company history. $1.41B in sales, profits up 33%. CEO and CIO are in a great mood — this is the best time all year to get a meeting. Next earnings aren't until Dec 17, so there's a 14-week window with no blackout periods.</div>
+  </div>
+
+  <!-- TOP SIGNALS + LEAD WITH -->
+  <div class="row c-wide">
+    <div class="cell">
+      <span class="zlbl blue">Top Signals</span>
+      <ul class="blist">
+        <li><strong>Record quarter just reported.</strong> Sales up 25%, profit up 33%. The finance team is confident and open to conversations right now.</li>
+        <li><strong>14-week open window.</strong> No earnings blackout until Dec 17 — the longest stretch of the year where leadership is reachable.</li>
+        <li><strong>IBM named #1 in AI Governance by Gartner.</strong> HEICO deals with strict government export rules (ITAR/EAR). That's a direct opening for IBM.</li>
+        <li><strong>Two acquisitions happening at once.</strong> Two separate companies now need to share data — that's a problem IBM solves.</li>
+      </ul>
+    </div>
+    <div class="cell">
+      <span class="zlbl muted">Lead With</span>
+      <span class="badge bd-dai" style="margin-bottom:10px;display:inline-block;">Data &amp; AI</span>
+      <span class="zlbl muted" style="margin-top:8px;">Also Relevant</span>
+      <div class="also-item"><span class="badge bd-stor" style="font-size:8px;padding:2px 7px;flex-shrink:0;">Storage</span><span class="also-txt">Keeping track of parts &amp; compliance records across acquisitions</span></div>
+      <div class="also-item"><span class="badge bd-dai" style="font-size:8px;padding:2px 7px;flex-shrink:0;">AI Gov</span><span class="also-txt">Government export rules require auditable AI — IBM is the leader</span></div>
+      <div class="also-item"><span class="badge bd-pc" style="font-size:8px;padding:2px 7px;flex-shrink:0;">Power</span><span class="also-txt">Consolidating servers after each new acquisition</span></div>
+    </div>
+  </div>
+
+  <!-- HIRING SIGNALS -->
+  <div class="row">
+    <div class="cell">
+      <span class="zlbl green">Hiring Signals</span>
+      <ul class="blist hire">
+        <li>They are actively hiring people to connect data from different acquired companies — that's the exact problem IBM Data Fabric solves.</li>
+        <li>Hiring compliance staff to handle government export rules — reinforces the IBM AI Governance entry point.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- IBM ANGLE | SAAS + TRANSACTION | MOTION -->
+  <div class="row c3">
+    <div class="cell">
+      <span class="zlbl blue">IBM Angle</span>
+      <p class="angle-txt">HEICO buys a new company almost every quarter. Each time they do, they end up with a mess of disconnected systems. IBM Data Fabric connects everything cleanly — and gets more valuable with every deal they close. <strong>Right now, post-record quarter, is the easiest time all year to get a meeting.</strong></p>
+    </div>
+    <div class="cell">
+      <span class="zlbl muted">How to Drive Sales</span>
+      <div class="sales-block saas">
+        <span class="sales-type saas">SaaS Entry</span>
+        <div class="sales-text"><strong>watsonx.governance</strong> — annual subscription. Pitch: "Your AI needs to follow government export rules. IBM is rated #1 for exactly that."</div>
+        <span class="sales-pill saas">watsonx.governance</span>
+      </div>
+      <div class="sales-block trans">
+        <span class="sales-type trans">Transaction</span>
+        <div class="sales-text"><strong>Data Fabric + Storage</strong> — one-time project to connect two acquired companies' data. Frame it as the integration project, not a software sale.</div>
+        <span class="sales-pill trans">Data Fabric + Storage</span>
+      </div>
+    </div>
+    <div class="cell">
+      <span class="zlbl blue">Motion — Do This Now</span>
+      <div class="sales-block motion" style="margin-top:0;">
+        <div class="sales-text">
+          1. Send the Gartner AI Governance report (IBM is #1) to the CIO today.<br><br>
+          2. Ask for a 20-minute call about export compliance.<br><br>
+          3. During that call, bring up connecting the two acquired companies' data.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TALK TRACK -->
+  <div class="z-talk">
+    <span class="zlbl green">What to Say</span>
+    <div class="z-talk-text">"Congratulations on a record Q3 — with Gartner naming IBM the #1 AI Governance platform this summer, I wanted to reach out about your export compliance requirements. For aerospace companies managing multiple acquisitions at HEICO's scale, the timing feels right."</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="z-footer">
+    <span class="z-footer-meta">Sep 10, 2026 · Edition 06 · South Florida</span>
+    <div class="z-actions">
+      <a class="btn btn-primary" href="phase2.html#heico">Full Intel →</a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A163065%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

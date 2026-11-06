@@ -263,28 +263,45 @@ a{text-decoration:none;}
   .saas-tx-cell{border-right:none;border-bottom:1px solid var(--border);}
   .saas-tx-cell:last-child{border-bottom:none;}
 }
+
+/* TOPNAV */
+.topnav{position:sticky;top:0;z-index:300;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-top:3px solid #0F62FE;border-bottom:1px solid #DDE1EC;height:51px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;}
+.tn-left{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.tn-ibm{font-family:'IBM Plex Sans',-apple-system,sans-serif;font-size:20px;font-weight:700;color:#0F62FE;letter-spacing:-.5px;}
+.tn-div{width:1px;height:18px;background:#C8CEDD;}
+.tn-title{font-family:'IBM Plex Sans',-apple-system,sans-serif;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#6B779A;}
+.tn-badge{font-family:'IBM Plex Sans',-apple-system,sans-serif;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:#0F62FE;color:#fff;padding:2px 10px;border-radius:20px;}
+.tn-links{display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;}
+.tn-links::-webkit-scrollbar{display:none;}
+.tn-links a{font-family:'IBM Plex Sans',-apple-system,sans-serif;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#6B779A;padding:6px 14px;border-bottom:2px solid transparent;white-space:nowrap;transition:color .12s;}
+.tn-links a:hover{color:#0043CE;text-decoration:none;}
+.tn-links a.active{color:#0F62FE;border-bottom-color:#0F62FE;background:rgba(15,98,254,.08);}
+.tn-sep{color:#C8CEDD;padding:0 4px;user-select:none;}
+.tn-right{font-family:'IBM Plex Sans',-apple-system,sans-serif;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#6B779A;white-space:nowrap;flex-shrink:0;}
+
 </style>
 </head>
 <body>
 
-<div class="se-topbar">
-  <div class="se-topbar-left">
-    <span class="se-topbar-ibm">IBM</span>
-    <div class="se-topbar-div"></div>
-    <span class="se-topbar-title">SE Horizon</span>
-    <span class="se-topbar-badge">Phase 3</span>
+<!-- ── TOP NAV ── -->
+<nav class="topnav">
+  <div class="tn-left">
+    <span class="tn-ibm">IBM</span>
+    <span class="tn-div"></span>
+    <span class="tn-title">SE Horizon</span>
+    <span class="tn-badge">Edition 13</span>
   </div>
-  <div class="se-topbar-mid">
-    <a href="phase1.html" class="back">← Radar</a>
-    <span class="div">|</span>
-    <a href="phase2.html">Phase 2</a>
-    <span class="div">|</span>
-    <a href="phase3.html" class="active">Phase 3</a>
-    <span class="div">|</span>
-    <a href="phase4.html">Phase 4</a>
+  <div class="tn-links">
+    <a href="phase1.html" class="">Phase 1 — Radar</a>
+    <span class="tn-sep">·</span>
+    <a href="phase2.html" class="">Phase 2 — Intel</a>
+    <span class="tn-sep">·</span>
+    <a href="phase3.html" class="active">Phase 3 — Accounts</a>
+    <span class="tn-sep">·</span>
+    <a href="phase4.html" class="">Phase 4 — Contacts</a>
   </div>
-  <span class="se-topbar-right">SE Horizon · Edition 13 · Nov 2, 2026</span>
-</div>
+  <div class="tn-right">Nov 2, 2026 · Edition 13</div>
+</nav>
 
 <div class="mock-banner">
   <span class="mock-banner-lbl">Edition 13</span>
@@ -316,17 +333,15 @@ a{text-decoration:none;}
 <script>
 /* ── ACCOUNT DATA ── */
 const ACCOUNTS = [
-  /* Jim Gilbert · Book 1 */
-  {id:"seaworld", name:"SeaWorld / United Parks", urg:'strike', hook:"Q3 results Thu Nov 5 before the open, call 9:00 AM ET (3 days)", brands:['dai', 'auto'], bss:false, book:1},
-  {id:"frontline", name:"Frontline Insurance", urg:'standby', hook:"no company event this week; storm season and AI-rule scrutiny are the background", brands:['dai'], bss:false, book:1},
-  {id:"dmab", name:"Data Management Brevard", urg:'standby', hook:"no company news this week; partner-training play around AI on IBM Z", brands:['dai', 'stor'], bss:false, book:1},
-  /* Ricardo Valdes · Book 2 */
-  {id:"dycom", name:"Dycom Industries", urg:'engage', hook:"Q3 (FY27) results expected about Nov 24 (date not confirmed, ~22 days)", brands:['dai', 'stor', 'auto'], bss:false, book:2},
-  {id:"odp", name:"ODP Corp / Office Depot", urg:'standby', hook:"no new company news this week; Atlas is still reshaping the business", brands:['dai', 'auto'], bss:true, book:2},
-  {id:"ansco", name:"ANSCO & Associates", urg:'standby', hook:"wait for parent Dycom's Q3 report; coordinate with the Dycom plan", brands:['auto', 'dai'], bss:false, book:2},
-  /* Pratap Kesarkar · Book 3 */
-  {id:"kforce", name:"Kforce Inc.", urg:'engage', hook:"Q3 reported Oct 26 (beat); no dated event in the next 10 days", brands:['dai', 'auto'], bss:false, book:3},
-  {id:"chicos", name:"Chico's FAS / KnitWell Group", urg:'standby', hook:"no company news this week; the new digital and data chief (Sep 22) is the live hook", brands:['dai', 'auto'], bss:false, book:3},
+  /* Mijee Walker · Books 1, 2, 3, 8 + 9 */
+  {id:"seaworld", name:"SeaWorld / United Parks", urg:'strike', hook:"Q3 results Thu Nov 5 before the open, call 9:00 AM ET (3 days)", brands:['dai', 'auto'], bss:false, book:8},
+  {id:"frontline", name:"Frontline Insurance", urg:'standby', hook:"no company event this week; storm season and AI-rule scrutiny are the background", brands:['dai'], bss:false, book:8},
+  {id:"dmab", name:"Data Management Brevard", urg:'standby', hook:"no company news this week; partner-training play around AI on IBM Z", brands:['dai', 'stor'], bss:false, book:8},
+  {id:"dycom", name:"Dycom Industries", urg:'engage', hook:"Q3 (FY27) results expected about Nov 24 (date not confirmed, ~22 days)", brands:['dai', 'stor', 'auto'], bss:false, book:8},
+  {id:"odp", name:"ODP Corp / Office Depot", urg:'standby', hook:"no new company news this week; Atlas is still reshaping the business", brands:['dai', 'auto'], bss:true, book:8},
+  {id:"ansco", name:"ANSCO & Associates", urg:'standby', hook:"wait for parent Dycom's Q3 report; coordinate with the Dycom plan", brands:['auto', 'dai'], bss:false, book:8},
+  {id:"kforce", name:"Kforce Inc.", urg:'engage', hook:"Q3 reported Oct 26 (beat); no dated event in the next 10 days", brands:['dai', 'auto'], bss:false, book:8},
+  {id:"chicos", name:"Chico's FAS / KnitWell Group", urg:'standby', hook:"no company news this week; the new digital and data chief (Sep 22) is the live hook", brands:['dai', 'auto'], bss:false, book:8},
   /* Spencer Fenelon · Book 4 */
   {id:"bk", name:"Burger King / RBI", urg:'engage', hook:"Q3 reported Oct 29 (Burger King U.S. strong, Popeyes weak); no dated event in the next 10 days", brands:['dai', 'auto'], bss:false, book:4},
   {id:"hig", name:"H.I.G. Capital Inc.", urg:'engage', hook:"MISTRAS got no rival bids; shareholder vote is Nov 24, outside the 10-day window", brands:['dai', 'auto'], bss:false, book:4},
@@ -352,7 +367,7 @@ const ACCOUNTS = [
   {id:"hexfed", name:"Hexagon Federal", urg:'standby', hook:"no news for this unit; the parent's defense-driven growth is the only signal", brands:['dai'], bss:true, book:8},
 ];
 
-const BOOK_LABELS = {"1": "Jim Gilbert · Book 1", "2": "Ricardo Valdes · Book 2", "3": "Pratap Kesarkar · Book 3", "4": "Spencer Fenelon · Book 4", "5": "Shari Zahed · Book 5", "6": "Michael Sanchez · Book 6", "7": "Hazem Marzouk · Book 7", "8": "Mijee Walker · Books 8 + 9"};
+const BOOK_LABELS = {"4": "Spencer Fenelon · Book 4", "5": "Shari Zahed · Book 5", "6": "Michael Sanchez · Book 6", "7": "Hazem Marzouk · Book 7", "8": "Mijee Walker · Books 1, 2, 3, 8 + 9"};
 const URG = {strike:{l:'Strike',c:'u-strike'}, engage:{l:'Engage',c:'u-engage'}, standby:{l:'Standby',c:'u-standby'}};
 const BR  = {dai:{l:'D&AI',c:'rb-dai'}, auto:{l:'Auto',c:'rb-auto'}, stor:{l:'Storage',c:'rb-stor'}, pc:{l:'P&C',c:'rb-pc'}};
 
@@ -821,7 +836,7 @@ PANELS['nclh']=`
   </div>
   <div class="acct-vitals">
     <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">Q3 reported Oct 29 (beat, raised full-year outlook); Q4 outlook is weak; no dated event in the next 10 days</div></div>
-    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 8 + 9</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 1, 2, 3, 8 + 9</div></div>
     <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
     <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
   </div>
@@ -995,7 +1010,7 @@ PANELS['jmf']=`
   </div>
   <div class="acct-vitals">
     <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Standby</div><div class="vital-sub">no new JM Family business news this week; Q4 budget season is the timing</div></div>
-    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 8 + 9</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 1, 2, 3, 8 + 9</div></div>
     <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
     <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
   </div>
@@ -1052,7 +1067,7 @@ PANELS['sgws']=`
   </div>
   <div class="acct-vitals">
     <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">six years of FTC price oversight; new Bacardi deal Oct 28; no dated event in the next 10 days</div></div>
-    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 8 + 9</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 1, 2, 3, 8 + 9</div></div>
     <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
     <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
   </div>
@@ -1097,7 +1112,7 @@ PANELS['kforce']=`
   <div class="acct-hdr-top">
     <div class="acct-logo-cell"><img src="LOGOS/kforce.png" alt="Kforce"></div>
     <div class="acct-title">
-      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Pratap Kesarkar</div>
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Mijee Walker</div>
       <div class="acct-name">Kforce Inc.</div>
       <div class="acct-meta">NASDAQ: KFRC · Tech &amp; Finance Staffing · $357.8M Q3 sales (+7.5%)</div>
     </div>
@@ -1109,7 +1124,7 @@ PANELS['kforce']=`
   </div>
   <div class="acct-vitals">
     <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">Q3 reported Oct 26 (beat); no dated event in the next 10 days</div></div>
-    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Pratap Kesarkar</div><div class="vital-sub">Book 3</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 1, 2, 3, 8 + 9</div></div>
     <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
     <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
   </div>
@@ -1154,7 +1169,7 @@ PANELS['dycom']=`
   <div class="acct-hdr-top">
     <div class="acct-logo-cell"><img src="LOGOS/dycom.png" alt="Dycom"></div>
     <div class="acct-title">
-      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Ricardo Valdes</div>
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Mijee Walker</div>
       <div class="acct-name">Dycom Industries</div>
       <div class="acct-meta">NYSE: DY · Telecom &amp; Fiber Contractor · $12.24B record backlog · Palm Beach Gardens HQ · Parent of ANSCO</div>
     </div>
@@ -1167,7 +1182,7 @@ PANELS['dycom']=`
   </div>
   <div class="acct-vitals">
     <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">Q3 (FY27) results expected about Nov 24 (date not confirmed, ~22 days)</div></div>
-    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Ricardo Valdes</div><div class="vital-sub">Book 2</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 1, 2, 3, 8 + 9</div></div>
     <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
     <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
   </div>
@@ -1269,7 +1284,7 @@ PANELS['ansco']=`
   <div class="acct-hdr-top">
     <div class="acct-logo-cell"><img src="LOGOS/ansco.png" alt="ANSCO"></div>
     <div class="acct-title">
-      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Ricardo Valdes</div>
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Mijee Walker</div>
       <div class="acct-name">ANSCO &amp; Associates</div>
       <div class="acct-meta">Part of Dycom Industries · Telecom construction · Southeast U.S. · Parent Q3 about Nov 24 (22 days, unconfirmed)</div>
     </div>
@@ -1281,7 +1296,7 @@ PANELS['ansco']=`
   </div>
   <div class="acct-vitals">
     <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Standby</div><div class="vital-sub">wait for parent Dycom's Q3 report; coordinate with the Dycom plan</div></div>
-    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Ricardo Valdes</div><div class="vital-sub">Book 2</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 1, 2, 3, 8 + 9</div></div>
     <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
     <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">See brief</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
   </div>
@@ -1338,7 +1353,7 @@ PANELS['citco']=`
   </div>
   <div class="acct-vitals">
     <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Engage</div><div class="vital-sub">new Q3 hedge fund report Oct 27, awards, and fast growth in new fund types; no dated event in the next 10 days</div></div>
-    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 8 + 9</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 1, 2, 3, 8 + 9</div></div>
     <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
     <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
   </div>
@@ -1383,7 +1398,7 @@ PANELS['frontline']=`
   <div class="acct-hdr-top">
     <div class="acct-logo-cell"><img src="LOGOS/frontline.png" alt="Frontline" onerror="this.style.display='none'"></div>
     <div class="acct-title">
-      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Jim Gilbert</div>
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Mijee Walker</div>
       <div class="acct-name">Frontline Insurance</div>
       <div class="acct-meta">Private · Home and property insurance · Florida homeowners · Lake Mary, FL · Hurricane season ends Nov 30 (28 days)</div>
     </div>
@@ -1395,7 +1410,7 @@ PANELS['frontline']=`
   </div>
   <div class="acct-vitals">
     <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Standby</div><div class="vital-sub">no company event this week; storm season and AI-rule scrutiny are the background</div></div>
-    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Jim Gilbert</div><div class="vital-sub">Book 1</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 1, 2, 3, 8 + 9</div></div>
     <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
     <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
   </div>
@@ -1440,7 +1455,7 @@ PANELS['odp']=`
   <div class="acct-hdr-top">
     <div class="acct-logo-cell"><img src="LOGOS/odp.png" alt="ODP" onerror="this.style.display='none'"></div>
     <div class="acct-title">
-      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Ricardo Valdes</div>
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Mijee Walker</div>
       <div class="acct-name">ODP / Office Depot</div>
       <div class="acct-meta">Private (Atlas Holdings) · Office supplies for businesses and retail · About $7B in sales · New CEO · Boca Raton HQ</div>
     </div>
@@ -1452,7 +1467,7 @@ PANELS['odp']=`
   </div>
   <div class="acct-vitals">
     <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Standby</div><div class="vital-sub">no new company news this week; Atlas is still reshaping the business</div></div>
-    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Ricardo Valdes</div><div class="vital-sub">Book 2</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 1, 2, 3, 8 + 9</div></div>
     <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
     <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
   </div>
@@ -1566,7 +1581,7 @@ PANELS['hexfed']=`
   </div>
   <div class="acct-vitals">
     <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Standby</div><div class="vital-sub">no news for this unit; the parent's defense-driven growth is the only signal</div></div>
-    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 8 + 9</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 1, 2, 3, 8 + 9</div></div>
     <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
     <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
   </div>
@@ -1623,7 +1638,7 @@ PANELS['octave']=`
   </div>
   <div class="acct-vitals">
     <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Strike</div><div class="vital-sub">Q3 results Thu Nov 12, 7:00 AM ET, call 8:00 AM ET (10 days)</div></div>
-    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 8 + 9</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 1, 2, 3, 8 + 9</div></div>
     <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
     <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
   </div>
@@ -1680,7 +1695,7 @@ PANELS['hexmin']=`
   </div>
   <div class="acct-vitals">
     <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Standby</div><div class="vital-sub">parent had a strong Q3 and is buying companies; nothing dated for Mining itself</div></div>
-    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 8 + 9</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 1, 2, 3, 8 + 9</div></div>
     <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">BSS-covered</div><div class="vital-sub">Alyssa · Gavin · William · Rick &amp; Kevin</div></div>
     <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
   </div>
@@ -1725,7 +1740,7 @@ PANELS['chicos']=`
   <div class="acct-hdr-top">
     <div class="acct-logo-cell"><img src="LOGOS/chicos.png" alt="Chico's" onerror="this.style.display='none'"></div>
     <div class="acct-title">
-      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Pratap Kesarkar</div>
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Mijee Walker</div>
       <div class="acct-name">Chico's FAS / KnitWell Group</div>
       <div class="acct-meta">Private (Sycamore Partners) · Women's clothing retail · Fort Myers HQ · Chico's, White House Black Market, Soma</div>
     </div>
@@ -1737,7 +1752,7 @@ PANELS['chicos']=`
   </div>
   <div class="acct-vitals">
     <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Standby</div><div class="vital-sub">no company news this week; the new digital and data chief (Sep 22) is the live hook</div></div>
-    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Pratap Kesarkar</div><div class="vital-sub">Book 3</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 1, 2, 3, 8 + 9</div></div>
     <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
     <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">See brief</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
   </div>
@@ -1839,7 +1854,7 @@ PANELS['seaworld']=`
   <div class="acct-hdr-top">
     <div class="acct-logo-cell"><img src="LOGOS/seaworld.png" alt="SeaWorld" onerror="this.style.display='none'"><div class="acct-logo-fallback" style="font-size:11px;font-weight:800;color:var(--muted);text-align:center;line-height:1.3;display:none;">SeaWorld<br>/ PRKS</div></div>
     <div class="acct-title">
-      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Jim Gilbert</div>
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Mijee Walker</div>
       <div class="acct-name">SeaWorld / United Parks &amp; Resorts</div>
       <div class="acct-meta">NYSE: PRKS · Theme Parks · $483.3M Q2 sales (−1.4%) · 13 parks · Q3 results Thu Nov 5</div>
     </div>
@@ -1851,7 +1866,7 @@ PANELS['seaworld']=`
   </div>
   <div class="acct-vitals">
     <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Strike</div><div class="vital-sub">Q3 results Thu Nov 5 before the open, call 9:00 AM ET (3 days)</div></div>
-    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Jim Gilbert</div><div class="vital-sub">Book 1</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 1, 2, 3, 8 + 9</div></div>
     <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
     <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
   </div>
@@ -1897,7 +1912,7 @@ PANELS['dmab']=`
   <div class="acct-hdr-top">
     <div class="acct-logo-cell"><img src="LOGOS/dmab.svg" alt="DMB" onerror="this.style.display='none'"></div>
     <div class="acct-title">
-      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Jim Gilbert</div>
+      <div class="acct-eyebrow">IBM SF Intel Brief · Nov 2, 2026 · Edition 13 · Owner: Mijee Walker</div>
       <div class="acct-name">Data Mgmt. Brevard</div>
       <div class="acct-meta">Private · Hosting and managed IT services · Brevard County, FL · Space Coast</div>
     </div>
@@ -1909,7 +1924,7 @@ PANELS['dmab']=`
   </div>
   <div class="acct-vitals">
     <div class="vital"><div class="vital-lbl">Tier</div><div class="vital-val">Standby</div><div class="vital-sub">no company news this week; partner-training play around AI on IBM Z</div></div>
-    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Jim Gilbert</div><div class="vital-sub">Book 1</div></div>
+    <div class="vital"><div class="vital-lbl">Account Owner</div><div class="vital-val">Mijee Walker</div><div class="vital-sub">Books 1, 2, 3, 8 + 9</div></div>
     <div class="vital"><div class="vital-lbl">Specialists</div><div class="vital-val">Owner only</div><div class="vital-sub">No BSS split for this account</div></div>
     <div class="vital"><div class="vital-lbl">Hiring</div><div class="vital-val">None verified</div><div class="vital-sub">Oct 26 – Nov 2 scan</div></div>
   </div>

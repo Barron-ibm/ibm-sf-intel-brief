@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE Horizon · Mock v5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #EEF1F7;
+  --card:      #FFFFFF;
+  --surface:   #F4F6FA;
+  --border:    #D8DCEB;
+  --border-hi: #BEC5D9;
+  --ink:       #0D1526;
+  --ink-mid:   #2E3A55;
+  --ink-low:   #627090;
+  --ibm:       #0043CE;
+  --ibm-deep:  #0F62FE;
+  --ibm-dim:   rgba(0,67,206,.06);
+  --ibm-line:  rgba(0,67,206,.22);
+  --ok:        #006644;
+  --ok-dim:    rgba(0,102,68,.07);
+  --saas:      #006644;
+  --saas-dim:  rgba(0,102,68,.07);
+  --trans:     #5A189A;
+  --trans-dim: rgba(90,24,154,.07);
+  --strike:    #92400E;
+  --engage:    #9A3412;
+  --standby:   #1D4ED8;
+  --f: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  --r: 6px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--f);
+  font-size: 14px;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  padding: 36px 24px 72px;
+}
+a { color: var(--ibm); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.mock-label {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--ink-low);
+  border: 1px solid var(--border); display: inline-block;
+  padding: 4px 12px; border-radius: 3px; margin-bottom: 24px;
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,.07);
+  max-width: 900px;
+  margin-bottom: 24px;
+}
+.card:hover { box-shadow: 0 4px 24px rgba(0,0,0,.11); }
+.card.t5 { border-top: 3px solid var(--strike); }
+.card.t4 { border-top: 3px solid var(--engage); }
+.card.t3 { border-top: 3px solid var(--standby); }
+
+/* ── HEADER ── */
+.c-header {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px 15px; gap: 16px; flex-wrap: wrap;
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+}
+.c-name  { font-size: 22px; font-weight: 700; color: var(--ink); line-height: 1.1; letter-spacing: -.3px; }
+.c-meta  { font-size: 11px; font-weight: 400; color: var(--ink-low); margin-top: 3px; letter-spacing: .02em; }
+.c-header-right { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+
+.priority {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 3px;
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;
+}
+.priority.t5 { background: rgba(146,64,14,.07);  color: var(--strike); border: 1px solid rgba(146,64,14,.22); }
+.priority.t4 { background: rgba(154,52,18,.07);  color: var(--engage); border: 1px solid rgba(154,52,18,.22); }
+.priority.t3 { background: rgba(29,78,216,.07);  color: var(--standby);border: 1px solid rgba(29,78,216,.22); }
+.pdot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
+.badge {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 3px 9px; border-radius: 3px; white-space: nowrap;
+}
+.bd-dai  { background: var(--ibm-deep); color: #fff; }
+.bd-stor { background: #6929C4; color: #fff; }
+.bd-auto { background: #166534; color: #fff; }
+.bd-pc   { background: #9F1853; color: #fff; }
+
+/* ── SECTION LABEL ── */
+.slbl {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  display: block; margin-bottom: 9px;
+}
+.slbl.blue   { color: var(--ibm-deep); }
+.slbl.green  { color: var(--ok); }
+.slbl.purple { color: var(--trans); }
+.slbl.muted  { color: var(--ink-low); }
+.slbl.amber  { color: var(--strike); }
+
+/* ── BODY GRID ── */
+.c-body {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  border-bottom: 1px solid var(--border);
+}
+.c-body-left { padding: 20px 22px; display: flex; flex-direction: column; gap: 18px; border-right: 1px solid var(--border); }
+.c-body-right { padding: 18px 18px; display: flex; flex-direction: column; gap: 10px; background: var(--surface); }
+
+/* ── BULLETS ── */
+.blist { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.blist li {
+  font-size: 13.5px; color: var(--ink-mid);
+  line-height: 1.65; padding-left: 16px; position: relative;
+}
+.blist li::before { content: '▸'; position: absolute; left: 0; color: var(--ibm-deep); font-size: 10px; top: 3px; }
+.blist.hire li::before { color: var(--ok); }
+.blist li strong { color: var(--ink); font-weight: 600; }
+
+/* ── IBM ANGLE ── */
+.angle-box {
+  border-left: 3px solid var(--ibm-deep);
+  background: var(--ibm-dim);
+  padding: 12px 16px;
+  border-radius: 0 4px 4px 0;
+}
+.angle-txt { font-size: 13.5px; color: var(--ink-mid); line-height: 1.65; }
+.angle-txt strong { color: var(--ink); font-weight: 600; }
+
+/* ── SALES BLOCKS ── */
+.sales-block {
+  padding: 11px 13px; border-radius: 4px;
+  display: flex; flex-direction: column; gap: 5px;
+}
+.sales-block.saas  { background: var(--saas-dim);  border-left: 3px solid var(--saas); }
+.sales-block.trans { background: var(--trans-dim); border-left: 3px solid var(--trans); }
+.sales-block.motion{ background: var(--ibm-dim);   border-left: 3px solid var(--ibm-line); }
+.stype {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+}
+.stype.saas   { color: var(--saas); }
+.stype.trans  { color: var(--trans); }
+.stype.motion { color: var(--ibm-deep); }
+.stxt { font-size: 12.5px; color: var(--ink-mid); line-height: 1.6; }
+.stxt strong { color: var(--ink); font-weight: 600; }
+.spill {
+  font-size: 8px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 2px;
+  display: inline-block; margin-top: 2px; align-self: flex-start;
+}
+.spill.saas  { background: var(--saas);  color: #fff; }
+.spill.trans { background: var(--trans); color: #fff; }
+
+/* ── TALK TRACK ── */
+.c-talk {
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(90deg, rgba(0,102,68,.05) 0%, transparent 55%);
+}
+.c-talk-txt {
+  font-size: 13.5px; font-style: italic;
+  color: var(--ink-mid); line-height: 1.7;
+  border-left: 3px solid var(--ok); padding-left: 14px; margin-top: 8px;
+}
+
+/* ── FOOTER ── */
+.c-footer {
+  display: flex; align-items: center;
+  justify-content: space-between; padding: 12px 22px;
+  background: var(--surface); gap: 12px;
+}
+.c-footer-meta { font-size: 10px; font-weight: 500; letter-spacing: .06em; color: var(--ink-low); }
+.c-actions { display: flex; gap: 7px; }
+.btn {
+  font-size: 9.5px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 7px 18px; border-radius: 20px;
+  white-space: nowrap; display: inline-block; transition: all .13s; cursor: pointer;
+}
+.btn-primary { background: var(--ibm-deep); color: #fff; border: none; }
+.btn-primary:hover { background: var(--ibm); color: #fff; text-decoration: none; }
+.btn-outline { background: transparent; color: var(--ibm-deep); border: 1px solid var(--ibm-line); }
+.btn-outline:hover { background: var(--ibm-dim); text-decoration: none; }
+
+@media (max-width: 700px) {
+  .c-body { grid-template-columns: 1fr; }
+  .c-body-left { border-right: none; border-bottom: 1px solid var(--border); }
+}
+</style>
+</head>
+<body>
+
+<div class="mock-label">SE Horizon · Phase 1 · Mock v5 · HEICO</div>
+
+<div class="card t5">
+
+  <!-- HEADER -->
+  <div class="c-header">
+    <div>
+      <div class="c-name">HEICO Corporation</div>
+      <div class="c-meta">NYSE: HEI &nbsp;·&nbsp; Aerospace &amp; Defense &nbsp;·&nbsp; $5.6B+ rev &nbsp;·&nbsp; Hollywood, FL</div>
+    </div>
+    <div class="c-header-right">
+      <span class="priority t5"><span class="pdot"></span>Strike — reach out this week</span>
+      <span class="badge bd-dai">Data &amp; AI</span>
+      <span class="badge bd-stor">Storage</span>
+      <span class="badge bd-pc">Power &amp; Cloud</span>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="c-body">
+
+    <!-- LEFT: signals + angle -->
+    <div class="c-body-left">
+
+      <div>
+        <span class="slbl blue">Why Now</span>
+        <ul class="blist">
+          <li><strong>Best quarter in company history.</strong> $1.41B in sales, profits up 33%. The CIO is in the best mood they'll be all year — call this week.</li>
+          <li><strong>14-week open window until Dec 17.</strong> Longest stretch with no earnings blackout. Leadership is reachable and receptive right now.</li>
+          <li><strong>IBM just ranked #1 for AI Governance by Gartner.</strong> HEICO deals with strict government export rules (ITAR/EAR) — that's a direct, credentialed opener.</li>
+          <li><strong>Two acquisitions in motion simultaneously.</strong> Two sets of systems need to connect. IBM Data Fabric is exactly what solves that.</li>
+        </ul>
+      </div>
+
+      <div>
+        <span class="slbl green">Hiring Signals</span>
+        <ul class="blist hire">
+          <li>Actively hiring data integration roles to connect systems from acquired companies — confirms the problem IBM solves is real and funded.</li>
+          <li>Hiring compliance staff for government export rules — reinforces the AI Governance entry point right now.</li>
+        </ul>
+      </div>
+
+      <div>
+        <span class="slbl blue">IBM Angle</span>
+        <div class="angle-box">
+          <p class="angle-txt">HEICO closes a new acquisition almost every quarter and inherits disconnected systems every time. <strong>IBM Data Fabric gets more valuable with every deal they close.</strong> Post-record quarter, with the Gartner #1 AI Governance ranking fresh, this is the easiest window all year to get a meeting and land both the governance SaaS and a data integration transaction.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: how to sell -->
+    <div class="c-body-right">
+
+      <span class="slbl muted">How to Sell</span>
+
+      <div class="sales-block saas">
+        <span class="stype saas">SaaS Entry</span>
+        <div class="stxt"><strong>watsonx.governance</strong> — annual subscription. Their AI has to follow strict export rules. IBM is rated #1 for exactly that. Lead with the Gartner report.</div>
+        <span class="spill saas">watsonx.governance</span>
+      </div>
+
+      <div class="sales-block trans">
+        <span class="stype trans">Transaction</span>
+        <div class="stxt"><strong>Data Fabric + Storage</strong> — connect two acquired companies' systems into one data layer. Frame as the integration project, not a software sale.</div>
+        <span class="spill trans">Data Fabric + Storage</span>
+      </div>
+
+      <div class="sales-block motion">
+        <span class="stype motion">Do This Now</span>
+        <div class="stxt">
+          1. Send the Gartner AI Governance report to the CIO today.<br><br>
+          2. Ask for a 20-min call on export compliance.<br><br>
+          3. During discovery, surface the two-acquisition data integration need.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TALK TRACK -->
+  <div class="c-talk">
+    <span class="slbl green">What to Say</span>
+    <div class="c-talk-txt">"Congratulations on a record quarter — IBM was just ranked #1 for AI Governance by Gartner, and for aerospace companies managing multiple acquisitions at HEICO's scale, the export compliance and data integration timing feels right. Can we find 20 minutes this week?"</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="c-footer">
+    <span class="c-footer-meta">Sep 10, 2026 &nbsp;·&nbsp; Edition 06 &nbsp;·&nbsp; South Florida Territory</span>
+    <div class="c-actions">
+      <a class="btn btn-primary" href="phase2.html#heico">Full Intel →</a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A163065%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

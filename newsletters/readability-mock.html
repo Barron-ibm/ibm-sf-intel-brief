@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE Horizon · Readability Mock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ── */
+:root {
+  --bg: #f0f2f5;
+  --card: #ffffff;
+  --surface: #f4f6f9;
+  --border: #dde1e9;
+  --text: #161616;
+  --muted: #525252;
+  --accent: #0f62fe;
+  --accent-dk: #0043ce;
+  --navy: #0f1c3a;
+
+  /* Readability tokens — NEW */
+  --prose-size: 13.5px;
+  --prose-lh: 1.7;
+  --label-size: 9px;
+  --grid-bg: #0d1729;       /* slightly lighter than before */
+  --grid-mid: #0b1422;
+  --grid-right: #091018;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+  font-size: var(--prose-size);
+  line-height: var(--prose-lh);
+  background: var(--bg);
+  color: var(--text);
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+a { text-decoration: none; }
+
+/* ── COMPARISON HEADER ── */
+.mock-header {
+  background: var(--navy);
+  color: #fff;
+  padding: 18px 24px;
+  border-radius: 6px;
+  margin-bottom: 32px;
+}
+.mock-header h1 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+.mock-header p { font-size: 12px; color: #8aaddb; line-height: 1.5; }
+
+/* ── ACCOUNT CARD ── */
+.page {
+  background: var(--card);
+  border-top: 3px solid var(--accent);
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 2px 16px rgba(0,0,0,.07);
+  margin-bottom: 48px;    /* MORE space between cards */
+  overflow: hidden;
+}
+
+/* ── ACCOUNT HEADER ── */
+.acct-header-row {
+  display: flex;
+  align-items: center;
+  padding: 22px 32px;
+  gap: 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+}
+.acct-logo-placeholder {
+  width: 76px; height: 46px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; font-weight: 800;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.acct-se-horizon {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #6b8cb8; margin-bottom: 4px;
+}
+.acct-name-large {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 24px; font-weight: 900;
+  color: #0f1c3a; line-height: 1.1; letter-spacing: -0.3px;
+}
+.acct-date-line {
+  font-size: 13px; color: var(--muted); margin-top: 4px;
+}
+.acct-brand-row { display: flex; gap: 6px; align-items: center; margin-top: 10px; flex-wrap: wrap; }
+.acct-brand-lbl {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: #6b8cb8; margin-right: 2px;
+}
+.acct-brand-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  padding: 3px 9px; border-radius: 3px;
+}
+.br-dai  { background:#001d6c; color:#a8c8ff; border:1px solid rgba(168,200,255,.3); }
+.br-auto { background:#1c0f30; color:#d4bbff; border:1px solid rgba(212,187,255,.3); }
+.br-stor { background:#061a0e; color:#6fdc8c; border:1px solid rgba(111,220,140,.3); }
+.br-pc   { background:#1c1500; color:#d4a017; border:1px solid rgba(212,160,23,.3); }
+
+/* ── PULSE ROW ── */
+.pulse-row {
+  background: #edf3ff;
+  border-left: 4px solid var(--accent);
+  padding: 16px 32px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.lbl {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: #fff; background: var(--accent);
+  padding: 5px 0; min-width: 110px; width: 110px;
+  border-radius: 3px;
+  display: inline-flex; align-items: center; justify-content: center;
+  white-space: nowrap; flex-shrink: 0;
+}
+.lbl.lbl-dark  { background: #0f1c3a; color: #a8c8ff; border: 1px solid #1e3a6a; }
+.lbl.lbl-muted { background: var(--surface); color: var(--muted); border: 1px solid var(--border); }
+/* NEW: section label that doesn't need a colored pill */
+.section-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 32px 10px;
+  border-bottom: 1px solid var(--border);
+}
+.section-header-lbl {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px; font-weight: 800;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--muted);
+}
+.section-header-line { flex: 1; height: 1px; background: var(--border); }
+
+/* ── MERGED INTEL SECTION (was Signals + Hiring separate) ── */
+.intel-section { padding: 20px 32px 16px; background: var(--card); }
+.intel-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 32px; }
+.intel-item {
+  font-size: var(--prose-size);           /* UP from 11.5px */
+  color: #2d3f5a;
+  line-height: var(--prose-lh);
+  padding-left: 16px;
+  position: relative;
+}
+.intel-item::before {
+  content: '▸';
+  position: absolute; left: 0;
+  color: var(--accent); font-size: 10px; top: 4px; font-weight: 700;
+}
+.intel-item.hi-green::before { color: #006e2e; }
+.intel-tag {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px; font-weight: 700; letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: #f0f2f5; color: #525252;
+  padding: 1px 6px; border-radius: 2px;
+  margin-right: 5px; vertical-align: middle;
+}
+.intel-tag.hire { background: #eaf5ee; color: #006e2e; }
+
+/* ── THESIS / META ── */
+.meta-rows { padding: 0 32px 4px; background: var(--card); }
+.meta-row { display: flex; align-items: flex-start; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+.meta-row:last-child { border-bottom: none; }
+.meta-value-italic {
+  font-size: var(--prose-size);           /* UP from 12px */
+  color: #2d3f5a; line-height: var(--prose-lh); font-style: italic;
+}
+.dashed-div { border: none; border-top: 1px dashed var(--border); margin: 0; }
+
+/* ── LINKEDIN ROW ── */
+.linkedin-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 32px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.li-text { font-size: 13px; color: #5a7090; line-height: 1.55; }
+.li-text strong { font-weight: 700; color: var(--accent); }
+
+/* ── DARK INTEL GRID ── */
+.dark-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 220px;
+  border-top: 3px solid var(--accent);
+}
+.grid-col-left  { background: var(--grid-bg);    padding: 20px 24px; }
+.grid-col-mid   { background: var(--grid-mid);   padding: 20px 24px; }
+.grid-col-right { background: var(--grid-right); padding: 20px 24px; }
+
+.grid-label { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; }
+.grid-chevron {
+  background: rgba(255,255,255,.1); color: #a8c8ff;
+  font-size: 11px; font-weight: 900;
+  padding: 2px 6px; border-radius: 2px; letter-spacing: -1px;
+}
+.grid-label-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; font-weight: 700;    /* UP from 9px */
+  letter-spacing: 1.5px; text-transform: uppercase; color: #a8c8ff;
+}
+
+/* Grid bullets — UP from 11px */
+.grid-col-left ul, .grid-col-mid ul {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 10px;  /* MORE gap */
+}
+.grid-col-left li, .grid-col-mid li {
+  font-size: 13px;                       /* UP from 11px */
+  color: rgba(210,226,244,.9);           /* slightly lighter for contrast */
+  padding-left: 14px; position: relative;
+  line-height: 1.6;
+}
+.grid-col-left li::before, .grid-col-mid li::before {
+  content: '—'; position: absolute; left: 0;
+  color: rgba(168,200,255,.4); font-size: 9px; top: 4px;
+}
+
+/* Contacts */
+.contact-entry { padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+.contact-entry:last-child { border-bottom: none; }
+.contact-name  { font-size: 12px; font-weight: 700; color: #e0e6f0; }
+.contact-role  { font-size: 11px; color: rgba(200,216,234,.55); margin-top: 2px; }
+.contact-hook  { font-size: 11px; color: #6ea8d0; font-style: italic; margin-top: 1px; }
+
+/* Play bar */
+.play-li-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  grid-column: 1 / -1;
+}
+.ibm-play-bar-full { background: var(--accent); padding: 18px 24px; }
+.snav-panel        { background: var(--accent-dk); padding: 18px 24px; display: flex; flex-direction: column; gap: 8px; }
+.play-bar-label { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
+.play-bar-label-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: #fff;
+}
+.play-main-text      { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 5px; }  /* UP */
+.play-supporting-text{ font-size: 12px; color: rgba(255,255,255,.7); margin-bottom: 8px; }
+.play-why-text       { font-size: 12.5px; color: rgba(255,255,255,.6); font-style: italic; border-top: 1px solid rgba(255,255,255,.15); padding-top: 9px; margin-top: 4px; line-height: 1.6; }
+.snav-label  { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #a8c8ff; margin-bottom: 8px; }
+.snav-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: #fff; color: var(--accent-dk);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px; font-weight: 800;
+  letter-spacing: 1px; text-transform: uppercase;
+  padding: 7px 16px; border-radius: 3px; white-space: nowrap;
+}
+.snav-keywords { font-size: 11px; color: rgba(255,255,255,.55); font-style: italic; line-height: 1.5; border-top: 1px solid rgba(255,255,255,.15); padding-top: 7px; margin-top: 4px; }
+
+/* ── ACTION / LOWER SECTION ── */
+.lower-section {
+  padding: 20px 32px;
+  display: flex; flex-direction: column; gap: 16px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+.lower-row { display: flex; gap: 16px; align-items: flex-start; }
+.action-text {
+  font-size: var(--prose-size);           /* UP */
+  color: #1e2d45; line-height: var(--prose-lh);
+}
+.talk-track-text {
+  font-size: var(--prose-size);           /* UP */
+  color: var(--muted); font-style: italic;
+  line-height: var(--prose-lh);
+  border-left: 3px solid var(--accent); padding-left: 12px;
+}
+
+/* ── SOURCES ── */
+.sources-row {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 11px 32px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+.sources-links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.sources-links a { font-size: 11px; color: var(--accent); }
+.sources-links a:hover { text-decoration: underline; }
+.src-sep { color: var(--border); font-size: 10px; }
+
+@media(max-width:760px) {
+  .dark-grid, .play-li-row { grid-template-columns: 1fr; }
+  .intel-cols { grid-template-columns: 1fr; }
+  .play-li-row { grid-column: 1; }
+}
+</style>
+</head>
+<body>
+
+<div class="mock-header">
+  <h1>SE Horizon · Readability Mock — HEICO card only</h1>
+  <p>Changes applied: larger prose text (13.5px), more section spacing, merged Signals + Hiring into one Intel section with inline tags, lighter dark grid with bigger bullets, simplified section labels, more breathing room throughout. Approve this direction before rolling to all 27 accounts.</p>
+</div>
+
+<!-- ══════════════════════════════════════════
+     ACCOUNT — HEICO (MOCK)
+══════════════════════════════════════════ -->
+<div class="page" id="heico">
+
+  <!-- HEADER -->
+  <div class="acct-header-row">
+    <div class="acct-logo-placeholder">HEI</div>
+    <div style="flex:1;">
+      <div class="acct-se-horizon">SE Horizon · Sep 10, 2026 · Edition 06</div>
+      <div class="acct-name-large">HEICO Corporation</div>
+      <div class="acct-date-line">Aug 17 – Sep 10, 2026 · NYSE: HEI · Aerospace MRO &amp; Electronic Defense · Hollywood, FL</div>
+      <div class="acct-brand-row">
+        <span class="acct-brand-lbl">IBM Play</span>
+        <span class="acct-brand-badge br-dai">Data &amp; AI</span>
+        <span class="acct-brand-badge br-stor">Storage</span>
+        <span class="acct-brand-badge br-pc">Power &amp; Cloud</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PULSE -->
+  <div class="pulse-row">
+    <span class="lbl">Sep 10 Pulse</span>
+    <span class="meta-value-italic">Q3 FY2026 record: $1.41B sales (+19% YoY), net income +33%, EPS $0.98 vs $0.89 est — beat by 10.6%. Next earnings Dec 17. 14-week open window — longest uninterrupted outreach corridor of the year. Serial M&amp;A continues; AeroAntenna integration live, shelf registration signals third acquisition in motion. IBM Data Fabric + Storage is the repeatable infrastructure play for every deal HEICO closes.</span>
+  </div>
+  <hr class="dashed-div">
+
+  <!-- INTEL (merged Signals + Hiring) -->
+  <div class="section-header">
+    <span class="section-header-lbl">Intel — Aug 17 – Sep 10</span>
+    <div class="section-header-line"></div>
+  </div>
+  <div class="intel-section">
+    <div class="intel-cols">
+      <div class="intel-item">Q3 record $1.41B sales (+19% YoY) — net income +33%, EPS $0.98 vs $0.89 est (10.6% beat)</div>
+      <div class="intel-item">Next earnings Dec 17 — 14-week open window, longest gap of the fiscal year</div>
+      <div class="intel-item">AeroAntenna acquisition integration live — data layer decision active now</div>
+      <div class="intel-item">S-3ASR shelf registration still active — third acquisition signaled</div>
+      <div class="intel-item">Defense ETG segment growing with DoD FY2026 budget — ITAR/EAR complexity rising</div>
+      <div class="intel-item">Operating margin holding at 25%+ — CFO at peak investment confidence</div>
+      <div class="intel-item hi-green"><span class="intel-tag hire">Hiring</span>M&amp;A integration and data engineering roles active — AeroAntenna integration underway</div>
+      <div class="intel-item hi-green"><span class="intel-tag hire">Hiring</span>Defense electronics systems and compliance roles growing — ETG segment expanding</div>
+    </div>
+  </div>
+
+  <!-- THESIS -->
+  <div class="meta-rows">
+    <div class="meta-row">
+      <span class="lbl lbl-dark">Thesis</span>
+      <span class="meta-value-italic">HEICO is a serial acquirer — AeroAntenna is live and the shelf filing signals a third deal before Dec 17. Every acquisition creates an integration data layer decision. IBM Data Fabric + Storage is the repeatable infrastructure that survives the next deal. The 14-week window to Dec 17 is the longest uninterrupted outreach opportunity of the year.</span>
+    </div>
+  </div>
+
+  <!-- LINKEDIN -->
+  <div class="linkedin-row">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#0a66c2" style="flex-shrink:0;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    <div class="li-text"><strong>Suggested Search:</strong> HEICO + CIO, VP IT, M&amp;A Integration Lead, CFO, Data Platform, VP Engineering</div>
+  </div>
+
+  <!-- DARK INTEL GRID -->
+  <div class="dark-grid">
+    <div class="grid-col-left">
+      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">Why Now</span></div>
+      <ul>
+        <li>Q3 record beat — CFO and CIO at peak confidence, most receptive to strategic investment conversations</li>
+        <li>14-week window to Dec 17 — longest open outreach corridor of the fiscal year</li>
+        <li>AeroAntenna integration data layer decision live — IBM Data Fabric is the repeatable answer</li>
+        <li>Shelf filing signals third acquisition — build the platform before the next deal closes</li>
+        <li>Commercial aviation MRO recovering — FSG parts traceability data volume scaling</li>
+        <li>Defense ETG DoD contract growth — AI governance and ITAR compliance layer needed</li>
+      </ul>
+    </div>
+    <div class="grid-col-mid">
+      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">Pain Points</span></div>
+      <ul>
+        <li>Serial M&amp;A without repeatable data integration creates compounding technical debt per deal</li>
+        <li>Aerospace MRO parts traceability at scale requires IBM Storage — compliance records for FAA audits</li>
+        <li>Defense electronics requires governed AI with audit trails — IBM watsonx.governance architecture</li>
+        <li>Three separate ERP/data environments being managed simultaneously post-AeroAntenna</li>
+        <li>ITAR/EAR export control complexity compounds with each new defense electronics acquisition</li>
+        <li>FP&amp;A complexity across multi-segment M&amp;A requires Planning Analytics</li>
+      </ul>
+    </div>
+    <div class="grid-col-right">
+      <div class="grid-label"><span class="grid-chevron">&raquo;</span><span class="grid-label-text">Key Personas</span></div>
+      <div class="contact-entry">
+        <div class="contact-name">CIO / VP IT</div>
+        <div class="contact-role">AeroAntenna integration owner</div>
+        <div class="contact-hook">Data Fabric, IBM Storage</div>
+      </div>
+      <div class="contact-entry">
+        <div class="contact-name">CFO</div>
+        <div class="contact-role">Q3 results owner, shelf filing</div>
+        <div class="contact-hook">Planning Analytics, integration ROI</div>
+      </div>
+      <div class="contact-entry">
+        <div class="contact-name">VP Engineering / Data Platform</div>
+        <div class="contact-role">MRO + defense data systems</div>
+        <div class="contact-hook">watsonx.governance for defense AI</div>
+      </div>
+    </div>
+
+    <!-- PLAY BAR -->
+    <div class="play-li-row">
+      <div class="ibm-play-bar-full">
+        <div class="play-bar-label"><span class="grid-chevron">&raquo;</span><span class="play-bar-label-text">IBM Sales Play</span></div>
+        <div class="play-main-text">IBM Data Fabric + Storage</div>
+        <div class="play-supporting-text"><strong>Supporting:</strong> watsonx.governance, Planning Analytics</div>
+        <div class="play-why-text">HEICO acquires every quarter. IBM Data Fabric is the integration layer that makes the next deal cheaper to absorb. IBM Storage handles MRO parts and compliance records at aerospace scale. 14-week open window — best outreach time all year.</div>
+      </div>
+      <div class="snav-panel">
+        <div class="snav-label">LinkedIn Sales Navigator</div>
+        <a href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A163065%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener" class="snav-btn">Open SNav — HEICO ↗</a>
+        <div class="snav-keywords">Search: CIO, VP IT, M&amp;A Integration, CFO, Data Platform, VP Engineering, IT Director</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTION -->
+  <div class="lower-section">
+    <div class="lower-row">
+      <span class="lbl lbl-dark">Action</span>
+      <span class="action-text">Call VP IT / M&amp;A Integration Lead this week — reference the Q3 record beat as the opener, then pivot to the AeroAntenna data integration layer. Propose a 30-minute briefing on IBM Data Fabric as the repeatable M&amp;A integration infrastructure. Position before the third acquisition closes.</span>
+    </div>
+    <div class="lower-row">
+      <span class="lbl lbl-muted">Talk Track</span>
+      <span class="talk-track-text">"Congratulations on a record Q3 — three consecutive quarters of M&amp;A and HEICO keeps delivering. With AeroAntenna live and another deal likely before Dec 17, IBM Data Fabric is how the largest aerospace MRO companies build a repeatable integration platform that gets cheaper with every acquisition, not more expensive."</span>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources-row">
+    <span class="lbl lbl-muted">Sources</span>
+    <div class="sources-links">
+      <a href="https://ir.heico.com" target="_blank" rel="noopener">HEICO IR</a>
+      <span class="src-sep">·</span>
+      <a href="https://finance.yahoo.com/quote/HEI" target="_blank" rel="noopener">Yahoo Finance</a>
+    </div>
+  </div>
+
+</div><!-- end .page -->
+
+</body>
+</html>

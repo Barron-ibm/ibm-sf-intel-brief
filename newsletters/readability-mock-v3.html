@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE Horizon · Mock v3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ground: #f0f2f5;
+  --panel:  #ffffff;
+  --panel2: #f7f8fa;
+  --rule:   #e0e4ed;
+  --rule-hi:#c8cedd;
+  --ink:    #0f1c3a;
+  --ink-mid:#374561;
+  --ink-low:#7a8aaa;
+  --ibm:    #0f62fe;
+  --ibm-deep:#0043ce;
+  --ibm-dim: rgba(15,98,254,.06);
+  --ibm-line:rgba(15,98,254,.25);
+  --ok:     #007d5c;
+  --saas:   #006e48;
+  --saas-dim:rgba(0,110,72,.07);
+  --trans:  #6929c4;
+  --trans-dim:rgba(105,41,196,.07);
+  --t5: #7d4e00;
+  --t4: #b45309;
+  --t3: #c2400c;
+  --mono: 'IBM Plex Mono', monospace;
+  --body: 'IBM Plex Sans', sans-serif;
+  --radius: 8px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.7;
+  background: var(--ground);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+/* ── PAGE LABEL ── */
+.mock-label {
+  font-family: var(--mono);
+  font-size: 10px; font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--ink-low);
+  border: 1px solid var(--rule-hi);
+  display: inline-block;
+  padding: 4px 14px; border-radius: 2px;
+  margin-bottom: 32px;
+}
+
+/* ══════════════════════════════════
+   CARD — stacked zones, one reading path
+══════════════════════════════════ */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.4);
+}
+
+/* ── ZONE 1: WHO + PRIORITY ── */
+.z-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px 16px;
+  border-bottom: 1px solid var(--rule);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.z-header-left { display: flex; flex-direction: column; gap: 4px; }
+.z-acct-name {
+  font-family: var(--body);
+  font-size: 20px; font-weight: 900;
+  color: var(--ink); line-height: 1.1;
+}
+.z-acct-meta {
+  font-family: var(--mono);
+  font-size: 10px; color: var(--ink-low);
+  letter-spacing: .06em;
+}
+.z-header-right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.z-priority {
+  font-family: var(--mono);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 3px;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.z-priority.strike { background: rgba(125,78,0,.08);   color: var(--t5); border: 1px solid rgba(125,78,0,.25); }
+.z-priority.engage { background: rgba(180,83,9,.08);   color: var(--t4); border: 1px solid rgba(180,83,9,.25); }
+.z-priority.standby{ background: rgba(194,64,12,.08);  color: var(--t3); border: 1px solid rgba(194,64,12,.25); }
+.z-priority-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+.z-brand-badge {
+  font-family: var(--mono);
+  font-size: 9px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 3px;
+}
+.bb-dai  { background: var(--ibm-deep); color: #fff; }
+.bb-stor { background: #6929c4; color: #fff; }
+.bb-auto { background: #198038; color: #fff; }
+.bb-pc   { background: #9f1853; color: #fff; }
+
+/* top accent line */
+.card.strike { border-top: 3px solid #d97706; box-shadow: 0 2px 16px rgba(0,0,0,.07); }
+.card.engage { border-top: 3px solid #b45309; box-shadow: 0 2px 16px rgba(0,0,0,.07); }
+.card.standby{ border-top: 3px solid #c2400c; box-shadow: 0 2px 16px rgba(0,0,0,.07); }
+
+/* ── ZONE 2: WHY NOW ── */
+.z-why {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--rule);
+  background: linear-gradient(90deg, rgba(15,98,254,.04), transparent 70%);
+}
+.z-zone-label {
+  font-family: var(--mono);
+  font-size: 9px; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--ibm);
+  margin-bottom: 8px;
+  display: block;
+}
+.z-why-text {
+  font-size: 17px; font-weight: 700;
+  color: var(--ink); line-height: 1.45;
+  letter-spacing: -.1px;
+}
+.z-why-text em { font-style: normal; color: var(--t5); }
+
+/* ── ZONE 3: TWO COLUMNS — signals | action ── */
+.z-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--rule);
+}
+.z-signals {
+  padding: 20px 24px;
+  border-right: 1px solid var(--rule);
+}
+.z-signal-list {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 10px;
+  margin-top: 10px;
+}
+.z-signal-list li {
+  font-size: 14px; color: var(--ink-mid);
+  line-height: 1.6; padding-left: 16px; position: relative;
+}
+.z-signal-list li::before {
+  content: '▸';
+  position: absolute; left: 0;
+  color: var(--ibm); font-size: 10px; top: 4px;
+}
+.z-signal-list li strong { color: var(--ink); font-weight: 600; }
+
+.z-action { padding: 20px 24px; }
+.z-play-block {
+  padding: 12px 14px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+.z-play-block.saas  { background: var(--saas-dim);  border-left: 3px solid var(--saas); }
+.z-play-block.trans { background: var(--trans-dim); border-left: 3px solid var(--trans); }
+.z-play-block.motion{ background: var(--ibm-dim);   border-left: 3px solid var(--ibm-line); }
+.z-play-type {
+  font-family: var(--mono);
+  font-size: 9px; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+  margin-bottom: 6px; display: block;
+}
+.z-play-type.saas  { color: var(--saas); }
+.z-play-type.trans { color: var(--trans); }
+.z-play-type.motion{ color: var(--ibm); }
+.z-play-text {
+  font-size: 13.5px; color: var(--ink-mid);
+  line-height: 1.6;
+}
+.z-play-text strong { color: var(--ink); }
+.z-pill {
+  font-family: var(--mono);
+  font-size: 8.5px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 3px 9px; border-radius: 3px;
+  display: inline-block; margin-top: 6px;
+}
+.z-pill.saas  { background: var(--saas);  color: #fff; }
+.z-pill.trans { background: var(--trans); color: #fff; }
+
+/* ── ZONE 4: WHAT TO SAY ── */
+.z-talk {
+  padding: 18px 24px;
+  background: linear-gradient(90deg, rgba(0,125,92,.05), transparent 70%);
+  border-bottom: 1px solid var(--rule);
+}
+.z-zone-label.green { color: var(--ok); }
+.z-talk-text {
+  font-size: 14px; font-style: italic;
+  color: var(--ink-mid); line-height: 1.7;
+  border-left: 3px solid var(--ok);
+  padding-left: 14px;
+  margin-top: 8px;
+}
+
+/* ── ZONE 5: FOOTER ACTIONS ── */
+.z-footer {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  gap: 12px;
+}
+.z-footer-meta {
+  font-family: var(--mono);
+  font-size: 9px; color: var(--ink-low);
+  letter-spacing: .08em;
+}
+.z-actions { display: flex; gap: 8px; }
+.z-btn {
+  font-family: var(--mono);
+  font-size: 9px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: 7px 16px; border-radius: 20px;
+  white-space: nowrap; display: inline-block;
+  transition: all .14s;
+}
+.z-btn-primary { background: var(--ibm-deep); color: #fff; border: none; }
+.z-btn-primary:hover { background: var(--ibm); color: #fff; text-decoration: none; }
+.z-btn-outline { background: transparent; color: var(--ibm); border: 1px solid var(--ibm-line); }
+.z-btn-outline:hover { background: var(--ibm-dim); text-decoration: none; }
+
+@media (max-width: 640px) {
+  .z-body { grid-template-columns: 1fr; }
+  .z-signals { border-right: none; border-bottom: 1px solid var(--rule); }
+}
+</style>
+</head>
+<body>
+
+<div class="mock-label">Phase 1 · Readability Mock v3 · Single card</div>
+
+<!-- ══════════════════
+     HEICO — Strike
+══════════════════ -->
+<div class="card strike">
+
+  <!-- ZONE 1: WHO + PRIORITY -->
+  <div class="z-header">
+    <div class="z-header-left">
+      <div class="z-acct-name">HEICO Corporation</div>
+      <div class="z-acct-meta">NYSE: HEI · Aerospace MRO &amp; Defense · Hollywood, FL</div>
+    </div>
+    <div class="z-header-right">
+      <span class="z-priority strike"><span class="z-priority-dot"></span>Strike</span>
+      <span class="z-brand-badge bb-dai">Data &amp; AI</span>
+      <span class="z-brand-badge bb-stor">Storage</span>
+    </div>
+  </div>
+
+  <!-- ZONE 2: WHY NOW -->
+  <div class="z-why">
+    <span class="z-zone-label">Why Now</span>
+    <div class="z-why-text">
+      Record Q3 — $1.41B sales, net income up 33%. <em>14-week open window</em> to Dec 17 earnings. Third acquisition signaled. Best outreach moment of the year.
+    </div>
+  </div>
+
+  <!-- ZONE 3: SIGNALS + ACTION -->
+  <div class="z-body">
+
+    <div class="z-signals">
+      <span class="z-zone-label">What's Happening</span>
+      <ul class="z-signal-list">
+        <li><strong>Q3 record beat</strong> — EPS $0.98 vs $0.89 est, net income +33%. CFO and CIO at peak confidence.</li>
+        <li><strong>AeroAntenna integration live</strong> — data layer decision is open right now.</li>
+        <li><strong>Shelf filing signals third acquisition</strong> before Dec 17. Build the platform before the deal closes.</li>
+        <li><strong>14-week window</strong> — longest uninterrupted outreach corridor of the fiscal year.</li>
+        <li><strong>Hiring:</strong> M&amp;A integration and data engineering roles active post-AeroAntenna.</li>
+      </ul>
+    </div>
+
+    <div class="z-action">
+      <span class="z-zone-label" style="color:var(--saas);">What to Do</span>
+
+      <div class="z-play-block saas">
+        <span class="z-play-type saas">SaaS Entry</span>
+        <div class="z-play-text">IBM <strong>watsonx.governance</strong> — AI model risk for ITAR/EAR-regulated systems across both acquired divisions.</div>
+        <span class="z-pill saas">watsonx.governance</span>
+      </div>
+
+      <div class="z-play-block trans">
+        <span class="z-play-type trans">Transaction</span>
+        <div class="z-play-text">IBM <strong>Data Fabric + Storage</strong> — unify two acquired IT stacks. One-time implementation tied to the integration milestone.</div>
+        <span class="z-pill trans">Data Fabric + Storage</span>
+      </div>
+
+      <div class="z-play-block motion">
+        <span class="z-play-type motion">Motion</span>
+        <div class="z-play-text">
+          1. Send Gartner AI Gov MQ (IBM Leader) to CIO this week.<br>
+          2. Request 20-min ITAR/EAR briefing.<br>
+          3. Scope Data Fabric transaction during discovery.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ZONE 4: WHAT TO SAY -->
+  <div class="z-talk">
+    <span class="z-zone-label green">What to Say</span>
+    <div class="z-talk-text">
+      "Congratulations on a record Q3 — with AeroAntenna live and another deal likely before Dec 17, IBM Data Fabric is how the largest aerospace MRO companies build a repeatable integration platform that gets cheaper with every acquisition, not more expensive."
+    </div>
+  </div>
+
+  <!-- ZONE 5: FOOTER -->
+  <div class="z-footer">
+    <span class="z-footer-meta">Sep 10, 2026 · Edition 06 · South Florida</span>
+    <div class="z-actions">
+      <a class="z-btn z-btn-primary" href="phase2.html#heico">Full Intel →</a>
+      <a class="z-btn z-btn-outline" href="https://www.linkedin.com/sales/search/people" target="_blank" rel="noopener">SNav ↗</a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
