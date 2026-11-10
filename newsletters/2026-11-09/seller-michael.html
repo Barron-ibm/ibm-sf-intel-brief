@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IBM SF Intel Brief · Michael Sanchez · Edition 14 · Nov 9, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--ground:#F4F6FA;--panel:#FFFFFF;--panel-2:#F0F2F7;--panel-3:#E8EBF3;
+  --rule:#DDE1EC;--rule-hi:#C8CEDD;--ink:#161C2D;--ink-mid:#3A4460;--ink-low:#6B779A;
+  --ibm:#0043CE;--ibm-deep:#0F62FE;--ibm-dim:rgba(0,67,206,.07);--ibm-line:rgba(0,67,206,.22);
+  --t4:#B45309;--t5:#7C4B00;--ok:#006644;
+  --saas:#006644;--saas-dim:rgba(0,102,68,.07);--saas-line:rgba(0,102,68,.28);
+  --trans:#5A189A;--trans-dim:rgba(90,24,154,.07);--trans-line:rgba(90,24,154,.28);
+  --warn:#7C4B00;--warn-dim:rgba(124,75,0,.06);--strike:#da1e28;
+  --navy:#0f1c3a;--radius:5px;--mono:'IBM Plex Mono',monospace;
+  --engage-c:#B45309;--engage-bg:rgba(180,83,9,.07);--engage-bd:rgba(180,83,9,.2);
+  --strike-c:#92400E;--strike-bg:rgba(146,64,14,.07);--strike-bd:rgba(146,64,14,.2);
+  --standby-c:#4338CA;--standby-bg:rgba(67,56,202,.06);--standby-bd:rgba(67,56,202,.18);}
+html{scroll-behavior:smooth;}
+body{font-family:'IBM Plex Sans',-apple-system,sans-serif;font-size:13px;line-height:1.7;background:var(--ground);color:var(--ink);-webkit-font-smoothing:antialiased;}
+a{color:var(--ibm);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.topnav{position:sticky;top:0;z-index:400;background:rgba(255,255,255,.98);backdrop-filter:blur(16px);border-top:3px solid var(--ibm-deep);border-bottom:1px solid var(--rule);height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;gap:16px;}
+.tn-left{display:flex;align-items:center;gap:10px;}
+.tn-ibm{font-size:18px;font-weight:700;color:var(--ibm-deep);letter-spacing:-.5px;}
+.tn-div{width:1px;height:16px;background:var(--rule-hi);}
+.tn-title{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);}
+.tn-badge{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--ibm-deep);color:#fff;padding:2px 9px;border-radius:20px;}
+.tn-links{display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;}
+.tn-links a{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-low);padding:5px 12px;border-bottom:2px solid transparent;white-space:nowrap;}
+.tn-links a:hover{color:var(--ibm);text-decoration:none;}
+.tn-links a.active{color:var(--ibm-deep);border-bottom-color:var(--ibm-deep);}
+.tn-sep{color:var(--rule-hi);padding:0 3px;font-size:10px;}
+.tn-right{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-low);white-space:nowrap;}
+.phasebar{position:sticky;top:48px;z-index:350;height:42px;background:rgba(244,246,250,.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);display:flex;align-items:stretch;padding:0 32px;gap:0;}
+.ptab{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-low);padding:0 18px;cursor:pointer;border-bottom:2px solid transparent;display:flex;align-items:center;white-space:nowrap;transition:all .12s;}
+.ptab:hover{color:var(--ink);text-decoration:none;}
+.ptab.on{color:var(--ibm-deep);border-bottom-color:var(--ibm-deep);background:rgba(15,98,254,.06);}
+.ptab-sep{color:var(--rule-hi);padding:0 2px;font-size:10px;display:flex;align-items:center;user-select:none;}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#0F1C3A 60%,#112040 100%);padding:28px 32px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;border-bottom:3px solid var(--ibm-deep);}
+.hero-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#4a6080;margin-bottom:10px;}
+.hero-back:hover{color:#a8c8ff;text-decoration:none;}
+.hero-eyebrow{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px;}
+.hero-name{font-size:28px;font-weight:900;color:#fff;letter-spacing:-.4px;line-height:1.1;}
+.hero-sub{font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;}
+.hero-stats{display:flex;gap:8px;margin-top:14px;}
+.hstat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:8px 14px;text-align:center;min-width:68px;}
+.hstat-n{font-family:var(--mono);font-size:20px;font-weight:700;color:#fff;line-height:1;}
+.hstat-n.strike{color:#fca5a5;}
+.hstat-n.engage{color:#fdba74;}
+.hstat-n.standby{color:#93c5fd;}
+.hstat-l{font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:3px;}
+.priority-stack{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:12px 16px;min-width:320px;}
+.ps-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px;}
+.ps-row{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.ps-row:last-child{border-bottom:none;padding-bottom:0;}
+.ps-num{font-family:var(--mono);font-size:11px;font-weight:700;color:rgba(255,255,255,.3);min-width:14px;flex-shrink:0;padding-top:1px;}
+.ps-body{flex:1;}
+.ps-co{font-size:12px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:2px;}
+.ps-action{font-size:11px;color:rgba(255,255,255,.6);line-height:1.4;}
+.ps-tier{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.ps-tier.engage{background:rgba(251,146,60,.15);color:#fdba74;border:1px solid rgba(251,146,60,.3);}
+.ps-tier.standby{background:rgba(147,197,253,.15);color:#93c5fd;border:1px solid rgba(147,197,253,.3);}
+.pulse-bar{background:var(--panel);border-bottom:1px solid var(--rule);padding:12px 32px;}
+.pulse-bar-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-low);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.pulse-bar-lbl::before{content:'';display:inline-block;width:3px;height:12px;background:var(--t4);border-radius:2px;}
+.pulse-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;}
+.pulse-card{background:var(--panel-2);border:1px solid var(--rule);border-left:3px solid var(--ibm-deep);border-radius:4px;padding:10px 14px;}
+.pulse-card.pc-amber{border-left-color:var(--t4);}
+.pulse-card.pc-blue{border-left-color:var(--ibm-deep);}
+.pc-tag{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--ibm-dim);color:var(--ibm);border:1px solid var(--ibm-line);padding:2px 7px;border-radius:2px;display:inline-block;margin-bottom:6px;}
+.pulse-card.pc-amber .pc-tag{background:var(--engage-bg);color:var(--engage-c);border-color:var(--engage-bd);}
+.pulse-card.pc-blue .pc-tag{background:var(--standby-bg);color:var(--standby-c);border-color:var(--standby-bd);}
+.pc-headline{font-size:12px;font-weight:700;color:var(--ink);line-height:1.4;margin-bottom:3px;}
+.pc-angle{font-size:11.5px;color:var(--ink-low);line-height:1.45;}
+.pc-angle strong{color:var(--ibm-deep);font-weight:600;}
+.acct-jump-bar{background:var(--panel);border-bottom:1px solid var(--rule);padding:10px 32px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;position:sticky;top:90px;z-index:300;box-shadow:0 2px 6px rgba(0,0,0,.03);}
+.ajb-lbl{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-low);margin-right:4px;white-space:nowrap;}
+.ajb-pill{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.3px;padding:3px 10px;border-radius:20px;background:var(--panel-2);border:1px solid var(--rule);color:var(--ink-mid);transition:all .12s;display:inline-flex;align-items:center;gap:4px;white-space:nowrap;}
+.ajb-pill:hover{background:var(--ibm-deep);color:#fff;border-color:var(--ibm-deep);text-decoration:none;}
+.ajb-pill.engage{border-left:3px solid var(--t4);}
+.ajb-pill.standby{border-left:3px solid var(--ibm-deep);}
+.phase-panel{display:none;}
+.phase-panel.active{display:block;}
+.main{max-width:1200px;margin:0 auto;padding:28px 32px 64px;}
+.sec-hdr{display:flex;align-items:center;gap:14px;margin:28px 0 14px;}
+.sec-hdr:first-child{margin-top:0;}
+.sec-label{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);white-space:nowrap;}
+.sec-rule{flex:1;height:1px;background:linear-gradient(90deg,var(--ibm-line),transparent);}
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);margin-bottom:24px;overflow:hidden;scroll-margin-top:140px;}
+.card.engage{border-left:4px solid var(--t4);}
+.card.standby{border-left:4px solid var(--ibm-deep);}
+.c-top{display:flex;justify-content:space-between;align-items:flex-start;padding:14px 20px 12px;border-bottom:1px solid var(--rule);background:var(--panel-2);gap:14px;}
+.c-top-meta{flex:1;}
+.c-acct-name{font-weight:700;font-size:17px;color:var(--ink);line-height:1.2;}
+.c-meta{font-family:var(--mono);font-size:9.5px;color:var(--ink-low);letter-spacing:.05em;margin-top:2px;}
+.c-top-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;}
+.c-urg{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:5px;}
+.cu-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.cu-engage{color:var(--t4);}
+.cu-engage .cu-dot{background:var(--t4);}
+.cu-standby{color:var(--ibm-deep);}
+.cu-standby .cu-dot{background:var(--ibm-deep);}
+.c-brand-row{display:flex;align-items:center;gap:5px;flex-wrap:wrap;justify-content:flex-end;}
+.c-brand-badge{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:2px;color:#fff;}
+.br-data{background:#0043CE;}
+.br-auto{background:#198038;}
+.br-stor{background:#6929C4;}
+.br-sec{background:#A2191F;}
+.br-pc{background:#005D5D;}
+.catalyst-bar{display:flex;align-items:center;gap:6px;padding:6px 20px;background:var(--panel);border-bottom:1px solid var(--rule);flex-wrap:wrap;}
+.cat-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);flex-shrink:0;padding-right:8px;border-right:1px solid var(--rule-hi);margin-right:2px;}
+.cat-next{font-family:var(--mono);font-size:9px;font-weight:600;color:var(--ink-mid);}
+.cat-next.soon{color:var(--t4);}
+.cat-sep{color:var(--rule-hi);padding:0 6px;font-size:11px;}
+.cat-comp{font-family:var(--mono);font-size:8.5px;color:var(--ink-low);}
+.cat-comp strong{color:var(--ink-mid);font-weight:600;}
+.c-body{display:grid;grid-template-columns:1fr 280px;border-bottom:1px solid var(--rule);}
+.c-left-col{padding:16px 20px 14px;border-right:1px solid var(--rule);}
+.c-right-col{padding:14px 16px;background:var(--panel-2);display:flex;flex-direction:column;gap:8px;}
+.c-sec-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:8px;}
+.c-bullets{list-style:none;margin-bottom:12px;}
+.c-bullets li{position:relative;padding-left:14px;margin-bottom:7px;color:var(--ink-mid);font-size:12.5px;line-height:1.6;}
+.c-bullets li::before{content:'·';position:absolute;left:3px;top:-1px;font-size:16px;color:var(--ibm-deep);font-weight:700;}
+.c-bullets li strong{color:var(--ink);font-weight:600;}
+.c-angle{background:var(--ibm-dim);border:1px solid var(--ibm-line);border-radius:var(--radius);padding:10px 14px;margin-bottom:10px;}
+.c-angle-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ibm);margin-bottom:5px;}
+.c-angle-lines{display:flex;flex-direction:column;gap:3px;}
+.c-angle-line{font-size:12px;color:var(--ink-mid);line-height:1.5;}
+.c-angle-line strong{color:var(--ink);font-weight:600;}
+.c-comp{background:var(--panel-2);border:1px solid var(--rule);border-radius:var(--radius);padding:7px 12px;margin-bottom:10px;font-size:11.5px;color:var(--ink-mid);line-height:1.45;}
+.c-comp-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-low);margin-bottom:3px;}
+.c-comp strong{color:var(--ink);font-weight:600;}
+.c-opener{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--ibm-deep);border-radius:var(--radius);padding:8px 12px;font-size:11.5px;color:var(--ink);line-height:1.5;font-style:italic;}
+.c-opener-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ibm);margin-bottom:3px;font-style:normal;}
+.c-sell-hdr{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:1px;}
+.c-sell-block{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);padding:8px 11px;}
+.c-sell-block.saas{border-left:3px solid var(--saas);}
+.c-sell-block.trans{border-left:3px solid var(--trans);}
+.c-sell-block.motion{border-left:3px solid var(--ibm-deep);}
+.c-sell-type{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px;}
+.c-sell-type.saas{color:var(--saas);}
+.c-sell-type.trans{color:var(--trans);}
+.c-sell-type.motion{color:var(--ibm);}
+.c-sell-txt{font-size:11.5px;color:var(--ink-mid);line-height:1.45;}
+.c-sell-txt strong{color:var(--ink);font-weight:600;}
+.c-sell-pill{display:inline-block;font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:2px;margin-top:5px;}
+.c-sell-pill.saas{background:var(--saas-dim);color:var(--saas);border:1px solid var(--saas-line);}
+.c-sell-pill.trans{background:var(--trans-dim);color:var(--trans);border:1px solid var(--trans-line);}
+.c-bottom{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule);background:var(--panel);}
+.c-spend{padding:12px 20px;border-right:1px solid var(--rule);}
+.c-bets{padding:12px 20px;}
+.cb-hdr{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:8px;}
+.sp-row{display:flex;align-items:center;gap:8px;margin-bottom:5px;font-size:11.5px;}
+.sp-cat{width:160px;color:var(--ink-mid);flex-shrink:0;}
+.sp-bar-wrap{flex:1;height:5px;background:var(--panel-3);border-radius:3px;overflow:hidden;}
+.sp-bar{height:100%;border-radius:3px;}
+.sp-bar.high{background:var(--ibm-deep);}
+.sp-bar.med{background:var(--t4);}
+.sp-bar.low{background:var(--ink-low);}
+.sp-scale{font-family:var(--mono);font-size:7.5px;color:var(--ink-low);margin-top:5px;letter-spacing:.03em;}
+.sp-insight{font-size:11.5px;color:var(--ink-mid);line-height:1.45;margin-top:8px;padding-top:8px;border-top:1px solid var(--rule);}
+.sp-insight strong{color:var(--ink);font-weight:600;}
+.bet-item{display:flex;align-items:flex-start;gap:7px;margin-bottom:7px;}
+.bet-item:last-child{margin-bottom:0;}
+.bet-tag{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px;flex-shrink:0;margin-top:2px;}
+.bet-tag.big{background:rgba(0,67,206,.1);color:var(--ibm);border:1px solid var(--ibm-line);}
+.bet-tag.small{background:var(--panel-2);color:var(--ink-low);border:1px solid var(--rule);}
+.bet-txt{font-size:11.5px;color:var(--ink-mid);line-height:1.45;}
+.bet-txt strong{color:var(--ink);font-weight:600;}
+.c-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:9px 20px;background:var(--panel-2);border-bottom:1px solid var(--rule);}
+.c-btn{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 13px;border-radius:var(--radius);border:1px solid var(--rule);background:var(--panel);color:var(--ink-mid);cursor:pointer;transition:all .12s;}
+.c-btn:hover{background:var(--ibm-deep);color:#fff;border-color:var(--ibm-deep);text-decoration:none;}
+.c-btn-snav{border-color:var(--ibm-line);color:var(--ibm);background:var(--ibm-dim);}
+.c-btn-intel{border-color:var(--rule);color:var(--ink);}
+.play-caller{background:var(--navy);border-top:2px solid var(--ibm-deep);padding:14px 20px;}
+.pc-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:6px;}
+.pc-hdr-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#4a6080;}
+.pc-hdr-account{font-family:var(--mono);font-size:9.5px;font-weight:700;color:#a8c8ff;letter-spacing:.05em;}
+.pc-body{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:14px;}
+.pc-col{display:flex;flex-direction:column;gap:5px;}
+.pc-col-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;}
+.pcl-who{color:#6a8aaa;}
+.pcl-say{color:#8ab4f8;}
+.pcl-wait{color:#fca5a5;}
+.pc-txt{font-size:12px;color:#c8d8f0;line-height:1.55;}
+.pc-txt strong{color:#fff;font-weight:600;}
+.pc-quote{font-size:12px;color:#e8f0fe;line-height:1.55;font-style:italic;background:rgba(255,255,255,.05);border-left:2px solid #8ab4f8;padding:8px 12px;border-radius:0 3px 3px 0;}
+.pc-second{margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:#8a9ab8;}
+.pc-second-lbl{font-family:var(--mono);font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#4a6080;display:block;margin-bottom:2px;}
+.footer{text-align:center;padding:32px 0 24px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-low);margin-top:40px;}
+.hstat-n.strike{color:#fca5a5;}
+.ps-tier.strike{background:rgba(220,30,38,.2);color:#fca5a5;border:1px solid rgba(220,30,38,.35);}
+.pulse-card.pc-red{border-left-color:var(--strike);}
+.pulse-card.pc-red .pc-tag{background:rgba(220,30,38,.1);color:var(--strike);border-color:rgba(220,30,38,.25);}
+.ajb-pill.strike{border-left:3px solid var(--strike);}
+.card.strike{border-left:4px solid var(--strike);}
+.cu-strike{color:var(--strike);}
+.cu-strike .cu-dot{background:var(--strike);}
+.cat-next.urgent{color:var(--strike);}
+.cb-hdr.spend{color:var(--ibm);}
+.cb-hdr.bets{color:var(--ink-low);}
+.p2-page{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:28px;overflow:hidden;scroll-margin-top:140px;}
+.p2-page.engage{border-left:4px solid var(--t4);}
+.p2-page.strike{border-left:4px solid var(--strike);}
+.p2-header-row{display:flex;align-items:center;padding:18px 24px;gap:18px;border-bottom:1px solid var(--rule);background:var(--panel-2);}
+.p2-logo-box{width:68px;height:44px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--rule);border-radius:4px;padding:4px;}
+.p2-logo{max-width:100%;max-height:100%;object-fit:contain;}
+.p2-header-text{flex:1;}
+.p2-se-horizon{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;}
+.p2-name-large{font-size:20px;font-weight:800;color:var(--ink);line-height:1.2;}
+.p2-date-line{font-size:11.5px;color:var(--ink-low);margin-top:2px;}
+.p2-header-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+.p2-tier-badge{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:2px;}
+.p2-tier-engage{background:#431407;color:#fdba74;}
+.p2-tier-strike{background:#7f1d1d;color:#fca5a5;}
+.p2-pulse-row{background:var(--ibm-dim);border-left:4px solid var(--ibm-deep);padding:12px 24px;display:flex;gap:14px;align-items:flex-start;}
+.p2-pulse-badge{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;background:var(--ibm);color:#fff;padding:3px 8px;border-radius:2px;flex-shrink:0;margin-top:2px;}
+.p2-pulse-text{font-size:12.5px;color:var(--ink-mid);line-height:1.65;}
+.p2-pulse-text strong{color:var(--ink);font-weight:700;}
+.p2-linkedin-row{display:flex;align-items:center;justify-content:space-between;padding:8px 24px;background:var(--panel-3);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.p2-li-text{font-size:11.5px;color:var(--ink-mid);}
+.p2-li-text strong{font-weight:700;color:var(--ibm);}
+.p2-li-btn{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--ibm);color:#fff;padding:3px 10px;border-radius:2px;}
+.p2-li-btn:hover{background:#003399;color:#fff;text-decoration:none;}
+.p2-intel-grid{display:grid;grid-template-columns:1fr 1fr 260px;border-top:1px solid var(--rule);}
+.p2-grid-col{padding:18px 20px;}
+.p2-grid-col-l{background:var(--panel);border-right:1px solid var(--rule);}
+.p2-grid-col-m{background:var(--panel-2);border-right:1px solid var(--rule);}
+.p2-grid-col-r{background:var(--panel-3);}
+.p2-grid-lbl{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:10px;padding-bottom:4px;border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:6px;}
+.p2-grid-chevron{background:var(--ibm-dim);color:var(--ibm);font-size:9px;font-weight:700;padding:1px 4px;border-radius:2px;}
+.p2-grid-col ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.p2-grid-col li{font-size:12.5px;color:var(--ink-mid);line-height:1.6;padding-left:14px;position:relative;}
+.p2-grid-col li::before{content:'▸';position:absolute;left:0;color:var(--ibm);font-size:9px;top:2px;}
+.p2-grid-col li strong{color:var(--ink);font-weight:600;}
+.p2-contact-entry{padding:8px 0;border-bottom:1px solid var(--rule);}
+.p2-contact-entry:last-child{border-bottom:none;padding-bottom:0;}
+.p2-contact-name{font-size:12.5px;font-weight:700;color:var(--ink);}
+.p2-contact-role{font-family:var(--mono);font-size:8.5px;color:var(--ink-low);margin-top:1px;}
+.p2-contact-hook{font-size:11px;color:var(--ibm);margin-top:2px;line-height:1.4;}
+.p2-play-bar{background:var(--ibm);padding:18px 24px;color:#fff;}
+.p2-pb-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.p2-pb-main-title{font-size:14px;font-weight:800;color:#fff;}
+.p2-pb-sub-title{font-size:11.5px;color:rgba(255,255,255,.8);margin-top:2px;}
+.p2-pb-badge-pill{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;background:rgba(255,255,255,.18);color:#fff;padding:3px 10px;border-radius:20px;}
+.p2-play-detail-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;border-top:1px solid rgba(255,255,255,.2);padding-top:12px;}
+.p2-play-detail-col{border-right:1px solid rgba(255,255,255,.15);padding-right:14px;}
+.p2-play-detail-col:last-child{border-right:none;padding-right:0;}
+.p2-play-rank-badge{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px;display:flex;align-items:center;gap:6px;}
+.p2-play-rank-num{width:16px;height:16px;border-radius:50%;background:#fff;color:var(--ibm);display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:9px;}
+.p2-play-detail-name{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;}
+.p2-play-detail-body{font-size:11.5px;color:rgba(255,255,255,.85);line-height:1.55;}
+.p2-lower-section{padding:16px 24px;background:var(--panel-2);border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.p2-ls-box{display:flex;flex-direction:column;gap:6px;}
+.p2-ls-lbl{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-low);}
+.p2-action-text{font-size:12px;color:var(--ink-mid);line-height:1.6;}
+.p2-talk-track-text{font-size:12px;color:var(--ink-mid);line-height:1.6;font-style:italic;background:var(--panel);border-left:3px solid var(--ibm);padding:8px 12px;border-radius:0 4px 4px 0;}
+.p3-shell{display:grid;grid-template-columns:260px 1fr;min-height:680px;border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;background:var(--panel);margin-bottom:28px;}
+.p3-rail{background:var(--navy);display:flex;flex-direction:column;border-right:1px solid rgba(255,255,255,.08);}
+.p3-rail-hdr{padding:14px 18px 10px;border-bottom:1px solid rgba(255,255,255,.08);background:var(--navy);}
+.p3-rail-title{font-family:var(--mono);font-size:8.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#8a9ab8;}
+.p3-ra{padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer;border-left:3px solid transparent;transition:all .12s;}
+.p3-ra:hover{background:rgba(255,255,255,.04);}
+.p3-ra.on{background:rgba(15,98,254,.15);border-left-color:var(--ibm-deep);}
+.p3-ra-name{font-size:13px;font-weight:700;color:#c8d8ea;margin-bottom:3px;}
+.p3-ra.on .p3-ra-name{color:#fff;}
+.p3-ra-urg{font-family:var(--mono);font-size:7.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:2px 6px;border-radius:2px;display:inline-block;}
+.p3-ra-urg.strike{background:#7f1d1d;color:#fca5a5;}
+.p3-ra-urg.engage{background:#431407;color:#fdba74;}
+.p3-ra-hook{font-size:10.5px;color:#6a8ab8;margin-top:4px;line-height:1.4;}
+.p3-detail-pane{background:var(--ground);overflow-y:auto;padding:24px;}
+.p3-dp-card{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;}
+.p3-dp-hdr{background:var(--panel-2);border-bottom:3px solid var(--ibm-deep);padding:18px 24px;}
+.p3-dp-hdr-top{display:flex;gap:14px;align-items:flex-start;margin-bottom:10px;}
+.p3-dp-logo{width:72px;height:44px;background:#fff;border:1px solid var(--rule);border-radius:4px;display:flex;align-items:center;justify-content:center;padding:4px;flex-shrink:0;}
+.p3-dp-logo img{max-width:100%;max-height:100%;object-fit:contain;}
+.p3-dp-acct-name{font-size:22px;font-weight:900;color:var(--ink);line-height:1.1;}
+.p3-dp-acct-meta{font-size:11.5px;color:var(--ink-low);margin-top:2px;}
+.p3-dp-thesis{font-size:12.5px;color:var(--ink-mid);line-height:1.65;padding-top:12px;border-top:1px solid var(--rule);}
+.p3-dp-vitals{display:flex;gap:0;margin-top:12px;border:1px solid var(--rule);border-radius:4px;overflow:hidden;}
+.p3-vital{flex:1;padding:8px 12px;border-right:1px solid var(--rule);background:#fff;}
+.p3-vital:last-child{border-right:none;}
+.p3-vital-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;}
+.p3-vital-val{font-size:12px;font-weight:700;color:var(--ink);}
+.p3-dp-body{padding:20px 24px 28px;}
+.p3-sec{margin:20px 0 10px;display:flex;align-items:center;gap:10px;}
+.p3-sec:first-child{margin-top:0;}
+.p3-sec-lbl{font-family:var(--mono);font-size:8.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ink-low);white-space:nowrap;}
+.p3-sec-line{flex:1;height:1px;background:var(--rule);}
+.p3-heat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.p3-heat-card{background:var(--panel-2);border:1px solid var(--rule);border-top:3px solid var(--hc,var(--rule));border-radius:4px;padding:12px 14px;}
+.p3-heat-play{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.p3-heat-score{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--hc,var(--ibm-deep));line-height:1;}
+.p3-heat-bar{height:4px;background:var(--rule);border-radius:2px;margin:6px 0;}
+.p3-heat-fill{height:100%;border-radius:2px;background:var(--hc,var(--ibm-deep));}
+.p3-heat-conviction{font-size:11px;color:var(--ink-mid);line-height:1.45;border-top:1px solid var(--rule);padding-top:6px;margin-top:4px;}
+.p3-threats{display:flex;flex-direction:column;gap:10px;}
+.p3-threat{background:var(--panel-2);border:1px solid var(--rule);border-left:4px solid #7f1d1d;border-radius:4px;padding:12px 16px;}
+.p3-threat-top{display:flex;align-items:center;gap:10px;margin-bottom:4px;}
+.p3-threat-name{font-size:13px;font-weight:800;color:var(--ink);}
+.p3-threat-level{font-family:var(--mono);font-size:7.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:2px;background:#7f1d1d;color:#fca5a5;}
+.p3-threat-doing{font-size:11.5px;color:var(--ink-low);line-height:1.5;margin-bottom:6px;}
+.p3-threat-counter{font-size:11.5px;color:#006644;background:rgba(0,102,68,.06);border-left:3px solid #006644;padding:6px 10px;border-radius:2px;line-height:1.5;}
+.p3-move{background:var(--navy);border-radius:4px;padding:16px 20px;}
+.p3-move-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;}
+.p3-move-row:last-child{margin-bottom:0;}
+.p3-move-lbl{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:var(--ibm-deep);padding:4px 0;min-width:90px;width:90px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+.p3-move-text{font-size:12px;color:#c8d8ea;line-height:1.6;}
+.p3-move-track{font-size:12px;color:#8a9ab8;font-style:italic;line-height:1.6;border-left:3px solid var(--ibm-deep);padding-left:10px;}
+.p4-section{margin-bottom:28px;}
+.p4-sec-hdr{background:var(--panel-2);border:1px solid var(--rule);border-top:3px solid var(--ibm-deep);border-radius:var(--radius);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
+.p4-sec-co{font-size:16px;font-weight:800;color:var(--ink);}
+.p4-sec-sub{font-size:11.5px;color:var(--ink-low);margin-top:2px;}
+.p4-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;padding:14px 0;}
+.p4-ct{border:1px solid var(--rule);border-left:4px solid var(--rule);border-radius:4px;padding:14px 16px;background:var(--panel);display:flex;flex-direction:column;gap:8px;}
+.p4-ct.executive{border-left-color:var(--navy);}
+.p4-ct.practitioner{border-left-color:var(--ibm-deep);}
+.p4-ct-top{display:flex;justify-content:space-between;gap:8px;}
+.p4-ct-name{font-size:14px;font-weight:800;color:var(--ink);}
+.p4-ct-score{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--ink);background:var(--panel-2);border:1px solid var(--rule);border-radius:3px;height:30px;min-width:38px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.p4-ct-title{font-size:12px;color:var(--ink-low);line-height:1.4;}
+.p4-ct-tags{display:flex;gap:5px;flex-wrap:wrap;}
+.p4-ct-tag{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;padding:2px 7px;border-radius:2px;background:var(--panel-2);color:var(--ink-low);border:1px solid var(--rule);}
+.p4-ct-tag.b-exec{background:var(--navy);color:#fff;border-color:var(--navy);}
+.p4-ct-tag.b-prac{background:var(--ibm-deep);color:#fff;border-color:var(--ibm-deep);}
+.p4-ct-why{font-size:11.5px;line-height:1.55;color:var(--ink-mid);}
+.p4-ct-snav{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#fff;background:var(--ibm);padding:5px 12px;border-radius:2px;display:inline-block;align-self:flex-start;margin-top:4px;}
+.p4-ct-snav:hover{background:#003399;color:#fff;text-decoration:none;}
+.card,.p2-page{scroll-margin-top:140px;}
+.card.standby,.p2-page.standby{border-left:4px solid var(--ibm-deep);}
+.p2-tier-standby{background:#1e3a8a;color:#93c5fd;}
+.p3-ra-urg.standby{background:#1e3a8a;color:#93c5fd;}
+.p4-ct-note{grid-column:1/-1;font-size:12px;line-height:1.6;color:var(--ink-mid);background:var(--panel-2);border:1px dashed var(--rule-hi);border-radius:var(--radius);padding:10px 14px;}
+.p4-ct-tag.b-warm{background:#dcfce7;color:#14532d;border-color:#86efac;}
+.p4-ct-tag.b-cold{background:var(--panel-2);color:var(--ink-low);}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;}
+  .p3-shell,.p2-intel-grid,.p2-play-detail-grid,.p2-lower-section,.p3-heat-grid,.c-body,.c-bottom,.pc-body{grid-template-columns:1fr;}
+  .topnav{padding:0 16px;}.main,.hero,.phasebar,.acct-jump-bar,.pulse-bar{padding-left:16px;padding-right:16px;}
+}
+</style>
+<style id="nav-unify">
+.topnav{position:sticky;top:0;z-index:400;box-sizing:border-box;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-top:3px solid #0F62FE;border-bottom:1px solid #DDE1EC;height:48px;padding:0 24px;gap:16px;display:flex;align-items:center;justify-content:space-between;}
+.topnav .tn-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.topnav .tn-ibm{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:20px;font-weight:700;color:#0F62FE;letter-spacing:-.5px;}
+.topnav .tn-div{width:1px;height:18px;background:#C8CEDD;}
+.topnav .tn-title{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#6B779A;}
+.topnav .tn-badge{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:#0F62FE;color:#fff;padding:2px 10px;border-radius:20px;}
+.topnav .tn-links{display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;min-width:0;}
+.topnav .tn-links::-webkit-scrollbar{display:none;}
+.topnav .tn-links a{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:9.5px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:#6B779A;padding:6px 8px;border-bottom:2px solid transparent;white-space:nowrap;text-decoration:none;transition:color .12s;}
+.topnav .tn-links a:hover{color:#0043CE;text-decoration:none;}
+.topnav .tn-links a.active{color:#0F62FE;border-bottom-color:#0F62FE;background:rgba(15,98,254,.08);}
+.topnav .tn-links a.soon{opacity:.4;pointer-events:none;cursor:default;}
+.topnav .tn-sep{color:#C8CEDD;padding:0 1px;user-select:none;}
+.topnav .tn-sep.tn-grp{padding:0 8px;}
+.topnav .tn-right{display:none;}
+@media(max-width:1100px){.topnav{padding:0 14px;}.topnav .tn-title{display:none;}}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topnav">
+  <div class="tn-left">
+    <span class="tn-ibm">IBM</span>
+    <span class="tn-div"></span>
+    <span class="tn-title">IBM SF Intel Brief</span>
+    <span class="tn-badge">Edition 14</span>
+  </div>
+  <div class="tn-links">
+    <a href="../../index.html">Hub</a>
+    <span class="tn-sep">·</span>
+    <a href="phase1.html">Phase 1 · Radar</a>
+    <span class="tn-sep">·</span>
+    <a href="phase2.html">Phase 2 · Intel</a>
+    <span class="tn-sep">·</span>
+    <a href="phase3.html">Phase 3 · Accounts</a>
+    <span class="tn-sep">·</span>
+    <a href="phase4.html" >Phase 4 · Contacts</a>
+    <span class="tn-sep tn-grp">|</span>
+    <a href="seller-spencer.html">Spencer</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-shari.html">Shari</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-michael.html" class="active">Michael</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-hazem.html">Hazem &amp; Srajan</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-mijee.html">Mijee</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-bss.html">BSS Team</a>
+  </div>
+  <div class="tn-right">Nov 9, 2026 · IBM South Florida</div>
+</nav>
+
+<!-- PHASE TAB BAR -->
+<div class="phasebar">
+  <div class="ptab on" id="tab-p1" onclick="showPhase('p1')">Phase 1 · Radar</div>
+  <div class="ptab-sep">/</div>
+  <div class="ptab" id="tab-p2" onclick="showPhase('p2')">Phase 2 · Intel Brief</div>
+  <div class="ptab-sep">/</div>
+  <div class="ptab" id="tab-p3" onclick="showPhase('p3')">Phase 3 · My Accounts</div>
+  <div class="ptab-sep">/</div>
+  <div class="ptab" id="tab-p4" onclick="showPhase('p4')">Phase 4 · Contacts</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <a class="hero-back" href="../../index.html">← Master Hub</a>
+    <div class="hero-eyebrow">South Florida SE Team · Edition 14 · Nov 9, 2026</div>
+    <div class="hero-name">Hello, Michael</div>
+    <div class="hero-sub">3 accounts · Nov 3–9, 2026 · HEICO Q3 reported +23.1% revenue — M&amp;A integration window open</div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">3</div><div class="hstat-l">Total Accts</div></div>
+      <div class="hstat"><div class="hstat-n strike">1</div><div class="hstat-l">Strike</div></div>
+      <div class="hstat"><div class="hstat-n engage">2</div><div class="hstat-l">Engage</div></div>
+      <div class="hstat"><div class="hstat-n standby">0</div><div class="hstat-l">Standby</div></div>
+    </div>
+  </div>
+  <div class="priority-stack">
+    <div class="ps-lbl">Active Priority Action Stack</div>
+    <div class="ps-row">
+      <div class="ps-num">1</div>
+      <div class="ps-body">
+        <div class="ps-co">HEICO Corporation</div>
+        <div class="ps-action">Q3 FY2026: Revenue $1.4B +23.1% YoY · GAAP EPS $1.67 +32.5%</div>
+      </div>
+      <span class="ps-tier strike">Strike</span>
+    </div>
+    <div class="ps-row">
+      <div class="ps-num">2</div>
+      <div class="ps-body">
+        <div class="ps-co">Chewy, Inc.</div>
+        <div class="ps-action">AutoShip revenue &gt;75% of sales · Chewy Health &amp; Pharmacy scaling</div>
+      </div>
+      <span class="ps-tier engage">Engage</span>
+    </div>
+    <div class="ps-row">
+      <div class="ps-num">3</div>
+      <div class="ps-body">
+        <div class="ps-co">Memorial Healthcare System (South Broward Hospital District)</div>
+        <div class="ps-action">Clinical AI expansion across 6 hospitals · Cross-facility EHR data sharing</div>
+      </div>
+      <span class="ps-tier engage">Engage</span>
+    </div>
+  </div>
+</div>
+
+<!-- MARKET PULSE -->
+<div class="pulse-bar">
+  <div class="pulse-bar-lbl">Market Pulse · Week of Nov 9, 2026</div>
+  <div class="pulse-grid">
+    <div class="pulse-card pc-red">
+      <span class="pc-tag">HEICO Corporation</span>
+      <div class="pc-headline">Q3 FY2026: Revenue $1.4B +23.1% YoY · GAAP EPS $1.67 +32.5%</div>
+      <div class="pc-angle">IBM angle: <strong>Post-Earnings M&amp;A Momentum</strong></div>
+    </div>
+    <div class="pulse-card pc-amber">
+      <span class="pc-tag">Chewy, Inc.</span>
+      <div class="pc-headline">AutoShip revenue &gt;75% of sales · Chewy Health &amp; Pharmacy scaling</div>
+      <div class="pc-angle">IBM angle: <strong>Planning Analytics for AutoShip</strong></div>
+    </div>
+    <div class="pulse-card pc-amber">
+      <span class="pc-tag">Memorial Healthcare System (South Broward Hospital District)</span>
+      <div class="pc-headline">Clinical AI expansion across 6 hospitals · Cross-facility EHR data sharing</div>
+      <div class="pc-angle">IBM angle: <strong>IBM Data Fabric for Healthcare</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- JUMP BAR -->
+<div class="acct-jump-bar" id="p1-jump-bar">
+  <span class="ajb-lbl">Jump to Account:</span>
+  <a class="ajb-pill strike" href="#acct-heico">HEICO Corporation</a>
+  <a class="ajb-pill engage" href="#acct-chewy">Chewy, Inc.</a>
+  <a class="ajb-pill engage" href="#acct-memorial">Memorial Healthcare</a>
+</div>
+
+<!-- PHASE 1 — RADAR & PLAY CALLER -->
+<div class="phase-panel active" id="panel-p1">
+<div class="main">
+
+  <div class="sec-hdr" id="acct-heico"><span class="sec-label">Account 1 of 3 · HEICO Corporation</span><div class="sec-rule"></div></div>
+
+<div class="card strike">
+
+    <div class="c-top">
+      <div class="c-top-meta">
+        <div class="c-acct-name">HEICO Corporation</div>
+        <div class="c-meta">NYSE: HEI, HEI.A · Aerospace &amp; Electronics · Hollywood FL · Flight Support Group + Electronic Technologies Group</div>
+      </div>
+      <div class="c-top-right">
+        <div class="c-urg cu-strike"><span class="cu-dot"></span>Strike — Post-Earnings M&amp;A Window</div>
+        <div class="c-brand-row">
+          <span class="c-brand-badge br-data">Data &amp; AI</span>
+          <span class="c-brand-badge br-stor">Storage</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="catalyst-bar">
+      <span class="cat-lbl">This Week</span>
+      <span class="cat-next urgent">Q3 FY2026: Revenue $1.4B +23.1% YoY · GAAP EPS $1.67 +32.5% · FCF $322.8M +47.7% · Active M&amp;A Pipeline</span>
+      <span class="cat-sep">|</span>
+      <span class="cat-comp"><strong>Competing:</strong> Fragmented ERPs across acquired subsidiaries · zero enterprise AI governance vendor</span>
+    </div>
+
+    <div class="c-body">
+      <div class="c-left-col">
+        <div class="c-sec-lbl">What Just Happened — Nov 3–9, 2026</div>
+        <ul class="c-bullets">
+          <li>Q3 FY2026 reported strong double-digit growth: <strong>net sales reached $1.40B (+23.1% YoY)</strong>, GAAP net income rose to $233.1M with GAAP EPS of $1.67 (+32.5%), and Free Cash Flow surged to $322.8M (+47.7%).</li>
+          <li>Growth is propelled by both commercial aerospace demand and relentless acquisitions (e.g. Wencor integration and ongoing bolt-on acquisitions in Flight Support and Electronic Technologies).</li>
+          <li>Each new subsidiary operates autonomous engineering, parts catalog, and ERP systems. <strong>Rapid M&amp;A creates massive cross-subsidiary data integration complexity and supply chain traceability hurdles</strong> without an overarching data fabric.</li>
+          <li>Aerospace defense contracts and FAA parts certification require stringent data provenance and strict compliance for automated workflows. <strong>Zero competitor holds the data lineage and AI governance layer across HEICO's operating units.</strong></li>
+        </ul>
+
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle — Why This Week</div>
+          <div class="c-angle-lines">
+            <div class="c-angle-line"><strong>Post-Earnings M&amp;A Momentum:</strong> With $322.8M in quarterly FCF, HEICO has cash to acquire more targets. IBM Data Fabric enables immediate data access across newly bought entities without ripping and replacing local ERPs.</div>
+            <div class="c-angle-line"><strong>Planning Analytics for M&amp;A Synergies:</strong> Consolidated parts demand forecasting and supplier cost rollup across 80+ subsidiaries into one real-time scenario model.</div>
+            <div class="c-angle-line"><strong>watsonx.governance &amp; Data Lineage:</strong> Defend FAA and DoD compliance audits by establishing automated data provenance across flight critical component records.</div>
+          </div>
+        </div>
+
+        <div class="c-comp">
+          <div class="c-comp-lbl">Competitive</div>
+          <div class="c-comp-txt"><strong>Decentralized legacy systems</strong> (Epicor, Infor, Oracle instances at separate operating units). IBM's counter: IBM Data Fabric does not force an expensive ERP consolidation — it connects existing data stores across acquisitions in weeks, avoiding multi-year migration gridlock.</div>
+        </div>
+
+        <div class="c-opener">
+          <div class="c-opener-lbl">Door Opener</div>
+          <div class="c-opener-txt">"Congratulations on Q3's +23% revenue growth and strong cash flow. As HEICO continues its M&amp;A pace across Flight Support and Electronic Technologies, IBM Data Fabric lets you connect parts catalog and financial data from newly acquired businesses in 60 days without touching their underlying ERPs. Worth 20 minutes with your IT and FP&amp;A leadership."</div>
+        </div>
+      </div>
+
+      <div class="c-right-col">
+        <div class="c-sell-hdr">How to Sell</div>
+        <div class="c-sell-block saas">
+          <div class="c-sell-type saas">SaaS Entry</div>
+          <div class="c-sell-txt"><strong>IBM Data Fabric / Planning Analytics</strong> — unified data query and supply chain synergy modeling across acquired subsidiaries. CFO &amp; CIO pitch: <em>"Integrate acquisitions without ERP rip-and-replace."</em></div>
+          <span class="c-sell-pill saas">Data Fabric SaaS</span>
+        </div>
+        <div class="c-sell-block trans">
+          <div class="c-sell-type trans">Transaction</div>
+          <div class="c-sell-txt"><strong>watsonx.governance + Storage</strong> — engineering drawing retention, FAA parts traceability, and secure hybrid storage for defense and commercial aerospace compliance.</div>
+          <span class="c-sell-pill trans">watsonx &amp; Storage Tx</span>
+        </div>
+        <div class="c-sell-block motion">
+          <div class="c-sell-type motion">Do This Now</div>
+          <div class="c-sell-txt">1. Call Carlos Macau (CFO) and VP of IT at Hollywood HQ this week.<br>2. Anchor on Q3 +23% growth and M&amp;A integration speed.<br>3. Position Data Fabric as the non-invasive integration layer.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-bottom">
+      <div class="c-spend">
+        <div class="cb-hdr spend">Tech Spend Lens</div>
+        <div class="sp-row"><span class="sp-cat">ERP / Post-M&amp;A Integration</span><div class="sp-bar-wrap"><div class="sp-bar high" style="width:84%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">Supply Chain &amp; Inventory</span><div class="sp-bar-wrap"><div class="sp-bar high" style="width:72%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">Compliance / Provenance</span><div class="sp-bar-wrap"><div class="sp-bar med" style="width:48%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">AI Governance</span><div class="sp-bar-wrap"><div class="sp-bar low" style="width:12%"></div></div></div>
+        <div class="sp-scale">Relative to est. total tech spend — illustrative · Low / Mid / High</div>
+        <div class="sp-insight">HEICO's acquisition strategy thrives on operational autonomy. <strong>IBM wins by offering a unified data overlay rather than a centralized ERP migration.</strong></div>
+      </div>
+      <div class="c-bets">
+        <div class="cb-hdr bets">Bets</div>
+        <div class="bet-item">
+          <span class="bet-tag big">Big</span>
+          <span class="bet-txt"><strong>IBM Data Fabric as the corporate M&amp;A integration standard</strong> — every newly acquired aerospace business connects into IBM's data layer within 60 days of closing.</span>
+        </div>
+        <div class="bet-item">
+          <span class="bet-tag small">Small</span>
+          <span class="bet-txt"><strong>Flight Support Group cross-subsidiary parts catalog pilot</strong> — connect inventory from three recent acquisitions into a unified query engine.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-actions">
+      <a class="c-btn c-btn-intel" href="#" onclick="showPhase('p2');setTimeout(()=>document.getElementById('p2-heico').scrollIntoView({behavior:'smooth'}),100);return false;">Full Intel →</a>
+      <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A29618%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+    </div>
+
+    <!-- PLAY CALLER -->
+    <div class="play-caller">
+      <div class="pc-hdr">
+        <span class="pc-hdr-lbl">Play Caller</span>
+        <span class="pc-hdr-account">HEICO Corporation · Strike · Q3 Post-Earnings M&amp;A Window</span>
+      </div>
+      <div class="pc-body">
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-who">Who to Call</span>
+          <div class="pc-txt">
+            <strong>Carlos Macau</strong> — EVP, CFO &amp; Treasurer at Hollywood FL HQ. Post-earnings FCF of $322.8M gives him acquisition leverage; his team manages integration synergy reporting.<br><br>
+            <strong>VP of Information Technology / CIO</strong> — Responsible for managing decentralized systems across Flight Support and Electronic Technologies groups.
+            <div class="pc-second">
+              <span class="pc-second-lbl">Second Move</span>
+              Target Co-Presidents Eric Mendelson (Flight Support) and Victor Mendelson (Electronic Technologies) with a 1-page brief on supply chain inventory visibility across operating units.
+            </div>
+          </div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-say">What to Say</span>
+          <div class="pc-quote">"Your Q3 numbers were outstanding — revenue up 23% and cash flow near records. As you continue acquiring in Flight Support and Electronics, the data integration across autonomous units is usually what slows down synergies. IBM Data Fabric connects your acquired companies' data in 60 days without forcing anyone off their local ERP. Can we put 20 minutes on the calendar this week?"</div>
+          <div class="pc-txt" style="margin-top:10px;font-size:11.5px;color:#6a8aaa;">
+            If they mention autonomy: "That is precisely why IBM Data Fabric works. You keep the operating team autonomous on their existing tools while leadership gets instant visibility across all entities."
+          </div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-wait">If You Wait</span>
+          <div class="pc-txt">
+            Post-earnings focus shifts to operational execution for Q4. Once acquired subsidiaries begin building custom one-off spreadsheet interfaces and manual ETL pipelines, technical debt cements itself. <strong>Reaching Carlos Macau while M&amp;A integration is top-of-mind secures IBM as the enterprise integration architecture.</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sec-hdr" id="acct-chewy"><span class="sec-label">Account 2 of 3 · Chewy, Inc.</span><div class="sec-rule"></div></div>
+
+<div class="card engage">
+
+    <div class="c-top">
+      <div class="c-top-meta">
+        <div class="c-acct-name">Chewy, Inc.</div>
+        <div class="c-meta">NYSE: CHWY · E-Commerce &amp; Pet Health · Plantation / Dania Beach FL · AutoShip Subscription Engine · Automated Fulfillment Network</div>
+      </div>
+      <div class="c-top-right">
+        <div class="c-urg cu-engage"><span class="cu-dot"></span>Engage</div>
+        <div class="c-brand-row">
+          <span class="c-brand-badge br-data">Data &amp; AI</span>
+          <span class="c-brand-badge br-auto">Automation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="catalyst-bar">
+      <span class="cat-lbl">This Week</span>
+      <span class="cat-next soon">AutoShip revenue &gt;75% of sales · Chewy Health &amp; Pharmacy scaling · Automated fulfillment center network expansion</span>
+      <span class="cat-sep">|</span>
+      <span class="cat-comp"><strong>Competing:</strong> AWS / Snowflake (data warehouse) · Anaplan / Blue Yonder (supply chain planning)</span>
+    </div>
+
+    <div class="c-body">
+      <div class="c-left-col">
+        <div class="c-sec-lbl">What Just Happened — Nov 3–9, 2026</div>
+        <ul class="c-bullets">
+          <li>Chewy's <strong>AutoShip subscription customer base drives over 75% of net sales</strong>, demanding hyper-accurate long-term inventory forecasting across automated fulfillment centers.</li>
+          <li>Rapid growth in <strong>Chewy Health (telehealth, vet clinics, and compounding pharmacy)</strong> introduces pharmaceutical regulatory requirements and sensitive customer health data oversight.</li>
+          <li>Massive automated fulfillment centers rely on high-throughput robotic workflows. Any supply chain stock-out on subscription orders leads directly to customer churn.</li>
+          <li>Chewy is experimenting with customer service generative AI and recommendation algorithms — <strong>IBM watsonx.governance provides the guardrails against algorithmic bias and regulatory non-compliance in pet medication dispensing</strong>.</li>
+        </ul>
+
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-lines">
+            <div class="c-angle-line"><strong>Planning Analytics for AutoShip:</strong> Real-time multidimensional scenario modeling to forecast pet parent replenishment cycles by geography, product category, and seasonal vet trends.</div>
+            <div class="c-angle-line"><strong>watsonx.governance for Healthcare AI:</strong> Protect Chewy's pharmacy and telehealth expansion with auditable compliance for automated prescription validation and customer AI touchpoints.</div>
+            <div class="c-angle-line"><strong>Turbonomic / Automation:</strong> Optimize cloud infrastructure spend across Chewy's high-traffic e-commerce and logistics microservices during holiday peak volumes.</div>
+          </div>
+        </div>
+
+        <div class="c-comp">
+          <div class="c-comp-lbl">Competitive</div>
+          <div class="c-comp-txt"><strong>Snowflake and AWS</strong> house their raw analytics. IBM Planning Analytics and watsonx operate as the actionable decision and governance layer on top of their cloud warehouse — IBM does not displace Snowflake, it gives business leaders real-time modeling power Snowflake cannot provide.</div>
+        </div>
+
+        <div class="c-opener">
+          <div class="c-opener-lbl">Door Opener</div>
+          <div class="c-opener-txt">"With AutoShip generating over 75% of your revenue and Chewy Health expanding rapidly into pharmacy, precision demand planning is everything. IBM Planning Analytics models subscriber replenishment cycles across your automated fulfillment centers in real time so you stay ahead of stock-outs. Worth 25 minutes before holiday peak planning locks."</div>
+        </div>
+      </div>
+
+      <div class="c-right-col">
+        <div class="c-sell-hdr">How to Sell</div>
+        <div class="c-sell-block saas">
+          <div class="c-sell-type saas">SaaS Entry</div>
+          <div class="c-sell-txt"><strong>IBM Planning Analytics</strong> — supply chain demand forecasting for AutoShip and fulfillment center allocation. VP Supply Chain / CFO pitch: <em>"Eliminate stock-outs on recurring subscription revenue."</em></div>
+          <span class="c-sell-pill saas">Planning Analytics</span>
+        </div>
+        <div class="c-sell-block trans">
+          <div class="c-sell-type trans">Transaction</div>
+          <div class="c-sell-txt"><strong>watsonx.governance / Turbonomic</strong> — compliance oversight for pet health AI and automated cloud elasticity management across peak shopping cycles.</div>
+          <span class="c-sell-pill trans">watsonx &amp; Turbo Tx</span>
+        </div>
+        <div class="c-sell-block motion">
+          <div class="c-sell-type motion">Do This Now</div>
+          <div class="c-sell-txt">1. Connect with David Reeder (CFO) and VP of Supply Chain.<br>2. Position Planning Analytics directly on AutoShip inventory precision.<br>3. Bring watsonx.governance to the Chewy Health compliance leads.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-bottom">
+      <div class="c-spend">
+        <div class="cb-hdr spend">Tech Spend Lens</div>
+        <div class="sp-row"><span class="sp-cat">Cloud &amp; E-Commerce Ops</span><div class="sp-bar-wrap"><div class="sp-bar high" style="width:88%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">Supply Chain / Fulfillment</span><div class="sp-bar-wrap"><div class="sp-bar high" style="width:76%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">Customer AI &amp; Personalization</span><div class="sp-bar-wrap"><div class="sp-bar med" style="width:52%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">Healthcare Compliance Tech</span><div class="sp-bar-wrap"><div class="sp-bar low" style="width:20%"></div></div></div>
+        <div class="sp-scale">Relative to est. total tech spend — illustrative · Low / Mid / High</div>
+        <div class="sp-insight">Chewy's profitability hinges on fulfillment efficiency and AutoShip retention. <strong>Every basis point of inventory accuracy saved in fulfillment centers drops straight to adjusted EBITDA.</strong></div>
+      </div>
+      <div class="c-bets">
+        <div class="cb-hdr bets">Bets</div>
+        <div class="bet-item">
+          <span class="bet-tag big">Big</span>
+          <span class="bet-txt"><strong>Enterprise planning standard for Chewy Supply Chain</strong> — Planning Analytics replaces spreadsheet-based demand planning across all regional fulfillment centers.</span>
+        </div>
+        <div class="bet-item">
+          <span class="bet-tag small">Small</span>
+          <span class="bet-txt"><strong>Chewy Health AI governance audit</strong> — benchmark pharmacy recommendation algorithms against HIPAA and state board dispensing compliance in 4 weeks.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-actions">
+      <a class="c-btn c-btn-intel" href="#" onclick="showPhase('p2');setTimeout(()=>document.getElementById('p2-chewy').scrollIntoView({behavior:'smooth'}),100);return false;">Full Intel →</a>
+      <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A2433416%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+    </div>
+
+    <div class="play-caller">
+      <div class="pc-hdr">
+        <span class="pc-hdr-lbl">Play Caller</span>
+        <span class="pc-hdr-account">Chewy, Inc. · Engage · AutoShip Demand &amp; Pet Health AI Governance</span>
+      </div>
+      <div class="pc-body">
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-who">Who to Call</span>
+          <div class="pc-txt">
+            <strong>David Reeder</strong> — Chief Financial Officer. Managing fulfillment capex efficiency and margin expansion targets across the automated fulfillment network.<br><br>
+            <strong>VP of Supply Chain Planning / VP of Engineering</strong> — Leaders responsible for fulfillment logistics, inventory optimization, and e-commerce data platforms.
+            <div class="pc-second">
+              <span class="pc-second-lbl">Second Move</span>
+              Engage the Chewy Health / Pharmacy compliance director on watsonx.governance for automated customer prescription verification workflows.
+            </div>
+          </div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-say">What to Say</span>
+          <div class="pc-quote">"Over 75% of your net sales runs through AutoShip subscriptions. If an automated fulfillment center runs low on high-demand SKU lines, subscriber satisfaction drops immediately. IBM Planning Analytics runs continuous scenario simulations on AutoShip customer cohorts so your inventory is balanced across centers before demand spikes. Can we schedule a brief 20-minute working session?"</div>
+          <div class="pc-txt" style="margin-top:10px;font-size:11.5px;color:#6a8aaa;">
+            Highlight non-disruption: "We integrate directly on top of your Snowflake and AWS environment. No re-platforming required."
+          </div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-wait">If You Wait</span>
+          <div class="pc-txt">
+            Chewy is evaluating e-commerce supply chain tools for next year's budget. If Anaplan or point cloud solutions establish footprint inside their supply chain team, <strong>IBM will be locked out of the highest-value analytical workload in South Florida e-commerce.</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sec-hdr" id="acct-memorial"><span class="sec-label">Account 3 of 3 · Memorial Healthcare System (South Broward Hospital District)</span><div class="sec-rule"></div></div>
+
+<div class="card engage">
+
+    <div class="c-top">
+      <div class="c-top-meta">
+        <div class="c-acct-name">Memorial Healthcare System (South Broward Hospital District)</div>
+        <div class="c-meta">Public Healthcare District · Hollywood FL · 6 Hospitals + Joe DiMaggio Children's · Memorial Cancer Institute · 14,000+ Employees</div>
+      </div>
+      <div class="c-top-right">
+        <div class="c-urg cu-engage"><span class="cu-dot"></span>Engage</div>
+        <div class="c-brand-row">
+          <span class="c-brand-badge br-data">Data &amp; AI</span>
+          <span class="c-brand-badge br-sec">Security</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="catalyst-bar">
+      <span class="cat-lbl">This Week</span>
+      <span class="cat-next soon">Clinical AI expansion across 6 hospitals · Cross-facility EHR data sharing · Active cybersecurity and PHI data governance reviews</span>
+      <span class="cat-sep">|</span>
+      <span class="cat-comp"><strong>Competing:</strong> Epic Systems (EHR core) · Microsoft Azure Health · CrowdStrike / Palo Alto (perimeter security)</span>
+    </div>
+
+    <div class="c-body">
+      <div class="c-left-col">
+        <div class="c-sec-lbl">What Just Happened — Nov 3–9, 2026</div>
+        <ul class="c-bullets">
+          <li>Memorial Healthcare operates <strong>6 major hospitals, Joe DiMaggio Children's Hospital, and 250+ community points of care</strong>, generating massive volumes of clinical, diagnostic, and billing data.</li>
+          <li>Expansion into <strong>AI-assisted clinical triage, radiology diagnostics, and automated patient scheduling</strong> has outpaced formal health system AI governance policies.</li>
+          <li>HHS and OCR scrutiny on healthcare AI bias and patient data privacy (HIPAA / HITECH) is escalating rapidly — hospital leadership faces strict accountability for diagnostic algorithm safety.</li>
+          <li>Legacy cybersecurity perimeters protect endpoints but leave <strong>unstructured clinical notes and cross-facility patient data lakes exposed to internal data leakage risks</strong>.</li>
+        </ul>
+
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-lines">
+            <div class="c-angle-line"><strong>IBM Data Fabric for Healthcare:</strong> Unify patient records, imaging data, and lab results across all 6 hospitals and regional outpatient centers without duplicating EHR databases.</div>
+            <div class="c-angle-line"><strong>watsonx.governance for Clinical AI:</strong> Audit clinical AI models for accuracy, demographic bias, and regulatory compliance before algorithms touch live patient triage.</div>
+            <div class="c-angle-line"><strong>IBM Guardium / Security:</strong> Continuous discovery, classification, and zero-trust protection for Protected Health Information (PHI) across Epic and hybrid cloud repositories.</div>
+          </div>
+        </div>
+
+        <div class="c-comp">
+          <div class="c-comp-lbl">Competitive</div>
+          <div class="c-comp-txt"><strong>Epic</strong> manages transaction EHR workflows. IBM does not compete with Epic — IBM Guardium protects Epic's database, and IBM watsonx.governance monitors AI models that ingest Epic data. Frame IBM as the essential compliance and security protector for Memorial's EHR investments.</div>
+        </div>
+
+        <div class="c-opener">
+          <div class="c-opener-lbl">Door Opener</div>
+          <div class="c-opener-txt">"As Memorial expands AI into clinical workflows and imaging across all six hospitals, maintaining audit-ready regulatory governance is critical. IBM watsonx.governance and Guardium protect patient data and validate clinical AI accuracy before HHS or compliance auditors ask for model provenance. Let's schedule 25 minutes with your CIO and CMIO teams."</div>
+        </div>
+      </div>
+
+      <div class="c-right-col">
+        <div class="c-sell-hdr">How to Sell</div>
+        <div class="c-sell-block saas">
+          <div class="c-sell-type saas">SaaS Entry</div>
+          <div class="c-sell-txt"><strong>watsonx.governance</strong> — model risk management and regulatory transparency for clinical and operational AI systems. CMIO &amp; CIO pitch: <em>"Govern clinical AI before deployment."</em></div>
+          <span class="c-sell-pill saas">watsonx.gov SaaS</span>
+        </div>
+        <div class="c-sell-block trans">
+          <div class="c-sell-type trans">Transaction</div>
+          <div class="c-sell-txt"><strong>IBM Guardium Data Protection + Data Fabric</strong> — automated PHI compliance scanning, data encryption, and integrated hospital data federation. CISO &amp; VP IT pitch.</div>
+          <span class="c-sell-pill trans">Guardium &amp; Fabric Tx</span>
+        </div>
+        <div class="c-sell-block motion">
+          <div class="c-sell-type motion">Do This Now</div>
+          <div class="c-sell-txt">1. Contact CIO and Chief Medical Information Officer (CMIO).<br>2. Anchor on clinical AI governance and PHI data protection.<br>3. Propose a rapid AI governance readiness assessment.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-bottom">
+      <div class="c-spend">
+        <div class="cb-hdr spend">Tech Spend Lens</div>
+        <div class="sp-row"><span class="sp-cat">EHR / Clinical IT (Epic)</span><div class="sp-bar-wrap"><div class="sp-bar high" style="width:90%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">Cybersecurity &amp; PHI Protection</span><div class="sp-bar-wrap"><div class="sp-bar high" style="width:74%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">Clinical AI &amp; Diagnostics</span><div class="sp-bar-wrap"><div class="sp-bar med" style="width:42%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">AI Regulatory Governance</span><div class="sp-bar-wrap"><div class="sp-bar low" style="width:14%"></div></div></div>
+        <div class="sp-scale">Relative to est. total tech spend — illustrative · Low / Mid / High</div>
+        <div class="sp-insight">Memorial's board is acutely sensitive to patient data breaches and AI diagnostic liability. <strong>IBM sells risk mitigation: bulletproof PHI security and auditable clinical AI safety.</strong></div>
+      </div>
+      <div class="c-bets">
+        <div class="cb-hdr bets">Bets</div>
+        <div class="bet-item">
+          <span class="bet-tag big">Big</span>
+          <span class="bet-txt"><strong>Enterprise AI Governance &amp; PHI Security Standard</strong> — watsonx.governance + Guardium governing all clinical AI and sensitive patient repositories across 6 hospitals.</span>
+        </div>
+        <div class="bet-item">
+          <span class="bet-tag small">Small</span>
+          <span class="bet-txt"><strong>Joe DiMaggio Children's Hospital AI Model Audit</strong> — evaluate pediatric diagnostic triage models for bias and explainability within 30 days.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-actions">
+      <a class="c-btn c-btn-intel" href="#" onclick="showPhase('p2');setTimeout(()=>document.getElementById('p2-memorial').scrollIntoView({behavior:'smooth'}),100);return false;">Full Intel →</a>
+      <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A11972%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+    </div>
+
+    <div class="play-caller">
+      <div class="pc-hdr">
+        <span class="pc-hdr-lbl">Play Caller</span>
+        <span class="pc-hdr-account">Memorial Healthcare · Engage · Clinical AI Safety &amp; PHI Guardium Protection</span>
+      </div>
+      <div class="pc-body">
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-who">Who to Call</span>
+          <div class="pc-txt">
+            <strong>Chief Information Officer (CIO) / Chief Medical Information Officer (CMIO)</strong> — Oversee clinical technology, EHR integration across the 6 hospitals, and emerging clinical diagnostic AI.<br><br>
+            <strong>Chief Information Security Officer (CISO)</strong> — Accountable for HIPAA compliance, patient record encryption, and ransomware defense.
+            <div class="pc-second">
+              <span class="pc-second-lbl">Second Move</span>
+              Loop in the VP of Quality and Compliance with a focus on mitigating diagnostic algorithmic liability and safeguarding patient trust.
+            </div>
+          </div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-say">What to Say</span>
+          <div class="pc-quote">"As Memorial rolls out AI algorithms across triage, diagnostics, and patient scheduling at all six hospitals, regulatory scrutiny on healthcare AI fairness and patient data protection is intensifying. IBM watsonx.governance and Guardium establish an automated safety and compliance net around your clinical systems and EHR data. Can we set up a 20-minute discussion with your health informatics team?"</div>
+          <div class="pc-txt" style="margin-top:10px;font-size:11.5px;color:#6a8aaa;">
+            Reinforce clinical neutrality: "We don't touch your Epic clinical workflows — we protect the data and monitor the algorithms so your doctors and board have zero compliance surprises."
+          </div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-wait">If You Wait</span>
+          <div class="pc-txt">
+            Healthcare clinical AI is moving quickly from departmental pilots into standard care. If clinical departments deploy standalone AI tools without centralized governance, <strong>Memorial will face regulatory compliance exposure and fragmented security gaps that take years to remediate.</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /main p1 -->
+</div><!-- /panel-p1 -->
+
+<!-- PHASE 2 — DEEP INTEL BRIEF -->
+<div class="phase-panel" id="panel-p2">
+<div class="main">
+
+  <div class="p2-page strike" id="p2-heico">
+
+    <div class="p2-header-row">
+      <div class="p2-logo-box"><img class="p2-logo" src="LOGOS/heico.png" alt="HEICO Corporation Logo" onerror="this.parentElement.innerHTML='<b>HEICO</b>'"></div>
+      <div class="p2-header-text">
+        <div class="p2-se-horizon">IBM SF Intel Brief · Phase 2 Deep Intel · Michael Sanchez</div>
+        <div class="p2-name-large">HEICO Corporation</div>
+        <div class="p2-date-line">NYSE: HEI, HEI.A · Aerospace &amp; Electronics · Hollywood FL · Flight Support Group + Electronic Technologies Group</div>
+      </div>
+      <div class="p2-header-right">
+        <span class="p2-tier-badge p2-tier-strike">Strike — Post-Earnings M&amp;A Window</span>
+        <div class="c-brand-row"><span class="c-brand-badge br-data">Data &amp; AI</span><span class="c-brand-badge br-stor">Storage</span></div>
+      </div>
+    </div>
+
+    <div class="p2-pulse-row">
+      <span class="p2-pulse-badge">This Week</span>
+      <div class="p2-pulse-text"><strong>Q3 FY2026: Revenue $1.4B +23.1% YoY · GAAP EPS $1.67 +32.5% · FCF $322.8M +47.7% · Active M&amp;A Pipeline</strong></div>
+    </div>
+
+    <div class="p2-linkedin-row">
+      <div class="p2-li-text">LinkedIn Company Profile · <strong>Sales Navigator Company ID 29618</strong> · Browse verified current employees</div>
+      <a class="p2-li-btn" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A29618%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">Open Sales Nav ↗</a>
+    </div>
+
+    <div class="p2-intel-grid">
+      <div class="p2-grid-col p2-grid-col-l">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Business &amp; Financial Signals</div>
+        <ul><li>Q3 FY2026 reported strong double-digit growth: <strong>net sales reached $1.40B (+23.1% YoY)</strong>, GAAP net income rose to $233.1M with GAAP EPS of $1.67 (+32.5%), and Free Cash Flow surged to $322.8M (+47.7%).</li><li>Growth is propelled by both commercial aerospace demand and relentless acquisitions (e.g. Wencor integration and ongoing bolt-on acquisitions in Flight Support and Electronic Technologies).</li></ul>
+      </div>
+      <div class="p2-grid-col p2-grid-col-m">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Technology Infrastructure &amp; Gaps</div>
+        <ul><li>Each new subsidiary operates autonomous engineering, parts catalog, and ERP systems. <strong>Rapid M&amp;A creates massive cross-subsidiary data integration complexity and supply chain traceability hurdles</strong> without an overarching data fabric.</li><li>Aerospace defense contracts and FAA parts certification require stringent data provenance and strict compliance for automated workflows. <strong>Zero competitor holds the data lineage and AI governance layer across HEICO's operating units.</strong></li></ul>
+      </div>
+      <div class="p2-grid-col p2-grid-col-r">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Key Target Personas</div>
+        <div class="p2-contact-entry">
+<div class="p2-contact-name">William M. Velez</div>
+<div class="p2-contact-role">Chief Information Officer (CIO)</div>
+<div class="p2-contact-hook">Top technology leader in the Miami-Fort Lauderdale area.</div>
+</div>
+<div class="p2-contact-entry">
+<div class="p2-contact-name">Harold Boada</div>
+<div class="p2-contact-role">Director of IT Services</div>
+<div class="p2-contact-hook">Runs IT services from Hollywood, FL, with 20 years at HEICO.</div>
+</div>
+<div class="p2-contact-entry">
+<div class="p2-contact-name">Alexander M.</div>
+<div class="p2-contact-role">Vice President, Information Technology (HEICO Aerospace)</div>
+<div class="p2-contact-hook">IT VP at HEICO Aerospace in Hollywood, FL.</div>
+</div>
+
+      </div>
+    </div>
+
+    <div class="p2-play-bar">
+      <div class="p2-pb-hdr">
+        <div>
+          <div class="p2-pb-main-title">IBM Strategic Sales Plays · HEICO Corporation</div>
+          <div class="p2-pb-sub-title">Post-Earnings M&amp;A Momentum</div>
+        </div>
+        <span class="p2-pb-badge-pill">Lead: Data &amp; AI</span>
+      </div>
+      <div class="p2-play-detail-grid">
+<div class="p2-play-detail-col">
+<div class="p2-play-rank-badge"><span class="p2-play-rank-num">1</span> Primary SaaS Entry</div>
+<div class="p2-play-detail-name">Post-Earnings M&amp;A Momentum</div>
+<div class="p2-play-detail-body">With $322.8M in quarterly FCF, HEICO has cash to acquire more targets. IBM Data Fabric enables immediate data access across newly bought entities without ripping and replacing local ERPs.</div>
+</div>
+<div class="p2-play-detail-col">
+<div class="p2-play-rank-badge"><span class="p2-play-rank-num">2</span> Expansion SaaS</div>
+<div class="p2-play-detail-name">Planning Analytics for M&amp;A Synergies</div>
+<div class="p2-play-detail-body">Consolidated parts demand forecasting and supplier cost rollup across 80+ subsidiaries into one real-time scenario model.</div>
+</div>
+<div class="p2-play-detail-col">
+<div class="p2-play-rank-badge"><span class="p2-play-rank-num">3</span> Transaction Motion</div>
+<div class="p2-play-detail-name">watsonx.governance &amp; Data Lineage</div>
+<div class="p2-play-detail-body">Defend FAA and DoD compliance audits by establishing automated data provenance across flight critical component records.</div>
+</div>
+      </div>
+    </div>
+
+    <div class="p2-lower-section">
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Do This Now — Action Plan</div>
+        <div class="p2-action-text">1. Call Carlos Macau (CFO) and VP of IT at Hollywood HQ this week.<br>2. Anchor on Q3 +23% growth and M&amp;A integration speed.<br>3. Position Data Fabric as the non-invasive integration layer.</div>
+      </div>
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Verbatim Door Opener</div>
+        <div class="p2-talk-track-text">"Congratulations on Q3's +23% revenue growth and strong cash flow. As HEICO continues its M&amp;A pace across Flight Support and Electronic Technologies, IBM Data Fabric lets you connect parts catalog and financial data from newly acquired businesses in 60 days without touching their underlying ERPs. Worth 20 minutes with your IT and FP&amp;A leadership."</div>
+      </div>
+    </div>
+
+  </div><!-- /p2-heico -->
+
+  <div class="p2-page engage" id="p2-chewy">
+
+    <div class="p2-header-row">
+      <div class="p2-logo-box"><img class="p2-logo" src="LOGOS/chewy.png" alt="Chewy, Inc. Logo" onerror="this.parentElement.innerHTML='<b>CHEWY</b>'"></div>
+      <div class="p2-header-text">
+        <div class="p2-se-horizon">IBM SF Intel Brief · Phase 2 Deep Intel · Michael Sanchez</div>
+        <div class="p2-name-large">Chewy, Inc.</div>
+        <div class="p2-date-line">NYSE: CHWY · E-Commerce &amp; Pet Health · Plantation / Dania Beach FL · AutoShip Subscription Engine · Automated Fulfillment Network</div>
+      </div>
+      <div class="p2-header-right">
+        <span class="p2-tier-badge p2-tier-engage">Engage</span>
+        <div class="c-brand-row"><span class="c-brand-badge br-data">Data &amp; AI</span><span class="c-brand-badge br-auto">Automation</span></div>
+      </div>
+    </div>
+
+    <div class="p2-pulse-row">
+      <span class="p2-pulse-badge">This Week</span>
+      <div class="p2-pulse-text"><strong>AutoShip revenue &gt;75% of sales · Chewy Health &amp; Pharmacy scaling · Automated fulfillment center network expansion</strong></div>
+    </div>
+
+    <div class="p2-linkedin-row">
+      <div class="p2-li-text">LinkedIn Company Profile · <strong>Sales Navigator Company ID 2433416</strong> · Browse verified current employees</div>
+      <a class="p2-li-btn" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A2433416%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">Open Sales Nav ↗</a>
+    </div>
+
+    <div class="p2-intel-grid">
+      <div class="p2-grid-col p2-grid-col-l">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Business &amp; Financial Signals</div>
+        <ul><li>Chewy's <strong>AutoShip subscription customer base drives over 75% of net sales</strong>, demanding hyper-accurate long-term inventory forecasting across automated fulfillment centers.</li><li>Rapid growth in <strong>Chewy Health (telehealth, vet clinics, and compounding pharmacy)</strong> introduces pharmaceutical regulatory requirements and sensitive customer health data oversight.</li></ul>
+      </div>
+      <div class="p2-grid-col p2-grid-col-m">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Technology Infrastructure &amp; Gaps</div>
+        <ul><li>Massive automated fulfillment centers rely on high-throughput robotic workflows. Any supply chain stock-out on subscription orders leads directly to customer churn.</li><li>Chewy is experimenting with customer service generative AI and recommendation algorithms — <strong>IBM watsonx.governance provides the guardrails against algorithmic bias and regulatory non-compliance in pet medication dispensing</strong>.</li></ul>
+      </div>
+      <div class="p2-grid-col p2-grid-col-r">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Key Target Personas</div>
+        <div class="p2-contact-entry">
+<div class="p2-contact-name">Kiran Hegde</div>
+<div class="p2-contact-role">Senior Director, AI &amp; Agentic Platforms | Technical Advisor to the CEO</div>
+<div class="p2-contact-hook">Leads AI and agent platforms and advises the CEO.</div>
+</div>
+<div class="p2-contact-entry">
+<div class="p2-contact-name">Yunyan Wang</div>
+<div class="p2-contact-role">Chief Technology Officer</div>
+<div class="p2-contact-hook">Top technology leader, new in the job (7 months), based in Seattle.</div>
+</div>
+<div class="p2-contact-entry">
+<div class="p2-contact-name">Quinn Ye</div>
+<div class="p2-contact-role">Head of Data Science</div>
+<div class="p2-contact-hook">Leads data science.</div>
+</div>
+
+      </div>
+    </div>
+
+    <div class="p2-play-bar">
+      <div class="p2-pb-hdr">
+        <div>
+          <div class="p2-pb-main-title">IBM Strategic Sales Plays · Chewy, Inc.</div>
+          <div class="p2-pb-sub-title">Planning Analytics for AutoShip</div>
+        </div>
+        <span class="p2-pb-badge-pill">Lead: Data &amp; AI</span>
+      </div>
+      <div class="p2-play-detail-grid">
+<div class="p2-play-detail-col">
+<div class="p2-play-rank-badge"><span class="p2-play-rank-num">1</span> Primary SaaS Entry</div>
+<div class="p2-play-detail-name">Planning Analytics for AutoShip</div>
+<div class="p2-play-detail-body">Real-time multidimensional scenario modeling to forecast pet parent replenishment cycles by geography, product category, and seasonal vet trends.</div>
+</div>
+<div class="p2-play-detail-col">
+<div class="p2-play-rank-badge"><span class="p2-play-rank-num">2</span> Expansion SaaS</div>
+<div class="p2-play-detail-name">watsonx.governance for Healthcare AI</div>
+<div class="p2-play-detail-body">Protect Chewy's pharmacy and telehealth expansion with auditable compliance for automated prescription validation and customer AI touchpoints.</div>
+</div>
+<div class="p2-play-detail-col">
+<div class="p2-play-rank-badge"><span class="p2-play-rank-num">3</span> Transaction Motion</div>
+<div class="p2-play-detail-name">Turbonomic / Automation</div>
+<div class="p2-play-detail-body">Optimize cloud infrastructure spend across Chewy's high-traffic e-commerce and logistics microservices during holiday peak volumes.</div>
+</div>
+      </div>
+    </div>
+
+    <div class="p2-lower-section">
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Do This Now — Action Plan</div>
+        <div class="p2-action-text">1. Connect with David Reeder (CFO) and VP of Supply Chain.<br>2. Position Planning Analytics directly on AutoShip inventory precision.<br>3. Bring watsonx.governance to the Chewy Health compliance leads.</div>
+      </div>
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Verbatim Door Opener</div>
+        <div class="p2-talk-track-text">"With AutoShip generating over 75% of your revenue and Chewy Health expanding rapidly into pharmacy, precision demand planning is everything. IBM Planning Analytics models subscriber replenishment cycles across your automated fulfillment centers in real time so you stay ahead of stock-outs. Worth 25 minutes before holiday peak planning locks."</div>
+      </div>
+    </div>
+
+  </div><!-- /p2-chewy -->
+
+  <div class="p2-page engage" id="p2-memorial">
+
+    <div class="p2-header-row">
+      <div class="p2-logo-box"><img class="p2-logo" src="LOGOS/memorial.png" alt="Memorial Healthcare System (South Broward Hospital District) Logo" onerror="this.parentElement.innerHTML='<b>MEMORI</b>'"></div>
+      <div class="p2-header-text">
+        <div class="p2-se-horizon">IBM SF Intel Brief · Phase 2 Deep Intel · Michael Sanchez</div>
+        <div class="p2-name-large">Memorial Healthcare System (South Broward Hospital District)</div>
+        <div class="p2-date-line">Public Healthcare District · Hollywood FL · 6 Hospitals + Joe DiMaggio Children's · Memorial Cancer Institute · 14,000+ Employees</div>
+      </div>
+      <div class="p2-header-right">
+        <span class="p2-tier-badge p2-tier-engage">Engage</span>
+        <div class="c-brand-row"><span class="c-brand-badge br-data">Data &amp; AI</span><span class="c-brand-badge br-sec">Security</span></div>
+      </div>
+    </div>
+
+    <div class="p2-pulse-row">
+      <span class="p2-pulse-badge">This Week</span>
+      <div class="p2-pulse-text"><strong>Clinical AI expansion across 6 hospitals · Cross-facility EHR data sharing · Active cybersecurity and PHI data governance reviews</strong></div>
+    </div>
+
+    <div class="p2-linkedin-row">
+      <div class="p2-li-text">LinkedIn Company Profile · <strong>Sales Navigator Company ID 11972</strong> · Browse verified current employees</div>
+      <a class="p2-li-btn" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A11972%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">Open Sales Nav ↗</a>
+    </div>
+
+    <div class="p2-intel-grid">
+      <div class="p2-grid-col p2-grid-col-l">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Business &amp; Financial Signals</div>
+        <ul><li>Memorial Healthcare operates <strong>6 major hospitals, Joe DiMaggio Children's Hospital, and 250+ community points of care</strong>, generating massive volumes of clinical, diagnostic, and billing data.</li><li>Expansion into <strong>AI-assisted clinical triage, radiology diagnostics, and automated patient scheduling</strong> has outpaced formal health system AI governance policies.</li></ul>
+      </div>
+      <div class="p2-grid-col p2-grid-col-m">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Technology Infrastructure &amp; Gaps</div>
+        <ul><li>HHS and OCR scrutiny on healthcare AI bias and patient data privacy (HIPAA / HITECH) is escalating rapidly — hospital leadership faces strict accountability for diagnostic algorithm safety.</li><li>Legacy cybersecurity perimeters protect endpoints but leave <strong>unstructured clinical notes and cross-facility patient data lakes exposed to internal data leakage risks</strong>.</li></ul>
+      </div>
+      <div class="p2-grid-col p2-grid-col-r">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Key Target Personas</div>
+        <div class="p2-contact-entry">
+<div class="p2-contact-name">Humberto Quintanar</div>
+<div class="p2-contact-role">VP &amp; Chief Technology Officer</div>
+<div class="p2-contact-hook">Top technology leader, based in Hollywood, FL.</div>
+</div>
+<div class="p2-contact-entry">
+<div class="p2-contact-name">Samir Wadhwa</div>
+<div class="p2-contact-role">Senior Director, Information Technology</div>
+<div class="p2-contact-hook">Senior IT leader in Fort Lauderdale.</div>
+</div>
+<div class="p2-contact-entry">
+<div class="p2-contact-name">Wendy Walschlager</div>
+<div class="p2-contact-role">Director, Business Intelligence, Clinical Analytics</div>
+<div class="p2-contact-hook">Runs the reports and data that doctors and nurses rely on.</div>
+</div>
+
+      </div>
+    </div>
+
+    <div class="p2-play-bar">
+      <div class="p2-pb-hdr">
+        <div>
+          <div class="p2-pb-main-title">IBM Strategic Sales Plays · Memorial Healthcare System (South Broward Hospital District)</div>
+          <div class="p2-pb-sub-title">IBM Data Fabric for Healthcare</div>
+        </div>
+        <span class="p2-pb-badge-pill">Lead: Data &amp; AI</span>
+      </div>
+      <div class="p2-play-detail-grid">
+<div class="p2-play-detail-col">
+<div class="p2-play-rank-badge"><span class="p2-play-rank-num">1</span> Primary SaaS Entry</div>
+<div class="p2-play-detail-name">IBM Data Fabric for Healthcare</div>
+<div class="p2-play-detail-body">Unify patient records, imaging data, and lab results across all 6 hospitals and regional outpatient centers without duplicating EHR databases.</div>
+</div>
+<div class="p2-play-detail-col">
+<div class="p2-play-rank-badge"><span class="p2-play-rank-num">2</span> Expansion SaaS</div>
+<div class="p2-play-detail-name">watsonx.governance for Clinical AI</div>
+<div class="p2-play-detail-body">Audit clinical AI models for accuracy, demographic bias, and regulatory compliance before algorithms touch live patient triage.</div>
+</div>
+<div class="p2-play-detail-col">
+<div class="p2-play-rank-badge"><span class="p2-play-rank-num">3</span> Transaction Motion</div>
+<div class="p2-play-detail-name">IBM Guardium / Security</div>
+<div class="p2-play-detail-body">Continuous discovery, classification, and zero-trust protection for Protected Health Information (PHI) across Epic and hybrid cloud repositories.</div>
+</div>
+      </div>
+    </div>
+
+    <div class="p2-lower-section">
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Do This Now — Action Plan</div>
+        <div class="p2-action-text">1. Contact CIO and Chief Medical Information Officer (CMIO).<br>2. Anchor on clinical AI governance and PHI data protection.<br>3. Propose a rapid AI governance readiness assessment.</div>
+      </div>
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Verbatim Door Opener</div>
+        <div class="p2-talk-track-text">"As Memorial expands AI into clinical workflows and imaging across all six hospitals, maintaining audit-ready regulatory governance is critical. IBM watsonx.governance and Guardium protect patient data and validate clinical AI accuracy before HHS or compliance auditors ask for model provenance. Let's schedule 25 minutes with your CIO and CMIO teams."</div>
+      </div>
+    </div>
+
+  </div><!-- /p2-memorial -->
+
+</div><!-- /main p2 -->
+</div><!-- /panel-p2 -->
+
+<!-- PHASE 3 — MY ACCOUNTS -->
+<div class="phase-panel" id="panel-p3">
+<div class="main">
+
+  <div class="p3-shell">
+    <div class="p3-rail">
+      <div class="p3-rail-hdr"><div class="p3-rail-title">Michael's Accounts</div></div>
+      <div class="p3-ra on" id="p3-ra-heico" onclick="loadP3('heico')">
+        <div class="p3-ra-name">HEICO Corporation</div>
+        <span class="p3-ra-urg strike">Strike</span>
+        <div class="p3-ra-hook">Q3 FY2026: Revenue $1.4B +23.1% YoY · GAAP EPS $1.67 +32.5%</div>
+      </div>
+      <div class="p3-ra" id="p3-ra-chewy" onclick="loadP3('chewy')">
+        <div class="p3-ra-name">Chewy, Inc.</div>
+        <span class="p3-ra-urg engage">Engage</span>
+        <div class="p3-ra-hook">AutoShip revenue &gt;75% of sales · Chewy Health &amp; Pharmacy scaling</div>
+      </div>
+      <div class="p3-ra" id="p3-ra-memorial" onclick="loadP3('memorial')">
+        <div class="p3-ra-name">Memorial Healthcare System (South Broward Hospital District)</div>
+        <span class="p3-ra-urg engage">Engage</span>
+        <div class="p3-ra-hook">Clinical AI expansion across 6 hospitals · Cross-facility EHR data sharing</div>
+      </div>
+    </div>
+    <div class="p3-detail-pane">
+      <div class="p3-dp-card" id="p3-detail-heico">
+        <div class="p3-dp-hdr">
+          <div class="p3-dp-hdr-top">
+            <div class="p3-dp-logo"><img src="LOGOS/heico.png" alt="HEICO Corporation Logo" onerror="this.parentElement.innerHTML='<b>HEICO</b>'"></div>
+            <div>
+              <div style="font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;">Michael Sanchez · Edition 14 · Nov 9, 2026</div>
+              <div class="p3-dp-acct-name">HEICO Corporation</div>
+              <div class="p3-dp-acct-meta">NYSE: HEI, HEI.A · Aerospace &amp; Electronics · Hollywood FL · Flight Support Group + Electronic Technologies Group</div>
+            </div>
+          </div>
+          <div class="p3-dp-thesis"><strong>Account Thesis:</strong> Q3 FY2026 reported strong double-digit growth: <strong>net sales reached $1.40B (+23.1% YoY)</strong>, GAAP net income rose to $233.1M with GAAP EPS of $1.67 (+32.5%), and Free Cash Flow surged to $322.8M (+47.7%).</div>
+          <div class="p3-dp-vitals">
+            <div class="p3-vital"><div class="p3-vital-lbl">Tier</div><div class="p3-vital-val" style="color:var(--strike);">Strike</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">IBM Lead</div><div class="p3-vital-val">Data &amp; AI</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">Top Play</div><div class="p3-vital-val">Post-Earnings M&amp;A Momentum</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">Primary Entry</div><div class="p3-vital-val">Chief Information Officer (CIO)</div></div>
+          </div>
+        </div>
+        <div class="p3-dp-body">
+          <div class="p3-sec"><span class="p3-sec-lbl">IBM Play Heat Scores</span><div class="p3-sec-line"></div></div>
+          <div class="p3-heat-grid">
+<div class="p3-heat-card" style="--hc:#0043CE;">
+<div class="p3-heat-play">Post-Earnings M&amp;A Momentum</div>
+<div class="p3-heat-score">84</div>
+<div class="p3-heat-bar"><div class="p3-heat-fill" style="width:84%;"></div></div>
+<div class="p3-heat-conviction">With $322.8M in quarterly FCF, HEICO has cash to acquire more targets. IBM Data Fabric enables immediate data access across newly bought entities without ripping and replacing local ERPs.</div>
+</div>
+<div class="p3-heat-card" style="--hc:#006644;">
+<div class="p3-heat-play">Planning Analytics for M&amp;A Synergies</div>
+<div class="p3-heat-score">72</div>
+<div class="p3-heat-bar"><div class="p3-heat-fill" style="width:72%;"></div></div>
+<div class="p3-heat-conviction">Consolidated parts demand forecasting and supplier cost rollup across 80+ subsidiaries into one real-time scenario model.</div>
+</div>
+<div class="p3-heat-card" style="--hc:#5A189A;">
+<div class="p3-heat-play">watsonx.governance &amp; Data Lineage</div>
+<div class="p3-heat-score">48</div>
+<div class="p3-heat-bar"><div class="p3-heat-fill" style="width:48%;"></div></div>
+<div class="p3-heat-conviction">Defend FAA and DoD compliance audits by establishing automated data provenance across flight critical component records.</div>
+</div>
+          </div>
+          <div class="p3-sec"><span class="p3-sec-lbl">Competitive Threats</span><div class="p3-sec-line"></div></div>
+          <div class="p3-threats">
+            <div class="p3-threat">
+              <div class="p3-threat-top"><div class="p3-threat-name">Decentralized legacy systems</div><span class="p3-threat-level">Active</span></div>
+              <div class="p3-threat-doing">(Epicor, Infor, Oracle instances at separate operating units).</div>
+              <div class="p3-threat-counter"><strong>IBM Counter:</strong> IBM Data Fabric does not force an expensive ERP consolidation — it connects existing data stores across acquisitions in weeks, avoiding multi-year migration gridlock.</div>
+            </div>
+          </div>
+          <div class="p3-sec"><span class="p3-sec-lbl">This Week's Move</span><div class="p3-sec-line"></div></div>
+          <div class="p3-move">
+            <div class="p3-move-row"><span class="p3-move-lbl">Do Today</span><div class="p3-move-text">Call Carlos Macau (CFO) and VP of IT at Hollywood HQ this week.</div></div>
+            <div class="p3-move-row"><span class="p3-move-lbl">This Week</span><div class="p3-move-text">Anchor on Q3 +23% growth and M&amp;A integration speed. Position Data Fabric as the non-invasive integration layer.</div></div>
+            <div class="p3-move-row"><span class="p3-move-lbl">Talk Track</span><div class="p3-move-track">"Congratulations on Q3's +23% revenue growth and strong cash flow. As HEICO continues its M&amp;A pace across Flight Support and Electronic Technologies, IBM Data Fabric lets you connect parts catalog and financial data from newly acquired businesses in 60 days without touching their underlying ERPs. Worth 20 minutes with your IT and FP&amp;A leadership."</div></div>
+          </div>
+        </div>
+      </div><!-- /p3-detail-heico -->
+      <div class="p3-dp-card" id="p3-detail-chewy" style="display:none;">
+        <div class="p3-dp-hdr">
+          <div class="p3-dp-hdr-top">
+            <div class="p3-dp-logo"><img src="LOGOS/chewy.png" alt="Chewy, Inc. Logo" onerror="this.parentElement.innerHTML='<b>CHEWY</b>'"></div>
+            <div>
+              <div style="font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;">Michael Sanchez · Edition 14 · Nov 9, 2026</div>
+              <div class="p3-dp-acct-name">Chewy, Inc.</div>
+              <div class="p3-dp-acct-meta">NYSE: CHWY · E-Commerce &amp; Pet Health · Plantation / Dania Beach FL · AutoShip Subscription Engine · Automated Fulfillment Network</div>
+            </div>
+          </div>
+          <div class="p3-dp-thesis"><strong>Account Thesis:</strong> Chewy's <strong>AutoShip subscription customer base drives over 75% of net sales</strong>, demanding hyper-accurate long-term inventory forecasting across automated fulfillment centers.</div>
+          <div class="p3-dp-vitals">
+            <div class="p3-vital"><div class="p3-vital-lbl">Tier</div><div class="p3-vital-val" style="color:var(--t4);">Engage</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">IBM Lead</div><div class="p3-vital-val">Data &amp; AI</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">Top Play</div><div class="p3-vital-val">Planning Analytics for AutoShip</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">Primary Entry</div><div class="p3-vital-val">Senior Director, AI &amp; Agentic Platforms | Technical Advisor to the CEO</div></div>
+          </div>
+        </div>
+        <div class="p3-dp-body">
+          <div class="p3-sec"><span class="p3-sec-lbl">IBM Play Heat Scores</span><div class="p3-sec-line"></div></div>
+          <div class="p3-heat-grid">
+<div class="p3-heat-card" style="--hc:#0043CE;">
+<div class="p3-heat-play">Planning Analytics for AutoShip</div>
+<div class="p3-heat-score">88</div>
+<div class="p3-heat-bar"><div class="p3-heat-fill" style="width:88%;"></div></div>
+<div class="p3-heat-conviction">Real-time multidimensional scenario modeling to forecast pet parent replenishment cycles by geography, product category, and seasonal vet trends.</div>
+</div>
+<div class="p3-heat-card" style="--hc:#006644;">
+<div class="p3-heat-play">watsonx.governance for Healthcare AI</div>
+<div class="p3-heat-score">76</div>
+<div class="p3-heat-bar"><div class="p3-heat-fill" style="width:76%;"></div></div>
+<div class="p3-heat-conviction">Protect Chewy's pharmacy and telehealth expansion with auditable compliance for automated prescription validation and customer AI touchpoints.</div>
+</div>
+<div class="p3-heat-card" style="--hc:#5A189A;">
+<div class="p3-heat-play">Turbonomic / Automation</div>
+<div class="p3-heat-score">52</div>
+<div class="p3-heat-bar"><div class="p3-heat-fill" style="width:52%;"></div></div>
+<div class="p3-heat-conviction">Optimize cloud infrastructure spend across Chewy's high-traffic e-commerce and logistics microservices during holiday peak volumes.</div>
+</div>
+          </div>
+          <div class="p3-sec"><span class="p3-sec-lbl">Competitive Threats</span><div class="p3-sec-line"></div></div>
+          <div class="p3-threats">
+            <div class="p3-threat">
+              <div class="p3-threat-top"><div class="p3-threat-name">Snowflake and AWS</div><span class="p3-threat-level">Active</span></div>
+              <div class="p3-threat-doing">house their raw analytics.</div>
+              <div class="p3-threat-counter"><strong>IBM Counter:</strong> IBM Planning Analytics and watsonx operate as the actionable decision and governance layer on top of their cloud warehouse — IBM does not displace Snowflake, it gives business leaders real-time modeling power Snowflake cannot provide.</div>
+            </div>
+          </div>
+          <div class="p3-sec"><span class="p3-sec-lbl">This Week's Move</span><div class="p3-sec-line"></div></div>
+          <div class="p3-move">
+            <div class="p3-move-row"><span class="p3-move-lbl">Do Today</span><div class="p3-move-text">Connect with David Reeder (CFO) and VP of Supply Chain.</div></div>
+            <div class="p3-move-row"><span class="p3-move-lbl">This Week</span><div class="p3-move-text">Position Planning Analytics directly on AutoShip inventory precision. Bring watsonx.governance to the Chewy Health compliance leads.</div></div>
+            <div class="p3-move-row"><span class="p3-move-lbl">Talk Track</span><div class="p3-move-track">"With AutoShip generating over 75% of your revenue and Chewy Health expanding rapidly into pharmacy, precision demand planning is everything. IBM Planning Analytics models subscriber replenishment cycles across your automated fulfillment centers in real time so you stay ahead of stock-outs. Worth 25 minutes before holiday peak planning locks."</div></div>
+          </div>
+        </div>
+      </div><!-- /p3-detail-chewy -->
+      <div class="p3-dp-card" id="p3-detail-memorial" style="display:none;">
+        <div class="p3-dp-hdr">
+          <div class="p3-dp-hdr-top">
+            <div class="p3-dp-logo"><img src="LOGOS/memorial.png" alt="Memorial Healthcare System (South Broward Hospital District) Logo" onerror="this.parentElement.innerHTML='<b>MEMORI</b>'"></div>
+            <div>
+              <div style="font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;">Michael Sanchez · Edition 14 · Nov 9, 2026</div>
+              <div class="p3-dp-acct-name">Memorial Healthcare System (South Broward Hospital District)</div>
+              <div class="p3-dp-acct-meta">Public Healthcare District · Hollywood FL · 6 Hospitals + Joe DiMaggio Children's · Memorial Cancer Institute · 14,000+ Employees</div>
+            </div>
+          </div>
+          <div class="p3-dp-thesis"><strong>Account Thesis:</strong> Memorial Healthcare operates <strong>6 major hospitals, Joe DiMaggio Children's Hospital, and 250+ community points of care</strong>, generating massive volumes of clinical, diagnostic, and billing data.</div>
+          <div class="p3-dp-vitals">
+            <div class="p3-vital"><div class="p3-vital-lbl">Tier</div><div class="p3-vital-val" style="color:var(--t4);">Engage</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">IBM Lead</div><div class="p3-vital-val">Data &amp; AI</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">Top Play</div><div class="p3-vital-val">IBM Data Fabric for Healthcare</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">Primary Entry</div><div class="p3-vital-val">VP &amp; Chief Technology Officer</div></div>
+          </div>
+        </div>
+        <div class="p3-dp-body">
+          <div class="p3-sec"><span class="p3-sec-lbl">IBM Play Heat Scores</span><div class="p3-sec-line"></div></div>
+          <div class="p3-heat-grid">
+<div class="p3-heat-card" style="--hc:#0043CE;">
+<div class="p3-heat-play">IBM Data Fabric for Healthcare</div>
+<div class="p3-heat-score">90</div>
+<div class="p3-heat-bar"><div class="p3-heat-fill" style="width:90%;"></div></div>
+<div class="p3-heat-conviction">Unify patient records, imaging data, and lab results across all 6 hospitals and regional outpatient centers without duplicating EHR databases.</div>
+</div>
+<div class="p3-heat-card" style="--hc:#006644;">
+<div class="p3-heat-play">watsonx.governance for Clinical AI</div>
+<div class="p3-heat-score">74</div>
+<div class="p3-heat-bar"><div class="p3-heat-fill" style="width:74%;"></div></div>
+<div class="p3-heat-conviction">Audit clinical AI models for accuracy, demographic bias, and regulatory compliance before algorithms touch live patient triage.</div>
+</div>
+<div class="p3-heat-card" style="--hc:#5A189A;">
+<div class="p3-heat-play">IBM Guardium / Security</div>
+<div class="p3-heat-score">42</div>
+<div class="p3-heat-bar"><div class="p3-heat-fill" style="width:42%;"></div></div>
+<div class="p3-heat-conviction">Continuous discovery, classification, and zero-trust protection for Protected Health Information (PHI) across Epic and hybrid cloud repositories.</div>
+</div>
+          </div>
+          <div class="p3-sec"><span class="p3-sec-lbl">Competitive Threats</span><div class="p3-sec-line"></div></div>
+          <div class="p3-threats">
+            <div class="p3-threat">
+              <div class="p3-threat-top"><div class="p3-threat-name">Epic</div><span class="p3-threat-level">Active</span></div>
+              <div class="p3-threat-doing">manages transaction EHR workflows.</div>
+              <div class="p3-threat-counter"><strong>IBM Counter:</strong> IBM does not compete with Epic — IBM Guardium protects Epic's database, and IBM watsonx.governance monitors AI models that ingest Epic data. Frame IBM as the essential compliance and security protector for Memorial's EHR investments.</div>
+            </div>
+          </div>
+          <div class="p3-sec"><span class="p3-sec-lbl">This Week's Move</span><div class="p3-sec-line"></div></div>
+          <div class="p3-move">
+            <div class="p3-move-row"><span class="p3-move-lbl">Do Today</span><div class="p3-move-text">Contact CIO and Chief Medical Information Officer (CMIO).</div></div>
+            <div class="p3-move-row"><span class="p3-move-lbl">This Week</span><div class="p3-move-text">Anchor on clinical AI governance and PHI data protection. Propose a rapid AI governance readiness assessment.</div></div>
+            <div class="p3-move-row"><span class="p3-move-lbl">Talk Track</span><div class="p3-move-track">"As Memorial expands AI into clinical workflows and imaging across all six hospitals, maintaining audit-ready regulatory governance is critical. IBM watsonx.governance and Guardium protect patient data and validate clinical AI accuracy before HHS or compliance auditors ask for model provenance. Let's schedule 25 minutes with your CIO and CMIO teams."</div></div>
+          </div>
+        </div>
+      </div><!-- /p3-detail-memorial -->
+    </div>
+  </div>
+
+</div><!-- /main p3 -->
+</div><!-- /panel-p3 -->
+
+<!-- PHASE 4 — TARGET BUYER CONTACTS -->
+<div class="phase-panel" id="panel-p4">
+<div class="main">
+
+    <div class="p4-section" id="p4-heico">
+    <div class="p4-sec-hdr">
+      <div>
+        <div class="p4-sec-co">HEICO Corporation — Target Buyer Roster</div>
+        <div class="p4-sec-sub">Verified live Sales Navigator contacts · Director / VP / CXO · pulled Nov 10, 2026 · Company SNav ID 29618 · Aerospace data, engineering and supply-chain platforms</div>
+      </div>
+      <span class="p2-tier-badge p2-tier-strike">Strike</span>
+    </div>
+    <div class="p4-grid">
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Eddie Buggs</div><div class="p4-ct-score">96</div></div>
+        <div class="p4-ct-title">Lucix Director Information and Security</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">Best Entry</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Aerospace data, engineering and supply-chain platforms conversation. CRM record is stale, so reconnect before a cold touch. <em>Los Angeles, California, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAL11SkBi1KMjzPBpzD9jkE0QL_Ggugousw,NAME_SEARCH,veaP" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Alex Sissoev</div><div class="p4-ct-score">92</div></div>
+        <div class="p4-ct-title">Director Of Engineering</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">1 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Aerospace data, engineering and supply-chain platforms conversation. Already in CRM. Check owner and last touch. 1 TeamLink. <em>Los Angeles, California, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAACxkH8BSWU7ber2XUEbq373x4bGmVsVqrg,NAME_SEARCH,5aAv" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Aldo Panaro</div><div class="p4-ct-score">88</div></div>
+        <div class="p4-ct-title">Director of Engineering</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Aerospace data, engineering and supply-chain platforms conversation. Already in CRM. Check owner and last touch. <em>Miami-Fort Lauderdale Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAnwa2cBQkxu6-31DH6Zc6R2pS_8Djcu5jI,NAME_SEARCH,AvCq" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Harold Boada</div><div class="p4-ct-score">84</div></div>
+        <div class="p4-ct-title">Director of IT Services</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">2 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Aerospace data, engineering and supply-chain platforms conversation. Already in CRM. Check owner and last touch. 2 TeamLink. <em>Hollywood, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAQ9WBUBQG784EsRC_K6KWs-1SJFQuKuQfg,NAME_SEARCH,-z-r" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Niall Porter</div><div class="p4-ct-score">80</div></div>
+        <div class="p4-ct-title">VP Supply Chain HEICO Parts Group</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the Aerospace data, engineering and supply-chain platforms conversation. Already in CRM. Check owner and last touch. <em>Fort Lauderdale, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAB52jsB0h3_FL8wPVAV7YleNQ59AjZ7k3Q,NAME_SEARCH,vRtv" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Vincent Durdella</div><div class="p4-ct-score">76</div></div>
+        <div class="p4-ct-title">Director of Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the Aerospace data, engineering and supply-chain platforms conversation. Already in CRM. Check owner and last touch. <em>Cleveland, Ohio, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAB7uKgcBfqlrkdpBZQel8pYS8X3yrUXVJto,NAME_SEARCH,V9Sd" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Diane Cavuoto</div><div class="p4-ct-score">72</div></div>
+        <div class="p4-ct-title">Supply Chain Director</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the Aerospace data, engineering and supply-chain platforms conversation. Already in CRM. Check owner and last touch. <em>Fort Lauderdale, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAD-VBcBfEgBAaDeEjtH3TE2r_ilPRsI3iE,NAME_SEARCH,Hzby" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Lindsey Mendelson Pearson</div><div class="p4-ct-score">68</div></div>
+        <div class="p4-ct-title">Director of Strategic Planning</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">1 TeamLink</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the Aerospace data, engineering and supply-chain platforms conversation. 1 TeamLink. <em>Miami-Fort Lauderdale Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAABlMek0BHfVunzqfiNJqMaruRPVaHPl7ruQ,NAME_SEARCH,HjbV" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Buddy Padilla</div><div class="p4-ct-score">64</div></div>
+        <div class="p4-ct-title">VP Business Development &amp; Defense, HEICO Aerospace</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">2 TeamLink</span></div>
+        <div class="p4-ct-why">Finance or strategy leader who can sponsor the Aerospace data, engineering and supply-chain platforms conversation. 2 TeamLink. <em>Tulsa, Oklahoma, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAGY_fUBkQkpJKOTFtXnFb9MhdxyP0ikU38,NAME_SEARCH,YqQp" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Val Shelley</div><div class="p4-ct-score">60</div></div>
+        <div class="p4-ct-title">VP-Strategy</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Finance or strategy leader who can sponsor the Aerospace data, engineering and supply-chain platforms conversation. <em>Miami, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAADc9bABa1-wee76iKUEiohVaPhECe6It1A,NAME_SEARCH,fYJL" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Keith Coleman</div><div class="p4-ct-score">60</div></div>
+        <div class="p4-ct-title">Vice President of Business Development</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Finance or strategy leader who can sponsor the Aerospace data, engineering and supply-chain platforms conversation. <em>Peachtree City, Georgia, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAABlOTMB2kBJHxzcOilmV3wXKxhL2sZlq5o,NAME_SEARCH,Afpn" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Jeffrey Perkins</div><div class="p4-ct-score">60</div></div>
+        <div class="p4-ct-title">SVP of Business Development &amp; Manufacturing/General Manager</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Finance or strategy leader who can sponsor the Aerospace data, engineering and supply-chain platforms conversation. <em>Tampa, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAAA7XcBrDPC1kynkvSDp-epPc_NWHkwx1Q,NAME_SEARCH,C5tw" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="p4-section" id="p4-chewy">
+    <div class="p4-sec-hdr">
+      <div>
+        <div class="p4-sec-co">Chewy, Inc. — Target Buyer Roster</div>
+        <div class="p4-sec-sub">Verified live Sales Navigator contacts · Director / VP / CXO · pulled Nov 10, 2026 · Company SNav ID 2433416 · AI, data and fulfilment technology</div>
+      </div>
+      <span class="p2-tier-badge p2-tier-engage">Engage</span>
+    </div>
+    <div class="p4-grid">
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Tim Foley</div><div class="p4-ct-score">96</div></div>
+        <div class="p4-ct-title">Vice President of Operations &amp; Supply Chain Technology</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">1 TeamLink</span><span class="p4-ct-tag">Best Entry</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the AI, data and fulfilment technology conversation. CRM record is stale, so reconnect before a cold touch. 1 TeamLink. <em>Greater Boston.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAUwJuMBkS0xkc6AoSI13FwvOKOV2TFknhI,NAME_SEARCH,91RL" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Chris Maas</div><div class="p4-ct-score">92</div></div>
+        <div class="p4-ct-title">Sr Director of FC Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the AI, data and fulfilment technology conversation. CRM record is stale, so reconnect before a cold touch. <em>Reno, Nevada, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAADZVCcB0GuVTmjB_lYs8P7XoOOs3THF9BU,NAME_SEARCH,o1qR" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Kiran Hegde</div><div class="p4-ct-score">88</div></div>
+        <div class="p4-ct-title">Sr Director, AI &amp; Agentic Platforms | Technical Advisor to the CEO</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">11 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the AI, data and fulfilment technology conversation. Already in CRM. Check owner and last touch. 2nd-degree connection. 11 TeamLink. <em>Seattle, Washington, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAL3o7sBsXJtQcYz2-hV4Ghzi5pVhsYZgqg,NAME_SEARCH,mn1E" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Erdem Eskigun</div><div class="p4-ct-score">84</div></div>
+        <div class="p4-ct-title">Head of AI/Data Science, Engineering, Product &amp; Analytics (Director), Inventory Tech &amp; Science</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">1 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the AI, data and fulfilment technology conversation. Already in CRM. Check owner and last touch. 1 TeamLink. <em>Seattle, Washington, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAABaUX4B3N6wOkrPK-D_deJRS1toSt08Pp4,NAME_SEARCH,VJOB" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Jeff Greenfield</div><div class="p4-ct-score">80</div></div>
+        <div class="p4-ct-title">VP and Head of AI &amp; Data</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the AI, data and fulfilment technology conversation. Already in CRM. Check owner and last touch. <em>Seattle, Washington, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAK_hWQBFZ6EAWL7iBFRvB3IWoOoSPki7FY,NAME_SEARCH,iuwI" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Nicholas Burns</div><div class="p4-ct-score">76</div></div>
+        <div class="p4-ct-title">Head of Supply Chain &amp; Merchandising Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the AI, data and fulfilment technology conversation. Already in CRM. Check owner and last touch. <em>Nashville Metropolitan Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAOH76cBQYJezPuCPIo11Yvf4eh7GFeQbi8,NAME_SEARCH,Fpup" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Dan Burns</div><div class="p4-ct-score">72</div></div>
+        <div class="p4-ct-title">Senior Director of Physical AI</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the AI, data and fulfilment technology conversation. Already in CRM. Check owner and last touch. <em>Greater Boston.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAABFByIBhsF4tiARR5nO_shUITlMGzkip1E,NAME_SEARCH,a667" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Quinn Ye</div><div class="p4-ct-score">68</div></div>
+        <div class="p4-ct-title">Head of Data Science</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">1 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the AI, data and fulfilment technology conversation. 2nd-degree connection. 1 TeamLink. <em>Greater Seattle Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAC_jngBLrRuA2_HXULG-G6aU2EWF1i3vYA,NAME_SEARCH,tLYQ" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Nichole V.</div><div class="p4-ct-score">64</div></div>
+        <div class="p4-ct-title">Business Operations | Chief of Staff | Human Resources Strategy &amp; Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">1 TeamLink</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the AI, data and fulfilment technology conversation. 2nd-degree connection. 1 TeamLink. <em>Charlotte Metro.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAA4TM0B0fCo4N0D8mSiLHJDIlBKYyDIM4U,NAME_SEARCH,izQ3" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Aravind Renganathan</div><div class="p4-ct-score">60</div></div>
+        <div class="p4-ct-title">Head of Customer &amp; MarTech Platform — Engineering, Product &amp; Data Science</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the AI, data and fulfilment technology conversation. <em>Greater Seattle Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAACw-2IBqI9n9RnV9iYuKGjRrr6mskau_f0,NAME_SEARCH,v5zQ" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Brent Yoder</div><div class="p4-ct-score">60</div></div>
+        <div class="p4-ct-title">Vice President - Fulfillment Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">1 TeamLink</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the AI, data and fulfilment technology conversation. 1 TeamLink. <em>Indianapolis, Indiana, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAdSlCQBxyaCaOWoA0aObcw3bHrxIeNnGLc,NAME_SEARCH,k-mp" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Soumen Das</div><div class="p4-ct-score">60</div></div>
+        <div class="p4-ct-title">Director Of Engineering</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the AI, data and fulfilment technology conversation. <em>Greater Boston.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAAt8A8BR6_XPKUny8y6_9_H1HRe5KTcmk4,NAME_SEARCH,OR5B" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="p4-section" id="p4-memorial">
+    <div class="p4-sec-hdr">
+      <div>
+        <div class="p4-sec-co">Memorial Healthcare System — Target Buyer Roster</div>
+        <div class="p4-sec-sub">Verified live Sales Navigator contacts · Director / VP / CXO · pulled Nov 10, 2026 · Company SNav ID 11972 · Clinical analytics, IT and operations</div>
+      </div>
+      <span class="p2-tier-badge p2-tier-engage">Engage</span>
+    </div>
+    <div class="p4-grid">
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Samir Wadhwa, MBA, PMP, CHCIO, CDH-E</div><div class="p4-ct-score">96</div></div>
+        <div class="p4-ct-title">Senior Director Information Technology</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">4 TeamLink</span><span class="p4-ct-tag">Best Entry</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Clinical analytics, IT and operations conversation. CRM record is stale, so reconnect before a cold touch. 2nd-degree connection. 4 TeamLink. <em>Fort Lauderdale, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAEQMewBBtviVc7nWq5viyA0lyxiMOYuZfA,NAME_SEARCH,ctv-" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Wendy Walschlager</div><div class="p4-ct-score">92</div></div>
+        <div class="p4-ct-title">Director, Business Intelligence, Clinical Analytics</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Clinical analytics, IT and operations conversation. CRM record is stale, so reconnect before a cold touch. <em>Fort Lauderdale, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAwWFhwB_h71TczbqcjYoh5wBWpajcVNtYw,NAME_SEARCH,z37q" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Ana Agostini</div><div class="p4-ct-score">88</div></div>
+        <div class="p4-ct-title">Senior Director Information Technology</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Clinical analytics, IT and operations conversation. CRM record is stale, so reconnect before a cold touch. <em>Fort Lauderdale, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAMO1fsB2MYx_7-cOL0ry3om1H2cacv2VRM,NAME_SEARCH,8WXQ" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Rayna Ziadie</div><div class="p4-ct-score">84</div></div>
+        <div class="p4-ct-title">Senior Director, Digital Consumer Experience</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Clinical analytics, IT and operations conversation. CRM record is stale, so reconnect before a cold touch. <em>Miami-Fort Lauderdale Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAk_mYoB8GP2ASU9jK0FDf_SWzkAulOxMaM,NAME_SEARCH,pji-" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Anibal J. Cruz</div><div class="p4-ct-score">80</div></div>
+        <div class="p4-ct-title">Director, Supply Chain Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">1 TeamLink</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the Clinical analytics, IT and operations conversation. CRM record is stale, so reconnect before a cold touch. 1 TeamLink. <em>Miami, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAKZrfQB60kes_9hqpjNOdUtPSwE-p3EpMM,NAME_SEARCH,8Z_j" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Michelle Biazon</div><div class="p4-ct-score">76</div></div>
+        <div class="p4-ct-title">Senior Director of Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the Clinical analytics, IT and operations conversation. CRM record is stale, so reconnect before a cold touch. <em>Coral Springs, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAA98-fsBQR-SU_yMX6NAoKg7zIY2uhhyZmo,NAME_SEARCH,hCVW" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Nina Beauchesne, FACHE</div><div class="p4-ct-score">72</div></div>
+        <div class="p4-ct-title">Executive Vice President and Chief Transformation Officer</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Finance or strategy leader who can sponsor the Clinical analytics, IT and operations conversation. CRM record is stale, so reconnect before a cold touch. <em>Hollywood, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAABqUjS4B7T0_DjrGFilgKK-SG0nVZ0ChEj8,NAME_SEARCH,kwWd" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Rob Parker MBA, FACMPE, CPXP</div><div class="p4-ct-score">68</div></div>
+        <div class="p4-ct-title">Senior Director, Patient Experience &amp; Business Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the Clinical analytics, IT and operations conversation. <em>Hollywood, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAANYghgBp8qFo4JWC1U46kUrHd6PMOqFbpU,NAME_SEARCH,wXs9" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Frank Garcia, MSHSA</div><div class="p4-ct-score">64</div></div>
+        <div class="p4-ct-title">Senior Director of Operations and Business Office</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the Clinical analytics, IT and operations conversation. <em>Miami, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAADbbiMB0omFrNJHy_GRQawH3mS-w6WXJ78,NAME_SEARCH,LK6J" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Christine W Puebla, MHA, CLHP, FACMPE</div><div class="p4-ct-score">60</div></div>
+        <div class="p4-ct-title">Senior Director of Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the Clinical analytics, IT and operations conversation. <em>Boca Raton, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAgcrc8BE8aN7PckgW-ojPfh38MNIJdi7k4,NAME_SEARCH,2idR" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Jon Pickett, MBA</div><div class="p4-ct-score">60</div></div>
+        <div class="p4-ct-title">Vice President Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the Clinical analytics, IT and operations conversation. <em>Miami-Fort Lauderdale Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAABmbWroBQlOMEphP4NNMGaRJLLoOF3rGMpk,NAME_SEARCH,y2zR" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Genesis Barroso, MHA</div><div class="p4-ct-score">60</div></div>
+        <div class="p4-ct-title">Director of Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the Clinical analytics, IT and operations conversation. <em>Hialeah, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAABjjlEoBDkfOGTvK4wNyvUbtIaTaDa0-KqU,NAME_SEARCH,Fqtr" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main p4 -->
+</div><!-- /panel-p4 -->
+
+<div class="footer">
+  IBM SF Intel Brief · Edition 14 · Michael Sanchez · IBM South Florida · Nov 9, 2026<br>
+  Made with IBM Bob
+</div>
+
+<script>
+function showPhase(id) {
+  document.querySelectorAll('.phase-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.ptab').forEach(function(t){ t.classList.remove('on'); });
+  var panel = document.getElementById('panel-' + id);
+  var tab = document.getElementById('tab-' + id);
+  if (panel) panel.classList.add('active');
+  if (tab) tab.classList.add('on');
+  var jb = document.getElementById('p1-jump-bar');
+  if (jb) jb.style.display = (id === 'p1') ? 'flex' : 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function loadP3(acctId) {
+  document.querySelectorAll('.p3-ra').forEach(function(r){ r.classList.remove('on'); });
+  var ra = document.getElementById('p3-ra-' + acctId);
+  if (ra) ra.classList.add('on');
+  document.querySelectorAll('.p3-dp-card').forEach(function(c){ c.style.display = 'none'; });
+  var d = document.getElementById('p3-detail-' + acctId);
+  if (d) d.style.display = 'block';
+}
+</script>
+
+</body>
+</html>

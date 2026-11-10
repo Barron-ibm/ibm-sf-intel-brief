@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IBM SF Intel Brief · Hazem Marzouk & Srajan Dube · Edition 14 · Nov 9, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--ground:#F4F6FA;--panel:#FFFFFF;--panel-2:#F0F2F7;--panel-3:#E8EBF3;
+  --rule:#DDE1EC;--rule-hi:#C8CEDD;--ink:#161C2D;--ink-mid:#3A4460;--ink-low:#6B779A;
+  --ibm:#0043CE;--ibm-deep:#0F62FE;--ibm-dim:rgba(0,67,206,.07);--ibm-line:rgba(0,67,206,.22);
+  --t4:#B45309;--t5:#7C4B00;--ok:#006644;
+  --saas:#006644;--saas-dim:rgba(0,102,68,.07);--saas-line:rgba(0,102,68,.28);
+  --trans:#5A189A;--trans-dim:rgba(90,24,154,.07);--trans-line:rgba(90,24,154,.28);
+  --warn:#7C4B00;--warn-dim:rgba(124,75,0,.06);--strike:#da1e28;
+  --navy:#0f1c3a;--radius:5px;--mono:'IBM Plex Mono',monospace;
+  --engage-c:#B45309;--engage-bg:rgba(180,83,9,.07);--engage-bd:rgba(180,83,9,.2);
+  --strike-c:#92400E;--strike-bg:rgba(146,64,14,.07);--strike-bd:rgba(146,64,14,.2);
+  --standby-c:#4338CA;--standby-bg:rgba(67,56,202,.06);--standby-bd:rgba(67,56,202,.18);}
+html{scroll-behavior:smooth;}
+body{font-family:'IBM Plex Sans',-apple-system,sans-serif;font-size:13px;line-height:1.7;background:var(--ground);color:var(--ink);-webkit-font-smoothing:antialiased;}
+a{color:var(--ibm);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.topnav{position:sticky;top:0;z-index:400;background:rgba(255,255,255,.98);backdrop-filter:blur(16px);border-top:3px solid var(--ibm-deep);border-bottom:1px solid var(--rule);height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;gap:16px;}
+.tn-left{display:flex;align-items:center;gap:10px;}
+.tn-ibm{font-size:18px;font-weight:700;color:var(--ibm-deep);letter-spacing:-.5px;}
+.tn-div{width:1px;height:16px;background:var(--rule-hi);}
+.tn-title{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);}
+.tn-badge{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--ibm-deep);color:#fff;padding:2px 9px;border-radius:20px;}
+.tn-links{display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;}
+.tn-links a{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-low);padding:5px 12px;border-bottom:2px solid transparent;white-space:nowrap;}
+.tn-links a:hover{color:var(--ibm);text-decoration:none;}
+.tn-links a.active{color:var(--ibm-deep);border-bottom-color:var(--ibm-deep);}
+.tn-sep{color:var(--rule-hi);padding:0 3px;font-size:10px;}
+.tn-right{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-low);white-space:nowrap;}
+.phasebar{position:sticky;top:48px;z-index:350;height:42px;background:rgba(244,246,250,.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);display:flex;align-items:stretch;padding:0 32px;gap:0;}
+.ptab{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-low);padding:0 18px;cursor:pointer;border-bottom:2px solid transparent;display:flex;align-items:center;white-space:nowrap;transition:all .12s;}
+.ptab:hover{color:var(--ink);text-decoration:none;}
+.ptab.on{color:var(--ibm-deep);border-bottom-color:var(--ibm-deep);background:rgba(15,98,254,.06);}
+.ptab-sep{color:var(--rule-hi);padding:0 2px;font-size:10px;display:flex;align-items:center;user-select:none;}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#0F1C3A 60%,#112040 100%);padding:28px 32px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;border-bottom:3px solid var(--ibm-deep);}
+.hero-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#4a6080;margin-bottom:10px;}
+.hero-back:hover{color:#a8c8ff;text-decoration:none;}
+.hero-eyebrow{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px;}
+.hero-name{font-size:28px;font-weight:900;color:#fff;letter-spacing:-.4px;line-height:1.1;}
+.hero-sub{font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;}
+.hero-stats{display:flex;gap:8px;margin-top:14px;}
+.hstat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:8px 14px;text-align:center;min-width:68px;}
+.hstat-n{font-family:var(--mono);font-size:20px;font-weight:700;color:#fff;line-height:1;}
+.hstat-n.strike{color:#fca5a5;}
+.hstat-n.engage{color:#fdba74;}
+.hstat-n.standby{color:#93c5fd;}
+.hstat-l{font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:3px;}
+.priority-stack{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:12px 16px;min-width:320px;}
+.ps-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px;}
+.ps-row{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.ps-row:last-child{border-bottom:none;padding-bottom:0;}
+.ps-num{font-family:var(--mono);font-size:11px;font-weight:700;color:rgba(255,255,255,.3);min-width:14px;flex-shrink:0;padding-top:1px;}
+.ps-body{flex:1;}
+.ps-co{font-size:12px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:2px;}
+.ps-action{font-size:11px;color:rgba(255,255,255,.6);line-height:1.4;}
+.ps-tier{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.ps-tier.engage{background:rgba(251,146,60,.15);color:#fdba74;border:1px solid rgba(251,146,60,.3);}
+.ps-tier.standby{background:rgba(147,197,253,.15);color:#93c5fd;border:1px solid rgba(147,197,253,.3);}
+.pulse-bar{background:var(--panel);border-bottom:1px solid var(--rule);padding:12px 32px;}
+.pulse-bar-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-low);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.pulse-bar-lbl::before{content:'';display:inline-block;width:3px;height:12px;background:var(--t4);border-radius:2px;}
+.pulse-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;}
+.pulse-card{background:var(--panel-2);border:1px solid var(--rule);border-left:3px solid var(--ibm-deep);border-radius:4px;padding:10px 14px;}
+.pulse-card.pc-amber{border-left-color:var(--t4);}
+.pulse-card.pc-blue{border-left-color:var(--ibm-deep);}
+.pc-tag{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--ibm-dim);color:var(--ibm);border:1px solid var(--ibm-line);padding:2px 7px;border-radius:2px;display:inline-block;margin-bottom:6px;}
+.pulse-card.pc-amber .pc-tag{background:var(--engage-bg);color:var(--engage-c);border-color:var(--engage-bd);}
+.pulse-card.pc-blue .pc-tag{background:var(--standby-bg);color:var(--standby-c);border-color:var(--standby-bd);}
+.pc-headline{font-size:12px;font-weight:700;color:var(--ink);line-height:1.4;margin-bottom:3px;}
+.pc-angle{font-size:11.5px;color:var(--ink-low);line-height:1.45;}
+.pc-angle strong{color:var(--ibm-deep);font-weight:600;}
+.acct-jump-bar{background:var(--panel);border-bottom:1px solid var(--rule);padding:10px 32px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;position:sticky;top:90px;z-index:300;box-shadow:0 2px 6px rgba(0,0,0,.03);}
+.ajb-lbl{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-low);margin-right:4px;white-space:nowrap;}
+.ajb-pill{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.3px;padding:3px 10px;border-radius:20px;background:var(--panel-2);border:1px solid var(--rule);color:var(--ink-mid);transition:all .12s;display:inline-flex;align-items:center;gap:4px;white-space:nowrap;}
+.ajb-pill:hover{background:var(--ibm-deep);color:#fff;border-color:var(--ibm-deep);text-decoration:none;}
+.ajb-pill.engage{border-left:3px solid var(--t4);}
+.ajb-pill.standby{border-left:3px solid var(--ibm-deep);}
+.phase-panel{display:none;}
+.phase-panel.active{display:block;}
+.main{max-width:1200px;margin:0 auto;padding:28px 32px 64px;}
+.sec-hdr{display:flex;align-items:center;gap:14px;margin:28px 0 14px;}
+.sec-hdr:first-child{margin-top:0;}
+.sec-label{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);white-space:nowrap;}
+.sec-rule{flex:1;height:1px;background:linear-gradient(90deg,var(--ibm-line),transparent);}
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);margin-bottom:24px;overflow:hidden;scroll-margin-top:140px;}
+.card.engage{border-left:4px solid var(--t4);}
+.card.standby{border-left:4px solid var(--ibm-deep);}
+.c-top{display:flex;justify-content:space-between;align-items:flex-start;padding:14px 20px 12px;border-bottom:1px solid var(--rule);background:var(--panel-2);gap:14px;}
+.c-top-meta{flex:1;}
+.c-acct-name{font-weight:700;font-size:17px;color:var(--ink);line-height:1.2;}
+.c-meta{font-family:var(--mono);font-size:9.5px;color:var(--ink-low);letter-spacing:.05em;margin-top:2px;}
+.c-top-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;}
+.c-urg{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:5px;}
+.cu-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.cu-engage{color:var(--t4);}
+.cu-engage .cu-dot{background:var(--t4);}
+.cu-standby{color:var(--ibm-deep);}
+.cu-standby .cu-dot{background:var(--ibm-deep);}
+.c-brand-row{display:flex;align-items:center;gap:5px;flex-wrap:wrap;justify-content:flex-end;}
+.c-brand-badge{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:2px;color:#fff;}
+.br-data{background:#0043CE;}
+.br-auto{background:#198038;}
+.br-stor{background:#6929C4;}
+.br-sec{background:#A2191F;}
+.br-pc{background:#005D5D;}
+.catalyst-bar{display:flex;align-items:center;gap:6px;padding:6px 20px;background:var(--panel);border-bottom:1px solid var(--rule);flex-wrap:wrap;}
+.cat-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);flex-shrink:0;padding-right:8px;border-right:1px solid var(--rule-hi);margin-right:2px;}
+.cat-next{font-family:var(--mono);font-size:9px;font-weight:600;color:var(--ink-mid);}
+.cat-next.soon{color:var(--t4);}
+.cat-sep{color:var(--rule-hi);padding:0 6px;font-size:11px;}
+.cat-comp{font-family:var(--mono);font-size:8.5px;color:var(--ink-low);}
+.cat-comp strong{color:var(--ink-mid);font-weight:600;}
+.c-body{display:grid;grid-template-columns:1fr 280px;border-bottom:1px solid var(--rule);}
+.c-left-col{padding:16px 20px 14px;border-right:1px solid var(--rule);}
+.c-right-col{padding:14px 16px;background:var(--panel-2);display:flex;flex-direction:column;gap:8px;}
+.c-sec-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:8px;}
+.c-bullets{list-style:none;margin-bottom:12px;}
+.c-bullets li{position:relative;padding-left:14px;margin-bottom:7px;color:var(--ink-mid);font-size:12.5px;line-height:1.6;}
+.c-bullets li::before{content:'·';position:absolute;left:3px;top:-1px;font-size:16px;color:var(--ibm-deep);font-weight:700;}
+.c-bullets li strong{color:var(--ink);font-weight:600;}
+.c-angle{background:var(--ibm-dim);border:1px solid var(--ibm-line);border-radius:var(--radius);padding:10px 14px;margin-bottom:10px;}
+.c-angle-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ibm);margin-bottom:5px;}
+.c-angle-lines{display:flex;flex-direction:column;gap:3px;}
+.c-angle-line{font-size:12px;color:var(--ink-mid);line-height:1.5;}
+.c-angle-line strong{color:var(--ink);font-weight:600;}
+.c-comp{background:var(--panel-2);border:1px solid var(--rule);border-radius:var(--radius);padding:7px 12px;margin-bottom:10px;font-size:11.5px;color:var(--ink-mid);line-height:1.45;}
+.c-comp-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-low);margin-bottom:3px;}
+.c-comp strong{color:var(--ink);font-weight:600;}
+.c-opener{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--ibm-deep);border-radius:var(--radius);padding:8px 12px;font-size:11.5px;color:var(--ink);line-height:1.5;font-style:italic;}
+.c-opener-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ibm);margin-bottom:3px;font-style:normal;}
+.c-sell-hdr{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:1px;}
+.c-sell-block{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);padding:8px 11px;}
+.c-sell-block.saas{border-left:3px solid var(--saas);}
+.c-sell-block.trans{border-left:3px solid var(--trans);}
+.c-sell-block.motion{border-left:3px solid var(--ibm-deep);}
+.c-sell-type{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px;}
+.c-sell-type.saas{color:var(--saas);}
+.c-sell-type.trans{color:var(--trans);}
+.c-sell-type.motion{color:var(--ibm);}
+.c-sell-txt{font-size:11.5px;color:var(--ink-mid);line-height:1.45;}
+.c-sell-txt strong{color:var(--ink);font-weight:600;}
+.c-sell-pill{display:inline-block;font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:2px;margin-top:5px;}
+.c-sell-pill.saas{background:var(--saas-dim);color:var(--saas);border:1px solid var(--saas-line);}
+.c-sell-pill.trans{background:var(--trans-dim);color:var(--trans);border:1px solid var(--trans-line);}
+.c-bottom{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule);background:var(--panel);}
+.c-spend{padding:12px 20px;border-right:1px solid var(--rule);}
+.c-bets{padding:12px 20px;}
+.cb-hdr{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:8px;}
+.sp-row{display:flex;align-items:center;gap:8px;margin-bottom:5px;font-size:11.5px;}
+.sp-cat{width:160px;color:var(--ink-mid);flex-shrink:0;}
+.sp-bar-wrap{flex:1;height:5px;background:var(--panel-3);border-radius:3px;overflow:hidden;}
+.sp-bar{height:100%;border-radius:3px;}
+.sp-bar.high{background:var(--ibm-deep);}
+.sp-bar.med{background:var(--t4);}
+.sp-bar.low{background:var(--ink-low);}
+.sp-scale{font-family:var(--mono);font-size:7.5px;color:var(--ink-low);margin-top:5px;letter-spacing:.03em;}
+.sp-insight{font-size:11.5px;color:var(--ink-mid);line-height:1.45;margin-top:8px;padding-top:8px;border-top:1px solid var(--rule);}
+.sp-insight strong{color:var(--ink);font-weight:600;}
+.bet-item{display:flex;align-items:flex-start;gap:7px;margin-bottom:7px;}
+.bet-item:last-child{margin-bottom:0;}
+.bet-tag{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px;flex-shrink:0;margin-top:2px;}
+.bet-tag.big{background:rgba(0,67,206,.1);color:var(--ibm);border:1px solid var(--ibm-line);}
+.bet-tag.small{background:var(--panel-2);color:var(--ink-low);border:1px solid var(--rule);}
+.bet-txt{font-size:11.5px;color:var(--ink-mid);line-height:1.45;}
+.bet-txt strong{color:var(--ink);font-weight:600;}
+.c-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:9px 20px;background:var(--panel-2);border-bottom:1px solid var(--rule);}
+.c-btn{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 13px;border-radius:var(--radius);border:1px solid var(--rule);background:var(--panel);color:var(--ink-mid);cursor:pointer;transition:all .12s;}
+.c-btn:hover{background:var(--ibm-deep);color:#fff;border-color:var(--ibm-deep);text-decoration:none;}
+.c-btn-snav{border-color:var(--ibm-line);color:var(--ibm);background:var(--ibm-dim);}
+.c-btn-intel{border-color:var(--rule);color:var(--ink);}
+.play-caller{background:var(--navy);border-top:2px solid var(--ibm-deep);padding:14px 20px;}
+.pc-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:6px;}
+.pc-hdr-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#4a6080;}
+.pc-hdr-account{font-family:var(--mono);font-size:9.5px;font-weight:700;color:#a8c8ff;letter-spacing:.05em;}
+.pc-body{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:14px;}
+.pc-col{display:flex;flex-direction:column;gap:5px;}
+.pc-col-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;}
+.pcl-who{color:#6a8aaa;}
+.pcl-say{color:#8ab4f8;}
+.pcl-wait{color:#fca5a5;}
+.pc-txt{font-size:12px;color:#c8d8f0;line-height:1.55;}
+.pc-txt strong{color:#fff;font-weight:600;}
+.pc-quote{font-size:12px;color:#e8f0fe;line-height:1.55;font-style:italic;background:rgba(255,255,255,.05);border-left:2px solid #8ab4f8;padding:8px 12px;border-radius:0 3px 3px 0;}
+.pc-second{margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:#8a9ab8;}
+.pc-second-lbl{font-family:var(--mono);font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#4a6080;display:block;margin-bottom:2px;}
+.footer{text-align:center;padding:32px 0 24px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-low);margin-top:40px;}
+.hstat-n.strike{color:#fca5a5;}
+.ps-tier.strike{background:rgba(220,30,38,.2);color:#fca5a5;border:1px solid rgba(220,30,38,.35);}
+.pulse-card.pc-red{border-left-color:var(--strike);}
+.pulse-card.pc-red .pc-tag{background:rgba(220,30,38,.1);color:var(--strike);border-color:rgba(220,30,38,.25);}
+.ajb-pill.strike{border-left:3px solid var(--strike);}
+.card.strike{border-left:4px solid var(--strike);}
+.cu-strike{color:var(--strike);}
+.cu-strike .cu-dot{background:var(--strike);}
+.cat-next.urgent{color:var(--strike);}
+.cb-hdr.spend{color:var(--ibm);}
+.cb-hdr.bets{color:var(--ink-low);}
+.p2-page{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:28px;overflow:hidden;scroll-margin-top:140px;}
+.p2-page.engage{border-left:4px solid var(--t4);}
+.p2-page.strike{border-left:4px solid var(--strike);}
+.p2-header-row{display:flex;align-items:center;padding:18px 24px;gap:18px;border-bottom:1px solid var(--rule);background:var(--panel-2);}
+.p2-logo-box{width:68px;height:44px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--rule);border-radius:4px;padding:4px;}
+.p2-logo{max-width:100%;max-height:100%;object-fit:contain;}
+.p2-header-text{flex:1;}
+.p2-se-horizon{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;}
+.p2-name-large{font-size:20px;font-weight:800;color:var(--ink);line-height:1.2;}
+.p2-date-line{font-size:11.5px;color:var(--ink-low);margin-top:2px;}
+.p2-header-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+.p2-tier-badge{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:2px;}
+.p2-tier-engage{background:#431407;color:#fdba74;}
+.p2-tier-strike{background:#7f1d1d;color:#fca5a5;}
+.p2-pulse-row{background:var(--ibm-dim);border-left:4px solid var(--ibm-deep);padding:12px 24px;display:flex;gap:14px;align-items:flex-start;}
+.p2-pulse-badge{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;background:var(--ibm);color:#fff;padding:3px 8px;border-radius:2px;flex-shrink:0;margin-top:2px;}
+.p2-pulse-text{font-size:12.5px;color:var(--ink-mid);line-height:1.65;}
+.p2-pulse-text strong{color:var(--ink);font-weight:700;}
+.p2-linkedin-row{display:flex;align-items:center;justify-content:space-between;padding:8px 24px;background:var(--panel-3);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.p2-li-text{font-size:11.5px;color:var(--ink-mid);}
+.p2-li-text strong{font-weight:700;color:var(--ibm);}
+.p2-li-btn{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--ibm);color:#fff;padding:3px 10px;border-radius:2px;}
+.p2-li-btn:hover{background:#003399;color:#fff;text-decoration:none;}
+.p2-intel-grid{display:grid;grid-template-columns:1fr 1fr 260px;border-top:1px solid var(--rule);}
+.p2-grid-col{padding:18px 20px;}
+.p2-grid-col-l{background:var(--panel);border-right:1px solid var(--rule);}
+.p2-grid-col-m{background:var(--panel-2);border-right:1px solid var(--rule);}
+.p2-grid-col-r{background:var(--panel-3);}
+.p2-grid-lbl{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:10px;padding-bottom:4px;border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:6px;}
+.p2-grid-chevron{background:var(--ibm-dim);color:var(--ibm);font-size:9px;font-weight:700;padding:1px 4px;border-radius:2px;}
+.p2-grid-col ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.p2-grid-col li{font-size:12.5px;color:var(--ink-mid);line-height:1.6;padding-left:14px;position:relative;}
+.p2-grid-col li::before{content:'▸';position:absolute;left:0;color:var(--ibm);font-size:9px;top:2px;}
+.p2-grid-col li strong{color:var(--ink);font-weight:600;}
+.p2-contact-entry{padding:8px 0;border-bottom:1px solid var(--rule);}
+.p2-contact-entry:last-child{border-bottom:none;padding-bottom:0;}
+.p2-contact-name{font-size:12.5px;font-weight:700;color:var(--ink);}
+.p2-contact-role{font-family:var(--mono);font-size:8.5px;color:var(--ink-low);margin-top:1px;}
+.p2-contact-hook{font-size:11px;color:var(--ibm);margin-top:2px;line-height:1.4;}
+.p2-play-bar{background:var(--ibm);padding:18px 24px;color:#fff;}
+.p2-pb-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.p2-pb-main-title{font-size:14px;font-weight:800;color:#fff;}
+.p2-pb-sub-title{font-size:11.5px;color:rgba(255,255,255,.8);margin-top:2px;}
+.p2-pb-badge-pill{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;background:rgba(255,255,255,.18);color:#fff;padding:3px 10px;border-radius:20px;}
+.p2-play-detail-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;border-top:1px solid rgba(255,255,255,.2);padding-top:12px;}
+.p2-play-detail-col{border-right:1px solid rgba(255,255,255,.15);padding-right:14px;}
+.p2-play-detail-col:last-child{border-right:none;padding-right:0;}
+.p2-play-rank-badge{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px;display:flex;align-items:center;gap:6px;}
+.p2-play-rank-num{width:16px;height:16px;border-radius:50%;background:#fff;color:var(--ibm);display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:9px;}
+.p2-play-detail-name{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;}
+.p2-play-detail-body{font-size:11.5px;color:rgba(255,255,255,.85);line-height:1.55;}
+.p2-lower-section{padding:16px 24px;background:var(--panel-2);border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.p2-ls-box{display:flex;flex-direction:column;gap:6px;}
+.p2-ls-lbl{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-low);}
+.p2-action-text{font-size:12px;color:var(--ink-mid);line-height:1.6;}
+.p2-talk-track-text{font-size:12px;color:var(--ink-mid);line-height:1.6;font-style:italic;background:var(--panel);border-left:3px solid var(--ibm);padding:8px 12px;border-radius:0 4px 4px 0;}
+.p3-shell{display:grid;grid-template-columns:260px 1fr;min-height:680px;border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;background:var(--panel);margin-bottom:28px;}
+.p3-rail{background:var(--navy);display:flex;flex-direction:column;border-right:1px solid rgba(255,255,255,.08);}
+.p3-rail-hdr{padding:14px 18px 10px;border-bottom:1px solid rgba(255,255,255,.08);background:var(--navy);}
+.p3-rail-title{font-family:var(--mono);font-size:8.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#8a9ab8;}
+.p3-ra{padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer;border-left:3px solid transparent;transition:all .12s;}
+.p3-ra:hover{background:rgba(255,255,255,.04);}
+.p3-ra.on{background:rgba(15,98,254,.15);border-left-color:var(--ibm-deep);}
+.p3-ra-name{font-size:13px;font-weight:700;color:#c8d8ea;margin-bottom:3px;}
+.p3-ra.on .p3-ra-name{color:#fff;}
+.p3-ra-urg{font-family:var(--mono);font-size:7.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:2px 6px;border-radius:2px;display:inline-block;}
+.p3-ra-urg.strike{background:#7f1d1d;color:#fca5a5;}
+.p3-ra-urg.engage{background:#431407;color:#fdba74;}
+.p3-ra-hook{font-size:10.5px;color:#6a8ab8;margin-top:4px;line-height:1.4;}
+.p3-detail-pane{background:var(--ground);overflow-y:auto;padding:24px;}
+.p3-dp-card{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;}
+.p3-dp-hdr{background:var(--panel-2);border-bottom:3px solid var(--ibm-deep);padding:18px 24px;}
+.p3-dp-hdr-top{display:flex;gap:14px;align-items:flex-start;margin-bottom:10px;}
+.p3-dp-logo{width:72px;height:44px;background:#fff;border:1px solid var(--rule);border-radius:4px;display:flex;align-items:center;justify-content:center;padding:4px;flex-shrink:0;}
+.p3-dp-logo img{max-width:100%;max-height:100%;object-fit:contain;}
+.p3-dp-acct-name{font-size:22px;font-weight:900;color:var(--ink);line-height:1.1;}
+.p3-dp-acct-meta{font-size:11.5px;color:var(--ink-low);margin-top:2px;}
+.p3-dp-thesis{font-size:12.5px;color:var(--ink-mid);line-height:1.65;padding-top:12px;border-top:1px solid var(--rule);}
+.p3-dp-vitals{display:flex;gap:0;margin-top:12px;border:1px solid var(--rule);border-radius:4px;overflow:hidden;}
+.p3-vital{flex:1;padding:8px 12px;border-right:1px solid var(--rule);background:#fff;}
+.p3-vital:last-child{border-right:none;}
+.p3-vital-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;}
+.p3-vital-val{font-size:12px;font-weight:700;color:var(--ink);}
+.p3-dp-body{padding:20px 24px 28px;}
+.p3-sec{margin:20px 0 10px;display:flex;align-items:center;gap:10px;}
+.p3-sec:first-child{margin-top:0;}
+.p3-sec-lbl{font-family:var(--mono);font-size:8.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ink-low);white-space:nowrap;}
+.p3-sec-line{flex:1;height:1px;background:var(--rule);}
+.p3-heat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.p3-heat-card{background:var(--panel-2);border:1px solid var(--rule);border-top:3px solid var(--hc,var(--rule));border-radius:4px;padding:12px 14px;}
+.p3-heat-play{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.p3-heat-score{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--hc,var(--ibm-deep));line-height:1;}
+.p3-heat-bar{height:4px;background:var(--rule);border-radius:2px;margin:6px 0;}
+.p3-heat-fill{height:100%;border-radius:2px;background:var(--hc,var(--ibm-deep));}
+.p3-heat-conviction{font-size:11px;color:var(--ink-mid);line-height:1.45;border-top:1px solid var(--rule);padding-top:6px;margin-top:4px;}
+.p3-threats{display:flex;flex-direction:column;gap:10px;}
+.p3-threat{background:var(--panel-2);border:1px solid var(--rule);border-left:4px solid #7f1d1d;border-radius:4px;padding:12px 16px;}
+.p3-threat-top{display:flex;align-items:center;gap:10px;margin-bottom:4px;}
+.p3-threat-name{font-size:13px;font-weight:800;color:var(--ink);}
+.p3-threat-level{font-family:var(--mono);font-size:7.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:2px;background:#7f1d1d;color:#fca5a5;}
+.p3-threat-doing{font-size:11.5px;color:var(--ink-low);line-height:1.5;margin-bottom:6px;}
+.p3-threat-counter{font-size:11.5px;color:#006644;background:rgba(0,102,68,.06);border-left:3px solid #006644;padding:6px 10px;border-radius:2px;line-height:1.5;}
+.p3-move{background:var(--navy);border-radius:4px;padding:16px 20px;}
+.p3-move-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;}
+.p3-move-row:last-child{margin-bottom:0;}
+.p3-move-lbl{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:var(--ibm-deep);padding:4px 0;min-width:90px;width:90px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+.p3-move-text{font-size:12px;color:#c8d8ea;line-height:1.6;}
+.p3-move-track{font-size:12px;color:#8a9ab8;font-style:italic;line-height:1.6;border-left:3px solid var(--ibm-deep);padding-left:10px;}
+.p4-section{margin-bottom:28px;}
+.p4-sec-hdr{background:var(--panel-2);border:1px solid var(--rule);border-top:3px solid var(--ibm-deep);border-radius:var(--radius);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
+.p4-sec-co{font-size:16px;font-weight:800;color:var(--ink);}
+.p4-sec-sub{font-size:11.5px;color:var(--ink-low);margin-top:2px;}
+.p4-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;padding:14px 0;}
+.p4-ct{border:1px solid var(--rule);border-left:4px solid var(--rule);border-radius:4px;padding:14px 16px;background:var(--panel);display:flex;flex-direction:column;gap:8px;}
+.p4-ct.executive{border-left-color:var(--navy);}
+.p4-ct.practitioner{border-left-color:var(--ibm-deep);}
+.p4-ct-top{display:flex;justify-content:space-between;gap:8px;}
+.p4-ct-name{font-size:14px;font-weight:800;color:var(--ink);}
+.p4-ct-score{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--ink);background:var(--panel-2);border:1px solid var(--rule);border-radius:3px;height:30px;min-width:38px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.p4-ct-title{font-size:12px;color:var(--ink-low);line-height:1.4;}
+.p4-ct-tags{display:flex;gap:5px;flex-wrap:wrap;}
+.p4-ct-tag{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;padding:2px 7px;border-radius:2px;background:var(--panel-2);color:var(--ink-low);border:1px solid var(--rule);}
+.p4-ct-tag.b-exec{background:var(--navy);color:#fff;border-color:var(--navy);}
+.p4-ct-tag.b-prac{background:var(--ibm-deep);color:#fff;border-color:var(--ibm-deep);}
+.p4-ct-why{font-size:11.5px;line-height:1.55;color:var(--ink-mid);}
+.p4-ct-snav{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#fff;background:var(--ibm);padding:5px 12px;border-radius:2px;display:inline-block;align-self:flex-start;margin-top:4px;}
+.p4-ct-snav:hover{background:#003399;color:#fff;text-decoration:none;}
+.card,.p2-page{scroll-margin-top:140px;}
+.card.standby,.p2-page.standby{border-left:4px solid var(--ibm-deep);}
+.p2-tier-standby{background:#1e3a8a;color:#93c5fd;}
+.p3-ra-urg.standby{background:#1e3a8a;color:#93c5fd;}
+.p4-ct-note{grid-column:1/-1;font-size:12px;line-height:1.6;color:var(--ink-mid);background:var(--panel-2);border:1px dashed var(--rule-hi);border-radius:var(--radius);padding:10px 14px;}
+.p4-ct-tag.b-warm{background:#dcfce7;color:#14532d;border-color:#86efac;}
+.p4-ct-tag.b-cold{background:var(--panel-2);color:var(--ink-low);}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;}
+  .p3-shell,.p2-intel-grid,.p2-play-detail-grid,.p2-lower-section,.p3-heat-grid,.c-body,.c-bottom,.pc-body{grid-template-columns:1fr;}
+  .topnav{padding:0 16px;}.main,.hero,.phasebar,.acct-jump-bar,.pulse-bar{padding-left:16px;padding-right:16px;}
+}
+</style>
+<style id="nav-unify">
+.topnav{position:sticky;top:0;z-index:400;box-sizing:border-box;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-top:3px solid #0F62FE;border-bottom:1px solid #DDE1EC;height:48px;padding:0 24px;gap:16px;display:flex;align-items:center;justify-content:space-between;}
+.topnav .tn-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.topnav .tn-ibm{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:20px;font-weight:700;color:#0F62FE;letter-spacing:-.5px;}
+.topnav .tn-div{width:1px;height:18px;background:#C8CEDD;}
+.topnav .tn-title{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#6B779A;}
+.topnav .tn-badge{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:#0F62FE;color:#fff;padding:2px 10px;border-radius:20px;}
+.topnav .tn-links{display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;min-width:0;}
+.topnav .tn-links::-webkit-scrollbar{display:none;}
+.topnav .tn-links a{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:9.5px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:#6B779A;padding:6px 8px;border-bottom:2px solid transparent;white-space:nowrap;text-decoration:none;transition:color .12s;}
+.topnav .tn-links a:hover{color:#0043CE;text-decoration:none;}
+.topnav .tn-links a.active{color:#0F62FE;border-bottom-color:#0F62FE;background:rgba(15,98,254,.08);}
+.topnav .tn-links a.soon{opacity:.4;pointer-events:none;cursor:default;}
+.topnav .tn-sep{color:#C8CEDD;padding:0 1px;user-select:none;}
+.topnav .tn-sep.tn-grp{padding:0 8px;}
+.topnav .tn-right{display:none;}
+@media(max-width:1100px){.topnav{padding:0 14px;}.topnav .tn-title{display:none;}}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topnav">
+  <div class="tn-left">
+    <span class="tn-ibm">IBM</span>
+    <span class="tn-div"></span>
+    <span class="tn-title">IBM SF Intel Brief</span>
+    <span class="tn-badge">Edition 14</span>
+  </div>
+  <div class="tn-links">
+    <a href="../../index.html">Hub</a>
+    <span class="tn-sep">·</span>
+    <a href="phase1.html">Phase 1 · Radar</a>
+    <span class="tn-sep">·</span>
+    <a href="phase2.html">Phase 2 · Intel</a>
+    <span class="tn-sep">·</span>
+    <a href="phase3.html">Phase 3 · Accounts</a>
+    <span class="tn-sep">·</span>
+    <a href="phase4.html" >Phase 4 · Contacts</a>
+    <span class="tn-sep tn-grp">|</span>
+    <a href="seller-spencer.html">Spencer</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-shari.html">Shari</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-michael.html">Michael</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-hazem.html" class="active">Hazem &amp; Srajan</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-mijee.html">Mijee</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-bss.html">BSS Team</a>
+  </div>
+  <div class="tn-right">Nov 9, 2026 · IBM South Florida</div>
+</nav>
+
+<!-- PHASE TAB BAR -->
+<div class="phasebar">
+  <div class="ptab on" id="tab-p1" onclick="showPhase('p1')">Phase 1 · Radar</div>
+  <div class="ptab-sep">/</div>
+  <div class="ptab" id="tab-p2" onclick="showPhase('p2')">Phase 2 · Intel Brief</div>
+  <div class="ptab-sep">/</div>
+  <div class="ptab" id="tab-p3" onclick="showPhase('p3')">Phase 3 · My Accounts</div>
+  <div class="ptab-sep">/</div>
+  <div class="ptab" id="tab-p4" onclick="showPhase('p4')">Phase 4 · Contacts</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <a class="hero-back" href="../../index.html">← Master Hub</a>
+    <div class="hero-eyebrow">South Florida SE Team · Edition 14 · Nov 9, 2026</div>
+    <div class="hero-name">Hello, Hazem &amp; Srajan</div>
+    <div class="hero-sub">Book 7 Coverage · 3 Accounts · Lennar Corporation, Lennar Mortgage, Pellera Technologies</div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">3</div><div class="hstat-l">Total Accts</div></div>
+      <div class="hstat"><div class="hstat-n strike">0</div><div class="hstat-l">Strike</div></div>
+      <div class="hstat"><div class="hstat-n engage">2</div><div class="hstat-l">Engage</div></div>
+      <div class="hstat"><div class="hstat-n standby">1</div><div class="hstat-l">Standby</div></div>
+    </div>
+  </div>
+  <div class="priority-stack">
+    <div class="ps-lbl">Active Priority Action Stack</div>
+    <div class="ps-row">
+      <div class="ps-num">1</div>
+      <div class="ps-body">
+        <div class="ps-co">Lennar Corporation</div>
+        <div class="ps-action">Engage on Planning Analytics for land-light scenario modeling ahead of Dec 16 Q4 earnings.</div>
+      </div>
+      <span class="ps-tier engage">Engage</span>
+    </div>
+    <div class="ps-row">
+      <div class="ps-num">2</div>
+      <div class="ps-body">
+        <div class="ps-co">Lennar Mortgage</div>
+        <div class="ps-action">Position watsonx.governance for automated underwriting compliance &amp; fair lending audits.</div>
+      </div>
+      <span class="ps-tier engage">Engage</span>
+    </div>
+    <div class="ps-row">
+      <div class="ps-num">3</div>
+      <div class="ps-body">
+        <div class="ps-co">Pellera Technologies</div>
+        <div class="ps-action">Data Fabric / watsonx.data positioning for unified data platform &amp; Turbonomic optimization.</div>
+      </div>
+      <span class="ps-tier standby">Standby</span>
+    </div>
+  </div>
+</div>
+
+<!-- MARKET PULSE -->
+<div class="pulse-bar">
+  <div class="pulse-bar-lbl">Market Pulse · Week of Nov 9, 2026</div>
+  <div class="pulse-grid">
+    <div class="pulse-card pc-amber">
+      <span class="pc-tag">Lennar Corp · Earnings Prep</span>
+      <div class="pc-headline">Q4 FY2026 Earnings Scheduled Dec 16, 2026</div>
+      <div class="pc-angle">Land-light asset model scaling rapidly. <strong>IBM Planning Analytics</strong> models community build-outs and interest-rate sensitivity in real time.</div>
+    </div>
+    <div class="pulse-card pc-amber">
+      <span class="pc-tag">Lennar Mortgage · Compliance Watch</span>
+      <div class="pc-headline">CFPB &amp; Fair Lending Scrutiny on AI Origination Models</div>
+      <div class="pc-angle">Underwriting automation expanding. <strong>watsonx.governance</strong> provides model explainability, drift detection, and automated compliance records.</div>
+    </div>
+    <div class="pulse-card pc-blue">
+      <span class="pc-tag">Pellera Tech · Data Modernization</span>
+      <div class="pc-headline">Fragmented Enterprise Reporting Silos</div>
+      <div class="pc-angle">Multi-cloud infrastructure sprawl. <strong>IBM Data Fabric + Turbonomic</strong> consolidates querying and rationalizes compute overhead.</div>
+    </div>
+  </div>
+</div>
+
+<!-- JUMP BAR -->
+<div class="acct-jump-bar" id="p1-jump-bar">
+  <span class="ajb-lbl">Jump to Account:</span>
+  <a class="ajb-pill engage" href="#acct-lennar">Lennar Corporation <span style="font-size:8px;opacity:.7;">(Engage)</span></a>
+  <a class="ajb-pill engage" href="#acct-lennarmtg">Lennar Mortgage <span style="font-size:8px;opacity:.7;">(Engage)</span></a>
+  <a class="ajb-pill standby" href="#acct-pellera">Pellera Technologies <span style="font-size:8px;opacity:.7;">(Standby)</span></a>
+</div>
+
+<!-- PHASE 1 — RADAR & PLAY CALLER -->
+<div class="phase-panel active" id="panel-p1">
+<div class="main">
+
+  <div class="sec-hdr" id="acct-lennar"><span class="sec-label">Account 1 of 3 · Lennar Corporation</span><div class="sec-rule"></div></div>
+
+<div class="card engage">
+
+    <div class="c-top">
+      <div class="c-top-meta">
+        <div class="c-acct-name">Lennar Corporation</div>
+        <div class="c-meta">NYSE: LEN · Fortune 500 Homebuilding &amp; Community Development · Miami FL · 12,000+ Employees · Nationwide Operations</div>
+      </div>
+      <div class="c-top-right">
+        <div class="c-urg cu-engage"><span class="cu-dot"></span>Engage</div>
+        <div class="c-brand-row">
+          <span class="c-brand-badge br-data">Data &amp; AI</span>
+          <span class="c-brand-badge br-auto">Automation</span>
+          <span class="c-brand-badge br-pc">Planning</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="catalyst-bar">
+      <span class="cat-lbl">This Week</span>
+      <span class="cat-next soon">Q4 FY2026 earnings Dec 16 · Land-light strategy scaling · Dynamic pricing &amp; build-cycle optimization</span>
+      <span class="cat-sep">|</span>
+      <span class="cat-comp"><strong>Competing:</strong> Anaplan (financial planning) · Oracle Hyperion (legacy reporting) · Salesforce (CRM/builder portal)</span>
+    </div>
+
+    <div class="c-body">
+      <div class="c-left-col">
+        <div class="c-sec-lbl">What Just Happened — Nov 3–9, 2026</div>
+        <ul class="c-bullets">
+          <li>Lennar enters the pre-earnings quiet period ahead of <strong>Q4 FY2026 earnings on December 16, 2026</strong>. Executive focus is locked on home delivery volumes, gross margin resilience, and land-light capital rotation.</li>
+          <li>Lennar continues to aggressively execute its <strong>land-light operating model</strong>, acquiring land options rather than carrying raw land on the balance sheet. This requires high-frequency scenario modeling on regional absorption rates and construction cycle times.</li>
+          <li>Mortgage rate fluctuations directly dictate buyer incentives and pace of starts. Financial leaders need real-time multi-variable sensitivity models across hundreds of regional subdivisions.</li>
+          <li>Construction supply chain workflows require predictive coordination with trade partners and suppliers — <strong>IBM Planning Analytics and watsonx provide the real-time financial and operational forecasting engine</strong>.</li>
+        </ul>
+
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-lines">
+            <div class="c-angle-line"><strong>Planning Analytics for Land Acquisition:</strong> Multidimensional scenario modeling to stress-test community build-out economics, option takedown schedules, and regional margin thresholds against interest-rate shifts.</div>
+            <div class="c-angle-line"><strong>watsonx for Supply Chain Cycle Times:</strong> Predictive analytics across contractor schedules, building material lead times, and weather delays to compress construction cycle time by 8–12 days.</div>
+            <div class="c-angle-line"><strong>Turbonomic / Automation:</strong> Automatically optimize cloud workloads supporting Lennar's high-traffic buyer portal and regional inventory databases.</div>
+          </div>
+        </div>
+
+        <div class="c-comp">
+          <div class="c-comp-lbl">Competitive</div>
+          <div class="c-comp-txt"><strong>Anaplan and Oracle Hyperion</strong> are embedded in standard corporate FP&amp;A. IBM's differentiator: Planning Analytics handles deep operational multi-cube modeling for land assets, lot option schedules, and regional subdivision build-outs that standard FP&amp;A tools cannot scale to without breaking.</div>
+        </div>
+
+        <div class="c-opener">
+          <div class="c-opener-lbl">Door Opener</div>
+          <div class="c-opener-txt">"As Lennar scales its land-light strategy ahead of Q4 earnings, managing lot option takedowns and interest-rate sensitivity across hundreds of active communities requires real-time multidimensional modeling. IBM Planning Analytics stress-tests community economics and inventory velocity in minutes rather than weeks. Worth 25 minutes before year-end planning locks."</div>
+        </div>
+      </div>
+
+      <div class="c-right-col">
+        <div class="c-sell-hdr">How to Sell</div>
+        <div class="c-sell-block saas">
+          <div class="c-sell-type saas">SaaS Entry</div>
+          <div class="c-sell-txt"><strong>IBM Planning Analytics</strong> — regional community build-out modeling and land acquisition cash-flow simulations. CFO / VP Financial Planning pitch: <em>"Real-time sensitivity modeling across all active subdivisions."</em></div>
+          <span class="c-sell-pill saas">Planning Analytics</span>
+        </div>
+        <div class="c-sell-block trans">
+          <div class="c-sell-type trans">Transaction</div>
+          <div class="c-sell-txt"><strong>watsonx.ai &amp; Turbonomic</strong> — supply chain trade scheduling optimization and dynamic cloud infrastructure elasticity management for digital home shopping portals.</div>
+          <span class="c-sell-pill trans">watsonx &amp; Turbo Tx</span>
+        </div>
+        <div class="c-sell-block motion">
+          <div class="c-sell-type motion">Do This Now</div>
+          <div class="c-sell-txt">1. Connect with Diane Bessette (CFO) and VP FP&amp;A.<br>2. Position Planning Analytics on the land-light option scheduling angle.<br>3. Schedule briefing before the Dec 16 earnings call.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-bottom">
+      <div class="c-spend">
+        <div class="cb-hdr spend">Tech Spend Lens</div>
+        <div class="sp-row"><span class="sp-cat">Land &amp; Financial Modeling</span><div class="sp-bar-wrap"><div class="sp-bar high" style="width:82%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">Construction Supply Chain IT</span><div class="sp-bar-wrap"><div class="sp-bar high" style="width:74%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">Digital Sales &amp; CRM</span><div class="sp-bar-wrap"><div class="sp-bar med" style="width:58%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">Enterprise AI / Governance</span><div class="sp-bar-wrap"><div class="sp-bar low" style="width:25%"></div></div></div>
+        <div class="sp-scale">Relative to est. total tech spend — illustrative · Low / Mid / High</div>
+        <div class="sp-insight">Lennar's return on equity depends on capital velocity. <strong>Every day shaved off subdivision build cycles and lot option holding periods increases gross margin and returns cash to shareholders faster.</strong></div>
+      </div>
+      <div class="c-bets">
+        <div class="cb-hdr bets">Bets</div>
+        <div class="bet-item">
+          <span class="bet-tag big">Big</span>
+          <span class="bet-txt"><strong>Lennar Enterprise Planning Standard</strong> — Planning Analytics replaces fragmented regional division spreadsheets with one unified land, construction, and financial model.</span>
+        </div>
+        <div class="bet-item">
+          <span class="bet-tag small">Small</span>
+          <span class="bet-txt"><strong>Southeast division land acquisition pilot</strong> — model lot option takedowns and rate sensitivity across 40 Florida communities in 30 days.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-actions">
+      <a class="c-btn c-btn-intel" href="#" onclick="showPhase('p2');setTimeout(()=>document.getElementById('p2-lennar').scrollIntoView({behavior:'smooth'}),100);return false;">Full Intel →</a>
+      <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A164711%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+    </div>
+
+    <!-- PLAY CALLER -->
+    <div class="play-caller">
+      <div class="pc-hdr">
+        <span class="pc-hdr-lbl">Play Caller</span>
+        <span class="pc-hdr-account">Lennar Corporation · Engage · Q4 Pre-Earnings Land-Light Window</span>
+      </div>
+      <div class="pc-body">
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-who">Who to Call</span>
+          <div class="pc-txt">
+            <strong>Diane Bessette</strong> — Chief Financial Officer. Managing capital allocation, share repurchases, and land-light asset returns.<br><br>
+            <strong>VP of Financial Planning &amp; Analysis / VP Land Acquisition</strong> — Leaders balancing division-level lot option cash flows against corporate ROE targets.
+            <div class="pc-second">
+              <span class="pc-second-lbl">Second Move</span>
+              Engage the Chief Information Officer / VP Technology on enterprise data integration between Salesforce, JDE/Oracle, and operational builder portals.
+            </div>
+          </div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-say">What to Say</span>
+          <div class="pc-quote">"Lennar's transition to a pure land-light manufacturing model has set the standard for the homebuilding sector. But managing dynamic lot option schedules and interest-rate sensitivity across thousands of active homesites creates massive planning friction. IBM Planning Analytics gives your finance and division leaders real-time multidimensional scenario modeling so you can re-forecast community margins in seconds. Can we set up a 20-minute discussion ahead of your Dec 16 earnings close?"</div>
+          <div class="pc-txt" style="margin-top:10px;font-size:11.5px;color:#6a8aaa;">
+            Emphasize simplicity: "We run alongside your core ERP without replacing existing transactional systems."
+          </div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-wait">If You Wait</span>
+          <div class="pc-txt">
+            Lennar locks division operating budgets and technology roadmaps immediately following the December earnings release. If Anaplan or point cloud forecasting tools expand their footprint in regional divisions, <strong>IBM will be shut out of Lennar's high-value analytical tier for all of FY2027.</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sec-hdr" id="acct-lennarmtg"><span class="sec-label">Account 2 of 3 · Lennar Mortgage</span><div class="sec-rule"></div></div>
+
+<div class="card engage">
+
+    <div class="c-top">
+      <div class="c-top-meta">
+        <div class="c-acct-name">Lennar Mortgage</div>
+        <div class="c-meta">Financial Services Subsidiary of Lennar Corp · Digital Mortgage Origination &amp; Title Services · Miami FL</div>
+      </div>
+      <div class="c-top-right">
+        <div class="c-urg cu-engage"><span class="cu-dot"></span>Engage</div>
+        <div class="c-brand-row">
+          <span class="c-brand-badge br-data">Data &amp; AI</span>
+          <span class="c-brand-badge br-sec">Security</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="catalyst-bar">
+      <span class="cat-lbl">This Week</span>
+      <span class="cat-next soon">AI-assisted mortgage underwriting expansion · CFPB Fair Lending compliance audits · Digital closing integration</span>
+      <span class="cat-sep">|</span>
+      <span class="cat-comp"><strong>Competing:</strong> Blend (digital mortgage frontend) · ICE Mortgage / Encompass (loan origination) · AWS (cloud infrastructure)</span>
+    </div>
+
+    <div class="c-body">
+      <div class="c-left-col">
+        <div class="c-sec-lbl">What Just Happened — Nov 3–9, 2026</div>
+        <ul class="c-bullets">
+          <li>Lennar Mortgage continues driving customer capture rates across Lennar home sales, deploying <strong>automated credit verification, digital document extraction, and algorithmic underwriting decisioning</strong>.</li>
+          <li>Federal regulators (CFPB, FDIC, Fair Lending) are intensifying oversight on <strong>automated and machine-learning mortgage underwriting models</strong>, requiring complete explainability, bias testing, and immutable decision audit trails.</li>
+          <li>Integration between Lennar's home sales pipeline and mortgage origination requires secure, unified borrower data flows across title, insurance, and closing operations.</li>
+          <li><strong>IBM watsonx.governance provides the automated model risk management and compliance governance layer</strong> that guarantees algorithmic fairness and regulatory reporting compliance for digital mortgage approvals.</li>
+        </ul>
+
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-lines">
+            <div class="c-angle-line"><strong>watsonx.governance for Fair Lending:</strong> Automated model validation, disparity testing, and explainability for AI-driven loan pre-approvals and credit scoring to prevent regulatory fines.</div>
+            <div class="c-angle-line"><strong>IBM Data Fabric for Borrower Records:</strong> Securely federate borrower financial records across mortgage, title, and Lennar home sales systems with centralized access control and masking.</div>
+            <div class="c-angle-line"><strong>IBM Security Guardium:</strong> Monitor and protect sensitive customer NPI (Non-Public Personal Information) and financial records across cloud and on-prem databases.</div>
+          </div>
+        </div>
+
+        <div class="c-comp">
+          <div class="c-comp-lbl">Competitive</div>
+          <div class="c-comp-txt"><strong>ICE Mortgage Technology (Encompass) and Blend</strong> provide the operational loan origination and point-of-sale software. IBM watsonx.governance does not compete with Encompass — it sits on top as the independent regulatory oversight and AI risk governance layer required by compliance and risk officers.</div>
+        </div>
+
+        <div class="c-opener">
+          <div class="c-opener-lbl">Door Opener</div>
+          <div class="c-opener-txt">"As Lennar Mortgage scales automated loan approvals, CFPB and Fair Lending scrutiny on underwriting AI models is at an all-time high. IBM watsonx.governance monitors your automated decision models for bias, drift, and regulatory compliance in real time without slowing down origination velocity. Worth 20 minutes with your risk and mortgage tech team."</div>
+        </div>
+      </div>
+
+      <div class="c-right-col">
+        <div class="c-sell-hdr">How to Sell</div>
+        <div class="c-sell-block saas">
+          <div class="c-sell-type saas">SaaS Entry</div>
+          <div class="c-sell-txt"><strong>watsonx.governance</strong> — automated AI model lifecycle management, fairness monitoring, and compliance documentation. Chief Risk Officer / Head of Mortgage Tech pitch: <em>"Zero-risk automated mortgage underwriting."</em></div>
+          <span class="c-sell-pill saas">watsonx.gov</span>
+        </div>
+        <div class="c-sell-block trans">
+          <div class="c-sell-type trans">Transaction</div>
+          <div class="c-sell-txt"><strong>IBM Cloud Pak for Data &amp; Guardium</strong> — federated borrower data integration and non-public financial data security across origination and title workflows.</div>
+          <span class="c-sell-pill trans">Data Fabric &amp; Security</span>
+        </div>
+        <div class="c-sell-block motion">
+          <div class="c-sell-type motion">Do This Now</div>
+          <div class="c-sell-txt">1. Contact Head of Mortgage Risk / Chief Credit Officer.<br>2. Position watsonx.governance on automated Fair Lending model compliance.<br>3. Introduce Guardium for borrower NPI data security.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-bottom">
+      <div class="c-spend">
+        <div class="cb-hdr spend">Tech Spend Lens</div>
+        <div class="sp-row"><span class="sp-cat">Loan Origination &amp; POS</span><div class="sp-bar-wrap"><div class="sp-bar high" style="width:84%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">Underwriting AI &amp; Risk Tech</span><div class="sp-bar-wrap"><div class="sp-bar high" style="width:70%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">Compliance &amp; Fair Lending IT</span><div class="sp-bar-wrap"><div class="sp-bar med" style="width:50%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">NPI Data Security &amp; Masking</span><div class="sp-bar-wrap"><div class="sp-bar med" style="width:42%"></div></div></div>
+        <div class="sp-scale">Relative to est. total tech spend — illustrative · Low / Mid / High</div>
+        <div class="sp-insight">Mortgage margins depend on loan origination speed and regulatory safety. <strong>A single Fair Lending audit finding or model compliance delay can halt automated loan approvals and cost millions in legal remediation.</strong></div>
+      </div>
+      <div class="c-bets">
+        <div class="cb-hdr bets">Bets</div>
+        <div class="bet-item">
+          <span class="bet-tag big">Big</span>
+          <span class="bet-txt"><strong>watsonx.governance as enterprise risk standard</strong> — govern all algorithmic loan pre-approval and credit decisioning models across Lennar Financial Services.</span>
+        </div>
+        <div class="bet-item">
+          <span class="bet-tag small">Small</span>
+          <span class="bet-txt"><strong>Fair Lending model validation audit</strong> — benchmark 2 automated underwriting models for bias and explainability within 30 days.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-actions">
+      <a class="c-btn c-btn-intel" href="#" onclick="showPhase('p2');setTimeout(()=>document.getElementById('p2-lennarmtg').scrollIntoView({behavior:'smooth'}),100);return false;">Full Intel →</a>
+      <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A73963099%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+    </div>
+
+    <!-- PLAY CALLER -->
+    <div class="play-caller">
+      <div class="pc-hdr">
+        <span class="pc-hdr-lbl">Play Caller</span>
+        <span class="pc-hdr-account">Lennar Mortgage · Engage · Mortgage AI Governance &amp; Fair Lending</span>
+      </div>
+      <div class="pc-body">
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-who">Who to Call</span>
+          <div class="pc-txt">
+            <strong>President / Head of Mortgage Technology</strong> — Executive leading digital origination, automated loan decisioning, and customer POS integration.<br><br>
+            <strong>Chief Risk Officer / Chief Compliance Officer</strong> — Leaders responsible for CFPB compliance, fair lending model audits, and regulatory risk controls.
+            <div class="pc-second">
+              <span class="pc-second-lbl">Second Move</span>
+              Reach out to the VP of Information Security regarding Guardium data protection for customer credit scores and tax filings.
+            </div>
+          </div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-say">What to Say</span>
+          <div class="pc-quote">"Accelerating digital mortgage approvals gives Lennar a huge advantage in homebuyer conversion. But as credit decisioning and document verification become increasingly automated, regulatory scrutiny on algorithmic fairness and model explainability is intensifying. IBM watsonx.governance automates model risk compliance, tracks model drift, and generates audit-ready documentation for every automated loan decision. Let's schedule a 20-minute briefing with your mortgage risk team."</div>
+          <div class="pc-txt" style="margin-top:10px;font-size:11.5px;color:#6a8aaa;">
+            Anchor on non-disruption: "Watsonx.governance works with whatever ML frameworks or loan origination software your team already uses."
+          </div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-wait">If You Wait</span>
+          <div class="pc-txt">
+            Mortgage lenders are finalizing 2027 regulatory compliance and AI risk budgets now. If Lennar Mortgage relies on manual spreadsheets or generic cloud governance tools, <strong>they risk severe CFPB audit friction and IBM loses the entry point into Lennar's high-margin financial services wing.</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sec-hdr" id="acct-pellera"><span class="sec-label">Account 3 of 3 · Pellera Technologies</span><div class="sec-rule"></div></div>
+
+<div class="card standby">
+
+    <div class="c-top">
+      <div class="c-top-meta">
+        <div class="c-acct-name">Pellera Technologies</div>
+        <div class="c-meta">Specialized Enterprise Technology Services &amp; Platform Infrastructure · South Florida Coverage</div>
+      </div>
+      <div class="c-top-right">
+        <div class="c-urg cu-standby"><span class="cu-dot"></span>Standby</div>
+        <div class="c-brand-row">
+          <span class="c-brand-badge br-data">Data &amp; AI</span>
+          <span class="c-brand-badge br-auto">Automation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="catalyst-bar">
+      <span class="cat-lbl">This Week</span>
+      <span class="cat-next">Enterprise data architecture consolidation · Cloud compute optimization · Business intelligence standardization</span>
+      <span class="cat-sep">|</span>
+      <span class="cat-comp"><strong>Competing:</strong> Snowflake / Databricks (data lakehouse) · AWS / Microsoft Azure (cloud hosting)</span>
+    </div>
+
+    <div class="c-body">
+      <div class="c-left-col">
+        <div class="c-sec-lbl">What Just Happened — Nov 3–9, 2026</div>
+        <ul class="c-bullets">
+          <li>Pellera Technologies continues reviewing enterprise architecture and multi-cloud data infrastructure to <strong>reduce infrastructure sprawl and eliminate redundant reporting silos</strong>.</li>
+          <li>Operating across distributed service lines, engineering leaders face growing complexity in managing hybrid cloud compute costs and data egress expenses.</li>
+          <li>Business stakeholders require unified querying capabilities across disparate transactional databases without undertaking multi-year, high-cost database migrations.</li>
+          <li><strong>IBM Data Fabric (watsonx.data / Cloud Pak for Data) and Turbonomic</strong> offer the ideal non-disruptive modernization path: query data where it lives and automate cloud resource elasticity.</li>
+        </ul>
+
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-lines">
+            <div class="c-angle-line"><strong>IBM Data Fabric / watsonx.data:</strong> Open data lakehouse architecture that executes high-performance SQL analytics across multi-cloud and on-prem databases with zero data replication costs.</div>
+            <div class="c-angle-line"><strong>Turbonomic Cloud Optimization:</strong> Automated continuous resourcing of cloud compute and containerized services to cut public cloud infrastructure waste by 25–35%.</div>
+            <div class="c-angle-line"><strong>IBM API Connect:</strong> Securely expose and monetize enterprise backend service capabilities across client touchpoints.</div>
+          </div>
+        </div>
+
+        <div class="c-comp">
+          <div class="c-comp-lbl">Competitive</div>
+          <div class="c-comp-txt"><strong>Snowflake and Databricks</strong> demand proprietary storage and high compute credit consumption. IBM watsonx.data leverages open Apache Iceberg formats, slashing data analytics costs by up to 50% compared to Snowflake while keeping data in place.</div>
+        </div>
+
+        <div class="c-opener">
+          <div class="c-opener-lbl">Door Opener</div>
+          <div class="c-opener-txt">"As enterprise technology teams look to optimize multi-cloud infrastructure and simplify data access, migrating all data into a single warehouse is too slow and expensive. IBM watsonx.data gives your engineering team an open data lakehouse that queries across your existing databases with zero replication and half the compute cost of traditional cloud warehouses. Worth 20 minutes."</div>
+        </div>
+      </div>
+
+      <div class="c-right-col">
+        <div class="c-sell-hdr">How to Sell</div>
+        <div class="c-sell-block saas">
+          <div class="c-sell-type saas">SaaS Entry</div>
+          <div class="c-sell-txt"><strong>watsonx.data + Turbonomic</strong> — open data lakehouse analytics and automated cloud cost optimization. CTO / VP Engineering pitch: <em>"Cut cloud data query costs by 50%."</em></div>
+          <span class="c-sell-pill saas">watsonx.data</span>
+        </div>
+        <div class="c-sell-block trans">
+          <div class="c-sell-type trans">Transaction</div>
+          <div class="c-sell-txt"><strong>Cloud Pak for Data / API Connect</strong> — enterprise integration and modern data fabric software footprint.</div>
+          <span class="c-sell-pill trans">CP4D &amp; API Connect</span>
+        </div>
+        <div class="c-sell-block motion">
+          <div class="c-sell-type motion">Do This Now</div>
+          <div class="c-sell-txt">1. Map key technology and data architecture decision makers.<br>2. Position watsonx.data on open Iceberg architecture vs cloud warehouse bills.<br>3. Offer a 3-week Turbonomic cloud optimization assessment.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-bottom">
+      <div class="c-spend">
+        <div class="cb-hdr spend">Tech Spend Lens</div>
+        <div class="sp-row"><span class="sp-cat">Cloud Hosting &amp; Compute</span><div class="sp-bar-wrap"><div class="sp-bar high" style="width:78%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">Data Architecture &amp; DBs</span><div class="sp-bar-wrap"><div class="sp-bar high" style="width:72%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">DevOps &amp; Infrastructure</span><div class="sp-bar-wrap"><div class="sp-bar med" style="width:48%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">Analytics &amp; BI Layer</span><div class="sp-bar-wrap"><div class="sp-bar low" style="width:24%"></div></div></div>
+        <div class="sp-scale">Relative to est. total tech spend — illustrative · Low / Mid / High</div>
+        <div class="sp-insight">Tech services platforms focus on margin efficiency. <strong>Reducing redundant cloud data warehousing and optimizing virtualized compute directly expands operating margins.</strong></div>
+      </div>
+      <div class="c-bets">
+        <div class="cb-hdr bets">
+          <div class="cb-hdr bets">Bets</div>
+          <div class="bet-item">
+            <span class="bet-tag big">Big</span>
+            <span class="bet-txt"><strong>watsonx.data enterprise lakehouse migration</strong> — establish IBM as the unified analytical query engine across all enterprise data sources.</span>
+          </div>
+          <div class="bet-item">
+            <span class="bet-tag small">Small</span>
+            <span class="bet-txt"><strong>Turbonomic cloud savings POC</strong> — demonstrate $100K+ in annual compute savings in a 14-day production trial.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-actions">
+      <a class="c-btn c-btn-intel" href="#" onclick="showPhase('p2');setTimeout(()=>document.getElementById('p2-pellera').scrollIntoView({behavior:'smooth'}),100);return false;">Full Intel →</a>
+      <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A106708400%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+    </div>
+
+    <!-- PLAY CALLER -->
+    <div class="play-caller">
+      <div class="pc-hdr">
+        <span class="pc-hdr-lbl">Play Caller</span>
+        <span class="pc-hdr-account">Pellera Technologies · Standby · Cloud Data Modernization &amp; Cost Optimization</span>
+      </div>
+      <div class="pc-body">
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-who">Who to Call</span>
+          <div class="pc-txt">
+            <strong>Chief Technology Officer / VP of Infrastructure</strong> — Leaders accountable for enterprise architecture, cloud compute efficiency, and database infrastructure.<br><br>
+            <strong>Director of Enterprise Data &amp; Analytics</strong> — Technical lead managing business intelligence reporting pipelines and data integration overhead.
+            <div class="pc-second">
+              <span class="pc-second-lbl">Second Move</span>
+              Engage the FinOps / Cloud Operations lead with a free Turbonomic environment assessment.
+            </div>
+          </div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-say">What to Say</span>
+          <div class="pc-quote">"Managing multi-cloud data sprawl without running up enormous monthly Snowflake or AWS compute bills is one of the toughest challenges in enterprise infrastructure today. IBM watsonx.data gives you an open data lakehouse powered by Presto and Apache Iceberg that queries across your existing data stores without migration overhead. We'd welcome a brief 20-minute architecture review to show you how."</div>
+          <div class="pc-txt" style="margin-top:10px;font-size:11.5px;color:#6a8aaa;">
+            Lead with economic proof: "We typically show 40–50% query cost reduction on high-volume analytical workloads."
+          </div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-wait">If You Wait</span>
+          <div class="pc-txt">
+            While Pellera is currently on Standby, tech services firms make cloud commitment renewals in Q4. If they sign multi-year enterprise agreements with Snowflake or Databricks, <strong>their data analytics budget will be locked for the next 24–36 months.</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /main p1 -->
+</div><!-- /panel-p1 -->
+
+<!-- PHASE 2 — DEEP INTEL BRIEF -->
+<div class="phase-panel" id="panel-p2">
+<div class="main">
+
+  <div class="p2-page engage" id="p2-lennar">
+
+    <div class="p2-header-row">
+      <div class="p2-logo-box"><img class="p2-logo" src="LOGOS/lennar.png" alt="Lennar Corporation Logo" onerror="this.parentElement.innerHTML='<b>LENNAR</b>'"></div>
+      <div class="p2-header-text">
+        <div class="p2-se-horizon">IBM SF Intel Brief · Phase 2 Deep Intel · Hazem Marzouk &amp; Srajan Dube</div>
+        <div class="p2-name-large">Lennar Corporation (NYSE: LEN)</div>
+        <div class="p2-date-line">Fortune 500 Homebuilder · Miami, FL · Land-Light Real Estate Manufacturing Model</div>
+      </div>
+      <div class="p2-header-right">
+        <span class="p2-tier-badge p2-tier-engage">Engage · Q4 Dec 16</span>
+        <div class="c-brand-row"><span class="c-brand-badge br-data">Data &amp; AI</span><span class="c-brand-badge br-auto">Automation</span><span class="c-brand-badge br-pc">Planning</span></div>
+      </div>
+    </div>
+
+    <div class="p2-pulse-row">
+      <span class="p2-pulse-badge">This Week</span>
+      <div class="p2-pulse-text"><strong>Q4 FY2026 earnings Dec 16 · Land-light strategy scaling · Dynamic pricing &amp; build-cycle optimization</strong></div>
+    </div>
+
+    <div class="p2-linkedin-row">
+      <div class="p2-li-text">LinkedIn Company Profile · <strong>Sales Navigator Company ID 164711</strong> · Browse verified current employees</div>
+      <a class="p2-li-btn" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A164711%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">Open Sales Nav ↗</a>
+    </div>
+
+    <div class="p2-intel-grid">
+      <div class="p2-grid-col p2-grid-col-l">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Business &amp; Financial Signals</div>
+        <ul><li><strong>Earnings Timing:</strong> Q4 FY2026 earnings scheduled for Dec 16, 2026. Management is focused on proving the durability of their pure land-light manufacturing model where homesites are controlled via option contracts rather than direct ownership.</li><li><strong>Capital Efficiency:</strong> Lennar targets 30%+ Return on Equity (ROE). This requires accelerating inventory turn velocity and minimizing the cycle time between foundation pour and customer closing.</li></ul>
+      </div>
+      <div class="p2-grid-col p2-grid-col-m">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Technology Infrastructure &amp; Gaps</div>
+        <ul><li><strong>Planning Fragmentation:</strong> Regional division finance teams still rely heavily on complex spreadsheet networks to track community build-out cash flows, lot option takedown schedules, and interest-rate buydown incentives.</li><li><strong>Supply Chain Integration:</strong> Dynamic scheduling across thousands of regional trade partners requires predictive AI to prevent bottlenecks in framing, plumbing, and electrical installations.</li></ul>
+      </div>
+      <div class="p2-grid-col p2-grid-col-r">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Key Target Personas</div>
+        <div class="p2-contact-entry">
+<div class="p2-contact-name">Diane Bessette</div>
+<div class="p2-contact-role">Chief Financial Officer &amp; Treasurer</div>
+<div class="p2-contact-hook">Land-light scenario modeling and ROE capital rotation.</div>
+</div>
+<div class="p2-contact-entry">
+<div class="p2-contact-name">VP of Financial Planning &amp; Analysis</div>
+<div class="p2-contact-role">Corporate Finance &amp; Division FP&amp;A</div>
+<div class="p2-contact-hook">Consolidating regional division build-out spreadsheets into IBM Planning Analytics.</div>
+</div>
+<div class="p2-contact-entry">
+<div class="p2-contact-name">Chief Information Officer / VP Technology</div>
+<div class="p2-contact-role">Enterprise IT &amp; Architecture</div>
+<div class="p2-contact-hook">Cloud workload elasticity and ERP/builder portal integration.</div>
+</div>
+
+      </div>
+    </div>
+
+    <div class="p2-play-bar">
+      <div class="p2-pb-hdr">
+        <div>
+          <div class="p2-pb-main-title">IBM Strategic Sales Plays · Lennar Corporation</div>
+          <div class="p2-pb-sub-title">IBM Planning Analytics for Land-Light Capital Rotation</div>
+        </div>
+        <span class="p2-pb-badge-pill">Lead: Data &amp; AI</span>
+      </div>
+      <div class="p2-play-detail-grid">
+<div class="p2-play-detail-col">
+<div class="p2-play-rank-badge"><span class="p2-play-rank-num">1</span> Primary SaaS Entry · Data &amp; AI</div>
+<div class="p2-play-detail-name">IBM Planning Analytics for Land-Light Capital Rotation</div>
+<div class="p2-play-detail-body">Deploy Planning Analytics to model lot option takedowns, regional absorption rates, and subdivision gross margins in real time.</div>
+</div>
+<div class="p2-play-detail-col">
+<div class="p2-play-rank-badge"><span class="p2-play-rank-num">2</span> Expansion SaaS · Automation</div>
+<div class="p2-play-detail-name">watsonx.ai for Construction Cycle Time Compression</div>
+<div class="p2-play-detail-body">Predict trade partner delays and material supply disruptions to shave 8–12 days off average home construction cycle times.</div>
+</div>
+<div class="p2-play-detail-col">
+<div class="p2-play-rank-badge"><span class="p2-play-rank-num">3</span> Transaction Motion · Optimization</div>
+<div class="p2-play-detail-name">Turbonomic for Buyer Portal &amp; Cloud Elasticity</div>
+<div class="p2-play-detail-body">Automate cloud resource scaling across Lennar's high-traffic home shopping portals and builder inventory databases.</div>
+</div>
+      </div>
+    </div>
+
+    <div class="p2-lower-section">
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Do This Now — Action Plan</div>
+        <div class="p2-action-text">1. Connect with Diane Bessette (CFO) and VP FP&amp;A.<br>2. Position Planning Analytics on the land-light option scheduling angle.<br>3. Schedule briefing before the Dec 16 earnings call.</div>
+      </div>
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Verbatim Door Opener</div>
+        <div class="p2-talk-track-text">"As Lennar scales its land-light strategy ahead of Q4 earnings, managing lot option takedowns and interest-rate sensitivity across hundreds of active communities requires real-time multidimensional modeling. IBM Planning Analytics stress-tests community economics and inventory velocity in minutes rather than weeks. Worth 25 minutes before year-end planning locks."</div>
+      </div>
+    </div>
+
+  </div><!-- /p2-lennar -->
+
+  <div class="p2-page engage" id="p2-lennarmtg">
+
+    <div class="p2-header-row">
+      <div class="p2-logo-box"><img class="p2-logo" src="LOGOS/lenmar.png" alt="Lennar Mortgage Logo" onerror="this.parentElement.innerHTML='<b>LENMAR</b>'"></div>
+      <div class="p2-header-text">
+        <div class="p2-se-horizon">IBM SF Intel Brief · Phase 2 Deep Intel · Hazem Marzouk &amp; Srajan Dube</div>
+        <div class="p2-name-large">Lennar Mortgage</div>
+        <div class="p2-date-line">Digital Mortgage Origination &amp; Title Services · Financial Services Wing</div>
+      </div>
+      <div class="p2-header-right">
+        <span class="p2-tier-badge p2-tier-engage">Engage · High Priority</span>
+        <div class="c-brand-row"><span class="c-brand-badge br-data">Data &amp; AI</span><span class="c-brand-badge br-sec">Security</span></div>
+      </div>
+    </div>
+
+    <div class="p2-pulse-row">
+      <span class="p2-pulse-badge">This Week</span>
+      <div class="p2-pulse-text"><strong>AI-assisted mortgage underwriting expansion · CFPB Fair Lending compliance audits · Digital closing integration</strong></div>
+    </div>
+
+    <div class="p2-linkedin-row">
+      <div class="p2-li-text">LinkedIn Company Profile · <strong>Sales Navigator Company ID 73963099</strong> · Browse verified current employees</div>
+      <a class="p2-li-btn" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A73963099%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">Open Sales Nav ↗</a>
+    </div>
+
+    <div class="p2-intel-grid">
+      <div class="p2-grid-col p2-grid-col-l">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Business &amp; Financial Signals</div>
+        <ul><li><strong>Capture Rate Optimization:</strong> Lennar Mortgage drives high attach rates on Lennar home purchases. Compressing time-to-close and automating loan approvals increases homebuyer satisfaction and fee revenue.</li><li><strong>Regulatory Scrutiny:</strong> Stricter federal oversight (CFPB, Fair Housing Act) on algorithmic credit decisioning mandates transparent model validation and strict non-discrimination compliance.</li></ul>
+      </div>
+      <div class="p2-grid-col p2-grid-col-m">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Technology Infrastructure &amp; Gaps</div>
+        <ul><li><strong>AI Risk Governance:</strong> Lack of automated tooling to track ML model drift, bias in automated credit pre-approvals, and automated audit report generation for regulatory examiners.</li><li><strong>Borrower Data Silos:</strong> Sensitive financial records (tax returns, bank statements, credit scores) are shared across title, insurance, and origination systems, requiring centralized security and masking.</li></ul>
+      </div>
+      <div class="p2-grid-col p2-grid-col-r">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Key Target Personas</div>
+        <div class="p2-contact-entry">
+<div class="p2-contact-name">Head of Mortgage Technology / CIO</div>
+<div class="p2-contact-role">Digital Origination &amp; POS Systems</div>
+<div class="p2-contact-hook">Automated loan decisioning governance and Encompass/Blend integration.</div>
+</div>
+<div class="p2-contact-entry">
+<div class="p2-contact-name">Chief Credit Officer / Chief Risk Officer</div>
+<div class="p2-contact-role">Mortgage Credit Risk &amp; Regulatory Compliance</div>
+<div class="p2-contact-hook">CFPB Fair Lending compliance and algorithmic bias auditing.</div>
+</div>
+<div class="p2-contact-entry">
+<div class="p2-contact-name">Director of Information Security / CISO</div>
+<div class="p2-contact-role">Financial Data Protection &amp; NPI Compliance</div>
+<div class="p2-contact-hook">Borrower NPI data masking and Guardium continuous database activity monitoring.</div>
+</div>
+
+      </div>
+    </div>
+
+    <div class="p2-play-bar">
+      <div class="p2-pb-hdr">
+        <div>
+          <div class="p2-pb-main-title">IBM Strategic Sales Plays · Lennar Mortgage</div>
+          <div class="p2-pb-sub-title">watsonx.governance for Automated Mortgage Underwriting</div>
+        </div>
+        <span class="p2-pb-badge-pill">Lead: Data &amp; AI</span>
+      </div>
+      <div class="p2-play-detail-grid">
+<div class="p2-play-detail-col">
+<div class="p2-play-rank-badge"><span class="p2-play-rank-num">1</span> Primary SaaS Entry · Data &amp; AI</div>
+<div class="p2-play-detail-name">watsonx.governance for Automated Mortgage Underwriting</div>
+<div class="p2-play-detail-body">Automate AI model explainability, disparity testing, and CFPB compliance documentation across all automated underwriting algorithms.</div>
+</div>
+<div class="p2-play-detail-col">
+<div class="p2-play-rank-badge"><span class="p2-play-rank-num">2</span> Expansion SaaS · Security</div>
+<div class="p2-play-detail-name">IBM Security Guardium for Borrower NPI Protection</div>
+<div class="p2-play-detail-body">Continuous monitoring, encryption, and compliance masking for non-public personal information across cloud loan origination databases.</div>
+</div>
+<div class="p2-play-detail-col">
+<div class="p2-play-rank-badge"><span class="p2-play-rank-num">3</span> Transaction Motion · Integration</div>
+<div class="p2-play-detail-name">IBM Data Fabric for Origination &amp; Title Federation</div>
+<div class="p2-play-detail-body">Securely connect buyer financial records across home sales, mortgage origination, and title systems with zero data duplication.</div>
+</div>
+      </div>
+    </div>
+
+    <div class="p2-lower-section">
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Do This Now — Action Plan</div>
+        <div class="p2-action-text">1. Contact Head of Mortgage Risk / Chief Credit Officer.<br>2. Position watsonx.governance on automated Fair Lending model compliance.<br>3. Introduce Guardium for borrower NPI data security.</div>
+      </div>
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Verbatim Door Opener</div>
+        <div class="p2-talk-track-text">"As Lennar Mortgage scales automated loan approvals, CFPB and Fair Lending scrutiny on underwriting AI models is at an all-time high. IBM watsonx.governance monitors your automated decision models for bias, drift, and regulatory compliance in real time without slowing down origination velocity. Worth 20 minutes with your risk and mortgage tech team."</div>
+      </div>
+    </div>
+
+  </div><!-- /p2-lennarmtg -->
+
+  <div class="p2-page standby" id="p2-pellera">
+
+    <div class="p2-header-row">
+      <div class="p2-logo-box"><img class="p2-logo" src="LOGOS/pellera.png" alt="Pellera Technologies Logo" onerror="this.parentElement.innerHTML='<b>PELLER</b>'"></div>
+      <div class="p2-header-text">
+        <div class="p2-se-horizon">IBM SF Intel Brief · Phase 2 Deep Intel · Hazem Marzouk &amp; Srajan Dube</div>
+        <div class="p2-name-large">Pellera Technologies</div>
+        <div class="p2-date-line">Specialized Enterprise Technology Services &amp; Platform Infrastructure</div>
+      </div>
+      <div class="p2-header-right">
+        <span class="p2-tier-badge p2-tier-standby">Standby</span>
+        <div class="c-brand-row"><span class="c-brand-badge br-data">Data &amp; AI</span><span class="c-brand-badge br-auto">Automation</span></div>
+      </div>
+    </div>
+
+    <div class="p2-pulse-row">
+      <span class="p2-pulse-badge">This Week</span>
+      <div class="p2-pulse-text"><strong>Enterprise data architecture consolidation · Cloud compute optimization · Business intelligence standardization</strong></div>
+    </div>
+
+    <div class="p2-linkedin-row">
+      <div class="p2-li-text">LinkedIn Company Profile · <strong>Sales Navigator Company ID 106708400</strong> · Browse verified current employees</div>
+      <a class="p2-li-btn" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A106708400%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">Open Sales Nav ↗</a>
+    </div>
+
+    <div class="p2-intel-grid">
+      <div class="p2-grid-col p2-grid-col-l">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Business &amp; Financial Signals</div>
+        <ul><li><strong>Margin Expansion:</strong> Tech services platforms are intensely focused on controlling IT overhead and optimizing cloud compute costs to defend operating margins.</li><li><strong>Platform Modernization:</strong> Enterprise clients demand real-time analytics and self-service reporting without incurring massive custom integration costs.</li></ul>
+      </div>
+      <div class="p2-grid-col p2-grid-col-m">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Technology Infrastructure &amp; Gaps</div>
+        <ul><li><strong>Cloud Warehouse Cost Sprawl:</strong> High monthly Snowflake and AWS compute bills for routine business intelligence queries across distributed data stores.</li><li><strong>Data Fragmentation:</strong> Disparate databases across business units make global reporting slow and labor-intensive.</li></ul>
+      </div>
+      <div class="p2-grid-col p2-grid-col-r">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Key Target Personas</div>
+        <div class="p2-contact-entry">
+<div class="p2-contact-name">Chief Technology Officer / VP Infrastructure</div>
+<div class="p2-contact-role">Enterprise Architecture &amp; Cloud Platform</div>
+<div class="p2-contact-hook">Multi-cloud data lakehouse analytics and FinOps cost cutting.</div>
+</div>
+<div class="p2-contact-entry">
+<div class="p2-contact-name">Director of Enterprise Data &amp; Analytics</div>
+<div class="p2-contact-role">BI Reporting &amp; Data Pipeline Architecture</div>
+<div class="p2-contact-hook">IBM Data Fabric unified querying without multi-year database migration projects.</div>
+</div>
+
+      </div>
+    </div>
+
+    <div class="p2-play-bar">
+      <div class="p2-pb-hdr">
+        <div>
+          <div class="p2-pb-main-title">IBM Strategic Sales Plays · Pellera Technologies</div>
+          <div class="p2-pb-sub-title">watsonx.data Open Lakehouse Architecture</div>
+        </div>
+        <span class="p2-pb-badge-pill">Lead: Data &amp; AI</span>
+      </div>
+      <div class="p2-play-detail-grid">
+<div class="p2-play-detail-col">
+<div class="p2-play-rank-badge"><span class="p2-play-rank-num">1</span> Primary SaaS Entry · Data &amp; AI</div>
+<div class="p2-play-detail-name">watsonx.data Open Lakehouse Architecture</div>
+<div class="p2-play-detail-body">Implement an open Apache Iceberg lakehouse engine to query distributed enterprise data at 50% lower compute cost than proprietary warehouses.</div>
+</div>
+<div class="p2-play-detail-col">
+<div class="p2-play-rank-badge"><span class="p2-play-rank-num">2</span> Expansion SaaS · Automation</div>
+<div class="p2-play-detail-name">Turbonomic Cloud Resource Optimization</div>
+<div class="p2-play-detail-body">Automate cloud compute rightsizing across AWS/Azure environments to immediately reduce infrastructure spend by 25–35%.</div>
+</div>
+<div class="p2-play-detail-col">
+<div class="p2-play-rank-badge"><span class="p2-play-rank-num">3</span> Transaction Motion · Integration</div>
+<div class="p2-play-detail-name">IBM API Connect for Service Monetization</div>
+<div class="p2-play-detail-body">Securely expose backend microservices to enterprise customers with robust rate limiting and API lifecycle governance.</div>
+</div>
+      </div>
+    </div>
+
+    <div class="p2-lower-section">
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Do This Now — Action Plan</div>
+        <div class="p2-action-text">1. Map key technology and data architecture decision makers.<br>2. Position watsonx.data on open Iceberg architecture vs cloud warehouse bills.<br>3. Offer a 3-week Turbonomic cloud optimization assessment.</div>
+      </div>
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Verbatim Door Opener</div>
+        <div class="p2-talk-track-text">"As enterprise technology teams look to optimize multi-cloud infrastructure and simplify data access, migrating all data into a single warehouse is too slow and expensive. IBM watsonx.data gives your engineering team an open data lakehouse that queries across your existing databases with zero replication and half the compute cost of traditional cloud warehouses. Worth 20 minutes."</div>
+      </div>
+    </div>
+
+  </div><!-- /p2-pellera -->
+
+</div><!-- /main p2 -->
+</div><!-- /panel-p2 -->
+
+<!-- PHASE 3 — MY ACCOUNTS -->
+<div class="phase-panel" id="panel-p3">
+<div class="main">
+
+  <div class="p3-shell">
+    <div class="p3-rail">
+      <div class="p3-rail-hdr"><div class="p3-rail-title">Book 7 Accounts (3)</div></div>
+      <div class="p3-ra on" id="p3-ra-lennar" onclick="loadP3('lennar')">
+        <div class="p3-ra-name">Lennar Corporation</div>
+        <span class="p3-ra-urg engage">Engage · Q4 Dec 16</span>
+        <div class="p3-ra-hook">Fortune 500 Homebuilding · Miami FL</div>
+      </div>
+      <div class="p3-ra" id="p3-ra-lennarmtg" onclick="loadP3('lennarmtg')">
+        <div class="p3-ra-name">Lennar Mortgage</div>
+        <span class="p3-ra-urg engage">Engage · Active AI</span>
+        <div class="p3-ra-hook">Digital Mortgage &amp; Financial Services</div>
+      </div>
+      <div class="p3-ra" id="p3-ra-pellera" onclick="loadP3('pellera')">
+        <div class="p3-ra-name">Pellera Technologies</div>
+        <span class="p3-ra-urg standby">Standby · Tech Services</span>
+        <div class="p3-ra-hook">Platform Modernization &amp; FinOps</div>
+      </div>
+    </div>
+    <div class="p3-detail-pane">
+      <div class="p3-dp-card" id="p3-detail-lennar">
+        <div class="p3-dp-hdr">
+          <div class="p3-dp-hdr-top">
+            <div class="p3-dp-logo"><img src="LOGOS/lennar.png" alt="Lennar Corporation Logo" onerror="this.parentElement.innerHTML='<b>LENNAR</b>'"></div>
+            <div>
+              <div style="font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;">Hazem Marzouk &amp; Srajan Dube · Edition 14 · Nov 9, 2026</div>
+              <div class="p3-dp-acct-name">Lennar Corporation (NYSE: LEN)</div>
+              <div class="p3-dp-acct-meta">Fortune 500 Homebuilding · Miami FL · 12,000+ Employees · Nationwide Divisions</div>
+            </div>
+          </div>
+          <div class="p3-dp-thesis"><strong>Account Thesis:</strong> Lennar is the nation's premier homebuilder, operating a high-velocity, land-light manufacturing model. Corporate strategy focuses on asset-light land acquisition via lot option contracts, community build-out speed, and maintaining high Return on Equity (ROE).</div>
+          <div class="p3-dp-vitals">
+            <div class="p3-vital"><div class="p3-vital-lbl">Tier</div><div class="p3-vital-val" style="color:var(--t4);">Engage · Q4 Dec 16</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">IBM Lead</div><div class="p3-vital-val">Data &amp; AI</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">Top Play</div><div class="p3-vital-val">Planning Analytics Fit</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">Primary Entry</div><div class="p3-vital-val">Chief Financial Officer &amp; Treasurer</div></div>
+          </div>
+        </div>
+        <div class="p3-dp-body">
+          <div class="p3-sec"><span class="p3-sec-lbl">IBM Play Heat Scores</span><div class="p3-sec-line"></div></div>
+          <div class="p3-heat-grid">
+<div class="p3-heat-card" style="--hc:#0043CE;">
+<div class="p3-heat-play">Planning Analytics Fit</div>
+<div class="p3-heat-score">94</div>
+<div class="p3-heat-bar"><div class="p3-heat-fill" style="width:94%;"></div></div>
+<div class="p3-heat-conviction">Deploy Planning Analytics to model lot option takedowns, regional absorption rates, and subdivision gross margins in real time.</div>
+</div>
+<div class="p3-heat-card" style="--hc:#006644;">
+<div class="p3-heat-play">Supply Chain AI Need</div>
+<div class="p3-heat-score">82</div>
+<div class="p3-heat-bar"><div class="p3-heat-fill" style="width:82%;"></div></div>
+<div class="p3-heat-conviction">Predict trade partner delays and material supply disruptions to shave 8–12 days off average home construction cycle times.</div>
+</div>
+<div class="p3-heat-card" style="--hc:#5A189A;">
+<div class="p3-heat-play">Cloud Cost Optimization</div>
+<div class="p3-heat-score">76</div>
+<div class="p3-heat-bar"><div class="p3-heat-fill" style="width:76%;"></div></div>
+<div class="p3-heat-conviction">Automate cloud resource scaling across Lennar's high-traffic home shopping portals and builder inventory databases.</div>
+</div>
+          </div>
+          <div class="p3-sec"><span class="p3-sec-lbl">Competitive Threats</span><div class="p3-sec-line"></div></div>
+          <div class="p3-threats">
+            <div class="p3-threat">
+              <div class="p3-threat-top"><div class="p3-threat-name">Anaplan and Oracle Hyperion</div><span class="p3-threat-level">Active</span></div>
+              <div class="p3-threat-doing">are pitching corporate financial planning extensions.</div>
+              <div class="p3-threat-counter"><strong>IBM Counter:</strong> Position IBM Planning Analytics directly on operational lot option cash flows, subdivision absorption modeling, and dynamic interest-rate buydown sensitivity that standard FP&amp;A packages cannot calculate.</div>
+            </div>
+          </div>
+          <div class="p3-sec"><span class="p3-sec-lbl">This Week's Move</span><div class="p3-sec-line"></div></div>
+          <div class="p3-move">
+            <div class="p3-move-row"><span class="p3-move-lbl">Do Today</span><div class="p3-move-text">Executive outreach to Diane Bessette (CFO) and VP FP&amp;A.</div></div>
+            <div class="p3-move-row"><span class="p3-move-lbl">This Week</span><div class="p3-move-text">Position Planning Analytics on the land-light subdivision build-out model. Schedule briefing before the Dec 16 Q4 earnings call.</div></div>
+            <div class="p3-move-row"><span class="p3-move-lbl">Talk Track</span><div class="p3-move-track">"As Lennar scales its land-light strategy ahead of Q4 earnings, managing lot option takedowns and interest-rate sensitivity across hundreds of active communities requires real-time multidimensional modeling. IBM Planning Analytics stress-tests community economics and inventory velocity in minutes rather than weeks. Worth 25 minutes before year-end planning locks."</div></div>
+          </div>
+        </div>
+      </div><!-- /p3-detail-lennar -->
+      <div class="p3-dp-card" id="p3-detail-lennarmtg" style="display:none;">
+        <div class="p3-dp-hdr">
+          <div class="p3-dp-hdr-top">
+            <div class="p3-dp-logo"><img src="LOGOS/lenmar.png" alt="Lennar Mortgage Logo" onerror="this.parentElement.innerHTML='<b>LENMAR</b>'"></div>
+            <div>
+              <div style="font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;">Hazem Marzouk &amp; Srajan Dube · Edition 14 · Nov 9, 2026</div>
+              <div class="p3-dp-acct-name">Lennar Mortgage</div>
+              <div class="p3-dp-acct-meta">Financial Services &amp; Digital Mortgage Origination · Lennar Corp Subsidiary</div>
+            </div>
+          </div>
+          <div class="p3-dp-thesis"><strong>Account Thesis:</strong> Lennar Mortgage captures high volume from Lennar home purchases through automated digital pre-approvals and underwriting. Expanding machine-learning credit decisioning brings severe CFPB Fair Lending regulatory oversight, requiring robust model governance.</div>
+          <div class="p3-dp-vitals">
+            <div class="p3-vital"><div class="p3-vital-lbl">Tier</div><div class="p3-vital-val" style="color:var(--t4);">Engage · Active AI</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">IBM Lead</div><div class="p3-vital-val">Data &amp; AI</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">Top Play</div><div class="p3-vital-val">watsonx.governance Fit</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">Primary Entry</div><div class="p3-vital-val">Digital Origination &amp; POS Systems</div></div>
+          </div>
+        </div>
+        <div class="p3-dp-body">
+          <div class="p3-sec"><span class="p3-sec-lbl">IBM Play Heat Scores</span><div class="p3-sec-line"></div></div>
+          <div class="p3-heat-grid">
+<div class="p3-heat-card" style="--hc:#0043CE;">
+<div class="p3-heat-play">watsonx.governance Fit</div>
+<div class="p3-heat-score">96</div>
+<div class="p3-heat-bar"><div class="p3-heat-fill" style="width:96%;"></div></div>
+<div class="p3-heat-conviction">Automate AI model explainability, disparity testing, and CFPB compliance documentation across all automated underwriting algorithms.</div>
+</div>
+<div class="p3-heat-card" style="--hc:#006644;">
+<div class="p3-heat-play">Borrower Data Security</div>
+<div class="p3-heat-score">88</div>
+<div class="p3-heat-bar"><div class="p3-heat-fill" style="width:88%;"></div></div>
+<div class="p3-heat-conviction">Continuous monitoring, encryption, and compliance masking for non-public personal information across cloud loan origination databases.</div>
+</div>
+<div class="p3-heat-card" style="--hc:#5A189A;">
+<div class="p3-heat-play">Origination Integration</div>
+<div class="p3-heat-score">78</div>
+<div class="p3-heat-bar"><div class="p3-heat-fill" style="width:78%;"></div></div>
+<div class="p3-heat-conviction">Securely connect buyer financial records across home sales, mortgage origination, and title systems with zero data duplication.</div>
+</div>
+          </div>
+          <div class="p3-sec"><span class="p3-sec-lbl">Competitive Threats</span><div class="p3-sec-line"></div></div>
+          <div class="p3-threats">
+            <div class="p3-threat">
+              <div class="p3-threat-top"><div class="p3-threat-name">Point compliance consultants and generic cloud monitoring</div><span class="p3-threat-level">Active</span></div>
+              <div class="p3-threat-doing">lack automated model lifecycle tracking.</div>
+              <div class="p3-threat-counter"><strong>IBM Counter:</strong> watsonx.governance integrates directly with Encompass and ML frameworks to provide automated fairness audits and regulatory proof.</div>
+            </div>
+          </div>
+          <div class="p3-sec"><span class="p3-sec-lbl">This Week's Move</span><div class="p3-sec-line"></div></div>
+          <div class="p3-move">
+            <div class="p3-move-row"><span class="p3-move-lbl">Do Today</span><div class="p3-move-text">Connect with Head of Mortgage Tech and Chief Credit Officer.</div></div>
+            <div class="p3-move-row"><span class="p3-move-lbl">This Week</span><div class="p3-move-text">Lead with watsonx.governance for Fair Lending disparity auditing. Introduce Guardium for borrower NPI data masking.</div></div>
+            <div class="p3-move-row"><span class="p3-move-lbl">Talk Track</span><div class="p3-move-track">"As Lennar Mortgage scales automated loan approvals, CFPB and Fair Lending scrutiny on underwriting AI models is at an all-time high. IBM watsonx.governance monitors your automated decision models for bias, drift, and regulatory compliance in real time without slowing down origination velocity. Worth 20 minutes with your risk and mortgage tech team."</div></div>
+          </div>
+        </div>
+      </div><!-- /p3-detail-lennarmtg -->
+      <div class="p3-dp-card" id="p3-detail-pellera" style="display:none;">
+        <div class="p3-dp-hdr">
+          <div class="p3-dp-hdr-top">
+            <div class="p3-dp-logo"><img src="LOGOS/pellera.png" alt="Pellera Technologies Logo" onerror="this.parentElement.innerHTML='<b>PELLER</b>'"></div>
+            <div>
+              <div style="font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;">Hazem Marzouk &amp; Srajan Dube · Edition 14 · Nov 9, 2026</div>
+              <div class="p3-dp-acct-name">Pellera Technologies</div>
+              <div class="p3-dp-acct-meta">Enterprise Technology Services &amp; Platform Infrastructure · South Florida Coverage</div>
+            </div>
+          </div>
+          <div class="p3-dp-thesis"><strong>Account Thesis:</strong> Specialized enterprise technology services platform modernizing distributed data pipelines and rationalizing hybrid cloud infrastructure expenses to expand operating margins.</div>
+          <div class="p3-dp-vitals">
+            <div class="p3-vital"><div class="p3-vital-lbl">Tier</div><div class="p3-vital-val" style="color:var(--ibm-deep);">Standby · Tech Services</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">IBM Lead</div><div class="p3-vital-val">Data &amp; AI</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">Top Play</div><div class="p3-vital-val">watsonx.data Lakehouse Fit</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">Primary Entry</div><div class="p3-vital-val">Enterprise Architecture &amp; Cloud Platform</div></div>
+          </div>
+        </div>
+        <div class="p3-dp-body">
+          <div class="p3-sec"><span class="p3-sec-lbl">IBM Play Heat Scores</span><div class="p3-sec-line"></div></div>
+          <div class="p3-heat-grid">
+<div class="p3-heat-card" style="--hc:#0043CE;">
+<div class="p3-heat-play">watsonx.data Lakehouse Fit</div>
+<div class="p3-heat-score">84</div>
+<div class="p3-heat-bar"><div class="p3-heat-fill" style="width:84%;"></div></div>
+<div class="p3-heat-conviction">Implement an open Apache Iceberg lakehouse engine to query distributed enterprise data at 50% lower compute cost than proprietary warehouses.</div>
+</div>
+<div class="p3-heat-card" style="--hc:#006644;">
+<div class="p3-heat-play">Turbonomic Cloud Savings</div>
+<div class="p3-heat-score">82</div>
+<div class="p3-heat-bar"><div class="p3-heat-fill" style="width:82%;"></div></div>
+<div class="p3-heat-conviction">Automate cloud compute rightsizing across AWS/Azure environments to immediately reduce infrastructure spend by 25–35%.</div>
+</div>
+<div class="p3-heat-card" style="--hc:#5A189A;">
+<div class="p3-heat-play">API Connect Integration</div>
+<div class="p3-heat-score">70</div>
+<div class="p3-heat-bar"><div class="p3-heat-fill" style="width:70%;"></div></div>
+<div class="p3-heat-conviction">Securely expose backend microservices to enterprise customers with robust rate limiting and API lifecycle governance.</div>
+</div>
+          </div>
+          <div class="p3-sec"><span class="p3-sec-lbl">Competitive Threats</span><div class="p3-sec-line"></div></div>
+          <div class="p3-threats">
+            <div class="p3-threat">
+              <div class="p3-threat-top"><div class="p3-threat-name">Snowflake and Databricks</div><span class="p3-threat-level">Active</span></div>
+              <div class="p3-threat-doing">drive high monthly compute bills.</div>
+              <div class="p3-threat-counter"><strong>IBM Counter:</strong> watsonx.data open Iceberg architecture queries across existing databases with zero migration cost and 50% lower compute fees.</div>
+            </div>
+          </div>
+          <div class="p3-sec"><span class="p3-sec-lbl">This Week's Move</span><div class="p3-sec-line"></div></div>
+          <div class="p3-move">
+            <div class="p3-move-row"><span class="p3-move-lbl">Do Today</span><div class="p3-move-text">Map CTO and VP Infrastructure leaders.</div></div>
+            <div class="p3-move-row"><span class="p3-move-lbl">This Week</span><div class="p3-move-text">Propose a 14-day Turbonomic cloud cost reduction assessment. Position watsonx.data for zero-replication data querying.</div></div>
+            <div class="p3-move-row"><span class="p3-move-lbl">Talk Track</span><div class="p3-move-track">"As enterprise technology teams look to optimize multi-cloud infrastructure and simplify data access, migrating all data into a single warehouse is too slow and expensive. IBM watsonx.data gives your engineering team an open data lakehouse that queries across your existing databases with zero replication and half the compute cost of traditional cloud warehouses. Worth 20 minutes."</div></div>
+          </div>
+        </div>
+      </div><!-- /p3-detail-pellera -->
+    </div>
+  </div>
+
+</div><!-- /main p3 -->
+</div><!-- /panel-p3 -->
+
+<!-- PHASE 4 — TARGET BUYER CONTACTS -->
+<div class="phase-panel" id="panel-p4">
+<div class="main">
+
+    <div class="p4-section" id="p4-lennar">
+    <div class="p4-sec-hdr">
+      <div>
+        <div class="p4-sec-co">Lennar Corporation — Target Buyer Roster</div>
+        <div class="p4-sec-sub">Verified live Sales Navigator contacts · Director / VP / CXO · pulled Nov 10, 2026 · Company SNav ID 164711 · Data, AI and corporate technology</div>
+      </div>
+      <span class="p2-tier-badge p2-tier-engage">Engage</span>
+    </div>
+    <div class="p4-grid">
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Sourav Sarkar</div><div class="p4-ct-score">96</div></div>
+        <div class="p4-ct-title">Head of Identity and Access Management - Security Engineering &amp; Architecture</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">1 TeamLink</span><span class="p4-ct-tag">Best Entry</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Data, AI and corporate technology conversation. CRM record is stale, so reconnect before a cold touch. 1 TeamLink. <em>Irving, Texas, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAFRyMIBMYD3yb0DfhBSCeP-bSH3_dL_cBs,NAME_SEARCH,3wc1" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Jason Astacio</div><div class="p4-ct-score">92</div></div>
+        <div class="p4-ct-title">VP of Cloud &amp; Cybersecurity</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Data, AI and corporate technology conversation. CRM record is stale, so reconnect before a cold touch. <em>Miami-Fort Lauderdale Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAhvOxoBlt7mC0oxqYBjPOWE6mlzk_DCVBU,NAME_SEARCH,bPPB" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Lee Slezak</div><div class="p4-ct-score">88</div></div>
+        <div class="p4-ct-title">SVP, Technology: Data &amp; AI</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">7 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Data, AI and corporate technology conversation. Already in CRM. Check owner and last touch. 7 TeamLink. <em>Miami, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAE7X0oBoBcD5d19ipFEOvfbJyng6NjHhR8,NAME_SEARCH,bpNr" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Avi Boru</div><div class="p4-ct-score">84</div></div>
+        <div class="p4-ct-title">Senior Director, AI Engineering</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">1 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Data, AI and corporate technology conversation. Already in CRM. Check owner and last touch. 1 TeamLink. <em>Miami, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAACSJjI8BE1Tk1kiNlrSIRCLm-9La7l0GLP8,NAME_SEARCH,v5hX" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Ben Locke</div><div class="p4-ct-score">80</div></div>
+        <div class="p4-ct-title">Vice President of Digital Data</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Data, AI and corporate technology conversation. Already in CRM. Check owner and last touch. <em>Boston, Massachusetts, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAABrmo8Ba7EpRwFMVBdBiebADfFB3a-_v8I,NAME_SEARCH,8utx" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Joel Sporleder</div><div class="p4-ct-score">76</div></div>
+        <div class="p4-ct-title">Senior Director, Data Products and Advanced Analytics</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">8 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Data, AI and corporate technology conversation. Already in CRM. Check owner and last touch. 8 TeamLink. <em>Bentonville, Arkansas, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAC4zzABQejFIYVTctTMi7kmYrX7V0e06o8,NAME_SEARCH,CjjI" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Javier Gonzalez</div><div class="p4-ct-score">72</div></div>
+        <div class="p4-ct-title">Sr. Director of Digital Experience</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">4 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Data, AI and corporate technology conversation. Already in CRM. Check owner and last touch. 4 TeamLink. <em>Miami-Fort Lauderdale Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAZ2bDUBjnxBRzJ43vQKc4Jl_WNcfhj7akM,NAME_SEARCH,ozXP" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Julker Nain</div><div class="p4-ct-score">68</div></div>
+        <div class="p4-ct-title">Director of Engineering</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Data, AI and corporate technology conversation. Already in CRM. Check owner and last touch. <em>Irving, Texas, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAmdLEIBMpDWf-1PRdipSsSUcIUfXrJloHU,NAME_SEARCH,XAIn" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Jared Sholk</div><div class="p4-ct-score">64</div></div>
+        <div class="p4-ct-title">Senior Director AI for HR, Insights, and Governance</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Data, AI and corporate technology conversation. Already in CRM. Check owner and last touch. <em>Rogers, Arkansas, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAA2vZr4BjvbGFavV4JKxoxy7G6uL2C1js2w,NAME_SEARCH,3Cjd" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">John Raspa</div><div class="p4-ct-score">60</div></div>
+        <div class="p4-ct-title">Director Software Engineering - ERP and Corporate Systems</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Data, AI and corporate technology conversation. <em>Miami, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAFK72sBrsMJw18zOFwKergsLoDh39DuARg,NAME_SEARCH,G1lK" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Brendan F.</div><div class="p4-ct-score">60</div></div>
+        <div class="p4-ct-title">Senior Director of Corporate IT</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">1 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Data, AI and corporate technology conversation. 1 TeamLink. <em>San Francisco, California, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAEIY1EBY6n8pnoR2xZ74Ao0HOGvawqEz4o,NAME_SEARCH,Pujj" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Tracy Young</div><div class="p4-ct-score">60</div></div>
+        <div class="p4-ct-title">VP of Strategic Initiatives</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">11 TeamLink</span></div>
+        <div class="p4-ct-why">Finance or strategy leader who can sponsor the Data, AI and corporate technology conversation. 11 TeamLink. <em>San Francisco, California, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAABJg3kBB0BM_11OrVdTZUwbt3fZHdojJzg,NAME_SEARCH,LPKl" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="p4-section" id="p4-lennarmtg">
+    <div class="p4-sec-hdr">
+      <div>
+        <div class="p4-sec-co">Lennar Mortgage — Target Buyer Roster</div>
+        <div class="p4-sec-sub">Verified live Sales Navigator contacts · Director / VP / CXO · pulled Nov 10, 2026 · Company SNav ID 73963099 · Mortgage operations, data and risk governance</div>
+      </div>
+      <span class="p2-tier-badge p2-tier-engage">Engage</span>
+    </div>
+    <div class="p4-grid">
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Kate Bymark-Coss</div><div class="p4-ct-score">96</div></div>
+        <div class="p4-ct-title">Senior Director of Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">Best Entry</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the Mortgage operations, data and risk governance conversation. CRM record is stale, so reconnect before a cold touch. <em>United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAADC2Za8BFft9JA42vMOiqvmzEtmLRJcjIQ0,NAME_SEARCH,5gU5" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Stacey Reid</div><div class="p4-ct-score">92</div></div>
+        <div class="p4-ct-title">Senior Director Of FP&amp;A</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Finance or strategy leader who can sponsor the Mortgage operations, data and risk governance conversation. CRM record is stale, so reconnect before a cold touch. <em>Largo, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAEP3t4BXt3LU-_XqD_2mbrl3US-bFyUGlk,NAME_SEARCH,QJzJ" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Hilda Melendez</div><div class="p4-ct-score">88</div></div>
+        <div class="p4-ct-title">Quality Control Systems Director</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Mortgage operations, data and risk governance conversation. CRM record is stale, so reconnect before a cold touch. <em>Miami, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAADxVisBkdAQcjooWoShMCIk-Hm1Z6gbH2g,NAME_SEARCH,p1ZM" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Bill Sarnese</div><div class="p4-ct-score">84</div></div>
+        <div class="p4-ct-title">Director Of Network Operations at Lennar Mortgage</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the Mortgage operations, data and risk governance conversation. CRM record is stale, so reconnect before a cold touch. <em>Tampa, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAABKWEEBHBA5D0botoprkA7YvB7lQdodBdc,NAME_SEARCH,Uoyc" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Jessica Germain</div><div class="p4-ct-score">80</div></div>
+        <div class="p4-ct-title">Regional Director of Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the Mortgage operations, data and risk governance conversation. CRM record is stale, so reconnect before a cold touch. <em>St. Petersburg, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAXzM8cBZndOKp56LTnK-rkbNWT6q04VO88,NAME_SEARCH,oII8" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Cheryl Curtis</div><div class="p4-ct-score">76</div></div>
+        <div class="p4-ct-title">Regional Director of Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the Mortgage operations, data and risk governance conversation. CRM record is stale, so reconnect before a cold touch. <em>United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAVe0YQBRs41OBWo4mJRijodA4l1P6LwRXU,NAME_SEARCH,FwzB" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Roxanne Phillips</div><div class="p4-ct-score">72</div></div>
+        <div class="p4-ct-title">Director of Support Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the Mortgage operations, data and risk governance conversation. CRM record is stale, so reconnect before a cold touch. <em>Miami-Fort Lauderdale Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAA0NX_gBBTqQK6YmgzpujYfFGCbU_UXrhXM,NAME_SEARCH,_ZV4" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Mark Mudrey</div><div class="p4-ct-score">68</div></div>
+        <div class="p4-ct-title">Director, Data &amp; Analytics</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Mortgage operations, data and risk governance conversation. Already in CRM. Check owner and last touch. <em>Clearwater, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAEcl-kB49MeiC-xpHxBOgS-8XJa6IktHD0,NAME_SEARCH,kq2O" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Jennifer Marconi</div><div class="p4-ct-score">64</div></div>
+        <div class="p4-ct-title">Senior Director of Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the Mortgage operations, data and risk governance conversation. Already in CRM. Check owner and last touch. <em>Fort Mill, South Carolina, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAABojqHUBwAzC5elqoWpNImtYYhj6jGeOwNw,NAME_SEARCH,oqF4" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Hannah Fragapane, CMCP</div><div class="p4-ct-score">60</div></div>
+        <div class="p4-ct-title">Director of Compliance &amp; Risk Management</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Mortgage operations, data and risk governance conversation. <em>Greater Cleveland.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAB4_GaABZ5K7o3uf-mRvNbUw1qAf5XAGVxY,NAME_SEARCH,v2YJ" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="p4-section" id="p4-pellera">
+    <div class="p4-sec-hdr">
+      <div>
+        <div class="p4-sec-co">Pellera Technologies — Target Buyer Roster</div>
+        <div class="p4-sec-sub">Verified live Sales Navigator contacts · Director / VP / CXO · pulled Nov 10, 2026 · Company SNav ID 106708400 · Infrastructure, cloud and AI services leadership</div>
+      </div>
+      <span class="p2-tier-badge p2-tier-standby">Standby</span>
+    </div>
+    <div class="p4-grid">
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Maneesh Kapoor</div><div class="p4-ct-score">96</div></div>
+        <div class="p4-ct-title">Global Head of Infrastructure &amp; IT Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">3 TeamLink</span><span class="p4-ct-tag">Best Entry</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Infrastructure, cloud and AI services leadership conversation. CRM record is stale, so reconnect before a cold touch. 2nd-degree connection. 3 TeamLink. <em>Deer Park, New York, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAABXg6cBBOyNtpRU5Jn15UreJqIMilpCm6M,NAME_SEARCH,oRPl" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Farhan Hussain</div><div class="p4-ct-score">92</div></div>
+        <div class="p4-ct-title">Vice President - Hybrid Cloud, Application Modernization and Data</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">55 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Infrastructure, cloud and AI services leadership conversation. CRM record is stale, so reconnect before a cold touch. 2nd-degree connection. 55 TeamLink. <em>Dallas-Fort Worth Metroplex.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAB18WMBhfZDWmIAE5sGJWfcLU4gwsaUSrk,NAME_SEARCH,vSBN" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Beth Briner</div><div class="p4-ct-score">88</div></div>
+        <div class="p4-ct-title">VP, Client Strategic Innovation</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">28 TeamLink</span></div>
+        <div class="p4-ct-why">Finance or strategy leader who can sponsor the Infrastructure, cloud and AI services leadership conversation. CRM record is stale, so reconnect before a cold touch. 2nd-degree connection. 28 TeamLink. <em>Atlanta Metropolitan Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAABnJIkBNqVo3229-NKBPngUe-THX5rCRe0,NAME_SEARCH,RXtv" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Tony Petcou</div><div class="p4-ct-score">84</div></div>
+        <div class="p4-ct-title">Vice President - Cybersecurity</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">95 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Infrastructure, cloud and AI services leadership conversation. CRM record is stale, so reconnect before a cold touch. 2nd-degree connection. 95 TeamLink. <em>Rochester, Michigan, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAABPP_ABP8o5kvGVj3iChM9FviABV4imYE4,NAME_SEARCH,LCp8" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Darrin Nelson</div><div class="p4-ct-score">80</div></div>
+        <div class="p4-ct-title">Executive Vice President of Strategic Growth and GTM Enablement</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">328 TeamLink</span></div>
+        <div class="p4-ct-why">Finance or strategy leader who can sponsor the Infrastructure, cloud and AI services leadership conversation. CRM record is stale, so reconnect before a cold touch. 2nd-degree connection. 328 TeamLink. <em>Boca Raton, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAAZLOsBRAewUehfm4MZ9nL-F0OMXzm4L0o,NAME_SEARCH,Dknv" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Josh Yaus</div><div class="p4-ct-score">76</div></div>
+        <div class="p4-ct-title">Senior Director, Artificial Intelligence</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">2 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Infrastructure, cloud and AI services leadership conversation. CRM record is stale, so reconnect before a cold touch. 2 TeamLink. <em>Ranchos De Taos, New Mexico, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAA8fRYBi-URqJ4u9t95opAnolxBHd0cglY,NAME_SEARCH,HsvN" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Preetam Shetty</div><div class="p4-ct-score">72</div></div>
+        <div class="p4-ct-title">Vice President - Infrastructure &amp; Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Infrastructure, cloud and AI services leadership conversation. CRM record is stale, so reconnect before a cold touch. <em>Mumbai, Maharashtra, India.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAHJMDUB3M7DBYwRyMWSgl_DAO0qpYOagzI,NAME_SEARCH,Jsy1" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Manoj Khabe</div><div class="p4-ct-score">68</div></div>
+        <div class="p4-ct-title">VP Of Observability &amp; Intelligent Operations | Office Of The CTO | AI Governance</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">130 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Infrastructure, cloud and AI services leadership conversation. Already in CRM. Check owner and last touch. 2nd-degree connection. 130 TeamLink. <em>New York, New York, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAIITmAB2ZFGHWidPQ_WRvo85JBe0x4oqZ8,NAME_SEARCH,PUl_" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Rama Devagiri</div><div class="p4-ct-score">64</div></div>
+        <div class="p4-ct-title">Director Platform Engineering</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">11 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Infrastructure, cloud and AI services leadership conversation. Already in CRM. Check owner and last touch. 2nd-degree connection. 11 TeamLink. <em>Greater Boston.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAACUKyoBl-enLDJyAKsAJdZWGPfmBcNI-5Q,NAME_SEARCH,MZRA" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Carlos A. Villalba F.</div><div class="p4-ct-score">60</div></div>
+        <div class="p4-ct-title">Vice President, Cybersecurity Services</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">2 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Infrastructure, cloud and AI services leadership conversation. 2 TeamLink. <em>Melbourne, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAABRBgoBPyUOzHlb5MdNBcFyvKMTAUrWxcQ,NAME_SEARCH,nX5U" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main p4 -->
+</div><!-- /panel-p4 -->
+
+<div class="footer">
+  IBM SF Intel Brief · Edition 14 · Hazem Marzouk &amp; Srajan Dube · IBM South Florida · Nov 9, 2026<br>
+  Made with IBM Bob
+</div>
+
+<script>
+function showPhase(id) {
+  document.querySelectorAll('.phase-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.ptab').forEach(function(t){ t.classList.remove('on'); });
+  var panel = document.getElementById('panel-' + id);
+  var tab = document.getElementById('tab-' + id);
+  if (panel) panel.classList.add('active');
+  if (tab) tab.classList.add('on');
+  var jb = document.getElementById('p1-jump-bar');
+  if (jb) jb.style.display = (id === 'p1') ? 'flex' : 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function loadP3(acctId) {
+  document.querySelectorAll('.p3-ra').forEach(function(r){ r.classList.remove('on'); });
+  var ra = document.getElementById('p3-ra-' + acctId);
+  if (ra) ra.classList.add('on');
+  document.querySelectorAll('.p3-dp-card').forEach(function(c){ c.style.display = 'none'; });
+  var d = document.getElementById('p3-detail-' + acctId);
+  if (d) d.style.display = 'block';
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IBM SF Intel Brief | Edition 14 | IBM South Florida | Nov 9, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#f0f2f5; --card:#ffffff; --surface:#f4f6f9; --border:#dde1e9;
+  --text:#161616; --muted:#525252; --ink-low:#6B779A;
+  --navy:#0f1c3a; --accent:#0f62fe; --accent-dk:#0043ce;
+  --saas:#006644; --trans:#5A189A;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'IBM Plex Sans', -apple-system, sans-serif; font-size: 13px; line-height: 1.7; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; color: inherit; }
+
+/* ── TOPBAR ── */
+.topnav { position: sticky; top: 0; z-index: 300; background: rgba(255,255,255,.97); backdrop-filter: blur(16px); border-top: 3px solid var(--accent); border-bottom: 1px solid var(--border); height: 51px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; }
+.tn-left { display: flex; align-items: center; gap: 12px; }
+.tn-ibm { font-size: 20px; font-weight: 700; color: var(--accent); letter-spacing: -.5px; }
+.tn-div { width: 1px; height: 18px; background: #C8CEDD; }
+.tn-title { font-size: 11px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-low); }
+.tn-badge { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; background: var(--accent); color: #fff; padding: 2px 10px; border-radius: 20px; }
+.tn-links { display:flex; align-items:center; gap:0; overflow-x:auto; scrollbar-width:none; }
+.tn-links::-webkit-scrollbar { display:none; }
+.tn-links a { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-low); padding:6px 11px; border-bottom:2px solid transparent; white-space:nowrap; text-decoration:none; }
+.tn-links a:hover { color:var(--accent); }
+.tn-links a.active { color:var(--accent); border-bottom-color:var(--accent); background:rgba(15,98,254,.08); }
+.tn-sep { color:#C8CEDD; padding:0 3px; user-select:none; }
+.tn-right { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-low); white-space:nowrap; flex-shrink:0; }
+
+/* ── HERO ── */
+.hero { background: var(--navy); padding: 40px 0 36px; border-bottom: 3px solid var(--accent); }
+.hero-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.hero-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #4a6080; margin-bottom: 8px; }
+.hero-title { font-size: 36px; font-weight: 900; color: #fff; letter-spacing: -.5px; line-height: 1.1; margin-bottom: 8px; }
+.hero-title span { color: var(--accent); }
+.hero-sub { font-size: 13px; color: #8a9ab8; margin-bottom: 22px; max-width: 620px; line-height: 1.7; }
+.hero-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+.h-pill { font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
+.hp-base { background: rgba(15,98,254,.18); color: #a8c8ff; }
+.hp-dim { background: rgba(255,255,255,.08); color: #8a9ab8; }
+.hp-green { background: rgba(0,168,107,.15); color: #6ee08a; }
+.hp-red { background: rgba(220,30,38,.18); color: #fca5a5; }
+.hp-amber { background: rgba(180,83,9,.18); color: #fdba74; }
+
+/* ── PAGE LAYOUT ── */
+.page { max-width: 1200px; margin: 0 auto; padding: 32px 40px 64px; }
+
+/* ── SECTION LABEL ── */
+.sh { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.sh-lbl { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.sh-line { flex: 1; height: 1px; background: var(--border); }
+
+/* ── ALERT BANNER ── */
+.alert { background: #1a0808; border: 1px solid rgba(220,30,38,.25); border-left: 4px solid #da1e28; border-radius: 5px; padding: 14px 20px; margin-bottom: 28px; display: flex; align-items: flex-start; gap: 14px; }
+.alert-icon { font-family: 'IBM Plex Mono', monospace; font-size: 8px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; background: #da1e28; color: #fff; padding: 4px 10px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+.alert-txt { font-size: 12px; color: #fca5a5; line-height: 1.7; }
+.alert-txt strong { color: #fff; }
+
+/* ── PHASE GRID ── */
+.phase-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+.phase-tile { background: var(--card); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; transition: border-color .12s, transform .1s; display: block; }
+.phase-tile:hover { border-color: var(--accent); transform: translateY(-1px); }
+.pt-cap { background: var(--navy); padding: 16px 18px 13px; }
+.pt-num { font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #4a6080; margin-bottom: 3px; }
+.pt-name { font-size: 15px; font-weight: 800; color: #fff; }
+.pt-desc { font-size: 11px; color: #5a7a9a; margin-top: 3px; line-height: 1.5; }
+.pt-body { padding: 14px 18px 16px; }
+.pt-big { font-family: 'IBM Plex Mono', monospace; font-size: 24px; font-weight: 700; color: var(--accent); line-height: 1; }
+.pt-big-lbl { font-size: 10.5px; color: var(--muted); margin-top: 2px; }
+.pt-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 10px; }
+.pt-tag { font-family: 'IBM Plex Mono', monospace; font-size: 7.5px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; }
+.tt-strike { background: #7f1d1d; color: #fca5a5; }
+.tt-engage { background: #431407; color: #fdba74; }
+.tt-standby { background: rgba(15,98,254,.12); color: #a8c8ff; }
+.pt-cta { font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-top: 12px; display: block; }
+
+/* ── SELLER GRID ── */
+.seller-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 40px; }
+.s-card { background: var(--card); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; transition: border-color .12s, transform .1s; }
+.s-card:hover { border-color: var(--accent); transform: translateY(-1px); }
+.s-card-top { padding: 16px 18px 14px; border-bottom: 1px solid var(--border); display: flex; gap: 13px; align-items: flex-start; }
+.s-av { width: 42px; height: 42px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 700; color: #a8c8ff; flex-shrink: 0; }
+.s-info-name { font-size: 14px; font-weight: 800; color: var(--text); line-height: 1.2; }
+.s-info-book { font-family: 'IBM Plex Mono', monospace; font-size: 8px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-low); margin-top: 2px; }
+.s-body { padding: 13px 18px 14px; flex: 1; }
+.s-accounts { font-size: 11.5px; color: var(--muted); line-height: 1.75; }
+.s-accounts strong { color: var(--text); font-weight: 600; }
+.s-tiers { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 9px; }
+.s-tier { font-family: 'IBM Plex Mono', monospace; font-size: 7.5px; font-weight: 800; letter-spacing: .5px; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; }
+.st-s { background: #7f1d1d; color: #fca5a5; }
+.st-e { background: #431407; color: #fdba74; }
+.st-bss { background: var(--navy); color: #a8c8ff; }
+.st-sb { background: rgba(15,98,254,.1); color: #a8c8ff; }
+.s-foot { gap: 12px; padding: 10px 18px; border-top: 1px solid var(--border); background: var(--surface); display: flex; justify-content: space-between; align-items: center; }
+.s-foot-sub { font-family: 'IBM Plex Mono', monospace; font-size: 7.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-low); }
+.s-foot-cta { font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); }
+
+/* ── SIGNAL STRIP (what changed this week) ── */
+.signals-strip { background: var(--card); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 40px; }
+.ss-hdr { background: var(--navy); padding: 11px 20px; font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #a8c8ff; }
+.ss-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.ss-item { padding: 14px 18px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.ss-item:nth-child(3n) { border-right: none; }
+.ss-item:nth-last-child(-n+3) { border-bottom: none; }
+.ss-type { font-family: 'IBM Plex Mono', monospace; font-size: 7.5px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; color: #fff; display: inline-block; margin-bottom: 6px; }
+.ss-head { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 3px; line-height: 1.3; }
+.ss-body { font-size: 11px; color: var(--muted); line-height: 1.6; }
+.ss-angle { font-size: 11px; color: #1e3a6a; background: #edf3ff; border-left: 3px solid var(--accent); padding: 4px 8px; border-radius: 2px; margin-top: 6px; line-height: 1.5; }
+
+/* ── BSS PANEL ── */
+.bss { background: var(--card); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 40px; }
+.bss-hdr { background: var(--navy); padding: 11px 20px; font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #a8c8ff; }
+.bss-body { padding: 16px 20px; display: flex; gap: 32px; flex-wrap: wrap; }
+.bss-person { display: flex; flex-direction: column; gap: 2px; }
+.bss-name { font-size: 12.5px; font-weight: 700; color: var(--text); }
+.bss-role { font-family: 'IBM Plex Mono', monospace; font-size: 8px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-low); }
+.bss-accts { font-size: 11px; color: var(--muted); }
+
+/* ── FOOTER ── */
+.footer { border-top: 1px solid var(--border); padding: 20px 40px; text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: .14em; text-transform: uppercase; }
+
+@media (max-width: 960px) { .phase-grid { grid-template-columns: repeat(2,1fr); } .seller-grid { grid-template-columns: repeat(2,1fr); } .ss-grid { grid-template-columns: repeat(2,1fr); } .ss-item:nth-child(3n) { border-right: 1px solid var(--border); } .ss-item:nth-child(2n) { border-right: none; } }
+@media (max-width: 600px) { .phase-grid, .seller-grid, .ss-grid { grid-template-columns: 1fr; } .page { padding: 20px 16px 48px; } .hero-inner { padding: 0 16px; } }
+</style>
+<style id="nav-unify">
+.topnav{position:sticky;top:0;z-index:400;box-sizing:border-box;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-top:3px solid #0F62FE;border-bottom:1px solid #DDE1EC;height:48px;padding:0 24px;gap:16px;display:flex;align-items:center;justify-content:space-between;}
+.topnav .tn-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.topnav .tn-ibm{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:20px;font-weight:700;color:#0F62FE;letter-spacing:-.5px;}
+.topnav .tn-div{width:1px;height:18px;background:#C8CEDD;}
+.topnav .tn-title{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#6B779A;}
+.topnav .tn-badge{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:#0F62FE;color:#fff;padding:2px 10px;border-radius:20px;}
+.topnav .tn-links{display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;min-width:0;}
+.topnav .tn-links::-webkit-scrollbar{display:none;}
+.topnav .tn-links a{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:9.5px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:#6B779A;padding:6px 8px;border-bottom:2px solid transparent;white-space:nowrap;text-decoration:none;transition:color .12s;}
+.topnav .tn-links a:hover{color:#0043CE;text-decoration:none;}
+.topnav .tn-links a.active{color:#0F62FE;border-bottom-color:#0F62FE;background:rgba(15,98,254,.08);}
+.topnav .tn-links a.soon{opacity:.4;pointer-events:none;cursor:default;}
+.topnav .tn-sep{color:#C8CEDD;padding:0 1px;user-select:none;}
+.topnav .tn-sep.tn-grp{padding:0 8px;}
+.topnav .tn-right{display:none;}
+@media(max-width:1100px){.topnav{padding:0 14px;}.topnav .tn-title{display:none;}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="tn-left">
+    <span class="tn-ibm">IBM</span>
+    <span class="tn-div"></span>
+    <span class="tn-title">IBM SF Intel Brief</span>
+    <span class="tn-badge">Edition 14</span>
+  </div>
+  <div class="tn-links">
+    <a href="../../index.html" class="active">Hub</a>
+    <span class="tn-sep">·</span>
+    <a href="phase1.html">Phase 1 · Radar</a>
+    <span class="tn-sep">·</span>
+    <a href="phase2.html">Phase 2 · Intel</a>
+    <span class="tn-sep">·</span>
+    <a href="phase3.html">Phase 3 · Accounts</a>
+    <span class="tn-sep">·</span>
+    <a href="phase4.html" >Phase 4 · Contacts</a>
+    <span class="tn-sep tn-grp">|</span>
+    <a href="seller-spencer.html">Spencer</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-shari.html">Shari</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-michael.html">Michael</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-hazem.html">Hazem &amp; Srajan</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-mijee.html">Mijee</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-bss.html">BSS Team</a>
+  </div>
+  <div class="tn-right">Nov 9, 2026 · IBM South Florida</div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">IBM South Florida · SE Territory 26 · Weekly Intelligence Brief</div>
+    <div class="hero-title">IBM SF Intel Brief — <span>Edition 14</span></div>
+    <div class="hero-sub">Coverage window Nov 3–9, 2026. Icahn Q3 dropped — loss reported, follow-up window open now. H.I.G. MISTRAS vote in 15 days. Herc CEO succession announced. Navigate to your individual seller overview or any territory-wide phase view below.</div>
+    <div class="hero-pills">
+      <span class="h-pill hp-base">Territory 26</span>
+      <span class="h-pill hp-dim">Edition 14 · Nov 9, 2026</span>
+      <span class="h-pill hp-green">26 Accounts</span>
+      <span class="h-pill hp-red">2 Strike</span>
+      <span class="h-pill hp-amber">15 Engage</span>
+      <span class="h-pill hp-dim">9 Standby</span>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- ALERT -->
+  <div class="alert" style="margin-top:28px;">
+    <span class="alert-icon">This Week</span>
+    <div class="alert-txt">
+      <strong>Icahn Q3 reported Nov 3: loss of $0.31/unit, revenue beat $3.17B.</strong> Follow-up window is open now — call CFO Robert Flint this week referencing the Q3 result.
+      <strong>H.I.G. MISTRAS vote is Nov 24 — 15 days.</strong> Get watsonx.governance in front of the CTO before the deal closes.
+    </div>
+  </div>
+
+  <!-- WHAT CHANGED THIS WEEK -->
+  <div class="sh"><span class="sh-lbl">What Changed This Week</span><div class="sh-line"></div></div>
+  <div class="signals-strip">
+    <div class="ss-hdr">Live Signals — Nov 3–9, 2026</div>
+    <div class="ss-grid">
+
+      <div class="ss-item">
+        <span class="ss-type" style="background:#da1e28;">Earnings Drop</span>
+        <div class="ss-head">Icahn Q3: –$0.31/unit loss · Revenue $3.17B beat</div>
+        <div class="ss-body">Reported Nov 3. EPS missed badly ($0.09 est). Revenue beat by $841M. EBITDA loss $214M. CFO is Robert Flint.</div>
+        <div class="ss-angle"><strong>IBM:</strong> Call Flint this week. "Your Q3 showed the manual consolidation complexity — IBM Planning Analytics and Manta Lineage fix both the efficiency and the audit trail." Window is 7 days.</div>
+      </div>
+
+      <div class="ss-item">
+        <span class="ss-type" style="background:#B45309;">M&A · 15 Days</span>
+        <div class="ss-head">H.I.G. MISTRAS vote Nov 24 — closing early 2027</div>
+        <div class="ss-body">$866M deal. Shareholder vote Nov 24. MISTRAS uses AI for industrial inspection of critical infrastructure. Zero AI governance layer in place.</div>
+        <div class="ss-angle"><strong>IBM:</strong> IBM watsonx.governance before the vote. "Govern the AI you're buying before your investors ask how." 15 days to get in front of the CTO.</div>
+      </div>
+
+      <div class="ss-item">
+        <span class="ss-type" style="background:#6929C4;">Leadership</span>
+        <div class="ss-head">Herc CEO succession: Aaron Birnbaum takes over Jan 1, 2027</div>
+        <div class="ss-body">Larry Silber transitions to executive chairman. Q3 strong: rental revenue $1.254B, +12%. Guidance raised. New CEO = new priorities, new budget window.</div>
+        <div class="ss-angle"><strong>IBM:</strong> Incoming CEO + strong Q3 = capex appetite. Planning Analytics pitch on fleet utilization forecasting before new leadership locks 2027 budget.</div>
+      </div>
+
+      <div class="ss-item">
+        <span class="ss-type" style="background:#0043CE;">Earnings</span>
+        <div class="ss-head">NCLH Q3 beat Oct 29: EPS $1.12 vs $0.93 · CFO transition</div>
+        <div class="ss-body">Revenue $2.95B. Net income $491M (+121% QoQ). Stock +13.4%. CFO transition announced. $225M annualized savings program underway.</div>
+        <div class="ss-angle"><strong>IBM:</strong> Turnaround in progress, cost savings initiative live. AI governance + watsonx angle on the onboard/digital AI program during CFO transition window.</div>
+      </div>
+
+      <div class="ss-item">
+        <span class="ss-type" style="background:#0043CE;">Earnings</span>
+        <div class="ss-head">HEICO Q3 FY2026: Revenue $1.4B, +23.1% YoY</div>
+        <div class="ss-body">GAAP EPS $1.67 (+32.5%). Adj EPS slightly missed. Free cash flow $322.8M (+47.7%). Strong M&A pipeline. Both segments growing.</div>
+        <div class="ss-angle"><strong>IBM:</strong> Rapid M&A growth = integration data complexity. Data Fabric + watsonx.governance for each acquired entity's AI and data layer.</div>
+      </div>
+
+      <div class="ss-item">
+        <span class="ss-type" style="background:#0043CE;">Earnings</span>
+        <div class="ss-head">RBI/BK Q3: Net income $704M · International BK +5.8% SSS</div>
+        <div class="ss-body">Adj operating income $737M. China JV with CPE signed — 83% stake to CPE. Firehouse Subs NRG +7.8%. Royal Reset $550M program ongoing.</div>
+        <div class="ss-angle"><strong>IBM:</strong> China JV + Royal Reset = global AI expansion. Governance gap is wider now that BK China is separating. CTO conversation on AI oversight across newly restructured brand portfolio.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE TILES -->
+  <div class="sh"><span class="sh-lbl">Territory Views</span><div class="sh-line"></div></div>
+  <div class="phase-grid">
+    <a class="phase-tile" href="phase1.html">
+      <div class="pt-cap">
+        <div class="pt-num">Phase 1</div>
+        <div class="pt-name">Account Radar</div>
+        <div class="pt-desc">All 26 accounts · urgency tiers · filter by owner &amp; brand</div>
+      </div>
+      <div class="pt-body">
+        <div class="pt-big">26</div>
+        <div class="pt-big-lbl">accounts this edition</div>
+        <div class="pt-tags">
+          <span class="pt-tag tt-strike">2 Strike</span>
+          <span class="pt-tag tt-engage">15 Engage</span>
+          <span class="pt-tag tt-standby">9 Standby</span>
+        </div>
+        <span class="pt-cta">Open Radar →</span>
+      </div>
+    </a>
+    <a class="phase-tile" href="phase2.html">
+      <div class="pt-cap">
+        <div class="pt-num">Phase 2</div>
+        <div class="pt-name">Intel Brief</div>
+        <div class="pt-desc">Full account intelligence · SaaS &amp; Transaction plays · tech spend</div>
+      </div>
+      <div class="pt-body">
+        <div class="pt-big">26</div>
+        <div class="pt-big-lbl">deep-dive accounts · every account, one page each</div>
+        <div class="pt-tags">
+          <span class="pt-tag tt-engage">Planning Analytics</span>
+          <span class="pt-tag tt-standby">watsonx.gov</span>
+        </div>
+        <span class="pt-cta">Open Intel →</span>
+      </div>
+    </a>
+    <a class="phase-tile" href="phase3.html">
+      <div class="pt-cap">
+        <div class="pt-num">Phase 3</div>
+        <div class="pt-name">My Accounts</div>
+        <div class="pt-desc">One panel per account · heat scores · This Week's Move · grouped by owner</div>
+      </div>
+      <div class="pt-body">
+        <div class="pt-big">26</div>
+        <div class="pt-big-lbl">account panels · owner and BSS views</div>
+        <div class="pt-tags">
+          <span class="pt-tag tt-strike">Icahn Strike</span>
+          <span class="pt-tag tt-strike">Octave Strike</span>
+        </div>
+        <span class="pt-cta">Open Accounts →</span>
+      </div>
+    </a>
+    <a class="phase-tile" href="phase4.html">
+      <div class="pt-cap">
+        <div class="pt-num">Phase 4</div>
+        <div class="pt-name">Named Contacts</div>
+        <div class="pt-desc">Named Sales Nav contacts · role-fit scores · TeamLink signals</div>
+      </div>
+      <div class="pt-body">
+        <div class="pt-big">212</div>
+        <div class="pt-big-lbl">named contacts · 25 of 26 accounts</div>
+        <div class="pt-tags">
+          <span class="pt-tag tt-engage">Director+</span>
+          <span class="pt-tag tt-standby">TeamLink</span>
+        </div>
+        <span class="pt-cta">Open Contacts →</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- SELLER CARDS -->
+  <div class="sh"><span class="sh-lbl">Your Overview — Pick Your Name</span><div class="sh-line"></div></div>
+
+  <div class="seller-grid">
+
+    <a class="s-card" href="seller-spencer.html">
+      <div class="s-card-top">
+        <div class="s-av">SF</div>
+        <div>
+          <div class="s-info-name">Spencer Fenelon</div>
+          <div class="s-info-book">2 Accounts</div>
+        </div>
+      </div>
+      <div class="s-body">
+        <div class="s-accounts">
+          <strong>Burger King / RBI</strong> — Q3 beat. China JV signed. Royal Reset ongoing. AI governance gap widens.<br>
+          <strong>H.I.G. Capital</strong> — MISTRAS vote <strong>15 days</strong>. Govern the AI before the deal closes.
+        </div>
+        <div class="s-tiers">
+          <span class="s-tier st-e">BK Engage</span>
+          <span class="s-tier st-e">H.I.G. Engage</span>
+        </div>
+      </div>
+      <div class="s-foot">
+        <span class="s-foot-sub">Data &amp; AI · Automation</span>
+        <span class="s-foot-cta">My Overview →</span>
+      </div>
+    </a>
+
+    <a class="s-card" href="seller-shari.html">
+      <div class="s-card-top">
+        <div class="s-av">SZ</div>
+        <div>
+          <div class="s-info-name">Shari Zahed</div>
+          <div class="s-info-book">3 Accounts</div>
+        </div>
+      </div>
+      <div class="s-body">
+        <div class="s-accounts">
+          <strong>Icahn Enterprises</strong> — Q3 dropped Nov 3. Loss reported. <strong>Call CFO Robert Flint this week.</strong><br>
+          <strong>Herc Rentals</strong> — Q3 beat. New CEO Jan 1. Budget window opening.<br>
+          <strong>MasTec</strong> — Q3 call this week. Infrastructure AI play.
+        </div>
+        <div class="s-tiers">
+          <span class="s-tier st-s">Icahn Strike</span>
+          <span class="s-tier st-e">Herc Engage</span>
+          <span class="s-tier st-e">MasTec Engage</span>
+        </div>
+      </div>
+      <div class="s-foot">
+        <span class="s-foot-sub">Data &amp; AI · Planning Analytics</span>
+        <span class="s-foot-cta">My Overview →</span>
+      </div>
+    </a>
+
+    <a class="s-card" href="seller-michael.html">
+      <div class="s-card-top">
+        <div class="s-av">MS</div>
+        <div>
+          <div class="s-info-name">Michael Sanchez</div>
+          <div class="s-info-book">3 Accounts</div>
+        </div>
+      </div>
+      <div class="s-body">
+        <div class="s-accounts">
+          <strong>HEICO Corporation</strong> — Q3 revenue $1.4B, +23.1%. M&A pipeline active. Data Fabric entry.<br>
+          <strong>Chewy</strong> — watsonx + Automation. AI Governance play.<br>
+          <strong>Memorial + South Broward</strong> — Security RFP. AI Governance.
+        </div>
+        <div class="s-tiers">
+          <span class="s-tier st-e">HEICO Engage</span>
+          <span class="s-tier st-e">Chewy Engage</span>
+          <span class="s-tier st-e">Memorial Engage</span>
+        </div>
+      </div>
+      <div class="s-foot">
+        <span class="s-foot-sub">Data &amp; AI · Security</span>
+        <span class="s-foot-cta">My Overview →</span>
+      </div>
+    </a>
+
+    <a class="s-card" href="seller-hazem.html">
+      <div class="s-card-top">
+        <div class="s-av">HS</div>
+        <div>
+          <div class="s-info-name">Hazem Marzouk &amp; Srajan Dube</div>
+          <div class="s-info-book">3 Accounts</div>
+        </div>
+      </div>
+      <div class="s-body">
+        <div class="s-accounts">
+          <strong>Lennar</strong> — Q4 earnings Dec 16. Planning Analytics play.<br>
+          <strong>Lennar Mortgage</strong> — Compliance tech &amp; AI governance.<br>
+          <strong>Pellera Technologies</strong> — IBM Partner. Hybrid Cloud &amp; Co-Sell.
+        </div>
+        <div class="s-tiers">
+          <span class="s-tier st-e">Lennar Engage</span>
+          <span class="s-tier st-e">Mortgage Engage</span>
+          <span class="s-tier st-sb">Pellera Standby</span>
+        </div>
+      </div>
+      <div class="s-foot">
+        <span class="s-foot-sub">Data &amp; AI · Hybrid Cloud</span>
+        <span class="s-foot-cta">My Overview →</span>
+      </div>
+    </a>
+
+    <a class="s-card" href="seller-mijee.html">
+      <div class="s-card-top">
+        <div class="s-av">MW</div>
+        <div>
+          <div class="s-info-name">Mijee Walker</div>
+          <div class="s-info-book">15 Accounts</div>
+        </div>
+      </div>
+      <div class="s-body">
+        <div class="s-accounts">
+          <strong>NCLH</strong> — Q3 beat Oct 29. CFO transition. Turnaround in progress.<br>
+          <strong>SeaWorld</strong> — Q3 now reported.<br>
+          <strong>Also:</strong> Dycom, Kforce, Frontline, DMAB, ODP, ANSCO, Chico's, SGWS, Citco, JM Family, Hexagon Mining, Octave Federal, Octave.
+        </div>
+        <div class="s-tiers">
+          <span class="s-tier st-e">NCLH Engage</span>
+          <span class="s-tier st-e">Dycom Engage</span>
+          <span class="s-tier st-e">Kforce Engage</span>
+          <span class="s-tier st-e">+12 more</span>
+        </div>
+      </div>
+      <div class="s-foot">
+        <span class="s-foot-sub">Multi-Brand · 15 Accounts</span>
+        <span class="s-foot-cta">My Overview →</span>
+      </div>
+    </a>
+
+    <a class="s-card" href="seller-bss.html">
+      <div class="s-card-top">
+        <div class="s-av">BSS</div>
+        <div>
+          <div class="s-info-name">BSS Specialists</div>
+          <div class="s-info-book">11 Shared Accounts</div>
+        </div>
+      </div>
+      <div class="s-body">
+        <div class="s-accounts">
+          <strong>Alyssa</strong> — Data &amp; AI BSS.<br>
+          <strong>Gavin</strong> — Automation BSS.<br>
+          <strong>William</strong> — Storage BSS.<br>
+          <strong>Rick &amp; Kevin</strong> — Power &amp; Cloud BSS.<br>
+          <strong>Covers:</strong> ODP, JM Family, SGWS, Lennar, Lennar Mortgage, Pellera, NCLH, Citco, Octave, Hexagon Mining, Octave Federal.
+        </div>
+        <div class="s-tiers">
+          <span class="s-tier st-bss">Data &amp; AI</span>
+          <span class="s-tier st-bss">Automation</span>
+          <span class="s-tier st-bss">Storage</span>
+          <span class="s-tier st-bss">Power &amp; Cloud</span>
+        </div>
+      </div>
+      <div class="s-foot">
+        <span class="s-foot-sub">Shared across Hazem, Srajan &amp; Mijee</span>
+        <span class="s-foot-cta">BSS View →</span>
+      </div>
+    </a>
+
+  </div>
+
+</div>
+
+<div class="footer">
+  IBM SF Intel Brief · Edition 14 · IBM South Florida · Territory 26 · Nov 9, 2026 · 26 Accounts · 5 Sellers<br style="margin-bottom:4px;">
+  Made with IBM Bob
+</div>
+
+</body>
+</html>

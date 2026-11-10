@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IBM SF Intel Brief · Shari Zahed · Edition 14 · Nov 9, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--ground:#F4F6FA;--panel:#FFFFFF;--panel-2:#F0F2F7;--panel-3:#E8EBF3;
+  --rule:#DDE1EC;--rule-hi:#C8CEDD;--ink:#161C2D;--ink-mid:#3A4460;--ink-low:#6B779A;
+  --ibm:#0043CE;--ibm-deep:#0F62FE;--ibm-dim:rgba(0,67,206,.07);--ibm-line:rgba(0,67,206,.22);
+  --t4:#B45309;--t5:#7C4B00;--ok:#006644;
+  --saas:#006644;--saas-dim:rgba(0,102,68,.07);--saas-line:rgba(0,102,68,.28);
+  --trans:#5A189A;--trans-dim:rgba(90,24,154,.07);--trans-line:rgba(90,24,154,.28);
+  --warn:#7C4B00;--warn-dim:rgba(124,75,0,.06);--strike:#da1e28;
+  --navy:#0f1c3a;--radius:5px;--mono:'IBM Plex Mono',monospace;
+  --engage-c:#B45309;--engage-bg:rgba(180,83,9,.07);--engage-bd:rgba(180,83,9,.2);
+  --strike-c:#92400E;--strike-bg:rgba(146,64,14,.07);--strike-bd:rgba(146,64,14,.2);
+  --standby-c:#4338CA;--standby-bg:rgba(67,56,202,.06);--standby-bd:rgba(67,56,202,.18);}
+html{scroll-behavior:smooth;}
+body{font-family:'IBM Plex Sans',-apple-system,sans-serif;font-size:13px;line-height:1.7;background:var(--ground);color:var(--ink);-webkit-font-smoothing:antialiased;}
+a{color:var(--ibm);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.topnav{position:sticky;top:0;z-index:400;background:rgba(255,255,255,.98);backdrop-filter:blur(16px);border-top:3px solid var(--ibm-deep);border-bottom:1px solid var(--rule);height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;gap:16px;}
+.tn-left{display:flex;align-items:center;gap:10px;}
+.tn-ibm{font-size:18px;font-weight:700;color:var(--ibm-deep);letter-spacing:-.5px;}
+.tn-div{width:1px;height:16px;background:var(--rule-hi);}
+.tn-title{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);}
+.tn-badge{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--ibm-deep);color:#fff;padding:2px 9px;border-radius:20px;}
+.tn-links{display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;}
+.tn-links a{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-low);padding:5px 12px;border-bottom:2px solid transparent;white-space:nowrap;}
+.tn-links a:hover{color:var(--ibm);text-decoration:none;}
+.tn-links a.active{color:var(--ibm-deep);border-bottom-color:var(--ibm-deep);}
+.tn-sep{color:var(--rule-hi);padding:0 3px;font-size:10px;}
+.tn-right{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-low);white-space:nowrap;}
+.phasebar{position:sticky;top:48px;z-index:350;height:42px;background:rgba(244,246,250,.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);display:flex;align-items:stretch;padding:0 32px;gap:0;}
+.ptab{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-low);padding:0 18px;cursor:pointer;border-bottom:2px solid transparent;display:flex;align-items:center;white-space:nowrap;transition:all .12s;}
+.ptab:hover{color:var(--ink);text-decoration:none;}
+.ptab.on{color:var(--ibm-deep);border-bottom-color:var(--ibm-deep);background:rgba(15,98,254,.06);}
+.ptab-sep{color:var(--rule-hi);padding:0 2px;font-size:10px;display:flex;align-items:center;user-select:none;}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#0F1C3A 60%,#112040 100%);padding:28px 32px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;border-bottom:3px solid var(--ibm-deep);}
+.hero-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#4a6080;margin-bottom:10px;}
+.hero-back:hover{color:#a8c8ff;text-decoration:none;}
+.hero-eyebrow{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px;}
+.hero-name{font-size:28px;font-weight:900;color:#fff;letter-spacing:-.4px;line-height:1.1;}
+.hero-sub{font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;}
+.hero-stats{display:flex;gap:8px;margin-top:14px;}
+.hstat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:8px 14px;text-align:center;min-width:68px;}
+.hstat-n{font-family:var(--mono);font-size:20px;font-weight:700;color:#fff;line-height:1;}
+.hstat-n.strike{color:#fca5a5;}
+.hstat-n.engage{color:#fdba74;}
+.hstat-n.standby{color:#93c5fd;}
+.hstat-l{font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:3px;}
+.priority-stack{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:12px 16px;min-width:320px;}
+.ps-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px;}
+.ps-row{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.ps-row:last-child{border-bottom:none;padding-bottom:0;}
+.ps-num{font-family:var(--mono);font-size:11px;font-weight:700;color:rgba(255,255,255,.3);min-width:14px;flex-shrink:0;padding-top:1px;}
+.ps-body{flex:1;}
+.ps-co{font-size:12px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:2px;}
+.ps-action{font-size:11px;color:rgba(255,255,255,.6);line-height:1.4;}
+.ps-tier{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.ps-tier.engage{background:rgba(251,146,60,.15);color:#fdba74;border:1px solid rgba(251,146,60,.3);}
+.ps-tier.standby{background:rgba(147,197,253,.15);color:#93c5fd;border:1px solid rgba(147,197,253,.3);}
+.pulse-bar{background:var(--panel);border-bottom:1px solid var(--rule);padding:12px 32px;}
+.pulse-bar-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-low);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.pulse-bar-lbl::before{content:'';display:inline-block;width:3px;height:12px;background:var(--t4);border-radius:2px;}
+.pulse-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;}
+.pulse-card{background:var(--panel-2);border:1px solid var(--rule);border-left:3px solid var(--ibm-deep);border-radius:4px;padding:10px 14px;}
+.pulse-card.pc-amber{border-left-color:var(--t4);}
+.pulse-card.pc-blue{border-left-color:var(--ibm-deep);}
+.pc-tag{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--ibm-dim);color:var(--ibm);border:1px solid var(--ibm-line);padding:2px 7px;border-radius:2px;display:inline-block;margin-bottom:6px;}
+.pulse-card.pc-amber .pc-tag{background:var(--engage-bg);color:var(--engage-c);border-color:var(--engage-bd);}
+.pulse-card.pc-blue .pc-tag{background:var(--standby-bg);color:var(--standby-c);border-color:var(--standby-bd);}
+.pc-headline{font-size:12px;font-weight:700;color:var(--ink);line-height:1.4;margin-bottom:3px;}
+.pc-angle{font-size:11.5px;color:var(--ink-low);line-height:1.45;}
+.pc-angle strong{color:var(--ibm-deep);font-weight:600;}
+.acct-jump-bar{background:var(--panel);border-bottom:1px solid var(--rule);padding:10px 32px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;position:sticky;top:90px;z-index:300;box-shadow:0 2px 6px rgba(0,0,0,.03);}
+.ajb-lbl{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-low);margin-right:4px;white-space:nowrap;}
+.ajb-pill{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.3px;padding:3px 10px;border-radius:20px;background:var(--panel-2);border:1px solid var(--rule);color:var(--ink-mid);transition:all .12s;display:inline-flex;align-items:center;gap:4px;white-space:nowrap;}
+.ajb-pill:hover{background:var(--ibm-deep);color:#fff;border-color:var(--ibm-deep);text-decoration:none;}
+.ajb-pill.engage{border-left:3px solid var(--t4);}
+.ajb-pill.standby{border-left:3px solid var(--ibm-deep);}
+.phase-panel{display:none;}
+.phase-panel.active{display:block;}
+.main{max-width:1200px;margin:0 auto;padding:28px 32px 64px;}
+.sec-hdr{display:flex;align-items:center;gap:14px;margin:28px 0 14px;}
+.sec-hdr:first-child{margin-top:0;}
+.sec-label{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);white-space:nowrap;}
+.sec-rule{flex:1;height:1px;background:linear-gradient(90deg,var(--ibm-line),transparent);}
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);margin-bottom:24px;overflow:hidden;scroll-margin-top:140px;}
+.card.engage{border-left:4px solid var(--t4);}
+.card.standby{border-left:4px solid var(--ibm-deep);}
+.c-top{display:flex;justify-content:space-between;align-items:flex-start;padding:14px 20px 12px;border-bottom:1px solid var(--rule);background:var(--panel-2);gap:14px;}
+.c-top-meta{flex:1;}
+.c-acct-name{font-weight:700;font-size:17px;color:var(--ink);line-height:1.2;}
+.c-meta{font-family:var(--mono);font-size:9.5px;color:var(--ink-low);letter-spacing:.05em;margin-top:2px;}
+.c-top-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;}
+.c-urg{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:5px;}
+.cu-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.cu-engage{color:var(--t4);}
+.cu-engage .cu-dot{background:var(--t4);}
+.cu-standby{color:var(--ibm-deep);}
+.cu-standby .cu-dot{background:var(--ibm-deep);}
+.c-brand-row{display:flex;align-items:center;gap:5px;flex-wrap:wrap;justify-content:flex-end;}
+.c-brand-badge{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:2px;color:#fff;}
+.br-data{background:#0043CE;}
+.br-auto{background:#198038;}
+.br-stor{background:#6929C4;}
+.br-sec{background:#A2191F;}
+.br-pc{background:#005D5D;}
+.catalyst-bar{display:flex;align-items:center;gap:6px;padding:6px 20px;background:var(--panel);border-bottom:1px solid var(--rule);flex-wrap:wrap;}
+.cat-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);flex-shrink:0;padding-right:8px;border-right:1px solid var(--rule-hi);margin-right:2px;}
+.cat-next{font-family:var(--mono);font-size:9px;font-weight:600;color:var(--ink-mid);}
+.cat-next.soon{color:var(--t4);}
+.cat-sep{color:var(--rule-hi);padding:0 6px;font-size:11px;}
+.cat-comp{font-family:var(--mono);font-size:8.5px;color:var(--ink-low);}
+.cat-comp strong{color:var(--ink-mid);font-weight:600;}
+.c-body{display:grid;grid-template-columns:1fr 280px;border-bottom:1px solid var(--rule);}
+.c-left-col{padding:16px 20px 14px;border-right:1px solid var(--rule);}
+.c-right-col{padding:14px 16px;background:var(--panel-2);display:flex;flex-direction:column;gap:8px;}
+.c-sec-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:8px;}
+.c-bullets{list-style:none;margin-bottom:12px;}
+.c-bullets li{position:relative;padding-left:14px;margin-bottom:7px;color:var(--ink-mid);font-size:12.5px;line-height:1.6;}
+.c-bullets li::before{content:'·';position:absolute;left:3px;top:-1px;font-size:16px;color:var(--ibm-deep);font-weight:700;}
+.c-bullets li strong{color:var(--ink);font-weight:600;}
+.c-angle{background:var(--ibm-dim);border:1px solid var(--ibm-line);border-radius:var(--radius);padding:10px 14px;margin-bottom:10px;}
+.c-angle-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ibm);margin-bottom:5px;}
+.c-angle-lines{display:flex;flex-direction:column;gap:3px;}
+.c-angle-line{font-size:12px;color:var(--ink-mid);line-height:1.5;}
+.c-angle-line strong{color:var(--ink);font-weight:600;}
+.c-comp{background:var(--panel-2);border:1px solid var(--rule);border-radius:var(--radius);padding:7px 12px;margin-bottom:10px;font-size:11.5px;color:var(--ink-mid);line-height:1.45;}
+.c-comp-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-low);margin-bottom:3px;}
+.c-comp strong{color:var(--ink);font-weight:600;}
+.c-opener{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--ibm-deep);border-radius:var(--radius);padding:8px 12px;font-size:11.5px;color:var(--ink);line-height:1.5;font-style:italic;}
+.c-opener-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ibm);margin-bottom:3px;font-style:normal;}
+.c-sell-hdr{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:1px;}
+.c-sell-block{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);padding:8px 11px;}
+.c-sell-block.saas{border-left:3px solid var(--saas);}
+.c-sell-block.trans{border-left:3px solid var(--trans);}
+.c-sell-block.motion{border-left:3px solid var(--ibm-deep);}
+.c-sell-type{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px;}
+.c-sell-type.saas{color:var(--saas);}
+.c-sell-type.trans{color:var(--trans);}
+.c-sell-type.motion{color:var(--ibm);}
+.c-sell-txt{font-size:11.5px;color:var(--ink-mid);line-height:1.45;}
+.c-sell-txt strong{color:var(--ink);font-weight:600;}
+.c-sell-pill{display:inline-block;font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:2px;margin-top:5px;}
+.c-sell-pill.saas{background:var(--saas-dim);color:var(--saas);border:1px solid var(--saas-line);}
+.c-sell-pill.trans{background:var(--trans-dim);color:var(--trans);border:1px solid var(--trans-line);}
+.c-bottom{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule);background:var(--panel);}
+.c-spend{padding:12px 20px;border-right:1px solid var(--rule);}
+.c-bets{padding:12px 20px;}
+.cb-hdr{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:8px;}
+.sp-row{display:flex;align-items:center;gap:8px;margin-bottom:5px;font-size:11.5px;}
+.sp-cat{width:160px;color:var(--ink-mid);flex-shrink:0;}
+.sp-bar-wrap{flex:1;height:5px;background:var(--panel-3);border-radius:3px;overflow:hidden;}
+.sp-bar{height:100%;border-radius:3px;}
+.sp-bar.high{background:var(--ibm-deep);}
+.sp-bar.med{background:var(--t4);}
+.sp-bar.low{background:var(--ink-low);}
+.sp-scale{font-family:var(--mono);font-size:7.5px;color:var(--ink-low);margin-top:5px;letter-spacing:.03em;}
+.sp-insight{font-size:11.5px;color:var(--ink-mid);line-height:1.45;margin-top:8px;padding-top:8px;border-top:1px solid var(--rule);}
+.sp-insight strong{color:var(--ink);font-weight:600;}
+.bet-item{display:flex;align-items:flex-start;gap:7px;margin-bottom:7px;}
+.bet-item:last-child{margin-bottom:0;}
+.bet-tag{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px;flex-shrink:0;margin-top:2px;}
+.bet-tag.big{background:rgba(0,67,206,.1);color:var(--ibm);border:1px solid var(--ibm-line);}
+.bet-tag.small{background:var(--panel-2);color:var(--ink-low);border:1px solid var(--rule);}
+.bet-txt{font-size:11.5px;color:var(--ink-mid);line-height:1.45;}
+.bet-txt strong{color:var(--ink);font-weight:600;}
+.c-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:9px 20px;background:var(--panel-2);border-bottom:1px solid var(--rule);}
+.c-btn{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 13px;border-radius:var(--radius);border:1px solid var(--rule);background:var(--panel);color:var(--ink-mid);cursor:pointer;transition:all .12s;}
+.c-btn:hover{background:var(--ibm-deep);color:#fff;border-color:var(--ibm-deep);text-decoration:none;}
+.c-btn-snav{border-color:var(--ibm-line);color:var(--ibm);background:var(--ibm-dim);}
+.c-btn-intel{border-color:var(--rule);color:var(--ink);}
+.play-caller{background:var(--navy);border-top:2px solid var(--ibm-deep);padding:14px 20px;}
+.pc-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:6px;}
+.pc-hdr-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#4a6080;}
+.pc-hdr-account{font-family:var(--mono);font-size:9.5px;font-weight:700;color:#a8c8ff;letter-spacing:.05em;}
+.pc-body{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:14px;}
+.pc-col{display:flex;flex-direction:column;gap:5px;}
+.pc-col-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;}
+.pcl-who{color:#6a8aaa;}
+.pcl-say{color:#8ab4f8;}
+.pcl-wait{color:#fca5a5;}
+.pc-txt{font-size:12px;color:#c8d8f0;line-height:1.55;}
+.pc-txt strong{color:#fff;font-weight:600;}
+.pc-quote{font-size:12px;color:#e8f0fe;line-height:1.55;font-style:italic;background:rgba(255,255,255,.05);border-left:2px solid #8ab4f8;padding:8px 12px;border-radius:0 3px 3px 0;}
+.pc-second{margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:#8a9ab8;}
+.pc-second-lbl{font-family:var(--mono);font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#4a6080;display:block;margin-bottom:2px;}
+.footer{text-align:center;padding:32px 0 24px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-low);margin-top:40px;}
+.hstat-n.strike{color:#fca5a5;}
+.ps-tier.strike{background:rgba(220,30,38,.2);color:#fca5a5;border:1px solid rgba(220,30,38,.35);}
+.pulse-card.pc-red{border-left-color:var(--strike);}
+.pulse-card.pc-red .pc-tag{background:rgba(220,30,38,.1);color:var(--strike);border-color:rgba(220,30,38,.25);}
+.ajb-pill.strike{border-left:3px solid var(--strike);}
+.card.strike{border-left:4px solid var(--strike);}
+.cu-strike{color:var(--strike);}
+.cu-strike .cu-dot{background:var(--strike);}
+.cat-next.urgent{color:var(--strike);}
+.cb-hdr.spend{color:var(--ibm);}
+.cb-hdr.bets{color:var(--ink-low);}
+.p2-page{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:28px;overflow:hidden;scroll-margin-top:140px;}
+.p2-page.engage{border-left:4px solid var(--t4);}
+.p2-page.strike{border-left:4px solid var(--strike);}
+.p2-header-row{display:flex;align-items:center;padding:18px 24px;gap:18px;border-bottom:1px solid var(--rule);background:var(--panel-2);}
+.p2-logo-box{width:68px;height:44px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--rule);border-radius:4px;padding:4px;}
+.p2-logo{max-width:100%;max-height:100%;object-fit:contain;}
+.p2-header-text{flex:1;}
+.p2-se-horizon{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;}
+.p2-name-large{font-size:20px;font-weight:800;color:var(--ink);line-height:1.2;}
+.p2-date-line{font-size:11.5px;color:var(--ink-low);margin-top:2px;}
+.p2-header-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+.p2-tier-badge{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:2px;}
+.p2-tier-engage{background:#431407;color:#fdba74;}
+.p2-tier-strike{background:#7f1d1d;color:#fca5a5;}
+.p2-pulse-row{background:var(--ibm-dim);border-left:4px solid var(--ibm-deep);padding:12px 24px;display:flex;gap:14px;align-items:flex-start;}
+.p2-pulse-badge{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;background:var(--ibm);color:#fff;padding:3px 8px;border-radius:2px;flex-shrink:0;margin-top:2px;}
+.p2-pulse-text{font-size:12.5px;color:var(--ink-mid);line-height:1.65;}
+.p2-pulse-text strong{color:var(--ink);font-weight:700;}
+.p2-linkedin-row{display:flex;align-items:center;justify-content:space-between;padding:8px 24px;background:var(--panel-3);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.p2-li-text{font-size:11.5px;color:var(--ink-mid);}
+.p2-li-text strong{font-weight:700;color:var(--ibm);}
+.p2-li-btn{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--ibm);color:#fff;padding:3px 10px;border-radius:2px;}
+.p2-li-btn:hover{background:#003399;color:#fff;text-decoration:none;}
+.p2-intel-grid{display:grid;grid-template-columns:1fr 1fr 260px;border-top:1px solid var(--rule);}
+.p2-grid-col{padding:18px 20px;}
+.p2-grid-col-l{background:var(--panel);border-right:1px solid var(--rule);}
+.p2-grid-col-m{background:var(--panel-2);border-right:1px solid var(--rule);}
+.p2-grid-col-r{background:var(--panel-3);}
+.p2-grid-lbl{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:10px;padding-bottom:4px;border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:6px;}
+.p2-grid-chevron{background:var(--ibm-dim);color:var(--ibm);font-size:9px;font-weight:700;padding:1px 4px;border-radius:2px;}
+.p2-grid-col ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.p2-grid-col li{font-size:12.5px;color:var(--ink-mid);line-height:1.6;padding-left:14px;position:relative;}
+.p2-grid-col li::before{content:'▸';position:absolute;left:0;color:var(--ibm);font-size:9px;top:2px;}
+.p2-grid-col li strong{color:var(--ink);font-weight:600;}
+.p2-contact-entry{padding:8px 0;border-bottom:1px solid var(--rule);}
+.p2-contact-entry:last-child{border-bottom:none;padding-bottom:0;}
+.p2-contact-name{font-size:12.5px;font-weight:700;color:var(--ink);}
+.p2-contact-role{font-family:var(--mono);font-size:8.5px;color:var(--ink-low);margin-top:1px;}
+.p2-contact-hook{font-size:11px;color:var(--ibm);margin-top:2px;line-height:1.4;}
+.p2-play-bar{background:var(--ibm);padding:18px 24px;color:#fff;}
+.p2-pb-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.p2-pb-main-title{font-size:14px;font-weight:800;color:#fff;}
+.p2-pb-sub-title{font-size:11.5px;color:rgba(255,255,255,.8);margin-top:2px;}
+.p2-pb-badge-pill{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;background:rgba(255,255,255,.18);color:#fff;padding:3px 10px;border-radius:20px;}
+.p2-play-detail-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;border-top:1px solid rgba(255,255,255,.2);padding-top:12px;}
+.p2-play-detail-col{border-right:1px solid rgba(255,255,255,.15);padding-right:14px;}
+.p2-play-detail-col:last-child{border-right:none;padding-right:0;}
+.p2-play-rank-badge{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px;display:flex;align-items:center;gap:6px;}
+.p2-play-rank-num{width:16px;height:16px;border-radius:50%;background:#fff;color:var(--ibm);display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:9px;}
+.p2-play-detail-name{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;}
+.p2-play-detail-body{font-size:11.5px;color:rgba(255,255,255,.85);line-height:1.55;}
+.p2-lower-section{padding:16px 24px;background:var(--panel-2);border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.p2-ls-box{display:flex;flex-direction:column;gap:6px;}
+.p2-ls-lbl{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-low);}
+.p2-action-text{font-size:12px;color:var(--ink-mid);line-height:1.6;}
+.p2-talk-track-text{font-size:12px;color:var(--ink-mid);line-height:1.6;font-style:italic;background:var(--panel);border-left:3px solid var(--ibm);padding:8px 12px;border-radius:0 4px 4px 0;}
+.p3-shell{display:grid;grid-template-columns:260px 1fr;min-height:680px;border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;background:var(--panel);margin-bottom:28px;}
+.p3-rail{background:var(--navy);display:flex;flex-direction:column;border-right:1px solid rgba(255,255,255,.08);}
+.p3-rail-hdr{padding:14px 18px 10px;border-bottom:1px solid rgba(255,255,255,.08);background:var(--navy);}
+.p3-rail-title{font-family:var(--mono);font-size:8.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#8a9ab8;}
+.p3-ra{padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer;border-left:3px solid transparent;transition:all .12s;}
+.p3-ra:hover{background:rgba(255,255,255,.04);}
+.p3-ra.on{background:rgba(15,98,254,.15);border-left-color:var(--ibm-deep);}
+.p3-ra-name{font-size:13px;font-weight:700;color:#c8d8ea;margin-bottom:3px;}
+.p3-ra.on .p3-ra-name{color:#fff;}
+.p3-ra-urg{font-family:var(--mono);font-size:7.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:2px 6px;border-radius:2px;display:inline-block;}
+.p3-ra-urg.strike{background:#7f1d1d;color:#fca5a5;}
+.p3-ra-urg.engage{background:#431407;color:#fdba74;}
+.p3-ra-hook{font-size:10.5px;color:#6a8ab8;margin-top:4px;line-height:1.4;}
+.p3-detail-pane{background:var(--ground);overflow-y:auto;padding:24px;}
+.p3-dp-card{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;}
+.p3-dp-hdr{background:var(--panel-2);border-bottom:3px solid var(--ibm-deep);padding:18px 24px;}
+.p3-dp-hdr-top{display:flex;gap:14px;align-items:flex-start;margin-bottom:10px;}
+.p3-dp-logo{width:72px;height:44px;background:#fff;border:1px solid var(--rule);border-radius:4px;display:flex;align-items:center;justify-content:center;padding:4px;flex-shrink:0;}
+.p3-dp-logo img{max-width:100%;max-height:100%;object-fit:contain;}
+.p3-dp-acct-name{font-size:22px;font-weight:900;color:var(--ink);line-height:1.1;}
+.p3-dp-acct-meta{font-size:11.5px;color:var(--ink-low);margin-top:2px;}
+.p3-dp-thesis{font-size:12.5px;color:var(--ink-mid);line-height:1.65;padding-top:12px;border-top:1px solid var(--rule);}
+.p3-dp-vitals{display:flex;gap:0;margin-top:12px;border:1px solid var(--rule);border-radius:4px;overflow:hidden;}
+.p3-vital{flex:1;padding:8px 12px;border-right:1px solid var(--rule);background:#fff;}
+.p3-vital:last-child{border-right:none;}
+.p3-vital-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;}
+.p3-vital-val{font-size:12px;font-weight:700;color:var(--ink);}
+.p3-dp-body{padding:20px 24px 28px;}
+.p3-sec{margin:20px 0 10px;display:flex;align-items:center;gap:10px;}
+.p3-sec:first-child{margin-top:0;}
+.p3-sec-lbl{font-family:var(--mono);font-size:8.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ink-low);white-space:nowrap;}
+.p3-sec-line{flex:1;height:1px;background:var(--rule);}
+.p3-heat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.p3-heat-card{background:var(--panel-2);border:1px solid var(--rule);border-top:3px solid var(--hc,var(--rule));border-radius:4px;padding:12px 14px;}
+.p3-heat-play{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.p3-heat-score{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--hc,var(--ibm-deep));line-height:1;}
+.p3-heat-bar{height:4px;background:var(--rule);border-radius:2px;margin:6px 0;}
+.p3-heat-fill{height:100%;border-radius:2px;background:var(--hc,var(--ibm-deep));}
+.p3-heat-conviction{font-size:11px;color:var(--ink-mid);line-height:1.45;border-top:1px solid var(--rule);padding-top:6px;margin-top:4px;}
+.p3-threats{display:flex;flex-direction:column;gap:10px;}
+.p3-threat{background:var(--panel-2);border:1px solid var(--rule);border-left:4px solid #7f1d1d;border-radius:4px;padding:12px 16px;}
+.p3-threat-top{display:flex;align-items:center;gap:10px;margin-bottom:4px;}
+.p3-threat-name{font-size:13px;font-weight:800;color:var(--ink);}
+.p3-threat-level{font-family:var(--mono);font-size:7.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:2px;background:#7f1d1d;color:#fca5a5;}
+.p3-threat-doing{font-size:11.5px;color:var(--ink-low);line-height:1.5;margin-bottom:6px;}
+.p3-threat-counter{font-size:11.5px;color:#006644;background:rgba(0,102,68,.06);border-left:3px solid #006644;padding:6px 10px;border-radius:2px;line-height:1.5;}
+.p3-move{background:var(--navy);border-radius:4px;padding:16px 20px;}
+.p3-move-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;}
+.p3-move-row:last-child{margin-bottom:0;}
+.p3-move-lbl{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:var(--ibm-deep);padding:4px 0;min-width:90px;width:90px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+.p3-move-text{font-size:12px;color:#c8d8ea;line-height:1.6;}
+.p3-move-track{font-size:12px;color:#8a9ab8;font-style:italic;line-height:1.6;border-left:3px solid var(--ibm-deep);padding-left:10px;}
+.p4-section{margin-bottom:28px;}
+.p4-sec-hdr{background:var(--panel-2);border:1px solid var(--rule);border-top:3px solid var(--ibm-deep);border-radius:var(--radius);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
+.p4-sec-co{font-size:16px;font-weight:800;color:var(--ink);}
+.p4-sec-sub{font-size:11.5px;color:var(--ink-low);margin-top:2px;}
+.p4-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;padding:14px 0;}
+.p4-ct{border:1px solid var(--rule);border-left:4px solid var(--rule);border-radius:4px;padding:14px 16px;background:var(--panel);display:flex;flex-direction:column;gap:8px;}
+.p4-ct.executive{border-left-color:var(--navy);}
+.p4-ct.practitioner{border-left-color:var(--ibm-deep);}
+.p4-ct-top{display:flex;justify-content:space-between;gap:8px;}
+.p4-ct-name{font-size:14px;font-weight:800;color:var(--ink);}
+.p4-ct-score{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--ink);background:var(--panel-2);border:1px solid var(--rule);border-radius:3px;height:30px;min-width:38px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.p4-ct-title{font-size:12px;color:var(--ink-low);line-height:1.4;}
+.p4-ct-tags{display:flex;gap:5px;flex-wrap:wrap;}
+.p4-ct-tag{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;padding:2px 7px;border-radius:2px;background:var(--panel-2);color:var(--ink-low);border:1px solid var(--rule);}
+.p4-ct-tag.b-exec{background:var(--navy);color:#fff;border-color:var(--navy);}
+.p4-ct-tag.b-prac{background:var(--ibm-deep);color:#fff;border-color:var(--ibm-deep);}
+.p4-ct-why{font-size:11.5px;line-height:1.55;color:var(--ink-mid);}
+.p4-ct-snav{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#fff;background:var(--ibm);padding:5px 12px;border-radius:2px;display:inline-block;align-self:flex-start;margin-top:4px;}
+.p4-ct-snav:hover{background:#003399;color:#fff;text-decoration:none;}
+.card,.p2-page{scroll-margin-top:140px;}
+.card.standby,.p2-page.standby{border-left:4px solid var(--ibm-deep);}
+.p2-tier-standby{background:#1e3a8a;color:#93c5fd;}
+.p3-ra-urg.standby{background:#1e3a8a;color:#93c5fd;}
+.p4-ct-note{grid-column:1/-1;font-size:12px;line-height:1.6;color:var(--ink-mid);background:var(--panel-2);border:1px dashed var(--rule-hi);border-radius:var(--radius);padding:10px 14px;}
+.p4-ct-tag.b-warm{background:#dcfce7;color:#14532d;border-color:#86efac;}
+.p4-ct-tag.b-cold{background:var(--panel-2);color:var(--ink-low);}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;}
+  .p3-shell,.p2-intel-grid,.p2-play-detail-grid,.p2-lower-section,.p3-heat-grid,.c-body,.c-bottom,.pc-body{grid-template-columns:1fr;}
+  .topnav{padding:0 16px;}.main,.hero,.phasebar,.acct-jump-bar,.pulse-bar{padding-left:16px;padding-right:16px;}
+}
+</style>
+<style id="nav-unify">
+.topnav{position:sticky;top:0;z-index:400;box-sizing:border-box;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-top:3px solid #0F62FE;border-bottom:1px solid #DDE1EC;height:48px;padding:0 24px;gap:16px;display:flex;align-items:center;justify-content:space-between;}
+.topnav .tn-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.topnav .tn-ibm{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:20px;font-weight:700;color:#0F62FE;letter-spacing:-.5px;}
+.topnav .tn-div{width:1px;height:18px;background:#C8CEDD;}
+.topnav .tn-title{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#6B779A;}
+.topnav .tn-badge{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:#0F62FE;color:#fff;padding:2px 10px;border-radius:20px;}
+.topnav .tn-links{display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;min-width:0;}
+.topnav .tn-links::-webkit-scrollbar{display:none;}
+.topnav .tn-links a{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:9.5px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:#6B779A;padding:6px 8px;border-bottom:2px solid transparent;white-space:nowrap;text-decoration:none;transition:color .12s;}
+.topnav .tn-links a:hover{color:#0043CE;text-decoration:none;}
+.topnav .tn-links a.active{color:#0F62FE;border-bottom-color:#0F62FE;background:rgba(15,98,254,.08);}
+.topnav .tn-links a.soon{opacity:.4;pointer-events:none;cursor:default;}
+.topnav .tn-sep{color:#C8CEDD;padding:0 1px;user-select:none;}
+.topnav .tn-sep.tn-grp{padding:0 8px;}
+.topnav .tn-right{display:none;}
+@media(max-width:1100px){.topnav{padding:0 14px;}.topnav .tn-title{display:none;}}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topnav">
+  <div class="tn-left">
+    <span class="tn-ibm">IBM</span>
+    <span class="tn-div"></span>
+    <span class="tn-title">IBM SF Intel Brief</span>
+    <span class="tn-badge">Edition 14</span>
+  </div>
+  <div class="tn-links">
+    <a href="../../index.html">Hub</a>
+    <span class="tn-sep">·</span>
+    <a href="phase1.html">Phase 1 · Radar</a>
+    <span class="tn-sep">·</span>
+    <a href="phase2.html">Phase 2 · Intel</a>
+    <span class="tn-sep">·</span>
+    <a href="phase3.html">Phase 3 · Accounts</a>
+    <span class="tn-sep">·</span>
+    <a href="phase4.html" >Phase 4 · Contacts</a>
+    <span class="tn-sep tn-grp">|</span>
+    <a href="seller-spencer.html">Spencer</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-shari.html" class="active">Shari</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-michael.html">Michael</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-hazem.html">Hazem &amp; Srajan</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-mijee.html">Mijee</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-bss.html">BSS Team</a>
+  </div>
+  <div class="tn-right">Nov 9, 2026 · IBM South Florida</div>
+</nav>
+
+<!-- PHASE TAB BAR -->
+<div class="phasebar">
+  <div class="ptab on" id="tab-p1" onclick="showPhase('p1')">Phase 1 · Radar</div>
+  <div class="ptab-sep">/</div>
+  <div class="ptab" id="tab-p2" onclick="showPhase('p2')">Phase 2 · Intel Brief</div>
+  <div class="ptab-sep">/</div>
+  <div class="ptab" id="tab-p3" onclick="showPhase('p3')">Phase 3 · My Accounts</div>
+  <div class="ptab-sep">/</div>
+  <div class="ptab" id="tab-p4" onclick="showPhase('p4')">Phase 4 · Contacts</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <a class="hero-back" href="../../index.html">← Master Hub</a>
+    <div class="hero-eyebrow">South Florida SE Team · Edition 14 · Nov 9, 2026</div>
+    <div class="hero-name">Hello, Shari</div>
+    <div class="hero-sub">Shari Zahed · 3 Accounts Covered · Nov 3–9, 2026 · Icahn Q3 Loss Strike Window</div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">3</div><div class="hstat-l">Total Accts</div></div>
+      <div class="hstat"><div class="hstat-n strike">1</div><div class="hstat-l">Strike</div></div>
+      <div class="hstat"><div class="hstat-n engage">2</div><div class="hstat-l">Engage</div></div>
+      <div class="hstat"><div class="hstat-n standby">0</div><div class="hstat-l">Standby</div></div>
+    </div>
+  </div>
+  <div class="priority-stack">
+    <div class="ps-lbl">Active Priority Action Stack</div>
+    <div class="ps-row">
+      <div class="ps-num">1</div>
+      <div class="ps-body">
+        <div class="ps-co">Icahn Enterprises L.P.</div>
+        <div class="ps-action">Q3 net loss -$0.31/unit dropped Nov 3. Pitch Manta Data Lineage + Planning Analytics to CFO Robert Flint.</div>
+      </div>
+      <span class="ps-tier strike">Strike</span>
+    </div>
+    <div class="ps-row">
+      <div class="ps-num">2</div>
+      <div class="ps-body">
+        <div class="ps-co">Herc Rentals Inc.</div>
+        <div class="ps-action">Q3 beat Nov 5; incoming CEO Aaron Birnbaum takes over Jan 1. Position Planning Analytics fleet forecasting.</div>
+      </div>
+      <span class="ps-tier engage">Engage</span>
+    </div>
+    <div class="ps-row">
+      <div class="ps-num">3</div>
+      <div class="ps-body">
+        <div class="ps-co">MasTec Inc.</div>
+        <div class="ps-action">Record Q3 revenue $5.15B, $24.5B backlog, 2 acquisitions this week. Lead IBM Storage + Data Fabric.</div>
+      </div>
+      <span class="ps-tier engage">Engage</span>
+    </div>
+  </div>
+</div>
+
+<!-- MARKET PULSE -->
+<div class="pulse-bar">
+  <div class="pulse-bar-lbl">Market Pulse — Signals That Affect Your Accounts This Week</div>
+  <div class="pulse-grid">
+    <div class="pulse-card pc-red">
+      <span class="pc-tag">Icahn Enterprises</span>
+      <div class="pc-headline">Q3 net loss -$0.31/unit vs $0.09 est; 5 entities + CVR rolling up manually.</div>
+      <div class="pc-angle">IBM angle: <strong>Manta Data Lineage + Planning Analytics</strong> for audit &amp; consolidation.</div>
+    </div>
+    <div class="pulse-card pc-amber">
+      <span class="pc-tag">Herc Rentals</span>
+      <div class="pc-headline">Q3 rental rev $1.254B +12%; CEO transition Jan 1 opens 2027 budget window.</div>
+      <div class="pc-angle">IBM angle: <strong>Planning Analytics</strong> for forward fleet demand modeling.</div>
+    </div>
+    <div class="pulse-card pc-amber">
+      <span class="pc-tag">MasTec Inc.</span>
+      <div class="pc-headline">Record Q3 $5.15B rev, $24.5B backlog, 2 new acquisitions in Power Delivery.</div>
+      <div class="pc-angle">IBM angle: <strong>IBM Storage + Data Fabric</strong> for rapid M&amp;A integration.</div>
+    </div>
+  </div>
+</div>
+
+<!-- JUMP BAR -->
+<div class="acct-jump-bar" id="p1-jump-bar">
+  <span class="ajb-lbl">Jump to Account:</span>
+  <a class="ajb-pill strike" href="#acct-icahn">Icahn Enterprises (Strike)</a>
+  <a class="ajb-pill engage" href="#acct-herc">Herc Rentals</a>
+  <a class="ajb-pill engage" href="#acct-mastec">MasTec Inc.</a>
+</div>
+
+<!-- PHASE 1 — RADAR & PLAY CALLER -->
+<div class="phase-panel active" id="panel-p1">
+<div class="main">
+
+  <div class="sec-hdr" id="acct-icahn"><span class="sec-label">Account 1 of 3 · Icahn Enterprises L.P.</span><div class="sec-rule"></div></div>
+
+<div class="card strike">
+
+    <div class="c-top">
+      <div class="c-top-meta">
+        <div class="c-acct-name">Icahn Enterprises L.P.</div>
+        <div class="c-meta">NASDAQ: IEP · Conglomerate · Sunny Isles Beach FL · Q3 net loss -$0.31/unit · $2.2B market cap</div>
+      </div>
+      <div class="c-top-right">
+        <div class="c-urg cu-strike"><span class="cu-dot"></span>Strike · Q3 Earnings Window</div>
+        <div class="c-brand-row">
+          <span class="c-brand-badge br-data">Data &amp; AI</span>
+          <span class="c-brand-badge br-auto">Automation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="catalyst-bar">
+      <span class="cat-lbl">This Week</span>
+      <span class="cat-next urgent">Q3 loss -$0.31/unit dropped Nov 3 · Net loss $150M vs $22M loss YoY · Five operating segments plus CVR rollup</span>
+      <span class="cat-sep">|</span>
+      <span class="cat-comp"><strong>Competing:</strong> Longview / Aptitude (consolidation) · no data lineage vendor</span>
+    </div>
+
+    <div class="c-body">
+      <div class="c-left-col">
+        <div class="c-sec-lbl">What Just Happened — Nov 3, 2026</div>
+        <ul class="c-bullets">
+          <li>Q3 dropped Nov 3. <strong>EPS loss of –$0.31/unit</strong> vs. $0.09 estimate — missed badly. Revenue beat at $3.17B vs. $2.33B estimate. EBITDA loss $214M vs. +$75M a year ago.</li>
+          <li>Five businesses plus CVR Energy and CVR Partners consolidated manually every quarter. The loss report means investors are looking harder at every number — <strong>the CFO is in the room already thinking about traceability</strong>.</li>
+          <li>CFO is <strong>Robert Flint</strong>. His team just published a report investors will question. IBM Manta Data Lineage gives every figure a traceable source before auditors or investors ask for it.</li>
+          <li>Pep Boys was sold. Portfolio changed again. Every entity change requires the manual consolidation model to be rebuilt. <strong>IBM Planning Analytics makes this a configuration update, not a rebuild.</strong></li>
+        </ul>
+
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle — Why This Week</div>
+          <div class="c-angle-lines">
+            <div class="c-angle-line"><strong>Follow-up window is open:</strong> Q3 just dropped with a loss. IBM's call lands when the CFO is freshest on the consolidation pain — not next quarter.</div>
+            <div class="c-angle-line"><strong>Planning Analytics:</strong> Five entities plus CVR rollup manually. IBM builds one model that adds them all up — any entity change is a configuration update, not a rebuild.</div>
+            <div class="c-angle-line"><strong>Manta Lineage:</strong> With investor scrutiny on every figure, IBM Manta gives every number a traceable source — from source system to investor report. Reduces audit time and audit cost.</div>
+          </div>
+        </div>
+
+        <div class="c-comp">
+          <div class="c-comp-lbl">Competitive</div>
+          <div class="c-comp-txt"><strong>Longview/Aptitude</strong> does consolidation. IBM's counter: IBM adds scenario modeling AND Manta Lineage for auditability on top — Longview is half the answer. If Longview is already in place, IBM Manta is a non-competitive entry that adds traceability to whatever tool is running.</div>
+        </div>
+
+        <div class="c-opener">
+          <div class="c-opener-lbl">Door Opener</div>
+          <div class="c-opener-txt">"Your Q3 report dropped Monday. With CVR Energy, CVR Partners, and the remaining five entities in the mix, IBM can show you how to cut the consolidation time — and give every investor figure a traceable source — before next quarter."</div>
+        </div>
+      </div>
+
+      <div class="c-right-col">
+        <div class="c-sell-hdr">How to Sell</div>
+        <div class="c-sell-block saas">
+          <div class="c-sell-type saas">SaaS Entry</div>
+          <div class="c-sell-txt"><strong>Planning Analytics</strong> — annual subscription. Five entities + CVR in one consolidated model. CFO pitch: <em>"Portfolio changes should be config updates, not rebuilds."</em></div>
+          <span class="c-sell-pill saas">Planning Analytics</span>
+        </div>
+        <div class="c-sell-block trans">
+          <div class="c-sell-type trans">Transaction</div>
+          <div class="c-sell-txt"><strong>Manta Data Lineage</strong> — implementation + license. Every investor figure traceable from source to report. CFO + IR pitch: <em>"Reduce audit time. Protect the CFO."</em></div>
+          <span class="c-sell-pill trans">Manta Lineage Tx</span>
+        </div>
+        <div class="c-sell-block motion">
+          <div class="c-sell-type motion">Do This Now</div>
+          <div class="c-sell-txt">1. Call Robert Flint (CFO) and David Park (CAO) this week.<br>2. Open on the Q3 result — reference investor scrutiny.<br>3. Lead Manta (accountability) first, Planning Analytics (efficiency) second.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-bottom">
+      <div class="c-spend">
+        <div class="cb-hdr spend">Tech Spend Lens</div>
+        <div class="sp-row"><span class="sp-cat">FP&amp;A / Consolidation</span><div class="sp-bar-wrap"><div class="sp-bar high" style="width:78%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">External Audit</span><div class="sp-bar-wrap"><div class="sp-bar med" style="width:60%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">Investor Relations Tech</span><div class="sp-bar-wrap"><div class="sp-bar med" style="width:40%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">Data Lineage</span><div class="sp-bar-wrap"><div class="sp-bar low" style="width:10%"></div></div></div>
+        <div class="sp-scale">Relative to est. total tech spend — illustrative · Low / Mid / High</div>
+        <div class="sp-insight">The cost of a wrong number in an investor report dwarfs the cost of IBM software. <strong>Frame IBM as cost reduction: less audit time, less analyst labor, less CFO exposure.</strong></div>
+      </div>
+      <div class="c-bets">
+        <div class="cb-hdr bets">Bets</div>
+        <div class="bet-item">
+          <span class="bet-tag big">Big</span>
+          <span class="bet-txt"><strong>Planning Analytics as the Icahn consolidation standard</strong> — every portfolio change (Pep Boys out, next acquisition in) is an IBM expansion event, not a rebuild.</span>
+        </div>
+        <div class="bet-item">
+          <span class="bet-tag small">Small</span>
+          <span class="bet-txt"><strong>Manta Q4 investor report pilot</strong> — cover three key figures in the Q4 report. CFO sees the provenance map. Converts to full deployment Q1.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-actions">
+      <a class="c-btn c-btn-intel" href="#" onclick="showPhase('p2');setTimeout(()=>document.getElementById('p2-icahn').scrollIntoView({behavior:'smooth'}),100);return false;">Full Intel →</a>
+      <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A1763494%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+    </div>
+
+    <!-- PLAY CALLER -->
+    <div class="play-caller">
+      <div class="pc-hdr">
+        <span class="pc-hdr-lbl">Play Caller</span>
+        <span class="pc-hdr-account">Icahn Enterprises · Strike · Call Robert Flint This Week</span>
+      </div>
+      <div class="pc-body">
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-who">Who to Call</span>
+          <div class="pc-txt">
+            <strong>Robert Flint</strong> — CFO, Icahn Enterprises GP Inc. His Q3 loss report just dropped. He is in the room thinking about consolidation complexity and investor scrutiny right now.<br><br>
+            <strong>David Park</strong> — CAO. Secondary contact. Open the CFO conversation first, then loop in the CAO to confirm the operational consolidation pain.
+            <div class="pc-second">
+              <span class="pc-second-lbl">Second Move</span>
+              Schedule a Nov 14 follow-up after the Q3 dust settles. By then investors will have reacted — IBM's pitch on traceability gets more relevant, not less, after investor questions surface.
+            </div>
+          </div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-say">What to Say</span>
+          <div class="pc-quote">"Your Q3 dropped this week — five entities plus CVR rolling up while investors examine every figure. IBM Planning Analytics builds one model that handles all of them, and IBM Manta Data Lineage gives every number a traceable source. That's the conversation for this week. Can we find 20 minutes?"</div>
+          <div class="pc-txt" style="margin-top:10px;font-size:11.5px;color:#6a8aaa;">
+            If they push back on timing: "Call me Thursday after the investor reaction settles. By then I'll have one slide that shows exactly how IBM would cover both the efficiency problem and the accountability problem."
+          </div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-wait">If You Wait</span>
+          <div class="pc-txt">
+            The Q3 follow-up window closes by end of this week. The CFO moves on to Q4 planning and the pain of the Q3 consolidation process becomes historical — not something he's actively solving. The next earnings catalyst is Q4 in February or March 2027. <strong>Waiting costs IBM three months of selling time and the sharpest entry point in the account.</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sec-hdr" id="acct-herc"><span class="sec-label">Account 2 of 3 · Herc Rentals / Herc Holdings</span><div class="sec-rule"></div></div>
+
+<div class="card engage">
+
+    <div class="c-top">
+      <div class="c-top-meta">
+        <div class="c-acct-name">Herc Rentals / Herc Holdings</div>
+        <div class="c-meta">NYSE: HRI · Equipment rental · Bonita Springs FL · CEO succession Jan 1, 2027 · Q3 beat Nov 5</div>
+      </div>
+      <div class="c-top-right">
+        <div class="c-urg cu-engage"><span class="cu-dot"></span>Engage</div>
+        <div class="c-brand-row">
+          <span class="c-brand-badge br-data">Data &amp; AI</span>
+          <span class="c-brand-badge br-auto">Automation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="catalyst-bar">
+      <span class="cat-lbl">This Week</span>
+      <span class="cat-next soon">Q3 beat Nov 5 · Rental revenue $1.254B +12% · New CEO Aaron Birnbaum takes over Jan 1, 2027</span>
+      <span class="cat-sep">|</span>
+      <span class="cat-comp"><strong>Competing:</strong> Salesforce (CRM) · legacy fleet management tools</span>
+    </div>
+
+    <div class="c-body">
+      <div class="c-left-col">
+        <div class="c-sec-lbl">What Just Happened — Nov 5, 2026</div>
+        <ul class="c-bullets">
+          <li>Q3 beat: rental revenue <strong>$1.254B, +12% year-over-year</strong>. Adjusted EBITDA $603M (+9%). Full-year guidance raised to $4.475–$4.550B rental revenue. Strong execution.</li>
+          <li><strong>CEO Aaron Birnbaum takes over Jan 1, 2027.</strong> Larry Silber transitions to executive chairman. Incoming CEO = new strategic priorities, new budget cycle conversations starting now.</li>
+          <li>Herc's growth is driven by fleet expansion and utilization. <strong>IBM Planning Analytics</strong> turns utilization data into forward-looking fleet planning — new CEO conversation before the 2027 budget is locked.</li>
+          <li>A $24.5B infrastructure backlog across MasTec-type clients means demand for Herc equipment is structurally strong. <strong>AI-driven demand forecasting</strong> would let Herc deploy fleet ahead of demand, not behind it.</li>
+        </ul>
+
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-lines">
+            <div class="c-angle-line"><strong>New CEO = new budget window:</strong> Birnbaum takes over Jan 1. IBM's job is to be in front of him in Q4 — before 2027 budgets are locked — with the Planning Analytics fleet utilization story.</div>
+            <div class="c-angle-line"><strong>Planning Analytics for fleet:</strong> Herc rents 9,600+ pieces of equipment. IBM forecasts demand by region, type, and customer — moves IBM from a tool conversation to a strategic partner conversation.</div>
+            <div class="c-angle-line"><strong>AI governance angle:</strong> Herc is expanding into AI-driven maintenance scheduling. IBM watsonx.governance gives them the oversight layer before a regulatory audit of automated decisions creates a problem.</div>
+          </div>
+        </div>
+
+        <div class="c-comp">
+          <div class="c-comp-lbl">Competitive</div>
+          <div class="c-comp-txt"><strong>Legacy fleet management tools</strong> (Wynne, Point of Rental) handle transactions, not analytics. IBM Planning Analytics is the layer above those tools — not a replacement, an addition that turns operational data into forward-looking decisions. IBM wins without displacing anything.</div>
+        </div>
+
+        <div class="c-opener">
+          <div class="c-opener-lbl">Door Opener</div>
+          <div class="c-opener-txt">"Congratulations on a strong Q3 and the CEO transition announcement. As Aaron Birnbaum steps in and you build the 2027 plan, IBM Planning Analytics can turn your utilization data into a demand forecast that tells you where to position fleet before customers ask. That's a 30-minute conversation."</div>
+        </div>
+      </div>
+
+      <div class="c-right-col">
+        <div class="c-sell-hdr">How to Sell</div>
+        <div class="c-sell-block saas">
+          <div class="c-sell-type saas">SaaS Entry</div>
+          <div class="c-sell-txt"><strong>Planning Analytics</strong> — annual subscription. Fleet utilization forecasting and demand planning. New CEO pitch: <em>"Know where demand is before customers call."</em></div>
+          <span class="c-sell-pill saas">Planning Analytics</span>
+        </div>
+        <div class="c-sell-block trans">
+          <div class="c-sell-type trans">Transaction</div>
+          <div class="c-sell-txt"><strong>watsonx.data / AI Governance</strong> — as Herc expands AI-driven maintenance scheduling, IBM provides the oversight layer for automated decisions. CTO or COO pitch.</div>
+          <span class="c-sell-pill trans">watsonx Tx</span>
+        </div>
+        <div class="c-sell-block motion">
+          <div class="c-sell-type motion">Do This Now</div>
+          <div class="c-sell-txt">1. Reference the CEO transition — this is the Q4 budget window.<br>2. Lead with Planning Analytics fleet forecasting for the 2027 plan.<br>3. Ask for a 30-minute call with incoming CEO team before year-end.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-bottom">
+      <div class="c-spend">
+        <div class="cb-hdr spend">Tech Spend Lens</div>
+        <div class="sp-row"><span class="sp-cat">Fleet Management Ops</span><div class="sp-bar-wrap"><div class="sp-bar high" style="width:80%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">Demand Forecasting</span><div class="sp-bar-wrap"><div class="sp-bar med" style="width:45%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">AI / Predictive Analytics</span><div class="sp-bar-wrap"><div class="sp-bar low" style="width:18%"></div></div></div>
+        <div class="sp-scale">Relative to est. total tech spend — illustrative · Low / Mid / High</div>
+        <div class="sp-insight">Herc's margin improvement is tied to utilization rates. <strong>Every 1 point of utilization improvement at $4.5B revenue scale is meaningful.</strong> IBM's ROI argument is utilization-based, not software-price-based.</div>
+      </div>
+      <div class="c-bets">
+        <div class="cb-hdr bets">Bets</div>
+        <div class="bet-item">
+          <span class="bet-tag big">Big</span>
+          <span class="bet-txt"><strong>Planning Analytics as Herc's fleet intelligence platform</strong> — if IBM owns the demand forecasting layer, every fleet expansion and new market entry is an IBM expansion event.</span>
+        </div>
+        <div class="bet-item">
+          <span class="bet-tag small">Small</span>
+          <span class="bet-txt"><strong>2027 budget planning pilot</strong> — one region's fleet utilization model built for the Q4 planning cycle. New CEO sees IBM's value before the first budget is locked.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-actions">
+      <a class="c-btn c-btn-intel" href="#" onclick="showPhase('p2');setTimeout(()=>document.getElementById('p2-herc').scrollIntoView({behavior:'smooth'}),100);return false;">Full Intel →</a>
+      <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A4324%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+    </div>
+
+    <!-- PLAY CALLER -->
+    <div class="play-caller">
+      <div class="pc-hdr">
+        <span class="pc-hdr-lbl">Play Caller</span>
+        <span class="pc-hdr-account">Herc Rentals · Engage · Q4 CEO Transition Window</span>
+      </div>
+      <div class="pc-body">
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-who">Who to Call</span>
+          <div class="pc-txt">
+            <strong>Aaron Birnbaum</strong> — incoming CEO Jan 1. He is building his 2027 agenda now. IBM's job is to be in front of him with the fleet forecasting story before the budget is locked.<br><br>
+            <strong>Larry Silber</strong> — outgoing CEO / executive chairman. Still the decision-maker through year-end. A call congratulating the transition and requesting a 2027 planning conversation opens the door cleanly.
+            <div class="pc-second">
+              <span class="pc-second-lbl">Second Move</span>
+              If you reach Silber, ask for an introduction to Birnbaum as part of the transition handoff. IBM benefits from being introduced by the outgoing CEO, not coming in cold with the new one.
+            </div>
+          </div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-say">What to Say</span>
+          <div class="pc-quote">"Congratulations on the Q3 beat and the CEO succession announcement. As Aaron builds the 2027 plan, IBM Planning Analytics can turn Herc's utilization data into a demand forecast — where to position fleet before customers call, not after. That's worth 30 minutes before year-end budgets close."</div>
+          <div class="pc-txt" style="margin-top:10px;font-size:11.5px;color:#6a8aaa;">
+            Reference the Q3 guidance raise — Herc is growing fast. IBM's pitch is: "You're scaling to $4.5B in rental revenue. The decisions that move utilization 1–2 points at that scale are IBM Planning Analytics decisions."
+          </div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-wait">If You Wait</span>
+          <div class="pc-txt">
+            The CEO transition window is Q4 2026. Once Birnbaum is settled into the role in Q1 2027, he will have a budget already set and a vendor list already forming. IBM is most valuable to an incoming CEO who is still shaping their agenda — not one who has already shaped it. <strong>The window is November and December. After that, IBM is competing on a locked budget, not creating a new line item.</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sec-hdr" id="acct-mastec"><span class="sec-label">Account 3 of 3 · MasTec Inc.</span><div class="sec-rule"></div></div>
+
+<div class="card engage">
+
+    <div class="c-top">
+      <div class="c-top-meta">
+        <div class="c-acct-name">MasTec Inc.</div>
+        <div class="c-meta">NYSE: MTZ · Infrastructure construction · Coral Gables FL · Power Delivery · Clean Energy · Telecom · Oil &amp; Gas</div>
+      </div>
+      <div class="c-top-right">
+        <div class="c-urg cu-engage"><span class="cu-dot"></span>Engage</div>
+        <div class="c-brand-row">
+          <span class="c-brand-badge br-stor">Storage</span>
+          <span class="c-brand-badge br-data">Data &amp; AI</span>
+          <span class="c-brand-badge br-auto">Automation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="catalyst-bar">
+      <span class="cat-lbl">This Week</span>
+      <span class="cat-next soon">Q3 record revenue $5.15B +30% YoY · Backlog $24.5B all-time high · 2 acquisitions announced</span>
+      <span class="cat-sep">|</span>
+      <span class="cat-comp"><strong>Competing:</strong> Oracle (ERP) · Palantir (operational analytics)</span>
+    </div>
+
+    <div class="c-body">
+      <div class="c-left-col">
+        <div class="c-sec-lbl">What Just Happened — Nov 3–9, 2026</div>
+        <ul class="c-bullets">
+          <li>Q3 record revenue <strong>$5.15B, +30% year-over-year</strong>. Adjusted EBITDA $486M (+30%). Adjusted EPS $2.96 (+19%). All three metrics at record quarterly levels.</li>
+          <li><strong>Backlog $24.5B — all-time high.</strong> Up $3B sequentially and $7B year-over-year. Book-to-bill 1.6x. Power Delivery segment up 65% revenue, EBITDA up 132%.</li>
+          <li>Two acquisitions announced this week to expand Power Delivery and Pipeline Infrastructure capacity. <strong>Each acquisition creates a new data integration and project management complexity event.</strong></li>
+          <li>Full-year revenue guidance raised to $18.3B. MasTec is executing at scale across power grid, clean energy, and telecom simultaneously — <strong>IBM Storage and Data Fabric are the data infrastructure layer for a company building America's energy and communications backbone.</strong></li>
+        </ul>
+
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-lines">
+            <div class="c-angle-line"><strong>Storage at scale:</strong> A $24.5B backlog means hundreds of concurrent projects generating engineering data, compliance records, and field operations data. IBM Storage handles the volume. IBM Data Fabric connects it.</div>
+            <div class="c-angle-line"><strong>Data Fabric for acquisitions:</strong> Two new acquisitions this week alone — each brings different ERP and project data systems. IBM Data Fabric connects them without a migration. IBM wins on every acquisition.</div>
+            <div class="c-angle-line"><strong>Automation for field ops:</strong> $5B per quarter of field construction work means crew scheduling, equipment deployment, and safety compliance at massive scale. IBM Automation reduces manual coordination cost.</div>
+          </div>
+        </div>
+
+        <div class="c-comp">
+          <div class="c-comp-lbl">Competitive</div>
+          <div class="c-comp-txt"><strong>Palantir</strong> is pitching operational analytics to large infrastructure contractors. IBM's counter: Palantir models data. IBM moves it, stores it, and governs it — Palantir needs IBM's infrastructure layer to work at MasTec's scale. Frame IBM as the foundation, not the competitor.</div>
+        </div>
+
+        <div class="c-opener">
+          <div class="c-opener-lbl">Door Opener</div>
+          <div class="c-opener-txt">"Congratulations on a record quarter. At $24.5B of backlog across four segments, the data generated by that work is itself a strategic asset. IBM Storage and Data Fabric give MasTec one integrated data layer across every project, every segment, and every new acquisition. Worth 30 minutes."</div>
+        </div>
+      </div>
+
+      <div class="c-right-col">
+        <div class="c-sell-hdr">How to Sell</div>
+        <div class="c-sell-block saas">
+          <div class="c-sell-type saas">SaaS Entry</div>
+          <div class="c-sell-txt"><strong>IBM Storage + Data Fabric</strong> — the infrastructure layer for $5B/quarter of project data. CTO / CIO pitch: <em>"One data layer across every segment and every acquisition."</em></div>
+          <span class="c-sell-pill saas">Storage + Data Fabric</span>
+        </div>
+        <div class="c-sell-block trans">
+          <div class="c-sell-type trans">Transaction</div>
+          <div class="c-sell-txt"><strong>IBM Automation</strong> — crew scheduling, equipment deployment, and safety compliance at field scale. COO pitch. Each new acquisition expands scope. IBM Automation reduces coordination labor cost.</div>
+          <span class="c-sell-pill trans">Automation Tx</span>
+        </div>
+        <div class="c-sell-block motion">
+          <div class="c-sell-type motion">Do This Now</div>
+          <div class="c-sell-txt">1. Reference record Q3 and the two new acquisitions.<br>2. Open on data integration across acquisitions — IBM Data Fabric angle.<br>3. Storage is the second conversation once the data layer is established.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-bottom">
+      <div class="c-spend">
+        <div class="cb-hdr spend">Tech Spend Lens</div>
+        <div class="sp-row"><span class="sp-cat">Project Ops / Field IT</span><div class="sp-bar-wrap"><div class="sp-bar high" style="width:82%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">ERP / Integration</span><div class="sp-bar-wrap"><div class="sp-bar high" style="width:70%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">Data / Storage</span><div class="sp-bar-wrap"><div class="sp-bar med" style="width:48%"></div></div></div>
+        <div class="sp-row"><span class="sp-cat">AI / Analytics</span><div class="sp-bar-wrap"><div class="sp-bar low" style="width:22%"></div></div></div>
+        <div class="sp-scale">Relative to est. total tech spend — illustrative · Low / Mid / High</div>
+        <div class="sp-insight">MasTec's two new acquisitions mean more data systems to connect. <strong>IBM wins on every M&amp;A event — Data Fabric is the integration layer that makes each acquisition additive, not disruptive.</strong></div>
+      </div>
+      <div class="c-bets">
+        <div class="cb-hdr bets">Bets</div>
+        <div class="bet-item">
+          <span class="bet-tag big">Big</span>
+          <span class="bet-txt"><strong>IBM as MasTec's data infrastructure standard</strong> — Storage + Data Fabric as the layer across all four segments. Every acquisition is an IBM expansion event at $18B revenue scale.</span>
+        </div>
+        <div class="bet-item">
+          <span class="bet-tag small">Small</span>
+          <span class="bet-txt"><strong>Acquisition integration pilot</strong> — one of the two new acquisitions announced this week. IBM Data Fabric connects the acquired company's data systems in 60 days. Fast proof, high visibility.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-actions">
+      <a class="c-btn c-btn-intel" href="#" onclick="showPhase('p2');setTimeout(()=>document.getElementById('p2-mastec').scrollIntoView({behavior:'smooth'}),100);return false;">Full Intel →</a>
+      <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A15551%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+    </div>
+
+    <!-- PLAY CALLER -->
+    <div class="play-caller">
+      <div class="pc-hdr">
+        <span class="pc-hdr-lbl">Play Caller</span>
+        <span class="pc-hdr-account">MasTec · Engage · Record Q3 + Two New Acquisitions This Week</span>
+      </div>
+      <div class="pc-body">
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-who">Who to Call</span>
+          <div class="pc-txt">
+            <strong>CTO or CIO</strong> at MasTec Coral Gables HQ. The two new acquisitions announced this week are the reason to call — each one brings different data systems IBM Data Fabric needs to connect.<br><br>
+            <strong>COO</strong> — secondary. The Automation conversation (crew scheduling, equipment at field scale) is a COO-level pain with $5B/quarter in field construction volume.
+            <div class="pc-second">
+              <span class="pc-second-lbl">Second Move</span>
+              Ask for an in-person meeting in Coral Gables. MasTec is a Miami-area company — IBM South Florida has a geographic relationship advantage here that a national vendor doesn't.
+            </div>
+          </div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-say">What to Say</span>
+          <div class="pc-quote">"Congratulations on a record Q3 and the two new acquisitions. Every acquisition brings a different data system — IBM Data Fabric connects them to your existing platform in 60 days without a migration. At $24.5B of backlog across four segments, one data layer is the difference between a company that scales smoothly and one that manages data chaos. Worth 30 minutes."</div>
+          <div class="pc-txt" style="margin-top:10px;font-size:11.5px;color:#6a8aaa;">
+            If they mention Palantir: "Palantir models your data. IBM moves it, stores it, and connects it across every new acquisition. Both are better when IBM's infrastructure layer is underneath."
+          </div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-wait">If You Wait</span>
+          <div class="pc-txt">
+            MasTec is growing at 30% a year and acquiring regularly. If IBM is not established as the data integration layer now, each acquired company's IT team selects their own tools, creating technical debt that is harder to unwind later. <strong>The two acquisitions this week are the clean entry point — call while the integration plans are being written, not after they are finished.</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /main p1 -->
+</div><!-- /panel-p1 -->
+
+<!-- PHASE 2 — DEEP INTEL BRIEF -->
+<div class="phase-panel" id="panel-p2">
+<div class="main">
+
+
+
+  <!-- ══ ACCOUNT 1: ICAHN ENTERPRISES ══ -->
+  <div class="p2-page strike" id="p2-icahn">
+
+    <div class="p2-header-row">
+      <div class="p2-logo-box">
+        <img class="p2-logo" src="LOGOS/icahn.png" alt="Icahn Enterprises Logo" onerror="this.parentElement.innerHTML='<b>IEP</b>'">
+      </div>
+      <div class="p2-header-text">
+        <div class="p2-se-horizon">IBM SF Intel Brief · Phase 2 Deep Intel · Shari Zahed</div>
+        <div class="p2-name-large">Icahn Enterprises L.P.</div>
+        <div class="p2-date-line">NASDAQ: IEP · Diversified Holding Company · Sunny Isles Beach FL · Energy, Automotive, Real Estate, Pharma, Home Fashion</div>
+      </div>
+      <div class="p2-header-right">
+        <span class="p2-tier-badge p2-tier-strike">Strike — Q3 Earnings Call Miss</span>
+        <div class="c-brand-row">
+          <span class="c-brand-badge br-data">Data &amp; AI</span>
+          <span class="c-brand-badge br-auto">Automation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="p2-pulse-row">
+      <span class="p2-pulse-badge" style="background:#da1e28;">Live Strike Pulse</span>
+      <div class="p2-pulse-text">
+        <strong>Q3 Net Loss was –$150M (–$0.31/unit) vs expected +$0.09 EPS, with EBITDA loss of $214M.</strong> CVR Energy and CVR Partners are consolidated alongside five operating businesses. Pep Boys divestiture forces a complete financial model reconfiguration. <strong>Investors and auditors are scrutinizing every reported segment figure. Pitch IBM Manta Data Lineage + Planning Analytics for automated audit provenance and consolidation.</strong>
+      </div>
+    </div>
+
+    <div class="p2-linkedin-row">
+      <div class="p2-li-text">LinkedIn Company Profile · <strong>850+ Professionals on SNav</strong> · Sunny Isles Beach FL Headquarters</div>
+      <a class="p2-li-btn" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A1763494%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">Open Sales Nav ↗</a>
+    </div>
+
+    <div class="p2-intel-grid">
+      <div class="p2-grid-col p2-grid-col-l">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Business &amp; Financial Signals</div>
+        <ul>
+          <li><strong>Q3 Earnings Disconnect:</strong> Revenue beat ($3.17B vs $2.33B est) but GAAP net loss widened to –$150M due to energy segment margin compression.</li>
+          <li><strong>Portfolio Restructuring:</strong> Pep Boys sale completed; capital reallocation toward high-yield energy and holding company debt reduction.</li>
+          <li><strong>Consolidation Overhead:</strong> 5 major operating subsidiaries + publicly traded CVR MLPs require weeks of manual spreadsheet consolidation per close cycle.</li>
+          <li><strong>Intense Investor Scrutiny:</strong> Short-seller scrutiny and activist investor defense mandate end-to-end mathematical data provenance for all published numbers.</li>
+        </ul>
+      </div>
+
+      <div class="p2-grid-col p2-grid-col-m">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Technology Infrastructure &amp; Gaps</div>
+        <ul>
+          <li><strong>Fragmented ERP Architecture:</strong> CVR Energy (SAP), Automotive (legacy), Real Estate (Yardi) run on separate ledgers with zero automated data lineage.</li>
+          <li><strong>Longview / Aptitude Limitations:</strong> Consolidation software lacks forward-looking scenario modeling and automated mathematical root-cause tracing.</li>
+          <li><strong>Audit Defense Bottlenecks:</strong> Financial analysts manually trace spreadsheet adjustments, creating multi-week delays during quarterly filings.</li>
+          <li><strong>No Lineage Layer:</strong> Corporate finance lacks an automated engine to map data transformations from subsidiary general ledgers to SEC 10-Q tables.</li>
+        </ul>
+      </div>
+
+      <div class="p2-grid-col p2-grid-col-r">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Key Verified Personas</div>
+        <div class="p2-contact-entry">
+          <div class="p2-contact-name">Robert Flint</div>
+          <div class="p2-contact-role">Chief Financial Officer</div>
+          <div class="p2-contact-hook">Owns SEC reporting integrity, LP distributions, and quarterly audit defense.</div>
+        </div>
+        <div class="p2-contact-entry">
+          <div class="p2-contact-name">David Park</div>
+          <div class="p2-contact-role">Chief Accounting Officer</div>
+          <div class="p2-contact-hook">Manages multi-subsidiary close cycles, journal entries, and general ledger rollups.</div>
+        </div>
+        <div class="p2-contact-entry">
+          <div class="p2-contact-name">Head of Investor Relations</div>
+          <div class="p2-contact-role">Corporate Communications &amp; IR</div>
+          <div class="p2-contact-hook">Defends quarterly numbers against analyst questioning and ensures data veracity.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p2-play-bar">
+      <div class="p2-pb-hdr">
+        <div>
+          <div class="p2-pb-main-title">IBM Strategic Sales Plays · Icahn Enterprises</div>
+          <div class="p2-pb-sub-title">Audit Traceability (Manta Data Lineage) + Dynamic Holding Co Modeling (Planning Analytics)</div>
+        </div>
+        <span class="p2-pb-badge-pill">Lead: Data &amp; AI</span>
+      </div>
+      <div class="p2-play-detail-grid">
+        <div class="p2-play-detail-col">
+          <div class="p2-play-rank-badge"><span class="p2-play-rank-num">1</span> Primary SaaS Entry</div>
+          <div class="p2-play-detail-name">IBM Manta Data Lineage</div>
+          <div class="p2-play-detail-body">
+            Automated mathematical lineage mapping for all published investor numbers. Reconstructs exact provenance from subsidiary ERPs to 10-Q disclosures in seconds.
+          </div>
+        </div>
+        <div class="p2-play-detail-col">
+          <div class="p2-play-rank-badge"><span class="p2-play-rank-num">2</span> Expansion SaaS</div>
+          <div class="p2-play-detail-name">Planning Analytics for Multi-Entity Consolidation</div>
+          <div class="p2-play-detail-body">
+            Multidimensional financial planning platform that handles acquisitions, divestitures, and energy price volatility as configuration updates rather than spreadsheet rebuilds.
+          </div>
+        </div>
+        <div class="p2-play-detail-col">
+          <div class="p2-play-rank-badge"><span class="p2-play-rank-num">3</span> Transaction Motion</div>
+          <div class="p2-play-detail-name">IBM Data Fabric &amp; AppConnect</div>
+          <div class="p2-play-detail-body">
+            Federate ledger data across CVR Energy, real estate, and holding company systems without forcing subsidiary ERP replacement.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p2-lower-section">
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Do This Now — Action Plan</div>
+        <div class="p2-action-text">
+          1. Call Robert Flint (CFO) and David Park (CAO) immediately while Q3 audit pain is fresh.<br>
+          2. Open on reducing quarterly close cycle time and establishing mathematical proof for every investor report number.<br>
+          3. Propose a 20-minute demonstration of Manta Lineage on holding company rollups.
+        </div>
+      </div>
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Verbatim Door Opener</div>
+        <div class="p2-talk-track-text">
+          "With Q3 earnings out and five operating businesses plus CVR rolling up, your finance team is managing complex manual consolidation while investors scrutinize every segment margin. IBM Manta Data Lineage gives every published number an automated audit trail back to source ledgers, and Planning Analytics turns entity changes into simple config updates. Let's schedule 20 minutes this week."
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /p2-icahn -->
+
+  <!-- ══ ACCOUNT 2: HERC RENTALS ══ -->
+  <div class="p2-page engage" id="p2-herc">
+
+    <div class="p2-header-row">
+      <div class="p2-logo-box">
+        <img class="p2-logo" src="LOGOS/herc.png" alt="Herc Rentals Logo" onerror="this.parentElement.innerHTML='<b>HRI</b>'">
+      </div>
+      <div class="p2-header-text">
+        <div class="p2-se-horizon">IBM SF Intel Brief · Phase 2 Deep Intel · Shari Zahed</div>
+        <div class="p2-name-large">Herc Rentals / Herc Holdings Inc.</div>
+        <div class="p2-date-line">NYSE: HRI · Equipment Rental Leader · Bonita Springs FL · 400+ Locations · $4.5B Annual Rental Revenue Run-Rate</div>
+      </div>
+      <div class="p2-header-right">
+        <span class="p2-tier-badge p2-tier-engage">Engage — CEO Transition Window</span>
+        <div class="c-brand-row">
+          <span class="c-brand-badge br-data">Data &amp; AI</span>
+          <span class="c-brand-badge br-auto">Automation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="p2-pulse-row">
+      <span class="p2-pulse-badge">Q3 Live Pulse</span>
+      <div class="p2-pulse-text">
+        <strong>Q3 Rental Revenue jumped +12% to $1.254B with Adjusted EBITDA of $603M (+9%).</strong> Full-year guidance raised to $4.475B–$4.550B. Aaron Birnbaum announced as incoming CEO effective January 1, 2027. <strong>Incoming CEO transition opens the strategic 2027 budget window. Pitch Planning Analytics for AI-driven fleet demand forecasting and dynamic asset positioning.</strong>
+      </div>
+    </div>
+
+    <div class="p2-linkedin-row">
+      <div class="p2-li-text">LinkedIn Company Profile · <strong>7,200+ Employees on SNav</strong> · Bonita Springs FL HQ &amp; Field Ops</div>
+      <a class="p2-li-btn" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A4324%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">Open Sales Nav ↗</a>
+    </div>
+
+    <div class="p2-intel-grid">
+      <div class="p2-grid-col p2-grid-col-l">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Business &amp; Financial Signals</div>
+        <ul>
+          <li><strong>Strong Execution &amp; Scale:</strong> Q3 rental revenue up 12% YoY to $1.254B; full-year guidance raised to $4.55B top-end.</li>
+          <li><strong>CEO Succession (Jan 1, 2027):</strong> Larry Silber transitioning to Executive Chairman; Aaron Birnbaum taking over as CEO, actively shaping 2027 priorities.</li>
+          <li><strong>Infrastructure Supercycle Tailwind:</strong> Record nationwide infrastructure construction backlog drives multi-year demand for earthmoving and aerial equipment.</li>
+          <li><strong>Fleet Utilization Sensitivity:</strong> Every 100 bps increase in fleet dollar utilization delivers ~$45M in high-margin incremental EBITDA.</li>
+        </ul>
+      </div>
+
+      <div class="p2-grid-col p2-grid-col-m">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Technology Infrastructure &amp; Gaps</div>
+        <ul>
+          <li><strong>Operational Fleet Telematics:</strong> Captures billions of IoT telemetry data points from 9,600+ machines, but lacks predictive forward demand modeling.</li>
+          <li><strong>Legacy Rental Systems:</strong> ERP and POS tools (Wynne Systems) track rental transactions reactively rather than simulating regional demand spikes.</li>
+          <li><strong>Maintenance AI Governance:</strong> Scaling automated algorithms for predictive maintenance and warranty recovery without centralized model audit controls.</li>
+          <li><strong>Branch Capacity Planning:</strong> 400+ branch managers forecast equipment needs manually, leading to regional inventory imbalances and cross-hauling costs.</li>
+        </ul>
+      </div>
+
+      <div class="p2-grid-col p2-grid-col-r">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Key Verified Personas</div>
+        <div class="p2-contact-entry">
+          <div class="p2-contact-name">Aaron Birnbaum</div>
+          <div class="p2-contact-role">Incoming Chief Executive Officer (Jan 1, 2027)</div>
+          <div class="p2-contact-hook">Building 2027 capital expenditure strategy &amp; fleet efficiency agenda.</div>
+        </div>
+        <div class="p2-contact-entry">
+          <div class="p2-contact-name">Mark Irion</div>
+          <div class="p2-contact-role">Chief Financial Officer</div>
+          <div class="p2-contact-hook">Drives fleet dollar utilization, EBITDA margins, and capital allocation.</div>
+        </div>
+        <div class="p2-contact-entry">
+          <div class="p2-contact-name">SVP, Operations &amp; Fleet</div>
+          <div class="p2-contact-role">Fleet Logistics &amp; Telematics</div>
+          <div class="p2-contact-hook">Oversees regional equipment positioning, branch inventory, and telematics.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p2-play-bar">
+      <div class="p2-pb-hdr">
+        <div>
+          <div class="p2-pb-main-title">IBM Strategic Sales Plays · Herc Rentals</div>
+          <div class="p2-pb-sub-title">Fleet Demand Forecasting (Planning Analytics) + Maintenance AI Governance (watsonx)</div>
+        </div>
+        <span class="p2-pb-badge-pill">Lead: Data &amp; AI</span>
+      </div>
+      <div class="p2-play-detail-grid">
+        <div class="p2-play-detail-col">
+          <div class="p2-play-rank-badge"><span class="p2-play-rank-num">1</span> Primary SaaS Entry</div>
+          <div class="p2-play-detail-name">Planning Analytics for Fleet Intelligence</div>
+          <div class="p2-play-detail-body">
+            Multidimensional forecasting engine that models regional construction starts, mega-project timelines, and seasonal demand to optimize 400+ branch fleet deployment.
+          </div>
+        </div>
+        <div class="p2-play-detail-col">
+          <div class="p2-play-rank-badge"><span class="p2-play-rank-num">2</span> Expansion SaaS</div>
+          <div class="p2-play-detail-name">watsonx.governance for Telematics AI</div>
+          <div class="p2-play-detail-body">
+            Centralized policy and safety net for machine learning models governing predictive maintenance alerts, asset pricing elasticity, and automated field dispatch.
+          </div>
+        </div>
+        <div class="p2-play-detail-col">
+          <div class="p2-play-rank-badge"><span class="p2-play-rank-num">3</span> Transaction Motion</div>
+          <div class="p2-play-detail-name">IBM Data Fabric &amp; AppConnect</div>
+          <div class="p2-play-detail-body">
+            Integrate IoT telematics, CRM, and legacy branch billing systems into one real-time enterprise telemetry layer.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p2-lower-section">
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Do This Now — Action Plan</div>
+        <div class="p2-action-text">
+          1. Reach out to incoming CEO Aaron Birnbaum and CFO Mark Irion during Q4 budget planning.<br>
+          2. Anchor on converting telematics into predictive fleet positioning before 2027 capital allocation is finalized.<br>
+          3. Propose a 30-minute demonstration of Planning Analytics fleet utilization modeling.
+        </div>
+      </div>
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Verbatim Door Opener</div>
+        <div class="p2-talk-track-text">
+          "Congratulations on the record Q3 performance and the upcoming CEO transition. As Aaron Birnbaum sets the 2027 strategic plan, turning Herc's massive fleet telematics into forward-looking demand forecasts can unlock 1–2 points of dollar utilization across your 400 branches. IBM Planning Analytics provides that predictive layer above your operational ERP without disrupting current systems. Let's find 20 minutes before year-end."
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /p2-herc -->
+
+  <!-- ══ ACCOUNT 3: MASTEC ══ -->
+  <div class="p2-page engage" id="p2-mastec">
+
+    <div class="p2-header-row">
+      <div class="p2-logo-box">
+        <img class="p2-logo" src="LOGOS/mastec.png" alt="MasTec Logo" onerror="this.parentElement.innerHTML='<b>MTZ</b>'">
+      </div>
+      <div class="p2-header-text">
+        <div class="p2-se-horizon">IBM SF Intel Brief · Phase 2 Deep Intel · Shari Zahed</div>
+        <div class="p2-name-large">MasTec Inc.</div>
+        <div class="p2-date-line">NYSE: MTZ · Infrastructure Engineering &amp; Construction · Coral Gables FL (HQ) · $24.5B Backlog · Power Delivery, Clean Energy, Telecom</div>
+      </div>
+      <div class="p2-header-right">
+        <span class="p2-tier-badge p2-tier-engage">Engage — Record $24.5B Backlog &amp; M&amp;A</span>
+        <div class="c-brand-row">
+          <span class="c-brand-badge br-stor">Storage</span>
+          <span class="c-brand-badge br-data">Data &amp; AI</span>
+          <span class="c-brand-badge br-auto">Automation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="p2-pulse-row">
+      <span class="p2-pulse-badge">Q3 Live Pulse</span>
+      <div class="p2-pulse-text">
+        <strong>Q3 Revenue reached an all-time record $5.15B (+30% YoY) with Adjusted EBITDA of $486M (+30%).</strong> Total backlog surged to a historic $24.5B (book-to-bill 1.6x), powered by a +65% surge in Power Delivery. Two strategic acquisitions announced this week. <strong>Rapid M&amp;A integration and massive project engineering data make IBM Storage + Data Fabric the foundational play.</strong>
+      </div>
+    </div>
+
+    <div class="p2-linkedin-row">
+      <div class="p2-li-text">LinkedIn Company Profile · <strong>35,000+ Employees on SNav</strong> · Coral Gables FL HQ &amp; National Field Ops</div>
+      <a class="p2-li-btn" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A15551%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">Open Sales Nav ↗</a>
+    </div>
+
+    <div class="p2-intel-grid">
+      <div class="p2-grid-col p2-grid-col-l">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Business &amp; Financial Signals</div>
+        <ul>
+          <li><strong>Historic Financial Record:</strong> Q3 revenue $5.15B (+30%), Adj EBITDA $486M (+30%), Adj EPS $2.96 (+19%); full-year guidance raised to $18.3B.</li>
+          <li><strong>$24.5B Backlog (All-Time High):</strong> Up $3B sequentially and $7B YoY; Power Delivery segment revenue up 65% and EBITDA up 132%.</li>
+          <li><strong>Active M&amp;A Pace:</strong> Two new acquisitions announced this week to expand utility grid modernization and pipeline capacity.</li>
+          <li><strong>Data Proliferation:</strong> Thousands of active infrastructure job sites generating millions of high-resolution CAD files, drone sensor logs, and safety records.</li>
+        </ul>
+      </div>
+
+      <div class="p2-grid-col p2-grid-col-m">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Technology Infrastructure &amp; Gaps</div>
+        <ul>
+          <li><strong>Multi-ERP Sprawl:</strong> Acquisitions introduce diverse ERP, project accounting, and field ticketing platforms that create data silos across segments.</li>
+          <li><strong>Engineering Data Storage:</strong> Unstructured engineering BIM/CAD files and drone inspection video archives require scalable, immutable hybrid storage.</li>
+          <li><strong>Palantir Operational Push:</strong> Palantir pitching operational software, but lacks enterprise storage infrastructure and data federation layers.</li>
+          <li><strong>Field Crew Automation:</strong> Coordinating 35,000+ field technicians and subcontractors across storm restoration projects requires automated workflow dispatch.</li>
+        </ul>
+      </div>
+
+      <div class="p2-grid-col p2-grid-col-r">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Key Verified Personas</div>
+        <div class="p2-contact-entry">
+          <div class="p2-contact-name">Jose Mas</div>
+          <div class="p2-contact-role">Chief Executive Officer</div>
+          <div class="p2-contact-hook">Leading $18B+ revenue expansion and national grid modernization strategy.</div>
+        </div>
+        <div class="p2-contact-entry">
+          <div class="p2-contact-name">Chief Technology &amp; Info Officer</div>
+          <div class="p2-contact-hook">Enterprise IT architecture, M&amp;A systems integration, and cyber resilience.</div>
+        </div>
+        <div class="p2-contact-entry">
+          <div class="p2-contact-name">EVP, Field Operations &amp; Power Delivery</div>
+          <div class="p2-contact-hook">Grid modernization execution, field crew logistics, and project margin capture.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p2-play-bar">
+      <div class="p2-pb-hdr">
+        <div>
+          <div class="p2-pb-main-title">IBM Strategic Sales Plays · MasTec Inc.</div>
+          <div class="p2-pb-sub-title">M&amp;A Data Federation (Data Fabric + Storage) + Field Workflow Automation</div>
+        </div>
+        <span class="p2-pb-badge-pill">Lead: Storage &amp; Data</span>
+      </div>
+      <div class="p2-play-detail-grid">
+        <div class="p2-play-detail-col">
+          <div class="p2-play-rank-badge"><span class="p2-play-rank-num">1</span> Primary SaaS Entry</div>
+          <div class="p2-play-detail-name">IBM Storage &amp; Data Fabric for M&amp;A</div>
+          <div class="p2-play-detail-body">
+            Scalable hybrid cloud storage and data virtualization layer that ingests and unifies project data from newly acquired companies in 60 days without database migrations.
+          </div>
+        </div>
+        <div class="p2-play-detail-col">
+          <div class="p2-play-rank-badge"><span class="p2-play-rank-num">2</span> Expansion SaaS</div>
+          <div class="p2-play-detail-name">watsonx.ai for Grid Vision Inspection</div>
+          <div class="p2-play-detail-body">
+            Computer vision algorithms to automate drone and LiDAR transmission line defect detection across thousands of miles of high-voltage Power Delivery corridors.
+          </div>
+        </div>
+        <div class="p2-play-detail-col">
+          <div class="p2-play-rank-badge"><span class="p2-play-rank-num">3</span> Transaction Motion</div>
+          <div class="p2-play-detail-name">IBM Business Automation &amp; Cyber Vault</div>
+          <div class="p2-play-detail-body">
+            Automate subcontractor safety compliance workflows while safeguarding critical infrastructure engineering vaults with immutable air-gapped storage.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p2-lower-section">
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Do This Now — Action Plan</div>
+        <div class="p2-action-text">
+          1. Contact MasTec IT &amp; Engineering leadership at Coral Gables HQ.<br>
+          2. Reference the record $24.5B backlog and offer a rapid 60-day data integration architecture for their two new acquisitions.<br>
+          3. Propose an on-site executive session in Coral Gables with IBM Storage and Data architects.
+        </div>
+      </div>
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Verbatim Door Opener</div>
+        <div class="p2-talk-track-text">
+          "Congratulations on the historic Q3 results and $24.5B backlog. Scaling to $18B+ and closing two acquisitions in Power Delivery creates massive engineering data sprawl across disparate systems. IBM Storage and Data Fabric give MasTec one federated data layer across all active jobsites and acquired entities without costly migrations. We would love to spend 30 minutes in Coral Gables with your technology team."
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /p2-mastec -->
+
+
+</div><!-- /main p2 -->
+</div><!-- /panel-p2 -->
+
+<!-- PHASE 3 — MY ACCOUNTS -->
+<div class="phase-panel" id="panel-p3">
+<div class="main">
+
+
+
+  <div class="p3-shell">
+    <!-- Left Account Rail -->
+    <div class="p3-rail">
+      <div class="p3-rail-hdr">
+        <div class="p3-rail-title">Shari's Accounts</div>
+      </div>
+      <div class="p3-ra on" id="p3-ra-icahn" onclick="loadP3('icahn')">
+        <div class="p3-ra-name">Icahn Enterprises L.P.</div>
+        <span class="p3-ra-urg strike">Strike</span>
+        <div class="p3-ra-hook">Q3 loss -$0.31 · Manta Lineage · 5 Entities + CVR</div>
+      </div>
+      <div class="p3-ra" id="p3-ra-herc" onclick="loadP3('herc')">
+        <div class="p3-ra-name">Herc Rentals Inc.</div>
+        <span class="p3-ra-urg engage">Engage</span>
+        <div class="p3-ra-hook">CEO transition Jan 1 · Q3 rev $1.25B +12% · Fleet AI</div>
+      </div>
+      <div class="p3-ra" id="p3-ra-mastec" onclick="loadP3('mastec')">
+        <div class="p3-ra-name">MasTec Inc.</div>
+        <span class="p3-ra-urg engage">Engage</span>
+        <div class="p3-ra-hook">Record Q3 $5.15B · $24.5B Backlog · 2 Acquisitions</div>
+      </div>
+    </div>
+
+    <!-- Right Detail Pane -->
+    <div class="p3-detail-pane">
+
+      <!-- Icahn Detail -->
+      <div class="p3-dp-card" id="p3-detail-icahn">
+        <div class="p3-dp-hdr">
+          <div class="p3-dp-hdr-top">
+            <div class="p3-dp-logo">
+              <img src="LOGOS/icahn.png" alt="Icahn Enterprises" onerror="this.parentElement.innerHTML='<b>IEP</b>'">
+            </div>
+            <div>
+              <div style="font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;">Shari Zahed · Edition 14 · Nov 9, 2026</div>
+              <div class="p3-dp-acct-name">Icahn Enterprises L.P.</div>
+              <div class="p3-dp-acct-meta">NASDAQ: IEP · Diversified Conglomerate · Sunny Isles Beach FL · Energy, Auto, Real Estate, Pharma</div>
+            </div>
+          </div>
+          <div class="p3-dp-thesis">
+            <strong>Account Thesis:</strong> Q3 net loss of -$150M triggers intense investor and auditor scrutiny across five operating subsidiaries plus CVR energy MLPs. IBM Manta Data Lineage gives the CFO automated provenance maps, while Planning Analytics turns portfolio changes into config updates.
+          </div>
+          <div class="p3-dp-vitals">
+            <div class="p3-vital"><div class="p3-vital-lbl">Tier</div><div class="p3-vital-val" style="color:var(--strike);">Strike</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">IBM Lead</div><div class="p3-vital-val">Manta Data Lineage</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">Expansion</div><div class="p3-vital-val">Planning Analytics</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">Primary Entry</div><div class="p3-vital-val">Robert Flint (CFO)</div></div>
+          </div>
+        </div>
+
+        <div class="p3-dp-body">
+          <div class="p3-sec"><span class="p3-sec-lbl">IBM Play Heat Scores</span><div class="p3-sec-line"></div></div>
+          <div class="p3-heat-grid">
+            <div class="p3-heat-card" style="--hc:#da1e28;">
+              <div class="p3-heat-play">Manta Data Lineage</div>
+              <div class="p3-heat-score">96</div>
+              <div class="p3-heat-bar"><div class="p3-heat-fill" style="width:96%;background:#da1e28;"></div></div>
+              <div class="p3-heat-conviction">Urgent need for automated mathematical audit trail following Q3 earnings miss and investor inquiries.</div>
+            </div>
+            <div class="p3-heat-card" style="--hc:#0043CE;">
+              <div class="p3-heat-play">Planning Analytics</div>
+              <div class="p3-heat-score">86</div>
+              <div class="p3-heat-bar"><div class="p3-heat-fill" style="width:86%;"></div></div>
+              <div class="p3-heat-conviction">Replaces manual quarterly spreadsheet rollups across 5 disparate entities + CVR Energy.</div>
+            </div>
+            <div class="p3-heat-card" style="--hc:#5A189A;">
+              <div class="p3-heat-play">Data Fabric &amp; AppConnect</div>
+              <div class="p3-heat-score">68</div>
+              <div class="p3-heat-bar"><div class="p3-heat-fill" style="width:68%;"></div></div>
+              <div class="p3-heat-conviction">Federates general ledgers across SAP, Yardi, and legacy subsidiary systems.</div>
+            </div>
+          </div>
+
+          <div class="p3-sec"><span class="p3-sec-lbl">Competitive Threats</span><div class="p3-sec-line"></div></div>
+          <div class="p3-threats">
+            <div class="p3-threat">
+              <div class="p3-threat-top">
+                <div class="p3-threat-name">Longview / Aptitude Software</div>
+                <span class="p3-threat-level">Active</span>
+              </div>
+              <div class="p3-threat-doing">Used for base financial consolidation; lacks dynamic scenario modeling and automated mathematical lineage.</div>
+              <div class="p3-threat-counter"><strong>IBM Counter:</strong> Position Manta Lineage as an audit protection layer directly above Longview, and Planning Analytics for fast scenario planning.</div>
+            </div>
+            <div class="p3-threat" style="border-left-color:var(--t4);">
+              <div class="p3-threat-top">
+                <div class="p3-threat-name">Manual Spreadsheets / External Audit Overhaul</div>
+                <span class="p3-threat-level" style="background:#431407;color:#fdba74;">Opportunity</span>
+              </div>
+              <div class="p3-threat-doing">Accounting team spends hundreds of hours manually verifying cross-entity journal adjustments.</div>
+              <div class="p3-threat-counter"><strong>IBM Counter:</strong> Frame IBM as pure CFO liability defense and labor cost takeout for quarterly audit preparation.</div>
+            </div>
+          </div>
+
+          <div class="p3-sec"><span class="p3-sec-lbl">This Week's Move</span><div class="p3-sec-line"></div></div>
+          <div class="p3-move">
+            <div class="p3-move-row">
+              <span class="p3-move-lbl" style="background:var(--strike);">Do Today</span>
+              <div class="p3-move-text">Call Robert Flint (CFO) and David Park (CAO) — reference Q3 report complexity and investor traceability.</div>
+            </div>
+            <div class="p3-move-row">
+              <span class="p3-move-lbl">This Week</span>
+              <div class="p3-move-text">Demonstrate Manta Data Lineage mapping a complex multi-entity consolidation in under 10 minutes.</div>
+            </div>
+            <div class="p3-move-row">
+              <span class="p3-move-lbl">Talk Track</span>
+              <div class="p3-move-track">"Your Q3 report dropped this week with five entities plus CVR in the rollup. IBM Manta Data Lineage gives every investor figure a traceable source, and Planning Analytics automates multi-entity changes. Can we do 20 minutes?"</div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /icahn detail -->
+
+      <!-- Herc Detail -->
+      <div class="p3-dp-card" id="p3-detail-herc" style="display:none;">
+        <div class="p3-dp-hdr">
+          <div class="p3-dp-hdr-top">
+            <div class="p3-dp-logo">
+              <img src="LOGOS/herc.png" alt="Herc Rentals" onerror="this.parentElement.innerHTML='<b>HRI</b>'">
+            </div>
+            <div>
+              <div style="font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;">Shari Zahed · Edition 14 · Nov 9, 2026</div>
+              <div class="p3-dp-acct-name">Herc Rentals / Herc Holdings Inc.</div>
+              <div class="p3-dp-acct-meta">NYSE: HRI · Equipment Rental · Bonita Springs FL · 400+ Branches · $4.5B Revenue Run-Rate</div>
+            </div>
+          </div>
+          <div class="p3-dp-thesis">
+            <strong>Account Thesis:</strong> Incoming CEO Aaron Birnbaum takes over Jan 1, 2027 following a blowout Q3 (+12% rental rev). Planning Analytics converts IoT telematics into forward-looking regional demand forecasts to maximize fleet utilization.
+          </div>
+          <div class="p3-dp-vitals">
+            <div class="p3-vital"><div class="p3-vital-lbl">Tier</div><div class="p3-vital-val" style="color:var(--t4);">Engage</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">IBM Lead</div><div class="p3-vital-val">Planning Analytics</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">Expansion</div><div class="p3-vital-val">watsonx.governance</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">Primary Entry</div><div class="p3-vital-val">Aaron Birnbaum (CEO)</div></div>
+          </div>
+        </div>
+
+        <div class="p3-dp-body">
+          <div class="p3-sec"><span class="p3-sec-lbl">IBM Play Heat Scores</span><div class="p3-sec-line"></div></div>
+          <div class="p3-heat-grid">
+            <div class="p3-heat-card" style="--hc:#0043CE;">
+              <div class="p3-heat-play">Planning Analytics</div>
+              <div class="p3-heat-score">91</div>
+              <div class="p3-heat-bar"><div class="p3-heat-fill" style="width:91%;"></div></div>
+              <div class="p3-heat-conviction">Directly impacts fleet dollar utilization across 400 branches as new CEO sets 2027 operating plan.</div>
+            </div>
+            <div class="p3-heat-card" style="--hc:#006644;">
+              <div class="p3-heat-play">watsonx.governance</div>
+              <div class="p3-heat-score">74</div>
+              <div class="p3-heat-bar"><div class="p3-heat-fill" style="width:74%;"></div></div>
+              <div class="p3-heat-conviction">Provides compliance framework for automated machine telematics and predictive maintenance AI models.</div>
+            </div>
+            <div class="p3-heat-card" style="--hc:#5A189A;">
+              <div class="p3-heat-play">Data Fabric &amp; AppConnect</div>
+              <div class="p3-heat-score">66</div>
+              <div class="p3-heat-bar"><div class="p3-heat-fill" style="width:66%;"></div></div>
+              <div class="p3-heat-conviction">Unifies telematics streams with branch point-of-sale systems without database overhauls.</div>
+            </div>
+          </div>
+
+          <div class="p3-sec"><span class="p3-sec-lbl">Competitive Threats</span><div class="p3-sec-line"></div></div>
+          <div class="p3-threats">
+            <div class="p3-threat">
+              <div class="p3-threat-top">
+                <div class="p3-threat-name">Wynne Systems / Legacy Fleet ERP</div>
+                <span class="p3-threat-level">Active</span>
+              </div>
+              <div class="p3-threat-doing">Records historical rental transactions but cannot simulate predictive fleet rebalancing across regions.</div>
+              <div class="p3-threat-counter"><strong>IBM Counter:</strong> Position Planning Analytics as the forward-looking analytics intelligence layer above Wynne Systems.</div>
+            </div>
+            <div class="p3-threat" style="border-left-color:var(--t4);">
+              <div class="p3-threat-top">
+                <div class="p3-threat-name">Salesforce CRM / Custom Reporting</div>
+                <span class="p3-threat-level" style="background:#431407;color:#fdba74;">Opportunity</span>
+              </div>
+              <div class="p3-threat-doing">Sales reps manually report account demand without mathematical fleet capacity constraints.</div>
+              <div class="p3-threat-counter"><strong>IBM Counter:</strong> Deliver multidimensional supply-and-demand modeling directly to executive leadership.</div>
+            </div>
+          </div>
+
+          <div class="p3-sec"><span class="p3-sec-lbl">This Week's Move</span><div class="p3-sec-line"></div></div>
+          <div class="p3-move">
+            <div class="p3-move-row">
+              <span class="p3-move-lbl">Do Today</span>
+              <div class="p3-move-text">Congratulate incoming CEO Aaron Birnbaum and request an introductory 2027 fleet planning briefing.</div>
+            </div>
+            <div class="p3-move-row">
+              <span class="p3-move-lbl">This Week</span>
+              <div class="p3-move-text">Engage CFO Mark Irion on turning utilization data into 1–2 points of EBITDA margin expansion.</div>
+            </div>
+            <div class="p3-move-row">
+              <span class="p3-move-lbl">Talk Track</span>
+              <div class="p3-move-track">"As Aaron Birnbaum builds the 2027 plan, IBM Planning Analytics turns fleet utilization data into forward-looking demand forecasts so you position equipment before customers ask. Worth 30 minutes."</div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /herc detail -->
+
+      <!-- MasTec Detail -->
+      <div class="p3-dp-card" id="p3-detail-mastec" style="display:none;">
+        <div class="p3-dp-hdr">
+          <div class="p3-dp-hdr-top">
+            <div class="p3-dp-logo">
+              <img src="LOGOS/mastec.png" alt="MasTec" onerror="this.parentElement.innerHTML='<b>MTZ</b>'">
+            </div>
+            <div>
+              <div style="font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;">Shari Zahed · Edition 14 · Nov 9, 2026</div>
+              <div class="p3-dp-acct-name">MasTec Inc.</div>
+              <div class="p3-dp-acct-meta">NYSE: MTZ · Infrastructure Construction · Coral Gables FL · $24.5B Backlog · Power Delivery &amp; Clean Energy</div>
+            </div>
+          </div>
+          <div class="p3-dp-thesis">
+            <strong>Account Thesis:</strong> Record Q3 revenue ($5.15B) and historic $24.5B backlog accompanied by 2 strategic acquisitions. IBM Storage &amp; Data Fabric unifies engineering data and integrates newly acquired company ledgers in 60 days.
+          </div>
+          <div class="p3-dp-vitals">
+            <div class="p3-vital"><div class="p3-vital-lbl">Tier</div><div class="p3-vital-val" style="color:var(--t4);">Engage</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">IBM Lead</div><div class="p3-vital-val">Storage + Data Fabric</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">Expansion</div><div class="p3-vital-val">watsonx.ai Vision</div></div>
+            <div class="p3-vital"><div class="p3-vital-lbl">Primary Entry</div><div class="p3-vital-val">Jose Mas (CEO) / CTO</div></div>
+          </div>
+        </div>
+
+        <div class="p3-dp-body">
+          <div class="p3-sec"><span class="p3-sec-lbl">IBM Play Heat Scores</span><div class="p3-sec-line"></div></div>
+          <div class="p3-heat-grid">
+            <div class="p3-heat-card" style="--hc:#0043CE;">
+              <div class="p3-heat-play">Storage &amp; Data Fabric</div>
+              <div class="p3-heat-score">93</div>
+              <div class="p3-heat-bar"><div class="p3-heat-fill" style="width:93%;"></div></div>
+              <div class="p3-heat-conviction">Rapidly unifies unstructured CAD/drone data and integrates 2 newly acquired companies' IT ledgers.</div>
+            </div>
+            <div class="p3-heat-card" style="--hc:#006644;">
+              <div class="p3-heat-play">watsonx.ai Vision</div>
+              <div class="p3-heat-score">81</div>
+              <div class="p3-heat-bar"><div class="p3-heat-fill" style="width:81%;"></div></div>
+              <div class="p3-heat-conviction">Automates LiDAR and drone inspection of high-voltage transmission lines for Power Delivery (+65% rev).</div>
+            </div>
+            <div class="p3-heat-card" style="--hc:#5A189A;">
+              <div class="p3-heat-play">Business Automation</div>
+              <div class="p3-heat-score">72</div>
+              <div class="p3-heat-bar"><div class="p3-heat-fill" style="width:72%;"></div></div>
+              <div class="p3-heat-conviction">Automates field crew scheduling and safety compliance across 35,000+ infrastructure technicians.</div>
+            </div>
+          </div>
+
+          <div class="p3-sec"><span class="p3-sec-lbl">Competitive Threats</span><div class="p3-sec-line"></div></div>
+          <div class="p3-threats">
+            <div class="p3-threat">
+              <div class="p3-threat-top">
+                <div class="p3-threat-name">Palantir Technologies</div>
+                <span class="p3-threat-level">Active</span>
+              </div>
+              <div class="p3-threat-doing">Pitching operational analytics on project sites; lacks scalable backend storage and automated data federation.</div>
+              <div class="p3-threat-counter"><strong>IBM Counter:</strong> Frame IBM Storage &amp; Data Fabric as the foundational infrastructure layer that makes all analytics models work reliably.</div>
+            </div>
+            <div class="p3-threat" style="border-left-color:var(--t4);">
+              <div class="p3-threat-top">
+                <div class="p3-threat-name">Oracle ERP / Point-to-Point Custom Scripts</div>
+                <span class="p3-threat-level" style="background:#431407;color:#fdba74;">Opportunity</span>
+              </div>
+              <div class="p3-threat-doing">IT team attempting manual point-to-point scripts to merge newly acquired company databases.</div>
+              <div class="p3-threat-counter"><strong>IBM Counter:</strong> Position IBM Data Fabric for zero-migration federation across disparate acquired systems.</div>
+            </div>
+          </div>
+
+          <div class="p3-sec"><span class="p3-sec-lbl">This Week's Move</span><div class="p3-sec-line"></div></div>
+          <div class="p3-move">
+            <div class="p3-move-row">
+              <span class="p3-move-lbl">Do Today</span>
+              <div class="p3-move-text">Reach out to MasTec IT leadership at Coral Gables HQ regarding the 2 new acquisitions this week.</div>
+            </div>
+            <div class="p3-move-row">
+              <span class="p3-move-lbl">This Week</span>
+              <div class="p3-move-text">Offer a 60-day rapid M&amp;A integration architecture using IBM Data Fabric.</div>
+            </div>
+            <div class="p3-move-row">
+              <span class="p3-move-lbl">Talk Track</span>
+              <div class="p3-move-track">"Congratulations on the record quarter and $24.5B backlog. Every acquisition brings a different data system — IBM Data Fabric connects them in 60 days without a migration. Let's find 30 minutes in Coral Gables."</div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /mastec detail -->
+
+    </div>
+  </div>
+
+
+</div><!-- /main p3 -->
+</div><!-- /panel-p3 -->
+
+<!-- PHASE 4 — TARGET BUYER CONTACTS -->
+<div class="phase-panel" id="panel-p4">
+<div class="main">
+
+
+
+  <!-- Icahn Contacts -->
+    <div class="p4-section">
+    <div class="p4-sec-hdr">
+      <div>
+        <div class="p4-sec-co">Icahn Enterprises L.P. — Target Buyer Roster</div>
+        <div class="p4-sec-sub">Verified live Sales Navigator contacts · Director / VP / CXO · pulled Nov 10, 2026 · Company SNav ID 1763494</div>
+      </div>
+      <span class="p2-tier-badge p2-tier-engage">Engage</span>
+    </div>
+    <div class="p4-grid">
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Ilsen Vivas</div><div class="p4-ct-score">96</div></div>
+        <div class="p4-ct-title">Real Estate Controller, Icahn Enterprises</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">Best Entry</span></div>
+        <div class="p4-ct-why">Controls real-estate financials across Icahn holdings. Relevant to property data consolidation and reporting. <em>Miami, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAjHolUBWSOSbKRAYJR6XG6NckfdAEDEmlo,NAME_SEARCH,Vdod" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Mazin Aldibs</div><div class="p4-ct-score">92</div></div>
+        <div class="p4-ct-title">Director of Financial Projects, Icahn Enterprises</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Runs financial projects with a Miami base. Natural owner for planning and forecasting analytics. <em>Miami, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAv0WBQBm2SqyJg7MFHAB77uTTeBmSKG0HY,NAME_SEARCH,AFtm" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Daniel DelloRusso</div><div class="p4-ct-score">88</div></div>
+        <div class="p4-ct-title">Director of IT, Icahn Enterprises</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Leads IT for Icahn Enterprises in Miami. Primary technical owner for a data-platform conversation. <em>Miami, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAABXRDccBTEnr_biAWMF7JNwvqIQ0cwa7e98,NAME_SEARCH,IbtG" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Paula Settanni</div><div class="p4-ct-score">84</div></div>
+        <div class="p4-ct-title">Vice President, Real Estate Property and Asset Management, Icahn Enterprises</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Executive owner of property and asset management. Budget-level sponsor for real-estate analytics. <em>United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAABpRSgBUy49O-nJgZiVccxS38AQQhqmDV0,NAME_SEARCH,Nr0_" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Spencer Grossman</div><div class="p4-ct-score">80</div></div>
+        <div class="p4-ct-title">Vice President of Commercial Real Estate, Icahn Enterprises</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Executive for commercial real estate in South Florida. Strong fit for an asset-level data conversation. <em>Hollywood, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAALfGV8BSDGs4pKdxocWvC_Ym-YBY1Sp4tY,NAME_SEARCH,bTEI" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Lesley Groff, CFM, IFMA Fellow</div><div class="p4-ct-score">76</div></div>
+        <div class="p4-ct-title">Director of Facilities, Icahn Enterprises</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Facilities owner with operational data across properties. Useful for facilities analytics and maintenance use cases. <em>Ephrata, Pennsylvania, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAMSvjgBATdD539Rnymd0H5PJzbkKAu_yqQ,NAME_SEARCH,tOlq" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="p4-section">
+    <div class="p4-sec-hdr">
+      <div>
+        <div class="p4-sec-co">Herc Rentals Inc. — Target Buyer Roster</div>
+        <div class="p4-sec-sub">Verified live Sales Navigator contacts · Director / VP / CXO · pulled Nov 10, 2026 · Company SNav ID 4324</div>
+      </div>
+      <span class="p2-tier-badge p2-tier-engage">Engage</span>
+    </div>
+    <div class="p4-grid">
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Robyn Brown</div><div class="p4-ct-score">96</div></div>
+        <div class="p4-ct-title">Vice President, Operations - PMO, Herc Rentals</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">Best Entry</span></div>
+        <div class="p4-ct-why">Runs the operations PMO. CRM record is stale, so update it before outreach. <em>Bonita Springs, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAADx3xEBddrVA9J66Ygty2d-t3TOdnOFFJA,NAME_SEARCH,Ftpr" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">MANOJ JOSHI</div><div class="p4-ct-score">92</div></div>
+        <div class="p4-ct-title">Vice President IT Enterprise Applications, Herc Rentals</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Owns enterprise applications at Herc. Strongest IT decision-maker for platform and data modernization. <em>Bonita Springs, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAKqmZQBjM3uIaLOaPO-2t62q_ncAINIRgE,NAME_SEARCH,UgM2" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Rony Gotesdyner</div><div class="p4-ct-score">88</div></div>
+        <div class="p4-ct-title">Vice President, AI &amp; Digital Platforms Engineering, Herc Rentals</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Leads AI and digital platform engineering. Direct fit for watsonx and AI governance conversations. <em>Bonita Springs, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAABzjQ0BZniSHc2luWY5DdJKv03zUbefAg8,NAME_SEARCH,naC9" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Suraj Pandya, PMP</div><div class="p4-ct-score">84</div></div>
+        <div class="p4-ct-title">Senior Director Digital Strategy and Transformation, Herc Rentals</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Owns digital transformation programs. Practitioner entry for platform and data initiatives. <em>Narberth, Pennsylvania, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAFdqdYB6IW4EqpZFI23nRzQ0OEo5bdd-rQ,NAME_SEARCH,FdRB" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">David Schaffel</div><div class="p4-ct-score">80</div></div>
+        <div class="p4-ct-title">Director of Infrastructure, Herc Rentals</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Infrastructure lead in Southwest Florida. Relevant to hybrid cloud and platform modernization. <em>Estero, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAWkuBkBTsueWaPo2PwzDDb8nmxRj9b4M0s,NAME_SEARCH,X6yC" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Jim R</div><div class="p4-ct-score">76</div></div>
+        <div class="p4-ct-title">Director Rentalman architecture, Herc Rentals</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Architecture owner for the Rentalman platform. Strong technical entry for integration and data-architecture talk. <em>Greater Houston.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAECKlIBqugzBUDIEO1DO4qyZmeV9g-ayAo,NAME_SEARCH,hlbx" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="p4-section">
+    <div class="p4-sec-hdr">
+      <div>
+        <div class="p4-sec-co">MasTec Inc. — Target Buyer Roster</div>
+        <div class="p4-sec-sub">Verified live Sales Navigator contacts · Director / VP / CXO · pulled Nov 10, 2026 · Company SNav ID 15551</div>
+      </div>
+      <span class="p2-tier-badge p2-tier-engage">Engage</span>
+    </div>
+    <div class="p4-grid">
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Randall Davis</div><div class="p4-ct-score">96</div></div>
+        <div class="p4-ct-title">Director of Information Technology, MasTec</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">Best Entry</span></div>
+        <div class="p4-ct-why">IT director with a stale CRM record. Update before outreach. Technical owner for data and systems. <em>Birmingham, Alabama, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAACg7rMBOSJVicAibHroWtvGMZSRk2pyGI4,NAME_SEARCH,wwkG" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Avinash Devagan</div><div class="p4-ct-score">92</div></div>
+        <div class="p4-ct-title">Director of Information Technology, MasTec</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">2nd connection</span></div>
+        <div class="p4-ct-why">Warm (2nd degree) IT director. Practitioner entry for applications and data platform work. <em>Greater Philadelphia.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAy-jnEB9kv4JLxJyle5CvbOtqiaI4b0l5A,NAME_SEARCH,mH-H" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Ramon Mas</div><div class="p4-ct-score">88</div></div>
+        <div class="p4-ct-title">Senior Vice President, MasTec, Inc.</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Senior executive in Miami with long tenure. Relevant sponsor for enterprise data initiatives. <em>Miami, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAASbrkgB77ZRgtNSxFOqso2jYDjKuvYqu58,NAME_SEARCH,-hth" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Manuel Arismendy</div><div class="p4-ct-score">84</div></div>
+        <div class="p4-ct-title">Executive Vice President, MasTec</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Executive Vice President with a South Florida base. Budget-level sponsor for enterprise programs. <em>Miami-Fort Lauderdale Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAKpcGoBvnWZ8s4ZwHDhlZWHI0WC-lCyYjc,NAME_SEARCH,cRHk" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Brian Santarcangelo</div><div class="p4-ct-score">80</div></div>
+        <div class="p4-ct-title">VP, Technology Solutions, MasTec</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology solutions VP based in Miami. Direct owner for solution architecture and platform choice. <em>Miami, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAAP3tUBJUNiuk2exlvUvLmDUueQkPEb7Fk,NAME_SEARCH,DiF8" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Carlos Miguel Hondal Jr, CPA, CISA</div><div class="p4-ct-score">76</div></div>
+        <div class="p4-ct-title">Director, Enterprise IT Governance &amp; IT Risk Compliance, MasTec</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Owns IT governance and risk compliance. Direct fit for AI governance and audit-defense plays. <em>Miami-Fort Lauderdale Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAYILhMBsnuNx1R7CslS5Us1_lCLG9JbBOQ,NAME_SEARCH,2wOW" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+    </div>
+  </div>
+
+
+</div><!-- /main p4 -->
+</div><!-- /panel-p4 -->
+
+<div class="footer">
+  IBM SF Intel Brief · Edition 14 · Shari Zahed · IBM South Florida · Nov 9, 2026<br>
+  Made with IBM Bob
+</div>
+
+<script>
+function showPhase(id) {
+  document.querySelectorAll('.phase-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.ptab').forEach(function(t){ t.classList.remove('on'); });
+  var panel = document.getElementById('panel-' + id);
+  var tab = document.getElementById('tab-' + id);
+  if (panel) panel.classList.add('active');
+  if (tab) tab.classList.add('on');
+  var jb = document.getElementById('p1-jump-bar');
+  if (jb) jb.style.display = (id === 'p1') ? 'flex' : 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function loadP3(acctId) {
+  document.querySelectorAll('.p3-ra').forEach(function(r){ r.classList.remove('on'); });
+  var ra = document.getElementById('p3-ra-' + acctId);
+  if (ra) ra.classList.add('on');
+  document.querySelectorAll('.p3-dp-card').forEach(function(c){ c.style.display = 'none'; });
+  var d = document.getElementById('p3-detail-' + acctId);
+  if (d) d.style.display = 'block';
+}
+</script>
+
+</body>
+</html>
