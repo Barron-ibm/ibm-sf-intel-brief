@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IBM SF Intel Brief · Mark Wylie · Edition 14 · Nov 9, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--ground:#F4F6FA;--panel:#FFFFFF;--panel-2:#F0F2F7;--panel-3:#E8EBF3;
+  --rule:#DDE1EC;--rule-hi:#C8CEDD;--ink:#161C2D;--ink-mid:#3A4460;--ink-low:#6B779A;
+  --ibm:#0043CE;--ibm-deep:#0F62FE;--ibm-dim:rgba(0,67,206,.07);--ibm-line:rgba(0,67,206,.22);
+  --t4:#B45309;--t5:#7C4B00;--ok:#006644;
+  --saas:#006644;--saas-dim:rgba(0,102,68,.07);--saas-line:rgba(0,102,68,.28);
+  --trans:#5A189A;--trans-dim:rgba(90,24,154,.07);--trans-line:rgba(90,24,154,.28);
+  --warn:#7C4B00;--warn-dim:rgba(124,75,0,.06);--strike:#da1e28;
+  --navy:#0f1c3a;--radius:5px;--mono:'IBM Plex Mono',monospace;
+  --engage-c:#B45309;--engage-bg:rgba(180,83,9,.07);--engage-bd:rgba(180,83,9,.2);
+  --strike-c:#92400E;--strike-bg:rgba(146,64,14,.07);--strike-bd:rgba(146,64,14,.2);
+  --standby-c:#4338CA;--standby-bg:rgba(67,56,202,.06);--standby-bd:rgba(67,56,202,.18);}
+html{scroll-behavior:smooth;}
+body{font-family:'IBM Plex Sans',-apple-system,sans-serif;font-size:13px;line-height:1.7;background:var(--ground);color:var(--ink);-webkit-font-smoothing:antialiased;}
+a{color:var(--ibm);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.topnav{position:sticky;top:0;z-index:400;background:rgba(255,255,255,.98);backdrop-filter:blur(16px);border-top:3px solid var(--ibm-deep);border-bottom:1px solid var(--rule);height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;gap:16px;}
+.tn-left{display:flex;align-items:center;gap:10px;}
+.tn-ibm{font-size:18px;font-weight:700;color:var(--ibm-deep);letter-spacing:-.5px;}
+.tn-div{width:1px;height:16px;background:var(--rule-hi);}
+.tn-title{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);}
+.tn-badge{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--ibm-deep);color:#fff;padding:2px 9px;border-radius:20px;}
+.tn-links{display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;}
+.tn-links a{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-low);padding:5px 12px;border-bottom:2px solid transparent;white-space:nowrap;}
+.tn-links a:hover{color:var(--ibm);text-decoration:none;}
+.tn-links a.active{color:var(--ibm-deep);border-bottom-color:var(--ibm-deep);}
+.tn-sep{color:var(--rule-hi);padding:0 3px;font-size:10px;}
+.tn-right{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-low);white-space:nowrap;}
+.phasebar{position:sticky;top:48px;z-index:350;height:42px;background:rgba(244,246,250,.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);display:flex;align-items:stretch;padding:0 32px;gap:0;}
+.ptab{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-low);padding:0 18px;cursor:pointer;border-bottom:2px solid transparent;display:flex;align-items:center;white-space:nowrap;transition:all .12s;}
+.ptab:hover{color:var(--ink);text-decoration:none;}
+.ptab.on{color:var(--ibm-deep);border-bottom-color:var(--ibm-deep);background:rgba(15,98,254,.06);}
+.ptab-sep{color:var(--rule-hi);padding:0 2px;font-size:10px;display:flex;align-items:center;user-select:none;}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#0F1C3A 60%,#112040 100%);padding:28px 32px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;border-bottom:3px solid var(--ibm-deep);}
+.hero-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#4a6080;margin-bottom:10px;}
+.hero-back:hover{color:#a8c8ff;text-decoration:none;}
+.hero-eyebrow{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px;}
+.hero-name{font-size:28px;font-weight:900;color:#fff;letter-spacing:-.4px;line-height:1.1;}
+.hero-sub{font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;}
+.hero-stats{display:flex;gap:8px;margin-top:14px;}
+.hstat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:8px 14px;text-align:center;min-width:68px;}
+.hstat-n{font-family:var(--mono);font-size:20px;font-weight:700;color:#fff;line-height:1;}
+.hstat-n.strike{color:#fca5a5;}
+.hstat-n.engage{color:#fdba74;}
+.hstat-n.standby{color:#93c5fd;}
+.hstat-l{font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:3px;}
+.priority-stack{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:12px 16px;min-width:320px;}
+.ps-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px;}
+.ps-row{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.ps-row:last-child{border-bottom:none;padding-bottom:0;}
+.ps-num{font-family:var(--mono);font-size:11px;font-weight:700;color:rgba(255,255,255,.3);min-width:14px;flex-shrink:0;padding-top:1px;}
+.ps-body{flex:1;}
+.ps-co{font-size:12px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:2px;}
+.ps-action{font-size:11px;color:rgba(255,255,255,.6);line-height:1.4;}
+.ps-tier{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.ps-tier.engage{background:rgba(251,146,60,.15);color:#fdba74;border:1px solid rgba(251,146,60,.3);}
+.ps-tier.standby{background:rgba(147,197,253,.15);color:#93c5fd;border:1px solid rgba(147,197,253,.3);}
+.pulse-bar{background:var(--panel);border-bottom:1px solid var(--rule);padding:12px 32px;}
+.pulse-bar-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-low);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.pulse-bar-lbl::before{content:'';display:inline-block;width:3px;height:12px;background:var(--t4);border-radius:2px;}
+.pulse-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;}
+.pulse-card{background:var(--panel-2);border:1px solid var(--rule);border-left:3px solid var(--ibm-deep);border-radius:4px;padding:10px 14px;}
+.pulse-card.pc-amber{border-left-color:var(--t4);}
+.pulse-card.pc-blue{border-left-color:var(--ibm-deep);}
+.pc-tag{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--ibm-dim);color:var(--ibm);border:1px solid var(--ibm-line);padding:2px 7px;border-radius:2px;display:inline-block;margin-bottom:6px;}
+.pulse-card.pc-amber .pc-tag{background:var(--engage-bg);color:var(--engage-c);border-color:var(--engage-bd);}
+.pulse-card.pc-blue .pc-tag{background:var(--standby-bg);color:var(--standby-c);border-color:var(--standby-bd);}
+.pc-headline{font-size:12px;font-weight:700;color:var(--ink);line-height:1.4;margin-bottom:3px;}
+.pc-angle{font-size:11.5px;color:var(--ink-low);line-height:1.45;}
+.pc-angle strong{color:var(--ibm-deep);font-weight:600;}
+.acct-jump-bar{background:var(--panel);border-bottom:1px solid var(--rule);padding:10px 32px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;position:sticky;top:90px;z-index:300;box-shadow:0 2px 6px rgba(0,0,0,.03);}
+.ajb-lbl{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-low);margin-right:4px;white-space:nowrap;}
+.ajb-pill{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.3px;padding:3px 10px;border-radius:20px;background:var(--panel-2);border:1px solid var(--rule);color:var(--ink-mid);transition:all .12s;display:inline-flex;align-items:center;gap:4px;white-space:nowrap;}
+.ajb-pill:hover{background:var(--ibm-deep);color:#fff;border-color:var(--ibm-deep);text-decoration:none;}
+.ajb-pill.engage{border-left:3px solid var(--t4);}
+.ajb-pill.standby{border-left:3px solid var(--ibm-deep);}
+.phase-panel{display:none;}
+.phase-panel.active{display:block;}
+.main{max-width:1200px;margin:0 auto;padding:28px 32px 64px;}
+.sec-hdr{display:flex;align-items:center;gap:14px;margin:28px 0 14px;}
+.sec-hdr:first-child{margin-top:0;}
+.sec-label{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);white-space:nowrap;}
+.sec-rule{flex:1;height:1px;background:linear-gradient(90deg,var(--ibm-line),transparent);}
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);margin-bottom:24px;overflow:hidden;scroll-margin-top:140px;}
+.card.engage{border-left:4px solid var(--t4);}
+.card.standby{border-left:4px solid var(--ibm-deep);}
+.c-top{display:flex;justify-content:space-between;align-items:flex-start;padding:14px 20px 12px;border-bottom:1px solid var(--rule);background:var(--panel-2);gap:14px;}
+.c-top-meta{flex:1;}
+.c-acct-name{font-weight:700;font-size:17px;color:var(--ink);line-height:1.2;}
+.c-meta{font-family:var(--mono);font-size:9.5px;color:var(--ink-low);letter-spacing:.05em;margin-top:2px;}
+.c-top-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;}
+.c-urg{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:5px;}
+.cu-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.cu-engage{color:var(--t4);}
+.cu-engage .cu-dot{background:var(--t4);}
+.cu-standby{color:var(--ibm-deep);}
+.cu-standby .cu-dot{background:var(--ibm-deep);}
+.c-brand-row{display:flex;align-items:center;gap:5px;flex-wrap:wrap;justify-content:flex-end;}
+.c-brand-badge{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:2px;color:#fff;}
+.br-data{background:#0043CE;}
+.br-auto{background:#198038;}
+.br-stor{background:#6929C4;}
+.br-sec{background:#A2191F;}
+.br-pc{background:#005D5D;}
+.catalyst-bar{display:flex;align-items:center;gap:6px;padding:6px 20px;background:var(--panel);border-bottom:1px solid var(--rule);flex-wrap:wrap;}
+.cat-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);flex-shrink:0;padding-right:8px;border-right:1px solid var(--rule-hi);margin-right:2px;}
+.cat-next{font-family:var(--mono);font-size:9px;font-weight:600;color:var(--ink-mid);}
+.cat-next.soon{color:var(--t4);}
+.cat-sep{color:var(--rule-hi);padding:0 6px;font-size:11px;}
+.cat-comp{font-family:var(--mono);font-size:8.5px;color:var(--ink-low);}
+.cat-comp strong{color:var(--ink-mid);font-weight:600;}
+.c-body{display:grid;grid-template-columns:1fr 280px;border-bottom:1px solid var(--rule);}
+.c-left-col{padding:16px 20px 14px;border-right:1px solid var(--rule);}
+.c-right-col{padding:14px 16px;background:var(--panel-2);display:flex;flex-direction:column;gap:8px;}
+.c-sec-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:8px;}
+.c-bullets{list-style:none;margin-bottom:12px;}
+.c-bullets li{position:relative;padding-left:14px;margin-bottom:7px;color:var(--ink-mid);font-size:12.5px;line-height:1.6;}
+.c-bullets li::before{content:'·';position:absolute;left:3px;top:-1px;font-size:16px;color:var(--ibm-deep);font-weight:700;}
+.c-bullets li strong{color:var(--ink);font-weight:600;}
+.c-angle{background:var(--ibm-dim);border:1px solid var(--ibm-line);border-radius:var(--radius);padding:10px 14px;margin-bottom:10px;}
+.c-angle-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ibm);margin-bottom:5px;}
+.c-angle-lines{display:flex;flex-direction:column;gap:3px;}
+.c-angle-line{font-size:12px;color:var(--ink-mid);line-height:1.5;}
+.c-angle-line strong{color:var(--ink);font-weight:600;}
+.c-comp{background:var(--panel-2);border:1px solid var(--rule);border-radius:var(--radius);padding:7px 12px;margin-bottom:10px;font-size:11.5px;color:var(--ink-mid);line-height:1.45;}
+.c-comp-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-low);margin-bottom:3px;}
+.c-comp strong{color:var(--ink);font-weight:600;}
+.c-opener{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--ibm-deep);border-radius:var(--radius);padding:8px 12px;font-size:11.5px;color:var(--ink);line-height:1.5;font-style:italic;}
+.c-opener-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ibm);margin-bottom:3px;font-style:normal;}
+.c-sell-hdr{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:1px;}
+.c-sell-block{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);padding:8px 11px;}
+.c-sell-block.saas{border-left:3px solid var(--saas);}
+.c-sell-block.trans{border-left:3px solid var(--trans);}
+.c-sell-block.motion{border-left:3px solid var(--ibm-deep);}
+.c-sell-type{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px;}
+.c-sell-type.saas{color:var(--saas);}
+.c-sell-type.trans{color:var(--trans);}
+.c-sell-type.motion{color:var(--ibm);}
+.c-sell-txt{font-size:11.5px;color:var(--ink-mid);line-height:1.45;}
+.c-sell-txt strong{color:var(--ink);font-weight:600;}
+.c-sell-pill{display:inline-block;font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:2px;margin-top:5px;}
+.c-sell-pill.saas{background:var(--saas-dim);color:var(--saas);border:1px solid var(--saas-line);}
+.c-sell-pill.trans{background:var(--trans-dim);color:var(--trans);border:1px solid var(--trans-line);}
+.c-bottom{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule);background:var(--panel);}
+.c-spend{padding:12px 20px;border-right:1px solid var(--rule);}
+.c-bets{padding:12px 20px;}
+.cb-hdr{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:8px;}
+.sp-row{display:flex;align-items:center;gap:8px;margin-bottom:5px;font-size:11.5px;}
+.sp-cat{width:160px;color:var(--ink-mid);flex-shrink:0;}
+.sp-bar-wrap{flex:1;height:5px;background:var(--panel-3);border-radius:3px;overflow:hidden;}
+.sp-bar{height:100%;border-radius:3px;}
+.sp-bar.high{background:var(--ibm-deep);}
+.sp-bar.med{background:var(--t4);}
+.sp-bar.low{background:var(--ink-low);}
+.sp-scale{font-family:var(--mono);font-size:7.5px;color:var(--ink-low);margin-top:5px;letter-spacing:.03em;}
+.sp-insight{font-size:11.5px;color:var(--ink-mid);line-height:1.45;margin-top:8px;padding-top:8px;border-top:1px solid var(--rule);}
+.sp-insight strong{color:var(--ink);font-weight:600;}
+.bet-item{display:flex;align-items:flex-start;gap:7px;margin-bottom:7px;}
+.bet-item:last-child{margin-bottom:0;}
+.bet-tag{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px;flex-shrink:0;margin-top:2px;}
+.bet-tag.big{background:rgba(0,67,206,.1);color:var(--ibm);border:1px solid var(--ibm-line);}
+.bet-tag.small{background:var(--panel-2);color:var(--ink-low);border:1px solid var(--rule);}
+.bet-txt{font-size:11.5px;color:var(--ink-mid);line-height:1.45;}
+.bet-txt strong{color:var(--ink);font-weight:600;}
+.c-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:9px 20px;background:var(--panel-2);border-bottom:1px solid var(--rule);}
+.c-btn{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 13px;border-radius:var(--radius);border:1px solid var(--rule);background:var(--panel);color:var(--ink-mid);cursor:pointer;transition:all .12s;}
+.c-btn:hover{background:var(--ibm-deep);color:#fff;border-color:var(--ibm-deep);text-decoration:none;}
+.c-btn-snav{border-color:var(--ibm-line);color:var(--ibm);background:var(--ibm-dim);}
+.c-btn-intel{border-color:var(--rule);color:var(--ink);}
+.play-caller{background:var(--navy);border-top:2px solid var(--ibm-deep);padding:14px 20px;}
+.pc-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:6px;}
+.pc-hdr-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#4a6080;}
+.pc-hdr-account{font-family:var(--mono);font-size:9.5px;font-weight:700;color:#a8c8ff;letter-spacing:.05em;}
+.pc-body{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:14px;}
+.pc-col{display:flex;flex-direction:column;gap:5px;}
+.pc-col-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;}
+.pcl-who{color:#6a8aaa;}
+.pcl-say{color:#8ab4f8;}
+.pcl-wait{color:#fca5a5;}
+.pc-txt{font-size:12px;color:#c8d8f0;line-height:1.55;}
+.pc-txt strong{color:#fff;font-weight:600;}
+.pc-quote{font-size:12px;color:#e8f0fe;line-height:1.55;font-style:italic;background:rgba(255,255,255,.05);border-left:2px solid #8ab4f8;padding:8px 12px;border-radius:0 3px 3px 0;}
+.pc-second{margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:#8a9ab8;}
+.pc-second-lbl{font-family:var(--mono);font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#4a6080;display:block;margin-bottom:2px;}
+.footer{text-align:center;padding:32px 0 24px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-low);margin-top:40px;}
+.hstat-n.strike{color:#fca5a5;}
+.ps-tier.strike{background:rgba(220,30,38,.2);color:#fca5a5;border:1px solid rgba(220,30,38,.35);}
+.pulse-card.pc-red{border-left-color:var(--strike);}
+.pulse-card.pc-red .pc-tag{background:rgba(220,30,38,.1);color:var(--strike);border-color:rgba(220,30,38,.25);}
+.ajb-pill.strike{border-left:3px solid var(--strike);}
+.card.strike{border-left:4px solid var(--strike);}
+.cu-strike{color:var(--strike);}
+.cu-strike .cu-dot{background:var(--strike);}
+.cat-next.urgent{color:var(--strike);}
+.cb-hdr.spend{color:var(--ibm);}
+.cb-hdr.bets{color:var(--ink-low);}
+.p2-page{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:28px;overflow:hidden;scroll-margin-top:140px;}
+.p2-page.engage{border-left:4px solid var(--t4);}
+.p2-page.strike{border-left:4px solid var(--strike);}
+.p2-header-row{display:flex;align-items:center;padding:18px 24px;gap:18px;border-bottom:1px solid var(--rule);background:var(--panel-2);}
+.p2-logo-box{width:68px;height:44px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--rule);border-radius:4px;padding:4px;}
+.p2-logo{max-width:100%;max-height:100%;object-fit:contain;}
+.p2-header-text{flex:1;}
+.p2-se-horizon{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;}
+.p2-name-large{font-size:20px;font-weight:800;color:var(--ink);line-height:1.2;}
+.p2-date-line{font-size:11.5px;color:var(--ink-low);margin-top:2px;}
+.p2-header-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+.p2-tier-badge{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:2px;}
+.p2-tier-engage{background:#431407;color:#fdba74;}
+.p2-tier-strike{background:#7f1d1d;color:#fca5a5;}
+.p2-pulse-row{background:var(--ibm-dim);border-left:4px solid var(--ibm-deep);padding:12px 24px;display:flex;gap:14px;align-items:flex-start;}
+.p2-pulse-badge{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;background:var(--ibm);color:#fff;padding:3px 8px;border-radius:2px;flex-shrink:0;margin-top:2px;}
+.p2-pulse-text{font-size:12.5px;color:var(--ink-mid);line-height:1.65;}
+.p2-pulse-text strong{color:var(--ink);font-weight:700;}
+.p2-linkedin-row{display:flex;align-items:center;justify-content:space-between;padding:8px 24px;background:var(--panel-3);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.p2-li-text{font-size:11.5px;color:var(--ink-mid);}
+.p2-li-text strong{font-weight:700;color:var(--ibm);}
+.p2-li-btn{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--ibm);color:#fff;padding:3px 10px;border-radius:2px;}
+.p2-li-btn:hover{background:#003399;color:#fff;text-decoration:none;}
+.p2-intel-grid{display:grid;grid-template-columns:1fr 1fr 260px;border-top:1px solid var(--rule);}
+.p2-grid-col{padding:18px 20px;}
+.p2-grid-col-l{background:var(--panel);border-right:1px solid var(--rule);}
+.p2-grid-col-m{background:var(--panel-2);border-right:1px solid var(--rule);}
+.p2-grid-col-r{background:var(--panel-3);}
+.p2-grid-lbl{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:10px;padding-bottom:4px;border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:6px;}
+.p2-grid-chevron{background:var(--ibm-dim);color:var(--ibm);font-size:9px;font-weight:700;padding:1px 4px;border-radius:2px;}
+.p2-grid-col ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.p2-grid-col li{font-size:12.5px;color:var(--ink-mid);line-height:1.6;padding-left:14px;position:relative;}
+.p2-grid-col li::before{content:'▸';position:absolute;left:0;color:var(--ibm);font-size:9px;top:2px;}
+.p2-grid-col li strong{color:var(--ink);font-weight:600;}
+.p2-contact-entry{padding:8px 0;border-bottom:1px solid var(--rule);}
+.p2-contact-entry:last-child{border-bottom:none;padding-bottom:0;}
+.p2-contact-name{font-size:12.5px;font-weight:700;color:var(--ink);}
+.p2-contact-role{font-family:var(--mono);font-size:8.5px;color:var(--ink-low);margin-top:1px;}
+.p2-contact-hook{font-size:11px;color:var(--ibm);margin-top:2px;line-height:1.4;}
+.p2-play-bar{background:var(--ibm);padding:18px 24px;color:#fff;}
+.p2-pb-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.p2-pb-main-title{font-size:14px;font-weight:800;color:#fff;}
+.p2-pb-sub-title{font-size:11.5px;color:rgba(255,255,255,.8);margin-top:2px;}
+.p2-pb-badge-pill{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;background:rgba(255,255,255,.18);color:#fff;padding:3px 10px;border-radius:20px;}
+.p2-play-detail-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;border-top:1px solid rgba(255,255,255,.2);padding-top:12px;}
+.p2-play-detail-col{border-right:1px solid rgba(255,255,255,.15);padding-right:14px;}
+.p2-play-detail-col:last-child{border-right:none;padding-right:0;}
+.p2-play-rank-badge{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px;display:flex;align-items:center;gap:6px;}
+.p2-play-rank-num{width:16px;height:16px;border-radius:50%;background:#fff;color:var(--ibm);display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:9px;}
+.p2-play-detail-name{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;}
+.p2-play-detail-body{font-size:11.5px;color:rgba(255,255,255,.85);line-height:1.55;}
+.p2-lower-section{padding:16px 24px;background:var(--panel-2);border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.p2-ls-box{display:flex;flex-direction:column;gap:6px;}
+.p2-ls-lbl{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-low);}
+.p2-action-text{font-size:12px;color:var(--ink-mid);line-height:1.6;}
+.p2-talk-track-text{font-size:12px;color:var(--ink-mid);line-height:1.6;font-style:italic;background:var(--panel);border-left:3px solid var(--ibm);padding:8px 12px;border-radius:0 4px 4px 0;}
+.p3-shell{display:grid;grid-template-columns:260px 1fr;min-height:680px;border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;background:var(--panel);margin-bottom:28px;}
+.p3-rail{background:var(--navy);display:flex;flex-direction:column;border-right:1px solid rgba(255,255,255,.08);}
+.p3-rail-hdr{padding:14px 18px 10px;border-bottom:1px solid rgba(255,255,255,.08);background:var(--navy);}
+.p3-rail-title{font-family:var(--mono);font-size:8.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#8a9ab8;}
+.p3-ra{padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer;border-left:3px solid transparent;transition:all .12s;}
+.p3-ra:hover{background:rgba(255,255,255,.04);}
+.p3-ra.on{background:rgba(15,98,254,.15);border-left-color:var(--ibm-deep);}
+.p3-ra-name{font-size:13px;font-weight:700;color:#c8d8ea;margin-bottom:3px;}
+.p3-ra.on .p3-ra-name{color:#fff;}
+.p3-ra-urg{font-family:var(--mono);font-size:7.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:2px 6px;border-radius:2px;display:inline-block;}
+.p3-ra-urg.strike{background:#7f1d1d;color:#fca5a5;}
+.p3-ra-urg.engage{background:#431407;color:#fdba74;}
+.p3-ra-hook{font-size:10.5px;color:#6a8ab8;margin-top:4px;line-height:1.4;}
+.p3-detail-pane{background:var(--ground);overflow-y:auto;padding:24px;}
+.p3-dp-card{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;}
+.p3-dp-hdr{background:var(--panel-2);border-bottom:3px solid var(--ibm-deep);padding:18px 24px;}
+.p3-dp-hdr-top{display:flex;gap:14px;align-items:flex-start;margin-bottom:10px;}
+.p3-dp-logo{width:72px;height:44px;background:#fff;border:1px solid var(--rule);border-radius:4px;display:flex;align-items:center;justify-content:center;padding:4px;flex-shrink:0;}
+.p3-dp-logo img{max-width:100%;max-height:100%;object-fit:contain;}
+.p3-dp-acct-name{font-size:22px;font-weight:900;color:var(--ink);line-height:1.1;}
+.p3-dp-acct-meta{font-size:11.5px;color:var(--ink-low);margin-top:2px;}
+.p3-dp-thesis{font-size:12.5px;color:var(--ink-mid);line-height:1.65;padding-top:12px;border-top:1px solid var(--rule);}
+.p3-dp-vitals{display:flex;gap:0;margin-top:12px;border:1px solid var(--rule);border-radius:4px;overflow:hidden;}
+.p3-vital{flex:1;padding:8px 12px;border-right:1px solid var(--rule);background:#fff;}
+.p3-vital:last-child{border-right:none;}
+.p3-vital-lbl{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;}
+.p3-vital-val{font-size:12px;font-weight:700;color:var(--ink);}
+.p3-dp-body{padding:20px 24px 28px;}
+.p3-sec{margin:20px 0 10px;display:flex;align-items:center;gap:10px;}
+.p3-sec:first-child{margin-top:0;}
+.p3-sec-lbl{font-family:var(--mono);font-size:8.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ink-low);white-space:nowrap;}
+.p3-sec-line{flex:1;height:1px;background:var(--rule);}
+.p3-heat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.p3-heat-card{background:var(--panel-2);border:1px solid var(--rule);border-top:3px solid var(--hc,var(--rule));border-radius:4px;padding:12px 14px;}
+.p3-heat-play{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.p3-heat-score{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--hc,var(--ibm-deep));line-height:1;}
+.p3-heat-bar{height:4px;background:var(--rule);border-radius:2px;margin:6px 0;}
+.p3-heat-fill{height:100%;border-radius:2px;background:var(--hc,var(--ibm-deep));}
+.p3-heat-conviction{font-size:11px;color:var(--ink-mid);line-height:1.45;border-top:1px solid var(--rule);padding-top:6px;margin-top:4px;}
+.p3-threats{display:flex;flex-direction:column;gap:10px;}
+.p3-threat{background:var(--panel-2);border:1px solid var(--rule);border-left:4px solid #7f1d1d;border-radius:4px;padding:12px 16px;}
+.p3-threat-top{display:flex;align-items:center;gap:10px;margin-bottom:4px;}
+.p3-threat-name{font-size:13px;font-weight:800;color:var(--ink);}
+.p3-threat-level{font-family:var(--mono);font-size:7.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:2px;background:#7f1d1d;color:#fca5a5;}
+.p3-threat-doing{font-size:11.5px;color:var(--ink-low);line-height:1.5;margin-bottom:6px;}
+.p3-threat-counter{font-size:11.5px;color:#006644;background:rgba(0,102,68,.06);border-left:3px solid #006644;padding:6px 10px;border-radius:2px;line-height:1.5;}
+.p3-move{background:var(--navy);border-radius:4px;padding:16px 20px;}
+.p3-move-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;}
+.p3-move-row:last-child{margin-bottom:0;}
+.p3-move-lbl{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:var(--ibm-deep);padding:4px 0;min-width:90px;width:90px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+.p3-move-text{font-size:12px;color:#c8d8ea;line-height:1.6;}
+.p3-move-track{font-size:12px;color:#8a9ab8;font-style:italic;line-height:1.6;border-left:3px solid var(--ibm-deep);padding-left:10px;}
+.p4-section{margin-bottom:28px;}
+.p4-sec-hdr{background:var(--panel-2);border:1px solid var(--rule);border-top:3px solid var(--ibm-deep);border-radius:var(--radius);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
+.p4-sec-co{font-size:16px;font-weight:800;color:var(--ink);}
+.p4-sec-sub{font-size:11.5px;color:var(--ink-low);margin-top:2px;}
+.p4-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;padding:14px 0;}
+.p4-ct{border:1px solid var(--rule);border-left:4px solid var(--rule);border-radius:4px;padding:14px 16px;background:var(--panel);display:flex;flex-direction:column;gap:8px;}
+.p4-ct.executive{border-left-color:var(--navy);}
+.p4-ct.practitioner{border-left-color:var(--ibm-deep);}
+.p4-ct-top{display:flex;justify-content:space-between;gap:8px;}
+.p4-ct-name{font-size:14px;font-weight:800;color:var(--ink);}
+.p4-ct-score{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--ink);background:var(--panel-2);border:1px solid var(--rule);border-radius:3px;height:30px;min-width:38px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.p4-ct-title{font-size:12px;color:var(--ink-low);line-height:1.4;}
+.p4-ct-tags{display:flex;gap:5px;flex-wrap:wrap;}
+.p4-ct-tag{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;padding:2px 7px;border-radius:2px;background:var(--panel-2);color:var(--ink-low);border:1px solid var(--rule);}
+.p4-ct-tag.b-exec{background:var(--navy);color:#fff;border-color:var(--navy);}
+.p4-ct-tag.b-prac{background:var(--ibm-deep);color:#fff;border-color:var(--ibm-deep);}
+.p4-ct-why{font-size:11.5px;line-height:1.55;color:var(--ink-mid);}
+.p4-ct-snav{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#fff;background:var(--ibm);padding:5px 12px;border-radius:2px;display:inline-block;align-self:flex-start;margin-top:4px;}
+.p4-ct-snav:hover{background:#003399;color:#fff;text-decoration:none;}
+.card,.p2-page{scroll-margin-top:140px;}
+.card.standby,.p2-page.standby{border-left:4px solid var(--ibm-deep);}
+.p2-tier-standby{background:#1e3a8a;color:#93c5fd;}
+.p3-ra-urg.standby{background:#1e3a8a;color:#93c5fd;}
+.p4-ct-note{grid-column:1/-1;font-size:12px;line-height:1.6;color:var(--ink-mid);background:var(--panel-2);border:1px dashed var(--rule-hi);border-radius:var(--radius);padding:10px 14px;}
+.p4-ct-tag.b-warm{background:#dcfce7;color:#14532d;border-color:#86efac;}
+.p4-ct-tag.b-cold{background:var(--panel-2);color:var(--ink-low);}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;}
+  .p3-shell,.p2-intel-grid,.p2-play-detail-grid,.p2-lower-section,.p3-heat-grid,.c-body,.c-bottom,.pc-body{grid-template-columns:1fr;}
+  .topnav{padding:0 16px;}.main,.hero,.phasebar,.acct-jump-bar,.pulse-bar{padding-left:16px;padding-right:16px;}
+}
+</style>
+<style id="nav-unify">
+.topnav{position:sticky;top:0;z-index:400;box-sizing:border-box;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-top:3px solid #0F62FE;border-bottom:1px solid #DDE1EC;height:48px;padding:0 24px;gap:16px;display:flex;align-items:center;justify-content:space-between;}
+.topnav .tn-left{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.topnav .tn-ibm{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:20px;font-weight:700;color:#0F62FE;letter-spacing:-.5px;}
+.topnav .tn-div{width:1px;height:18px;background:#C8CEDD;}
+.topnav .tn-title{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#6B779A;}
+.topnav .tn-badge{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:#0F62FE;color:#fff;padding:2px 10px;border-radius:20px;}
+.topnav .tn-links{display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;min-width:0;}
+.topnav .tn-links::-webkit-scrollbar{display:none;}
+.topnav .tn-links a{font-family:'IBM Plex Sans',-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:9.5px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:#6B779A;padding:6px 8px;border-bottom:2px solid transparent;white-space:nowrap;text-decoration:none;transition:color .12s;}
+.topnav .tn-links a:hover{color:#0043CE;text-decoration:none;}
+.topnav .tn-links a.active{color:#0F62FE;border-bottom-color:#0F62FE;background:rgba(15,98,254,.08);}
+.topnav .tn-links a.soon{opacity:.4;pointer-events:none;cursor:default;}
+.topnav .tn-sep{color:#C8CEDD;padding:0 1px;user-select:none;}
+.topnav .tn-sep.tn-grp{padding:0 8px;}
+.topnav .tn-right{display:none;}
+@media(max-width:1100px){.topnav{padding:0 14px;}.topnav .tn-title{display:none;}}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topnav">
+  <div class="tn-left">
+    <span class="tn-ibm">IBM</span>
+    <span class="tn-div"></span>
+    <span class="tn-title">IBM SF Intel Brief</span>
+    <span class="tn-badge">Edition 14</span>
+  </div>
+  <div class="tn-links">
+    <a href="../../index.html">Hub</a>
+    <span class="tn-sep">·</span>
+    <a href="phase1.html">Phase 1 · Radar</a>
+    <span class="tn-sep">·</span>
+    <a href="phase2.html">Phase 2 · Intel</a>
+    <span class="tn-sep">·</span>
+    <a href="phase3.html">Phase 3 · Accounts</a>
+    <span class="tn-sep">·</span>
+    <a href="phase4.html" >Phase 4 · Contacts</a>
+    <span class="tn-sep tn-grp">|</span>
+    <a href="seller-spencer.html">Spencer</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-shari.html">Shari</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-michael.html">Michael</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-hazem.html">Hazem &amp; Srajan</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-mijee.html">Mijee</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-mark.html" class="active">Mark</a>
+    <span class="tn-sep">·</span>
+    <a href="seller-bss.html">BSS Team</a>
+  </div>
+  <div class="tn-right">Nov 9, 2026 · IBM South Florida</div>
+</nav>
+
+<!-- PHASE TAB BAR -->
+<div class="phasebar">
+  <div class="ptab on" id="tab-p1" onclick="showPhase('p1')">Phase 1 · Radar</div>
+  <div class="ptab-sep">/</div>
+  <div class="ptab" id="tab-p2" onclick="showPhase('p2')">Phase 2 · Intel Brief</div>
+  <div class="ptab-sep">/</div>
+  <div class="ptab" id="tab-p3" onclick="showPhase('p3')">Phase 3 · My Accounts</div>
+  <div class="ptab-sep">/</div>
+  <div class="ptab" id="tab-p4" onclick="showPhase('p4')">Phase 4 · Contacts</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <a class="hero-back" href="../../index.html">← Master Hub</a>
+    <div class="hero-eyebrow">South Florida SE Team · Edition 14 · Nov 9, 2026</div>
+    <div class="hero-name">Hello, Mark</div>
+    <div class="hero-sub">Technology Sales Leader · 3 accounts: NCLH, SGWS, JM Family · Account owner on all three: Mijee Walker</div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">3</div><div class="hstat-l">Total Accts</div></div>
+      <div class="hstat"><div class="hstat-n strike">0</div><div class="hstat-l">Strike</div></div>
+      <div class="hstat"><div class="hstat-n engage">2</div><div class="hstat-l">Engage</div></div>
+      <div class="hstat"><div class="hstat-n standby">1</div><div class="hstat-l">Standby</div></div>
+    </div>
+  </div>
+  <div class="priority-stack">
+    <div class="ps-lbl">Active Priority Action Stack</div>
+    <div class="ps-row">
+      <div class="ps-num">1</div>
+      <div class="ps-body">
+        <div class="ps-co">Norwegian Cruise Line Holdings</div>
+        <div class="ps-action">Engage — Q3 beat and raised outlook (Oct 29); new CFO starts Jan 1 (53 days); weak Q4 yield; no dated event in the next 10 days</div>
+      </div>
+      <span class="ps-tier engage">Engage</span>
+    </div>
+    <div class="ps-row">
+      <div class="ps-num">2</div>
+      <div class="ps-body">
+        <div class="ps-co">Southern Glazer's Wine &amp; Spirits</div>
+        <div class="ps-action">Engage — six years of FTC price oversight; new Bacardi deal Oct 28; no dated event in the next 10 days</div>
+      </div>
+      <span class="ps-tier engage">Engage</span>
+    </div>
+    <div class="ps-row">
+      <div class="ps-num">3</div>
+      <div class="ps-body">
+        <div class="ps-co">JM Family Enterprises</div>
+        <div class="ps-action">Standby — no new JM Family business news Nov 3–9; Q4 budget season is the timing</div>
+      </div>
+      <span class="ps-tier standby">Standby</span>
+    </div>
+  </div>
+</div>
+
+<!-- MARKET PULSE -->
+<div class="pulse-bar">
+  <div class="pulse-bar-lbl">Market Pulse · Week of Nov 9, 2026</div>
+  <div class="pulse-grid">
+    <div class="pulse-card pc-amber">
+      <span class="pc-tag">Norwegian Cruise Line Holdings</span>
+      <div class="pc-headline">Engage — Q3 beat and raised outlook (Oct 29); new CFO starts Jan 1 (53 days); weak Q4 yield; no dated event in the next 10 days</div>
+      <div class="pc-angle">IBM angle: <strong>IBM Planning Analytics + IBM watsonx.ai</strong></div>
+    </div>
+    <div class="pulse-card pc-amber">
+      <span class="pc-tag">Southern Glazer's Wine &amp; Spirits</span>
+      <div class="pc-headline">Engage — six years of FTC price oversight; new Bacardi deal Oct 28; no dated event in the next 10 days</div>
+      <div class="pc-angle">IBM angle: <strong>IBM watsonx.governance + IBM Planning Analytics</strong></div>
+    </div>
+    <div class="pulse-card pc-blue">
+      <span class="pc-tag">JM Family Enterprises</span>
+      <div class="pc-headline">Standby — no new JM Family business news Nov 3–9; Q4 budget season is the timing</div>
+      <div class="pc-angle">IBM angle: <strong>IBM watsonx.governance + IBM Planning Analytics</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- JUMP BAR -->
+<div class="acct-jump-bar" id="p1-jump-bar">
+  <span class="ajb-lbl">Jump to Account:</span>
+  <a class="ajb-pill engage" href="#acct-nclh">NCLH</a>
+  <a class="ajb-pill engage" href="#acct-sgws">SGWS</a>
+  <a class="ajb-pill standby" href="#acct-jmf">JM Family</a>
+</div>
+
+<!-- PHASE 1 — RADAR & PLAY CALLER -->
+<div class="phase-panel active" id="panel-p1">
+<div class="main">
+
+<div class="sec-hdr" id="acct-nclh"><span class="sec-label">Account 1 of 3 · Norwegian Cruise Line Holdings</span><div class="sec-rule"></div></div>
+
+<div class="card engage">
+    <div class="c-top">
+      <div class="c-top-meta">
+        <div class="c-acct-name">Norwegian Cruise Line Holdings</div>
+        <div class="c-meta">NYSE: NCLH · Cruise Line · 3 brands · Miami HQ · $2.95B Q3 sales</div>
+      </div>
+      <div class="c-top-right">
+        <div class="c-urg cu-engage"><span class="cu-dot"></span>Engage</div>
+        <div class="c-brand-row"><span class="c-brand-badge br-data">Data &amp; AI</span><span class="c-brand-badge br-auto">Automation</span></div>
+      </div>
+    </div>
+
+    <div class="catalyst-bar">
+      <span class="cat-lbl">This Week</span>
+      <span class="cat-next soon"></span>
+    </div>
+
+    <div class="c-body">
+      <div class="c-left-col">
+        <div class="c-sec-lbl">Why Now — Nov 9, 2026</div>
+        <ul class="c-bullets"><li>No new company announcement turned up between Nov 3 and Nov 9; the news below is from the Oct 29 report and the analyst reaction since. NCLH reported Q3 on Thu Oct 29 and beat its own targets. Sales were $2.95B, up 0.3%. Adjusted EBITDA (a common measure of cash profit) was $937M, $63M above guidance. Adjusted EPS was $1.12 vs $0.90 guided and $0.93 expected by analysts. Close-in demand pushed occupancy to 106.5%.</li><li>NCLH raised its full-year outlook: adjusted EBITDA of about $2.55B (up $50M) and adjusted EPS of about $1.70 (it was $1.50). For 2027 it expects net yield (what the company earns per passenger cruise day) to grow 1–2%, speeding up in the second half. It found $325M of new yearly cost savings on top of a $300M plan, and on the call analysts asked about more savings "onshore and through AI". Cutting debt stays a top priority.</li><li><strong>New to this edition (announced Oct 29, missed in Edition 13):</strong> the CFO is changing. The Chief Strategy Officer becomes CFO on <strong>Jan 1 (53 days away)</strong>, and the current CFO stays as a special advisor until June 30. A new finance chief in a cost-cutting turnaround is the best timing signal on this account. The finance team will want a clear plan before the handover.</li><li>Stock: it closed at <strong>$18.43 on Nov 9</strong> (+2.85% on the day), up about 18% in a month. Since Oct 30, analysts raised targets (Freedom Broker to Buy, $22; BNP Paribas to $18; Stifel to $24; Goldman Sachs to $16, Neutral). Treat these as context, not a reason to call.</li><li>The next quarter looks weak (carried from Edition 13): Q4 net yield is expected to fall about 6.5% and Q4 adjusted EBITDA is guided at $414M, below what analysts wanted. Two causes: the new Seven Seas Prestige ship is late (now late December) and some Seven Seas Voyager trips through the Suez Canal were cancelled.</li><li>The CEO calls this "the next phase of our turnaround," with a sharper brand focus, a January marketing launch and a new revenue management system. Norwegian, Oceania and Regent Seven Seas still run on separate systems, so one clear view of demand across the three brands is hard to get.</li></ul>
+        <div class="c-sec-lbl">Hiring Signals</div>
+        <ul class="c-bullets"><li>No dated job postings were verified in the Nov 3–9 scan. The new revenue management system suggests related hiring, but that is an inference, not a posting. Earlier notes on cost-transformation and revenue-management roles were not re-verified; confirm before citing.</li></ul>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-lines"><div class="c-angle-line">A turnaround CEO, a weak Q4 yield and a goal to keep cutting costs all point to one need: see demand and profit per voyage across all three brands in one place. IBM Planning Analytics gives the CFO one demand model for Norwegian, Oceania and Regent, with "what if" cases for pricing and ship delays. IBM Data Fabric joins the three brands' data. The pitch is "find the next round of savings," not "buy software."</div></div>
+        </div>
+        <div class="c-opener">
+          <div class="c-opener-lbl">What to Say</div>
+          <div class="c-opener-txt">"Congratulations on a strong Q3, a higher outlook, and the finance leadership change coming on Jan 1. With Q4 yield under pressure and ship timing moving around, the new CFO will want one view of demand across all three brands. IBM Planning Analytics and Data Fabric do that for multi-brand cruise operators. Can we connect this week?"</div>
+        </div>
+      </div>
+      <div class="c-right-col">
+        <div class="c-sell-hdr">How to Sell</div>
+        <div class="c-sell-block saas">
+          <div class="c-sell-type saas">SaaS Entry</div>
+          <div class="c-sell-txt"><strong>Planning Analytics</strong> — annual subscription. Demand forecasting and voyage profit for all three brands, with "what if" cases for yield and delays.</div>
+          <span class="c-sell-pill saas">Planning Analytics SaaS</span>
+        </div>
+        <div class="c-sell-block trans">
+          <div class="c-sell-type trans">Transaction</div>
+          <div class="c-sell-txt"><strong>Data Fabric</strong> — join Norwegian, Oceania and Regent Seven Seas data into one layer. The data base behind the savings plan.</div>
+          <span class="c-sell-pill trans">Data Fabric Tx</span>
+        </div>
+        <div class="c-sell-block motion">
+          <div class="c-sell-type motion">Do This Now</div>
+          <div class="c-sell-txt">1. Open on the Q3 beat, the Jan 1 CFO change and the weak Q4 yield.<br>2. Ask for the incoming CFO or the head of revenue management.<br>3. Planning Analytics first; Data Fabric as the follow-on project.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-actions">
+      <a class="c-btn c-btn-intel" href="#" onclick="showPhase('p2');setTimeout(()=>document.getElementById('p2-nclh').scrollIntoView({behavior:'smooth'}),100);return false;">Full Intel →</a>
+      <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A165222%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+    </div>
+
+    <div class="play-caller">
+      <div class="pc-hdr">
+        <span class="pc-hdr-lbl">Play Caller</span>
+        <span class="pc-hdr-account">NCLH · Engage · Mark Wylie, Technology Sales Leader</span>
+      </div>
+      <div class="pc-body">
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-who">Who to Call</span>
+          <div class="pc-txt"><strong>Chief Executive Officer</strong> — Leads the turnaround and cost plan<br><br><strong>Chief Financial Officer</strong> — Profit and loss for all three brands<br><br><strong>Chief Information Officer</strong> — Business apps and guest technology</div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-say">What to Say</span>
+          <div class="pc-quote">"Congratulations on a strong Q3, a higher outlook, and the finance leadership change coming on Jan 1. With Q4 yield under pressure and ship timing moving around, the new CFO will want one view of demand across all three brands. IBM Planning Analytics and Data Fabric do that for multi-brand cruise operators. Can we connect this week?"</div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-who">Who to Work With</span>
+          <div class="pc-txt"><strong>Account owner:</strong> Mijee Walker (Books 1, 2, 3, 8 + 9)<br><br><strong>Specialists:</strong> Alyssa (Data &amp; AI) · Gavin (Automation) · William (Storage) · Rick &amp; Kevin (Power &amp; Cloud) · Mark Wylie (Technology Sales Leader)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="sec-hdr" id="acct-sgws"><span class="sec-label">Account 2 of 3 · Southern Glazer's Wine &amp; Spirits</span><div class="sec-rule"></div></div>
+
+<div class="card engage">
+    <div class="c-top">
+      <div class="c-top-meta">
+        <div class="c-acct-name">Southern Glazer's Wine &amp; Spirits</div>
+        <div class="c-meta">Private · Beverage distribution · About $26B in sales · Miami HQ · FTC deal filed Oct 2 (38 days ago), court approval still pending</div>
+      </div>
+      <div class="c-top-right">
+        <div class="c-urg cu-engage"><span class="cu-dot"></span>Engage</div>
+        <div class="c-brand-row"><span class="c-brand-badge br-data">Data &amp; AI</span><span class="c-brand-badge br-auto">Automation</span></div>
+      </div>
+    </div>
+
+    <div class="catalyst-bar">
+      <span class="cat-lbl">This Week</span>
+      <span class="cat-next soon"></span>
+    </div>
+
+    <div class="c-body">
+      <div class="c-left-col">
+        <div class="c-sec-lbl">Why Now — Nov 9, 2026</div>
+        <ul class="c-bullets"><li><strong>New this week:</strong> a Legal 500 article dated Nov 9 reviews the FTC settlement and how the Robinson-Patman Act is now being enforced. It confirms the order is still a <em>proposed</em> consent decree; no news of a judge's approval was found in Nov 3–9.</li><li>On Oct 2 (38 days ago) the FTC filed a proposed settlement with Southern Glazer's. It is the first Robinson-Patman win in 26 years. That law bans charging a small store more than a big chain for the same goods.</li><li>The rules are specific. For six years, in 26 states, the order watches pairs of sales: a chain buys a product, and within 45 days (75 for some chains) a nearby independent store buys a similar one at a much higher price. "Nearby" means 1.5 to 2.5 miles in cities, 6 miles in suburbs and 12 miles in rural areas. Twice a year, SGWS must hand its sales data to an independent monitor, and SGWS pays for the monitor.</li><li>If the monitor finds an overcharge, SGWS can fix it by paying the store 1.5 times the price gap. If it does not fix it and the FTC has to go to court, the payment goes to 2 times. That means SGWS has to check every pair of sales, all the time.</li><li>Competitor news, <strong>date not confirmed</strong>: Wine Spectator (Shanken News Daily) reports that RNDC and Breakthru Beverage, the No. 2 and No. 3 wholesalers, plan to merge into a company with about $14B in sales and about 25% market share, subject to regulatory approval, closing late in Q2 next year. We could not confirm when this was announced, and other sources describe RNDC as going through a Chapter 11 breakup with its markets sold off one by one. Treat it as a question to ask, not a fact to quote.</li><li>Oct 28 (before the window): Bacardi shifted its U.S. distribution. Reyes Beverage Group takes over 11 markets on Jan 1 (53 days away), including Florida. SGWS keeps 36 states and stays Bacardi's largest U.S. distributor by volume. Bacardi did not say who handled those 11 markets before, so we cannot say SGWS lost them. Note that other sources describe Reyes taking 11 former RNDC markets, so the source of the 11 markets is unclear.</li><li>Oct 28 (before the window): SGWS bought Clare Rose (Long Island) this spring, and its old East Yaphank warehouse was listed for sale while SGWS leases it for two years. More deals mean more systems to join up. Not re-verified: a California state review reported on Oct 9.</li></ul>
+        <div class="c-sec-lbl">Hiring Signals</div>
+        <ul class="c-bullets"><li>No dated job postings were verified in the Nov 3–9 scan. A company database shows about 382 open roles (undated, 17,226 employees), which is not a dated signal.</li></ul>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-lines"><div class="c-angle-line">SGWS now has to prove, twice a year for six years, that small stores are not overcharged. IBM watsonx and Data Fabric can match chain and independent-store sales automatically, flag a gap before it turns into a 1.5x payment, and keep the record the monitor will ask for. Planning Analytics then gives finance one view of price, margin and demand across states. Open with the General Counsel or Chief Compliance Officer, then bring in the CFO.</div></div>
+        </div>
+        <div class="c-opener">
+          <div class="c-opener-lbl">What to Say</div>
+          <div class="c-opener-txt">"With the FTC order in place for six years, the question is how you show, every period, that no nearby independent store pays much more than a chain. IBM watsonx can check those sale pairs for you and keep the record. Could we spend 20 minutes on how that would work with your pricing data?"</div>
+        </div>
+      </div>
+      <div class="c-right-col">
+        <div class="c-sell-hdr">How to Sell</div>
+        <div class="c-sell-block saas">
+          <div class="c-sell-type saas">SaaS Entry</div>
+          <div class="c-sell-txt"><strong>watsonx compliance monitoring</strong> — annual subscription. Flags price gaps between chain and independent sales before they cost 1.5x to fix. Pitch to the General Counsel and CFO.</div>
+          <span class="c-sell-pill saas">watsonx Compliance SaaS</span>
+        </div>
+        <div class="c-sell-block trans">
+          <div class="c-sell-type trans">Transaction</div>
+          <div class="c-sell-txt"><strong>Planning Analytics + Data Fabric</strong> — one trusted view of price, margin and demand across states. The same numbers serve the monitor and finance.</div>
+          <span class="c-sell-pill trans">Planning Analytics Tx</span>
+        </div>
+        <div class="c-sell-block motion">
+          <div class="c-sell-type motion">Do This Now</div>
+          <div class="c-sell-txt">1. Open on the FTC order and the twice-a-year data reports.<br>2. Call the General Counsel or Chief Compliance Officer, then the CFO.<br>3. Bring Planning Analytics in once the compliance scope is agreed. Watch for the judge's approval.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-actions">
+      <a class="c-btn c-btn-intel" href="#" onclick="showPhase('p2');setTimeout(()=>document.getElementById('p2-sgws').scrollIntoView({behavior:'smooth'}),100);return false;">Full Intel →</a>
+      <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A6821%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+    </div>
+
+    <div class="play-caller">
+      <div class="pc-hdr">
+        <span class="pc-hdr-lbl">Play Caller</span>
+        <span class="pc-hdr-account">SGWS · Engage · Mark Wylie, Technology Sales Leader</span>
+      </div>
+      <div class="pc-body">
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-who">Who to Call</span>
+          <div class="pc-txt"><strong>Chief Compliance Officer</strong> — FTC order and monitor reports<br><br><strong>Chief Information Officer</strong> — Systems and data<br><br><strong>VP Data &amp; Analytics</strong> — Pricing and planning</div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-say">What to Say</span>
+          <div class="pc-quote">"With the FTC order in place for six years, the question is how you show, every period, that no nearby independent store pays much more than a chain. IBM watsonx can check those sale pairs for you and keep the record. Could we spend 20 minutes on how that would work with your pricing data?"</div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-who">Who to Work With</span>
+          <div class="pc-txt"><strong>Account owner:</strong> Mijee Walker (Books 1, 2, 3, 8 + 9)<br><br><strong>Specialists:</strong> Alyssa (Data &amp; AI) · Gavin (Automation) · William (Storage) · Rick &amp; Kevin (Power &amp; Cloud) · Mark Wylie (Technology Sales Leader)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="sec-hdr" id="acct-jmf"><span class="sec-label">Account 3 of 3 · JM Family Enterprises</span><div class="sec-rule"></div></div>
+
+<div class="card standby">
+    <div class="c-top">
+      <div class="c-top-meta">
+        <div class="c-acct-name">JM Family Enterprises</div>
+        <div class="c-meta">Private · Auto and financial services · About $16B in sales (company description; one internship site says $24.7B, so the figures conflict) · Deerfield Beach HQ</div>
+      </div>
+      <div class="c-top-right">
+        <div class="c-urg cu-standby"><span class="cu-dot"></span>Standby</div>
+        <div class="c-brand-row"><span class="c-brand-badge br-data">Data &amp; AI</span><span class="c-brand-badge br-auto">Automation</span><span class="c-brand-badge br-pc">Hybrid Cloud</span></div>
+      </div>
+    </div>
+
+    <div class="catalyst-bar">
+      <span class="cat-lbl">This Week</span>
+      <span class="cat-next soon"></span>
+    </div>
+
+    <div class="c-body">
+      <div class="c-left-col">
+        <div class="c-sec-lbl">Why Now — Nov 9, 2026</div>
+        <ul class="c-bullets"><li>No new business news turned up between Nov 3 and Nov 9. That is why this stays Standby. The only item before the window was a community one: the South Florida Business Journal (Oct 29) ranked JM Family #1 for giving in South Florida, at $57.5M in cash last year. It also backed a new exhibit at the Museum of Discovery &amp; Science.</li><li>Q4 is when budget owners lock next year's technology spending. IBM needs to reach the SVP &amp; CFO and the finance leads of each business before that happens.</li><li><strong>Small hook found this week:</strong> Summer 2027 internship ads (open until about Nov 8) mention a "DRIVE" project and a "DRIVE Data Team" at Southeast Toyota Finance, working on enterprise data, modern data platforms and automation. DRIVE looks like an internal data program. What it covers and when it ends are not stated, so ask about it. Do not quote it as fact.</li><li>Not re-verified, carried from Oct 5: GenAI pilots may be running at World Omni (auto lending), JM&amp;A (finance and insurance products) and Southeast Toyota with no shared AI governance. Ask about this in discovery. Do not quote it as fact.</li><li>Also carried: World Omni lends using AI models. A federal rule that took effect Jul 21 changed how fair-lending claims work (it removed "disparate impact" claims under the ECOA). Lead with explaining and monitoring models, not with a new legal mandate.</li><li>This account stays Standby until a dated reason to call appears.</li></ul>
+        <div class="c-sec-lbl">Hiring Signals</div>
+        <ul class="c-bullets"><li>No dated technology job postings were verified in the Nov 3–9 scan. The postings that surfaced were summer 2027 intern roles (analytics, accounting, and a data engineering intern on the Southeast Toyota Finance DRIVE data team), not full-time technology roles.</li></ul>
+        <div class="c-angle">
+          <div class="c-angle-lbl">IBM Angle</div>
+          <div class="c-angle-lines"><div class="c-angle-line">One relationship, three IBM plays. First, watsonx.governance to put guardrails on GenAI pilots before they go live. Second, watsonx.governance to explain World Omni's lending models. Third, Planning Analytics for Southeast Toyota dealer-demand forecasting. The SVP &amp; CFO is the single door into all three.</div></div>
+        </div>
+        <div class="c-opener">
+          <div class="c-opener-lbl">What to Say</div>
+          <div class="c-opener-txt">"JM Family uses models to make decisions in lending, finance products and distribution. IBM watsonx.governance makes those models explainable and checkable before they go live. Could we talk ahead of Q4 planning?"</div>
+        </div>
+      </div>
+      <div class="c-right-col">
+        <div class="c-sell-hdr">How to Sell</div>
+        <div class="c-sell-block saas">
+          <div class="c-sell-type saas">SaaS Entry</div>
+          <div class="c-sell-txt"><strong>watsonx.governance</strong> — annual subscription. One place to govern AI across World Omni, JM&amp;A and Southeast Toyota. CFO pitch: "govern all your AI before pilots become production."</div>
+          <span class="c-sell-pill saas">watsonx.governance SaaS</span>
+        </div>
+        <div class="c-sell-block trans">
+          <div class="c-sell-type trans">Transaction</div>
+          <div class="c-sell-txt"><strong>Planning Analytics</strong> — dealer-demand forecasting and finance-product mix for Southeast Toyota, tied to the planning cycle.</div>
+          <span class="c-sell-pill trans">Planning Analytics Tx</span>
+        </div>
+        <div class="c-sell-block motion">
+          <div class="c-sell-type motion">Do This Now</div>
+          <div class="c-sell-txt">1. Send a short Q4-timing note to the SVP &amp; CFO and the World Omni finance lead.<br>2. Ask about the DRIVE data program and any GenAI pilots. Do not assert them.<br>3. Use Planning Analytics for Southeast Toyota as the first project.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-actions">
+      <a class="c-btn c-btn-intel" href="#" onclick="showPhase('p2');setTimeout(()=>document.getElementById('p2-jmf').scrollIntoView({behavior:'smooth'}),100);return false;">Full Intel →</a>
+      <a class="c-btn c-btn-snav" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A164539%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">SNav ↗</a>
+    </div>
+
+    <div class="play-caller">
+      <div class="pc-hdr">
+        <span class="pc-hdr-lbl">Play Caller</span>
+        <span class="pc-hdr-account">JM Family · Standby · Mark Wylie, Technology Sales Leader</span>
+      </div>
+      <div class="pc-body">
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-who">Who to Call</span>
+          <div class="pc-txt"><strong>SVP &amp; CFO</strong> — Company-wide planning and tech spending<br><br><strong>Chief Information Officer</strong> — Tech and AI systems<br><br><strong>Chief Compliance Officer</strong> — World Omni lending rules</div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-say">What to Say</span>
+          <div class="pc-quote">"JM Family uses models to make decisions in lending, finance products and distribution. IBM watsonx.governance makes those models explainable and checkable before they go live. Could we talk ahead of Q4 planning?"</div>
+        </div>
+        <div class="pc-col">
+          <span class="pc-col-lbl pcl-who">Who to Work With</span>
+          <div class="pc-txt"><strong>Account owner:</strong> Mijee Walker (Books 1, 2, 3, 8 + 9)<br><br><strong>Specialists:</strong> Alyssa (Data &amp; AI) · Gavin (Automation) · William (Storage) · Rick &amp; Kevin (Power &amp; Cloud) · Mark Wylie (Technology Sales Leader)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main p1 -->
+</div><!-- /panel-p1 -->
+
+<!-- PHASE 2 — DEEP INTEL BRIEF -->
+<div class="phase-panel" id="panel-p2">
+<div class="main">
+
+  <div class="p2-page engage" id="p2-nclh">
+    <div class="p2-header-row">
+      <div class="p2-logo-box"><img class="p2-logo" src="LOGOS/nclh.png" alt="NCLH Logo" onerror="this.parentElement.innerHTML='<b>NCLH</b>'"></div>
+      <div class="p2-header-text">
+        <div class="p2-se-horizon">IBM SF Intel Brief · Phase 2 Deep Intel · Mark Wylie</div>
+        <div class="p2-name-large">Norwegian Cruise Line Holdings</div>
+        <div class="p2-date-line">Nov 3–9, 2026 · NYSE: NCLH · Cruise Line · 3 brands · Miami HQ · $2.95B Q3 sales</div>
+        <div class="p2-date-line"><strong>Account owner:</strong> Mijee Walker · <strong>Work with:</strong> Alyssa (Data &amp; AI) · Gavin (Automation) · William (Storage) · Rick &amp; Kevin (Power &amp; Cloud) · Mark Wylie (Technology Sales Leader)</div>
+      </div>
+      <div class="p2-header-right">
+        <span class="p2-tier-badge p2-tier-engage">Engage</span>
+        <div class="c-brand-row"><span class="c-brand-badge br-data">Data &amp; AI</span><span class="c-brand-badge br-auto">Automation</span></div>
+      </div>
+    </div>
+    <div class="p2-pulse-row">
+      <span class="p2-pulse-badge">This Week</span>
+      <div class="p2-pulse-text"><strong>Engage — Q3 beat and raised outlook (Oct 29); new CFO starts Jan 1 (53 days); weak Q4 yield; no dated event in the next 10 days</strong></div>
+    </div>
+    <div class="p2-linkedin-row">
+      <div class="p2-li-text">LinkedIn Company Profile · <strong>Sales Navigator Company ID 165222</strong> · Browse verified current employees</div>
+      <a class="p2-li-btn" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A165222%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">Open in Sales Nav ↗</a>
+    </div>
+    <div class="p2-intel-grid">
+      <div class="p2-grid-col p2-grid-col-l">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Why Now</div>
+        <ul><li>No new company announcement turned up between Nov 3 and Nov 9; the news below is from the Oct 29 report and the analyst reaction since. NCLH reported Q3 on Thu Oct 29 and beat its own targets. Sales were $2.95B, up 0.3%. Adjusted EBITDA (a common measure of cash profit) was $937M, $63M above guidance. Adjusted EPS was $1.12 vs $0.90 guided and $0.93 expected by analysts. Close-in demand pushed occupancy to 106.5%.</li><li>NCLH raised its full-year outlook: adjusted EBITDA of about $2.55B (up $50M) and adjusted EPS of about $1.70 (it was $1.50). For 2027 it expects net yield (what the company earns per passenger cruise day) to grow 1–2%, speeding up in the second half. It found $325M of new yearly cost savings on top of a $300M plan, and on the call analysts asked about more savings "onshore and through AI". Cutting debt stays a top priority.</li><li><strong>New to this edition (announced Oct 29, missed in Edition 13):</strong> the CFO is changing. The Chief Strategy Officer becomes CFO on <strong>Jan 1 (53 days away)</strong>, and the current CFO stays as a special advisor until June 30. A new finance chief in a cost-cutting turnaround is the best timing signal on this account. The finance team will want a clear plan before the handover.</li><li>Stock: it closed at <strong>$18.43 on Nov 9</strong> (+2.85% on the day), up about 18% in a month. Since Oct 30, analysts raised targets (Freedom Broker to Buy, $22; BNP Paribas to $18; Stifel to $24; Goldman Sachs to $16, Neutral). Treat these as context, not a reason to call.</li><li>The next quarter looks weak (carried from Edition 13): Q4 net yield is expected to fall about 6.5% and Q4 adjusted EBITDA is guided at $414M, below what analysts wanted. Two causes: the new Seven Seas Prestige ship is late (now late December) and some Seven Seas Voyager trips through the Suez Canal were cancelled.</li><li>The CEO calls this "the next phase of our turnaround," with a sharper brand focus, a January marketing launch and a new revenue management system. Norwegian, Oceania and Regent Seven Seas still run on separate systems, so one clear view of demand across the three brands is hard to get.</li></ul>
+      </div>
+      <div class="p2-grid-col p2-grid-col-m">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> The Problem and Hiring</div>
+        <ul><li>Norwegian, Oceania and Regent Seven Seas still run on separate systems. No one can see demand and profit per voyage across all three brands in one place.</li><li>Q4 looks weak: "net yield" (what NCLH earns per passenger cruise day) is expected to fall about 6.5%, partly because a new ship is late and some trips were cancelled.</li><li>The CEO calls this "the next phase of our turnaround," and costs are expected to keep falling. Savings must be found and then tracked.</li><li>Guest and voyage data is spread across three brands, so personalized offers are hard to build.</li><li><strong>Hiring:</strong> No dated job postings were verified in the Nov 3–9 scan. The new revenue management system suggests related hiring, but that is an inference, not a posting. Earlier notes on cost-transformation and revenue-management roles were not re-verified; confirm before citing.</li></ul>
+      </div>
+      <div class="p2-grid-col p2-grid-col-r">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Key Target Personas</div>
+        <div class="p2-contact-entry"><div class="p2-contact-name">Chief Executive Officer</div><div class="p2-contact-role">Leads the turnaround and cost plan</div><div class="p2-contact-hook">Savings you can see and track</div></div><div class="p2-contact-entry"><div class="p2-contact-name">Chief Financial Officer</div><div class="p2-contact-role">Profit and loss for all three brands</div><div class="p2-contact-hook">Planning Analytics: one demand model</div></div><div class="p2-contact-entry"><div class="p2-contact-name">Chief Information Officer</div><div class="p2-contact-role">Business apps and guest technology</div><div class="p2-contact-hook">Data Fabric + watsonx.ai for personalization</div></div>
+      </div>
+    </div>
+    <div class="p2-play-bar">
+      <div class="p2-pb-hdr">
+        <div>
+          <div class="p2-pb-main-title">IBM Strategic Sales Plays · Norwegian Cruise Line Holdings</div>
+          <div class="p2-pb-sub-title">IBM Planning Analytics + IBM watsonx.ai · <strong>Supporting:</strong> IBM Data Fabric (join guest and voyage data across the three brands)</div>
+        </div>
+        <span class="p2-pb-badge-pill">Entry: CFO → CEO's office → CIO</span>
+      </div>
+      <div class="p2-play-detail-grid">
+<div class="p2-play-detail-col"><div class="p2-play-rank-badge"><span class="p2-play-rank-num">1</span> Best Play</div><div class="p2-play-detail-name">IBM Planning Analytics (Demand and Savings View)</div><div class="p2-play-detail-body"><strong>Find the next round of savings.</strong> Shows demand and profit per voyage for Norwegian, Oceania and Regent, with "what if" cases for pricing and ship delays.</div></div>
+<div class="p2-play-detail-col"><div class="p2-play-rank-badge"><span class="p2-play-rank-num">2</span> Play 2</div><div class="p2-play-detail-name">IBM watsonx.ai (Guest Offers)</div><div class="p2-play-detail-body">Uses guest data across the brands to suggest the right trip or extra at the right price. It builds on the planning and data work.</div></div>
+<div class="p2-play-detail-col"><div class="p2-play-rank-badge"><span class="p2-play-rank-num">3</span> Play 3</div><div class="p2-play-detail-name">IBM Data Fabric (Join the Brands)</div><div class="p2-play-detail-body">Connects the three data stores without a big move. This is the follow-on project after Planning Analytics.</div></div>
+      </div>
+    </div>
+    <div class="p2-lower-section">
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Do This Now — Action Plan</div>
+        <div class="p2-action-text">1. Open on the Q3 beat, the Jan 1 CFO change and the weak Q4 yield. 2. Ask for the incoming CFO or the head of revenue management. 3. Planning Analytics first; Data Fabric as the follow-on project.</div>
+      </div>
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">What to Say</div>
+        <div class="p2-talk-track-text">"Congratulations on a strong Q3, a higher outlook, and the finance leadership change coming on Jan 1. With Q4 yield under pressure and ship timing moving around, the new CFO will want one view of demand across all three brands. IBM Planning Analytics and Data Fabric do that for multi-brand cruise operators. Can we connect this week?"</div>
+      </div>
+    </div>
+    <div style="padding:10px 24px;font-size:11px;color:var(--ink-low);border-top:1px solid var(--rule);"><strong>Sources:</strong> <a href="https://www.nclhltd.com/investor-relations" target="_blank" rel="noopener">NCLH Investor Relations</a> · <a href="https://finance.yahoo.com/quote/NCLH" target="_blank" rel="noopener">Yahoo Finance NCLH</a> · <a href="https://www.sec.gov/edgar/browse/?CIK=0001513761" target="_blank" rel="noopener">SEC Edgar NCLH Filings</a></div>
+  </div><!-- /p2-nclh -->
+
+  <div class="p2-page engage" id="p2-sgws">
+    <div class="p2-header-row">
+      <div class="p2-logo-box"><img class="p2-logo" src="LOGOS/sgws.png" alt="SGWS Logo" onerror="this.parentElement.innerHTML='<b>SGWS</b>'"></div>
+      <div class="p2-header-text">
+        <div class="p2-se-horizon">IBM SF Intel Brief · Phase 2 Deep Intel · Mark Wylie</div>
+        <div class="p2-name-large">Southern Glazer's Wine &amp; Spirits</div>
+        <div class="p2-date-line">Nov 3–9, 2026 · Private · Beverage distribution · About $26B in sales · Miami HQ · FTC deal filed Oct 2 (38 days ago), court approval still pending</div>
+        <div class="p2-date-line"><strong>Account owner:</strong> Mijee Walker · <strong>Work with:</strong> Alyssa (Data &amp; AI) · Gavin (Automation) · William (Storage) · Rick &amp; Kevin (Power &amp; Cloud) · Mark Wylie (Technology Sales Leader)</div>
+      </div>
+      <div class="p2-header-right">
+        <span class="p2-tier-badge p2-tier-engage">Engage</span>
+        <div class="c-brand-row"><span class="c-brand-badge br-data">Data &amp; AI</span><span class="c-brand-badge br-auto">Automation</span></div>
+      </div>
+    </div>
+    <div class="p2-pulse-row">
+      <span class="p2-pulse-badge">This Week</span>
+      <div class="p2-pulse-text"><strong>Engage — six years of FTC price oversight; new Bacardi deal Oct 28; no dated event in the next 10 days</strong></div>
+    </div>
+    <div class="p2-linkedin-row">
+      <div class="p2-li-text">LinkedIn Company Profile · <strong>Sales Navigator Company ID 6821</strong> · Browse verified current employees</div>
+      <a class="p2-li-btn" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A6821%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">Open in Sales Nav ↗</a>
+    </div>
+    <div class="p2-intel-grid">
+      <div class="p2-grid-col p2-grid-col-l">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Why Now</div>
+        <ul><li><strong>New this week:</strong> a Legal 500 article dated Nov 9 reviews the FTC settlement and how the Robinson-Patman Act is now being enforced. It confirms the order is still a <em>proposed</em> consent decree; no news of a judge's approval was found in Nov 3–9.</li><li>On Oct 2 (38 days ago) the FTC filed a proposed settlement with Southern Glazer's. It is the first Robinson-Patman win in 26 years. That law bans charging a small store more than a big chain for the same goods.</li><li>The rules are specific. For six years, in 26 states, the order watches pairs of sales: a chain buys a product, and within 45 days (75 for some chains) a nearby independent store buys a similar one at a much higher price. "Nearby" means 1.5 to 2.5 miles in cities, 6 miles in suburbs and 12 miles in rural areas. Twice a year, SGWS must hand its sales data to an independent monitor, and SGWS pays for the monitor.</li><li>If the monitor finds an overcharge, SGWS can fix it by paying the store 1.5 times the price gap. If it does not fix it and the FTC has to go to court, the payment goes to 2 times. That means SGWS has to check every pair of sales, all the time.</li><li>Competitor news, <strong>date not confirmed</strong>: Wine Spectator (Shanken News Daily) reports that RNDC and Breakthru Beverage, the No. 2 and No. 3 wholesalers, plan to merge into a company with about $14B in sales and about 25% market share, subject to regulatory approval, closing late in Q2 next year. We could not confirm when this was announced, and other sources describe RNDC as going through a Chapter 11 breakup with its markets sold off one by one. Treat it as a question to ask, not a fact to quote.</li><li>Oct 28 (before the window): Bacardi shifted its U.S. distribution. Reyes Beverage Group takes over 11 markets on Jan 1 (53 days away), including Florida. SGWS keeps 36 states and stays Bacardi's largest U.S. distributor by volume. Bacardi did not say who handled those 11 markets before, so we cannot say SGWS lost them. Note that other sources describe Reyes taking 11 former RNDC markets, so the source of the 11 markets is unclear.</li><li>Oct 28 (before the window): SGWS bought Clare Rose (Long Island) this spring, and its old East Yaphank warehouse was listed for sale while SGWS leases it for two years. More deals mean more systems to join up. Not re-verified: a California state review reported on Oct 9.</li></ul>
+      </div>
+      <div class="p2-grid-col p2-grid-col-m">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> The Problem and Hiring</div>
+        <ul><li>On Oct 2 the FTC filed a proposed settlement (still waiting for a judge). For six years, SGWS must show that small stores are not charged more than big chains for the same goods.</li><li>Twice a year SGWS hands its sales data to an independent monitor. Every pair of nearby chain and independent sales must be checked.</li><li>If the monitor finds an overcharge, SGWS pays 1.5 times the price gap (2 times if it goes to court). Checking by hand is too slow.</li><li>SGWS keeps buying companies (Clare Rose this spring), so more systems must be joined into one set of numbers.</li><li><strong>Hiring:</strong> No dated job postings were verified in the Nov 3–9 scan. A company database shows about 382 open roles (undated, 17,226 employees), which is not a dated signal.</li></ul>
+      </div>
+      <div class="p2-grid-col p2-grid-col-r">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Key Target Personas</div>
+        <div class="p2-contact-entry"><div class="p2-contact-name">Chief Compliance Officer</div><div class="p2-contact-role">FTC order and monitor reports</div><div class="p2-contact-hook">watsonx.governance: price-gap checks and records</div></div><div class="p2-contact-entry"><div class="p2-contact-name">Chief Information Officer</div><div class="p2-contact-role">Systems and data</div><div class="p2-contact-hook">Data Fabric: automatic checks</div></div><div class="p2-contact-entry"><div class="p2-contact-name">VP Data &amp; Analytics</div><div class="p2-contact-role">Pricing and planning</div><div class="p2-contact-hook">Planning Analytics: price and margin cases</div></div>
+      </div>
+    </div>
+    <div class="p2-play-bar">
+      <div class="p2-pb-hdr">
+        <div>
+          <div class="p2-pb-main-title">IBM Strategic Sales Plays · Southern Glazer's Wine &amp; Spirits</div>
+          <div class="p2-pb-sub-title">IBM watsonx.governance + IBM Planning Analytics · <strong>Supporting:</strong> IBM Data Fabric (join sales and warehouse data across states)</div>
+        </div>
+        <span class="p2-pb-badge-pill">Entry: Chief Compliance Officer (or General Counsel) → CIO → VP Data &amp; Analytics</span>
+      </div>
+      <div class="p2-play-detail-grid">
+<div class="p2-play-detail-col"><div class="p2-play-rank-badge"><span class="p2-play-rank-num">1</span> Best Play</div><div class="p2-play-detail-name">IBM watsonx.governance (Price-Gap Records)</div><div class="p2-play-detail-body"><strong>Match chain and independent-store sales automatically.</strong> Flag a gap before it turns into a 1.5x payment and keep the record the monitor will ask for.</div></div>
+<div class="p2-play-detail-col"><div class="p2-play-rank-badge"><span class="p2-play-rank-num">2</span> Play 2</div><div class="p2-play-detail-name">IBM Planning Analytics (Price and Margin)</div><div class="p2-play-detail-body">Shows price, margin and demand across states. The same numbers serve the monitor and the CFO. Bring it in once the compliance scope is agreed.</div></div>
+<div class="p2-play-detail-col"><div class="p2-play-rank-badge"><span class="p2-play-rank-num">3</span> Play 3</div><div class="p2-play-detail-name">IBM Data Fabric (Join the Data)</div><div class="p2-play-detail-body">Connects sales and warehouse data across states, including newly bought companies, so checks run on clean data.</div></div>
+      </div>
+    </div>
+    <div class="p2-lower-section">
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Do This Now — Action Plan</div>
+        <div class="p2-action-text">1. Open on the FTC order and the twice-a-year data reports. 2. Call the General Counsel or Chief Compliance Officer, then the CFO. 3. Bring Planning Analytics in once the compliance scope is agreed. Watch for the judge's approval.</div>
+      </div>
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">What to Say</div>
+        <div class="p2-talk-track-text">"With the FTC order in place for six years, the question is how you show, every period, that no nearby independent store pays much more than a chain. IBM watsonx can check those sale pairs for you and keep the record. Could we spend 20 minutes on how that would work with your pricing data?"</div>
+      </div>
+    </div>
+    <div style="padding:10px 24px;font-size:11px;color:var(--ink-low);border-top:1px solid var(--rule);"><strong>Sources:</strong> <a href="https://www.southernglazers.com" target="_blank" rel="noopener">Southern Glazer's Corporate News</a> · <a href="https://www.justice.gov" target="_blank" rel="noopener">US Department of Justice NPA Filings</a> · <a href="https://www.ftc.gov" target="_blank" rel="noopener">FTC Consent Order Records</a></div>
+  </div><!-- /p2-sgws -->
+
+  <div class="p2-page standby" id="p2-jmf">
+    <div class="p2-header-row">
+      <div class="p2-logo-box"><img class="p2-logo" src="LOGOS/jmf.png" alt="JM Family Logo" onerror="this.parentElement.innerHTML='<b>JM Family</b>'"></div>
+      <div class="p2-header-text">
+        <div class="p2-se-horizon">IBM SF Intel Brief · Phase 2 Deep Intel · Mark Wylie</div>
+        <div class="p2-name-large">JM Family Enterprises</div>
+        <div class="p2-date-line">Nov 3–9, 2026 · Private · Auto and financial services · About $16B in sales (company description; one internship site says $24.7B, so the figures conflict) · Deerfield Beach HQ</div>
+        <div class="p2-date-line"><strong>Account owner:</strong> Mijee Walker · <strong>Work with:</strong> Alyssa (Data &amp; AI) · Gavin (Automation) · William (Storage) · Rick &amp; Kevin (Power &amp; Cloud) · Mark Wylie (Technology Sales Leader)</div>
+      </div>
+      <div class="p2-header-right">
+        <span class="p2-tier-badge p2-tier-standby">Standby</span>
+        <div class="c-brand-row"><span class="c-brand-badge br-data">Data &amp; AI</span><span class="c-brand-badge br-auto">Automation</span><span class="c-brand-badge br-pc">Hybrid Cloud</span></div>
+      </div>
+    </div>
+    <div class="p2-pulse-row">
+      <span class="p2-pulse-badge">This Week</span>
+      <div class="p2-pulse-text"><strong>Standby — no new JM Family business news Nov 3–9; Q4 budget season is the timing</strong></div>
+    </div>
+    <div class="p2-linkedin-row">
+      <div class="p2-li-text">LinkedIn Company Profile · <strong>Sales Navigator Company ID 164539</strong> · Browse verified current employees</div>
+      <a class="p2-li-btn" href="https://www.linkedin.com/sales/search/people?query=(filters%3AList((type%3ACURRENT_COMPANY%2Cvalues%3AList((id%3A164539%2CselectionType%3AINCLUDED)))))" target="_blank" rel="noopener">Open in Sales Nav ↗</a>
+    </div>
+    <div class="p2-intel-grid">
+      <div class="p2-grid-col p2-grid-col-l">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Why Now</div>
+        <ul><li>No new business news turned up between Nov 3 and Nov 9. That is why this stays Standby. The only item before the window was a community one: the South Florida Business Journal (Oct 29) ranked JM Family #1 for giving in South Florida, at $57.5M in cash last year. It also backed a new exhibit at the Museum of Discovery &amp; Science.</li><li>Q4 is when budget owners lock next year's technology spending. IBM needs to reach the SVP &amp; CFO and the finance leads of each business before that happens.</li><li><strong>Small hook found this week:</strong> Summer 2027 internship ads (open until about Nov 8) mention a "DRIVE" project and a "DRIVE Data Team" at Southeast Toyota Finance, working on enterprise data, modern data platforms and automation. DRIVE looks like an internal data program. What it covers and when it ends are not stated, so ask about it. Do not quote it as fact.</li><li>Not re-verified, carried from Oct 5: GenAI pilots may be running at World Omni (auto lending), JM&amp;A (finance and insurance products) and Southeast Toyota with no shared AI governance. Ask about this in discovery. Do not quote it as fact.</li><li>Also carried: World Omni lends using AI models. A federal rule that took effect Jul 21 changed how fair-lending claims work (it removed "disparate impact" claims under the ECOA). Lead with explaining and monitoring models, not with a new legal mandate.</li><li>This account stays Standby until a dated reason to call appears.</li></ul>
+      </div>
+      <div class="p2-grid-col p2-grid-col-m">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> The Problem and Hiring</div>
+        <ul><li>JM Family has five business units, each with its own data. No one sees AI use, risk and spending across all of them.</li><li>GenAI pilots may be running at World Omni (auto lending), JM&amp;A (finance and insurance) and Southeast Toyota with no shared rules. This is not verified; ask, don't assert.</li><li>World Omni uses models to make lending decisions. The federal rule on fair-lending claims changed on Jul 21, so lead with explaining and monitoring models, not a new legal deadline.</li><li>Q4 is when budget owners lock next year's tech spending. There is no dated reason to call yet, so this stays Standby.</li><li><strong>Hiring:</strong> No dated technology job postings were verified in the Nov 3–9 scan. The postings that surfaced were summer 2027 intern roles (analytics, accounting, and a data engineering intern on the Southeast Toyota Finance DRIVE data team), not full-time technology roles.</li></ul>
+      </div>
+      <div class="p2-grid-col p2-grid-col-r">
+        <div class="p2-grid-lbl"><span class="p2-grid-chevron">▸</span> Key Target Personas</div>
+        <div class="p2-contact-entry"><div class="p2-contact-name">SVP &amp; CFO</div><div class="p2-contact-role">Company-wide planning and tech spending</div><div class="p2-contact-hook">Single door to all three plays</div></div><div class="p2-contact-entry"><div class="p2-contact-name">Chief Information Officer</div><div class="p2-contact-role">Tech and AI systems</div><div class="p2-contact-hook">watsonx.governance across business units</div></div><div class="p2-contact-entry"><div class="p2-contact-name">Chief Compliance Officer</div><div class="p2-contact-role">World Omni lending rules</div><div class="p2-contact-hook">Explain and check lending models</div></div>
+      </div>
+    </div>
+    <div class="p2-play-bar">
+      <div class="p2-pb-hdr">
+        <div>
+          <div class="p2-pb-main-title">IBM Strategic Sales Plays · JM Family Enterprises</div>
+          <div class="p2-pb-sub-title">IBM watsonx.governance + IBM Planning Analytics · <strong>Supporting:</strong> IBM Data Fabric (join distribution, loan and warranty data)</div>
+        </div>
+        <span class="p2-pb-badge-pill">Entry: SVP &amp; CFO → CIO → Chief Compliance Officer</span>
+      </div>
+      <div class="p2-play-detail-grid">
+<div class="p2-play-detail-col"><div class="p2-play-rank-badge"><span class="p2-play-rank-num">1</span> Best Play</div><div class="p2-play-detail-name">IBM watsonx.governance (Rules for AI Pilots)</div><div class="p2-play-detail-body"><strong>Govern all AI before pilots become production.</strong> One place to list, check and explain models at World Omni, JM&amp;A and Southeast Toyota.</div></div>
+<div class="p2-play-detail-col"><div class="p2-play-rank-badge"><span class="p2-play-rank-num">2</span> Play 2</div><div class="p2-play-detail-name">IBM Planning Analytics (Dealer Demand)</div><div class="p2-play-detail-body">Forecasts dealer demand and finance-product mix, tied to the Q4 planning cycle.</div></div>
+<div class="p2-play-detail-col"><div class="p2-play-rank-badge"><span class="p2-play-rank-num">3</span> Play 3</div><div class="p2-play-detail-name">IBM Data Fabric (Join Five Units)</div><div class="p2-play-detail-body">Links data from car distribution, loans and warranty claims so every plan uses the same numbers.</div></div>
+      </div>
+    </div>
+    <div class="p2-lower-section">
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">Do This Now — Action Plan</div>
+        <div class="p2-action-text">1. Send a short Q4-timing note to the SVP &amp; CFO and the World Omni finance lead. 2. Ask about the DRIVE data program and any GenAI pilots. Do not assert them. 3. Use Planning Analytics for Southeast Toyota as the first project.</div>
+      </div>
+      <div class="p2-ls-box">
+        <div class="p2-ls-lbl">What to Say</div>
+        <div class="p2-talk-track-text">"JM Family uses models to make decisions in lending, finance products and distribution. IBM watsonx.governance makes those models explainable and checkable before they go live. Could we talk ahead of Q4 planning?"</div>
+      </div>
+    </div>
+    <div style="padding:10px 24px;font-size:11px;color:var(--ink-low);border-top:1px solid var(--rule);"><strong>Sources:</strong> <a href="https://www.jmfamily.com" target="_blank" rel="noopener">JM Family Enterprises Portal</a> · <a href="https://www.worldomni.com" target="_blank" rel="noopener">World Omni Financial Corp</a> · <a href="https://www.setoyota.com" target="_blank" rel="noopener">Southeast Toyota Distributors</a></div>
+  </div><!-- /p2-jmf -->
+
+</div><!-- /main p2 -->
+</div><!-- /panel-p2 -->
+
+<!-- PHASE 3 — MY ACCOUNTS -->
+<div class="phase-panel" id="panel-p3">
+<div class="main">
+
+  <div class="p3-shell">
+    <div class="p3-rail">
+      <div class="p3-rail-hdr"><div class="p3-rail-title">Mark's Accounts</div></div>
+      <div class="p3-ra on" id="p3-ra-nclh" onclick="loadP3('nclh')">
+        <div class="p3-ra-name">Norwegian Cruise Line Holdings</div>
+        <span class="p3-ra-urg engage">Engage</span>
+        <div class="p3-ra-hook">Engage — Q3 beat and raised outlook (Oct 29); new CFO starts Jan 1 (53 days); weak Q4 yield; no dated event in the next 10 days</div>
+      </div>
+      <div class="p3-ra" id="p3-ra-sgws" onclick="loadP3('sgws')">
+        <div class="p3-ra-name">Southern Glazer's Wine &amp; Spirits</div>
+        <span class="p3-ra-urg engage">Engage</span>
+        <div class="p3-ra-hook">Engage — six years of FTC price oversight; new Bacardi deal Oct 28; no dated event in the next 10 days</div>
+      </div>
+      <div class="p3-ra" id="p3-ra-jmf" onclick="loadP3('jmf')">
+        <div class="p3-ra-name">JM Family Enterprises</div>
+        <span class="p3-ra-urg standby">Standby</span>
+        <div class="p3-ra-hook">Standby — no new JM Family business news Nov 3–9; Q4 budget season is the timing</div>
+      </div>
+    </div>
+    <div class="p3-detail-pane">
+      <div class="p3-dp-card" id="p3-detail-nclh">
+        <div class="p3-dp-hdr">
+          <div class="p3-dp-hdr-top">
+            <div class="p3-dp-logo"><img src="LOGOS/nclh.png" alt="NCLH Logo" onerror="this.parentElement.innerHTML='<b>NCLH</b>'"></div>
+            <div>
+              <div style="font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;">Mark Wylie · Edition 14 · Nov 9, 2026</div>
+              <div class="p3-dp-acct-name">Norwegian Cruise Line Holdings</div>
+              <div class="p3-dp-acct-meta">NYSE: NCLH · Cruise Line · 3 brands · Miami HQ · $2.95B Q3 sales</div>
+            </div>
+          </div>
+          <div class="p3-dp-thesis"><strong>Account Thesis:</strong> A turnaround CEO, a weak Q4 yield and a goal to keep cutting costs all point to one need: see demand and profit per voyage across all three brands in one place. IBM Planning Analytics gives the CFO one demand model for Norwegian, Oceania and Regent, with "what if" cases for pricing and ship delays. IBM Data Fabric joins the three brands' data. The pitch is "find the next round of savings," not "buy software."
+    <span style="display:block;margin-top:8px;font-style:italic;color:var(--ibm);">IBM's opener: &quot;Congratulations on a strong Q3, a higher outlook, and the finance leadership change coming on Jan 1. With Q4 yield under pressure and ship timing moving around, the new CFO will want one view of demand across all three brands. IBM Planning Analytics and Data Fabric do that for multi-brand cruise operators. Can we connect this week?&quot;</span></div>
+          <div class="p3-dp-vitals"><div class="p3-vital"><div class="p3-vital-lbl">Tier</div><div class="p3-vital-val">Engage</div><div style="font-size:10.5px;color:var(--ink-low);margin-top:2px;line-height:1.35;">Q3 beat and raised outlook (Oct 29); new CFO starts Jan 1 (53 days); weak Q4 yield; no dated event in the next 10 days</div></div><div class="p3-vital"><div class="p3-vital-lbl">Account Owner</div><div class="p3-vital-val">Mijee Walker</div><div style="font-size:10.5px;color:var(--ink-low);margin-top:2px;line-height:1.35;">Books 1, 2, 3, 8 + 9</div></div><div class="p3-vital"><div class="p3-vital-lbl">Specialists</div><div class="p3-vital-val">BSS-covered</div><div style="font-size:10.5px;color:var(--ink-low);margin-top:2px;line-height:1.35;">Alyssa · Gavin · William · Rick &amp; Kevin · Mark Wylie (Technology Sales Leader)</div></div><div class="p3-vital"><div class="p3-vital-lbl">Hiring</div><div class="p3-vital-val">None verified</div><div style="font-size:10.5px;color:var(--ink-low);margin-top:2px;line-height:1.35;">Nov 3 – 9 scan</div></div></div>
+        </div>
+        <div class="p3-dp-body">
+          <div class="p3-sec"><span class="p3-sec-lbl">IBM Play Heat Scores</span><div class="p3-sec-line"></div></div>
+          <div class="p3-heat-grid">
+<div class="p3-heat-card" style="--hc:#b91c1c;"><div class="p3-heat-play">IBM Planning Analytics · Savings Command Center</div><div class="p3-heat-score">84</div><div class="p3-heat-bar"><div class="p3-heat-fill" style="width:84%;"></div></div><div class="p3-heat-conviction"><strong>Critical · SaaS: $180K–350K/yr · Brand: D&amp;AI</strong><br>A turnaround CEO with a cost goal, and a new CFO starting Jan 1 (53 days away; the Chief Strategy Officer moves into the role), make this a good time to talk to finance. Planning Analytics makes savings trackable across Norwegian, Oceania and Regent. Q3 beat and a raised outlook (Oct 29) with $325M of new savings found.</div></div>
+<div class="p3-heat-card" style="--hc:#c2560c;"><div class="p3-heat-play">IBM Automation · Smoother Work Across 3 Brands</div><div class="p3-heat-score">76</div><div class="p3-heat-bar"><div class="p3-heat-fill" style="width:76%;"></div></div><div class="p3-heat-conviction"><strong>Hot · Transaction: $600K–1.5M · Brand: Automation</strong><br>Savings need smoother work. IBM Automation for port, crew and passenger-service tasks attaches to the planning talk. Analysts asked on the Q3 call about more savings "onshore and through AI".</div></div>
+<div class="p3-heat-card" style="--hc:#1d4ed8;"><div class="p3-heat-play">IBM watsonx.data · Join 3 Brand Data Stores</div><div class="p3-heat-score">61</div><div class="p3-heat-bar"><div class="p3-heat-fill" style="width:61%;"></div></div><div class="p3-heat-conviction"><strong>Warm · SaaS: $150K–300K/yr · Brand: D&amp;AI</strong><br>Norwegian, Oceania and Regent Seven Seas still run on separate systems. A second-step talk after Planning Analytics. The CEO's new revenue management system is the natural entry point; its timing is not stated, so ask.</div></div>
+          </div>
+          <div class="p3-sec"><span class="p3-sec-lbl">This Week's Move</span><div class="p3-sec-line"></div></div>
+          <div class="p3-move">
+<div class="p3-move-row"><span class="p3-move-lbl">Now</span><div class="p3-move-text">1. Open on the Q3 beat, the Jan 1 CFO change and the weak Q4 yield. 2. Ask for the incoming CFO or the head of revenue management. 3. Planning Analytics first; Data Fabric as the follow-on project.</div></div>
+<div class="p3-move-row"><span class="p3-move-lbl">Sell</span><div class="p3-move-text"><strong>Planning Analytics</strong> — annual subscription. Demand forecasting and voyage profit for all three brands, with "what if" cases for yield and delays.</div></div>
+<div class="p3-move-row"><span class="p3-move-lbl">Motion</span><div class="p3-move-track">"Congratulations on a strong Q3, a higher outlook, and the finance leadership change coming on Jan 1. With Q4 yield under pressure and ship timing moving around, the new CFO will want one view of demand across all three brands. IBM Planning Analytics and Data Fabric do that for multi-brand cruise operators. Can we connect this week?"</div></div>
+          </div>
+          <div style="margin-top:14px;"><a class="c-btn c-btn-intel" href="#" onclick="showPhase('p2');setTimeout(()=>document.getElementById('p2-nclh').scrollIntoView({behavior:'smooth'}),100);return false;">→ Full Intel Brief (Phase 2)</a></div>
+        </div>
+      </div><!-- /p3-detail-nclh -->
+      <div class="p3-dp-card" id="p3-detail-sgws" style="display:none;">
+        <div class="p3-dp-hdr">
+          <div class="p3-dp-hdr-top">
+            <div class="p3-dp-logo"><img src="LOGOS/sgws.png" alt="SGWS Logo" onerror="this.parentElement.innerHTML='<b>SGWS</b>'"></div>
+            <div>
+              <div style="font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;">Mark Wylie · Edition 14 · Nov 9, 2026</div>
+              <div class="p3-dp-acct-name">Southern Glazer's Wine &amp; Spirits</div>
+              <div class="p3-dp-acct-meta">Private · Beverage distribution · About $26B in sales · Miami HQ · FTC deal filed Oct 2 (38 days ago), court approval still pending</div>
+            </div>
+          </div>
+          <div class="p3-dp-thesis"><strong>Account Thesis:</strong> SGWS now has to prove, twice a year for six years, that small stores are not overcharged. IBM watsonx and Data Fabric can match chain and independent-store sales automatically, flag a gap before it turns into a 1.5x payment, and keep the record the monitor will ask for. Planning Analytics then gives finance one view of price, margin and demand across states. Open with the General Counsel or Chief Compliance Officer, then bring in the CFO.
+    <span style="display:block;margin-top:8px;font-style:italic;color:var(--ibm);">IBM's opener: &quot;With the FTC order in place for six years, the question is how you show, every period, that no nearby independent store pays much more than a chain. IBM watsonx can check those sale pairs for you and keep the record. Could we spend 20 minutes on how that would work with your pricing data?&quot;</span></div>
+          <div class="p3-dp-vitals"><div class="p3-vital"><div class="p3-vital-lbl">Tier</div><div class="p3-vital-val">Engage</div><div style="font-size:10.5px;color:var(--ink-low);margin-top:2px;line-height:1.35;">six years of FTC price oversight; new Bacardi deal Oct 28; no dated event in the next 10 days</div></div><div class="p3-vital"><div class="p3-vital-lbl">Account Owner</div><div class="p3-vital-val">Mijee Walker</div><div style="font-size:10.5px;color:var(--ink-low);margin-top:2px;line-height:1.35;">Books 1, 2, 3, 8 + 9</div></div><div class="p3-vital"><div class="p3-vital-lbl">Specialists</div><div class="p3-vital-val">BSS-covered</div><div style="font-size:10.5px;color:var(--ink-low);margin-top:2px;line-height:1.35;">Alyssa · Gavin · William · Rick &amp; Kevin · Mark Wylie (Technology Sales Leader)</div></div><div class="p3-vital"><div class="p3-vital-lbl">Hiring</div><div class="p3-vital-val">None verified</div><div style="font-size:10.5px;color:var(--ink-low);margin-top:2px;line-height:1.35;">Nov 3 – 9 scan</div></div></div>
+        </div>
+        <div class="p3-dp-body">
+          <div class="p3-sec"><span class="p3-sec-lbl">IBM Play Heat Scores</span><div class="p3-sec-line"></div></div>
+          <div class="p3-heat-grid">
+<div class="p3-heat-card" style="--hc:#b91c1c;"><div class="p3-heat-play">IBM watsonx.governance · FTC Monitor Evidence</div><div class="p3-heat-score">92</div><div class="p3-heat-bar"><div class="p3-heat-fill" style="width:92%;"></div></div><div class="p3-heat-conviction"><strong>Critical · SaaS: $280K–$550K/yr · Brand: D&amp;AI</strong><br>A six-year monitored term makes compliance technology a standing budget line. Millions of monthly sales cannot be checked by hand. The FTC order is still a proposed consent decree; no judge's approval was found in Nov 3–9.</div></div>
+<div class="p3-heat-card" style="--hc:#c2560c;"><div class="p3-heat-play">IBM Planning Analytics · Price &amp; Margin "What If" Cases</div><div class="p3-heat-score">83</div><div class="p3-heat-bar"><div class="p3-heat-fill" style="width:83%;"></div></div><div class="p3-heat-conviction"><strong>Hot · Transaction: $400K–$1.0M · Brand: D&amp;AI</strong><br>Price and margin cases across states once compliance scope is agreed. The anchor for the CFO.</div></div>
+<div class="p3-heat-card" style="--hc:#1d4ed8;"><div class="p3-heat-play">IBM watsonx.ai · Forecast Demand for 20,000+ Products</div><div class="p3-heat-score">76</div><div class="p3-heat-bar"><div class="p3-heat-fill" style="width:76%;"></div></div><div class="p3-heat-conviction"><strong>Hot · SaaS: $300K–$600K/yr · Brand: D&amp;AI</strong><br>A second conversation, after governance is in place.</div></div>
+          </div>
+          <div class="p3-sec"><span class="p3-sec-lbl">This Week's Move</span><div class="p3-sec-line"></div></div>
+          <div class="p3-move">
+<div class="p3-move-row"><span class="p3-move-lbl">Now</span><div class="p3-move-text">1. Open on the FTC order and the twice-a-year data reports. 2. Call the General Counsel or Chief Compliance Officer, then the CFO. 3. Bring Planning Analytics in once the compliance scope is agreed. Watch for the judge's approval.</div></div>
+<div class="p3-move-row"><span class="p3-move-lbl">Sell</span><div class="p3-move-text"><strong>watsonx compliance monitoring</strong> — annual subscription. Flags price gaps between chain and independent sales before they cost 1.5x to fix. Pitch to the General Counsel and CFO.</div></div>
+<div class="p3-move-row"><span class="p3-move-lbl">Motion</span><div class="p3-move-track">"With the FTC order in place for six years, the question is how you show, every period, that no nearby independent store pays much more than a chain. IBM watsonx can check those sale pairs for you and keep the record. Could we spend 20 minutes on how that would work with your pricing data?"</div></div>
+          </div>
+          <div style="margin-top:14px;"><a class="c-btn c-btn-intel" href="#" onclick="showPhase('p2');setTimeout(()=>document.getElementById('p2-sgws').scrollIntoView({behavior:'smooth'}),100);return false;">→ Full Intel Brief (Phase 2)</a></div>
+        </div>
+      </div><!-- /p3-detail-sgws -->
+      <div class="p3-dp-card" id="p3-detail-jmf" style="display:none;">
+        <div class="p3-dp-hdr">
+          <div class="p3-dp-hdr-top">
+            <div class="p3-dp-logo"><img src="LOGOS/jmf.png" alt="JM Family Logo" onerror="this.parentElement.innerHTML='<b>JM Family</b>'"></div>
+            <div>
+              <div style="font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:2px;">Mark Wylie · Edition 14 · Nov 9, 2026</div>
+              <div class="p3-dp-acct-name">JM Family Enterprises</div>
+              <div class="p3-dp-acct-meta">Private · Auto and financial services · About $16B in sales (company description; one internship site says $24.7B, so the figures conflict) · Deerfield Beach HQ</div>
+            </div>
+          </div>
+          <div class="p3-dp-thesis"><strong>Account Thesis:</strong> One relationship, three IBM plays. First, watsonx.governance to put guardrails on GenAI pilots before they go live. Second, watsonx.governance to explain World Omni's lending models. Third, Planning Analytics for Southeast Toyota dealer-demand forecasting. The SVP &amp; CFO is the single door into all three.
+    <span style="display:block;margin-top:8px;font-style:italic;color:var(--ibm);">IBM's opener: &quot;JM Family uses models to make decisions in lending, finance products and distribution. IBM watsonx.governance makes those models explainable and checkable before they go live. Could we talk ahead of Q4 planning?&quot;</span></div>
+          <div class="p3-dp-vitals"><div class="p3-vital"><div class="p3-vital-lbl">Tier</div><div class="p3-vital-val">Standby</div><div style="font-size:10.5px;color:var(--ink-low);margin-top:2px;line-height:1.35;">no new JM Family business news Nov 3–9; Q4 budget season is the timing</div></div><div class="p3-vital"><div class="p3-vital-lbl">Account Owner</div><div class="p3-vital-val">Mijee Walker</div><div style="font-size:10.5px;color:var(--ink-low);margin-top:2px;line-height:1.35;">Books 1, 2, 3, 8 + 9</div></div><div class="p3-vital"><div class="p3-vital-lbl">Specialists</div><div class="p3-vital-val">BSS-covered</div><div style="font-size:10.5px;color:var(--ink-low);margin-top:2px;line-height:1.35;">Alyssa · Gavin · William · Rick &amp; Kevin · Mark Wylie (Technology Sales Leader)</div></div><div class="p3-vital"><div class="p3-vital-lbl">Hiring</div><div class="p3-vital-val">Interns only</div><div style="font-size:10.5px;color:var(--ink-low);margin-top:2px;line-height:1.35;">Summer 2027 intern roles; no dated full-time tech postings</div></div></div>
+        </div>
+        <div class="p3-dp-body">
+          <div class="p3-sec"><span class="p3-sec-lbl">IBM Play Heat Scores</span><div class="p3-sec-line"></div></div>
+          <div class="p3-heat-grid">
+<div class="p3-heat-card" style="--hc:#c2560c;"><div class="p3-heat-play">IBM watsonx.governance · Rules for GenAI Pilots (Ask First)</div><div class="p3-heat-score">84</div><div class="p3-heat-bar"><div class="p3-heat-fill" style="width:84%;"></div></div><div class="p3-heat-conviction"><strong>Hot · SaaS: $200K–$400K/yr · Brand: D&amp;AI</strong><br>Ask, do not assert, about GenAI pilots (carried from Oct 5, not re-verified). Confirm their status in discovery before talking about governance.</div></div>
+<div class="p3-heat-card" style="--hc:#1d4ed8;"><div class="p3-heat-play">IBM Data Fabric · Join Data Across Business Units</div><div class="p3-heat-score">76</div><div class="p3-heat-bar"><div class="p3-heat-fill" style="width:76%;"></div></div><div class="p3-heat-conviction"><strong>Hot · Transaction: $800K–$2.0M · Brand: D&amp;AI</strong><br>Summer 2027 intern ads (open until about Nov 8) mention a "DRIVE Data Team" at Southeast Toyota Finance. It looks like an internal data program, but what it covers is not stated: ask, do not assert. The count of separate data stores is carried from Edition 13, not re-checked.</div></div>
+<div class="p3-heat-card" style="--hc:#006644;"><div class="p3-heat-play">IBM Turbonomic · Cloud Savings for Digital Channels</div><div class="p3-heat-score">62</div><div class="p3-heat-bar"><div class="p3-heat-fill" style="width:62%;"></div></div><div class="p3-heat-conviction"><strong>Warm · SaaS: $150K–$300K/yr · Brand: Automation</strong><br>Cuts cloud cost for dealer portals and finance platforms.</div></div>
+          </div>
+          <div class="p3-sec"><span class="p3-sec-lbl">This Week's Move</span><div class="p3-sec-line"></div></div>
+          <div class="p3-move">
+<div class="p3-move-row"><span class="p3-move-lbl">Now</span><div class="p3-move-text">1. Send a short Q4-timing note to the SVP &amp; CFO and the World Omni finance lead. 2. Ask about the DRIVE data program and any GenAI pilots. Do not assert them. 3. Use Planning Analytics for Southeast Toyota as the first project.</div></div>
+<div class="p3-move-row"><span class="p3-move-lbl">Sell</span><div class="p3-move-text"><strong>watsonx.governance</strong> — annual subscription. One place to govern AI across World Omni, JM&amp;A and Southeast Toyota. CFO pitch: "govern all your AI before pilots become production."</div></div>
+<div class="p3-move-row"><span class="p3-move-lbl">Motion</span><div class="p3-move-track">"JM Family uses models to make decisions in lending, finance products and distribution. IBM watsonx.governance makes those models explainable and checkable before they go live. Could we talk ahead of Q4 planning?"</div></div>
+          </div>
+          <div style="margin-top:14px;"><a class="c-btn c-btn-intel" href="#" onclick="showPhase('p2');setTimeout(()=>document.getElementById('p2-jmf').scrollIntoView({behavior:'smooth'}),100);return false;">→ Full Intel Brief (Phase 2)</a></div>
+        </div>
+      </div><!-- /p3-detail-jmf -->
+    </div>
+  </div>
+
+</div><!-- /main p3 -->
+</div><!-- /panel-p3 -->
+
+<!-- PHASE 4 — TARGET BUYER CONTACTS -->
+<div class="phase-panel" id="panel-p4">
+<div class="main">
+
+  <div class="p4-section" id="p4-nclh">
+    <div class="p4-sec-hdr">
+      <div>
+        <div class="p4-sec-co">Norwegian Cruise Line Holdings — Target Buyer Roster</div>
+        <div class="p4-sec-sub">Verified live Sales Navigator contacts · Director / VP / CXO · pulled Nov 10, 2026 · Company SNav ID 165222 · Revenue, data and technology leadership</div>
+      </div>
+      <span class="p2-tier-badge p2-tier-engage">Engage</span>
+    </div>
+    <div class="p4-grid">
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Douglas Hungerford</div><div class="p4-ct-score">96</div></div>
+        <div class="p4-ct-title">Senior Director, Revenue Technology</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">1 TeamLink</span><span class="p4-ct-tag">Best Entry</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Revenue, data and technology leadership conversation. CRM record is stale, so reconnect before a cold touch. 2nd-degree connection. 1 TeamLink. <em>Miami, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAALP8aIBZmtd4fN4GLdnts_44Q-rotcHRr0,NAME_SEARCH,tjKQ" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Tatiana Conklin, MAcc</div><div class="p4-ct-score">92</div></div>
+        <div class="p4-ct-title">Director GTO Business Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">5 TeamLink</span></div>
+        <div class="p4-ct-why">Operations owner. A business-side entry point for the Revenue, data and technology leadership conversation. CRM record is stale, so reconnect before a cold touch. 2nd-degree connection. 5 TeamLink. <em>Miami, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAtE3uMBMCPt-mhUgr7-4das9ButHQcaTVA,NAME_SEARCH,Za8B" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Aaron Fossum</div><div class="p4-ct-score">88</div></div>
+        <div class="p4-ct-title">Senior Director, Digital Analytics</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Revenue, data and technology leadership conversation. CRM record is stale, so reconnect before a cold touch. <em>Greater Seattle Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAB10E8ButyR9K3fMkimO8-hH0vOaWZm7hg,NAME_SEARCH,6Smc" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Bryan Hooper</div><div class="p4-ct-score">84</div></div>
+        <div class="p4-ct-title">VP, Digital Commerce</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">1 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Revenue, data and technology leadership conversation. CRM record is stale, so reconnect before a cold touch. 1 TeamLink. <em>Miami-Fort Lauderdale Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAIQNJIBIXU2yZUBr3QsifQkF6FpcrR1pVg,NAME_SEARCH,9Lfm" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Justin Martin, MBA, PMP, CBPP, CPMAI</div><div class="p4-ct-score">80</div></div>
+        <div class="p4-ct-title">Director of Operational AI &amp; Innovation</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">11 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Revenue, data and technology leadership conversation. Already in CRM. Check owner and last touch. 2nd-degree connection. 11 TeamLink. <em>Hollywood, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAfTW2cBtN7tH8sPYnc3wI6u21SH8o6U1ho,NAME_SEARCH,b9KY" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Luisa Gamez-Hegarty</div><div class="p4-ct-score">76</div></div>
+        <div class="p4-ct-title">Director, Guests &amp; Marine Operations (Global Technology Organization)</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">1 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Revenue, data and technology leadership conversation. Already in CRM. Check owner and last touch. 2nd-degree connection. 1 TeamLink. <em>Miami, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAATZjawBNNOa3Tc05ctEMbOnTLaz7BZ2iA0,NAME_SEARCH,04HF" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Christina Fernandez</div><div class="p4-ct-score">72</div></div>
+        <div class="p4-ct-title">Senior Director, Digital Product Strategy</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">2 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Revenue, data and technology leadership conversation. 2 TeamLink. <em>Miami, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAABfWRnAB4Mx_r7yk0RyAyPxpyhoYj4IzTJo,NAME_SEARCH,IP9X" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Anshul Tuteja</div><div class="p4-ct-score">68</div></div>
+        <div class="p4-ct-title">Vice President, Energy Strategy &amp; Decarbonization</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">3 TeamLink</span></div>
+        <div class="p4-ct-why">Finance or strategy leader who can sponsor the Revenue, data and technology leadership conversation. 3 TeamLink. <em>Miami, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAQbjfYBgFYu47O08DKz08yajeIwU-q3wb4,NAME_SEARCH,RarE" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="p4-section" id="p4-sgws">
+    <div class="p4-sec-hdr">
+      <div>
+        <div class="p4-sec-co">Southern Glazer's Wine &amp; Spirits — Target Buyer Roster</div>
+        <div class="p4-sec-sub">Verified live Sales Navigator contacts · Director / VP / CXO · pulled Nov 10, 2026 · Company SNav ID 6821 · Supply chain technology and enterprise IT</div>
+      </div>
+      <span class="p2-tier-badge p2-tier-engage">Engage</span>
+    </div>
+    <div class="p4-grid">
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Vikram Venneti</div><div class="p4-ct-score">96</div></div>
+        <div class="p4-ct-title">Senior Director - Enterprise Platform Engineering &amp; Automation</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">20 TeamLink</span><span class="p4-ct-tag">Best Entry</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Supply chain technology and enterprise IT conversation. CRM record is stale, so reconnect before a cold touch. 2nd-degree connection. 20 TeamLink. <em>Frisco, Texas, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAAaMucB4QSw5XczhF-7Y5wUpnJf0cWhbd0,NAME_SEARCH,Guak" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Srinivasan Nambiar</div><div class="p4-ct-score">92</div></div>
+        <div class="p4-ct-title">Sr. Director Enterprise Architecture- Supply Chain</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">5 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Supply chain technology and enterprise IT conversation. CRM record is stale, so reconnect before a cold touch. 2nd-degree connection. 5 TeamLink. <em>Miami-Fort Lauderdale Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAADmfDgB2u3iJwxtZAMN5HwhfbISA6wnkgI,NAME_SEARCH,b6Ga" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Meenakshi Narayan, MBA, CPA</div><div class="p4-ct-score">88</div></div>
+        <div class="p4-ct-title">Vice President - Transformation and Data Strategy</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">3 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Supply chain technology and enterprise IT conversation. CRM record is stale, so reconnect before a cold touch. 3 TeamLink. <em>San Jose, California, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAABG2fgBk4-_gfb9bK-UFm7a_HwgdQPP79Y,NAME_SEARCH,b3Vh" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Bharathi Sampangi</div><div class="p4-ct-score">84</div></div>
+        <div class="p4-ct-title">SVP Data and AI</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-warm">Update CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Supply chain technology and enterprise IT conversation. CRM record is stale, so reconnect before a cold touch. <em>San Francisco Bay Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAnQPYwBp0PYGmxVV4_bIcYim6UXEmzaL5E,NAME_SEARCH,pPg-" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Mark Trinquero</div><div class="p4-ct-score">80</div></div>
+        <div class="p4-ct-title">Vice President - Artificial Intelligence &amp; Automation</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Supply chain technology and enterprise IT conversation. Already in CRM. Check owner and last touch. <em>Denver, Colorado, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAVhik8BIY5XMzAyeNxOKwIGllstrueiVco,NAME_SEARCH,ncs2" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Manohar C.</div><div class="p4-ct-score">76</div></div>
+        <div class="p4-ct-title">Senior Director, AI/ML Products</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Supply chain technology and enterprise IT conversation. Already in CRM. Check owner and last touch. <em>Dallas-Fort Worth Metroplex.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAAo-twBpmLuxNQwraa8OUw9XrGFNFz7N2M,NAME_SEARCH,oFY4" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Ganesh R.</div><div class="p4-ct-score">72</div></div>
+        <div class="p4-ct-title">Director- Information Security Governance &amp; Risk Management</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">4 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Supply chain technology and enterprise IT conversation. 4 TeamLink. <em>Lewisville, Texas, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAAUdloBQ-RqZRNbk9cnktsCC6Kl-Q6qF6g,NAME_SEARCH,fIlA" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Tamilmani Jayaraman</div><div class="p4-ct-score">68</div></div>
+        <div class="p4-ct-title">Director, Information Technology (Digital Platforms)</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Supply chain technology and enterprise IT conversation. <em>Dallas-Fort Worth Metroplex.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAImtuEBAH5gnNyq60gcP0NQt09U7DHw0EA,NAME_SEARCH,eBbP" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="p4-section" id="p4-jmf">
+    <div class="p4-sec-hdr">
+      <div>
+        <div class="p4-sec-co">JM Family Enterprises — Target Buyer Roster</div>
+        <div class="p4-sec-sub">Verified live Sales Navigator contacts · Director / VP / CXO · pulled Nov 10, 2026 · Company SNav ID 164539 · Automotive logistics and dealership systems</div>
+      </div>
+      <span class="p2-tier-badge p2-tier-standby">Standby</span>
+    </div>
+    <div class="p4-grid">
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Philip Austin</div><div class="p4-ct-score">96</div></div>
+        <div class="p4-ct-title">Director, Enterprise Data+AI Architect</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">25 TeamLink</span><span class="p4-ct-tag">Best Entry</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Automotive logistics and dealership systems conversation. Already in CRM. Check owner and last touch. 2nd-degree connection. 25 TeamLink. <em>Fort Lauderdale, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAACOPVUBo2XEUGUun97HwH4P8QWCoC_YyTc,NAME_SEARCH,Z29e" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Larry Kreger</div><div class="p4-ct-score">92</div></div>
+        <div class="p4-ct-title">Director, Operations and Technology</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">2nd connection</span><span class="p4-ct-tag">6 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Automotive logistics and dealership systems conversation. Already in CRM. Check owner and last touch. 2nd-degree connection. 6 TeamLink. <em>Deerfield Beach, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAASSIM8BXPth_qg3GEvK2SKR9zFKS_SyqMc,NAME_SEARCH,qGwK" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Scott Robinson</div><div class="p4-ct-score">88</div></div>
+        <div class="p4-ct-title">Director, IT Resiliency &amp; Information Security Operations</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Automotive logistics and dealership systems conversation. Already in CRM. Check owner and last touch. <em>Miami-Fort Lauderdale Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAJ8cTkBMLpaiL0LQJPxzmgJhs1dqH-4eSI,NAME_SEARCH,BYu7" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Paula Urdaneta</div><div class="p4-ct-score">84</div></div>
+        <div class="p4-ct-title">VP, IT Strategy</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Automotive logistics and dealership systems conversation. Already in CRM. Check owner and last touch. <em>Dallas-Fort Worth Metroplex.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAa-MykBg-YI_qgsrqK77XAPd6yM7iOCFjw,NAME_SEARCH,f-kW" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Mark Romano</div><div class="p4-ct-score">80</div></div>
+        <div class="p4-ct-title">Director Of Infrastructure Technologies</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Automotive logistics and dealership systems conversation. Already in CRM. Check owner and last touch. <em>Boynton Beach, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAAyNt0BYFRbXztDp3sKvUIskRctt9cPAs0,NAME_SEARCH,zglq" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Terry Kaufman</div><div class="p4-ct-score">76</div></div>
+        <div class="p4-ct-title">Director, Information Security and Technology</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag">In CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Automotive logistics and dealership systems conversation. Already in CRM. Check owner and last touch. <em>Miami-Fort Lauderdale Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAUCZ7MBNpEXiL6okqAlvmwTF121wXWVKqk,NAME_SEARCH,JCLE" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct practitioner">
+        <div class="p4-ct-top"><div class="p4-ct-name">Michel T.</div><div class="p4-ct-score">72</div></div>
+        <div class="p4-ct-title">Director of DevSecOps and Artificial Intelligence COE</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-prac">Practitioner</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span><span class="p4-ct-tag">1 TeamLink</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Automotive logistics and dealership systems conversation. 1 TeamLink. <em>West Palm Beach, Florida, United States.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAAgq2UB0s47HOUo2-MlR8RTU9X9LOYGHQ8,NAME_SEARCH,X8TC" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+      <div class="p4-ct executive">
+        <div class="p4-ct-top"><div class="p4-ct-name">Jorge Cateriano</div><div class="p4-ct-score">68</div></div>
+        <div class="p4-ct-title">Head of IT Operations, Service Management and End User Experience</div>
+        <div class="p4-ct-tags"><span class="p4-ct-tag b-exec">Executive</span><span class="p4-ct-tag b-cold">Not in CRM</span><span class="p4-ct-tag">3rd connection</span></div>
+        <div class="p4-ct-why">Technology, data or security scope that maps to the Automotive logistics and dealership systems conversation. <em>Miami-Fort Lauderdale Area.</em></div>
+        <a class="p4-ct-snav" href="https://www.linkedin.com/sales/lead/ACwAAAKVzu0BimnUbjwvi9K5h4FKsci-siYKesM,NAME_SEARCH,LPsw" target="_blank" rel="noopener">Sales Nav Lead ↗</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main p4 -->
+</div><!-- /panel-p4 -->
+
+<div class="footer">
+  IBM SF Intel Brief · Edition 14 · Mark Wylie · IBM South Florida · Nov 9, 2026<br>
+  Made with IBM Bob
+</div>
+
+<script>
+function showPhase(id) {
+  document.querySelectorAll('.phase-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.ptab').forEach(function(t){ t.classList.remove('on'); });
+  var panel = document.getElementById('panel-' + id);
+  var tab = document.getElementById('tab-' + id);
+  if (panel) panel.classList.add('active');
+  if (tab) tab.classList.add('on');
+  var jb = document.getElementById('p1-jump-bar');
+  if (jb) jb.style.display = (id === 'p1') ? 'flex' : 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function loadP3(acctId) {
+  document.querySelectorAll('.p3-ra').forEach(function(r){ r.classList.remove('on'); });
+  var ra = document.getElementById('p3-ra-' + acctId);
+  if (ra) ra.classList.add('on');
+  document.querySelectorAll('.p3-dp-card').forEach(function(c){ c.style.display = 'none'; });
+  var d = document.getElementById('p3-detail-' + acctId);
+  if (d) d.style.display = 'block';
+}
+</script>
+
+</body>
+</html>
